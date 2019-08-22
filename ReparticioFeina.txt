@@ -1,0 +1,15 @@
+Tema 0: Prerequisitos del curso: Ricardo
+Tema 1: Probabilidad: Ricardo
+Tema 2: Variables aleatorias: Ricardo
+Tema 3: Distribuciones notables: Ricardo
+Tema 4: Introducción a varias variables aleatorias: Ricardo
+Tema 5: Muestreo: Arnau
+Tema 6: Estimación puntual: Arnau
+Tema 7: Intervalos de confianza: Arnau
+Tema 8: Contrastes de hipótesis paramétricos: Arnau
+Tema 9: Bondad de ajuste: Arnau
+Tema 10: Contrastes de independencia y homogeneidad: Arnau.
+Tema 11: Estadística multidimensional: Ricardo
+Tema 12: Análisis de la varianza: Arnau
+Tema 13: Regresión lineal: Ricardo
+Tema 14: Introducción al clustering: Arnau. 
