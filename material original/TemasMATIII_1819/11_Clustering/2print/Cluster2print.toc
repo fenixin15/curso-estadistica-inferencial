@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Clustering}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Introducci\IeC {\'o}}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{$k$-means}{6}{0}{1}
+\beamer@subsectionintoc {1}{3}{Clustering jer\IeC {\`a}rquic}{31}{0}{1}
+\beamer@subsectionintoc {1}{4}{Clustering jer\IeC {\`a}rquic aglomeratiu}{46}{0}{1}

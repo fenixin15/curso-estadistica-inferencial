@@ -1,0 +1,32 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Variables Aleatorias}{1}{0}{1}
+\beamer@sectionintoc {2}{Variables aleatorias}{2}{0}{2}
+\beamer@subsectionintoc {2}{1}{Variables aleatorias}{3}{0}{2}
+\beamer@subsectionintoc {2}{2}{Tipos de variables aleatorias}{6}{0}{2}
+\beamer@sectionintoc {3}{Distribuciones de probabilidad para v.a. discretas.}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{Funci\IeC {\'o}n de probabilidad de una variable aleatoria discreta}{10}{0}{3}
+\beamer@subsectionintoc {3}{2}{Propiedades de la funci\IeC {\'o}n de probabilidad}{14}{0}{3}
+\beamer@subsectionintoc {3}{3}{Funci\IeC {\'o}n de distribuci\IeC {\'o}n}{17}{0}{3}
+\beamer@sectionintoc {4}{Momentos de variables aleatorias discretas}{27}{0}{4}
+\beamer@subsectionintoc {4}{1}{Esperanza para variables aleatorias discretas}{28}{0}{4}
+\beamer@subsubsectionintoc {4}{1}{1}{Relaci\IeC {\'o}n de la esperanza para variables aleatorias discretas con la media aritm\IeC {\'e}tica}{29}{0}{4}
+\beamer@subsectionintoc {4}{2}{Esperanzas de funciones de variables aleatorias discretas}{32}{0}{4}
+\beamer@subsectionintoc {4}{3}{Momentos de una variable aleatoria}{41}{0}{4}
+\beamer@subsectionintoc {4}{4}{Varianza de una variable aleatoria}{42}{0}{4}
+\beamer@subsubsectionintoc {4}{4}{1}{Esperanza y varianza de transformaciones lineales}{48}{0}{4}
+\beamer@sectionintoc {5}{Variables aleatorias continuas}{49}{0}{5}
+\beamer@subsectionintoc {5}{1}{Distribuciones de probabilidad de v.a. continuas}{50}{0}{5}
+\beamer@subsectionintoc {5}{2}{Funci\IeC {\'o}n de densidad}{58}{0}{5}
+\beamer@sectionintoc {6}{Momentos para variables aleatorias continuas}{68}{0}{6}
+\beamer@subsectionintoc {6}{1}{Esperanza de una v.a. continua}{69}{0}{6}
+\beamer@subsectionintoc {6}{2}{Varianza de una v.a. continuas}{70}{0}{6}
+\beamer@subsubsectionintoc {6}{2}{1}{Esperanza y varianza de trasformaciones lineales}{73}{0}{6}
+\beamer@sectionintoc {7}{Transformaci\IeC {\'o}n de variables aleatorias}{75}{0}{7}
+\beamer@subsectionintoc {7}{1}{Transformaciones de v.a. discretas}{76}{0}{7}
+\beamer@subsectionintoc {7}{2}{Transformaciones de v.a. continuas}{77}{0}{7}
+\beamer@subsubsectionintoc {7}{2}{1}{M\IeC {\'e}todo general}{79}{0}{7}
+\beamer@sectionintoc {8}{Desigualdad de Chebyshef}{80}{0}{8}
+\beamer@subsectionintoc {8}{1}{Desigualdad de Markov}{81}{0}{8}
+\beamer@subsubsectionintoc {8}{1}{1}{Desigualdad de Chebyshef}{84}{0}{8}
+\beamer@subsubsectionintoc {8}{1}{2}{La varianza como medida de dispersi\IeC {\'o}n}{89}{0}{8}

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1566470274489.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CB1528C3",
+    "lastKnownWriteTime" : 1553011586,
+    "last_content_update" : 1553011586,
+    "path" : "~/Developer/Projects/Matematicas/Estadistica/TemasMATIII_1819/03_Variables_Aleatorias_Parte_2/variables_Aleatorias_2_MATIII.Rnw",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "366,21",
+        "scrollLine" : "364"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "sweave"
+}

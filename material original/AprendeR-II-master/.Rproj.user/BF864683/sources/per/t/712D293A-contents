@@ -1,0 +1,900 @@
+# Contrastes de bondad de ajuste {#chap:bondad}
+
+Una de las condiciones  habituales que requerimos sobre una muestra, por ejemplo, al razonar sobre la distribución  de sus estadísticos o al realizar contrastes de hipótesis, es que la población de la que la hemos extraído siga una determinada distribución. En la Lección \@ref(chap:agrup) de la primera parte del curso comprobábamos gráficamente el ajuste de una muestra a una distribución normal mediante  histogramas y dibujando las curvas de densidad muestral y de densidad de la normal. En esta lección presentamos algunas instrucciones que implementan **tests de bondad de ajuste**,^[En inglés se utiliza la abreviatura *GOF*,  de *goodness of fit*.] técnicas cuantitativas que permiten contrastar si los datos de una muestra provienen o no de una determinada distribución de probabilidad.
+
+Los tests de bondad de ajuste tienen el mismo significado que los contrastes de parámetros estudiados en la Lección \@ref(chap:contrastes). Se contrasta una hipótesis nula 
+
+* $H_0$:  La muestra proviene de una población con distribución $X$
+     
+
+contra la hipótesis alternativa 
+
+* $H_1$:  La muestra *no* proviene de una población con distribución $X$
+      
+
+Si el resultado del test permite rechazar la hipótesis nula, es porque hemos obtenido evidencia significativa de que la muestra no proviene de una población con distribución $X$, es decir, porque sería muy raro que siguiera esta distribución. Pero que el test no permita rechazar la hipótesis nula no nos da evidencia de que la muestra sí que provenga de una población con distribución $X$: simplemente nos dice que no lo podemos rechazar. Naturalmente, a efectos prácticos, estamos dispuestos a aceptar "por defecto" la hipótesis nula si no la podemos rechazar, pero la mayoría de las veces, si no disponemos de algún argumento teórico que respalde esta conclusión, se trata de un abuso de lenguaje.
+
+Los pasos habituales para contrastar la bondad del ajuste de una muestra a una distribución son los siguientes:
+
+1. Fijar la familia de distribuciones teóricas a la que queremos ajustar los
+datos. Esta familia estará parametrizada por uno o varios parámetros. Recordemos los ejemplos más comunes:
+
+    * Si la familia es la Bernoulli, el parámetro es $p$: la probabilidad poblacional de éxito.
+
+    * Si la familia es la Poisson, el parámetro es $\lambda$: la esperanza.
+
+    * Si la familia es la binomial, los parámetros son $n$  y $p$: el tamaño de las muestras y la probabilidad de éxito, respectivamente.
+
+    * Si la familia es la normal, los parámetros son $\mu$  y $\sigma$: la esperanza  y la desviación típica, respectivamente.
+
+    * Si la familia es la $\chi^2$, el parámetro es el número de grados de libertad.
+
+    * Si la familia es la t de Student, el parámetro es de nuevo  el número de grados de libertad.
+
+    * Otras familias de distribuciones tienen parámetros de **localización** (*location*), **escala** (*scale*) o **forma** (*shape*), por lo  que no nos ha de extrañar si R nos pide que asignemos parámetros con estos nombres. 
+
+
+2.  Si el diseño del experimento no fija sus valores, tendremos que estimar  a partir de la muestra los valores de los parámetros que mejor se ajusten a nuestros datos.  Ya hemos tratado la estimación de parámetros en la Lección \@ref(chap:estimacion).
+
+3. Determinar qué tipo de contraste vamos a utilizar. En esta lección veremos dos tipos básicos de contrastes generales:
+
+    * El **test $\chi^2$ de Pearson**. Este test es válido tanto para variables discretas como para continuas, pero solo se puede aplicar a conjuntos grandes de datos (por fijar una cota concreta, de 30 o más elementos). Además, si el **espacio muestral**, es decir, el conjunto de resultados posibles, es infinito, es necesario agrupar estos resultados en un número finito de clases.
+
+    * El **test de Kolgomorov-Smirnov**. Este test solo es válido para variables continuas, y compara la función de distribución acumulada muestral con la teórica. No requiere que la muestra sea grande, pero en cambio, en principio, no admite que los datos de la muestra se puedan repetir.^[A las repeticiones se las suele llamar empates, *ties* en inglés, porque la función   de distribución acumulada muestral ordena los datos y las repeticiones producen empates en las posiciones de valores sucesivos.] Por desgracia, las repeticiones suelen ser habituales si la muestra es grande y la precisión de los datos es baja o la variabilidad de la población muestreada es pequeña.
+
+    * Aparte, determinados tipos de  distribuciones tienen sus contrastes de bondad de ajustes específicos. Este es el caso especialmente de la normal, para la que explicaremos algunos tests que permiten contrastar si una muestra proviene de *alguna* distribución normal.
+
+4.  Realizar el contraste y redactar las conclusiones. Es conveniente apoyar los
+resultados del contraste con gráficos. En esta lección explicaremos los **gráficos cuantil-cuantil**, o **Q-Q-plots**, que  sirven para visualizar el ajuste de unos datos a una distribución conocida y son una buena alternativa a los histogramas con curvas de densidad.
+
+
+## Pruebas gráficas: Q-Q-plots
+
+Para comparar la distribución de una muestra con una distribución  poblacional teórica se pueden realizar diversas pruebas gráficas. En la Lección  \@ref(chap:agrup) de la primera parte del curso usábamos para ello histogramas con densidades estimadas y teóricas. En esta sección explicamos otro tipo de gráficos que pueden usarse con el mismo fin, los **gráficos cuantil-cuantil**, o, para abreviar, **Q-Q-plots**. Este tipo de gráficos compara  los cuantiles observados de la muestra con los cuantiles teóricos de la distribución teórica. 
+
+
+```{r,include=FALSE}
+library(car)
+```
+
+
+```{r, echo=FALSE, label=qqp1,fig.cap="Q-Q-plot básico de la muestra del Ejemplo \\@ref(exm:qqp-1) contra una t de Student con 4 grados de libertad."}
+muestra=c(0.27,0.81,-0.73,-0.96,1.33,0.91,-1.70,0.24,-0.19,
+  0.29,1.41,0.13,-0.06,-0.85,-0.59,-3.62,-1.02,2.36,0.34,-0.31,
+  0.81,-0.88,0.27,0.52,1.05,0.20,0.76,0.25,-1.43,3.71,-0.78,
+  0.39,-1.01,1.53,-0.72,1.22,0.56,-1.17,-0.65,-0.33,-0.07,0.31,
+  -0.74,0.36,-1.72,-1.21,-0.05,-1.17,0.28,1.30,0.89,1.45,0.13,
+  -1.12,3.13,-1.21,-0.90,-0.31,-1.05,0.89,-1.06,0.21,-0.50,
+  -0.36,-0.29,-0.19,-1.71,0.09,0.21,0.55,-1.42,0.19,-0.62,2.46,
+  -0.17,-0.63,0.77,0.94,0.55,0.35,-4.47,1.71,0.07,-0.57,-1.43,
+  -0.85,1.06,0.82,0.19,-1.08,0.30,-0.87,0.77,1.23,-0.04,0.66,
+  -0.87,-0.86,-1.06,0.10)
+qqPlot(muestra, distribution="t", df=4, envelope=FALSE,
+  xlab="Cuantiles de t", ylab="Cuantiles de la muestra",
+  line="none", pch=20, grid=FALSE, id=FALSE)
+abline(0,1, col="red", lwd=1.5)
+```
+
+
+La Figura \@ref(fig:qqp1) muestra un Q-Q-plot.  Cada punto corresponde a un cuantil: *grosso modo*, hay un punto para cada $k/n$-cuantil, siendo $n$ la longitud de la muestra y $k=1,\ldots,n$. Para cada uno de estos cuantiles, el punto  correspondiente tiene  abscisa el  cuantil de la distribución teórica (en este caso, una t de Student con 4 grados de libertad) y ordenada el cuantil de la muestra. Por lo tanto, si el ajuste es bueno, para cada $k/n$, el cuantil muestral y el cuantil teórico han de ser parecidos, de manera que  los puntos del gráfico (les llamaremos **Q-Q-puntos**, para abreviar) han de estar cerca de la diagonal $y=x$, que hemos añadido al gráfico. En general, se considera que un Q-Q-plot muestra un buen ajuste cuando no se observa una tendencia marcada de desviación respecto de la diagonal.  Sin embargo, a menudo los Q-Q-plots son difíciles de interpretar, y es conveniente combinarlos con algún contraste de bondad de ajuste.
+
+Hay varias maneras de producir Q-Q-plots con R. Aquí solo explicaremos una: la función `qqPlot` del paquete **car**. Su sintaxis básica es
+```{r, eval=FALSE}
+qqPlot(x, distribution=...,  parámetros, id=FALSE, ...)
+```
+donde:
+
+* `x` es el vector con la muestra.
+
+* El parámetro `distribution` se ha de igualar al nombre de la familia de distribuciones  entre comillas, y puede tomar como valor cualquier familia de distribuciones de la que R sepa calcular la densidad y los cuantiles: esto incluye  las distribuciones que hemos estudiado hasta el momento: `"norm"`, `"binom"`, `"poisson"`, `"t"`, etc.
+
+*  A continuación, se tienen que entrar los parámetros de la distribución, igualando su nombre habitual (`mean` para la media, `sd` para la desviación típica, `df` para los grados de libertad, etc.)  a su valor. En algunos casos, si no se especifican los parámetros, `qqPlot` toma sus valores por defecto: por ejemplo, si queremos realizar un Q-Q-plot contra una normal y no especificamos los valores de la media y la desviación típica de la distribución teórica, `qqPlot` los toma iguales a 0 y 1, respectivamente.
+
+* Por defecto, el gráfico obtenido con la función `qqPlot` identifica los dos Q-Q-puntos con ordenadas más extremas. Para omitirlos, usad el parámetro `id=FALSE`.
+
+Otros parámetros a tener en cuenta:
+
+* `qqPlot` añade por defecto una rejilla al gráfico, que podéis eliminar con `grid=FALSE`.
+
+
+*  `qqPlot` añade por defecto una línea recta que une los Q-Q-puntos correspondientes al  primer y tercer cuartil: se la llama **recta cuartil-cuartil**. Un buen ajuste de los Q-Q-puntos a esta recta significa que la muestra se ajusta a la distribución teórica, pero posiblemente con parámetros diferentes a los especificados. Os recomendamos mantenerla, pero si queréis eliminarla por ejemplo para substituirla por la diagonal $y=x$, podéis usar el parámetro `line="none"`.
+
+* `qqPlot` también añade dos curvas discontinuas que abrazan una "región de confianza del 95%" para el Q-Q-plot. Sin entrar en detalles, esta región contendría todos los Q-Q-puntos en un 95% de las ocasiones que tomáramos una muestra de la distribución teórica del mismo tamaño que la nuestra. Por lo tanto, si todos los Q-Q-puntos caen dentro de esta franja, no hay evidencia para rechazar que la muestra provenga de la distribución teórica. Esta franja de confianza es muy útil para interpretar el Q-Q-plot, pero la podéis eliminar con `envelope=FALSE`.
+
+* Se pueden usar los parámetros usuales de `plot` para poner nombres a los ejes, título, modificar el estilo de los puntos, etc., y otros parámetros específicos para modificar el aspecto del gráfico.  Por ejemplo, `col.lines` sirve para especificar el color de las líneas  que añade. Consultad la Ayuda de la función.
+
+
+```{example, label="qqp-1"}
+Consideremos la siguiente muestra:
+
+
+```
+
+```{r}
+muestra=c(0.27,0.81,-0.73,-0.96,1.33,0.91,-1.70,0.24,-0.19,0.29,1.41,0.13,-0.06,
+  -0.85,-0.59,-3.62,-1.02,2.36,0.34,-0.31,0.81,-0.88,0.27,0.52,1.05,0.20,0.76,0.25,
+  -1.43,3.71,-0.78,0.39,-1.01,1.53,-0.72,1.22,0.56,-1.17,-0.65,-0.33,-0.07,0.31,
+  -0.74,0.36,-1.72,-1.21,-0.05,-1.17,0.28,1.30,0.89,1.45,0.13,-1.12,3.13,-1.21,
+  -0.90,-0.31,-1.05,0.89,-1.06,0.21,-0.50,-0.36,-0.29,-0.19,-1.71,0.09,0.21,0.55,
+  -1.42,0.19,-0.62,2.46,-0.17,-0.63,0.77,0.94,0.55,0.35,-4.47,1.71,0.07,-0.57,
+  -1.43,-0.85,1.06,0.82,0.19,-1.08,0.30,-0.87,0.77,1.23,-0.04,0.66,-0.87,-0.86,
+  -1.06,0.10)
+```
+
+
+Queremos comprobar gráficamente si sigue una distribución t de Student de 4 grados de libertad. Vamos a usar la función `qqPlot` con sus parámetros por defecto:
+```{r}
+library(car)
+qqPlot(muestra, distribution="t", df=4, id=FALSE)
+```
+
+Como todos los Q-Q-puntos están dentro de la región de confianza del 95%, podemos aceptar que la muestra proviene de una t de Student.
+
+
+El Q-Q-plot básico de la Figura \@ref(fig:qqp1) se ha obtenido con el código siguiente:
+
+```{r, eval=FALSE}
+qqPlot(muestra, distribution="t", df=4, envelope=FALSE, xlab="Cuantiles de t",
+   ylab="Cuantiles de la muestra", line="none", pch=20, grid=FALSE, id=FALSE)
+abline(0,1, col="red", lwd=1.5)
+```
+
+
+
+Veamos otro ejemplo.
+
+```{example, label=irisqq}
+Consideremos el *data frame* `iris` que contiene información sobre medidas relacionadas con las flores de una muestra de iris de tres especies. Vamos a producir un Q-Q-plot que ilustre si las longitudes de los sépalos de las plantas iris recogidas en esta tabla de datos  siguen una distribución normal. A un Q-Q-plot que compara una muestra con una distribución normal se le suele llamar, para abreviar, un **normal-plot**. 
+
+```
+
+En primer lugar, estimamos los parámetros máximo verosímiles de la distribución normal que podría haber generado nuestra muestra:
+
+```{r}
+library(MASS)
+iris.sl=iris$Sepal.Length
+mu=fitdistr(iris.sl,"normal")$estimate[1]
+sigma=fitdistr(iris.sl,"normal")$estimate[2]
+round(c(mu,sigma),3)
+```
+
+y ahora generamos el Q-Q-plot usando estos parámetros
+
+```{r}
+qqPlot(iris.sl, distribution="norm", mean=mu, sd=sigma,xlab="Cuantiles de la normal",id=FALSE,
+   ylab="Cuantiles de la muestra",main="Normal-plot de longitudes de sépalos de flores iris")
+```
+
+Vemos cómo los primeros puntos salen de la región de confianza del 95%. Esto significa que los datos están más desplazados hacia la izquierda de la media que lo que se esperaría en una muestra aleatoria de una normal. El *boxplot* siguiente muestra este desplazamiento. 
+
+```{r}
+boxplot(iris.sl, main="Boxplot de longitudes de sépalos de flores iris")
+```
+
+
+Interpretamos el Q-Q-plot anterior como evidencia de que estas longitudes no siguen una distribución normal. Más adelante usaremos tests de normalidad específicos para contrastar la normalidad de estos datos.
+
+## El test $\chi^2$ de Pearson
+
+El test $\chi^2$ de Pearson contrasta si una muestra ha sido generada o no con una cierta distribución, cuantificando si sus valores aparecen con una frecuencia cercana a la que sería de esperar si la muestra  siguiera esa distribución. Esto se lleva a cabo por medio del estadístico de contraste
+
+$$
+X^2=\sum_{i=1}^k\frac{(\mbox{frec. observada}_i-\mbox{frec. esperada}_i)^2}{\mbox{frec. esperada}_i}
+$$
+donde *k* es el número de clases e *i* es el índice de las clases, de manera que "frec. observada~i~" y "frec. esperada~i~" denotan, respectivamente, la frecuencia observada  de la clase *i*-ésima y  su frecuencia esperada bajo la distribución que contrastamos. Si se satisfacen una serie de condiciones, este estadístico sigue aproximadamente una ley $\chi^2$ con un número de grados de libertad igual al número de clases menos uno y menos el número de parámetros de la distribución teórica que hayamos estimado. Las condiciones que se han de satisfacer son: 
+
+* La muestra ha de ser grande, digamos que de tamaño como mínimo 30; 
+
+*  Si los posibles valores son infinitos, hay que agruparlos en un número finito *k* de clases que cubran todos los posibles valores (recordad que en la Lección \@ref(chap:agrup) de la primera parte del curso ya explicamos cómo agrupar variables aleatorias continuas con la función `cut`); 
+
+* Las frecuencias esperadas de las clases en las que hemos agrupado el espacio muestral han de ser todas, o al menos una gran mayoría, mayores o iguales que 5.
+
+
+La instrucción básica en R para realizar un test $\chi^2$ es `chisq.test`. Su sintaxis básica es
+```{r,eval=FALSE}
+chisq.test(x, p=..., rescale.p=..., simulate.p.value=...)
+```
+donde:
+
+* `x` es el vector (o la tabla, calculada con `table`) de frecuencias absolutas observadas de las clases en la muestra. 
+
+
+* `p` es el vector de probabilidades teóricas de las clases para la distribución que queremos contrastar. Si no lo especificamos, se entiende que la probabilidad es la misma para todas las clases. Obviamente, estas probabilidades se tienen que especificar en el mismo orden que las frecuencias de `x` y, como son las probabilidades de todos los resultados posibles, en principio tienen que sumar 1; esta condición se puede relajar con el siguiente parámetro.
+
+* `rescale.p` es un parámetro lógico que, si se iguala a `TRUE`, indica que  los valores de `p` no son probabilidades, sino solo proporcionales a las probabilidades; esto hace que R tome como probabilidades teóricas los valores de `p`  partidos por su suma, para que sumen 1.  Por defecto vale `FALSE`, es decir, se supone que el vector que se entra como  `p`  son probabilidades y por lo tanto debe sumar 1, y si esto no pasa se genera un mensaje de error indicándolo. Igualarlo a `TRUE` puede ser útil, porque nos permite especificar las probabilidades mediante  las frecuencias esperadas o mediante porcentajes. Pero también es peligroso, porque si nos hemos equivocado y hemos entrado un vector en `p` que no corresponda a una probabilidad, R no nos avisará.
+
+*  `simulate.p.value` es un  parámetro lógico que indica a la función si debe
+optar por una simulación para el cálculo  del p-valor del contraste. Por
+defecto vale `FALSE`, en cuyo caso este p-valor no se simula sino que se calcula mediante la distribución $\chi^2$ correspondiente.  Si se especifica como `TRUE`, R realiza una serie  de replicaciones aleatorias de la situación teórica: por defecto, 2000, pero su número se puede especificar mediante el parámetro `B`. Es decir,  genera un conjunto de vectores aleatorios de frecuencias con la distribución que queremos contrastar,  cada uno de suma total la de `x`.  A continuación, calcula la proporción de estas repeticiones en las que el estadístico de contraste es  mayor o igual que el obtenido para `x`, y éste es el  p-valor que da. Cuando no se satisfacen las condiciones para que $X^2$ siga aproximadamente una distribución $\chi^2$, estimar el p-valor mediante simulaciones es  una buena alternativa. 
+
+
+Veamos un primer ejemplo sencillo.
+
+```{example, label=dado}
+Tenemos un dado, y queremos contrastar si está equilibrado o trucado. Lo hemos lanzado  40 veces y hemos obtenido los resultados siguientes:
+
+  
+```
+
+```{r,echo=FALSE}
+df_temp=data.frame(Resultados=1:6, Frecuencias=c(8,4,6,3,7,12))
+knitr::kable(df_temp)
+```
+
+Si el dado está equilibrado, la probabilidad de cada resultado es 1/6 y por lo tanto la frecuencia esperada de cada resultado es 40/6=`r round(40/6,3)`. Como la muestra tiene más de 30 elementos y las frecuencias esperadas son todas mayores que 5, podemos realizar de manera segura un test $\chi^2$. Por lo tanto, entraremos estas frecuencias en un vector y le aplicaremos la función `chisq.test`. Como contrastamos si todas las clases tienen la misma probabilidad, no hace falta especificar el valor del parámetro `p`.
+
+```{r}
+freqs=c(8,4,6,3,7,12)
+chisq.test(freqs)
+```
+
+Observemos la estructura del resultado de un `chisq.test`. Nos da el valor del estadístico $X^2$ (`X-squared`), el p-valor del contraste (`p-value`), y los grados de libertad de la distribución $\chi^2$ que ha usado para calcularlo (`df`). En este caso, el p-valor es `r round(chisq.test(freqs)$p.value,3)`, y por lo tanto no podemos rechazar que el dado esté equilibrado. Queremos remarcar que, como R no sabe si hemos estimado o no parámetros, el número de grados de libertad que usa  `chisq.test` es simplemente el número de clases menos 1. Si no hemos estimado parámetros para calcular las probabilidades teóricas, ya va bien, pero si lo hemos hecho y por lo tanto el número de grados de libertad no es el adecuado, tendremos que calcular el p-valor correcto a partir del valor del estadístico. Veremos varios ejemplos más adelante.
+
+El resultado de un `chisq.test` es una `list`, de la que podemos extraer directamente la información que deseemos con los sufijos adecuados. En concreto, podemos obtener el valor del estadístico $X^2$ con el sufijo `$statistic`, los grados de libertad con el sufijo  `$parameter` y el p-valor con el sufijo `$p.value`.
+```{r}
+chisq.test(freqs)$statistic
+chisq.test(freqs)$parameter
+chisq.test(freqs)$p.value
+```
+
+Imaginemos ahora que, en vez de lanzar el dado 40 veces, lo lanzamos 20 veces, y obtenemos los resultados siguientes:
+
+```{r,echo=FALSE}
+df_temp=data.frame(Resultados=1:6, Frecuencias=c(4,2,3,2,3,6))
+knitr::kable(df_temp)
+```
+
+¿Hay evidencia de que el dado esté trucado? Ahora la muestra no es grande y las frecuencias esperadas son todas 20/6=`r round(20/6,3)`, menores que 5. Por tanto, el p-valor del test $\chi^2$ que se obtiene usando una distribución $\chi^2_5$ no tiene por qué tener ningún significado. En una situación como ésta es cuando conviene usar el parámetro `simulate.p.value`. Vamos a pedir a R que simule 5000 veces el experimento de lanzar 20 veces un dado equilibrado, y que calcule como p-valor la proporción de simulaciones en las que el estadístico $X^2$ haya dado un valor  mayor o igual que el que se obtiene con nuestra muestra. 
+
+```{r, include=FALSE}
+set.seed(100)
+```
+
+
+```{r}
+freqs2=c(4,2,3,2,3,6)
+chisq.test(freqs2, simulate.p.value=TRUE, B=5000)
+```
+
+Resulta que en un `r set.seed(100); freqs2=c(4,2,3,2,3,6); round(100*chisq.test(freqs2, simulate.p.value=TRUE, B=5000)$p.value,1)`% de las simulaciones el valor de $X^2$ ha sido mayor o igual que el de nuestra muestra, `r chisq.test(freqs2, simulate.p.value=TRUE, B=5000)$statistic`. Por lo tanto, no hay evidencia  de que el dado esté trucado.
+
+Como este p-valor se basa en simulaciones, en cada aplicación del test el p-valor puede dar resultados  diferentes, pero en general la conclusión es robusta si se toma un número suficiente de simulaciones.
+```{r}
+chisq.test(freqs2,simulate.p.value=TRUE,B=5000)$p.value
+chisq.test(freqs2,simulate.p.value=TRUE,B=5000)$p.value
+chisq.test(freqs2,simulate.p.value=TRUE,B=5000)$p.value
+```
+Como vemos, los p-valores son todos similares. 
+
+Por curiosidad, ¿qué p-valor da el test $\chi^2$ usando la distribución de $\chi^2_5$?
+```{r,warning=TRUE}
+chisq.test(freqs2)$p.value
+```
+
+El p-valor no es muy diferente y la conclusión en este caso sería la misma, pero fijaos en el mensaje de advertencia: para la muestra dada, la aproximación de $X^2$ mediante una $\chi^2_5$ no tiene por qué ser correcta.
+
+
+
+```{example}
+Vamos a estudiar las frecuencias de los nucleótidos en una cadena de ADN, y contrastar si aparecen los cuatro con la misma probabilidad o no. En este caso, el espacio muestral son los cuatro nucleótidos: adenina (A), citosina (C), guanina (G) y timina (T). Identificaremos una cadena de ADN con un vector de letras  `a`, `c`, `g` y `t`.  Si llamamos $p_a$, $p_c$, $p_g$ y $p_t$ a las probabilidades de aparición de estas  letras, el contraste que queremos realizar es 
+
+
+```
+ 
+$$
+\left\{\begin{array}{l} 
+H_0 : p_a=p_c=p_g=p_t=0.25\\
+H_1: \mbox{Algunos nucleótidos son más probables que otros}
+\end{array}
+\right.
+$$
+Vamos a analizar cadenas de ADN "de verdad", extraídas de la base de datos
+*[GenBank](\url{http://www.ncbi.nlm.nih.gov/genbank/})*. Para ello,
+utilizaremos el paquete **ape**, que incorpora una función  `read.GenBank` que permite leer secuencias de genes incluidas en esta base de datos y convertirlas en vectores de letras  `a`, `c`, `g` y `t`. En concreto, si la aplicamos al número de acceso (*accession number*) de una secuencia (entrado entre comillas, ya que es una palabra) y usamos el parámetro `as.character=TRUE`, nos  devuelve dicha secuencia como un vector de letras junto con otra información sobre la secuencia. 
+
+En este ejemplo,  nos vamos a interesar  por los exones que codifican las tres partes de la mioglobina humana, que es una proteína relativamente pequeña constituida por una sola cadena polipeptídica de 153 aminoácidos.  Sus números de acceso  son 
+M10090.1,  M14602.1 y  M14603.1. El  código siguiente lee estos tres exones y los guarda en tres objetos.
+
+```{r}
+library(ape)
+myoglobin.exon1=read.GenBank("M10090.1", as.character=TRUE)
+myoglobin.exon2=read.GenBank("M14602.1", as.character=TRUE)
+myoglobin.exon3=read.GenBank("M14603.1", as.character=TRUE)
+```
+
+Consultemos cómo son los objetos donde hemos guardado estas secuencias:
+
+```{r}
+str(myoglobin.exon1)
+```
+
+Vemos que cada uno de ellos es en realidad una `list` formada por un solo objeto, el vector de bases, y un atributo. Vamos a extraer los vectores, para poder trabajar con ellos. La manera más sencilla es añadiendo a cada `list` el sufijo `[[1]]`:
+
+```{r}
+myoglobin.exon1[[1]][1:10]
+```
+
+Así pues, vamos a quedarnos  solo con las cadenas de los tres exones.
+```{r}
+myoglobin.exon1.nuc=myoglobin.exon1[[1]]
+myoglobin.exon2.nuc=myoglobin.exon2[[1]]
+myoglobin.exon3.nuc=myoglobin.exon3[[1]]
+```
+
+Nos preguntamos si en alguna de estas tres secuencias las cuatro bases aparecen de manera equiprobable. Para responder esta pregunta, calculamos las frecuencias de las letras en cada secuencia (con `table`) y aplicamos el test $\chi^2$ a los resultados. Puesto que miramos si todos los resultados aparecen con la misma probabilidad, no hace falta especificar el vector `p` de probabilidades. Empecemos con el primer exón.
+```{r}
+table(myoglobin.exon1.nuc)
+chisq.test(table(myoglobin.exon1.nuc))
+```
+El p-valor es prácticamente 0, podemos rechazar que las cuatro bases aparezcan con la misma probabilidad: las diferencias entre las frecuencias de los cuatro aminoácidos son lo suficientemente grandes como para hacer inverosímil que se hayan generado con la misma probabilidad. Veamos los otros dos exones.
+```{r}
+table(myoglobin.exon2.nuc)
+chisq.test(table(myoglobin.exon2.nuc))
+table(myoglobin.exon3.nuc)
+chisq.test(table(myoglobin.exon3.nuc))
+```
+
+En los tres contrastes tenemos que rechazar la hipótesis nula: en ninguna de las tres cadenas es creíble que las bases aparezcan con la misma probabilidad.
+
+
+```{example}
+Siguiendo con el ejemplo anterior, vamos a contrastar ahora  si las bases del exón 1 siguen una distribución en la que A y G aparecen un 50% de veces más que C y T. Usaremos `p=c(1.5,1,1.5,1)` para especificar estas proporciones.
+
+
+```
+
+```{r,warning=TRUE,error=TRUE,message=TRUE}
+chisq.test(table(myoglobin.exon1.nuc),p=c(1.5,1,1.5,1))
+```
+
+¡Vaya! Nos habíamos olvidado de especificar  `rescale.p=TRUE`, para poder entrar como `p` un vector proporcional a las probabilidades.
+
+```{r}
+chisq.test(table(myoglobin.exon1.nuc),p=c(1.5,1,1.5,1),rescale.p=TRUE)$p.value
+```
+
+De nuevo, tenemos que  rechazar la hipótesis nula.
+
+```{example}
+Vamos a realizar otro experimento con los datos de los ejemplos anteriores. Construiremos una cadena formada por los tres exones, y vamos a comparar si la frecuencia de bases en cada exón es  similar a la de la cadena total, que hará de distribución teórica.
+
+
+```
+
+Definimos la cadena completa:
+```{r}
+myoglobin.todos.nuc=c(myoglobin.exon1.nuc,myoglobin.exon2.nuc,myoglobin.exon3.nuc)
+```
+
+Calculemos la tabla de frecuencias relativas de las bases en la cadena completa
+```{r}
+probs.tot=prop.table(table(myoglobin.todos.nuc))
+round(probs.tot,3)
+```
+
+Vamos a usar esta tabla como parámetro `p` de la función `chisq.test`:
+
+```{r}
+chisq.test(table(myoglobin.exon1.nuc),p=probs.tot)$p.value
+chisq.test(table(myoglobin.exon2.nuc),p=probs.tot)$p.value
+chisq.test(table(myoglobin.exon3.nuc),p=probs.tot)$p.value
+```
+
+Los exones 1 y 3 dan unos p-valores muy pequeños, y por lo tanto podemos rechazar que en estos exones las bases aparezcan con la misma probabilidad que en la cadena total. En cambio,  el exón 2 da un $p$-valor de `r round(chisq.test(table(myoglobin.exon2.nuc),p=probs.tot)$p.value,3)`, por lo que para este exón no podemos rechazar la hipótesis nula y podemos concluir que las bases aparecen en él con las mismas frecuencias relativas que en la cadena total. Podemos ilustrar estas conclusiones gráficamente mediante un diagrama de barras conjunto.
+
+```{r, label="gof1"}
+barplot(rbind(prop.table(table(myoglobin.todos.nuc)),
+  prop.table(table(myoglobin.exon1.nuc)),
+  prop.table(table(myoglobin.exon2.nuc)),
+  prop.table(table(myoglobin.exon3.nuc))),
+  beside=TRUE, legend=c("Totales","Exon1","Exon2","Exon3"),
+  args.legend=list(x="topleft",cex=0.8),col=2:5,ylim=c(0,0.45),
+main="Frecuencias relativas de las bases en los tres exones\n de la mioglobina humana y en la cadena total")
+```
+
+El gráfico que obtenemos confirma que las frecuencias relativas de las bases en el exón 2 se parecen bastante a las globales.
+
+
+```{example}
+Ahora vamos a llevar a cabo el experimento siguiente. Queremos contrastar si la aparición de pares "cg" en la mioglobina humana es aleatoria, en el sentido de que se debe simplemente a las apariciones al azar de sus dos bases, o si por el contrario hay algún otro mecanismo que los produce.
+
+```
+
+Para ello, tomaremos la secuencia completa de la mioglobina humana, que tenemos almacenada en `myoglobin.todos.nuc`, y repetiremos 100 veces el proceso siguiente: extraemos una muestra aleatoria simple de 20 posiciones  de la secuencia y contamos cuántas de ellas contienen el par de bases "cg". Luego contrastaremos si la muestra así obtenida proviene de una distribución binomial con la probabilidad de aparición de "cg" como si las dos bases fueran independientes.
+
+Fijamos la semilla de aleatoriedad para que se pueda reproducir el experimento.^[Lo confesamos, hemos elegido la semilla de aleatoriedad no porque seamos fans de [Scarlatti](https://es.wikipedia.org/wiki/Alessandro_Scarlatti) sino  para que la muestra obtenida solo contenga ceros, unos y doses, lo que, como veréis, motivará una pequeña discusión sobre qué clases tomar.] El código, que luego explicamos, y el resultado son los siguientes:
+  
+```{r}
+cg.in.sample=function(x,S){#x un vector, S vector de índices
+  length(which(x[S]=="c" & x[S+1]=="g"))
+}
+set.seed(1660)  
+muestra=replicate(100, cg.in.sample(myoglobin.todos.nuc, 
+            sample(1:(length(myoglobin.todos.nuc)-1), 20,replace=TRUE)))
+muestra
+```
+La función `cg.in.sample` que hemos definido toma un vector `x` y un vector de índices `S` y cuenta el número de índices `s` en los que `x[s]` es `c` y `x[s+1]` es `g`. Entonces, con el `replicate`, hemos repetido 100 veces el proceso de extraer una muestra aleatoria simple  de 20 índices de `myoglobin.todos.nuc` (excluyendo el último, para que sean posiciones donde empieza un par de letras) y aplicar la función `cg.in.sample` a `myoglobin.todos.nuc` y a este vector de índices.
+
+Queremos determinar si esta muestra sigue una distribución binomial. En concreto, vamos a plantear tres casos de esta pregunta:
+
+* Con probabilidad de aparición de la pareja "cg" 0.25·0.25=`r 0.25*0.25`, que correspondería al hecho de que las dos bases aparecieran de manera equiprobable e independiente.
+
+* Con probabilidad de aparición de la pareja "cg" el producto de  las frecuencias relativas de las bases en la secuencia global, que correspondería al hecho de que las dos bases aparecieran de manera independiente, pero no equiprobable sino con sus probabilidades dentro de la secuencia de la mioglobina. 
+
+* Estimando el valor "real" de $p$, lo que correspondería al hecho de que su probabilidad de aparición no tuviera nada que ver con las probabilidades individuales de sus dos bases.
+
+
+Empezamos con el primer caso. Calculemos las frecuencias con las que aparecen los diferentes resultados en la muestra, y las frecuencias esperadas con las que deberían aparecer si siguieran una distribución B(20,`r 0.25*0.25`).
+
+```{r}
+table(muestra)
+round(dbinom(0:20,20,0.0625)*100,2)  #Frecuencias teóricas
+```
+Las frecuencias teóricas a partir de 4 son inferiores a 5 (recordad que la primera frecuencia corresponde al 0), y además su suma no llega a 5. Por lo tanto, vamos a agrupar en una sola clase los resultados mayores o iguales que 3. La nueva tabla de frecuencias esperadas es:
+
+```{r}
+round(c(dbinom(0:2,20,0.0625),1-pbinom(2,20,0.0625))*100,2)
+```
+Ahora tenemos dos opciones: o bien tomamos como resultados posibles "0", "1", "2" y "3 o más", en cuyo caso contaríamos que hemos observado 0 veces este último resultado en nuestra muestra, o bien tomamos como resultados posibles "0", "1",  y "2 o más", que se corresponde con los valores observados. Como norma general, es recomendable usar el mayor número de clases posible. Por consiguiente, vamos a optar por la primera estrategia: 4 clases y no 3.
+```{r}
+freq.obs=c(table(muestra),0)
+prob.teor=c(dbinom(0:2,20,0.0625),1-pbinom(2,20,0.0625))
+chisq.test(freq.obs,p=prob.teor)$p.value
+```
+El p-valor es prácticamente 0, por lo que podemos concluir que la muestra no sigue una distribución B(20,0.0625): las apariciones de los pares "cg" no se explican por la aparición de sus dos bases de manera independiente y equiprobable.
+
+
+¿Hubiera variado la conclusión si hubiéramos optado por solo considerar tres clases?
+```{r}
+freq.obs=table(muestra)
+prob.teor=c(dbinom(0:1,20,0.0625),1-pbinom(1,20,0.0625))
+chisq.test(freq.obs,p=prob.teor)$p.value
+```
+El p-valor es prácticamente el mismo, la conclusión es la misma.
+
+
+
+
+Pasemos al segundo caso de nuestro problema. Vamos a calcular la frecuencia relativa de "c" y "g" en la secuencia completa de la mioglobina humana y tomaremos como probabilidad $p$ el producto de ambas frecuencias relativas.
+
+```{r}
+prop.table(table(myoglobin.todos.nuc))
+p=prod(prop.table(table(myoglobin.todos.nuc))[2:3])
+p
+```
+Calculemos ahora las frecuencias esperadas tomando esta $p$:
+
+```{r}
+round(dbinom(0:20,20,p)*100,2)
+```
+
+Vamos a tener que agrupar de nuevo en una sola clase los resultados mayores o iguales que 3.
+```{r}
+freq.obs=c(table(muestra),0)
+prob.teor=c(dbinom(0:2,20,p),1-pbinom(2,20,p))
+chisq.test(freq.obs,p=prob.teor)$p.value
+```
+Obtenemos de nuevo un valor prácticamente 0: las apariciones de los pares "cg" no se explican por la aparición de sus dos bases de manera independiente.
+
+
+
+Finalmente, vamos a estimar el parámetro $p$. La binomial es otra de las distribuciones no cubiertas por `fitdistr`, por lo que tendremos que apelar a lo que sabemos de teoría para hacerlo. 
+Como el valor esperado de una variable aleatoria $X\sim B(n,p)$ es $np$,  estimaremos  $p$ mediante $\overline{X}/n$. De hecho, éste es el estimador máximo verosímil de $p$ cuando $n$ es conocida.
+```{r}
+p.estim=mean(muestra)/20
+p.estim
+```
+Repetimos el proceso: calculemos las frecuencias teóricas
+```{r}
+round(dbinom(0:20,20,p.estim)*100,2)
+```
+En este caso, hemos  de agrupar  los resultados en "0", "1" y "2 o más", para que las frecuencias teóricas sean mayores que 5. 
+Coincide con los diferentes valores observados en la muestra.
+```{r}
+freq.obs=table(muestra)
+prob.teor=c(dbinom(0:1,20,p.estim),1-pbinom(1,20,p.estim))
+chisq.test(freq.obs,p=prob.teor)
+```
+¡Cuidado! Este p-valor no es el correcto. Hemos estimado un parámetro, pero R no lo sabe. Por lo tanto tenemos que bajar en 1 los grados de libertad y calcular el p-valor a mano, mediante
+$$
+  P(\chi_1^2\geq  X^2)=1-P(\chi_1^2\leq  `r 
+  round(chisq.test(freq.obs,p=prob.teor)$statistic,3)`)
+$$
+```{r}
+1-pchisq(chisq.test(freq.obs,p=prob.teor)$statistic,1)
+```
+El p-valor es  grande. Por lo tanto, no podemos rechazar la hipótesis nula de que
+las apariciones de "cg" en muestras aleatorias de 20 posiciones sigan una ley binomial de parámetro $p=0.019$. Que es, por otro lado, lo que debería pasar si las "cg" estuvieran repartidas de manera aleatoria en la secuencia original, por lo que no podemos rechazar esto último.
+
+La conclusión es, por lo tanto, que aceptamos que las "cg" aparecen distribuidas de manera aleatoria en la secuencia de la mioglobina humana, pero las "c" y las "g" que las forman no aparecen de manera independiente.
+
+
+## El test $\chi^2$ para distribuciones continuas
+
+El procedimiento de contraste de bondad de ajuste mediante el test $\chi^2$ para variables continuas tiene la particularidad de que es necesario un paso preliminar que consiste en definir los intervalos de clase para los que realizaremos el conteo de las frecuencias observadas. El proceso es similar al que estudiamos en la Lección \@ref(chap:agrup) de la primera parte del curso para dibujar histogramas. Por lo tanto, necesitaremos definir unos intervalos de clase para el conteo de frecuencias absolutas observadas,  y con las funciones `cut` y `table` obtendremos las frecuencias observadas de estas clases en la muestra de la variable continua.
+
+Para obtener los intervalos podemos seguir dos estrategias razonables:  reutilizar  los generados por la función `hist`, o dividir el rango de la variable en un número prefijado $k$ de intervalos  de amplitud fija. Vamos a ver en detalle un ejemplo de cada tipo.
+
+```{example,label=testnormiris1}
+Vamos a contrastar si las longitudes de los sépalos de las plantas iris recogidas en la tabla de datos `iris` siguen una distribución normal. Recordaréis que el Q-Q-plot de estas longitudes que obteníamos en el Ejemplo \@ref(exm:irisqq) mostraba evidencia de que no la siguen.
+
+
+```
+
+Primero vamos a estimar de nuevo la media y la desviación típica de la distribución de estas longitudes.
+```{r}
+iris.sl=iris$Sepal.Length
+mu=fitdistr(iris.sl,"normal")$estimate[1]
+sigma=fitdistr(iris.sl,"normal")$estimate[2]
+round(c(mu,sigma),3)
+```
+
+En este ejemplo, usaremos los intervalos en los que la función `hist` agrupa por defecto estos datos.
+
+```{r}
+h=hist(iris.sl, plot=FALSE)
+h$breaks
+```
+
+Ahora se nos presenta el problema de que los intervalos que definen estos puntos de corte  (*breaks*) no cubren toda la recta real, que es el  espacio muestral de una variable aleatoria normal. Así que tenemos que reemplazar los extremos de este vector de `breaks` por los límites del  espacio muestral de la variable, que en este caso son $-\infty$ e $\infty$.
+
+```{r}
+breaks2=h$breaks
+breaks2[1]=-Inf    #Cambiamos el primer elemento por -Infinito
+breaks2[length(breaks2)]=Inf   #Cambiamos el último elemento por Infinito
+breaks2
+```
+
+Ahora podemos calcular las frecuencias de la muestra en los intervalos definidos por estos puntos de corte:
+```{r}
+freq.obs=table(cut(iris.sl,breaks=breaks2))
+freq.obs
+```
+Ahora calcularemos las probabilidades teóricas. Para cada intervalo $(x,y]$ en los que hemos cortado la recta real, tenemos que calcular $P(x < X\leq y)= P(X\leq y)-P( X\leq x)$, para lo que usaremos expresiones de la forma `pnorm(y,mu,sigma)-pnorm(x,mu,sigma)`.
+
+
+Definimos dos vectores que nos den los extremos izquierdos y derechos de cada
+intervalo.
+```{r}
+extremo.izq=breaks2[-length(breaks2)]
+extremo.der=breaks2[-1]
+extremo.izq
+extremo.der
+```
+Ahora podemos calcular las probabilidades teóricas y las frecuencias esperadas de todos los intervalos de golpe. La probabilidades teóricas:
+```{r}
+probs.teor=pnorm(extremo.der,mu,sigma)-pnorm(extremo.izq,mu,sigma) 
+probs.teor
+```
+
+Las frecuencias esperadas:
+
+```{r}
+freq.esp=probs.teor*length(iris.sl)
+round(freq.esp,3)
+```
+
+La frecuencia esperada de la última clase es inferior a 5, así que vamos a fundirla con la penúltima y así la clase resultante tendrá una frecuencia esperada superior a 5. 
+
+```{r}
+k=length(probs.teor)
+probs.teor2=c(probs.teor[1:(k-2)],sum(probs.teor[(k-1):k])) #Nuevas probabilidades teóricas
+freq.obs2=c(freq.obs[1:(k-2)],sum(freq.obs[(k-1):k])) #Nuevas frecuencias observadas
+chisq.test(freq.obs2,p=probs.teor2)
+```
+Recordemos que el p-valor obtenido no es el correcto: como hemos estimado dos parámetros, lo tenemos que  calcular con una $\chi^2$ con 4 grados de libertad (dos menos de los que ha usado `chisq.test`):
+```{r}
+test.iris=chisq.test(freq.obs2,p=probs.teor2)
+1-pchisq(test.iris$statistic,test.iris$parameter-2)
+```
+El p-valor es inferior a 0.05, por tanto obtenemos evidencia de que la muestra no proviene de una población normal, es decir, de que las longitudes de los sépalos de las flores iris no siguen una ley normal.
+
+
+```{example}
+Vamos a repetir el estudio del ejemplo anterior, pero ahora calculando a mano los intervalos.
+En general, el número de intervalos debe ser suficiente para cubrir toda la forma de la
+distribución, pero tampoco conviene que haya muchos para evitar frecuencias esperadas  pequeñas que obliguen a agrupar intervalos.  Para una distribución normal  se recomienda tomar entre 5 y 15 intervalos. Otra posibilidad es decidir el número de intervalos con alguna de las reglas explicadas en la Lección \@ref(chap:agrup) de la primera parte del curso.
+
+
+```
+
+
+En nuestro ejemplo, vamos a usar 10 intervalos. Para calcularlos, tomamos el máximo y el mínimo de las observaciones, los restamos y dividimos por el número de intervalos (y, si fuera necesario, redondearíamos adecuadamente).
+```{r}
+Ampl=(max(iris.sl)-min(iris.sl))/10
+Ampl
+```
+Los extremos de los intervalos en los que dividimos la muestra forman la secuencia que empieza en el mínimo y va sumando la amplitud hasta definir los $k=10$ intervalos. Luego hay que adecuar los dos extremos para que cubran el dominio de la densidad de la distribución teórica, en nuestro caso la recta real.
+```{r}
+breaks=min(iris.sl)+Ampl*(0:10)
+breaks
+breaks2=breaks
+breaks2[1]=-Inf
+breaks2[length(breaks2)]=Inf
+breaks2
+```
+Calculemos, como en el ejemplo anterior, las frecuencias observadas, las probabilidades teóricas y las frecuencias esperadas.
+```{r}
+frec.obs=table(cut(iris.sl,breaks=breaks2))
+frec.obs
+extremo.izq=breaks2[-length(breaks2)]
+extremo.der=breaks2[-1]
+prob.teor=pnorm(extremo.der,mu,sigma)-pnorm(extremo.izq,mu,sigma)
+frec.esp=round(prob.teor*length(iris.sl),2)
+frec.esp
+```
+Agruparemos las frecuencias de los dos últimos intervalos y aplicaremos el test $\chi^2$ con el número adecuado de grados de libertad:
+```{r}
+frec.obs2=c(frec.obs[1:8], sum(frec.obs[9:10]))
+prob.teor2=c(prob.teor[1:8], sum(prob.teor[9:10]))
+test.iris.2=chisq.test(frec.obs2,p=prob.teor2)
+1-pchisq(test.iris.2$statistic, test.iris.2$parameter-2)
+```
+El p-valor es de nuevo inferior a 0.05: volvemos a obtener evidencia significativa  de que la muestra no proviene de una población normal.
+
+
+
+## El test de Kolgomorov-Smirnov
+
+El **test de Kolgomorov-Smirnov** (**K-S**) es un test genérico para contrastar la bondad de ajuste a distribuciones continuas.  Se puede usar con muestras pequeñas (se suele recomendar 5 elementos como el tamaño mínimo para que el resultado sea significativo), pero  la muestra no puede contener valores repetidos: si los contiene, la distribución del estadístico de contraste bajo la hipótesis nula  no es la que predice la teoría sino que solo se aproxima a ella, y por lo tanto los p-valores que se obtienen son aproximados. 
+
+Hay que tener en cuenta que el test K-S realiza un contraste en el que la hipótesis nula es que la muestra proviene de una distribución continua  completamente especificada. Es decir, no sirve para contrastar si la muestra proviene, pongamos, de "alguna" distribución normal, sino solo para contrastar si proviene de una distribución normal con una media y una desviación típica concretas. Así pues, si queremos contrastar que la muestra proviene de alguna distribución de una familia concreta y  estimamos sus parámetros a partir de la muestra, el test K-S solo nos permite rechazar o no la hipótesis de que la muestra proviene de la distribución de esa familia con exactamente esos parámetros. Por lo tanto, si el resultado es rechazar la hipótesis nula, esto no excluye que la muestra provenga de una distribución de la misma familia con otros parámetros.  En la próxima sección veremos algunos tests que permiten contrastar, en general, si una muestra proviene de alguna distribución normal.
+
+
+La función básica para realizar el test K-S es `ks.test`. Su sintaxis
+básica para una muestra es
+```{r, eval=FALSE}
+ks.test(x, y, parámetros)
+```
+
+donde:
+
+* `x` es la muestra de una variable continua.
+
+* `y` puede ser un segundo vector, y entonces se contrasta si ambos vectores han sido generados por la misma distribución continua, o el nombre de la función de distribución (empezando con `p`) que queremos contrastar, entre comillas; por ejemplo `"pnorm"` para
+la distribución normal.
+
+* Los `parámetros` de la función de distribución si se ha especificado una; por
+ejemplo `mean=0, sd=1` para una distribución normal estándar.
+
+
+```{example}
+Efectuemos el test de Kolmogorov-Smirnov para contrastar si las longitudes de sépalos de flores iris siguen una distribución normal de media y desviación típica sus estimaciones máximo verosímiles a partir la muestra `iris.sl`. Recordemos que tenemos guardados de los dos últimos ejemplos los valores de estas estimaciones en las variables `mu` y `sigma`:
+  
+  
+```
+
+```{r, warning=TRUE}
+round(c(mu,sigma),3)
+ks.test(iris.sl, "pnorm", mean=mu, sd=sigma)
+```
+
+Obtenemos un p-valor de `r round(ks.test(iris.sl, "pnorm", mean=mu, sd=sigma)$p.value,3)`, que no nos permite rechazar la hipótesis de que siguen una ley N(`r round(c(mu,sigma),3)`). Pero R nos avisa de que hay empates. ¿Hay muchos? Vamos a calcular su frecuencia.
+  
+La función `unique` aplicada a un vector nos da el vector de sus elementos sin repeticiones. De esta manera podemos saber cuántos elementos diferentes hay en un vector, y por consiguiente también cuántas repeticiones.
+
+```{r}
+length(unique(iris.sl))
+1-length(unique(iris.sl))/length(iris.sl)
+```
+Por tanto, el vector (de 150 entradas) de longitudes de sépalos solo tiene `r length(unique(iris.sl))` valores diferentes. El resto, un `r round(100*(1-length(unique(iris.sl))/length(iris.sl)),2)`%, son valores repetidos. Hay muchos empates, y el resultado de este test en este caso es poco fiable 
+
+
+Como hemos comentado, el test K-S también se puede usar para contrastar si dos muestras se han obtenido de poblaciones con la misma distribución continua. Para hacerlo, se ha de aplicar la función `ks.test` a las dos muestras.
+
+```{example}
+La tabla de datos `Salaries` del paquete **car** contiene información sobre los sueldos de  397 profesores de una universidad norteamericana en el curso 2008-09. Démosle un vistazo.
+
+
+```
+
+
+```{r}
+library(car)
+str(Salaries)
+```
+
+La variable `sex` nos da el sexo del profesor y la variable `salary` su sueldo anual en dólares. Queremos contrastar si los sueldos de hombres y mujeres siguen la misma distribución. Para ello, vamos a suponer que provienen de distribuciones continuas y usaremos el test K-S. Primero miraremos si hay muchos empates.
+```{r}
+sal.female=Salaries[Salaries$sex=="Female",]$salary  #Salarios de mujeres
+sal.male=Salaries[Salaries$sex=="Male",]$salary  #Salarios de hombres
+1-length(unique(sal.female))/length(sal.female) #Proporción de salarios de mujeres repetidos
+1-length(unique(sal.male))/length(sal.male)  #Proporción de salarios de hombres repetidos
+1-length(unique(Salaries$salary))/length(Salaries$salary)  #Proporción global de salarios repetidos
+```
+
+Las repeticiones en cada lista significan alrededor del 5% de los datos, y en total un `r round(100*(1-length(unique(Salaries$salary))/length(Salaries$salary)),1)`%. No son muchas, así que vamos a arriesgarnos con el test K-S.
+
+```{r,}
+ks.test(sal.male,sal.female)
+```
+
+El p-valor pequeño nos permite rechazar que los salarios de hombres y mujeres sigan la misma distribución. Pero no nos paremos aquí.
+
+Si dibujamos un boxplot de los salarios según el sexo, observaremos que los sueldos de los hombres tienen mayor mediana y variabilidad que los de las mujeres, incluyendo algunos valores atípicos grandes (¿el rector y otros altos cargos académicos?). 
+
+```{r, fig.lab="Boxplot de sueldos según el sexo en la tabla de datos *Salaries*"}
+boxplot(salary~sex, data=Salaries, main="")
+```
+
+
+
+
+Si cancelamos este efecto, estandarizando las muestras, ¿siguen saliendo distribuciones diferentes?
+```{r, warning=TRUE}
+ks.test(scale(sal.male),scale(sal.female))
+```
+
+Al estandarizar, ya no tenemos evidencia de que provengan de distribuciones diferentes. Es decir, podemos aceptar que sus valores tipificados siguen la misma distribución.
+
+
+
+## Tests de normalidad
+
+Existen algunos tests específicos de normalidad que permiten contrastar si una muestra proviene de alguna distribución normal. El más conocido es el **test de normalidad de Kolmogorov-Smirnov-Lilliefors** (**K-S-L**).  Se trata de una variante del test K-S, y se puede realizar aplicando a la muestra la función `lillie.test` del paquete **nortest**.
+
+Vamos a usar el test K-S-L para contrastar si las longitudes de los sépalos de las iris siguen una ley normal. 
+```{r}
+library(nortest)
+iris.sl=iris$Sepal.Length
+lillie.test(iris.sl)
+```
+El p-valor es muy pequeño, y nos permite rechazar que la muestra provenga de una población normal.
+
+La ventaja del test K-S-L es que es muy conocido, ya que es una variante del K-S (incluso usa el mismo estadístico), pero tiene un inconveniente: aunque es muy sensible a las diferencias entre la muestra y la distribución teórica alrededor de sus valores medios, le cuesta detectar diferencias prominentes en un extremo u otro de la distribución. Esto afecta su potencia. Por ejemplo, sabemos que una t de Student se parece bastante a una normal estándar, pero su densidad es algo más aplanada y hace que en los dos extremos esté por encima de la de la normal.
+Al test K-S-L le cuesta detectar esta discrepancia, como podemos ver en el siguiente ejemplo:
+```{r}
+set.seed(100)
+x=rt(50,3)   #Una muestra de una t de Student con 3 g.l.
+lillie.test(x)
+```
+
+
+Este inconveniente del test K-S-L lo resuelve el **test de normalidad de Anderson-Darling** (**A-D**).  Para realizarlo podemos usar la función `ad.test` del paquete **nortest**. Encontraréis los detalles del estadístico que usa en la Ayuda de la función.
+
+```{r}
+ad.test(iris.sl)
+```
+De nuevo obtenemos un p-valor muy pequeño. Veamos ahora que este test sí que detecta que la muestra anterior de una t de Student con 3 grados de libertad no proviene de una normal:
+```{r}
+set.seed(100)
+x=rt(50,3)
+ad.test(x)
+```
+
+
+Un inconveniente común a los tests K-S-L y A-D es que, si bien pueden usarse con muestras pequeñas (pongamos de más de 5 elementos), se comportan mal con muestras grandes, de varios miles de elementos. En muestras de este tamaño, cualquier pequeña divergencia de la normalidad se magnifica y en estos dos tests aumenta la probabilidad de errores de tipo I. Un test que resuelve este problema es el de **Shapiro-Wilk** (**S-W**), implementado en la función  `shapiro.test` de la instalación básica de R. 
+Este test es importante, porque un experimento reciente ha mostrado evidencia significativa de que su potencia es mayor que la de los tests anteriores.^[Véase N. M. Razali, Y. B. Wah,
+"Power comparisons of Shapiro-Wilk, Kolmogorov-Smirnov, Lilliefors and Anderson-Darling tests." *S.  Stat. Model.  Anal.*  2 (2011), pp. 21--33.]
+De nuevo, los detalles del estadístico que usa los encontraréis en la Ayuda de la función.
+
+```{r}
+shapiro.test(iris.sl)
+set.seed(100)
+x=rt(50,3)
+shapiro.test(x)
+```
+
+Un último inconveniente que afecta a todos los tests explicados hasta ahora es el de los empates. Sus estadísticos  tienen las distribuciones que se usan para calcular los p-valores cuando la muestra no tiene datos repetidos, y por lo tanto, si hay muchos, el p-valor puede no tener ningún significado. De los tres, el menos sensible a repeticiones es el S-W, pero si hay muchas es conveniente usar un test que no sea sensible a ellas, como por ejemplo el **test omnibus de D'Agostino-Pearson**. Este test se encuentra implementado en la función `dagoTest` del paquete **fBasics**, y lo que hace es cuantificar lo diferentes que son la asimetría y la curtosis de la muestra (dos parámetros estadísticos relacionados con la forma de la gráfica de la función de densidad muestral)  respecto de los esperados en una distribución normal, y resume esta discrepancia en un p-valor con el significado usual.
+  
+```{r,warning=FALSE,message=FALSE}
+library(fBasics)
+dagoTest(iris.sl)
+```
+
+El p-valor relevante es el del *"Omnibus test"*, en este caso `r round(dagoTest(iris.sl)@test$p.value[1],4)` cae en la zona de penumbra.
+  
+Queremos hacer una última advertencia en esta sección. Aunque los tests que hemos explicado se pueden aplicar a muestras pequeñas, es muy difícil rechazar la normalidad de una muestra  muy pequeña. Por ejemplo, una muestra de 10 valores escogidos con distribución uniforme entre 0 y 5 pasa holgadamente todos los tests de normalidad (salvo el de D'Agostino-Pearson, que requiere una muestra de al menos 20 elementos):
+
+```{r,error=TRUE,warning=TRUE}
+set.seed(100)
+x=runif(10,0,5)
+lillie.test(x)
+ad.test(x)
+shapiro.test(x)
+dagoTest(x)
+```
+
+
+## Guía rápida
+
+* `qqPlot` del paquete **car**, sirve para dibujar un Q-Q-plot de una muestra contra una distribución teórica.  Sus parámetros principales son:
+
+    * `distribution`: el nombre de la familia de distribuciones, entre comillas.
+    * Los parámetros de la distribución: `mean` para la media, `sd` para la desviación típica, `df` para los grados de libertad, etc.
+    *  Los parámetros usuales de `plot`.
+
+
+* `chisq.test` sirve para realizar tests $\chi^2$ de bondad de ajuste. Sus parámetros principales son:
+
+    * `p`: el vector de probabilidades teóricas.
+    *  `rescale.p`: igualado a `TRUE`, indica que  los valores de `p` no son probabilidades, sino sólo proporcionales a las probabilidades.
+    *  `simulate.p.value`: igualado a `TRUE`, R calcula el p-valor mediante simulaciones.
+    *  `B`: en este último caso, permite especificar el número de simulaciones.
+
+* `ks.test` realiza el test de Kolmogorov-Smirnov. Tiene dos tipos de uso:
+
+    * `ks.test(x,y)`: contrasta si los vectores `x` e `y`  han sido generados por la misma distribución continua.
+    * `ks.test(x, "distribución", parámetros)`: contrasta si el vector `x`  ha sido generado por la distribución especificada, que se ha de indicar con el nombre de la función de distribución de R  (la que empieza con p).
+
+*  `lillie.test` del paquete **nortest**, realiza el test de normalidad de Kolmogorov-Smirnov-Lilliefors.
+
+*  `ad.test` del paquete **nortest**, realiza el test de normalidad de Anderson-Darling.
+
+*  `shapiro.test`, realiza el test de normalidad de Shapiro-Wilk.
+
+*  `dagoTest` del paquete **fBasics**, realiza el test ómnibus de D'Agostino-Pearson.
+
+## Ejercicios
+
+### Modelo de test {-}
+
+*(1)*  Un determinado experimento tiene cinco resultados posibles:  A, B, C, D, E. Lo repetimos un cierto número de veces y obtenemos 65 veces el resultado A, 95 veces el resultado B, 87 veces el resultado C, 70 veces el resultado D y 193 veces el resultado E. Realizad un test $\chi^2$ para contrastar si los resultados A, B, C y D tienen la misma probabilidad y E tiene el doble de probabilidad que cada uno de los otros resultados. Dad el p-valor del contraste (redondeado a 3 cifras decimales, sin ceros innecesarios a la derecha) y decid (contestando SI, en mayúsculas y sin acento, o NO) si tendríamos que rechazar la hipótesis nula con un nivel de significación $\alpha=0.05$. Tenéis que dar las respuestas en este orden y separadas por un único espacio en blanco.
+
+*(2)* Queremos contrastar si una determinada variable sigue una distribución de Poisson. Hemos efectuado algunas observaciones y hemos obtenido 10 veces el resultado 0, 32 veces el resultado 1, 18 veces el resultado 2, 19 veces el resultado 3 y 6 veces el resultado 4. Tenéis que calcular el estimador máximo verosímil del parámetro $\lambda$ de una variable de Poisson que haya generado estas observaciones (redondeado a 3 cifras decimales, y sin ceros innecesarios a la derecha), calcular el p-valor (redondeado a 3 cifras decimales, sin ceros innecesarios a la derecha) del test $\chi^2$ para determinar si la muestra sigue *alguna* distribución de Poisson habiendo estimado como su parámetro $\lambda$ este valor redondeado, y decir (contestando SI  o NO) si, con un nivel de significación $\alpha=0.1$, tendríamos que rechazar la hipótesis nula de que esta muestra proviene de una variable aleatoria de Poisson. Dad las tres respuestas en este orden y separadas por un único espacio en blanco.
+
+
+*(3)* Queremos contrastar si una cierta variable sigue una distribución normal. Hemos efectuado 150 observaciones y hemos obtenido 9 veces un valor dentro de ]0,3], 27 veces un valor dentro de ]3,6], 51 veces un valor dentro de ]6,9], 46 veces un valor dentro de ]9,12] y 17 veces un valor dentro de ]12,15]. Tenéis que: calcular los estimadores máximo verosímiles del parámetro $\mu$ y del parámetro $\sigma$ de una variable normal que haya generado estas observaciones (ambos redondeados a 2 cifras decimales y sin ceros innecesarios a la derecha): calcular el p-valor (redondeado a 3 cifras decimales, sin ceros innecesarios a la derecha) del test $\chi^2$ para contrastar si la muestra sigue *alguna* distribución normal, empleando estos valores estimados redondeados de los parámetros que habéis dado para especificar la distribución teórica; y decir (contestando SI  o NO) si, con un nivel de significación $\alpha=0.05$, tendríamos que rechazar la hipótesis nula de que esta muestra proviene de una variable aleatoria normal. Dad las cuatro respuestas en este orden y separadas por un único espacio en blanco.
+
+*(4)* Generad una muestra aleatoria *x* de 25 valores de una distribución $\chi^2$ con 10 grados de libertad, fijando antes `set.seed(2014)`, y aplicad el test de Kolmogorov-Smirnov para contrastar si *x* proviene de una distribución N(10,3.16). Dad el p-valor del test (redondeado a 3 cifras decimales, sin ceros innecesarios a la derecha) y decid (contestando SI o NO) si, con un nivel de significación $\alpha=0.05$, tendríamos que rechazar la hipótesis nula de que esta muestra proviene de esta distribución. Tenéis que dar las dos respuestas en este orden y separadas por un único espacio en blanco.
+
+*(5)* Queremos contrastar si la muestra siguiente sigue una distribución normal: 4.6, 0.97,  0.3,  1.11,  2.16, 15.52,  1.13,  0.17, 0.64,  2.00. Dad el p-valor (redondeado a 3 cifras decimales y sin ceros innecesarios a la derecha) del test de Kolmogorov-Smirnov-Lilliefors para esta muestra y decid (contestando SI  o NO) si, con un nivel de significación $\alpha=0.05$, tendríamos que rechazar la hipótesis nula de que esta muestra sigue una distribución normal. Tenéis que dar las dos respuestas en este orden y separadas por un único espacio en blanco.
+
+*(6)* Generad una muestra aleatoria *x* de 15 valores de una distribución normal con $\mu=2$ y $\sigma=0.8$ fijando antes `set.seed(2014)`, y una muestra aleatoria *y* de 25 valores de una distribución exponencial de parámetro $1/\lambda=0.5$  fijando antes `set.seed(1007)`. Aplicad el test de Kolmogorov-Smirnov para contrastar si *x* e *y* provienen de una misma distribución continua. Tenéis que dar el p-valor del test (redondeado a 3 cifras decimales, sin ceros innecesarios a la derecha) y decir (contestando SI  o NO) si, con un nivel de significación $\alpha=0.05$, tendríamos que rechazar la hipótesis nula de que estas dos muestras provienen de la misma distribución continua. Dad las dos respuestas en este orden y separadas por un único espacio en blanco.
+
+
+
+### Respuestas al test {-}
+
+```{r,include=FALSE}
+#1
+x=c(65,95,87,70,193)
+R.Chi1=chisq.test(x,p=c(1,1,1,1,2),rescale.p=T)$p.value
+#2
+x=c(10,32,18,19,6)
+lambda=fitdistr(rep(0:4,x),"poisson")$estimate
+c(dpois(0:3,round(lambda,3)),1-ppois(3,round(lambda,3)))*85
+ChiT2=chisq.test(x,p=c(dpois(0:3,round(lambda,3)),1-ppois(3,round(lambda,3))))
+R.Chi2=1-pchisq(ChiT2$statistic,3)
+#3
+x=c(9,27,51,46,17)
+sum(x)
+mostra=rep(c(1.5,4.5,7.5,10.5,13.5),x)
+fitdistr(mostra,"normal")
+mu=round(fitdistr(mostra,"normal")$estimate[1],2)
+sigma=round(fitdistr(mostra,"normal")$estimate[2],2)
+left=c(-Inf,3,6,9,12)
+right=c(3,6,9,12,Inf)
+probs=pnorm(right,mu,sigma)-pnorm(left,mu, sigma)
+ChiT3=chisq.test(x,p=probs)
+R.Chi3=1-pchisq(ChiT3$statistic,2)
+#4
+set.seed(2014)
+x=rchisq(25,10)
+R.Chi4=ks.test(x,"pnorm",mean=10,sd=3.16)$p.value
+# 5 
+x=c(4.6, 0.97,  0.3,  1.11,  2.16, 15.52,  1.13,  0.17,  0.64,  2.00)
+R.Chi5=lillie.test(x)$p.value
+# 6
+set.seed(2014)
+x=rnorm(15,2,0.8)
+set.seed(1007)
+y=rexp(25,0.5)
+R.Chi6=ks.test(x,y)$p.value
+```
+
+
+*(1)* `r round(R.Chi1,3)` SI
+
+*(2)* `r round(lambda,3)` `r round(R.Chi2,3)` SI
+
+*(3)* `r round(mu,1)` `r round(sigma,2)` `r round(R.Chi3,3)` NO
+
+*(4)* `r round(R.Chi4,3)` NO
+
+
+*(5)* `r round(R.Chi5,3)` SI
+
+
+*(6)* `r round(R.Chi6,3)` NO
+

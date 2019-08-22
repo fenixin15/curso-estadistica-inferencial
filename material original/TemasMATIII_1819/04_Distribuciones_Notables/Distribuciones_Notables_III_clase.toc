@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Variables aleatorias continuas notables.}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Distribuci\IeC {\'o}n uniforme}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Distribuci\IeC {\'o}n normal}{8}{0}{1}
+\beamer@subsectionintoc {1}{3}{Distribuci\IeC {\'o}n exponencial}{28}{0}{1}
+\beamer@subsectionintoc {1}{4}{(OPCIONAL) Aproximaciones de la binomial y la Poisson por la normal.}{37}{0}{1}

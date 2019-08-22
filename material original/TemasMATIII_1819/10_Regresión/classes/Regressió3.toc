@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Diagn\IeC {\`o}stics: Estudi dels residus}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Distribuci\IeC {\'o} dels errors}{7}{0}{1}
+\beamer@subsectionintoc {1}{2}{Ajustament al model lineal}{19}{0}{1}
+\beamer@subsectionintoc {1}{3}{Observacions an\IeC {\`o}males}{27}{0}{1}

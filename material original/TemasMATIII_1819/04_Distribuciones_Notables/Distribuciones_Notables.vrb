@@ -1,0 +1,38 @@
+\frametitle{Resumen v.a con distribución Binomial Negativa $BN(r,p)$}
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\begin{table}
+\centering
+\begin{tabular}{|rl|}
+\hline
+\multicolumn{2}{|c|}{$X=$ número de intentos para conseguir el $r$-ésimo éxito}\\
+\hline
+\hline
+\textbf{Binomial negativa}  $BN(r,p)$ & $r$ éxitos, probabilidad de éxito $p$, $q=1-p$\\
+\hline \hline
+$D_X=$ &  $\{r,1,\ldots\}$
+\\\hline
+$P_X(x)=P(X=x)=$ &
+$\left\{
+\begin{array}{cc}
+\left(
+\begin{array}{c}
+x-1\\ r-1
+\end{array}
+\right)\cdot
+q^{x-r}\cdot p^r & \mbox{si }  x=r,r+1,\ldots \\
+0 & \mbox{en otro caso.}
+\end{array}
+\right.$
+\\
+\hline
+$F_X(x)=P(X\leq X)=$ & no tiene fórmula (utilizar tablas o función de R.)\\
+\hline
+$E(X)=$ &  $\frac{r}{p}$\\
+$Var(X)=$ & $\frac{r\cdot q}{p^2}$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\normalsize
+

@@ -1,0 +1,34 @@
+\frametitle{Ejemplo}
+Cal calcular el intervalo de confianza  I.C. para $\mu$ de población normal con $\sigma$ conocida$\mu$ con
+$$
+n=24, \overline{x}=518, \widetilde{s}=40, \alpha=0.1
+$$
+Será
+$$
+\left]
+\overline{x}-t_{24,0.95} \frac{\widetilde{s}}{\sqrt{n}},
+\overline{x}+t_{24,0.95} \frac{\widetilde{s}}{\sqrt{n}}\right[
+$$
+Consultando las tablas de la distribución  $t$ de Student, Obtenemos $t_{24,0.95}=1.71$
+
+\begin{knitrout}\small
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{qt}\hlstd{(}\hlnum{0.95}\hlstd{,}\hlnum{24}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 1.710882
+\end{verbatim}
+\begin{alltt}
+\hlkwd{round}\hlstd{(}\hlkwd{qt}\hlstd{(}\hlnum{0.95}\hlstd{,}\hlnum{24}\hlstd{),}\hlnum{2}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 1.71
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+
+
+Operant: $]531.962,504.038[$, y no contien a 500 (¡pero se equivoca a favor del consumidor!)

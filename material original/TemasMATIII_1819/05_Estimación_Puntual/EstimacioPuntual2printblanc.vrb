@@ -1,0 +1,19 @@
+\frametitle{Exemple: Marca-recaptura}
+\vspace*{-0.8cm}
+
+$$
+P(\mbox{$k$ marcats de $n$ capturats})=\dfrac{\binom{K}{k}\cdot \binom{N-K}{n-k}}{\binom{N}{n}}
+$$
+
+\begin{verbatim}
+> N=15:100
+> p=choose(15,4)*choose(N-15,6)/choose(N,10)
+> plot(N,p,type="h",xaxp=c(15,100,17))
+\end{verbatim}
+\vspace*{-4ex}
+
+\begin{center}
+\includegraphics[width=0.65\linewidth]{marca.pdf}
+\end{center}
+
+

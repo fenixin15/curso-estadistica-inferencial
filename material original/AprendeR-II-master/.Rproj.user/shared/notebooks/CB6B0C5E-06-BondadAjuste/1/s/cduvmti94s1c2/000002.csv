@@ -1,0 +1,2 @@
+"0","library(car)"
+"0","qqPlot(muestra, distribution=""t"", df=4, id=FALSE)"

@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Variables Aleatorias}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Distribuci\IeC {\'o}n Poisson}{2}{0}{1}
+\beamer@subsubsectionintoc {1}{1}{1}{La distribuci\IeC {\'o}n Poisson como ``l\IeC {\'\i }mite'' de una binomial.}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Distribuci\IeC {\'o}n hipergeom\IeC {\'e}trica}{14}{0}{1}
+\beamer@subsubsectionintoc {1}{2}{1}{Resumen v.a con distribuci\IeC {\'o}n hipergeom\IeC {\'e}trica $H(N,M,n)$}{15}{0}{1}

@@ -1,0 +1,32 @@
+\frametitle{Ejemplo}
+\red{$\displaystyle \left] \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2},
+\frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}
+\right[$}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#cuantiles}
+\hlstd{alpha}\hlkwb{=}\hlnum{0.05}
+\hlkwd{qchisq}\hlstd{(alpha}\hlopt{/}\hlnum{2}\hlstd{,n}\hlopt{-}\hlnum{1}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 16.04707
+\end{verbatim}
+\begin{alltt}
+\hlkwd{qchisq}\hlstd{(}\hlnum{1}\hlopt{-}\hlstd{alpha}\hlopt{/}\hlnum{2}\hlstd{,n}\hlopt{-}\hlnum{1}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 45.72229
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\medskip
+
+
+$\alpha=0.05$:
+
+$$
+\chi_{29,0.975}^2=45.72,\
+\chi_{29,0.025}^2=16.05
+$$

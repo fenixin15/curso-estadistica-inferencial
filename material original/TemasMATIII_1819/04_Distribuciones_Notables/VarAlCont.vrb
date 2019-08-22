@@ -1,0 +1,20 @@
+\frametitle{Exemple}
+\blue{Llençam 100 vegades una moneda amb probabilitat de cara $\frac{1}{2}$.
+Probabilitat de treure entre 40 i 49 cares?}
+\bigskip
+
+ $X$=nombre de cares en 100 llançaments d'una moneda
+ \medskip
+
+$X$  és $B(100,0.5)$
+ \medskip
+
+
+
+ Demanen $P(40\leq X\leq 49)$
+ \medskip
+
+\begin{verbatim}
+> pbinom(49,100,0.5)-pbinom(39,100,0.5)
+[1] 0.4426053
+\end{verbatim}

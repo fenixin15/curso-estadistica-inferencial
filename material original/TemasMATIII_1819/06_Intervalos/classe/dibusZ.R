@@ -1,0 +1,6 @@
+curve(dnorm,-4,4,lwd=2,main=expression(Rebutjam~H[0]))
+abline(v=1.64,lty=2)
+text(1.9,0.35,labels=expression(z[1-alpha]))
+text(2.4,0.22,labels="Z",col="red",lwd=4,cex=1.5)
+arrows(2.4,0.2,2.4,dnorm(2.4),col="red",lwd=4)
+polygon(c(1.64,seq(1.64,4,0.0001)),c(0,dnorm(seq(1.64,4,0.0001))),col="light blue")

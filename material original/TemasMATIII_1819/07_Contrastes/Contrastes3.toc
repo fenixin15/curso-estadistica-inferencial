@@ -1,0 +1,11 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Dues mostres independents}{2}{1}{1}
+\beamer@subsectionintoc {1}{1}{Z-test}{4}{1}{1}
+\beamer@subsectionintoc {1}{2}{T-test}{9}{1}{1}
+\beamer@subsectionintoc {1}{3}{Fisher-test}{19}{1}{1}
+\beamer@subsectionintoc {1}{4}{Prop-test}{24}{1}{1}
+\beamer@subsectionintoc {1}{5}{Var-test}{36}{1}{1}
+\beamer@sectionintoc {2}{Dues mostres aparellades}{49}{1}{2}
+\beamer@subsectionintoc {2}{1}{Contrast per a dues $\mu $}{52}{1}{2}
+\beamer@subsectionintoc {2}{2}{Contrast per a dues proporcions}{56}{1}{2}

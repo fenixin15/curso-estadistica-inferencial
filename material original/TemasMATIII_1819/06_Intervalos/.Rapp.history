@@ -1,0 +1,10 @@
+ICZ.exact=function(x,sigma,n=length(x),conf.level=0.95){#
+if(length(x)==1){INT=c(x-qnorm(1-(1-conf.level)/2)*sigma/sqrt(n), #
+     x+qnorm(1-(1-conf.level)/2)*sigma/sqrt(n))}	#
+INT=c(mean(x)-qnorm(1-(1-conf.level)/2)*sigma/sqrt(length(x)), #
+     mean(x)+qnorm(1-(1-conf.level)/2)*sigma/sqrt(length(x)))#
+data.frame(Mean=mean(x),Size=n,Lower=INT[1],Upper=INT[2],Conf.Level=conf.level)     #
+     }
+ICZ.exact(rnorm(10,2,3),0.28)
+ICZ.exact(2,0.28,10)
+ICZ.exact(2,0.28)

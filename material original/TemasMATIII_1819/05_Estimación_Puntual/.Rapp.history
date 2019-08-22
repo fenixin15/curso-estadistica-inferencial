@@ -1,0 +1,60 @@
+prob=c()#
+for (i in 1:250){#
+prob=c(prob,prod((250:(250-i+1))/rep(250,i))		#
+}#
+plot(prob)
+prob=c()#
+for (i in 1:250){#
+prob=c(prob,prod((250:(250-i+1))/rep(250,i)))		#
+}#
+plot(prob)
+prob=c()#
+for (i in 1:200){#
+prob=c(prob,prod((250:(250-i+1))/rep(250,i)))		#
+}#
+plot(prob)
+prob=c()#
+for (i in 1:100){#
+prob=c(prob,prod((250:(250-i+1))/rep(250,i)))		#
+}#
+plot(prob)
+prob=c()#
+for (i in 1:100){#
+prob=c(prob,prod((12000:(12000-i+1))/rep(12000,i)))		#
+}#
+plot(prob)
+prob=c()#
+for (i in 1:250){#
+prob=c(prob,prod((12000:(12000-i+1))/rep(12000,i)))		#
+}#
+plot(prob)
+prob=c()#
+for (i in 1:400){#
+prob=c(prob,prod((12000:(12000-i+1))/rep(12000,i)))		#
+}#
+plot(prob)
+prob=c()#
+for (i in 1:500){#
+prob=c(prob,prod((12000:(12000-i+1))/rep(12000,i)))		#
+}#
+plot(prob)
+prob=c()#
+for (i in 1:500){#
+prob=c(prob,prod((12000:(12000-i+1))/rep(12000,i)))		#
+}#
+plot(prob,pch=21)
+prob=c()#
+for (i in 1:500){#
+prob=c(prob,prod((12000:(12000-i+1))/rep(12000,i)))		#
+}#
+plot(prob,pch=20)
+plot(prob,pch=20,main="Probabilitat que si triam n estudiants de la UIB\n siguin tots diferents",xlab="n",ylab="prob")
+sqrt((12000-800)/(12000-1))
+0.2/sqrt(50)
+pnorm(-2)
+pnorm(0.8)-pnorm(-0.8)
+pnorm(117,115,2.5)-pnorm(113,115,2.5)
+1/(2*sqrt(727))
+92/172
+(0.535-0.593)/0.064
+pnorm(-0.90625)

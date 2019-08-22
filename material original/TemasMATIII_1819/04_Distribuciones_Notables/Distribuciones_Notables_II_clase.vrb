@@ -1,0 +1,13 @@
+\frametitle{Ejercicio: Alquiler  vacacional}
+
+La empresa \textsl{Alquilo Beds} (AB)   es un servico de alquiler de aprtamentos vacacionales por internet.
+
+El número de alquileres  en  el pueblo de la Colonia de Sant Antoni  por día a través de AB es de  $1.5$.
+$X_t=$ número de partamentos aquilados en $t$ días, supongamos que es $Po(1.5\cdot t)$.
+
+\begin{itemize}
+\item ¿Cuál es la probabilidad de que en una semana  no se alquile ningún apartamento a través de AB?
+$X_7$ es $Po(10.5)$.
+
+$P(X_7=0)=\frac{10.5^0}{0!}\cdot e^{-10.5}=e^{-10.5}=`r round(dpois(0,10.5),7)`$
+\end{itemize}

@@ -1,0 +1,253 @@
+# (PART\*) Parte II: Estadística inferencial {-}
+
+# Distribuciones de probabilidad {#chap:distr}
+
+R conoce los tipos de distribución de probabilidad más importantes, incluyendo las que mostramos en la  tabla siguiente: 
+
+
+```{r, echo=FALSE}
+df.aux=cbind( 
+Distribución=c("Binomial",
+"Geométrica",
+"Hipergeomètrica",
+"Poisson",
+"Uniforme",
+"Exponencial",
+"Normal",
+"Khi cuadrado",
+"t de Student",
+"F de Fisher"),
+Nombre=c("binom","geom","hyper","pois","unif","exp","norm","chisq","t","f"),
+Parámetros=c("medida de la muestra, probabilidad de éxito",
+"probabilidad",
+"N,M,n",
+"Esperanza",
+"mínimo, máximo",
+"lambda",
+"media, desviación típica",
+"grados de libertad",
+"grados de libertad",
+"los dos grados de libertad")
+)
+```
+
+```{r dist, include=FALSE}
+knitr::kable(
+df.aux,
+  caption = 'Nombres de distribuciones en R', booktabs = FALSE
+)
+```
+
+
+$$
+\begin{array}{lll}
+\hline
+\textbf{Distribución} & {\textbf{Nombre en R}} & {\textbf{Parámetros}}\\ \hline
+\mbox{Binomial} &{\texttt{binom}} & \mbox{medida de la muestra $n$, probabilidad $p$}\\
+\mbox{Geométrica} & {\texttt{geom}} & \mbox{$p$}\\
+\mbox{Hipergeométrica} & {\texttt{hyper}} & \mbox{tamaño de la población $N$, número poblacional}\\[-0.75ex] 
+& & \mbox{de éxitos $M$, tamaño de la muestra $n$}\\
+\mbox{Poisson} & {\texttt{pois}} & \mbox{esperanza $\lambda$}\\
+\mbox{Uniforme} & {\texttt{unif}} & \mbox{mínimo, máximo}\\
+\mbox{Exponencial} & {\texttt{exp}} & \lambda\\
+\mbox{Normal} & {\texttt{norm}} & \mbox{media $\mu$, desviación típica $\sigma$}\\
+\mbox{Khi cuadrado} & {\texttt{chisq}} & \mbox{número de grados de libertad $df$}\\
+\mbox{t de Student} & {\texttt{t}} & \mbox{número de grados de libertad $df$}\\
+\mbox{F de Fisher} & {\texttt{f}} & \mbox{los dos números de  grados de libertad}
+\\ \hline
+\end{array}
+$$
+
+Para cada una de estas distribuciones, R sabe calcular cuatro funciones, que se obtienen añadiendo un prefijo al nombre de la distribución: 
+
+* La función de densidad, con el prefijo **d**.
+
+* La función de distribución de probabilidad, con el prefijo **p**; esta función dispone además del parámetro `lower.tail` que igualado a `FALSE` calcula la **función de distribución de cola superior**: la probabilidad de que una variable aleatoria con esta distribución de probabilidad tome un valor estrictamente mayor que uno dado.
+
+* Los cuantiles, con el prefijo **q**.
+
+* Vectores de números aleatorios con esta distribución, con el prefijo **r**.
+
+La función correspondiente se aplica entonces al valor sobre el que queremos calcular la función y a los parámetros de la distribución (en este orden, y los parámetros en el orden en que los damos en la tabla anterior, cuando hay más de uno).
+
+Por ejemplo, sea $X$ una variable aleatoria binomial $B(20,0.3)$, es decir,  de tamaño $n=20$ y probabilidad $p=0.3$,  y sean $f_X$ su función de densidad y $F_X$ su función de distribución. Calculemos algunos valores de funciones asociadas a esta variable aleatoria.
+
+* $f_X(5)=P(X=5)$:
+
+```{r}
+dbinom(5,20,0.3)
+```
+
+|        Comprobémoslo, recordando que si $X\sim B(n,k)$, entonces $P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}$:
+
+```{r}
+choose(20,5)*0.3^5*0.7^15
+```
+
+
+
+* $f_X(8)=P(X=8)$:
+
+```{r}
+dbinom(8,20,0.3)  
+```
+
+* $F_X(5)=P(X\leq 5)$:
+```{r}
+pbinom(5,20,0.3)  
+```
+
+|        Comprobémoslo, usando que $P(X\leq 5)=\sum_{k=0}^5 P(X=k)$:
+
+```{r}
+sum(dbinom(0:5,20,0.3))
+```
+
+
+* $F_X(8)=P(X\leq 8)$:
+
+```{r}
+pbinom(8,20,0.3)  
+```
+
+* $P(X>8)$
+
+```{r}
+pbinom(8,20,0.3,lower.tail=FALSE)
+```
+
+|        En efecto:
+
+```{r}
+
+1-pbinom(8,20,0.3)
+```
+
+
+
+* El cuantil de orden $0.5$ de $X$, o sea, su **mediana**: el valor $x$ más pequeño tal que $P(X\leq x)\geq 0.5$
+
+```{r}
+qbinom(0.5,20,0.3)  
+```
+
+|        Comprobemos que $P(X\leq `r qbinom(0.5,20,0.3)`)\geq 0.5$ y en cambio $P(X\leq `r qbinom(0.5,20,0.3)-1`)< 0.5$:
+
+```{r}
+pbinom(qbinom(0.5,20,0.3),20,0.3) 
+pbinom(qbinom(0.5,20,0.3)-1,20,0.3) 
+```
+
+
+* El cuantil de orden $0.25$ de $X$, es decir, su **primer cuartil**:
+
+
+```{r}
+qbinom(0.25,20,0.3)  
+```
+
+* Un vector aleatorio de 10 valores generado con la variable aleatoria $X$:
+
+```{r}
+rbinom(10,20,0.3)
+```
+
+* Dos vectores aleatorios más, de 10 valores cada uno, generados con la variable aleatoria $X$:
+
+
+```{r}
+rbinom(10,20,0.3) 
+rbinom(10,20,0.3)
+```
+
+
+
+Del mismo modo, si estamos trabajando con una variable aleatoria $Y$ de Poisson con parámetro $\lambda=5$:
+
+
+* $P(Y=8)$:
+
+```{r}
+dpois(8,5) 
+```
+
+
+* $P(Y\leq 8)$:
+
+```{r}
+ppois(8,5) 
+```
+
+* El cuantil de orden 0.6 de $Y$:
+
+```{r}
+qpois(0.6,5)
+```
+
+* Un vector aleatorio de 20 valores generado con la variable aleatoria $Y$:
+
+```{r}
+rpois(20,5)
+```
+
+
+Si no entramos ningún parámetro en las funciones asociadas a la distribución normal, R entiende que se trata de la normal estándar (con media $\mu=0$ y desviación típica $\sigma=1$): por ejemplo, las dos instrucciones siguientes nos dan el valor $f_Z(0.3)$ de la función densidad de una normal estándar $Z$ aplicada a 0.3 (que *no* es igual a $P(Z=0.3)$):
+
+```{r}
+dnorm(0.3)
+dnorm(0.3,0,1)
+```
+
+Las funciones densidad y distribución de una variable aleatoria se pueden dibujar con la función `curve`.
+
+```{r, fig.cap="Función densidad de una variable N(0,1)"}
+curve(dnorm(x,0,1.5),-5,5,xlab="",ylab="",main="")
+```
+
+```{r, fig.cap="Función distribución de una variable N(0,1)"}
+curve(pnorm(x,0,1.5),-5,5,xlab="",ylab="",main="")
+```
+
+## Ejercicios
+
+
+#### Modelo de test {-}
+
+*(1)* Sea $f$ la función de densidad de una variable aleatoria normal con $\mu=0.2$ y $\sigma=1.2$. Dad el valor de $f(0.5)$ redondeado a 4 cifras decimales. 
+
+*(2)* Sea $X$ una variable aleatoria normal con $\mu=0.2$ y $\sigma=1.2$. Dad el valor de $P(3\leq X\leq 7)$ redondeado a 4 cifras decimales. 
+
+*(3)* Sea $X$ una variable aleatoria $B(10,0.2)$. Dad el valor de $P(3\leq X\leq 7)$ redondeado a 4 cifras decimales. 
+
+*(4)* Dad una instrucción que calcule la mediana de una lista de 20 números aleatorios generados con distribución $B(10,0.2)$. No deis el resultado, solo la instrucción.
+
+
+
+
+#### Respuestas al test {-}
+
+*(1)* `r round(dnorm(0.5,0.2,1.2),4)`
+
+```{r,include=FALSE}
+#(Lo hemos calculado con `round(dnorm(0.5,0.2,1.2),4)`)
+```
+
+*(2)* `r round(pnorm(7,0.2,1.2)-pnorm(3,0.2,1.2),4)`
+
+```{r,include=FALSE}
+#(Lo hemos calculado con `round(pnorm(7,0.2,1.2)-pnorm(3,0.2,1.2),4)`)
+```
+
+*(3)* `r round(pbinom(7,10,0.2)-pbinom(2,10,0.2),4)`
+
+```{r,include=FALSE}
+#(Lo hemos calculado con `round(pbinom(7,10,0.2)-pbinom(2,10,0.2),4)`. También obtenemos el resultado correcto con `round(sum(dbinom(3:7,10,0.2)),4)`. En cambio, con  `round(pbinom(7,10,0.2)-pbinom(3,10,0.2),4)` no se obtiene el resultado correcto: da `r round(pbinom(7,10,0.2)-pbinom(3,10,0.2),4)`. Pensad por qué aquí hay que restar `pbinom(2,10,0.2)` y en la pregunta anterior restábamos `pnorm(3,0.2,1.2)`.)
+```
+
+*(4)* `median(rbinom(20,10,0.2))`
+
+```{r,include=FALSE}
+#(También sería correcto `median(rbinom(20,size=10,prob=0.2))`, pero no es necesario dar los nombres de los parámetros si entráis sus valores en el orden correcto, y por eso no los hemos explicado.)
+```
+
+

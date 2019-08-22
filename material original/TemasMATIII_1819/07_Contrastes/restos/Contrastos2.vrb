@@ -1,0 +1,22 @@
+\frametitle{Amb R}
+
+El $\chi^2$-test està implementat en R en la funció \texttt{sigma.test} del paquet \texttt{TeachingDemos}
+
+{\small
+\begin{verbatim}
+> library("TeachingDemos")
+> sigma.test(x,sigma=80,alternative="two.sided",
+conf.level=0.95)
+
+     One sample Chi-squared test for variance
+data:  x
+X-squared = 8.5945, df = 9, p-value = 0.951
+alternative hypothesis: true variance is not equal
+ to 6400
+95 percent confidence interval:
+  2891.53 20369.25
+sample estimates:
+var of x
+6111.656
+\end{verbatim}
+}

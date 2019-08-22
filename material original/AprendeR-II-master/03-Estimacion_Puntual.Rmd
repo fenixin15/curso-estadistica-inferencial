@@ -1,0 +1,204 @@
+# Estimación puntual {#estimacion}
+
+En un estudio inferencial, una vez tomada la muestra y obtenidos los datos sobre sus miembros, el siguiente paso es inferir, es decir, deducir información sobre la población a partir de estos datos. Dicha información se puede deducir de dos formas:
+
+* Suponiendo que conocemos el **modelo** al que se ajusta la población: es decir, suponiendo que conocemos el tipo de distribución de la variable aleatoria que modela la característica de la población en la que estamos interesados, pero desconocemos uno o varios parámetros de los que depende dicha distribución (observad que si lo sabemos todo sobre esta distribución, ya no hace falta tomar muestras para inferir algo sobre ella). Así, podemos saber (o suponer) que las longitudes de los ejemplares adultos de una cierta especie se distribuyen según una variable aleatoria normal, pero desconocer sus parámetros $\mu$ (media) y $\sigma$ (desviación típica), y usar este conocimiento para inferir información sobre dichas longitudes a partir de las de una muestra: por ejemplo, para estimar con un cierto margen de error su longitud media. Si estamos en este caso, hablaremos de **estimación paramétrica**.
+
+* Suponiendo que desconocemos qué tipo de distribución tiene la variable aleatoria que modela la característica que nos interesa (aunque a veces necesitaremos saber algo de esta distribución; por ejemplo, si es simétrica o no). En este caso, hablaremos de **estimación no paramétrica**.
+
+En ambos casos, existen tres vías para obtener información sobre los parámetros de la distribución (conocida o desconocida) de la variable aleatoria que nos interesa:
+
+* **Estimación puntual**. Se trata de obtener expresiones matemáticas, llamadas **estimadores puntuales**, que aplicadas a los valores de una muestra nos dan una aproximación (el término exacto es una **estimación**) del valor de dicho parámetro para la población. A modo de ejemplo, la media aritmética de los datos $x_1,\ldots,x_n$ de una muestra,
+$$
+\overline{x}=\frac{x_1+\cdots +x_n}{n},
+$$
+es un estimador del **valor medio** (**valor esperado**, **esperanza**) de la variable aleatoria de la que hemos extraído la muestra.
+
+* **Estimación por intervalos de confianza**. Se trata de obtener intervalos que contengan con probabilidad alta el parámetro objeto de estudio. Trataremos este tema en la Lección \@ref(chap:IC). 
+
+* **Contraste de hipótesis**. *Grosso modo*, se establecen dos hipótesis opuestas sobre el parámetro o, más en general, sobre la distribución de la variable aleatoria, y se contrastan para intentar decidir cuál es la verdadera. Los estudiaremos en próximas lecciones. 
+
+
+En esta lección hablaremos de la estimación puntual. Para empezar, es obvio que no toda fórmula matemática sirve para estimar de manera sensata el valor de un parámetro. Por ejemplo, si queréis estimar la media de las alturas de los habitantes de una población y disponéis de una muestra aleatoria de las mismas, no tomáis la raíz cuadrada de la altura máxima en la muestra como  estimación de la altura media de la población, ¿verdad? Lo que habéis hecho toda la vida, y seguiréis haciendo en este curso, ha sido calcular la media de las alturas en la muestra y dar ese valor como estimación de la altura media poblacional. Y es lo correcto, porque la media muestral es siempre un estimador **insesgado** de la media poblacional y muy a menudo es además su estimador **máximo verosímil**, Veamos qué significan estas propiedades.
+
+* **Insesgado**: Los valores de un estimador sobre muestras aleatorias de una población forman una variable aleatoria con una distribución de probabilidad propia, llamada genéricamente  **muestral**. Decimos entonces que un estimador es **insesgado** cuando el valor esperado de la variable aleatoria que define coincide con el valor del parámetro poblacional que se quiere estimar. Por ejemplo, si se toman muestras aleatorias con o sin reposición, la media muestral es siempre un estimador insesgado del valor medio poblacional: su valor esperado es el valor medio poblacional.
+
+* **Máximo verosímil**: Cada muestra aleatoria de una población tiene una probabilidad de obtenerse que no solo depende de la muestra, sino también de la distribución de probabilidad de la variable aleatoria poblacional. Si la distribución poblacional es de un tipo concreto (Bernoulli, normal, ...), esta probabilidad depende de sus parámetros. Decimos entonces que un estimador es **máximo verosímil** cuando el resultado que da sobre cada muestra aleatoria es el valor del parámetro poblacional que maximiza la probabilidad de obtenerla. Por ejemplo, si lanzamos una moneda al aire $n$ veces y calculamos la proporción de veces que obtenemos cara, esa **proporción muestral** $\widehat{p}$ es el estimador máximo verosímil de la probabilidad $p$ de obtener cara con esa moneda. Esto quiere decir que, de entre todas las distribuciones binomiales $B(n,p)$ que pueden modelar el número de caras que obtenemos al lanzar $n$ veces nuestra moneda, aquella que asigna mayor probabilidad al número de caras que hemos obtenido es la que tiene como parámetro $p$ la frecuencia relativa de caras $\widehat{p}$ que hemos observado.
+
+Para algunas distribuciones, el método de máxima verosimilitud de estimación de sus parámetros da lugar a fórmulas cerradas más o menos sencillas, pero en otros casos nos tenemos que conformar con un valor aproximado obtenido mediante algún método numérico.
+
+
+## Estimación máximo verosímil
+
+
+A continuación recordamos una lista de los estimadores máximo verosímiles de los parámetros de las distribuciones más comunes a partir de una muestra aleatoria simple:
+
+* Para la familia Bernoulli, el estimador máximo verosímil del parámetro $p$ es la proporción muestral de éxitos $\widehat{p}$. Este estimador es además insesgado.
+
+*  Para la familia Poisson, el estimador máximo verosímil  del parámetro $\lambda$ es la media muestral $\overline{X}$. Este estimador es de nuevo  insesgado.
+
+*  Para la familia geométrica, el estimador máximo verosímil del parámetro $p$ es ${1}/{\overline{X}}$. Este estimador es sesgado.
+
+*   Para la familia exponencial, el estimador máximo verosímil del parámetro $\lambda$ es ${1}/{\overline{X}}$. Este estimador también es sesgado.
+
+*  Para la familia normal, los  estimadores máximo verosímiles de la media $\mu$, la desviación típica $\sigma$ y la varianza $\sigma^2$ son, respectivamente, la media muestral $\overline{X}$, la desviación típica "verdadera" $S_X$ y la varianza "verdadera" $S_X^2$. Además, $\overline{X}$ es un estimador insesgado de $\mu$. La varianza verdadera $S_X^2$ no es un estimador insesgado de  $\sigma^2$, pero sí que lo es la varianza muestral $\widetilde{S}^2$. Y ninguna de las dos desviaciones típicas, ni la  "verdadera" $S_X$ ni la muestral $\widetilde{S}_X$, es un estimador  insesgado de $\sigma$; si necesitáis un estimador insesgado de la desviación típica de una variable aleatoria normal a partir de una muestra aleatoria simple, lo podéis encontrar en la [correspondiente entrada de la Wikipedia](http://en.wikipedia.org/wiki/Unbiased_estimation_of_standard_deviation). No obstante, el beneficio de usar este estimador insesgado no suele compensar lo complicado de su cálculo.
+
+
+Cuando se estima algún parámetro de una distribución a partir de una muestra, es conveniente aportar el **error típico**, o **estándar**,  como medida de la finura de la estimación. Recordemos que el **error típico de un estimador** es la desviación típica de su distribución muestral, y que el **error típico de una estimación** a partir de una muestra es la estimación del error típico del estimador usando dicha muestra. Como veremos en la próxima lección, estos errores típicos serán una ingrediente clave en el cálculo de intervalos de confianza.
+
+Veamos un ejemplo sencillo.  Supongamos que tenemos una muestra aleatoria simple de tamaño $n$ de una variable $X$ que sigue una distribución Bernoulli de probabilidad poblacional $p$ desconocida que queremos estimar. Por ejemplo, puede ser que tengamos una moneda posiblemente trucada, la hayamos lanzado 100 veces al aire y hayamos anotado los resultados (1, cara, 0, cruz), y a partir de este experimento queramos estimar la probabilidad de sacar cara con esta moneda. O que hayamos anotado para 100 individuos de una población  elegidos al azar si tienen o no una determinada enfermedad (1 significa que sí, 0 que no) y a partir de esta muestra deseemos estimar la **prevalencia** de la enfermedad en la población, es decir, la proporción real de enfermos, que coincide con la probabilidad de que un individuo elegido al azar tenga dicha enfermedad. Tomemos, para fijar ideas, la siguiente muestra de tamaño 100:
+
+```{r}
+x=c(0,1,1,1,0,0,0,0,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,1,0,1,0,0,0,
+0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,
+1,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0)
+```
+
+En este caso, podemos estimar $p$ mediante la proporción muestral de éxitos $\widehat{p}$, que coincide con la media muestral. El error típico de este estimador es $\sqrt{p(1-p)/n}$, y el error típico de una estimación concreta es $\sqrt{\widehat{p}(1-\widehat{p})/n}$. Por lo tanto, a mano podemos estimar $p$ y calcular el error típico de dicha estimación de la manera siguiente:
+
+```{r}
+n=length(x)  #Tamaño de la muestra
+estim.p=mean(x)  #Proporción muestral
+estim.p
+error.tip.p=sqrt(estim.p*(1-estim.p)/n) #Error típico de la estimación
+error.tip.p
+```
+
+De esta manera, estimamos que $p$=`r estim.p`  con un error típico de `r round(error.tip.p,2)`.
+
+
+
+
+Con R podemos estimar un parámetro de una distribución por el método de máxima verosimilitud a partir de una muestra y además obtener el error típico de dicha estimación usando la función `fitdistr` del paquete **MASS**.  Esta función calcula los estimadores máximo verosímiles de los parámetros de la mayoría de las familias de distribuciones disponibles en R.
+
+Su  sintaxis básica es
+
+```{r, eval=FALSE}
+fitdistr(x, densfun=..., start=...)
+```
+
+donde
+
+*  `x` es la muestra, un vector numérico.
+
+*  El valor de `densfun` ha de ser el nombre de la familia de distribuciones; se tiene que entrar  entre comillas y puede tomar, entre otros, los valores siguientes: `"chi-squared"`, `"exponential"`, `"f"`, `"geometric"`,  `"lognormal"`,  `"normal"` y `"poisson"`.  La lista de distribuciones a las que se puede aplicar, que podéis consultar en la Ayuda de la función, no incluye la Bernoulli ni la binomial.
+
+*  Si `fitdistr` no dispone de una fórmula cerrada para el estimador  máximo verosímil de algún parámetro, usa un algoritmo numérico para aproximarlo que requiere de un valor inicial para arrancar. Este valor (o valores) se puede especificar igualando el parámetro `start` a una `list` con cada parámetro a estimar igualado a un valor inicial.  Para algunas distribuciones, como la `"t"`,  `fitdistr` sabe tomar valores iniciales razonables, y no es necesario especificar el parámetro `start`. Pero para otras distribuciones, como por ejemplo la `"chi-squared"`, es obligatorio especificarlo. Para las distribuciones que disponen de fórmula cerrada, como la `"normal"` o la  `"poisson"`,  se tiene que omitir el parámetro `start`. 
+
+Como no podemos usar `fitdistr` para estimar el parámetro $p$ de una Bernoulli (los autores del paquete debieron de considerar que era más fácil estimarlo directamente), vamos a usarla en otro ejemplo. Consideremos la siguiente muestra *y* de 100 valores generados con distribución de Poisson de parámetro $\lambda=10$:
+
+```{r}
+set.seed(100) 
+y=rpois(100,10)
+set.seed(NULL) 
+y
+```
+
+Vamos a estimar el parámetro $\lambda$ de una distribución Poisson que haya generado este vector:
+
+```{r}
+library(MASS)
+fitdistr(y, densfun="poisson")
+```
+
+El resultado dice que el valor estimado de  $\lambda$ es `r round(fitdistr(y, densfun="poisson")$estimate, 2)`, con un error típico en esta estimación de   `r round(fitdistr(y, densfun="poisson")$sd, 2)`. Veámoslo directamente:  el estimador máximo verosímil de $\lambda$ es la media aritmética $\overline{X}$ y el error típico de este estimador es $\sqrt{\lambda}/\sqrt{n}$ (recordad que la desviación típica de una Poisson de parámetro $\lambda$ es $\sqrt{\lambda}$ y que el error típico de la media muestral es la desviación típica poblacional dividida por la raíz cuadrada del tamaño de la muestra), por lo que el error típico de una estimación es  $\sqrt{\overline{X}}/\sqrt{n}$.
+
+```{r}
+mean(y)
+sqrt(mean(y)/length(y))
+```
+
+También podemos  estimar la media y la desviación típica de una variable normal que hubiera producido esta muestra.
+
+```{r}
+fitdistr(y, densfun="normal")
+```
+
+Observad que la estimación de la desviación típica que nos da `fitdistr` es la desviación típica "verdadera" (que es su estimador máximo verosímil) y no la muestral:
+
+```{r}
+sd(y)
+sqrt((length(y)-1)/length(y))*sd(y)
+```
+
+Vamos a estimar ahora el número de grados de libertad de una t de Student que hubiera producido esta muestra.
+
+```{r}
+fitdistr(y, densfun="t")
+```
+
+¡Vaya!, aparte del número de grados de libertad, `df`, han aparecido parámetros que no esperábamos. Los parámetros `m` y `s` son los parámetros  de posición, $\mu$, y de escala, $\sigma$, respectivamente, que definen una familia más general de distribuciones  t de Student (si os interesa, consultad esta [entrada de la Wikipedia](http://en.wikipedia.org/wiki/Noncentral_t-distribution)). Las que usamos en este curso tienen $\mu=0$ y $\sigma=1$.  ¿Cómo podríamos estimar los grados de libertad de una t de Student de las nuestras? Especificando dentro de `fitdistr` los valores de los parámetros que queremos que tomen un valor concreto:  en este caso, añadiendo `m=0` y `s=1`.
+
+```{r ,error=TRUE}
+fitdistr(y, densfun="t", m=0, s=1)
+```
+
+
+Ahora R nos pide que demos un valor inicial al número de grados de libertad,  `df`, para poder arrancar el algoritmo numérico que usará.
+Vamos a inicializarlo a 1, y de paso veremos cómo se usa este parámetro:
+
+```{r,error=TRUE,warning=TRUE}
+fitdistr(y, densfun="t",m=0,s=1,start=list(df=1))
+```
+
+
+Obtenemos un número estimado de  grados de libertad de la t de Student de aproximadamente `r round(fitdistr(y, densfun="t",m=0,s=1,start=list(df=1))$estimate,2)` grados de libertad (sí, los grados de libertad de una t de Student pueden ser un número real positivo cualquiera).
+Por otro lado, R nos avisa de que el resultado es poco de fiar, pero tampoco nos importa mucho, porque el objetivo era mostrar un ejemplo de cómo fijar valores de parámetros, igualándolos a dichos valores, y cómo especificar el parámetro `start`, como una `list` donde asignamos a cada parámetro un valor inicial.
+
+El resultado de  `fitdistr` es una `list`, y por lo tanto el
+ valor de cada estimador y su error típico se pueden obtener con los sufijos adecuados. En concreto, los valores estimados forman la componente `estimate` y los errores típicos la componente `sd`. Para obtenerlos directamente, basta usar los sufijos `$estimate` y `$sd`, respectivamente:
+ 
+```{r}
+fitdistr(y,"poisson")$estimate  #Estimación de lambda
+fitdistr(y,"poisson")$sd   #Error típico
+fitdistr(y,"normal")$estimate  #Estimaciones 
+fitdistr(y,"normal")$estimate[1]  #Estimación de mu
+fitdistr(y,"normal")$estimate[2]  #Estimación de sigma
+```
+
+
+## Guía rápida
+
+*  `fitdistr` del paquete **MASS**, sirve para calcular los estimadores  máximo verosímiles  de los parámetros de una distribución a partir de una muestra. El resultado es una `list` que incluye los objetos `estimate` (los valores estimados) y `sd` (los errores típicos de las estimaciones). Sus parámetros principales son:
+
+     * `densfun`: el nombre de  la familia de distribuciones, entre comillas.
+     * `start`: permite fijar el valor inicial del algoritmo numérico para calcular el estimador, si la función lo requiere.
+
+
+
+## Ejercicios
+
+
+#### Modelo de test {-}
+
+*(1)* Las distribuciones de Weibull tienen dos parámetros, forma, `shape`, y escala, `scale`.  Supongamos que los datos siguientes siguen una distribución de Weibull: 2.46, 2.28, 1.7, 0.62, 0.87, 2.81, 2.35, 2.08, 2.11, 1.72. Calculad el estimador máximo verosímil del parámetro de escala de esta distribución, redondeado a 3 cifras decimales. Tenéis que dar el resultado (sin ceros innecesarios a la derecha), no cómo lo habéis calculado.
+
+*(2)* Generad, con semilla de aleatoriedad igual a 42,  una secuencia aleatoria de 100 valores con distribución geométrica Ge(0.6). A continuación estimad por máxima verosimilitud el parámetro $p$ de una distribución geométrica que haya generado dicha muestra y dad como respuesta a esta pregunta *el error típico de esta estimación* redondeado a 3 cifras decimales. Tenéis que dar el resultado (sin ceros innecesarios a la derecha), no cómo lo habéis calculado.
+
+
+
+
+#### Respuestas al test {-}
+
+
+*(1)* `r round(fitdistr(c(2.46, 2.28, 1.7, 0.62, 0.87, 2.81, 2.35, 2.08, 2.11, 1.72),"weibull")$estimate[2],3)`
+
+```{r,include=FALSE}
+#Podemos obtener la respuesta con
+x=c(2.46, 2.28, 1.7, 0.62, 0.87, 2.81, 2.35, 2.08, 2.11, 1.72)
+round(fitdistr(x,"weibull")$estimate,3)
+```
+
+*(2)* `r set.seed(42); round(fitdistr(rgeom(100,0.6),"geometric")$sd,3)`
+
+```{r,include=FALSE}
+#Podemos obtener la respuesta con
+set.seed(42)
+x=rgeom(100,0.6)
+round(fitdistr(x,"geometric")$sd,3)
+```
+
+```{r, include=FALSE}
+set.seed(NULL)
+```
+

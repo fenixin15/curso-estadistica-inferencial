@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Estimaci\IeC {\'o} puntual}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Definicions b\IeC {\`a}siques}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Mitjana mostral}{14}{0}{1}
+\beamer@subsectionintoc {1}{3}{Proporci\IeC {\'o} mostral}{28}{0}{1}
+\beamer@subsectionintoc {1}{4}{Vari\IeC {\`a}ncia mostral}{36}{0}{1}
+\beamer@subsectionintoc {1}{5}{Propietats dels estimadors}{47}{0}{1}

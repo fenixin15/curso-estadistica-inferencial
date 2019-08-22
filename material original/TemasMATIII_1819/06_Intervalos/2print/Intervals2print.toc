@@ -1,0 +1,11 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Intervals de confian\IeC {\c c}a}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Definicions b\IeC {\`a}siques}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{$\mu $ de poblaci\IeC {\'o} normal amb $\sigma $ coneguda}{12}{0}{1}
+\beamer@subsectionintoc {1}{3}{$\mu $ de poblaci\IeC {\'o} normal amb $\sigma $ desconeguda}{28}{0}{1}
+\beamer@subsectionintoc {1}{4}{$\mu $ per a mostres grans}{37}{0}{1}
+\beamer@subsectionintoc {1}{5}{$p$ per a mostres petites}{45}{0}{1}
+\beamer@subsectionintoc {1}{6}{$p$ per a mostres grans}{47}{0}{1}
+\beamer@subsectionintoc {1}{7}{$\sigma $ de poblaci\IeC {\'o} normal}{59}{0}{1}
+\beamer@subsectionintoc {1}{8}{$N$ relativament petit}{65}{0}{1}

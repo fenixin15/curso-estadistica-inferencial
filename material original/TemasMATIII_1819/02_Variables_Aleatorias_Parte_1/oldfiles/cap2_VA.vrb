@@ -1,0 +1,18 @@
+
+\begin{figure}
+\begin{center}
+%\includegraphics{densidaduniforme}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{curve}\hlstd{(}\hlkwd{dunif}\hlstd{(x,}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{),}\hlkwc{xlim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{0.5}\hlstd{,}\hlnum{1.5}\hlstd{),}\hlkwc{col}\hlstd{=}\hlstr{"blue"}\hlstd{,}\hlkwc{main}\hlstd{=}\hlstr{"Densidad uniforme"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-1}
+
+\end{knitrout}
+\end{center}
+\caption{Función de densidad de una v.a. uniforme en el intervalo
+$(0,1)$}
+\end{figure}
+

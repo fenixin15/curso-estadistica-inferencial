@@ -1,0 +1,139 @@
+---
+title: 'Introducción: Ciencia de datos....'
+author: "Ricardo Alberich"
+date: "8 de enero de 2019"
+output:
+  ioslides_presentation: 
+    fig_caption: yes
+    incremental: yes
+    logo: ~/Documentos/AprendeR2.1/images/barplotSy.jpg
+    smaller: yes
+    transition: slower
+    widescreen: yes
+    css: mi.css
+  beamer_presentation: default
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# La ciencia de datos
+
+Explicar la situación de la ciencia de datos en informática.
+
+
+# El análisis estadístico en la Ciencia
+
+## Sobre la estadística y el método científico
+Algunas ideas sobre la  Estadística y el Método Científico:
+
+* La ciencia normal avanza definiendo teorías que intentan explicar el mundo.
+* Para ello  la comunidad científica elabora teorías y paradigmas que intentan explicar hechos concretos.
+* Cuando  alguien realiza un nuevo descubrimiento lo envía a una revisión por pares de la comunidad científica.
+* Si estos aceptan el descubrimiento pasa a engrosar  el cuerpo del conocimiento científico.
+
+## ¿Son las teorías científicas siempre ciertas?
+* No, las teorías científicas son aceptadas mientras sean la mejor explicación del mundo.
+* Cuando se descubre una anomalía en una de esas teorías se intenta elaborar otra que  resuelva este problema.
+* Por ejemplo de la teoría del éter a la física de Einsten.
+* De las teorías creacionistas o la generación espontánea a la teoría de la evolución de Darwin.
+
+## Principios básicos de las teorías científicas
+* Una hipótesis es científica si existe alguna manera para comprobar su veracidad.
+* La rama de la filosofía que estudia el cocimiento científico es la epistemología.
+* El filósofo Karl Popper (Viena 1902-1994) fundo la corriente epistemológica del falsacionismo.
+* Según esta corriente  constatar una teoría  significa intentar refutarla con un contraejemplo.
+
+## Principios básicos de las teorías científicas
+
+* Dicho de otro modo una teoría de la que no exista forma de realizar experiencias para comprobarla no es científica.
+* Es decir será ciencia normal si podemos plantear experimentos para comprobar si se cumplen las afirmaciones de la teoría.
+* Otros autores que han profundizado en la filosofía de la ciencia son Thomas Kuhn y Imre Lakatos.
+
+
+
+## El papel de la estadística en el método científico
+
+* La naturaleza tiene un comportamiento incierto.
+* Esto quiere decir que si repetimos bajo aproximadamente las mismas condiciones un experimento se obtienen resultados similares pero no idénticos.
+* La estadística puede analizar estos resultados y ver si las desviaciones de la teoría son razonables o no.
+* Un experimento estadístico es un proceso que cumple:
+1. Que tiene dos o más resultados posibles.
+2.  Del que conocemos todos los resultados posibles.
+3.  Del que no podemos predecir con certeza su resultado.
+4.  Del que podemos explicar sus resultados a largo plazo, es lo que se denomina principio de regularidad estadística.
+
+## La reproductibilidad en las investigaciones científicas
+
+* Hoy en día la investigación depende de numerosos factores: colaboración con muchos investigadores, acceso a los datos, métodos analíticos, laboratorios, programas, instrumentos....
+*  La posibilidad de que las investigaciones sean reproducibles es particularmente importante en los estudios que pueden influir en la decisión de políticas como las  ambientales, sanitarias...
+
+
+
+## La investigación reproducible
+
+* Muchos estudios no pueden ser replicados: falta de tiempo, falta de recursos, son únicos.
+* Las TIC han aumentado de forma exponencial el acceso a los datos, estos son más complejos y llegan a ser extremadamente multidimensionales.
+*  Existen bases de datos que puede unirse a otras todavía más grandes.
+* El poder computacional crece de forma incesante y  permite cada vez más sofisticados análisis.
+
+
+## ¿Qué es la investigación reproducible?
+* Los datos brutos (micro datos, raw data,...) están disponibles.
+* El código para leer estos datos es accesible.
+* El código de los programas está disponible
+* La documentación (artículo) incluye el accesos a los datos y a los programas.
+* La distribución de esta información se hace a través de métodos estándar.
+
+
+## Programación Literaria
+* Fue Donal E. Knuth el que introduce el concepto de Programación Literaria en 1983( \textsl{Literate Programming}).
+* Kunth crea el $\TeX$  y  la herramienta WEB. Que permiten hacer programación literaria.
+* El entono `R` dispone de métodos de programación literaria para Open Office, HTML y $\LaTeX$.
+* Las librerías de \texttt{R} para estos fines son Sweave para \LaTeX, Openweave para Open Office y R2HTML para HTML.
+* En prácticas veremos como escribir un informe y mezclar en  el código \texttt{R} de forma que el resultado sea el documento final.
+* Recomendar el artículo ``Reproducible Epidemilogic Research'' de R D. Peng, F. Dominici and S. L. Zeger. American journal of Epidemiology (2008). % link http://aje.oxfordjournals.org/cgi/reprint/163/9/783
+
+
+
+## Espacio Muestral
+
+* Llamaremos espacio muestral (e.m.) asociado a un experimento aleatorio
+al conjunto de todos sus posibles resultados. 
+* Normalmente lo denotaremos por $\Omega$.
+* A los elementos de $\Omega$ les denominaremos sucesos elementales.
+
+   Llamaremos suceso del e.m. $\Omega$ a cualquier subconjunto de $\Omega$.
+   El suceso $\Omega$ recibe el nombre de suceso seguro o cierto y $\emptyset$ es el suceso vacío o imposible.
+
+## Slide with Bullets
+
+<div class="center">ppppppppppppp</div>
+
+``{theorem, name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+$$a^2 + b^2 = c^2$$
+```
+
+
+# Probabilidad
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
+
+
+#
+

@@ -1,0 +1,12 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Estimaci\IeC {\'o}n puntual}{1}{0}{1}
+\beamer@sectionintoc {2}{Estimaci\IeC {\'o}n por Intervalos}{2}{0}{2}
+\beamer@subsectionintoc {2}{1}{Definiciones b\IeC {\'a}sicas}{3}{0}{2}
+\beamer@subsectionintoc {2}{2}{$\mu $ de poblaci\IeC {\'o}n normal con $\sigma $ conocida}{13}{0}{2}
+\beamer@subsectionintoc {2}{3}{$\mu $ de poblaci\IeC {\'o} normal con $\sigma $ desconocida}{34}{0}{2}
+\beamer@subsectionintoc {2}{4}{$\mu $ I.C. para $\mu $ de poblaci\IeC {\'o}n normal con $\sigma $ conocida muestra grande}{43}{0}{2}
+\beamer@subsectionintoc {2}{5}{$p$ I.C. para $\mu $ de poblaci\IeC {\'o}n normal con $\sigma $ conocidamostres petites}{57}{0}{2}
+\beamer@subsectionintoc {2}{6}{$p$ I.C. para $\mu $ de poblaci\IeC {\'o}n normal con $\sigma $ conocidamostres grans}{59}{0}{2}
+\beamer@subsectionintoc {2}{7}{$\sigma $ de poblaci\IeC {\'o} normal}{77}{0}{2}
+\beamer@subsectionintoc {2}{8}{$N$ relativament petit}{84}{0}{2}

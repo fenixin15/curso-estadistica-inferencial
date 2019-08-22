@@ -1,0 +1,4 @@
+"0","chisq.test(table(myoglobin.exon1.nuc),p=c(1.5,1,1.5,1))"
+"2","Error in chisq.test(table(myoglobin.exon1.nuc), p = c(1.5, 1, 1.5, 1)) : 
+  probabilities must sum to 1.
+"

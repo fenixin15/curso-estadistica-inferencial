@@ -1,0 +1,9 @@
+Package: IntervalosMatesII
+Title: Confidence intervals for the Maths II course
+Version: 0.2
+Date: 18-02-2015
+Author: The AprendeR team
+Maintainer: Cesc Rossello <cesc.rossello@uib.es>
+Description: This package contains the functions related to the computation of confidence intervals explained in Lesson 2 in Volume II of our R manual
+Suggests: epitools
+License: GPL-2

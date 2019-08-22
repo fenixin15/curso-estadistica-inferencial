@@ -1,0 +1,24 @@
+\frametitle{El $p$-valor}
+\vspace*{-3ex}
+
+\begin{block}{¡Importante!}
+Si no establecemos un nivel   de significación   $\alpha$, entonces
+\begin{itemize}
+\item Aceptamos $H_0$ si el $p$-valor es ``grande'' ($\geq 0.1$)
+\medskip
+
+\item Rechazamos $H_0$ si el $p$-valor es ``pequeño'' ($<0.05$). En este caso, el $p$-valor es
+\begin{itemize}
+\item \emph{Significativo} si es $< 0.05$
+\item \emph{Fuertemente significativo} si es $<0.01$
+\item \emph{Muy significativo} si es $<0.001$
+\end{itemize}
+\end{itemize}
+\end{block}
+{\small \begin{verbatim}
+Signif. codes: 0‘***’0.001‘**’0.01‘*’0.05‘.’0.1‘ ’1
+\end{verbatim}
+}\medskip
+
+Si el $p$-valor está entre $0.05$ y $0.1$ y no tenemos nivel de significación, se requieren¡ estudios posteriores para tomar una decisión ("la \emph{zona crepuscular}, \textsl{twilight zone}")
+

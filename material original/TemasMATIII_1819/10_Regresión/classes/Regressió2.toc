@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Regressi\IeC {\'o} lineal m\IeC {\'u}ltiple}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Regressi\IeC {\'o} lineal}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{M\IeC {\'\i }nims quadrats}{7}{0}{1}
+\beamer@subsectionintoc {1}{3}{Coeficient de determinaci\IeC {\'o}}{20}{0}{1}
+\beamer@subsectionintoc {1}{4}{Intervals de confian\IeC {\c c}a}{28}{0}{1}

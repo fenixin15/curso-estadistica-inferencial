@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Bondat d'ajust}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Introducci\IeC {\'o}}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Test $\chi ^2$ de Pearson}{5}{0}{1}
+\beamer@subsectionintoc {1}{3}{Test $\chi ^2$ amb par\IeC {\`a}metres desconeguts}{26}{0}{1}
+\beamer@subsectionintoc {1}{4}{Test K-S}{37}{0}{1}
+\beamer@sectionintoc {2}{Independ\IeC {\`e}ncia}{55}{0}{2}
+\beamer@subsectionintoc {2}{1}{Test $\chi ^2$}{55}{0}{2}
+\beamer@subsectionintoc {2}{2}{Homogene\IeC {\@umlaut \i }tat}{71}{0}{2}

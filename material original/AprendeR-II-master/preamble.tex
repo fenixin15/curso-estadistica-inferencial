@@ -1,0 +1,20 @@
+\usepackage{booktabs}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\usepackage[spanish]{babel} % nuestro  
+\graphicspath{{_bookdown_files/}}
+
+\addto\captionsspanish{%
+\renewcommand\chaptername{Lección}}
+\addto\captionsspanish{%
+\renewcommand\tablename{Tabla}}
+
+\renewcommand\chaptername{Lección}

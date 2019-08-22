@@ -1,0 +1,18 @@
+\frametitle{Exemple 6}
+Podem emprar la funció \texttt{chisq.test}, però hi hem d'entrar la taula en format \texttt{table}:
+{\small \begin{verbatim}
+> dades = as.table(matrix(c(5,8,15,22,20,26,46,
+ 8,15,10,15,10),nrow=4,byrow=TRUE))
+> dades
+   A  B  C  D
+A  5  8 15 22
+B 20 26 46  8
+C 15 10 15 10
+> chisq.test(dades)
+     Pearson's Chi-squared test
+data: dades
+X-squared = 31.6048, df = 6, p-value =1.942e-05
+\end{verbatim}
+}
+
+El $p$-valor és molt petit, rebutjam la hipòtesi nu\l.la

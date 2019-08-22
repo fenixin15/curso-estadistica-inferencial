@@ -1,0 +1,5 @@
+"0","chisq.test(table(myoglobin.exon1.nuc),p=c(1.5,1,1.5,1),rescale.p=TRUE)$p.value"
+"1","[1]"
+"1"," 6.720275e-06"
+"1","
+"

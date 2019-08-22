@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1547763539919.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "952236186",
+    "id" : "6D6CD59E",
+    "lastKnownWriteTime" : 1547832886,
+    "last_content_update" : 1547832886860,
+    "path" : "~/Documentos/docencia1819/MATIIIMaterial/TemasMATIII_1819/Variables_Aleatorias_1/cap2_VA.Rnw",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "622,13",
+        "scrollLine" : "610"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "sweave"
+}

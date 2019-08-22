@@ -1,0 +1,25 @@
+\frametitle{Exemple 3}
+R també fa tots els contrastos
+$$
+\left\{\begin{array}{l} H_0: \beta_i=0 \\
+H_1: \beta_i\neq 0 \end{array}
+\right.
+$$
+dins el  \texttt{lm}
+\medskip
+
+{\footnotesize
+\begin{verbatim}
+> summary(lm(y~Xd))
+...
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)  7.14753   16.45961   0.434   0.6865
+Xd1          0.10009    0.33971   0.295   0.7829
+Xd2          0.72642    0.78590   0.924   0.4076
+Xd3          3.07584    1.05918   2.904   0.0439 *
+Xd4         -0.03004    0.16646  -0.180   0.8656
+...
+\end{verbatim}
+}
+

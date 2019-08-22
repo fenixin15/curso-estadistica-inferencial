@@ -1,0 +1,27 @@
+\frametitle{Ejemplo}
+\blue{Lanzamos 100 veces una moneda con probabilidad de cara $\frac{1}{2}$.
+Probabilidad de sacar  40 y 49 caras?}
+\bigskip
+
+ $X$=número de caras en 100 lanzamientos de una moneda
+ \medskip
+
+$X$  es $B(100,0.5)$
+ \medskip
+
+
+
+ Nos piden $P(40\leq X\leq 49)$
+ \medskip
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{pbinom}\hlstd{(}\hlnum{49}\hlstd{,}\hlnum{100}\hlstd{,}\hlnum{0.5}\hlstd{)}\hlopt{-}\hlkwd{pbinom}\hlstd{(}\hlnum{39}\hlstd{,}\hlnum{100}\hlstd{,}\hlnum{0.5}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.4426053
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+

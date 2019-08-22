@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Estimaci\IeC {\'o}n por Intervalos}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Definiciones b\IeC {\'a}sicas}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{$\mu $ de poblaci\IeC {\'o}n normal con $\sigma $ conocida}{12}{0}{1}
+\beamer@subsectionintoc {1}{3}{$\mu $ de poblaci\IeC {\'o} normal con $\sigma $ desconocida}{33}{0}{1}
+\beamer@subsectionintoc {1}{4}{$\mu $ I.C. para $\mu $ de poblaci\IeC {\'o}n normal con $\sigma $ conocida muestra grande}{42}{0}{1}

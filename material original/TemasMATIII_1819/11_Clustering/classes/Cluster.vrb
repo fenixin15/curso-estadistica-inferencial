@@ -1,0 +1,9 @@
+\frametitle{Clustering jeràrquic amb R}
+
+\begin{verbatim}
+> plot(hclust(distancies,method="ward"),
+ labels=especies,hang=-1)
+\end{verbatim}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{Rplotw.pdf}
+\end{center}

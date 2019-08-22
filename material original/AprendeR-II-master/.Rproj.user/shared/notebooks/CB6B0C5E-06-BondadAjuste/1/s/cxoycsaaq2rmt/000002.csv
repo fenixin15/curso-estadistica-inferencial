@@ -1,0 +1,6 @@
+"0","freq.obs=c(table(muestra),0)"
+"0","prob.teor=c(dbinom(0:2,20,0.0625),1-pbinom(2,20,0.0625))"
+"0","chisq.test(freq.obs,p=prob.teor)$p.value"
+"2","Error in chisq.test(freq.obs, p = prob.teor) : 
+  'x' and 'p' must have the same number of elements
+"

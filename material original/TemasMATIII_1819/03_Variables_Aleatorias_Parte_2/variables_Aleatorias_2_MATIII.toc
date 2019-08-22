@@ -1,0 +1,18 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Variables Aleatorias Parte II}{1}{0}{1}
+\beamer@sectionintoc {2}{Variables aleatorias parte II. Variables aleatorias continuas}{2}{0}{2}
+\beamer@subsectionintoc {2}{1}{Distribuciones de probabilidad de v.a. continuas}{3}{0}{2}
+\beamer@subsectionintoc {2}{2}{Funci\IeC {\'o}n de densidad}{10}{0}{2}
+\beamer@sectionintoc {3}{Momentos para variables aleatorias continuas}{20}{0}{3}
+\beamer@subsectionintoc {3}{1}{Esperanza de una v.a. continua}{21}{0}{3}
+\beamer@subsectionintoc {3}{2}{Varianza de una v.a. continuas}{22}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{1}{Esperanza y varianza de trasformaciones lineales}{25}{0}{3}
+\beamer@sectionintoc {4}{Transformaci\IeC {\'o}n de variables aleatorias}{27}{0}{4}
+\beamer@subsectionintoc {4}{1}{Transformaciones de v.a. discretas}{28}{0}{4}
+\beamer@subsectionintoc {4}{2}{Transformaciones de v.a. continuas}{29}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{1}{M\IeC {\'e}todo general}{31}{0}{4}
+\beamer@sectionintoc {5}{Desigualdad de Chebyshef}{32}{0}{5}
+\beamer@subsectionintoc {5}{1}{Desigualdad de Markov}{33}{0}{5}
+\beamer@subsubsectionintoc {5}{1}{1}{Desigualdad de Chebyshef}{36}{0}{5}
+\beamer@subsubsectionintoc {5}{1}{2}{La varianza como medida de dispersi\IeC {\'o}n}{42}{0}{5}

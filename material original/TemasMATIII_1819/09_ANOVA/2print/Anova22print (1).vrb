@@ -1,0 +1,12 @@
+\frametitle{Exemple 2 amb R}
+
+Hi falta la filera dels Tractaments. Aquesta s'obté amb un ANOVA d'un (nou) factor que tengui com a  nivells les parelles de nivells de A i B. Es pot realitzar amb
+{\small \begin{verbatim}
+> summary(aov(GSI~llum:temp,data=peixos))
+            Df Sum Sq Mean Sq F value   Pr(>F)
+llum:temp    3  8.862   2.954   20.81 9.06e-06 ***
+Residuals   16  2.271   0.142
+\end{verbatim}
+}
+
+

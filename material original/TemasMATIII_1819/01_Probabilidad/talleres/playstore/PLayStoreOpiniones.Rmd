@@ -1,0 +1,139 @@
+---
+title: "Opiniones apps Play Store (kaggle)"
+author: "Ricardo Alberich"
+date: "16 de enero de 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+En [kaggle](https://www.kaggle.com/lava18/google-play-store-apps) podéis encontrar Dos ficheros cvs que contiene información sobre valoraciones de usuarios de apps de la Play Store y de datos sobre cada app.
+
+
+
+```{r}
+library("tidyverse")
+```
+
+
+```{r}
+metadata_apps=read_csv("googleplaystoreApps/googleplaystore.csv")
+reviews_apps=read_csv("googleplaystoreApps/googleplaystore_user_reviews.csv")
+```
+
+
+
+```{r cars}
+str(metadata_apps)
+str(reviews_apps)
+
+N_apps=dim(metadata_apps)[1]
+N_reviews=dim(reviews_apps)[1]
+names(reviews_apps)
+reviews_apps <- reviews_apps %>% filter(Translated_Review!="nan")
+
+```
+```{r}
+library(tidytext)
+tidy_reviews<- reviews_apps%>%
+  unnest_tokens(word, Translated_Review )
+dim(tidy_reviews)
+length(unique(tidy_reviews$word))
+
+```
+
+
+```{r}
+data(stop_words)
+head(stop_words)
+tidy_reviews <- tidy_reviews %>%
+  anti_join(stop_words)
+dim(tidy_reviews)
+length(unique(tidy_reviews$word))
+```
+
+```{r}
+tidy_reviews <- tidy_reviews %>% mutate(pos=Sentiment=="Positive") %>% group_by(word,pos) %>% count(word, sort = TRUE) 
+tidy_reviews
+```
+
+
+
+```{r}
+observed <- tidy_reviews %>% spread(key="pos",value="n") %>% rename(NPOS=`FALSE`,POS=`TRUE`)
+
+observed <- observed %>% replace_na(list(NPOS = 0, POS=0)) %>% mutate(N=NPOS+POS,pi=POS/N) %>% arrange(N)
+observed <- observed %>% mutate(logp=abs(log(N/POS-1))) %>% filter(logp>0,logp<Inf)
+
+str(observed)
+table(observed$N)
+max(observed$N)
+summary(observed$logp)
+
+
+```
+
+
+```{r}
+
+
+```
+
+
+```{r}
+naive= function(text,dic=observed,size=5) {
+  #  text=reviews_apps$Translated_Review[1]
+  words=tibble(text=text) %>% unnest_tokens(word, text )
+  words %>% inner_join(observed,by="word")-> aux
+  if(nrow(aux)<=size) {NA} else {
+    1/(1+exp(sum(aux%>%select(logp))))
+  } 
+}
+
+```
+
+
+
+```{r}
+for(i in 1:10){
+ppp=naive(reviews_apps$Translated_Review[i])
+print(ppp)
+}
+reviews_apps$Translated_Review[1:5]
+class(reviews_apps$Translated_Review)
+sapply(reviews_apps$Translated_Review,naive)-> aux
+aux0=aux
+names(aux)=NULL
+reviews_apps <- reviews_apps %>% mutate(pp=aux)
+```
+
+
+```{r}
+
+fivenum(reviews_apps$pp)
+reviews_apps[which.min(reviews_apps$pp),2]
+
+```
+
+
+
+```{r}
+library(sentimentr)
+```
+
+```{r}
+sentiment(reviews_apps$Translated_Review)-> dos
+aux <- as.data.frame(dos)  %>% group_by(element_id) %>% summarize(mean=max(sentiment))
+
+```
+
+```{r}
+plot(aux$mean,reviews_apps$Sentiment_Polarity)
+```
+
+plot()

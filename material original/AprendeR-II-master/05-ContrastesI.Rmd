@@ -1,0 +1,1304 @@
+# Contrastes de hipótesis {#chap:contrastes}
+
+En esta lección explicamos algunas instrucciones de R que permiten llevar a cabo contrastes de hipótesis sobre parámetros poblacionales. Antes de empezar, repasemos el vocabulario básico  relacionado con los contrastes de hipótesis:
+
+* **Hipótesis alternativa**, $H_1$: Aquella de la que buscamos evidencia en nuestro estudio.
+
+* **Hipótesis nula**, $H_0$: La hipótesis que estamos dispuestos a aceptar si no encontramos evidencia suficiente de la hipótesis alternativa. Suele plantearse en términos de "no hay diferencia".
+
+* **Error de tipo I**, o **Falso positivo**: Concluir que la hipótesis alternativa es verdadera cuando en realidad es falsa.
+
+* **Nivel de significación**, $\alpha$: La probabilidad de cometer un error de tipo I.
+
+* **Nivel de confianza**, $1-\alpha$: La probabilidad de *no* cometer un error de tipo I.
+
+* **Error de tipo II**, o **Falso negativo**: Concluir que la hipótesis alternativa es falsa cuando en realidad es verdadera.
+
+* **Potencia**, $1-\beta$: La probabilidad de *no* cometer un error de tipo II.
+
+* **Estadístico de contraste**: El valor que se calcula a partir de la muestra obtenida en el estudio y que se usará para tomar la decisión en el contraste planteado.
+
+* **p-valor**: La probabilidad, si la hipótesis nula es verdadera, de que el estadístico de contraste tome un valor tan o más extremo *en el sentido de la hipótesis alternativa* que el obtenido en el estudio
+
+* **Intervalo de confianza** al nivel de confianza $1-\alpha$: Un intervalo en el que el parámetro poblacional que contrastamos tiene probabilidad $1-\alpha$ de pertenecer en el sentido de los intervalos de confianza de la Lección \@ref(chap:IC): es decir, porque se ha obtenido con un procedimiento que produce intervalos que, en el $(1-\alpha)\times 100\%$ de las ocasiones que lo aplicamos a muestras aleatorias simples, contiene el parámetro poblacional. Está formado por los valores del parámetro poblacional que, si fueran los que contrastáramos en nuestro contraste, producirían un p-valor como mínimo $\alpha$. Los intervalos de confianza de los contrastes bilaterales coinciden con los definidos en la Lección \@ref(chap:IC).
+
+* **Regla de rechazo**: Rechazamos la hipótesis nula en favor de la alternativa con un nivel de significación $\alpha$ dado cuando se da alguna de las dos condiciones siguientes (que son equivalentes, es decir, se dan las dos o ninguna):
+
+     * El p-valor és menor que el nivel de significación.
+     * El valor contrastado del parámetro poblacional pertenece al intervalo de confianza del nivel $1-\alpha$.     
+
+```{example,label="monedabase"}
+Tenemos una moneda y creemos que está trucada a favor de Cara, es decir, que al lanzarla al aire produce más caras que cruces. Para intentar decidir si esto es cierto o no, lanzamos la moneda al aire 20 veces y obtenemos 15 caras. 
+
+```
+
+Llamemos $p$ a la probabilidad de obtener cara al lanzar al aire esta moneda. Entonces:
+
+* La hipótesis alternativa, de la que buscamos evidencia, es que la moneda está trucada a favor de cara: $H_1: p>0.5$.
+
+* La hipótesis nula, que aceptaremos por defecto si no encontramos evidencia de que la alternativa sea verdadera, es que la moneda no está trucada: $H_0: p=0.5$.
+
+* Cometeríamos un error de tipo I si la moneda fuera honrada y nosotros concluyéramos que está trucada. 
+
+* Cometeríamos un error de tipo II si la moneda estuviera trucada y nosotros concluyéramos que no lo está. 
+
+* El estadístico de contraste en este experimento va a ser simplemente el número de caras obtenidas.
+
+* El p-valor es la probabilidad de obtener 15 o más caras al lanzar al aire 20 veces la moneda si fuera verdad que $p=0.5$. Como en este caso el número de caras seguiría una distribución binomial $B(20,0.5)$, podemos calcular fácilmente esta probabilidad:
+
+```{r}
+1-pbinom(14,20,0.5)
+```
+
+|        Por lo tanto, el p-valor es `r round(1-pbinom(14,20,0.5),3)`.
+
+* El intervalo de confianza del 95% de este contraste está formado por los valores para la $p$ para los que la probabilidad de obtener 15 o más caras al lanzar al aire 20 veces la moneda es mayor o igual que el 5%, y es [`r round(binom.test(15,20,p=0.5,alternative="greater")$conf.int,4)`].
+
+Y bueno, tras todo este vocabulario, ¿cuál sería la conclusión? El p-valor obtenido significa que si la moneda no estuviera trucada, la probabilidad de obtener el número de caras que hemos obtenido o más es muy pequeña, lo que hace difícil de creer que la moneda no esté trucada. En particular, si trabajamos con un nivel de significación del 5%, como el p-valor es más pequeño que 0.05, rechazamos la hipótesis nula. Equivalentemente, como el intervalo de confianza del 95% para la $p$ está completamente a la derecha del valor que contrastamos, 0.5, con este nivel de confianza hemos de concluir que $p>0.5$. 
+
+En resumen, aceptando una probabilidad de error de tipo I (de decidir que una moneda honrada está trucada) del 5%, rechazamos la hipótesis nula y  concluimos que la moneda está trucada a favor de cara. 
+
+
+```{r, echo=FALSE,fig.cap="\"Hipótesis Nula\" (recuperado de  http://imgs.xkcd.com/comics/null_hypothesis.png (CC-BY-NC 2.5))"}
+knitr::include_graphics("http://imgs.xkcd.com/comics/null_hypothesis.png")
+```
+
+
+## Contrastes para medias
+
+### El test t {-}
+
+El **test t** para contrastar una o dos medias basado en la t de Student  está implementado en la función `t.test`. Este test usa  diferentes estadísticos según que el contraste sea de una media o de dos; en este último caso, según se usen muestras emparejadas o independientes; y en este último caso, según las poblaciones tengan varianzas iguales o diferentes. Aunque este test solo es exacto (en el sentido de que da la conclusión con el nivel de significación requerido) cuando las poblaciones involucradas siguen  distribuciones normales, el Teorema Central del Límite garantiza que también da resultados aproximadamente correctos cuando las muestras son grandes, aunque las poblaciones no sean normales, por lo que en esta situación también se recomienda su uso. Así pues, aunque en la práctica el test t se use como test "de talla única" para contrastar una o dos medias en cualquier situación,  hay que tener claro que su resultado es fiable tan solo:
+
+* cuando las variables poblacionales involucradas son (aproximadamente) normales, o
+
+* cuando todas las muestras usadas son grandes.
+
+
+Al final de esta sección explicamos las funciones asociadas a algunos contrastes no paramétricos que pueden usarse cuando estas condiciones no se cumplen.
+
+La sintaxis básica de la función `t.test` es
+
+```{r,eval=FALSE}
+t.test(x, y, mu=..., alternative=..., conf.level=..., paired=..., var.equal=..., na.omit=...)
+```
+
+donde:
+
+* `x` es el vector de datos que forma la muestra que analizamos.
+
+*  `y` es un vector opcional; si lo entramos, R entiende que estamos realizando un contraste de  dos medias, con hipótesis nula la igualdad de estas medias.
+
+*  Podemos sustituir los vectores `x` e `y` por una fórmula `variable1~variable2` que indique que separamos la variable numérica `variable1` en dos vectores definidos por los niveles de un factor `variable2` de dos niveles (o de otra variable asimilable a un factor de dos niveles, como por ejemplo una variable numérica que solo tome dos valores diferentes). Con esta construcción,  R tomará estos vectores en el orden natural de los niveles de `variable2`: `x` será el vector correspondiente al primer nivel e `y` el correspondiente al segundo. Hay que tener esto en cuenta a la hora de especificar la hipótesis alternativa si es unilateral. Si las dos variables de la fórmula son columnas de un *dataframe*, se puede usar el parámetro `data=...` para indicarlo. 
+
+*  Solamente tenemos que especificar el parámetro `mu` si hemos entrado una sola muestra, y en este caso lo hemos de igualar al valor $\mu_0$ que queremos contrastar, de manera que la hipótesis nula será $H_0: \mu=\mu_0$.
+
+*  El parámetro `alternative` puede tomar tres valores: `"two.sided"`, para contrastes bilaterales, y `"less"`  y `"greater"`, para contrastes unilaterales. En esta función, y en todas las  que explicamos en esta lección, su valor por defecto, que no hace falta especificar, es `"two.sided"`. El significado de estos valores depende  del tipo de test que efectuemos:
+
+     * Si el test es de una sola muestra,  `"two.sided"` representa la hipótesis alternativa $H_1: \mu\neq \mu_0$, `"less"` corresponde a  $H_1: \mu< \mu_0$, y `"greater"` corresponde a  $H_1: \mu> \mu_0$. 
+
+     * Si hemos entrado dos muestras y llamamos $\mu_x$ y $\mu_y$ a las medias de las poblaciones de las que hemos extraído las muestras $x$ e $y$, respectivamente, entonces
+`"two.sided"` representa la hipótesis alternativa  $H_1: \mu_x
+\neq \mu_y$; `"less"` indica que la hipótesis alternativa es $H_1: \mu_x< \mu_y$; y `"greater"`, que la hipótesis alternativa es $H_1: \mu_x> \mu_y$. 
+
+*  El valor del parámetro `conf.level` es el nivel de confianza $1-\alpha$. En esta función, y en todas las  que explicamos en esta lección, su valor por defecto, que no es necesario especificar, es 0.95, que corresponde a un nivel de confianza del 95%, es decir,  a un nivel de significación $\alpha=0.05$.
+
+*  El parámetro `paired` solo lo tenemos que especificar si llevamos a cabo un contraste de dos medias. En este caso, con `paired=TRUE` indicamos que las muestras son emparejadas, y con `paired=FALSE` (que es su valor por defecto) que  son independientes. Si se trata de muestras emparejadas, los vectores `x` e `y` tienen que tener la misma longitud, naturalmente.
+
+*  El parámetro `var.equal` solo lo tenemos que especificar si llevamos a cabo un contraste de dos medias usando muestras independientes, y en este caso sirve para indicar si queremos considerar las dos varianzas poblacionales iguales (igualándolo a TRUE) o diferentes (igualándolo a FALSE, que es su valor por defecto).
+
+*  El parámetro `na.action` sirve para especificar qué queremos hacer con los valores NA. Es un parámetro genérico que se puede usar en casi todas las funciones de estadística inferencial y análisis de datos. Sus  valores más útiles son:
+
+     * `na.omit`, su valor por defecto, elimina las entradas  NA de los vectores (o los pares que contengan algún  NA, en el caso de muestras emparejadas). Por ahora, esta opción por defecto es la adecuada, por lo que no hace falta usar este parámetro, pero conviene saber que hay alternativas.
+
+     * `na.fail` hace que la ejecución pare si hay algún NA en los vectores.
+
+     * `na.pass` no hace  nada con los NA y permite que las operaciones internas de la función sigan su curso y los manejen como les corresponda.
+
+
+
+La función `t.test` tiene otros parámetros que se pueden consultar en su Ayuda. 
+
+Veamos varios ejemplos de uso de esta función.
+
+
+```{example, label="norm1bis"}
+Consideremos el siguiente vector  de longitud 25:
+  
+```
+
+```{r}
+x=c(2.2,2.66,2.74,3.41,2.46,2.96,3.34,2.16,2.46,2.71,2.04,3.74,3.24,3.92,2.38,2.82,2.2,
+    2.42,2.82,2.84,4.22,3.64,1.77,3.44,1.53)
+```
+
+Supongamos que esta muestra ha sido extraída de una población normal. Postulamos que el valor medio $\mu$ de la población no es 2. Para confirmarlo, vamos realizar el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=2\\
+H_{1}:\mu\neq 2
+\end{array}\right.
+$$
+con nivel de significación $\alpha=0.05$:
+
+```{r}
+t.test(x, mu=2, alternative="two.sided", conf.level=0.95)
+```
+
+```{r, include=FALSE}
+TT1=t.test(x, mu=2, alternative="two.sided", conf.level=0.95)
+```
+
+
+(Como los parámetros `alternative="two.sided"` y `conf.level=0.95` eran los que toma R por defecto, en realidad no hacía falta especificarlos.)
+Observad la información que obtenemos con esta instrucción:
+
+
+*  Información sobre la muestra $x$: su media muestral (`mean of x`) $\overline{x}$, que vale `r TT1$estimate`.
+
+*  La hipótesis alternativa (`alternative hypothesis`), en este caso `true mean is not equal to 2`: la media verdadera, o poblacional, $\mu$ es diferente de 2.
+
+*  El valor `t` que toma el estadístico de contraste,  $T=\frac{\overline{X}-\mu_0}{\widetilde{S}_X/\sqrt{n}}$, sobre la muestra, en este caso `r round(TT1$statistic,3)`, y los grados de libertad `df` (*degrees of freedom*) de su distribución t de Student cuando la hipótesis nula es verdadera, `` df =`r TT1$parameter```.
+
+*  El p-valor (`p-value`) de nuestro test, en este caso `p-value = 4.232e-06`, es decir, $`r round(TT1$p.value,9)`$.
+
+*  Un intervalo de confianza de nivel $(1-\alpha)\times 100\%$ (en nuestro caso, `95 percent confidence interval`) para la $\mu$: en nuestro ejemplo, [`r TT1$conf.int`].
+
+
+
+Lo único que no nos dice directamente es si tenemos que rechazar o no la hipótesis nula, pero esto lo deducimos del p-valor: como es más pequeño que el nivel de significación (de hecho, es *muy* pequeño), podemos  rechazar la hipótesis nula, $\mu=2$, en favor de la alternativa, $\mu \neq 2$. Es decir, hay evidencia estadísticamente significativa de que $\mu \neq 2$. Otra manera de decidir si rechazamos o no la hipótesis nula es mirar si el valor que contrastamos pertenece al intervalo de confianza del contraste. Puesto que $2 \notin [`r TT1$conf.int`]$, podemos rechazar la hipótesis nula en favor de la alternativa y concluir que $\mu\neq 2$.
+
+
+Hagamos ahora el  test cambiando la hipótesis alternativa por $H_{1}:\mu< 3$, es decir,
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=3\\
+H_{1}:\mu< 3
+\end{array}\right.
+$$
+y tomando como nivel de significación $\alpha=0.1$:
+
+```{r}
+t.test(x, mu=3, alternative="less", conf.level=0.9)
+```
+
+```{r, include=FALSE}
+TT2=t.test(x, mu=3, alternative="less", conf.level=0.9)
+```
+
+
+En este caso, el p-valor es `r round(TT2$p.value,3)`, por lo que podemos rechazar la hipótesis nula con un nivel de significación del 10% y concluir, con este nivel de significación (es decir, asumiendo esta probabilidad de equivocarnos), que $\mu<3$; pero fijaos en que con un nivel de significación del 5% no podríamos rechazar la hipótesis nula. 
+El intervalo de confianza del 90% es ahora $(-\infty,`r round(TT2$conf.int[2],3)`]$ (`Inf` representa $\infty$). Que no contenga el 3 (aunque por muy poco) también indica que podemos rechazar la hipótesis nula $\mu=3$ en favor de la alternativa $\mu< 3$ con este nivel de confianza.
+
+
+
+El p-valor y el intervalo de confianza se pueden obtener directamente, añadiendo a la instrucción `t.test` los sufijos `$p.value` o `$conf.int`, respectivamente.
+
+```{r}
+t.test(x, mu=2)$p.value
+t.test(x, mu=2)$conf.int
+t.test(x, mu=2)$conf.int[1]
+t.test(x, mu=2)$conf.int[2]
+```
+
+Podéis consultar los sufijos necesarios para obtener las otras componentes del resultado en la Ayuda de la función.
+
+```{example, label="colesterol"}
+Queremos contrastar si el valor medio del nivel de colesterol en una población es de 220 mg/dl o no, a un nivel de significación del 5%. Es decir, si llamamos $\mu$ a la media de la variable aleatoria "Nivel de colesterol de un individuo de esta población, en mg/dl", queremos realizar el contraste bilateral
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=220\\
+H_{1}:\mu \neq 220
+\end{array}\right.
+$$
+  
+```
+
+Para ello, hemos tomado una muestra del nivel de colesterol en plasma de 9 individuos de la población. Los datos obtenidos, en mg/dl, son los siguientes:
+
+```{r}
+colesterol=c(203,229,215,220,223,233,208,228,209)
+```
+
+Suponemos que el nivel de colesterol en plasma sigue una ley normal y que
+por lo tanto  nos podemos fiar del resultado de un test t:
+```{r}
+t.test(colesterol, mu=220)
+```
+El p-valor es `r round(t.test(colesterol, mu=220)$p.value,3)`, muy grande y en particular superior a 0.05, por lo tanto no podemos rechazar la hipótesis nula  de que el valor medio sea 220 mg/dl. Además, el intervalo de confianza del 95% del contraste es [`r round(t.test(colesterol, mu=220)$conf.int,2)`], y contiene holgadamente el valor 220.
+
+
+
+Más adelante en esta misma sección discutiremos qué podemos hacer si el nivel de colesterol en plasma  no sigue una ley aproximadamente normal, en cuyo caso el resultado de este test t no sirve para nada.
+
+
+```{example, label="iris"}
+Recordad el *dataframe* `iris`, que recoge datos de las flores de 50 ejemplares de cada una de tres especies de iris.
+
+```
+
+```{r}
+str(iris)
+```
+
+Queremos estudiar si la longitud media $\mu_v$ de los sépalos de las  *Iris virginica* es mayor que la longitud media $\mu_s$ de los sépalos de las *Iris setosa* usando las muestras contenidas en esta tabla de datos. Para ello realizamos el contraste
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu_s=\mu_v\\
+H_{1}:\mu_s< \mu_v
+\end{array}\right.
+$$
+En este caso, se trata de un contraste de dos muestras independientes. Como las muestras son grandes, podemos usar con garantías un test t.
+
+Como no sabemos nada de las varianzas de las longitudes de los sépalos de estas dos especies, y no nos supone apenas esfuerzo realizar los tests, llevaremos a cabo el contraste en los dos casos: varianzas iguales y varianzas diferentes.^[En realidad, se sabe que si las dos muestras provienen de poblaciones normales y son del mismo tamaño, el test t tiende a dar la misma conclusión tanto si se supone que las dos varianzas son iguales como si se supone que son diferentes (véase C. A. Markowski y E. P. Markowski, "Conditions for the Effectiveness of a Preliminary Test of Variance," *The American Statistician* 44  (1990), pp. 322-326). Por lo tanto, si en este caso supiéramos que estas longitudes tienen distribuciones normales,  bastaría realizar uno de los dos tests.] Más adelante, en el Ejemplo \@ref(exm:variris), explicamos cómo contrastar si estas dos varianzas son iguales o diferentes.
+
+```{r}
+S=iris[iris$Species=="setosa",]$Sepal.Length
+V=iris[iris$Species=="virginica",]$Sepal.Length
+```
+
+El test suponiendo que las dos varianzas son iguales:
+
+```{r}
+t.test(S, V, alternative="less", var.equal=TRUE) 
+```
+
+El test suponiendo que las dos varianzas son diferentes:
+
+```{r}
+t.test(S, V, alternative="less", var.equal=FALSE) 
+```
+
+
+```{r,include=FALSE}
+TT3=t.test(S, V, alternative="less", var.equal=FALSE)$conf.int 
+```
+
+
+En los dos casos el p-valor es  prácticamente 0 y por lo tanto podemos rechazar la hipótesis nula en favor de la alternativa: tenemos evidencia estadísticamente muy significativa de que, en promedio, las flores de la especie setosa tienen sépalos más cortos que las de la especie virginica. El intervalo de confianza del 95% para la diferencia de medias $\mu_s-\mu_v$ en este contraste es  en ambos casos $(-\infty, `r round(TT3[2],2)`]$ y no contiene el 0, que sería el valor de esta diferencia si la hipótesis nula $\mu_s=\mu_v$ fuera verdad.
+
+```{example, label="sueño"}
+En un experimento clásico de la primera década del siglo XX, Student quiso comparar el efecto de dos compuestos químicos, la hiosciamina y la hioscina, sobre el sueño: la hipótesis a contrastar era que la hioscina tiene un mayor efecto somnífero que la hiosciamina. Para ello, tomó 10 sujetos, midió su promedio de horas de sueño durante períodos de entre 3 y 9 días en condiciones normales, tomando antes de acostarse 0.6 mg de hiosciamina y tomando antes de acostarse 0.6 mg de  hioscina, y apuntó para cada sujeto y cada compuesto la diferencia  "promedio de horas de sueño tomando el compuesto menos promedio de horas de sueño en condiciones  normales". Las diferencias obtenidas fueron las siguientes:^[Las podéis encontrar en el *dataframe* `sleep` de la instalación básica de R, aunque no lo vamos a usar.]
+
+```
+
+
+```{r, echo=FALSE}
+Sujeto=c(1,2,3,4,5,6,7,8,9,10)
+Hiosciamina=c(0.7,-1.6,-0.2,-1.2,-0.1,3.4,3.7,0.8,0.0,2.0)
+Hioscina=c(1.9,0.8,1.1,0.1,-0.1,4.4,5.5,1.6,4.6,3.4)
+df_student=data.frame(Sujeto,Hiosciamina,Hioscina)
+kable(df_student)
+```
+
+
+Una manera de comparar el efecto en las horas de sueño de estos compuestos es comparando las medias de estas diferencias de promedios de horas de sueño: una diferencia mayor significa que el compuesto "ha añadido" más horas de sueño al promedio normal. Digamos $\mu_1$ a la media de  las diferencias individuales del promedio de horas de sueño tomando hiosciamina menos el promedio en condiciones normales y $\mu_2$ a la media de  las diferencias individuales del promedio de horas de sueño tomando hioscina menos el promedio en condiciones normales. Tomaremos como hipótesis nula $H_0: \mu_1= \mu_2$ (ambos compuestos tienen el mismo efecto medio sobre las horas de sueño de los individuos) e hipótesis alternativa $H_1: \mu_1<\mu_2$ (la hioscina aumenta más las horas de sueño que la hiosciamina). Si podemos rechazar la hipótesis nula en favor de la alternativa, concluiremos que la hioscina tiene un mayor efecto somnífero que la hiosciamina. 
+
+
+
+Observad que se trata de un contraste de dos muestras emparejadas, porque los datos refieren a los mismos 10 pacientes. Vamos a suponer que las diferencias medias en horas de sueño en ambos casos siguen leyes normales  (Student así lo hizo) y que, por lo tanto, el resultado de un test t es fiable.
+
+```{r}
+Hiosciamina=c(0.7,-1.6,-0.2,-1.2,-0.1,3.4,3.7,0.8,0,2.0)
+Hioscina=c(1.9,0.8,1.1,0.1,-0.1,4.4,5.5,1.6,4.6,3.4)
+t.test(Hiosciamina, Hioscina, alternative="less", paired=TRUE)
+```
+
+```{r,include=FALSE}
+TT4=t.test(Hiosciamina, Hioscina, alternative="less", paired=TRUE)
+```
+
+
+El p-valor es `r round(TT4$p.value,3)`, mucho menor que 0.05, y por lo tanto podemos rechazar la hipótesis nula con un nivel de significación del 5%. Observad también que el intervalo de confianza del 95% para la diferencia de medias $\mu_1-\mu_2$ es $(-\infty,`r round(TT4$conf.int[2],3)`]$ y está totalmente a la izquierda del 0. La conclusión es, pues, que efectivamente la hioscina tiene un mayor efecto somnífero que la hiosciamina y que con un 95% de confianza podemos afirmar que añade, de media, como mínimo 52 minutos (`r round(TT4$conf.int[2],3)` horas) diarios más de sueño.
+
+```{example, label="fumar"}
+Veamos un ejemplo de aplicación de `t.test` a una fórmula. Queremos contrastar si es cierto que fumar durante el embarazo está asociado a un peso menor del recién nacido. Si llamamos $\mu_n$ y $\mu_f$ al peso medio de un recién nacido de madre no fumadora y fumadora,  respectivamente, el contraste que queremos realizar es
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu_n=\mu_f\\
+H_{1}:\mu_n> \mu_f
+\end{array}\right.
+$$
+Vamos a usar los datos incluidos en la tabla de datos `birthwt` incluida en el paquete **MASS**, que recoge algunos datos sobre una muestra de madres y sus hijos.
+
+```
+
+```{r}
+library(MASS)
+str(birthwt)
+```
+En la Ayuda de `birthwt` nos enteramos de que la variable `smoke` indica si la madre ha fumado durante el embarazo  (1) o no (0), y que la variable `bwt` da el peso del recién nacido en gramos. Lo primero que haremos será mirar si las muestras de madres fumadoras y no fumadoras contenidas en esta tabla son lo suficientemente grandes como para que el resultado del test t sea fiable.
+
+```{r}
+table(birthwt$smoke)
+```
+
+Vemos que sí, que ambas son suficientemente grandes.
+
+Para entrar en la instrucción `t.test` los vectores de pesos de hijos de fumadoras y no fumadoras, usaremos la fórmula
+`bwt~smoke` especificando que `data=birthwt`. Fijaos en que los valores de `smoke` son 0 y 1, y que R los considera ordenados en este orden (basta ver el resultado de la función `table` anterior). Por consiguiente, `bwt~smoke` representa, en este orden, el vector de pesos de recién nacidos de madres no fumadoras (`smoke=0`)   y
+el vector de pesos de recién nacidos de madres fumadoras (`smoke=1`). Como la hipótesis alternativa es $\mu_n>\mu_f$, deberemos especificar en la función `t.test` que `alternative="greater"`.
+
+Como en el Ejemplo \@ref(exm:iris), vamos a llevar a cabo el test t suponiendo que las varianzas son iguales y que son diferentes, y cruzaremos los dedos para que la conclusión sea la misma. Otra posibilidad es contrastar antes la igualdad de estas varianzas.
+
+```{r}
+t.test(bwt~smoke, data=birthwt, alternative="greater",paired=FALSE, var.equal=TRUE)
+t.test(bwt~smoke, data=birthwt, alternative="greater",paired=FALSE, var.equal=FALSE)
+```
+
+En ambos casos hemos obtenido un p-valor en un orden de magnitud  inferior a 0.05, lo que nos permite concluir que, en efecto, los hijos de las madres no fumadoras pesan más al nacer que los de las fumadoras.
+
+En vez de especificar los vectores de pesos con `bwt~smoke,data=birthwt`, hubiéramos podido usar `birthwt$bwt~birthwt$smoke`. Por ejemplo:
+
+```{r}
+t.test(birthwt$bwt~birthwt$smoke, alternative="greater",paired=FALSE, var.equal=TRUE)
+```
+
+
+
+### Tests no paramétricos {-}
+
+
+Cuando comparamos dos medias, o una media con un valor, usando un test t sobre muestras pequeñas, suponemos que las variables poblacionales que han producido las muestras son normales. En la Lección \@ref(chap:bondad) estudiaremos los contrastes que nos permiten aceptar o rechazar que una muestra provenga de una variable aleatoria con una distribución concreta, pero en estos momentos ya tendría que ser claro que nos podemos encontrar con  conjuntos de datos para los cuales el supuesto de normalidad de la variable poblacional no esté justificado: por ejemplo, porque sean datos cuantitativos discretos o porque la variable sea claramente muy asimétrica. En las situaciones en las que no estamos seguros de que las variables poblacionales satisfagan aproximadamente las hipótesis de los teoremas que nos garantizan la fiabilidad de las conclusiones de un contraste, por ejemplo de un test t, una salida razonable es usar un **test  no paramétrico** alternativo. 
+
+En el caso de los contrastes de medias, los tests no paramétricos para comparar medias en realidad lo que comparan son las  medianas.
+Los más populares son los siguientes:
+
+
+*  El **test de signos**, que permite contrastar si la mediana de una variable aleatoria cualquiera (incluso ordinal) es un valor dado $M_0$ estudiando la distribución de los signos de las diferencias entre este valor y los de una muestra (si la mediana fuera $M_0$, los  números de diferencias positivas y negativas en muestras aleatorias seguirían distribuciones binomiales con $p=0.5$). En R está implementado en la función `SIGN.test` del paquete **BSDA**. Su sintaxis es similar a la de `t.test` para una muestra, cambiando el parámetro `mu`, que en `t.test` sirve para especificar el valor de la media que contrastamos, por `md`, que en `SIGN.test` sirve para especificar el valor de la **mediana** que contrastamos. Esta función también se puede aplicar a dos muestras emparejadas: en este caso, la hipótesis nula del contraste que realiza es que "la mediana de las diferencias de las dos variables es 0".
+
+*  El **test de Wilcoxon** para comparar la media de una variable continua simétrica con un valor dado o las medias de dos variables continuas cuya diferencia sea simétrica por medio de muestras emparejadas. Más en general, se puede usar para comparar la mediana de una variable continua con un valor dado o para comparar la mediana de la diferencia de dos variables continuas (medidas sobre muestras emparejadas) con 0. Observad que cuando las variables en juego son simétricas, las medianas coinciden con las medias y el contraste de medianas es también un contraste de medias. En R está implementado en la función `wilcox.test`  y su sintaxis es la misma que la de `t.test` para una muestra o para dos muestras emparejadas (en este último caso, hay que especificar `paired=TRUE`).
+
+
+*  El **test de Mann-Whitney** para comparar las medianas de dos variables aleatorias por medio de muestras independientes. En R también está implementado en la función `wilcox.test`  y su sintaxis es la misma que la de `t.test` para dos muestras independientes (especificando `paired=FALSE`), salvo que aquí no hay que especificar si las varianzas son iguales o diferentes, puesto que esto no se usa en este test.
+
+
+
+```{example, label="wilcox-colesterol"}
+Si los niveles de colesterol no siguen una distribución normal, el test t realizado en el Ejemplo \@ref(exm:colesterol) no sirve para nada. Una posibilidad es entonces no contrastar si el nivel medio de colesterol es 220, sino si el nivel *mediano* es 220. Para ello vamos realizar un test de signos. Los parámetros `alternative="two.sided"` y `conf.level=0.95` son los que usa la función `SIGN.test` por defecto, así que no haría falta especificarlos; los incluimos para que los veáis. 
+
+```
+
+```{r}
+library(BSDA)
+SIGN.test(colesterol, md=220, alternative="two.sided", conf.level=0.95)
+```
+
+```{r, include=FALSE}
+TT5=SIGN.test(colesterol, md=220, alternative="two.sided", conf.level=0.95)$Confidence.Intervals[2,2:3]
+TT6=wilcox.test(colesterol, mu=220, alternative="two.sided",conf.level=0.95)
+```
+
+
+Observad que la salida de la función es muy similar a la de `t.test` (salvo por los últimos intervalos de confianza, que no vamos a explicar). El p-valor ha dado directamente 1 y el intervalo de confianza al 95% para la mediana ha dado [`r round(TT5,1)`]: por lo tanto, no podemos rechazar que la mediana del nivel de colesterol en la población de la que hemos extraído la muestra sea 220.
+
+También podríamos usar el test de Wilcoxon para realizar este contraste de una mediana:
+
+```{r, warning=TRUE}
+wilcox.test(colesterol, mu=220, alternative="two.sided",conf.level=0.95)
+```
+
+El p-valor es `r round(TT6$p.value,3)`, la conclusión es la misma. El mensaje de advertencia nos avisa de que la muestra ha contenido valores iguales al valor de la mediana contrastado, por lo que el p-valor obtenido no es exacto. Solo os tenéis que preocupar de un mensaje como este si el p-valor fuera muy cercano al nivel de significación deseado, que no es el caso. 
+
+
+
+```{example}
+Si las diferencias en promedios de horas de sueño no siguen distribuciones normales, el test t realizado en el Ejemplo \@ref(exm:sueño) no sirve para nada. En este caso, vamos a usar un test de Wilcoxon para muestras emparejadas. Este test en realidad contrastará la *hipótesis nula* de que
+si para cada individuo calculamos la diferencia entre el aumento promedio de horas de sueño cuando toma hiosciamina y el aumento promedio tomando hioscina, la **mediana** de la variable aleatoria que define estas diferencias es 0, y como hipótesis alternativa que esta mediana es menor que 0 (y que por lo tanto más de la mitad de las veces es negativa, es decir, que a más de la mitad de la población la hioscina le añade más tiempo promedio de sueño que la hiosciamina). Si las variables "aumento de horas de sueño" en juego son simétricas, estas medianas coinciden con las correspondientes medias y llevamos a cabo el contraste del Ejemplo \@ref(exm:sueño). Si no son simétricas, igualmente estamos contrastando si la hioscina es más efectiva que la hiosciamina, solo que planteándolo de otra manera.
+
+```
+
+
+```{r, warning=TRUE}
+wilcox.test(Hiosciamina, Hioscina, alternative="less", paired=TRUE)
+```
+
+En este caso R nos avisa de nuevo de que el p-valor no es exacto, pero esto no afecta a la conclusión dado que el p-valor es muy pequeño: rechazamos la hipótesis nula en favor de la alternativa y también concluimos con este test no paramétrico que la hioscina tiene un mayor efecto somnífero que la hiosciamina.
+
+
+```{example}
+Nos preguntamos si los hijos de madres de 20 años tienen el mismo peso medio al nacer que los de madres de 30 años, o no. Vamos a responder esta pregunta con un contraste bilateral de estos pesos medios usando la muestra recogida en la tabla de datos `birthwt` del paquete **MASS**, que contiene la variable `age` con la edad de las madres.
+
+```
+
+```{r}
+hijos.20=birthwt[birthwt$age==20,"bwt"]
+hijos.30=birthwt[birthwt$age==30,"bwt"]
+c(length(hijos.20),length(hijos.30))
+```
+
+Las muestras no son lo suficientemente grandes como para usar un test t si no estamos seguros de que las variables poblacionales sean normales. Como las muestras son independientes, vamos a usar un test de Mann-Whitney para comparar los pesos medianos:
+
+```{r, warning=TRUE}
+wilcox.test(hijos.20, hijos.30, alternative="two.sided",paired=FALSE)
+```
+
+El p-valor es `r round(wilcox.test(hijos.20, hijos.30, alternative="two.sided",paired=FALSE)$p.value,2)`, por lo que no podemos rechazar que las medianas de los pesos al nacer de los hijos de madres de 20 años y de 30 sean iguales.^[En realidad, la hipótesis nula de este test, la que no rechazamos, es que "Es igual de probable que un hijo de madre de 20 años pese más que un hijo de madre de 30 años que al revés", pero no vamos a entrar en este nivel de precisión. Ambas hipótesis nulas quieren representar lo que realmente nos interesa confirmar o desmentir: "Los hijos de madres de 20 años pesan lo mismo que los de madres de 30 años".]
+
+
+
+## Contrastes para varianzas
+
+
+El **test $\chi^2$** para comparar la varianza $\sigma^2$ (o la desviación típica $\sigma$) de una población normal con un valor dado $\sigma_0^2$ (o $\sigma_0$) usa el estadístico
+$$
+\frac{(n-1)\widetilde{S}_X^2}{\sigma_0^2}
+$$
+que, si la hipótesis nula $\sigma^2=\sigma_0^2$ es verdadera, sigue una distribución $\chi^2_{n-1}$, de ahí su nombre.
+Dicho test está convenientemente implementado en la función  `sigma.test` del paquete **TeachingDemos**. Su sintaxis es la misma que la de la función `t.test` para una muestra, substituyendo el parámetro `mu` de `t.test` por el parámetro  `sigma` (para especificar el valor de la desviación típica que contrastamos,  $\sigma_0$) o `sigmasq` (por "sigma al cuadrado", para especificar el valor de la varianza que contrastamos,  $\sigma_0^2$). Como siempre, los valores por defecto de `alternative` y `conf.level` son `"two.sided"` y 0.95, respectivamente. La salida de la función es también similar a la de `t.test`. Veamos un ejemplo.
+
+```{example}
+Se ha realizado un experimento para estudiar el tiempo $X$ (en minutos) que tarda un lagarto del desierto en llegar a los 45^o^ partiendo de su temperatura normal mientras está a la sombra. Los tiempos obtenidos (en minutos) en una muestra aleatoria de lagartos fueron los siguientes:
+
+```
+
+```{r}
+TL45=c(10.1,12.5,12.2,10.2,12.8,12.1,11.2,11.4,10.7,14.9,13.9,13.3)
+```
+
+Supongamos que estos tiempos siguen una ley normal. ¿Aporta este experimento evidencia de que la desviación típica $\sigma$ de $X$ es inferior a 1.5 minutos?
+Para responder esta pregunta, hemos de realizar el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\sigma= 1.5 \\
+H_{1}:\sigma< 1.5
+\end{array}\right.
+$$
+Para ello, usaremos la función  `sigma.test` aplicada a esta muestra y a `sigma=1.5`:
+```{r}
+library(TeachingDemos)
+sigma.test(TL45, sigma=1.5, alternative="less")
+```
+El p-valor que obtenemos es `r round(sigma.test(TL45, sigma=1.5, alternative="less")$p.value,3)`, muy grande, por lo que no tenemos evidencia que nos permita concluir que $\sigma<1.5$.
+
+
+El test $\chi^2$ no se usa mucho en la práctica. En parte, porque realmente es poco interesante ya que suele ser difícil conjeturar la desviación típica a contrastar, y en parte porque su validez depende fuertemente de la hipótesis de que la variable aleatoria poblacional sea normal. En cambio, el contraste de las desviaciones típicas de dos poblaciones sí que es muy utilizado. Por ejemplo,
+en un contraste de dos medias usando un test t sobre dos muestras independientes, nos puede interesar conocer *a priori* si las varianzas poblacionales son iguales o diferentes, en lugar de realizar el test bajo ambas suposiciones. Si no las conocemos, ¿cómo podemos saber cuál es el caso? Si las dos variables poblacionales son normales, podemos contrastar la igualdad de las varianzas con el **test F**, basado en el estadístico
+$$
+\frac{\widetilde{S}_{X_1}^2} {\widetilde{S}_{X_2}^2}
+$$
+que, si las dos poblaciones tienen la misma varianza, sigue una distribución F de Fisher-Snedecor. Por desgracia, este test es también muy sensible a la no normalidad de las poblaciones objeto de estudio: a la que una de ellas se aleja un poco de la normalidad, el test deja de dar resultados fiables.^[Véanse: E. S. Pearson, "The analysis of variance in cases of non-normal variation," *Biometrika* 23 (1931), pp. 114-133; G. E. P. Box, "Non-normality and tests on variances," *Biometrika*  40  (1953), pp. 318-335.]
+
+La función para efectuar este test es `var.test`  y su sintaxis básica es la misma que la de `t.test` para dos muestras:
+```{r,eval=FALSE}
+var.test(x, y, alternative=..., conf.level=...)
+```
+donde  `x` e `y` son los dos vectores de datos, que se pueden especificar mediante una fórmula como en el caso de `t.test`, y el parámetro `alternative` puede tomar los tres mismos valores que en los tests anteriores: su valor por defecto es, como siempre, `"two.sided"`, que es el que nos permite contrastar si las varianzas son iguales o diferentes.
+
+```{example, label="variris"}
+Suponiendo que las longitudes de los sépalos de las flores de las diferentes especies de iris siguen leyes normales, ¿hubiéramos podido considerar *a priori* iguales  las varianzas de las dos muestras en el Ejemplo \@ref(exm:iris)? Veamos:
+  
+  
+```
+
+```{r}
+S=iris[iris$Species=="setosa",]$Sepal.Length
+V=iris[iris$Species=="virginica",]$Sepal.Length
+var.test(S,V)
+```
+
+El p-valor es $`r round(var.test(S,V)$p.value,6)`$, muy pequeño. Por lo tanto, podemos rechazar la hipótesis nula de que las dos varianzas son iguales, en favor de la hipótesis alternativa de que las dos varianzas son diferentes. Así, pues, bastaba realizar solo el `t.test` con `var.equal=FALSE`.  
+
+Puede ser conveniente remarcar aquí que el intervalo de confianza obtenido con `var.test` es para *el cociente de varianzas poblacionales*  $\sigma^2_x/\sigma^2_y$, no para su diferencia. Por lo tanto, para contrastar si las varianzas son iguales o diferentes, hay que mirar si el 1 pertenece o no al intervalo obtenido. En este ejemplo, el intervalo de confianza al 95% ha sido [`r round(var.test(S,V)$conf.int,3)`] y no contiene el 1, lo que confirma la evidencia de que las varianzas son diferentes.
+
+
+  
+```{example}
+Queremos contrastar si los gatos adultos macho pesan más que los gatos adultos hembra.  Para ello usaremos los datos recogidos en el *dataframe* `cats` del paquete **MASS**, que contiene información sobre el peso de una muestra de gatos adultos, separados por su sexo.
+
+```
+
+```{r}
+str(cats)
+table(cats$Sex)
+```
+Consultando la Ayuda de `cats` nos enteramos de que la variable `Bwt` contiene el peso de cada gato en kg, y la variable `Sex` contiene el sexo de cada gato: F para hembra (*female*) y M para macho (*male*). Como vemos en la tabla de frecuencias, los números de ejemplares de cada sexo son diferentes y grandes.
+
+Así pues, si llamamos $\mu_m$ al peso medio de un gato macho adulto y 
+$\mu_h$ al peso medio de un gato hembra adulto, el contraste que vamos a realizar es
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu_m=\mu_h\\
+H_{1}:\mu_m>\mu_h
+\end{array}\right.
+$$
+y para ello antes vamos a contrastar si las varianzas de ambas poblaciones son iguales o diferentes, para luego poder aplicar la función `t.test` con el valor de `var.equal` adecuado. 
+Vamos a suponer que los pesos en ambos sexos siguen leyes normales. Para que el contraste de las varianzas sea fiable es necesario que esta suposición sea cierta; para el de los pesos medios, no, ya que ambas muestras son grandes.
+El contraste de la igualdad de varianzas es el siguiente:
+```{r}
+var.test(Bwt~Sex, data=cats)
+```
+
+El p-valor es $`r round(var.test(Bwt~Sex, data=cats)$p.value,5)`$, y por lo tanto podemos rechazar la hipótesis nula de que las varianzas son iguales y concluir que son diferentes. Así que en el test t las consideraremos diferentes. 
+
+Recordemos ahora que la hipótesis alternativa que queremos contrastar es $H_{1}:\mu_m>\mu_h$. En el factor `cats$Sex`, la F (hembra) va antes que la M (macho), y, por tanto,
+si entramos los vectores de pesos mediante `Bwt~Sex,data=cats`, el primer vector corresponderá a las gatas y el segundo a los gatos. Así pues,  la hipótesis alternativa que tenemos que especificar es que la media del primer vector es inferior a la media del segundo vector: `alternative="less"`. 
+```{r}
+t.test(Bwt~Sex, data=cats, alternative="less",var.equal=FALSE)
+```
+Como el p-valor es prácticamente 0, podemos concluir que, efectivamente, de media, los gatos adultos pesan más que las gatas  adultas.
+
+
+Hemos insistido en que el test F solo es válido si las dos poblaciones cuyas varianzas comparamos son normales. ¿Qué podemos hacer si dudamos de su normalidad? Usar un test no paramétrico que no presuponga esta hipótesis. Hay diversos tests no paramétricos para realizar contrastes bilaterales de dos varianzas. Aquí os recomendamos el **test de Fligner-Killeen**, implementado en la función `fligner.test`. Se aplica o bien a una `list` formada por las dos muestras, o bien a una fórmula que separe un vector numérico en dos muestras por medio de un factor de dos niveles.
+
+```{example}
+Si queremos contrastar si las varianzas de las longitudes de los sépalos de las flores iris setosa y virginica son iguales o no sin presuponer que siguen leyes normales, podemos usar el test de Fligner-Killeen de la manera siguiente:
+  
+  
+```
+
+
+```{r}
+fligner.test(list(S,V))
+```
+El p-valor es `r round(fligner.test(list(S,V))$p.value,4)`, por lo que podemos concluir que las varianzas son diferentes.
+
+```{example}
+Si queremos contrastar si las varianzas de los pesos de los gatos y las gatas adultos son iguales o no sin presuponer que dichos pesos tienen distribuciones normales, podemos usar el test de Fligner-Killeen de la manera siguiente:
+  
+  
+```
+
+
+```{r}
+fligner.test(Bwt~Sex, data=cats)
+```
+El p-valor es $`r round(fligner.test(Bwt~Sex, data=cats)$p.value,5)`$, por lo que podemos concluir que las varianzas son diferentes.
+
+
+
+
+## Contrastes para proporciones
+
+
+
+Cuando tenemos que efectuar un contraste sobre una probabilidad de éxito $p$ de una variable Bernoulli,  podemos emplear el **test binomial exacto**. Este test se basa en que, si la hipótesis nula $H_0: p=p_0$ es verdadera, el número de éxitos en una muestra aleatoria simple de tamaño $n$ de la variable sigue una ley binomial $B(n,p_0)$. Este test está implementado en la función `binom.test`, cuya sintaxis es
+
+```{r, eval=FALSE}
+binom.test(x, n, p=..., alternative=..., conf.level=...)
+```
+donde
+
+*  `x` y  `n`  son números naturales: el número de éxitos y el tamaño de la muestra.
+
+*  `p` es la probabilidad de éxito que queremos contrastar.
+
+*  El significado de `alternative` y `conf.level`, y sus posibles valores, son los usuales.
+
+Fijaos en particular que `binom.test` no se aplica directamente al vector de una muestra, sino a su número de éxitos y a su longitud. Si la muestra es un vector binario `X`, el número de éxitos será `sum(X)` y la longitud `length(X)`.
+
+Puede ser útil saber que el intervalo de confianza para la $p$ que da `binom.test` en un contraste bilateral es el de Clopper-Pearson.
+
+
+```{example}
+Recordemos el Ejemplo \@ref(exm:monedabase), donde, 
+en una serie de 20 lanzamientos de una moneda, había obtenido 15 caras. ¿Podemos sospechar que la moneda está trucada a favor de cara? Como comentamos en ese ejemplo, si llamamos $p$ a la probabilidad de obtener cara con esta moneda, el contraste que queremos realizar es 
+$$
+\left\{\begin{array}{l}
+H_{0}:p=0.5\\
+H_{1}:p> 0.5
+\end{array}\right.
+$$
+Usaremos la función `binom.test`:
+
+
+
+```
+
+```{r}
+binom.test(15,20, p=0.5, alternative="greater")
+```
+El p-valor del test es `r round(binom.test(15,20, p=0.5, alternative="greater")$p.value,4)`  y el intervalo de confianza que nos da este test  para la $p$ es [`r round(binom.test(15,20, p=0.5, alternative="greater")$conf.int,4)`]. Ambos valores coinciden con los dados en el ejemplo original
+
+
+
+Cuando la muestra es grande, pongamos de 40 o más sujetos, podemos usar también el **test aproximado**, basado en la aproximación de la distribución de la proporción muestral por medio de una normal dada por el Teorema Central del Límite. En R está implementado en la función  `prop.test`, que además también sirve  para contrastar dos proporciones por medio de muestras independientes grandes. Su sintaxis es
+
+```{r, eval=FALSE}
+prop.test(x, n, p =..., alternative=..., conf.level=...)
+```
+
+donde:
+
+*  `x` puede ser dos cosas:
+
+      *  Un número natural: en este caso, R entiende que es el número de éxitos en una muestra.
+      *  Un vector de dos números naturales: en este caso, R entiende que es un contraste de dos proporciones y que estos son los números de éxitos en las muestras.
+
+*  Cuando trabajamos con una sola muestra, `n` es su tamaño. Cuando estamos trabajando con dos muestras, `n` es el vector de dos entradas de sus tamaños. 
+
+*  Cuando trabajamos con una sola muestra, `p` es la proporción poblacional que contrastamos. En el caso de un contraste de dos muestras, no hay que especificarlo.
+
+*  El significado de `alternative` y `conf.level`, y sus posibles valores, son los usuales.
+
+Veamos algunos ejemplos más.
+
+```{example}
+Queremos contrastar si la proporción de estudiantes zurdos en la UIB es diferente del 10%, el porcentaje estimado de zurdos en España. Es decir, si llamamos $p$ a la proporción de estudiantes zurdos en la UIB, queremos realizar el contraste
+$$
+\left\{
+\begin{array}{l}
+H_0:p=0.1\\
+H_1:p\neq 0.1
+\end{array}
+\right.
+$$
+Para ello, tomamos una muestra de 50 estudiantes de la UIB encuestados al azar y resulta que 3 son zurdos. Vamos a suponer que forman una muestra aleatoria simple. Como la muestra es grande ($n=50$) usaremos la función `prop.test`.
+
+  
+```
+
+
+
+```{r}
+prop.test(3, 50, p=0.1)
+```
+
+El p-valor obtenido en el test es `r round(prop.test(3, 50, p=0.1)$p.value,2)`, muy  superior a 0.05.  Por lo tanto, no podemos rechazar que un 10% de los estudiantes de la UIB sean zurdos. El intervalo de confianza del 95% para $p$ que hemos obtenido es [`r round(prop.test(3, 50, p=0.1)$conf.int,3)`].
+
+La conclusión usando el test binomial hubiera sido la misma:
+```{r}
+binom.test(3, 50, p=0.1)
+```
+
+Comprovemos que el intervalo de confianza del 95% obtenido con `binom.test` es efectivamente el de Clopper-Pearson:
+
+```{r}
+epitools::binom.exact(3,50)
+```
+
+
+
+```{example, label=trampas1}
+Una empresa que fabrica trampas para cucarachas ha producido una nueva versión de su trampa más popular y afirma que la nueva trampa mata más cucarachas que la vieja. Hemos llevado a cabo un experimento para comprobarlo. Hemos situado dos trampas en dos habitaciones. En cada habitación hemos soltado 60 cucarachas. La versión vieja de  la trampa  ha matado 40 y la nueva, 48. ¿Es suficiente evidencia de que la nueva trampa es más efectiva que la vieja?
+  
+  
+```
+
+Digamos $p_v$ y $p_n$ a las proporciones de cucarachas que matan la trampa vieja y la trampa nueva, respectivamente.
+La hipótesis nula será  $H_0:p_v=p_n$, y la hipótesis alternativa $H_1:p_v<p_n$.
+Los tamaños de las muestras nos permiten usar la función `prop.test`.
+
+
+
+```{r}
+prop.test(c(40,48),c(60,60),alternative="less")
+```
+
+El p-valor es `r round(prop.test(c(40,48),c(60,60),alternative="less")$p.value,3)`, y el intervalo de confianza que nos da el test, [`r round(prop.test(c(40,48),c(60,60),alternative="less")$conf.int,3)`], es para la diferencia de proporciones $p_v-p_n$ y contiene el 0, aunque por poco. En resumen,  a un nivel de significación  de 0.05 no encontramos evidencia de que la trampa nueva sea mejor que la vieja, pero el resultado no es concluyente y convendría llevar a cabo otro experimento con más cucarachas para aumentar la potencia (cf. Ejemplo \@ref(exm:trampas1bis) en la próxima sección).
+
+
+La función `prop.test` solo sirve para contrastar dos proporciones cuando las dos muestras son independientes y grandes. Un test que se puede usar siempre para contrastar dos proporciones usando muestras independientes es el **test exacto de Fisher**, que usa una distribución hipergeométrica.
+
+
+Supongamos que evaluamos una característica dicotómica (es decir, que solo puede tomar dos valores  y por tanto define distribuciones de Bernoulli) sobre dos poblaciones y tomamos dos muestras independientes, una de cada población. Resumimos los resultados en una tabla como la que sigue:
+
+
+
+$$
+\begin{array}{r|c}
+ & \quad\mbox{Población}\quad \\
+\mbox{Característica} &\quad 1 \qquad 2\quad \\\hline
+ \mbox{Sí} &\quad a  \qquad b\quad \\
+ \mbox{No} &\quad c  \qquad d\quad
+\end{array}
+$$
+
+Llamemos $p_{1}$ a la proporción de individuos con la característica bajo estudio en la población 1 y $p_{2}$ a su proporción en la población 2. Queremos contrastar la hipótesis nula $H_{0}:p_1=p_2$ contra alguna hipótesis alternativa. Por ejemplo, en el experimento de las trampas para cucarachas, las poblaciones vendrían definidas por el tipo de trampa, y la característica que tendríamos en cuenta sería si la cucaracha ha muerto o no, lo que nos daría la tabla siguiente:
+
+$$
+\begin{array}{r|c}
+ & \qquad\mbox{Trampas}\quad \\
+&\quad \mbox{Viejas}\qquad \mbox{Nuevas}\\\hline
+ \mbox{Muertas} &\qquad 40  \qquad\qquad 48\quad \\
+ \mbox{Vivas} &\qquad 20  \qquad\qquad 12\quad
+ \end{array}
+$$
+
+
+
+El test exacto de Fisher está implementado en la función `fisher.test`. Su sintaxis es 
+
+```{r, eval=FALSE}
+fisher.test(x, alternative=..., conf.level=...)
+```
+donde
+
+*  `x` es la matriz  $\left(\begin{array}{cc} a & b\\ c & d\end{array}\right)$,  en la que los números de éxitos van en la primera fila y los de fracasos en la segunda, y las poblaciones se ordenan por columnas.
+
+*  El significado de `alternative` y `conf.level`, y sus posibles valores, son los usuales.
+
+Así, en el ejemplo de las trampas para cucarachas, entraríamos:
+```{r}
+Datos=rbind(c(40,48),c(20,12))
+Datos
+fisher.test(Datos, alternative="less")
+```
+y obtenemos de nuevo un p-valor cercano a `r round(fisher.test(Datos, alternative="less")$p.value,3)`. 
+
+Hay que ir con cuidado con la interpretación del intervalo de confianza que da esta función: no es ni para la diferencia de las proporciones ni para su cociente, sino para su **odds ratio**: el cociente
+$$
+\Big({\frac{p_v}{1-p_v}}\Big)\Big/\Big({\frac{p_n}{1-p_n}}\Big).
+$$  
+
+Recordad que si la probabilidad de un suceso $A$ es $P(A)$, sus **odds** son el cociente
+$$
+\mbox{Odds}(A)=\frac{P(A)}{1-P(A)}
+$$
+que mide cuántas veces es más probable $A$ que su contrario. Las *odds* son una función creciente de la probabilidad, y por lo tanto
+$$
+\mbox{Odds}(A)<\mbox{Odds}(B)\Longleftrightarrow P(A)<P(B).
+$$
+Esto permite comparar *odds* en vez de probabilidades, con la misma conclusión. Por ejemplo, en nuestro caso, como el intervalo de confianza para la *odds ratio* va de 0 a `r round(fisher.test(Datos, alternative="less")$conf.int[2],3)`, en particular contiene el 1, por lo que no podemos rechazar que
+$$
+\Big({\frac{p_v}{1-p_v}}\Big)\Big/\Big({\frac{p_n}{1-p_n}}\Big)=1,
+$$
+es decir, no podemos rechazar que 
+$$
+\frac{p_v}{1-p_v}=\frac{p_n}{1-p_n}
+$$
+y esto es equivalente a $p_v=p_n$. Si, por ejemplo, el intervalo de confianza hubiera ido de 0 a 0.8, entonces la conclusión a este nivel de confianza hubiera sido que
+$$
+\Big({\frac{p_v}{1-p_v}}\Big)\Big/\Big({\frac{p_n}{1-p_n}}\Big)<1
+$$
+es decir,  que 
+$$
+\frac{p_v}{1-p_v}<\frac{p_n}{1-p_n}
+$$
+y esto es equivalente a $p_v<p_n$.
+
+
+
+
+```{example}
+Para determinar si el Síndrome de Muerte Súbita del Recién Nacido (*SIDS*, por sus siglas en inglés) tiene algún componente genético, se estudiaron parejas de gemelos y mellizos en las que se dio algún caso de SIDS. Sean $p_1$ la proporción de casos con exactamente una muerte por SIDS entre las parejas de gemelos con algún caso de SIDS, y $p_2$ la proporción de casos con exactamente una muerte por SIDS entre las parejas de mellizos con algún caso de SIDS. La hipótesis de trabajo es que si el SIDS tiene componente genético, será más probable que un gemelo de un muerto por SIDS también lo sufra que si solo es mellizo, y por lo tanto que en las parejas de gemelos ha de ser más raro que haya exactamente un caso de SIDS que en las parejas de mellizos. Es decir, que $p_1<p_2$. Así pues, queremos realizar el contraste
+$$
+\left\{\begin{array}{l}
+H_0:p_1=p_2\\
+H_1:p_1< p_2
+\end{array}\right.
+$$
+```
+
+En un estudio de 1980 se obtuvieron los datos siguientes:
+
+$$
+\begin{array}{r|c}
+ & \ \mbox{Tipo de gemelos}\  \\
+\mbox{Casos de SIDS} &\ \mbox{Gemelos}\qquad \mbox{Mellizos}\\\hline
+\mbox{Uno} & \quad\  23 \qquad\quad\quad\quad \ 35\quad  \\
+ \mbox{Dos} & \quad\  1  \quad\quad\qquad\quad \ \hphantom{3}  2 \quad
+ \end{array}
+$$
+
+Vamos a realizar el contraste. Observad que damos la tabla de manera que $p_1$ es la proporción de parejas con un solo caso de SIDS entre las de la población 1 (gemelos), y $p_{2}$ es la proporción de parejas con un solo caso de SIDS entre las de la población 2 (mellizos). Por tanto hemos de aplicar `fisher.test` a esta matriz y $p_1<p_2$ corresponderá a `alternative="less"`.
+```{r}
+Datos=rbind(c(23,35),c(1,2))
+Datos
+fisher.test(Datos, alternative="less")
+```
+El p-valor es `r round(fisher.test(Datos, alternative="less")$p.value, 3)`, muy grande, por lo que no obtenemos evidencia de componente genético en el SIDS.
+
+
+Supongamos ahora que queremos comparar dos proporciones usando muestras emparejadas. Por ejemplo, supongamos que evaluamos dos características dicotómicas sobre una misma muestra de $n$ sujetos. Resumimos los resultados obtenidos en la tabla siguiente:
+
+$$
+\begin{array}{r|c}
+ & \ \mbox{Característica 1}\  \\
+\mbox{Característica 2} &\ \ \, \mbox{Sí}\qquad \mbox{No}\\\hline
+ \mbox{Sí} & \quad\ \  a \qquad \ \ \, b\quad  \\
+ \mbox{No} & \quad\ \   c  \qquad \ \ \, d\quad
+ \end{array}
+$$
+
+
+donde $a+b+c+d=n$. Esta tabla quiere decir, naturalmente, que $a$ sujetos de la muestra tuvieron la característica 1 y la característica 2, que $b$ sujetos de la muestra tuvieron la característica 2 y pero no tuvieron la característica 2, etc.
+
+Vamos a llamar $p_{1}$ a la proporción poblacional de individuos con la característica 1, y $p_{2}$ a la proporción poblacional de individuos con la característica 2. Queremos contrastar la hipótesis nula $H_{0}:p_1=p_2$ contra alguna hipótesis alternativa. En este caso, no pueden usarse las funciones `prop.test` o  `fisher.test`. Tenemos dos soluciones posibles.
+
+La primera nos permite realizar el contraste bilateral
+$$
+\left\{\begin{array}{l}
+H_{0}:p_1=p_2\\
+H_{1}:p_1\neq p_2
+\end{array}\right.
+$$
+cuando $n$ es grande y el número $b+c$ de **casos discordantes** (en los que una característica da Sí y la otra da No) es razonablemente grande, pongamos $\geq 20$. En esta situación podemos usar el  **test de McNemar**, que se lleva a cabo en R con la instrucción `mcnemar.test`. Su sintaxis básica es
+
+```{r, eval=FALSE}
+mcnemar.test(X)
+```
+
+donde `X` es la matriz $\left(\begin{array}{cc}
+a & b\\ c& d
+\end{array}\right)$
+que corresponde a la tabla anterior. 
+
+
+
+```{example, label="asma1"}
+Para comparar la efectividad de dos tratamientos del asma, se escogieron 200 pacientes con asma severo, y a cada uno se le trató durante un mes con el tratamiento A o el tratamiento B, decidiéndose cada tratamiento al azar; tras esta fase de tratamiento, se les dejó sin tratamiento durante un mes, y a continuación a cada uno se le trató durante un mes con el otro tratamiento (B si antes había recibido A, A si antes había recibido B). 
+Se anotó si durante cada periodo de tratamiento cada enfermo visitó o no el servicio de urgencias por dificultades respiratorias. Los resultados del experimento se resumen en la tabla siguiente ("Sí" significa que sí que acudió a urgencias por dificultades respiratorias):
+  
+  
+```
+
+  
+$$
+\begin{array}{r|c}
+ & \ \mbox{Tratamiento A}\  \\
+\mbox{Trat. B} &\quad \ \mbox{ Sí}\qquad\quad \mbox{No}\quad \\\hline
+ \mbox{Sí} & \quad \  71 \qquad\quad    48\quad  \\
+ \mbox{No} & \quad \   30  \qquad\quad   51\quad
+ \end{array}
+$$
+
+
+
+Queremos determinar si hay diferencia en la efectividad de los dos tratamientos. 
+```{r}
+Datos=matrix(c(71,48,30,51),nrow=2,byrow=TRUE)
+Datos
+mcnemar.test(Datos)
+```
+El p-valor del test es `r round(mcnemar.test(Datos)$p.value,3)`, ligeramente superior a 0.05, por lo tanto no permite concluir a un nivel de significación del 5%  que haya evidencia de que la efectividad de los dos tratamientos sea diferente. Sería conveniente llevar a cabo un estudio más amplio.
+
+
+Otra posibilidad para realizar un contraste de dos proporciones usando muestras emparejadas, que no requiere de ninguna hipótesis sobre los tamaños de las muestras,  es usar de manera adecuada la función `binom.test`.
+Para explicar este método, consideremos la tabla siguiente, donde ahora damos las probabilidades poblacionales de las cuatro combinaciones de resultados:
+$$
+\begin{array}{r|c}
+ & \ \mbox{Característica 1}\  \\
+\mbox{Característica 2} &\quad \ \!\mbox{Sí}\qquad\quad\, \mbox{No}\quad \\\hline
+ \mbox{Sí} & \quad \  p_{11}  \qquad\quad p_{01}\quad  \\
+ \mbox{No} & \quad \  p_{10} \qquad\quad  p_{00}\quad
+ \end{array}
+$$
+
+
+De esta manera $p_1=p_{11}+p_{10}$ y $p_2=p_{11}+p_{01}$. Entonces,  $p_1=p_2$ es equivalente a  
+$p_{10}=p_{01}$ y cualquier hipótesis alternativa se traduce en la misma desigualdad, pero para $p_{10}$ y $p_{01}$: $p_1\neq p_2$ es equivalente a $p_{10}\neq p_{01}$; $p_1< p_2$ es equivalente a $p_{10}< p_{01}$; y $p_1> p_2$ es equivalente a $p_{10}> p_{01}$. Por lo tanto podemos traducir el contraste sobre $p_1$ y $p_2$ al mismo contraste sobre $p_{10}$ y $p_{01}$. La gracia ahora está en que 
+si la hipótesis nula $p_{10}=p_{01}$ es cierta, entonces, en el total de casos discordantes, el número de sujetos en los que la característica 1 da Sí y la característica 2 da No sigue una ley binomial con $p=0.5$.
+Por lo tanto, podemos efectuar el contraste usando un test binomial exacto tomando como muestra los casos discordantes de nuestra muestra, de tamaño $b+c$, como éxitos los sujetos  que han dado Sí en la característica 1  y No en la característica 2, de tamaño $c$, con proporción a contrastar $p=0.5$ y con hipótesis alternativa la que corresponda. La ventaja de este test es que su validez no requiere de ninguna hipótesis sobre los tamaños de las muestras.  El inconveniente es que el intervalo de confianza que nos dará será para $p_{10}/(p_{10}+p_{01})$, y no permite obtener un intervalo de confianza para la diferencia o el cociente de las probabilidades $p_1$ y $p_2$ de interés.
+
+```{example}
+Usemos el test binomial para llevar a cabo el contraste bilateral del Ejemplo \@ref(exm:asma1). Habíamos obtenido 30+48=78 casos discordantes, de los que 48 eran casos en los que el tratamiento A había dado Sí y el tratamiento B había dado No.
+
+```
+
+```{r}
+binom.test(48, 78, p=0.5)
+```
+Obtenemos de nuevo un p-valor en la zona de penumbra, ligeramente superior a 0.05. 
+
+
+```{example}
+Para determinar si un test casero de VIH basado en un frotis bucal da más positivos (que seguramente serán falsos positivos) que el test de VIH de referencia, basado en una analítica de sangre que detecta la presencia del virus, se tomó una muestra aleatoria de 241 individuos en situación de riesgo,  y a todos se les realizaron ambos tests. Los resultados se resumen en la tabla siguiente:
+  
+```
+
+$$
+\begin{array}{r|c}
+ & \ \mbox{Test estándar}\  \\
+\mbox{Test casero}   &\quad \ \mbox{ Positivo}\qquad\quad \quad \mbox{Negativo}\quad \\\hline
+ \mbox{Positivo} & \quad\ \  72  \qquad\qquad\qquad\    10 \quad  \\
+ \mbox{Negativo} & \quad\quad   2 \qquad\qquad\quad\quad \  157  \quad
+ \end{array}
+$$
+
+
+
+Si llamamos $p_{c}$ a la probabilidad de que el test casero dé positivo y 
+$p_{e}$ a la probabilidad de que el test estándar dé positivo, queremos realizar el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:p_{e}=p_{c}\\
+H_{1}:p_{e}< p_{c}
+\end{array}\right.
+$$
+Como el número de casos discordantes es pequeño (10+2=12) y el test es unilateral, usaremos el test binomial.
+```{r}
+binom.test(2, 12, alternative="less", p=0.5)
+```
+
+Obtenemos evidencia significativa de que, efectivamente, el test casero da positivo en más ocasiones que el de referencia. 
+
+
+## Cálculo de la potencia de un contraste 
+
+Recordemos que la **potencia** de un contraste de hipótesis es la probabilidad de no cometer un **error de tipo II**, es decir, la probabilidad de aceptar la hipótesis alternativa  si es verdadera. Usualmente,  la probabilidad de cometer un error de tipo II se denota por $\beta$, y por lo tanto la potencia es $1-\beta$.  
+
+La potencia de un contraste está relacionada con lo que se llama la **magnitud del efecto**. En un contraste, el **efecto** es la diferencia entre el valor estimado del parámetro a partir de la muestra usada y el valor que se da a dicho parámetro como hipótesis nula: por ejemplo, en el contraste de una media, la diferencia entre la media muestral $\overline{x}$ y el valor contrastado $\mu_0$; o, en el contraste de dos medias, la diferencia entre las dos medias muestrales. Se rechaza entonces la hipótesis nula si el efecto observado es tan grande  que es muy improbable cuando la hipótesis nula es verdadera. Pero recordad que, en realidad, no se tiene en cuenta si el efecto observado ha sido grande o no por si mismo, solo si es estadísticamente significativo, es decir, si es improbable cuando  la hipótesis nula es verdadera. Entonces, sin entrar en detalle, digamos que la **magnitud del efecto** es una medida estadística específica del tamaño del efecto observado respecto de su valor esperado. La fórmula para calcular la magnitud del efecto depende del contraste y del estadístico usado. 
+
+Para cada tipo de test se han consensuado  unos valores de la magnitud del efecto considerados como "pequeño", "medio" y "grande". Estos valores se obtienen con R con la función `cohen.ES` del paquete **pwr** aplicada al tipo de test (entrado en el parámetro `test`: por ejemplo, `test="t"` para un test t usando `t.test`, o `test="p"` para un test aproximado de proporciones usando `prop.test`) y el tipo de magnitud esperada (especificando en el parámetro `size` si esperamos que sea  `"small"`, `"medium"` o  `"large"`).
+
+A modo de ejemplo, la magnitud de efecto que se considera pequeña  en un test t es:
+
+```{r}
+library(pwr)
+cohen.ES(test="t",size="small")
+```
+y la magnitud de efecto que se considera media en un  test aproximado de proporciones  es:
+
+```{r}
+cohen.ES(test="p",size="medium")
+```
+
+Si se desea solo el valor de la magnitud del efecto, para poderlo entrar en otras funciones, se obtiene con el sufijo `$effect.size`:
+
+```{r}
+cohen.ES(test="p",size="medium")$effect.size
+```
+
+
+
+Así pues, en un contraste de hipótesis intervienen cuatro cantidades fundamentales:
+el **tamaño** de la muestra, $n$; el **nivel de significación**, $\alpha$; la **potencia**, $1-\beta$; y la **magnitud del efecto**.
+El tamaño de la muestra y el nivel de significación están bajo el control del investigador; sin embargo, la potencia del contraste y la magnitud del efecto afectan al contraste de forma más indirecta y su control escapa al investigador. Por ejemplo, si incrementamos el tamaño de la muestra, la potencia aumenta, pero el aumento preciso depende de la magnitud del efecto esperada.
+De hecho, las cuatro cantidades anteriores no son independientes, sino que, a partir de tres cualesquiera de ellas,  se puede calcular la cuarta. 
+Las funciones del paquete **pwr** permiten realizar estos cálculos  para los contrastes de medias y proporciones.
+ 
+Las funciones de dicho paquete que por ahora nos interesan en este sentido son las siguientes:
+
+*  `pwr.t.test`, para utilizar en tests t  de una media, de dos medias usando muestras emparejadas o de dos medias usando muestras   independientes del mismo tamaño.
+
+*  `pwr.t2n.test`, para utilizar en tests t  de dos medias  usando muestras independientes de distinto tamaño.
+
+*  `pwr.p.test`, para utilizar en contrastes aproximados de una proporción. 
+
+*  `pwr.2p.test`, para utilizar en contrastes aproximados de dos proporciones usando muestras independientes del mismo tamaño.
+
+*  `pwr.2p2n.test`, para utilizar en contrastes aproximados de dos proporciones  usando  muestras de distinto tamaño.
+
+
+Estas funciones  tienen los parámetros básicos siguientes:
+
+*  `n`: el tamaño de la muestra (o de las muestras cuando son del mismo tamaño).
+
+*  `n1` y `n2`: los tamaños de las dos muestras en `pwr.2p2n.test` y `pwr.t2n.test`.
+
+*  `d` (en las dos primeras) o `h` (en las tres últimas): la magnitud del efecto.
+
+*  `sig.level`:  el nivel de significación.
+
+*  `power`:  la potencia.
+
+*  `type` (en la primera): el tipo de muestras usado, siendo sus posibles valores  `"one.sample"` (para contrastes de una muestra), `"two.sample"` (para contrastes de dos muestras independientes), o `"paired"` (para contrastes de dos muestras emparejadas).
+
+*  `alternative`: el tipo de hipótesis alternativa, con sus valores usuales.
+
+Si, en una cualquiera de estas funciones se especifican todos los parámetros `n` (o  `n1` y `n2`), `d` (o `h`), `sig.level` y `power` menos uno, la función da el valor del  parámetro que falta.
+
+Veamos algunos ejemplos de uso.
+
+
+
+
+
+```{example, label="norm1bispot"}
+Queremos calcular la potencia del contraste llevado a cabo en el Ejemplo  \@ref(exm:norm1bis). Se trataba de un contraste bilateral de una media usando un test t, por lo que utilizaremos la función  `pwr.t.test`. Los parámetros que le entraremos son:
+
+```  
+
+*  `n`, el tamaño de la muestra; en este ejemplo, $n=25$.
+
+* `d`, la magnitud del efecto.  Para tests t de una media e hipótesis nula $H_0: \mu = \mu_0$, la magnitud del efecto se calcula con la fórmula
+$$
+d=\frac{\overline{x}-\mu_0}{\widetilde{s}_x}.
+$$
+En nuestro ejemplo, $d=\frac{|2.8048-2|}{0.68064}= 1.1824$.
+
+*  `sig.level`,  el nivel de significación; en este ejemplo, $\alpha=0.05$.
+
+Además como es un contraste bliateral de una media, especificaremos `type="one.sample"` y `alternative="two.sided"` (esto último en realidad no hace falta: como siempre, este es su valor por defecto).
+```{r}
+x=c(2.2,2.66,2.74,3.41,2.46,2.96,3.34,2.16,2.46,2.71,2.04,
+  3.74,3.24,3.92,2.38,2.82,2.2,2.42,2.82,2.84,4.22,3.64,1.77,
+  3.44,1.53)
+mag.ef=abs(mean(x)-2)/sd(x) #Magnitud del efecto
+pwr.t.test(n=25, d=mag.ef, sig.level=0.05, type="one.sample", alternative="two.sided")
+```
+Obtenemos que la potencia del test es prácticamente 1.
+
+Si estuviéramos diseñando el experimento y quisiéramos calcular el tamaño mínimo de una muestra para tener un nivel de significación del 5% y potencia del 99%, suponiendo *a priori* que la magnitud del efecto esperado va a ser grande (y que por lo tanto detectar que la hipótesis alternativa es verdadera va a ser fácil),  primero calcularíamos cuánto vale una magnitud del efecto grande:
+
+```{r}
+cohen.ES(test="t",size="large")$effect.size
+```
+
+y a continuación la usaríamos en la función `pwr.t.test`:
+
+```{r}
+pwr.t.test(d=0.8, sig.level=0.05,power=0.99, type="one.sample")
+```
+Bastarían `r ceiling(pwr.t.test(d=0.8, sig.level=0.05, power=0.99, type="one.sample")$n)` observaciones para tener la potencia deseada. Si en cambio esperáramos una magnitud del efecto pequeña:
+
+```{r}
+pwr.t.test(d=cohen.ES(test="t",size="small")$effect.size,
+           sig.level=0.05, power=0.99, type="one.sample")
+```
+
+En este caso necesitaríamos `r ceiling(pwr.t.test(d=cohen.ES(test="t",size="small")$effect.size,sig.level=0.05, power=0.99, type="one.sample")$n)` observaciones. 
+
+```{example,label="trampas1bis"}
+Vamos a  calcular la potencia del contraste
+
+
+```
+
+$$
+\left\{
+\begin{array}{l} 
+ H_0:p_v=p_n\\
+ H_1:p_v<p_n
+ \end{array}
+ \right.
+$$
+ 
+del Ejemplo \@ref(exm:trampas1). En este caso, usamos la función `pwr.2p.test`, ya que usamos dos muestras del mismo tamaño, y le entramos los parámetros siguientes:
+
+
+*  `n`, el tamaño de las muestras; en este ejemplo, $n=60$.
+
+*  `h`, la magnitud del efecto. Para calcularla,^[Por si a alguien le interesa, la fórmula para esta magnitud del efecto es
+$$
+h=2\left(\arcsin\big(\sqrt{\widehat{p}_1}\,\big)-\arcsin\big(\sqrt{\widehat{p}_2}\,\big)\right),
+$$
+siendo $\widehat{p}_1$ y $\widehat{p}_2$ las proporciones muestrales de éxitos de las dos muestras.] usamos la función `ES.h` del mismo paquete **pwr** y que se aplica a las proporciones muestrales de éxitos de las dos muestras: en este ejemplo,  $\widehat{p}_v=0.67$ y $\widehat{p}_n =0.8$.
+```{r}
+mag.ef=ES.h(0.67,0.8) 
+mag.ef  
+```
+
+*  `sig.level`, el nivel de significación, 0.05.
+
+```{r}
+pwr.2p.test(h=mag.ef, n=60, sig.level=0.05,alternative="less")
+```
+Hemos obtenido una potencia de, aproximadamente, un `r round(100*pwr.2p.test(h=mag.ef, n=60, sig.level=0.05,alternative="less")$power)`%.
+
+Si estuviéramos diseñando el experimento y quisiéramos calcular el tamaño de las muestras necesario para tener una potencia del 90%  al nivel de significación del 5% y esperando una magnitud del efecto pequeña (porque esperamos una mejora con las nuevas trampas, pero solo pequeña), entraríamos:
+
+```{r}
+cohen.ES(test="p",size="small")$effect.size
+pwr.2p.test(h=-0.2, sig.level=0.05, power=0.9, 
+   alternative="less")
+```
+Tendríamos que usar dos muestras de `r ceiling(pwr.2p.test(h=-0.2, sig.level=0.05, power=0.9, alternative="less")$n)` cucarachas cada una. Observad que en `pwr.2p.test` hemos entrado en `h` la magnitud del efecto en negativo: esto es debido a que usamos `alternative="less"` y por lo tanto esperamos que la primera proporción sea menor que la segunda.
+
+
+```{example,label="fumarbis"}
+En el contraste
+
+```
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu_n=\mu_f\\
+H_{1}:\mu_n> \mu_f
+\end{array}\right.
+$$
+del Ejemplo \@ref(exm:fumar),  ¿qué tamaño de la muestra de mujeres fumadoras tendríamos que tomar si usáramos una muestra de 100 no fumadoras, quisiéramos una potencia del 90% y un nivel de significación del 5% y esperáramos una magnitud del efecto media?
+
+
+Como es un contraste de dos medias independientes y los tamaños de las muestras pueden ser diferentes, usaremos la función `pwr.t2n.test`:
+
+```{r}
+pwr.t2n.test(n1=100, d=cohen.ES(test="t",size="medium")$effect.size,  
+             sig.level=0.05, power=0.9, alternative="greater")
+```
+Bastaría estudiar `r ceiling(pwr.t2n.test(n1=100, d=0.5,  sig.level=0.05, power=0.9, alternative="greater")$n2)` madres fumadoras.
+
+
+
+
+## Guía rápida
+
+Excepto en las que decimos lo contrario, todas las funciones para realizar contrastes que damos a continuación admiten los parámetros `alternative`, que sirve para especificar el tipo de contraste (unilateral en un sentido u otro o bilateral), y  `conf.level`, que sirve para indicar el nivel de confianza $1-\alpha$.  Sus valores por defecto son contraste bilateral y nivel de confianza 0.95.
+
+*  `t.test` realiza tests t para contrastar una o dos medias (tanto usando muestras independientes como emparejadas). Aparte de `alternative` y  `conf.level`, sus parámetros principales son:
+   
+     *  `mu` para especificar el valor de la media que queremos contrastar en un test de una media.
+
+     *  `paired` para indicar si en un contraste de dos medias usamos muestras independientes o emparejadas.
+
+     *  `var.equal` para indicar en un contraste de dos medias usando muestras independientes si las varianzas poblacionales son iguales o diferentes.
+
+
+*  `SIGN.test` del paquete **BSDA**,  realiza un test de signos para contrastar una mediana. Dispone del parámetro  `md`  para entrar la mediana a contrastar.
+
+*  `wilcox.test`, para realizar tests de Wilcoxon y de Mann-Whitney para contrastar una o dos  medianas (tanto usando muestras independientes como emparejadas). Sus parámetros son los mismos que los de `t.test` (salvo `var.equal`, que en estos tests no tiene sentido).
+
+*  `sigma.test`, para realizar tests $\chi^2$ para contrastar una varianza (o una desviación típica). Dispone de los parámetros `sigma` y `sigmasq` para indicar, respectivamente, la desviación típica o la varianza a contrastar.
+
+*  `var.test`, para realizar tests F para contrastar dos varianzas (o dos desviaciones típicas). 
+
+*  `fligner.test`, para realizar tests no paramétricos de Fligner-Killeen para contrastar dos varianzas (o dos desviaciones típicas). No dispone de los parámetros `alternative` (solo sirve para contastes bilaterales) ni `conf.level` (no calcula intervalos de confianza).
+
+
+*  `binom.test`, para realizar tests binomiales exactos para contrastar una proporción. Dispone del parámetro  `p` para indicar la proporción a contrastar.
+
+*  `prop.test`, para realizar tests aproximados para contrastar  una proporción o dos proporciones de poblaciones usando muestras independientes.  También dispone del parámetro  `p` para indicar la proporción a contrastar en un contraste de una proporción.
+
+*  `fisher.test`, para realizar tests exactos de Fisher para contrastar dos proporciones usando muestras independientes. 
+
+*  `mcnemar.test`, para realizar tests bilaterales de McNemar para contrastar dos proporciones usando muestras emparejadas. No dispone de los parámetros `alternative`  ni `conf.level`.
+
+* `cohen.ES` del paquete **pwr**, da los valores aceptados por convenio como "pequeño", "mediano" y "grande" para diferentes tests.
+
+*  `pwr.t.test` del paquete **pwr**,  relaciona el tamaño de la(s) muestra(s), el nivel de significación, la potencia y la magnitud del efecto (en el sentido de que si se entran tres de estos valores se obtiene el cuarto) en tests t  de una media, de dos medias usando muestras emparejadas o de dos medias usando muestras  independientes del mismo tamaño. Sus parámetros, son
+     * `n`: el tamaño de la muestra o de las muestras.
+     *  `sig.level`:  el nivel de significación.
+     * `power`:  la potencia.
+     * `d`: la magnitud del efecto
+     *  `type`: el tipo de muestras (una muestra, dos muestras emparejadas, dos muestras independientes).
+     *  `alternative`: el tipo de hipótesis alternativa.
+
+     
+
+*  `pwr.t2n.test`del paquete **pwr**,  relaciona los tamaños de muestras, el nivel de significación, la potencia y la magnitud del efecto en tests t   de dos medias  usando muestras independientes de distinto tamaño. Sus parámetros  son
+     * `n1` y `n2`: los tamaños de las dos muestras.
+     *  `sig.level`,   `power`,  `d` y `alternative` como en `pwr.t.test`.
+
+
+*  `pwr.p.test` del paquete **pwr**,  relaciona los tamaños de muestras, el nivel de significación, la potencia y la magnitud del efecto en contrastes aproximados de una proporción. Sus parámetros  son
+    * `n`,  `sig.level`, `power` y `alternative` como en  `pwr.t.test`.
+    * `h`: la magnitud del efecto
+
+
+*  `pwr.2p.test` del paquete **pwr**,  relaciona los tamaños de muestras, el nivel de significación, la potencia y la magnitud del efecto en contrastes aproximados de dos proporciones usando muestras independientes del mismo tamaño. Sus parámetros  son los mismos que los de  `pwr.p.test`.
+
+*  `pwr.2p2n.test`, del paquete **pwr**,  relaciona los tamaños de muestras, el nivel de significación, la potencia y la magnitud del efecto en  contrastes aproximados de dos proporciones  usando  muestras de distinto tamaño. Sus parámetros  son
+     * `n1` y `n2`: los tamaños de las dos muestras.
+     * `sig.level`, `power` y `alternative` como en  `pwr.p.test`.
+
+
+
+## Ejercicios
+
+### Modelo de test {-}
+
+*(1)*  Tenemos una muestra de una población normal formada por los números 2,5,3,5,6,6,7,2. Usando la función `t.test`, calculad el p-valor (redondeado a 3 cifras decimales, sin ceros innecesarios a la derecha) del contraste $H_0: \mu=4$ contra $H_1:\mu \neq 4$ y decid (contestando SI, sin acento, o NO) si podemos rechazar la hipótesis nula en favor de la alternativa a un nivel de significación de 0.05. Tenéis que dar las dos respuestas en este orden, separadas por un único espacio en blanco.
+
+
+*(2)*  Tenemos dos muestras de poblaciones normales, $x_1$: 2,5,3,5,6,6,7,2 y $x_2$: 3,2,5,4,2,2,4,5,1,6,2. Usando la función `t.test`, calculad el p-valor (redondeado a 3 cifras decimales, sin ceros innecesarios a la derecha) del contraste $H_0: \mu_1=\mu_2$ contra $H_1:\mu_1>\mu_2$ suponiendo que las varianzas son diferentes y decid (contestando SI, sin acento, o NO) si podemos rechazar la hipótesis nula en favor de la alternativa a un nivel de significación de 0.1. Tenéis que dar las dos respuestas en este orden, separadas por un único espacio en blanco.
+
+*(3)*   Tenemos dos muestras de poblaciones normales, $x_1$: 2,5,3,5,6,6,7,2 y $x_2$: 3,2,10,9,2,2,4,5,1,10,2. Usando la función `var.test`, calculad los extremos inferior y superior de un intervalo de confianza del 95% para $\sigma_1^2/\sigma_2^2$ (redondeados a 3 cifras decimales, sin ceros innecesarios a la derecha) y decid (contestando SI, sin acento, o NO) si en el contraste $H_0: \sigma_1=\sigma_2$ contra $H_1:\sigma_1 \neq \sigma_2$ podemos rechazar la hipótesis nula en favor de la alternativa a un nivel de significación de 0.05. Tenéis que dar las tres respuestas en este orden, separadas por un único espacio en blanco.
+
+*(4)*  Tenemos dos variables aleatorias de Bernoulli de proporciones poblacionales $p_1$ y $p_2$, respectivamente. En una muestra de 100 observaciones de la primera hemos obtenido 20 éxitos, y en una muestra de 150 observaciones de la segunda, hemos obtenido 40 éxitos. Usando la función `prop.test`, calculad el p-valor (redondeado a 3 cifras decimales, sin ceros innecesarios a la derecha) del contraste $H_0: p_1=p_2$ contra $H_1:p_1<p_2$ y decid (contestando SI, sin acento, o NO) si podemos rechazar la hipótesis nula en favor de la alternativa a un nivel de significación de 0.05. Tenéis que dar las dos respuestas en este orden, separadas por un único espacio en blanco.
+
+```{r,include=FALSE,eval=FALSE}
+### Ejercicios {-}
+
+**(1)** Para satisfacer las necesidades respiratorias de los peces de agua caliente, el contenido de oxígeno disuelto debe presentar un promedio de
+6.5 partes por millón (ppm), con una desviación típica no mayor de 1.2 ppm.
+Cuando la temperatura del agua crece, el oxígeno disuelto disminuye, y esto causa la asfixia del pez. 
+
+Se realizó un estudio sobre los efectos del calor en verano en el contenido de oxígeno disuelto en un gran lago. Después de un período particularmente caluroso, se tomaron muestras de agua en $35$ lugares aleatoriamente seleccionados
+en el lago, y se determinó el contenido de oxígeno disuelto. Los resultados (en ppm) fueron los siguientes:
+#```{r}
+O2=c(9.1,6.8,7.0,7.5,8.7,3.2,5.4,8.1,4.4,5.1,6.2,6.9,6.9,4.3,
+    8.0,5.3,6.2,6.4,7.8,5.8,6.9,7.7,5.2,5.8,6.3,5.9,8.5,7.5,8.9,
+    5.6,6.6,5.3,5.7,6.9,6.6)
+#```
+Suponemos que estos contenidos de oxígeno siguen una distribución normal.
+
+*(a)*  ¿Hay evidencia de que el contenido medio de oxígeno en el lago sea inferior al nivel aceptable de $6.5$ ppm?
+*(b)*  ¿Hay evidencia de que la desviación típica del contenido  de oxígeno en el lago sea superior a $1.2$ ppm?
+
+**(2)** Los angiogramas son la técnica estándar para diagnosticar un ictus, pero tienen un ligero riesgo de mortalidad (inferior al 1%). Algunos investigadores han propuesto usar una prueba PET para diagnosticar el ictus de manera no invasiva. Sobre 64 pacientes ingresados en urgencias con síntomas de ictus se usaron ambas técnicas de diagnóstico. Los resultados obtenidos se resumen en la tabla siguiente:
+$$
+\begin{array}{r|c}
+ & \quad\mbox{Angiograma}\quad \\
+\mbox{PET} &\quad \mbox{Positivo} \qquad \mbox{Negativo}\quad \\\hline
+ \mbox{Positivo} &\quad 32  \qquad\qquad\ \ 8\quad \\
+ \mbox{Negativo} &\quad\quad 3   \qquad\qquad\ \   21\quad\ 
+\end{array}
+$$
+
+Contrastad si ambas técnicas de diagnóstico tienen la misma probabilidad de dar positivo.
+```
+
+
+
+### Respuestas al test {-}
+
+```{r, include=FALSE}
+##1
+x=c(2,5,3,5,6,6,7,2)
+Res1=round(t.test(x,mu=4,alternative="two.sided")$p.value,3)
+##2
+x1=c(2,5,3,5,6,6,7,2)
+x2=c(3,2,5,4,2,2,4,5,1,6,2)
+Res2=round(t.test(x1,x2,conf.level=0.9,
+                 alternative="greater")$p.value,3)
+##3
+x1=c(2,5,3,5,6,6,7,2)
+x2=c(3,2,10,9,2,2,4,5,1,10,2)
+Res3=round(var.test(x1,x2)$conf.int,3)
+#4
+Res4=round(prop.test(c(20,40),c(100,150),alternative="less")$p.value,3)
+```
+
+
+*(1)*   `r Res1` NO
+
+```{r,include=FALSE}
+#Nosotros hemos hecho
+x=c(2,5,3,5,6,6,7,2)
+round(t.test(x,mu=4)$p.value,3)
+```
+
+*(2)*  `r Res2` SI
+
+```{r,include=FALSE}
+#Nosotros hemos hecho
+x1=c(2,5,3,5,6,6,7,2)
+x2=c(3,2,5,4,2,2,4,5,1,6,2)
+round(t.test(x1,x2,alternative="greater")$p.value,3)
+```
+
+
+*(3)*   `r Res3[1]` `r Res3[2]` NO
+
+```{r,include=FALSE}
+#Nosotros hemos hecho 
+x1=c(2,5,3,5,6,6,7,2)
+x2=c(3,2,10,9,2,2,4,5,1,10,2)
+round(var.test(x1,x2)$conf.int,3)
+```
+
+
+*(4)*  `r Res4` NO
+
+```{r,include=FALSE}
+#Nosotros hemos hecho 
+round(prop.test(c(20,40),c(100,150),alternative="less")$p.value,3)
+```
+
+
+
+```{r,include=FALSE,eval=FALSE}
+### Respuestas sucintas a los ejercicios {-}
+
+**(1)** *(a)* No:
+#```{r}
+O2=c(9.1,6.8,7.0,7.5,8.7,3.2,5.4,8.1,4.4,5.1,6.2,6.9,6.9,4.3,
+    8.0,5.3,6.2,6.4,7.8,5.8,6.9,7.7,5.2,5.8,6.3,5.9,8.5,7.5,8.9,
+    5.6,6.6,5.3,5.7,6.9,6.6)
+t.test(O2,mu=6.5,alternative="less")
+#```
+
+*(b)* Tampoco:
+#```{r}
+library(TeachingDemos)
+sigma.test(O2, sigma=1.2, alternative="greater")
+#```
+
+**(2)** Nop:
+#```{r}
+binom.test(3,11, p=0.5)
+#```
+
+```

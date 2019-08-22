@@ -1,0 +1,17 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Variables Aleatorias Parte I}{1}{0}{1}
+\beamer@sectionintoc {2}{Variables aleatorias}{2}{0}{2}
+\beamer@subsectionintoc {2}{1}{Variables aleatorias}{3}{0}{2}
+\beamer@subsectionintoc {2}{2}{Tipos de variables aleatorias}{6}{0}{2}
+\beamer@sectionintoc {3}{Distribuciones de probabilidad para v.a. discretas.}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{Funci\IeC {\'o}n de probabilidad de una variable aleatoria discreta}{10}{0}{3}
+\beamer@subsectionintoc {3}{2}{Propiedades de la funci\IeC {\'o}n de probabilidad}{14}{0}{3}
+\beamer@sectionintoc {4}{Funci\IeC {\'o}n de distribuci\IeC {\'o}n de variables aleatorias}{17}{0}{4}
+\beamer@sectionintoc {5}{Momentos de variables aleatorias discretas}{27}{0}{5}
+\beamer@subsectionintoc {5}{1}{Esperanza para variables aleatorias discretas}{28}{0}{5}
+\beamer@subsubsectionintoc {5}{1}{1}{Relaci\IeC {\'o}n de la esperanza para variables aleatorias discretas con la media aritm\IeC {\'e}tica}{29}{0}{5}
+\beamer@subsectionintoc {5}{2}{Esperanzas de funciones de variables aleatorias discretas}{32}{0}{5}
+\beamer@subsectionintoc {5}{3}{Momentos de una variable aleatoria}{41}{0}{5}
+\beamer@subsectionintoc {5}{4}{Varianza de una variable aleatoria}{42}{0}{5}
+\beamer@subsubsectionintoc {5}{4}{1}{Esperanza y varianza de transformaciones lineales}{49}{0}{5}

@@ -1,0 +1,7 @@
+"0","barplot(rbind(prop.table(table(myoglobin.todos.nuc)),"
+"0","  prop.table(table(myoglobin.exon1.nuc)),"
+"0","  prop.table(table(myoglobin.exon2.nuc)),"
+"0","  prop.table(table(myoglobin.exon3.nuc))),"
+"0","  beside=TRUE, legend=c(""Totales"",""Exon1"",""Exon2"",""Exon3""),"
+"0","  args.legend=list(x=""topleft"",cex=0.8),col=2:5,ylim=c(0,0.45),"
+"0","main=""Frecuencias relativas de las bases en los tres exones\n de la mioglobina humana y en la cadena total"")"

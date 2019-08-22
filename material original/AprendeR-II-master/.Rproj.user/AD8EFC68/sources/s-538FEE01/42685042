@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1566468914002.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2470836021",
+    "id" : "42685042",
+    "lastKnownWriteTime" : 1551198516,
+    "last_content_update" : 1551198516,
+    "path" : "~/Downloads/AprendeR-II-master/01-Distribuciones.Rmd",
+    "project_path" : "01-Distribuciones.Rmd",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

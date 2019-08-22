@@ -1,0 +1,11 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Estimaci\IeC {\'o}n por intervalos}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Definiciones b\IeC {\'a}sicas}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{$\mu $ de poblaci\IeC {\'o}n normal con $\sigma $ conocida}{12}{0}{1}
+\beamer@subsectionintoc {1}{3}{$\mu $ de poblaci\IeC {\'o}n normal con $\sigma $ desconocida}{30}{0}{1}
+\beamer@subsectionintoc {1}{4}{I.C. para $\mu $ de una poblaci\IeC {\'o}n normal con $\sigma $ conocida y muestra grande}{41}{0}{1}
+\beamer@subsectionintoc {1}{5}{I.C para una proporci\IeC {\'o}n }{54}{0}{1}
+\beamer@subsectionintoc {1}{6}{I.C. para la proporci\IeC {\'o}n poblacional muestras grandes}{56}{0}{1}
+\beamer@subsectionintoc {1}{7}{I.C. para $\sigma ^2$ de una poblaci\IeC {\'o}n normal}{71}{0}{1}
+\beamer@subsectionintoc {1}{8}{Poblaciones $N$ peque\IeC {\~n}as}{78}{0}{1}

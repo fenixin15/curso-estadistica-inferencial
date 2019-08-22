@@ -1,0 +1,4 @@
+"0","library(ape)"
+"0","myoglobin.exon1=read.GenBank(""M10090.1"", as.character=TRUE)"
+"0","myoglobin.exon2=read.GenBank(""M14602.1"", as.character=TRUE)"
+"0","myoglobin.exon3=read.GenBank(""M14603.1"", as.character=TRUE)"

@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Variables aleat\IeC {\`o}ries cont\IeC {\'\i }nues}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Esperan\IeC {\c c}a i vari\IeC {\`a}ncia}{22}{0}{1}
+\beamer@sectionintoc {2}{Algunes distribucions cont\IeC {\'\i }nues}{29}{0}{2}
+\beamer@subsectionintoc {2}{1}{Distribuci\IeC {\'o} uniforme}{29}{0}{2}
+\beamer@subsectionintoc {2}{2}{Distribuci\IeC {\'o} normal}{34}{0}{2}
+\beamer@subsectionintoc {2}{3}{Distribuci\IeC {\'o} exponencial}{63}{0}{2}
+\beamer@subsectionintoc {2}{4}{Aproximacions}{75}{0}{2}

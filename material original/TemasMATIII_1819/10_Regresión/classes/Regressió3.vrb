@@ -1,0 +1,14 @@
+\frametitle{Distància de Cook}
+
+Les distàncies de Cook es poden calcular emprant la funció \texttt{cooks.distance} del paquet \texttt{car} de R.
+\begin{footnotesize}
+\begin{verbatim}
+> cooks.distance(r)
+           1            2            3            4
+71.193885062  0.036284611  0.038913392  0.003134472
+           5            6            7            8
+ 0.018290844  0.093186308  0.065299277  0.045157990
+           9
+ 0.240848787
+\end{verbatim}
+\end{footnotesize}

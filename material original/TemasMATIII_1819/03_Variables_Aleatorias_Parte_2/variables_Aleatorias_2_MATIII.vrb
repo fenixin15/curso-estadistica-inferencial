@@ -1,0 +1,12 @@
+\frametitle{Interpretación de la desigualdad}
+\begin{itemize}
+\item Por ejemplo para $a=2$ esta desigualdad se puede interpretar como
+que dada una v.a. $X$ con cualquier distribución
+que tenga $E(X)$ y $Var(X)$ finitos
+\emph{la  probabilidad de que un valor se aleje de la media $\mu$ más de
+$a=2$ desviaciones típicas es menor o igual que $0.25$}.
+\item Es decir sólo el 25\% de los valores estarán alejados de la media
+más de $2\sigma$
+
+¡\emph{Sea cual sea la distribución de la v.a.}!
+\end{itemize}

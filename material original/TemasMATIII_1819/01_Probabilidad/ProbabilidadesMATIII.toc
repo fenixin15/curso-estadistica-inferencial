@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Probabilidad}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Definiciones b\IeC {\'a}sicas}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Operaciones}{5}{0}{1}
+\beamer@subsectionintoc {1}{3}{Probabilidad}{12}{0}{1}
+\beamer@subsectionintoc {1}{4}{Probabilidad condicionada}{23}{0}{1}
+\beamer@subsectionintoc {1}{5}{Bayes}{45}{0}{1}
+\beamer@subsectionintoc {1}{6}{Independencia}{57}{0}{1}

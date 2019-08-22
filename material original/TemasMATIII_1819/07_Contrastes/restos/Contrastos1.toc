@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Nocions b\IeC {\`a}siques}{2}{1}{1}
+\beamer@subsectionintoc {1}{1}{Contrastos}{2}{1}{1}
+\beamer@subsectionintoc {1}{2}{Tipus d'errors}{21}{1}{1}
+\beamer@subsectionintoc {1}{3}{C.H. per a $\mu $ de normal amb $\sigma $ coneguda}{26}{1}{1}
+\beamer@subsectionintoc {1}{4}{$p$-valor}{62}{1}{1}
+\beamer@subsectionintoc {1}{5}{Els passos d'un contrast}{86}{1}{1}

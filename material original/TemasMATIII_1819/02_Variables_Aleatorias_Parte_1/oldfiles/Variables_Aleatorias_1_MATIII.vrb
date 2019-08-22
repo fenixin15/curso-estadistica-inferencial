@@ -1,0 +1,15 @@
+\frametitle{Propiedades}
+%\begin{prop}
+       Sea $F_{X}$ la función de distribución  de una  v.a. $X$ entonces:
+\begin{enumerate}[a)]
+\item  $0\leq F_{X}(x)\leq 1$.
+\item La función $F_{X}$ es no decreciente.
+\item La función $F_{X}$ es continua por la derecha.
+\item Si denotamos por $F_X(x_0^{-})=\displaystyle \lim_{x\to x_0^{-}} F(x)$,
+entonces se cumple que $P(X< x_0)=F_X(x_0^{-})$ y que $P(X=x_0)=F_X(x_0)-F_X(x_0^{-})$.
+\item Se cumple que $\displaystyle \lim_{x\to\infty} F_{X}(x)=1$; $\displaystyle \lim_{x\to-\infty}F_{X}(x)=0$.
+\item  Toda función $F$ verificando las propiedades anteriores es función de distribución de alguna v.a. $X$.
+\item $P(X>x)=1-F_{X}(x)$
+\item Dados $a,b\in \RR$ con $a<b$ $$P(a<X\leq b)=F_{X}(b)-F_{X}(a).$$
+\end{enumerate}
+%\end{prop}

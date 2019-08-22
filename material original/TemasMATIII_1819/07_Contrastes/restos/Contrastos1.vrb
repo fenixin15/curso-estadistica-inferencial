@@ -1,0 +1,24 @@
+\frametitle{El $p$-valor}
+\vspace*{-3ex}
+
+\begin{block}{Important!}
+Si no establim un nivell de significació $\alpha$, aleshores
+\begin{itemize}
+\item Acceptam $H_0$ si el $p$-valor és ``gran'' ($\geq 0.1$)
+\medskip
+
+\item Rebutjam $H_0$ si el $p$-valor és ``petit'' ($<0.05$). En aquest cas, el $p$-valor és
+\begin{itemize}
+\item \emph{Significatiu} si és $< 0.05$
+\item \emph{Fortament significatiu} si és $<0.01$
+\item \emph{Molt significatiu} si és $<0.001$
+\end{itemize}
+\end{itemize}
+\end{block}
+{\small \begin{verbatim}
+Signif. codes: 0‘***’0.001‘**’0.01‘*’0.05‘.’0.1‘ ’1
+\end{verbatim}
+}\medskip
+
+Si el $p$-valor està entre $0.05$ i $0.1$ i no tenim nivell de significació, es requereixen estudis posteriors per prendre una decisió (la \emph{zona de crepuscle}, \textsl{twilight zone})
+

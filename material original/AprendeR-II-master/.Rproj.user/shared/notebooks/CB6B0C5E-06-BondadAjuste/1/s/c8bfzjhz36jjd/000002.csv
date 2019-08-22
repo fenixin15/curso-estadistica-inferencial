@@ -1,0 +1,2 @@
+"0","qqPlot(iris.sl, distribution=""norm"", mean=mu, sd=sigma,xlab=""Cuantiles de la normal"",id=FALSE,"
+"0","   ylab=""Cuantiles de la muestra"",main=""Normal-plot de longitudes de sépalos de flores iris"")"

@@ -1,0 +1,27 @@
+
+\begin{enumerate}[(a)]
+\only<2>{\item[(e)] $P(A\cup B)=P(A)+P(B)-P(A\cap B)$ porque
+{$$
+\hspace*{-1.3cm}\begin{array}{l}
+P(A)+P(B)-P(A\cap B) \\
+\quad =P(A-B)+P(A\cap B)+ P(B-A)+P(A\cap  B)-P(A\cap  B)\\
+\quad =P(A-B)+P(A\cap B)+ P(B-A)=P(A\cup B)
+\end{array}
+$$
+}\medskip
+
+\begin{center}
+\includegraphics[width=0.6\linewidth]{A-B.jpg}
+\end{center}
+}
+\only<3>{\item[(f)] $P(A\cup B\cup C)=P(A)+P(B)+P(C)$\\ \qquad $-P(A\cap B)-P(A\cap C)-P(B\cap C)$\\ \qquad $+P(A\cap B\cap C)$
+\medskip
+
+\begin{center}
+\includegraphics[width=0.7\linewidth]{tresconjunts.jpg}
+\end{center}
+\footnotesize{
+$P(A\cup B\cup C)=P(1)+P(2)+P(3)+P(4)+P(5)+P(6)+P(7)$
+}
+}
+\end{enumerate}

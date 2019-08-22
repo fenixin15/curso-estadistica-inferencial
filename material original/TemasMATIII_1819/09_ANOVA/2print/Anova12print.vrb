@@ -1,0 +1,15 @@
+\frametitle{Exemple 1}
+\vspace*{-3ex}
+
+{\small
+\begin{verbatim}
+> duncan.test(CO2.aov,"CO2$Pre",group=TRUE)$groups
+    trt means M
+1 0.0   59.14 a
+2 0.083 46.04 b
+3 0.29  36.45 c
+4 0.50  25.47 d
+5 0.86  16.44 e
+\end{verbatim}
+}
+

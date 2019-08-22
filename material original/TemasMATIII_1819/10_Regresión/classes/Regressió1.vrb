@@ -1,0 +1,18 @@
+\frametitle{Amb R}
+{\footnotesize \begin{verbatim}
+> summary(lm(alçada~edat))
+...
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)  72.3214     2.1966   32.92 4.86e-07 ***
+edat          6.4643     0.2725   23.73 2.48e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05
+   ‘.’ 0.1 ‘ ’ 1
+...
+\end{verbatim}
+}
+
+Els \red{\texttt{t value}} són els dels contrastos amb $H_0:$ ``coeficient $=0$'', i els p-valors són els d'aquests
+ contrastos. Podem rebutjar que $\beta_1=0$ (i que $\beta_0=0$)
+

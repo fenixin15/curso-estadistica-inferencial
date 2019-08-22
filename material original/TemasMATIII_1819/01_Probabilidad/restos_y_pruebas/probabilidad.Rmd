@@ -1,0 +1,197 @@
+---
+title: 'Lección 1: Probabilidad'
+author: "Ricardo Alberich"
+date: "8 de enero de 2019"
+output:
+  ioslides_presentation:
+    css: mi.css
+    fig_caption: yes
+    logo: ~/Documentos/AprendeR2.1/images/barplotSy.jpg
+    smaller: yes
+    transition: slower
+    widescreen: yes
+  slidy_presentation: default
+  beamer_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+#  La aleatoriedad
+
+## Experimentos aleatorios
+
+* La naturaleza tiene un comportamiento incierto.
+* Si repetimos bajo aproximadamente las mismas condiciones un experimento se obtienen resultados similares pero no idénticos.
+* La estadística puede analizar estos resultados y ver si las desviaciones de la teoría son razonables o no.
+
+
+Un experimento aleatorio  es un proceso que cumple:
+
+1.  Que tiene dos o más resultados posibles.
+2.  Del que conocemos todos los resultados posibles.
+3.  Del que no podemos predecir con certeza su resultado.
+4.  Del que podemos explicar sus resultados a largo plazo, es lo que se denomina principio de regularidad estadística.
+
+
+
+## Espacio Muestral
+
+* Llamaremos espacio muestral (e.m.) asociado a un experimento aleatorio al conjunto de todos sus posibles resultados. 
+* Normalmente lo denotaremos por $\Omega$.
+* A los elementos de $\Omega$ les denominaremos sucesos elementales.
+
+Llamaremos suceso del e.m. $\Omega$ a cualquier subconjunto de $\Omega$.
+El suceso $\Omega$ recibe el nombre de suceso seguro o cierto y $\emptyset$ es el suceso vacío o imposible.
+
+
+
+## Propiedades del  los sucesos 
+
+Aunque la defición formal es más sofisticada para nuestros propositos es suficiente establecer  las siguientes propiedades del álgebra de operaciones con sucesos
+
+
+1.  $\emptyset$ siempre es un suceso 
+2.  dados $A_{1},A_{2},\ldots$ sucesos entonces $\bigcap\limits_{n=1}^{\infty} A_{n}$ es un suceso
+3.  dados $A_{1},A_{2},\ldots,A_{n}$ sucesos   $\bigcup\limits_{k=1}^{n} A_{n}$ es un suceso
+4.  dados $A_{1},A_{2},\ldots,A_{n}$ sucesos    $\bigcap\limits_{k=1}^{n} A_{n}$ es un suceso
+5.  dados$A,B$ sucesos $A-B$ es un suceso.
+
+
+
+## Definiciones frecuencialista de probabilidad (Von Mises, 1883-1953)
+
+Sea $N_{A}(n)$ el número de veces que ha ocurrido  el suceso
+$A$ en $n$ repeticiones del mismo experimento aleatorio.
+Entonces la frecuencia relativa  de $A$ es 
+$$f_{A}(n)=\frac{N_{A}(n)}{n}$$
+y  definimos
+
+$$P(A)=\lim_{n\to\infty} f_{A}(n)$$
+            
+            
+## Definición Clásica  de probabilidad (Laplace, 1812)
+
+Sea $\Omega=\{\omega_{1},\omega_{2},\ldots,\omega_{n}\}$ un e.m.
+finito. Supongamos que los sucesos elementales sean
+equiprobables, es decir
+
+$$P(\{\omega_{i}\})= \frac{1}{n} \mbox{ para todo } i=1,\ldots,n$$
+
+Entonces definimos la probabilidad del suceso $A$ como:
+
+$$P(A)=\frac{card(A)}{n}=\frac{\mbox{casos favorables al suceso} A}{\mbox{casos posibles}}.$$
+
+## Defición axiomática de probabilidad (Kolgomorov, 1933)
+
+Diremos medida de probabilidad o simplemente probabilidad
+sobre un espacio de sucesos $S$ 
+
+$$P:S \to [0,1]$$
+
+tal que:
+
+1.  $P(\Omega)=1$
+2.  Si $A_{1},A_{2},\ldots\in \mathcal{F}$ y $A_{i}\cap A_{j}=\emptyset$ para $i,j=1,2, \ldots$ con $i\not= j$, entonces $$P(\cup_{i=1}^{\infty}A_{i})= \sum_{i=1}^{\infty} P(A_{i})$$
+
+
+
+A $(\Omega,\mathcal{F},P)$ se le denomina espacio de probabilidad.
+
+
+## Consecuencias
+
+1. $P(\emptyset)=0$
+2. Si $A_{1},\ldots,A_{n}\in \mathcal{F}$ y $A_{i}\cap
+             A_{j}=\emptyset$ para todo $i,j=1,\ldots n $ con $i\not=j$, entonces
+              $$ P(\cup_{i=1}^{n}A_{i})= \sum_{i=1}^{n} P(A_{i})$$
+3. $P(\overline{A})=1-P(A)$
+4. $P(A-B)=P(A)-P(A\cap B)$
+5. $P(A\cup B)=P(A)+P(B)-P(A\cap B)$
+6. Si $A\subseteq B$ entonces $P(A)\leq P(B)$
+7. $P(\cup_{i=1}^{n}A_{i})\leq \sum_{i=1}^{n} P(A_{i})$
+  
+## Probabilidad Condicionada
+
+**Definición**
+Si $B$ es un suceso no nulo, es decir $P(B)>0$, definimos la probabilidad condicional del suceso $A$ al ocurrir el suceso $B$ como $$P(A/B)=\frac{P(A\cap B)}{P(B)}$$
+
+*Propiedades*: 
+
+1. Bayes: $P(A/B)=\frac{P(A\cap B)}{P(B)}=\frac{P(B/A) P(A)}{P(B)}$
+2. Regla del producto: $P(A\cap B)=P(A) P(B/A)=P(B) P(A/B)$
+3. Regla del producto generalizada: $P(A_{1}\cap A_{2}\cap\ldots\cap A_{n})= P(A_{1})  P(A_{2}/A_{1}) P(A_{3}/A_{1}\cap A_{2})\ldots P(A_{n}/A_{1}\cap    \ldots\cap A_{n-1})$
+         
+## Fórmula de la probabilidad total
+
+Sean $A_{1},\ldots, A_{n}$ sucesos tales que
+
+$\bullet$ $\displaystyle \cup_{i=1}^n A_{i} =\Omega$
+
+$\bullet$ $A_{i}\cap A_{j}=\emptyset\mbox{  para todo } i,j=1,\ldots n \quad i\not=j$
+
+Una partición así  se denomina *sistema completo de sucesos*.
+
+Entonces si $A$ es otro suceso
+$$P(A)=\sum_{i=1}^{n}P(A\cap A_{i})=\sum_{i=1}^n P(A_{i}) P(A/A_{i})$$
+
+
+
+## Regla de  Bayes
+Sean $A_{1},\ldots,A_{n}$ un sistema completo de sucesos, y sea
+$B$ otro suceso  entonces 
+
+$$P(A_{i}/B)=\frac{P(A_{i}\cap B)}{P(B)}=\frac{P(A_{i}) P(B/A_{i})}
+{\sum_{k=1}^n P(A_{k}) P(B/A_{k})}$$
+
+
+
+
+## Propiedad
+
+Si $B$ es un suceso no nulo, podemos definir
+
+$$\begin{array}{llcl}
+P(\bullet/B):&\mathcal{F} & \to & [0,1]\\
+& A& \mapsto & P(A/B)\end{array}$$
+
+
+
+Entonces $P(\bullet/B)$ es una medida de probabilidad y por lo tanto
+cumple todas las propiedades de las medidas de probabilidad.
+
+
+
+
+
+## Independencia Estadística 
+
+* Dos sucesos $A$ y $B$ son estadísticamente independientes
+si $P(A\cap B)=P(A) P(B)$.
+* Diremos que los sucesos $\{A_{i}\}_{i\in I}$
+son estadísticamente independientes si
+$$P(\cap_{i\in J} A_{i})=\prod_{i\in J}P(A_{i})\mbox{ para todo }
+J\subseteq I\mbox{finito}$$
+* Diremos que los sucesos $\{A_{i}\}_{i\in I}$
+son estadísticamente independientes  dos a dos si
+
+$P(A_{i}\cap A_{j})=P(A_{i}) P(A_{j})\mbox{ para todo } i,j\in I \, , i\not=j$
+
+## Propiedad
+
+Si los sucesos $\{A_{i}\}_{i\in I}$ son estadísticamente independientes entonces son independientes dos a dos. El recíproco no es cierto en general.
+
+
+### Propiedades
+
+1. $A$ y $B$ son independientes sí y sólo sí $P(A/B)=P(A)$
+2. Las siguientes afirmaciones son equivalentes
+    + a.-  $A$ y $B$ son independientes
+    + b.-  $\overline{A}$ y $B$ son independientes.
+    + c.-  $\overline{A}$ y $\overline{B}$ son independientes.
+3.  si $A,B,C,D$ son independientes entonces $A\cup B$ y $C\cup D$ son independientes. También son
+independientes $A\cup B$, $C$ y $D$.
+
+
+

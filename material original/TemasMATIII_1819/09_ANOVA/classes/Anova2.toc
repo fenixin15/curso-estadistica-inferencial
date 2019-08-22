@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Blocs complets aleatoris}{2}{1}{1}
+\beamer@subsectionintoc {1}{1}{Model b\IeC {\`a}sic}{2}{1}{1}
+\beamer@subsectionintoc {1}{2}{Efectivitat dels blocs}{37}{1}{1}
+\beamer@sectionintoc {2}{ANOVA de dues vies}{42}{1}{2}
+\beamer@subsectionintoc {2}{1}{Introducci\IeC {\'o}}{42}{1}{2}
+\beamer@subsectionintoc {2}{2}{Model}{47}{1}{2}
+\beamer@subsectionintoc {2}{3}{Contrastos}{67}{1}{2}

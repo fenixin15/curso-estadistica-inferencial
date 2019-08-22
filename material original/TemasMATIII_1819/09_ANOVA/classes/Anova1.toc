@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Nocions b\IeC {\`a}siques}{2}{1}{1}
+\beamer@sectionintoc {2}{Un factor}{13}{1}{2}
+\beamer@subsectionintoc {2}{1}{Efectes fixats}{13}{1}{2}
+\beamer@subsectionintoc {2}{2}{Comparacions per parelles}{61}{1}{2}
+\beamer@subsectionintoc {2}{3}{Efectes aleatoris}{91}{1}{2}
