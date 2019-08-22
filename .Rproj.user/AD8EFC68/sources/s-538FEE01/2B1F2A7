@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1566473974177.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2B1F2A7",
+    "lastKnownWriteTime" : 1566474328,
+    "last_content_update" : 1566474328364,
+    "path" : "~/Developer/Projects/Matematicas/curso-estadistica-inferencial/teoria/Tema2-RPythonOctave.Rmd",
+    "project_path" : "teoria/Tema2-RPythonOctave.Rmd",
+    "properties" : {
+        "cursorPosition" : "723,12",
+        "scrollLine" : "716"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
