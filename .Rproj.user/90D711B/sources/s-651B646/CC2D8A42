@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1566494224630.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "359752077",
+    "id" : "CC2D8A42",
+    "lastKnownWriteTime" : 1566555115,
+    "last_content_update" : 1566555115180,
+    "path" : "~/RebostArnau/taller/curso-estadistica-inferencial/teoria/Tema-5---Muestreo.Rmd",
+    "project_path" : "teoria/Tema-5---Muestreo.Rmd",
+    "properties" : {
+        "cursorPosition" : "4,7",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
