@@ -52,38 +52,72 @@ Pasos en un estudio inferencial:
 
 * Un **muestreo aleatorio** consiste en seleccionar una muestra de la población de manera que todas las muestras del mismo tamaño sean **equiprobables**.
 
-* Dos tipos básicos de muestreo:
-  * con reposición:
+
+* Consideremos una urna de 100 bolas numeradas del 1 al 100:
+
+```{r, echo=FALSE, label=urna,fig.cap="Una urna de 100 bolas",out.width = "800px"}
+knitr::include_graphics("Images/basev.png",dpi=400)
+```
+
+## Tipos de muestreo: Muestreo aleatorio con y sin reposición {-}
+
+* Queremos extraer una muestra de 15 bolas.
+
+* Para realizar la extracción, podríamos repetir 15 veces el proceso de sacar una bola de la urna, anotar su número y devolverla a la urna. El tipo de muestra obtenida de esta manera recibe el nombre de **muestra aleatoria con reposición**, o simple (una **m.a.s.**, para abreviar).
   
-```{r, echo=FALSE, label=simple,fig.cap="Una muestra aleatoria simple",out.width = "800px"}
+```{r, echo=FALSE, label=simple,fig.cap="Una muestra aleatoria simple",out.width = "700px"}
 knitr::include_graphics("Images/simplev.png",dpi=400)
 ```
 
 ## Tipos de muestreo: Muestreo aleatorio con reposición {-}
 
-En `R`
+Las bolas violetas son las escogidas para la muestra. La bola azul se ha escogido dos veces al ser el muestreo con reposición.
+
+Para simular un muestreo de 15 bolas con reposición en una urna de 100 en `R`, haríamos los siguiente:
 
 <div class=r-code>
 ```{r}
 sample(1:100, 15, replace=TRUE)
 ```
 </div>
-
-<div class=example>
-Veamos un ejemplo más elaborado. Consideremos la tabla de datos *iris* que contiene 150 flores de 3 especies diferentes: **setosa**, **versicolor** y **virginica**. La tabla de datos contiene 5 variables: la longitud y amplitud del pétalo, la longitud y la amplitud del sépalo y la especie de la flor:
+Fijaos que no hemos obtenido la misma muestra. Esto es debido a que no hemos fijado la **semilla de aleatoriedad**.
 
 
-</example>
 
 ## Tipos de muestreo: Muestreo aleatorio con reposición {-}
+<div class=example>
+Veamos un ejemplo más elaborado. Consideremos la tabla de datos *iris* que contiene 150 flores de 3 especies diferentes: **setosa**, **versicolor** y **virginica**. La tabla de datos contiene 5 variables: la longitud y amplitud del pétalo, la longitud y la amplitud del sépalo y la especie de la flor:
+</div>
 
 ```{r}
 head(iris)
 ```
 
+## Tipos de muestreo: Muestreo aleatorio con reposición {-}
+<div class=example>
+Si quisiéramos una muestra de 10 flores con reposición, haríamos lo siguiente:
+</div>
+```{r}
+set.seed(4) # la función set.seed fija la semilla de aleatoriedad. 
+# Sirve para que siempre dé la misma muestra.
+flores.elegidas.10.con=sample(1:150,10,replace=TRUE) #elegimos las flores de la muestra.
+muestra.iris.10.con = iris[flores.elegidas.10.con,] # calculamos la subtabla 
+# de las flores de la muestra
+
+```
+
+
+
+## Tipos de muestreo: Muestreo aleatorio con reposición {-}
+
+```{r}
+muestra.iris.10.con # mostramos la muestra de las flores
+```
+Fijémonos que la flor número 51 se ha repetido al ser la muestra con reposición.
+
 
 ## Tipos de muestreo: Muestreo aleatorio sin reposición {-}
-  * sin reposición:
+* Otra manera de extraer nuestra muestra sería repetir 15 veces el proceso de sacar una bola de la urna pero ahora sin devolverla.  En este caso se habla de una **muestra aleatoria sin reposición**:
   
 ```{r, echo=FALSE, label=sinrep,fig.cap="Una muestra aleatoria sin reposición",out.width = "800px"}
 knitr::include_graphics("Images/sinrepv.png",dpi=400)
@@ -91,13 +125,29 @@ knitr::include_graphics("Images/sinrepv.png",dpi=400)
 
 ## Tipos de muestreo: Muestreo aleatorio  sin reposición {-}
 
-En `R`
+Para simular un muestreo de 15 bolas sin reposición en la urna anterior de 100 en `R`, haríamos los siguiente:
 
-<div class=r-code>
 ```{r}
 sample(1:100, 15, replace=FALSE)
 ```
-</div>
+
+## Tipos de muestreo: Muestreo aleatorio sin reposición {-}
+
+Si quisiéramos una muestra de 10 flores sin reposición, haríamos lo siguiente:
+```{r}
+set.seed(4) # la función set.seed fija la semilla de aleatoriedad. 
+# Sirve para que siempre dé la misma muestra.
+flores.elegidas.10.sin=sample(1:150,10,replace=FALSE) #elegimos las flores de la muestra.
+muestra.iris.10.sin = iris[flores.elegidas.10.sin,] # calculamos la subtabla 
+# de las flores de la muestra
+
+```
+
+## Tipos de muestreo: Muestreo aleatorio con reposición {-}
+```{r}
+muestra.iris.10.sin # mostramos la muestra de las flores
+```
+Fijémonos ahora que no hay ninguna flor repetida al ser la muestra sin reposición.
 
 ## Muestreo sistemático
 
@@ -138,5 +188,4 @@ knitr::include_graphics("Images/poli.png",dpi=400)
 * `set.seed` permite fijar la semilla de aleatoriedad. 
 
 * `replicate(n,expresión)` evalúa `n` veces la `expresión`, y organiza los resultados como las columnas de una matriz (o un vector, si el resultado de cada `expresión` es unidimensional).
-
 
