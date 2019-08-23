@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Conceptos básicos de muestreo 
 
 ```{r, include=FALSE}
-options(digits = 17)
+options(digits = 8)
 ```
 * En todo estudio estadístico distinguiremos entre **población**, (conjunto de sujetos con una o varias características que podemos medir y deseamos estudiar), y **muestra**, (subconjunto de una población.)
 
@@ -76,11 +76,11 @@ Veamos un ejemplo más elaborado. Consideremos la tabla de datos *iris* que cont
 </example>
 
 ## Tipos de muestreo: Muestreo aleatorio con reposición {-}
-<div class=example>
+
 ```{r}
 head(iris)
 ```
-</example>
+
 
 ## Tipos de muestreo: Muestreo aleatorio sin reposición {-}
   * sin reposición:
