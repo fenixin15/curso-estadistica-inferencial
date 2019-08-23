@@ -4,6 +4,7 @@
   <title>Tema 5 - Muestreo estadístico</title>
 
   <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="generator" content="pandoc" />
 
@@ -258,6 +259,7 @@ background: black;
 }
 
 slides > slide {
+display: none;
 font-family: 'Open Sans', Arial, sans-serif;
 font-size: 26px;
 color: #797979;
@@ -278,19 +280,17 @@ transition: all 0.6s ease-in-out;
 }
 
 slides > slide.far-past {
+display: none;
 }
 
 slides > slide.past {
+display: block;
 opacity: 0;
 }
 
 slides > slide.current {
 display: block;
 opacity: 1;
-z-index: 1;
-}
-slides > slide:not(.current) {
-z-index: 0;
 }
 
 slides > slide.current .auto-fadein {
@@ -305,11 +305,13 @@ background-size: 100% 100%;
 }
 
 slides > slide.next {
+display: block;
 opacity: 0;
 pointer-events: none;
 }
 
 slides > slide.far-next {
+display: none;
 }
 
 slides > slide.dark {
@@ -381,6 +383,8 @@ width: 1100px;
 
 slides.layout-widescreen > slide.far-past,
 slides.layout-faux-widescreen > slide.far-past {
+display: block;
+display: none;
 -webkit-transform: translate(-2260px);
 -moz-transform: translate(-2260px);
 -ms-transform: translate(-2260px);
@@ -414,6 +418,8 @@ pointer-events: none;
 
 slides.layout-widescreen > slide.far-next,
 slides.layout-faux-widescreen > slide.far-next {
+display: block;
+display: none;
 -webkit-transform: translate(2260px);
 -moz-transform: translate(2260px);
 -ms-transform: translate(2260px);
@@ -1344,13 +1350,6 @@ opacity: 1;
 
 .overview .slide-area {
 display: none;
-}
-slides > slide {
-background: linear-gradient(#ffffff, #ffffff 85%, #e6e6e6);
-background-color: white;
-}
-slides > slide {
-opacity: 0;
 }
 @media print {
 
@@ -3077,10 +3076,6 @@ if (document.readyState !== "loading" &&
       font-style: italic;
     }
 
-    summary {
-      display: list-item;
-    }
-
     slides > slide {
       -webkit-transition: all 0.4s ease-in-out;
       -moz-transition: all 0.4s ease-in-out;
@@ -3096,10 +3091,6 @@ if (document.readyState !== "loading" &&
       transition: opacity 0.6s ease-in 0.4s;
       opacity: 0;
     }
-/* https://github.com/ropensci/plotly/pull/524#issuecomment-468142578 */
-slide:not(.current) .plotly.html-widget{
-  display: block;
-}
 
     slides > slide:not(.nobackground):before {
       font-size: 12pt;
@@ -3236,7 +3227,7 @@ font-size: 0.5em
 <li><p>Si las conclusiones son fiables y suficientes, redactar un informe; en caso contrario, volver a empezar.</p></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con y sin reposición</h2></hgroup><article  class="unnumbered" id="tipos-de-muestreo-muestreo-aleatorio-con-y-sin-reposicion">
+</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con y sin reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-con-y-sin-reposicion" class="unnumbered">
 
 <ul>
 <li><p>Un <strong>muestreo aleatorio</strong> consiste en seleccionar una muestra de la población de manera que todas las muestras del mismo tamaño sean <strong>equiprobables</strong>.</p></li>
@@ -3253,7 +3244,7 @@ Una urna de 100 bolas
 
 </p></div></div>
 
-</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con y sin reposición</h2></hgroup><article  class="unnumbered" id="tipos-de-muestreo-muestreo-aleatorio-con-y-sin-reposicion-1">
+</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con y sin reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-con-y-sin-reposicion-1" class="unnumbered">
 
 <ul>
 <li><p>Queremos extraer una muestra de 15 bolas.</p></li>
@@ -3274,7 +3265,7 @@ Una muestra aleatoria simple
 
 </div>
 
-</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  class="unnumbered" id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion">
+</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion" class="unnumbered">
 
 <p>Las bolas violetas son las escogidas para la muestra. La bola azul se ha escogido dos veces al ser el muestreo con reposición.</p>
 
@@ -3282,11 +3273,11 @@ Una muestra aleatoria simple
 
 <pre class = 'prettyprint lang-r'>sample(1:100, 15, replace=TRUE)</pre>
 
-<pre >##  [1]  54  52  62  30  80  66  19  91  23  16 100  89  59   5  86</pre>
+<pre >##  [1] 20 92 58 89 50 41 94 97 29 69 46 88 30 82 31</pre>
 
 <p>Fijaos que no hemos obtenido la misma muestra. Esto es debido a que no hemos fijado la <strong>semilla de aleatoriedad</strong>.</p>
 
-</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  class="unnumbered" id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion-1">
+</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion-1" class="unnumbered">
 
 <div class="example">
 <p>Veamos un ejemplo más elaborado. Consideremos la tabla de datos <em>iris</em> que contiene 150 flores de 3 especies diferentes: <strong>setosa</strong>, <strong>versicolor</strong> y <strong>virginica</strong>. La tabla de datos contiene 5 variables: la longitud y amplitud del pétalo, la longitud y la amplitud del sépalo y la especie de la flor:</p></div>
@@ -3301,7 +3292,7 @@ Una muestra aleatoria simple
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</pre>
 
-</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  class="unnumbered" id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion-2">
+</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion-2" class="unnumbered">
 
 <div class="example">
 <p>Si quisiéramos una muestra de 10 flores con reposición, haríamos lo siguiente:</p></div>
@@ -3312,25 +3303,25 @@ flores.elegidas.10.con=sample(1:150,10,replace=TRUE) # elegimos las flores de la
 muestra.iris.10.con = iris[flores.elegidas.10.con,] # calculamos la subtabla 
 # de las flores de la muestra</pre>
 
-</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  class="unnumbered" id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion-3">
+</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion-3" class="unnumbered">
 
 <pre class = 'prettyprint lang-r'>muestra.iris.10.con # mostramos la muestra de las flores</pre>
 
-<pre >##      Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-## 75            6.4         2.9          4.3         1.3 versicolor
-## 51            7.0         3.2          4.7         1.4 versicolor
-## 3             4.7         3.2          1.3         0.2     setosa
-## 71            5.9         3.2          4.8         1.8 versicolor
-## 115           5.8         2.8          5.1         2.4  virginica
-## 51.1          7.0         3.2          4.7         1.4 versicolor
-## 56            5.7         2.8          4.5         1.3 versicolor
-## 62            5.9         3.0          4.2         1.5 versicolor
-## 102           5.8         2.7          5.1         1.9  virginica
-## 130           7.2         3.0          5.8         1.6  virginica</pre>
+<pre >##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 2            4.9         3.0          1.4         0.2     setosa
+## 45           5.1         3.8          1.9         0.4     setosa
+## 42           4.5         2.3          1.3         0.3     setosa
+## 123          7.7         2.8          6.7         2.0  virginica
+## 40           5.1         3.4          1.5         0.2     setosa
+## 109          6.7         2.5          5.8         1.8  virginica
+## 136          7.7         3.0          6.1         2.3  virginica
+## 143          5.8         2.7          5.1         1.9  virginica
+## 11           5.4         3.7          1.5         0.2     setosa</pre>
 
 <p>Fijémonos que la flor número 51 se ha repetido al ser la muestra con reposición.</p>
 
-</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio sin reposición</h2></hgroup><article  class="unnumbered" id="tipos-de-muestreo-muestreo-aleatorio-sin-reposicion">
+</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio sin reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-sin-reposicion" class="unnumbered">
 
 <ul>
 <li>Otra manera de extraer nuestra muestra sería repetir 15 veces el proceso de sacar una bola de la urna pero ahora sin devolverla. En este caso se habla de una <strong>muestra aleatoria sin reposición</strong>:</li>
@@ -3346,15 +3337,15 @@ Una muestra aleatoria sin reposición
 
 </p></div></div>
 
-</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio sin reposición</h2></hgroup><article  class="unnumbered" id="tipos-de-muestreo-muestreo-aleatorio-sin-reposicion-1">
+</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio sin reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-sin-reposicion-1" class="unnumbered">
 
 <p>Para simular un muestreo de 15 bolas sin reposición en la urna anterior de 100 en <code>R</code>, haríamos los siguiente:</p>
 
 <pre class = 'prettyprint lang-r'>sample(1:100, 15, replace=FALSE)</pre>
 
-<pre >##  [1] 24  1 84 35 27 48 95  2 32 47 44 69 15 22 89</pre>
+<pre >##  [1] 76 29 10 93 40 44 92 55 89 70 65 94 45 43 56</pre>
 
-</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio sin reposición</h2></hgroup><article  class="unnumbered" id="tipos-de-muestreo-muestreo-aleatorio-sin-reposicion-2">
+</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio sin reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-sin-reposicion-2" class="unnumbered">
 
 <p>Si quisiéramos una muestra de 10 flores sin reposición, haríamos lo siguiente:</p>
 
@@ -3364,21 +3355,21 @@ flores.elegidas.10.sin=sample(1:150,10,replace=FALSE) #elegimos las flores de la
 muestra.iris.10.sin = iris[flores.elegidas.10.sin,] # calculamos la subtabla 
 # de las flores de la muestra</pre>
 
-</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  class="unnumbered" id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion-4">
+</article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion-4" class="unnumbered">
 
 <pre class = 'prettyprint lang-r'>muestra.iris.10.sin # mostramos la muestra de las flores</pre>
 
 <pre >##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-## 75           6.4         2.9          4.3         1.3 versicolor
-## 51           7.0         3.2          4.7         1.4 versicolor
-## 3            4.7         3.2          1.3         0.2     setosa
-## 71           5.9         3.2          4.8         1.8 versicolor
-## 115          5.8         2.8          5.1         2.4  virginica
-## 149          6.2         3.4          5.4         2.3  virginica
-## 56           5.7         2.8          4.5         1.3 versicolor
-## 62           5.9         3.0          4.2         1.5 versicolor
-## 102          5.8         2.7          5.1         1.9  virginica
-## 130          7.2         3.0          5.8         1.6  virginica</pre>
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 2            4.9         3.0          1.4         0.2     setosa
+## 44           5.0         3.5          1.6         0.6     setosa
+## 41           5.0         3.5          1.3         0.3     setosa
+## 119          7.7         2.6          6.9         2.3  virginica
+## 38           4.9         3.6          1.4         0.1     setosa
+## 105          6.5         3.0          5.8         2.2  virginica
+## 130          7.2         3.0          5.8         1.6  virginica
+## 135          6.1         2.6          5.6         1.4  virginica
+## 11           5.4         3.7          1.5         0.2     setosa</pre>
 
 <p>Fijémonos ahora que no hay ninguna flor repetida al ser la muestra sin reposición.</p>
 
@@ -3425,7 +3416,7 @@ Una muestra aleatoria sistemática
 
 <pre class = 'prettyprint lang-r'>(primera.flor=sample(1:150,1)) </pre>
 
-<pre >## [1] 37</pre>
+<pre >## [1] 91</pre>
 
 </article></slide><slide class=""><hgroup><h2>Muestreo sistemático</h2></hgroup><article  id="muestreo-sistematico-3">
 
@@ -3452,18 +3443,18 @@ Una muestra aleatoria sistemática
 <pre class = 'prettyprint lang-r'>muestra.iris.10.sis </pre>
 
 <pre >##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-## 37           5.5         3.5          1.3         0.2     setosa
-## 52           6.4         3.2          4.5         1.5 versicolor
-## 67           5.6         3.0          4.5         1.5 versicolor
-## 82           5.5         2.4          3.7         1.0 versicolor
-## 97           5.7         2.9          4.2         1.3 versicolor
-## 112          6.4         2.7          5.3         1.9  virginica
-## 127          6.2         2.8          4.8         1.8  virginica
-## 142          6.9         3.1          5.1         2.3  virginica
-## 7            4.6         3.4          1.4         0.3     setosa
-## 22           5.1         3.7          1.5         0.4     setosa</pre>
+## 91           5.5         2.6          4.4         1.2 versicolor
+## 106          7.6         3.0          6.6         2.1  virginica
+## 121          6.9         3.2          5.7         2.3  virginica
+## 136          7.7         3.0          6.1         2.3  virginica
+## 1            5.1         3.5          1.4         0.2     setosa
+## 16           5.7         4.4          1.5         0.4     setosa
+## 31           4.8         3.1          1.6         0.2     setosa
+## 46           4.8         3.0          1.4         0.3     setosa
+## 61           5.0         2.0          3.5         1.0 versicolor
+## 76           6.6         3.0          4.4         1.4 versicolor</pre>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-estratificado">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  id="muestreo-aleatorio-estratificado" class="unnumbered">
 
 <ul>
 <li><p>Este tipo de muestreo se utiliza cuando la población está clasificada en <strong>estratos</strong> que son de interés para la propiedad estudiada.</p></li>
@@ -3481,13 +3472,13 @@ Una muestra aleatoria estratificada con dos estratos
 
 </p></div></div>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-estratificado-1">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  id="muestreo-aleatorio-estratificado-1" class="unnumbered">
 
 <ul>
 <li>Para tomar una muestra aleatoria estratificada de 15 bolas, considerando como estratos los dos colores, tomaríamos una muestra aleatoria de 6 bolas del primer color y una muestra aleatoria de 9 bolas del segundo color.</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-estratificado-2">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  id="muestreo-aleatorio-estratificado-2" class="unnumbered">
 
 <div class="example">
 <p>Vamos a considerar que la tabla de datos iris está estratificada según tres estratos. Cada estrato está compuesto por las 50 flores de la misma especie. Vamos a hallar una muestra de tamaño 12 hallando tres muestras de tamaño 4 de cada especie (estrato) con reposición y después juntaremos la tres submuestras.</p></div>
@@ -3500,34 +3491,34 @@ muestra.iris.est=rbind(iris[fls.muestra.setosa,],iris[fls.muestra.versicolor,],
                           iris[fls.muestra.virginica,])
 # Calculamos la muestra estratificada juntando las tres muestras de cada especie</pre>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-estratificado-3">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  id="muestreo-aleatorio-estratificado-3" class="unnumbered">
 
 <p>Mostramos la muestra:</p>
 
 <pre class = 'prettyprint lang-r'>muestra.iris.est</pre>
 
 <pre >##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-## 7            4.6         3.4          1.4         0.3     setosa
-## 29           5.2         3.4          1.4         0.2     setosa
-## 24           5.1         3.3          1.7         0.5     setosa
-## 25           4.8         3.4          1.9         0.2     setosa
-## 99           5.1         2.5          3.0         1.1 versicolor
-## 58           4.9         2.4          3.3         1.0 versicolor
-## 91           5.5         2.6          4.4         1.2 versicolor
-## 76           6.6         3.0          4.4         1.4 versicolor
-## 116          6.4         3.2          5.3         2.3  virginica
-## 136          7.7         3.0          6.1         2.3  virginica
-## 101          6.3         3.3          6.0         2.5  virginica
-## 108          7.3         2.9          6.3         1.8  virginica</pre>
+## 21           5.4         3.4          1.7         0.2     setosa
+## 35           4.9         3.1          1.5         0.2     setosa
+## 8            5.0         3.4          1.5         0.2     setosa
+## 45           5.1         3.8          1.9         0.4     setosa
+## 57           6.3         3.3          4.7         1.6 versicolor
+## 100          5.7         2.8          4.1         1.3 versicolor
+## 82           5.5         2.4          3.7         1.0 versicolor
+## 67           5.6         3.0          4.5         1.5 versicolor
+## 104          6.3         2.9          5.6         1.8  virginica
+## 115          5.8         2.8          5.1         2.4  virginica
+## 117          6.5         3.0          5.5         1.8  virginica
+## 119          7.7         2.6          6.9         2.3  virginica</pre>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  class="unnumbered" id="muestreo-por-conglomerados">
+</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados" class="unnumbered">
 
 <ul>
 <li><p>El proceso de obtener y estudiar una muestra aleatoria en algunos casos es caro o difícil, incluso aunque dispongamos de la lista completa de la población.</p></li>
 <li><p>Una alternativa posible sería, en vez de extraer una muestra aleatoria de todos los individuos de la población, escoger primero al azar unos subconjuntos en los que la población está dividida, a las que llamamos en este contexto <strong>conglomerados</strong> (<em>clusters</em>).</p></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  class="unnumbered" id="muestreo-por-conglomerados-1">
+</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados-1" class="unnumbered">
 
 <ul>
 <li><p>Supongamos que las 100 bolas de nuestra urna se agrupan en 20 conglomerados de 5 bolas cada uno según las franjas verticales.</p></li>
@@ -3544,7 +3535,7 @@ Una muestra aleatoria por conglomerados con 2 estratos y 20 conglomerados
 
 </p></div></div>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  class="unnumbered" id="muestreo-por-conglomerados-2">
+</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados-2" class="unnumbered">
 
 <div class="example">
 <p><strong>Ejemplo</strong></p>
@@ -3561,7 +3552,7 @@ Una muestra aleatoria por conglomerados con 2 estratos y 20 conglomerados
 <li>Saves: número de paradas.</li>
 </ul></div>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  class="unnumbered" id="muestreo-por-conglomerados-3">
+</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados-3" class="unnumbered">
 
 <pre class = 'prettyprint lang-r'>library(faraway)
 head(worldcup)</pre>
@@ -3574,7 +3565,7 @@ head(worldcup)</pre>
 ## Aboubakar  Cameroon    Forward   46     2     16       0     0
 ## Abreu       Uruguay    Forward   72     0     15       0     0</pre>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  class="unnumbered" id="muestreo-por-conglomerados-4">
+</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados-4" class="unnumbered">
 
 <p>Supongamos que queremos calcular una muestra de tamaño indeterminado de los jugadores por conglomerados eligiendo como conglomerados los países a los que éstos pertenecen.</p>
 
@@ -3587,31 +3578,31 @@ números.países.elegidos = sample(1:32,4,replace=FALSE) # elegimos las etiqueta
 # de los 4 países
 países.elegidos = unique(worldcup$Team)[números.países.elegidos]</pre>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  class="unnumbered" id="muestreo-por-conglomerados-5">
+</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados-5" class="unnumbered">
 
 <p>Los países elegidos son:</p>
 
 <pre class = 'prettyprint lang-r'>países.elegidos</pre>
 
-<pre >## [1] Slovakia    Mexico      New Zealand France     
+<pre >## [1] Cameroon Honduras Brazil   Japan   
 ## 32 Levels: Algeria Argentina Australia Brazil Cameroon Chile ... Uruguay</pre>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  class="unnumbered" id="muestreo-por-conglomerados-6">
+</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados-6" class="unnumbered">
 
 <p>La muestra elegida estará formada por los jugadores que perteneces a dichos países:</p>
 
 <pre class = 'prettyprint lang-r'>muestra.worldcup.con = worldcup[worldcup$Team%in%países.elegidos,]</pre>
 
-<p>Dicha muestra tiene tamaño 73. Sólo mostramos los datos de los 5 primeros jugadores:</p>
+<p>Dicha muestra tiene tamaño 76. Sólo mostramos los datos de los 5 primeros jugadores:</p>
 
 <pre class = 'prettyprint lang-r'>head(muestra.worldcup.con,5)</pre>
 
-<pre >##               Team   Position Time Shots Passes Tackles Saves
-## Abidal      France   Defender  180     0     91       6     0
-## Abou Diaby  France Midfielder  270     1    111       5     0
-## Aguilar     Mexico   Defender   55     0     31       2     0
-## Alou Diarra France Midfielder   82     0     31       0     0
-## Anelka      France    Forward  117     7     37       1     0</pre>
+<pre >##                    Team   Position Time Shots Passes Tackles Saves
+## Abe               Japan Midfielder  351     0    101      14     0
+## Aboubakar      Cameroon    Forward   46     2     16       0     0
+## Alexandre Song Cameroon Midfielder   90     1     59       7     0
+## Alvarez        Honduras Midfielder  180     1     57       1     0
+## Assou-Ekotto   Cameroon   Defender  270     0    116       5     0</pre>
 
 </article></slide><slide class=""><hgroup><h2>Muestreo polietápico</h2></hgroup><article  id="muestreo-polietapico">
 
@@ -3666,15 +3657,15 @@ jugadores.pais4 = sample(1:dim(worldcup.pais4)[1],5,replace=FALSE)</pre>
 
 <pre class = 'prettyprint lang-r'>head(muestra.worldcup.pol,8)</pre>
 
-<pre >##              Team   Position Time Shots Passes Tackles Saves
-## Stoch    Slovakia Midfielder  193     2     76       1     0
-## Zabavnik Slovakia   Defender  268     1     94       8     0
-## Kucka    Slovakia Midfielder  181     4     71      10     0
-## Weiss    Slovakia Midfielder  269     2     84       2     0
-## Durica   Slovakia   Defender  360     1    159       4     0
-## PerezM     Mexico Goalkeeper  360     0     58       0    13
-## Moreno     Mexico   Defender  147     0     74       4     0
-## Aguilar    Mexico   Defender   55     0     31       2     0</pre>
+<pre >##                     Team   Position Time Shots Passes Tackles Saves
+## Aboubakar       Cameroon    Forward   46     2     16       0     0
+## Alexandre Song  Cameroon Midfielder   90     1     59       7     0
+## Enoh            Cameroon Midfielder  135     2     56       8     0
+## Mbia            Cameroon   Defender  270     3    135       4     0
+## Rigobert Song   Cameroon   Defender   17     0      3       0     0
+## Turcios         Honduras Midfielder   66     0     27       0     0
+## Alvarez         Honduras Midfielder  180     1     57       1     0
+## Wilson Palacios Honduras Midfielder  270     0     90      14     0</pre>
 
 </article></slide><slide class=""><hgroup><h2>Guía rápida</h2></hgroup><article  id="guia-rapida">
 
