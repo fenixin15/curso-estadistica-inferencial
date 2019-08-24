@@ -3273,7 +3273,7 @@ Una muestra aleatoria simple
 
 <pre class = 'prettyprint lang-r'>sample(1:100, 15, replace=TRUE)</pre>
 
-<pre >##  [1] 20 92 58 89 50 41 94 97 29 69 46 88 30 82 31</pre>
+<pre >##  [1] 52 62 80 19 27 67 43 59 37 67 70 44 95 56 24</pre>
 
 <p>Fijaos que no hemos obtenido la misma muestra. Esto es debido a que no hemos fijado la <strong>semilla de aleatoriedad</strong>.</p>
 
@@ -3297,15 +3297,22 @@ Una muestra aleatoria simple
 <div class="example">
 <p>Si quisiéramos una muestra de 10 flores con reposición, haríamos lo siguiente:</p></div>
 
-<pre class = 'prettyprint lang-r'>set.seed(4) # la función set.seed fija la semilla de aleatoriedad. 
-# Sirve para que siempre dé la misma muestra.
-flores.elegidas.10.con=sample(1:150,10,replace=TRUE) # elegimos las flores de la muestra.
-muestra.iris.10.con = iris[flores.elegidas.10.con,] # calculamos la subtabla 
-# de las flores de la muestra</pre>
+<p>La función set.seed fija la semilla de aleatoriedad sirve para que siempre dé la misma muestra. A continuación, elegimos las flores de la muestra:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(4) 
+flores.elegidas.10.con=sample(1:150,10,replace=TRUE) </pre>
+
+<p>Seguidamente, calculamos la subtabla de las flores de la muestra</p>
+
+<pre class = 'prettyprint lang-r'>muestra.iris.10.con = iris[flores.elegidas.10.con,] </pre>
+
+</div>
 
 </article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion-3" class="unnumbered">
 
-<pre class = 'prettyprint lang-r'>muestra.iris.10.con # mostramos la muestra de las flores</pre>
+<p>Por último, mostramos la muestra de las flores:</p>
+
+<pre class = 'prettyprint lang-r'>muestra.iris.10.con </pre>
 
 <pre >##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 ## 88           6.3         2.3          4.4         1.3 versicolor
@@ -3318,8 +3325,6 @@ muestra.iris.10.con = iris[flores.elegidas.10.con,] # calculamos la subtabla
 ## 136          7.7         3.0          6.1         2.3  virginica
 ## 143          5.8         2.7          5.1         1.9  virginica
 ## 11           5.4         3.7          1.5         0.2     setosa</pre>
-
-<p>Fijémonos que la flor número 51 se ha repetido al ser la muestra con reposición.</p>
 
 </article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio sin reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-sin-reposicion" class="unnumbered">
 
@@ -3347,17 +3352,23 @@ Una muestra aleatoria sin reposición
 
 </article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio sin reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-sin-reposicion-2" class="unnumbered">
 
-<p>Si quisiéramos una muestra de 10 flores sin reposición, haríamos lo siguiente:</p>
+<div class="example">
+<p>Si quisiéramos una muestra de 10 flores sin reposición, haríamos los pasos siguientes:</p></div>
 
-<pre class = 'prettyprint lang-r'>set.seed(4) # la función set.seed fija la semilla de aleatoriedad. 
-# Sirve para que siempre dé la misma muestra.
-flores.elegidas.10.sin=sample(1:150,10,replace=FALSE) #elegimos las flores de la muestra.
-muestra.iris.10.sin = iris[flores.elegidas.10.sin,] # calculamos la subtabla 
-# de las flores de la muestra</pre>
+<p>Primero elegimos las flores de la muestra</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(4) 
+flores.elegidas.10.sin=sample(1:150,10,replace=FALSE)</pre>
+
+<p>A continuación, calculamos la subtabla de las flores de la muestra</p>
+
+<pre class = 'prettyprint lang-r'>muestra.iris.10.sin = iris[flores.elegidas.10.sin,] </pre>
 
 </article></slide><slide class=""><hgroup><h2>Tipos de muestreo: Muestreo aleatorio con reposición</h2></hgroup><article  id="tipos-de-muestreo-muestreo-aleatorio-con-reposicion-4" class="unnumbered">
 
-<pre class = 'prettyprint lang-r'>muestra.iris.10.sin # mostramos la muestra de las flores</pre>
+<p>Por último, mostramos las muestra de las flores:</p>
+
+<pre class = 'prettyprint lang-r'>muestra.iris.10.sin </pre>
 
 <pre >##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 ## 88           6.3         2.3          4.4         1.3 versicolor
@@ -3370,8 +3381,6 @@ muestra.iris.10.sin = iris[flores.elegidas.10.sin,] # calculamos la subtabla
 ## 130          7.2         3.0          5.8         1.6  virginica
 ## 135          6.1         2.6          5.6         1.4  virginica
 ## 11           5.4         3.7          1.5         0.2     setosa</pre>
-
-<p>Fijémonos ahora que no hay ninguna flor repetida al ser la muestra sin reposición.</p>
 
 </article></slide><slide class=""><hgroup><h2>Muestras aleatorias con reposición vs. sin reposición</h2></hgroup><article  id="muestras-aleatorias-con-reposicion-vs.sin-reposicion">
 
@@ -3412,7 +3421,7 @@ Una muestra aleatoria sistemática
 
 <pre class = 'prettyprint lang-r'>set.seed(15)</pre>
 
-<p>Hallamos la etiqueta de la primera flor</p>
+<p>Seguidamente, hallamos la etiqueta de la primera flor</p>
 
 <pre class = 'prettyprint lang-r'>(primera.flor=sample(1:150,1)) </pre>
 
@@ -3420,25 +3429,25 @@ Una muestra aleatoria sistemática
 
 </article></slide><slide class=""><hgroup><h2>Muestreo sistemático</h2></hgroup><article  id="muestreo-sistematico-3">
 
-<p>Hallamos el incremento que vamos a ir sumando a la primera etiqueta que hemos elegido:</p>
+<p>A continuación, hallamos el incremento que vamos a ir sumando a la primera etiqueta que hemos elegido:</p>
 
 <pre class = 'prettyprint lang-r'>incremento = floor(150/10)</pre>
 
-<p>elegimos las flores de la muestra</p>
+<p>el siguiente paso es elegir las flores de la muestra</p>
 
 <pre class = 'prettyprint lang-r'>flores.elegidas.10.sis = seq(from=primera.flor,by=incremento,length.out=10)</pre>
 
-<p>transformamos las etiquetas entre 1 y 150</p>
+<p>como las etiquetas elegidas no están entre 1 y 150, hemos de transformarlas:</p>
 
 <pre class = 'prettyprint lang-r'>flores.elegidas.10.sis = flores.elegidas.10.sis%%150</pre>
 
-<p>calculamos la subtabla de las flores de la muestra</p>
+<p>a continuación, calculamos la subtabla de las flores de la muestra</p>
 
 <pre class = 'prettyprint lang-r'>muestra.iris.10.sis = iris[flores.elegidas.10.sis,]</pre>
 
 </article></slide><slide class=""><hgroup><h2>Muestreo sistemático</h2></hgroup><article  id="muestreo-sistematico-4">
 
-<p>Y finalmente mostrarmos la subtabla de la muestra</p>
+<p>Y finalmente mostramos la subtabla de la muestra</p>
 
 <pre class = 'prettyprint lang-r'>muestra.iris.10.sis </pre>
 
@@ -3483,17 +3492,26 @@ Una muestra aleatoria estratificada con dos estratos
 <div class="example">
 <p>Vamos a considerar que la tabla de datos iris está estratificada según tres estratos. Cada estrato está compuesto por las 50 flores de la misma especie. Vamos a hallar una muestra de tamaño 12 hallando tres muestras de tamaño 4 de cada especie (estrato) con reposición y después juntaremos la tres submuestras.</p></div>
 
-<pre class = 'prettyprint lang-r'>set.seed(25) # fijamos la semilla de aleatoriedad
-fls.muestra.setosa=sample(1:50,4,replace=TRUE) # hallamos las flores de la especie setosa
-fls.muestra.versicolor=sample(51:100,4,replace=TRUE) # idem con versicolor
-fls.muestra.virginica=sample(101:150,4,replace=TRUE) # idem con virginica
-muestra.iris.est=rbind(iris[fls.muestra.setosa,],iris[fls.muestra.versicolor,],
-                          iris[fls.muestra.virginica,])
-# Calculamos la muestra estratificada juntando las tres muestras de cada especie</pre>
+<p>En primer lugar, fijamos la semilla de aleatoriedad:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(25) </pre>
+
+<p>a continuación, hallamos las flores de la muestra de cada una de las especies:</p>
+
+<pre class = 'prettyprint lang-r'>fls.muestra.setosa=sample(1:50,4,replace=TRUE) 
+fls.muestra.versicolor=sample(51:100,4,replace=TRUE) 
+fls.muestra.virginica=sample(101:150,4,replace=TRUE) </pre>
 
 </article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  id="muestreo-aleatorio-estratificado-3" class="unnumbered">
 
-<p>Mostramos la muestra:</p>
+<p>seguidamente, calculamos la muestra estratificada juntando las tres muestras de cada especie</p>
+
+<pre class = 'prettyprint lang-r'>muestra.iris.est=rbind(iris[fls.muestra.setosa,],iris[fls.muestra.versicolor,],
+                          iris[fls.muestra.virginica,])</pre>
+
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  id="muestreo-aleatorio-estratificado-4" class="unnumbered">
+
+<p>Por último, mostramos la muestra:</p>
 
 <pre class = 'prettyprint lang-r'>muestra.iris.est</pre>
 
@@ -3567,15 +3585,15 @@ head(worldcup)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados-4" class="unnumbered">
 
+<div class="example">
 <p>Supongamos que queremos calcular una muestra de tamaño indeterminado de los jugadores por conglomerados eligiendo como conglomerados los países a los que éstos pertenecen.</p>
 
-<p>En la tabla de datos hay un total de 32 países.</p>
+<p>En la tabla de datos hay un total de 32 países.</p></div>
 
 <p>Elegiremos primero 4 países aleatoriamente y la muestra elegida serán los jugadores que pertenecen a dichos países:</p>
 
-<pre class = 'prettyprint lang-r'>set.seed(19) # fijamos la semilla de aleatoriedad
-números.países.elegidos = sample(1:32,4,replace=FALSE) # elegimos las etiquetas 
-# de los 4 países
+<pre class = 'prettyprint lang-r'>set.seed(19)
+números.países.elegidos = sample(1:32,4,replace=FALSE) 
 países.elegidos = unique(worldcup$Team)[números.países.elegidos]</pre>
 
 </article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados-5" class="unnumbered">
@@ -3623,7 +3641,8 @@ Una muestra polietápica de 5 conglomerados y 3 bolas al azar sin reposición
 
 </article></slide><slide class=""><hgroup><h2>Muestreo polietápico</h2></hgroup><article  id="muestreo-polietapico-1">
 
-<p>Para realizar un muestreo polietápico con los datos del ejemplo anterior (tabla de datos <strong>worldcup</strong>), podemos elegir una submuestra de 5 jugadores para cada uno de los 4 países elegidos, obteniendo al final una muestra de tamaño 20 de todos los jugadores de la tabla de datos.</p>
+<div class="example">
+<p>Para realizar un muestreo polietápico con los datos del ejemplo anterior (tabla de datos <strong>worldcup</strong>), podemos elegir una submuestra de 5 jugadores para cada uno de los 4 países elegidos, obteniendo al final una muestra de tamaño 20 de todos los jugadores de la tabla de datos.</p></div>
 
 <p>Primero definimos la 4 subtablas de datos para los jugadores de cada país elegido:</p>
 
@@ -3636,7 +3655,7 @@ worldcup.pais4 = worldcup[worldcup$Team==países.elegidos[4],]</pre>
 
 <p>A continuación elegimos los 5 jugadores de cada país:</p>
 
-<pre class = 'prettyprint lang-r'>set.seed(28) # fijamos la aleatoriedad
+<pre class = 'prettyprint lang-r'>set.seed(28) 
 jugadores.pais1 = sample(1:dim(worldcup.pais1)[1],5,replace=FALSE)
 jugadores.pais2 = sample(1:dim(worldcup.pais2)[1],5,replace=FALSE)
 jugadores.pais3 = sample(1:dim(worldcup.pais3)[1],5,replace=FALSE)
@@ -3653,7 +3672,7 @@ jugadores.pais4 = sample(1:dim(worldcup.pais4)[1],5,replace=FALSE)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Muestreo polietápico</h2></hgroup><article  id="muestreo-polietapico-4">
 
-<p>Y finalmente los mostramos por pantalla:</p>
+<p>Y finalmente los mostramos por pantalla: (mostramos sólo los 8 primeros)</p>
 
 <pre class = 'prettyprint lang-r'>head(muestra.worldcup.pol,8)</pre>
 
