@@ -3206,42 +3206,102 @@ font-size: 0.5em
 <li>Estudio inferencial: deducir información sobre la población a partir de los datos de la muestra. Dos formas:
 
 <ul>
-<li>Suponiendo que conocemos el <strong>modelo</strong> al que se ajusta la población: <strong>estimación paramétrica</strong>.</li>
+<li>Suponiendo que conocemos el <strong>modelo</strong> al que se ajusta la población, es decir, suponiendo que conocemos el tipo de distribución de la variable aleatoria que modela la característica de la población en la que estamos interesados, pero desconocemos uno o varios parámetros de los que depende dicha distribución: <strong>estimación paramétrica</strong>.</li>
 <li>Suponiendo que desconocemos qué tipo de distribución tiene la variable aleatoria que modela la característica que nos interesa: <strong>estimación no paramétrica</strong>.</li>
-</ul></li>
-<li>Tres vías para obtener información sobre los parámetros de la distribución:
-
-<ul>
-<li><strong>Estimación puntual</strong>.</li>
-<li><strong>Estimación por intervalos de confianza</strong>.</li>
-<li><strong>Contraste de hipótesis</strong>.</li>
 </ul></li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Estimación puntual</h2></hgroup><article  id="estimacion-puntual-1">
 
+<p>Tres vías para obtener información sobre los parámetros de la distribución:</p>
+
+<ul>
+<li><strong>Estimación puntual</strong>. Se trata de obtener expresiones matemáticas, llamadas <strong>estimadores puntuales</strong>, que aplicadas a los valores de una muestra nos dan una aproximación (el término exacto es una <strong>estimación</strong>) del valor de dicho parámetro para la población.
+
+<div class="example">
+<p>Ejemplo: dada la muestra \(x_1,\ldots,x_n\), la <strong>media aritmética</strong> \[
+\overline{x}=\frac{x_1+\cdots +x_n}{n},
+\] es un estimador del valor medio de la población.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Estimación puntual</h2></hgroup><article  id="estimacion-puntual-2">
+
+<p>Otras vías:</p></li>
+<li><p><strong>Estimación por intervalos de confianza</strong>. Se trata de obtener intervalos que contengan con probabilidad alta el parámetro objeto de estudio.</p></li>
+<li><p><strong>Contraste de hipótesis</strong>. <em>Grosso modo</em>, se establecen dos hipótesis opuestas sobre el parámetro o, más en general, sobre la distribución de la variable aleatoria, y se contrastan para intentar decidir cuál es la verdadera.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Estimación puntual</h2></hgroup><article  id="estimacion-puntual-3">
+
 <p>Propiedades de un estimador:</p>
 
 <ul>
-<li><p><strong>Insesgado</strong>: un estimador es <strong>insesgado</strong> cuando el valor esperado de la variable aleatoria que define coincide con el valor del parámetro poblacional que se quiere estimar.</p></li>
-<li><p><strong>Máximo verosímil</strong>: un estimador es <strong>máximo verosímil</strong> cuando el resultado que da sobre cada muestra aleatoria es el valor del parámetro poblacional que maximiza la probabilidad de obtenerla.</p></li>
+<li><strong>Insesgado</strong>: Los valores de un <strong>estimador</strong> sobre muestras aleatorias de una población forman una variable aleatoria con una distribución de probabilidad propia, llamada genéricamente <strong>muestral</strong>. Un estimador es <strong>insesgado</strong> cuando el valor esperado de la variable aleatoria que define coincide con el valor del parámetro poblacional que se quiere estimar.
+
+<div class="example">
+<p>Ejemplo: si se toman muestras aleatorias con o sin reposición, la media muestral es siempre un estimador insesgado del valor medio poblacional: su valor esperado es el valor medio poblacional.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Estimación puntual</h2></hgroup><article  id="estimacion-puntual-4">
+
+<p>Más propiedades:</p></li>
+<li><strong>Máximo verosímil</strong>: Cada muestra aleatoria de una población tiene una probabilidad de obtenerse que no solo depende de la muestra, sino también de la distribución de probabilidad de la variable aleatoria poblacional. Un estimador es <strong>máximo verosímil</strong> cuando el resultado que da sobre cada muestra aleatoria es el valor del parámetro poblacional que maximiza la probabilidad de obtenerla.
+
+<div class="example">
+<p>Ejemplo: Si lanzamos una moneda al aire \(n\) veces y calculamos la proporción de veces que obtenemos cara, esa proporción muestral \(\hat{p}\) es el estimador máximo verosímil de la probabilidad \(p\) de obtener cara con esa moneda.</p></div></li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Estimación máximo verosímil</h2></hgroup><article  id="estimacion-maximo-verosimil">
+
+<p>Estimadores máximo verosímil más usuales:</p>
 
 <ul>
 <li><p>Para la familia Bernoulli, el estimador máximo verosímil del parámetro \(p\) es la proporción muestral de éxitos \(\widehat{p}\). Este estimador es además insesgado.</p></li>
 <li><p>Para la familia Poisson, el estimador máximo verosímil del parámetro \(\lambda\) es la media muestral \(\overline{X}\). Este estimador es de nuevo insesgado.</p></li>
 <li><p>Para la familia geométrica, el estimador máximo verosímil del parámetro \(p\) es \({1}/{\overline{X}}\). Este estimador es sesgado.</p></li>
-<li><p>Para la familia exponencial, el estimador máximo verosímil del parámetro \(\lambda\) es \({1}/{\overline{X}}\). Este estimador también es sesgado.</p></li>
-<li><p>Para la familia normal, los estimadores máximo verosímiles de la media \(\mu\), la desviación típica \(\sigma\) y la varianza \(\sigma^2\) son, respectivamente, la media muestral \(\overline{X}\), la desviación típica &ldquo;verdadera&rdquo; \(S_X\) y la varianza &ldquo;verdadera&rdquo; \(S_X^2\).</p></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Estimación con <code>R</code></h2></hgroup><article  id="estimacion-con-r">
+</article></slide><slide class=""><hgroup><h2>Estimación máximo verosímil</h2></hgroup><article  id="estimacion-maximo-verosimil-1">
 
 <ul>
-<li>Función <code>fitdistr</code> del paquete <strong>MASS</strong>:</li>
+<li><p>Para la familia exponencial, el estimador máximo verosímil del parámetro \(\lambda\) es \({1}/{\overline{X}}\). Este estimador también es sesgado.</p></li>
+<li><p>Para la familia normal, los estimadores máximo verosímiles de la media \(\mu\), la desviación típica \(\sigma\) y la varianza \(\sigma^2\) son, respectivamente, la media muestral \(\overline{X}\), la desviación típica &ldquo;verdadera&rdquo; \(S_X\) y la varianza &ldquo;verdadera&rdquo; \(S_X^2\). La varianza verdadera \(S^2_X\) no es un estimador insesgado de \(\sigma^2\), pero sí que lo es la varianza muestral \(\tilde{S}^2\).</p></li>
 </ul>
+
+</article></slide><slide class=""><hgroup><h2>Error típico de un estimador</h2></hgroup><article  id="error-tipico-de-un-estimador">
+
+<p>Cuando se estima algún <strong>parámetro</strong> de una distribución a partir de una muestra, es conveniente aportar el <strong>error típico</strong>, o estándar, como medida de la finura de la estimación.</p>
+
+<p>Recordemos que el <strong>error típico</strong> de un <strong>estimador</strong> es la desviación típica de su distribución muestral, y que el error típico de una estimación a partir de una muestra es la estimación del error típico del estimador usando dicha muestra.</p>
+
+</article></slide><slide class=""><hgroup><h2>Error típico de un estimador</h2></hgroup><article  id="error-tipico-de-un-estimador-1">
+
+<div class="example">
+<p>Ejemplo: consideremos que hemos lanzado una moneda 25 veces y hemos obtenido los resultados siguientes:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(2019)
+resultados=sample(c(&quot;cara&quot;,&quot;cruz&quot;),25,replace=TRUE)</pre>
+
+<p>La estimación de la probabilidad de obtener cara \(p\) es la proporción muestral, que vale el cociente entre el número de veces que hemos obtenido cara (15) y el número de lanzamientos (25):</p>
+
+<pre class = 'prettyprint lang-r'>(prop.muestral = table(resultados)[1]/25)</pre>
+
+<pre >## cara 
+##  0.6</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Error típico de un estimador</h2></hgroup><article  id="error-tipico-de-un-estimador-2">
+
+<div class="example">
+<p>El error típico del estimador \(\hat{p}\) vale \(\sqrt{\frac{p\cdot (1-p)}{n}}\), donde \(n\) es el número de lanzamientos.</p>
+
+<p>El error típico de nuestra estimación concreta será: \(\sqrt{\frac{\hat{p}\cdot (1-\hat{p})}{n}}\):</p>
+
+<pre class = 'prettyprint lang-r'>sqrt(prop.muestral*(1-prop.muestral)/25)</pre>
+
+<pre >##       cara 
+## 0.09797959</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Estimación puntual con <code>R</code></h2></hgroup><article  id="estimacion-puntual-con-r">
+
+<p>Para obtener estimaciones puntuales con <code>R</code> hay que usar la función <code>fitdistr</code> del paquete <strong>MASS</strong>:</p>
 
 <pre class = 'prettyprint lang-r'>fitdistr(x, densfun=..., start=...)</pre>
 
@@ -3250,8 +3310,74 @@ font-size: 0.5em
 <ul>
 <li><p><code>x</code> es la muestra, un vector numérico.</p></li>
 <li><p>El valor de <code>densfun</code> ha de ser el nombre de la familia de distribuciones:<code>&quot;chi-squared&quot;</code>, <code>&quot;exponential&quot;</code>, <code>&quot;f&quot;</code>, <code>&quot;geometric&quot;</code>, <code>&quot;lognormal&quot;</code>, <code>&quot;normal&quot;</code> y <code>&quot;poisson&quot;</code>.</p></li>
-<li><p>Si <code>fitdistr</code> no dispone de una fórmula cerrada para el estimador máximo verosímil de algún parámetro, usa un algoritmo numérico para aproximarlo que requiere de un valor inicial para arrancar. Este valor (o valores) se puede especificar igualando el parámetro <code>start</code> a una <code>list</code> con cada parámetro a estimar igualado a un valor inicial.</p></li>
 </ul>
+
+</article></slide><slide class=""><hgroup><h2>Estimación puntual con <code>R</code></h2></hgroup><article  id="estimacion-puntual-con-r-1">
+
+<ul>
+<li>Si <code>fitdistr</code> no dispone de una fórmula cerrada para el estimador máximo verosímil de algún parámetro, usa un algoritmo numérico para aproximarlo que requiere de un valor inicial para arrancar. Este valor (o valores) se puede especificar igualando el parámetro <code>start</code> a una <code>list</code> con cada parámetro a estimar igualado a un valor inicial.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplos de uso de <code>fitdistr</code></h2></hgroup><article  id="ejemplos-de-uso-de-fitdistr">
+
+<div class="example">
+<p>Estimación del parámetro \(\lambda\) de una variable de Poisson:</p>
+
+<p>En primer lugar generamos una muestra de tamaño~\(50\) de una variable de Poisson de parámetro \(\lambda =5\):</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(98)
+muestra.poisson = rpois(50,lambda=5)
+muestra.poisson</pre>
+
+<pre >##  [1]  5  4  4  5  3  4  1  4  6  3  7  7  3  5  4  8  4  4  6  3  6  4  6
+## [24] 11  4  7  5  2  8  3  5  4  1  5  6  4  7  7  3  4  6 10  5  4  2  9
+## [47]  1  5  2  2</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplos de uso de <code>fitdistr</code></h2></hgroup><article  id="ejemplos-de-uso-de-fitdistr-1">
+
+<div class="example">
+<p>Vamos a estimar el valor del parámetro \(\lambda\) a partir de la muestra anterior:</p>
+
+<pre class = 'prettyprint lang-r'>library(MASS)
+fitdistr(muestra.poisson, densfun = &quot;poisson&quot;)</pre>
+
+<pre >##     lambda 
+##   4.760000 
+##  (0.308545)</pre>
+
+<p>La función <code>fitdistr</code> nos ha dado el siguiente valor de \(\lambda\): 4.76, valor que se aproxima al valor real de \(\lambda =5\), con un error típico de 0.308545.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplos de uso de <code>fitdistr</code></h2></hgroup><article  id="ejemplos-de-uso-de-fitdistr-2">
+
+<div class="example">
+<p>Recordemos que el estimador máximo verosímil de \(\lambda\) es \(\overline{X}\) con error típico \(\frac{\sqrt{\lambda}}{\sqrt{n}}\). Veamos si la función <code>fitdistr</code> nos ha mentido:</p>
+
+<pre class = 'prettyprint lang-r'>(estimación.lambda = mean(muestra.poisson))</pre>
+
+<pre >## [1] 4.76</pre>
+
+<pre class = 'prettyprint lang-r'>(estimación.error.típico= sqrt(estimación.lambda/50))</pre>
+
+<pre >## [1] 0.308545</pre>
+
+<p>Comprobamos que los valores anteriores coinciden con los dados por la función.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplos de uso de <code>fitdistr</code></h2></hgroup><article  id="ejemplos-de-uso-de-fitdistr-3">
+
+<div class="example">
+<p>¿Qué estimaciones hubiésemos obtenido de la media \(\mu\) y la desviación típica \(\sigma\) si suponemos que la muestra anterior es normal?</p>
+
+<pre class = 'prettyprint lang-r'>fitdistr(muestra.poisson,densfun = &quot;normal&quot;)</pre>
+
+<pre >##      mean         sd    
+##   4.7600000   2.1868699 
+##  (0.3092701) (0.2186870)</pre>
+
+<p>Dichos valores coinciden con la media muestral \(\overline{X}\) y la desviación típica &ldquo;verdadera&rdquo; de la muestra considerada:</p>
+
+<pre class = 'prettyprint lang-r'>sd(muestra.poisson)*sqrt(49/50)</pre>
+
+<pre >## [1] 2.18687</pre></div>
 
 </article></slide><slide class=""><hgroup><h2>Guía rápida</h2></hgroup><article  id="guia-rapida">
 
