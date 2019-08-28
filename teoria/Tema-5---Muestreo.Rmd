@@ -67,7 +67,7 @@ knitr::include_graphics("Images/basev.png",dpi=400)
 
 * Para realizar la extracción, podríamos repetir 15 veces el proceso de sacar una bola de la urna, anotar su número y devolverla a la urna. El tipo de muestra obtenida de esta manera recibe el nombre de **muestra aleatoria con reposición**, o simple (una **m.a.s.**, para abreviar).
   
-  <div class="center">
+<div class="center">
 
 ```{r, echo=FALSE, label=simple,fig.cap="Una muestra aleatoria simple",out.width = "700px"}
 knitr::include_graphics("Images/simplev.png",dpi=400)
