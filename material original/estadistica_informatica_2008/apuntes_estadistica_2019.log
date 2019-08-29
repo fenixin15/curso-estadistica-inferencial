@@ -1,0 +1,2136 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.4.27)  29 AUG 2019 08:57
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**apuntes_estadistica_2019.tex
+(./apuntes_estadistica_2019.tex
+LaTeX2e <2018-12-01>
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/11/13 3.27 The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/11/13 3.27 Babel switching mechanism
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
+Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/11/13 3.27 Babel common definitions
+\babel@savecnt=\count89
+\U@D=\dimen103
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count90
+)
+\es@quottoks=\toks14
+\es@quotdepth=\count91
+Package babel Info: Making " an active character on input line 561.
+Package babel Info: Making . an active character on input line 662.
+Package babel Info: Making < an active character on input line 707.
+Package babel Info: Making > an active character on input line 707.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen104
+\Hy@linkcounter=\count92
+\Hy@pagecounter=\count93
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count94
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4393.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 4393
+.
+Package hyperref Info: Option `bookmarksopen' set `false' on input line 4393.
+Package hyperref Info: Hyper figures OFF on input line 4519.
+Package hyperref Info: Link nesting OFF on input line 4524.
+Package hyperref Info: Hyper index ON on input line 4527.
+Package hyperref Info: Plain pages OFF on input line 4534.
+Package hyperref Info: Backreferencing OFF on input line 4539.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4772.
+\c@Hy@tempcnt=\count95
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5125.
+\XeTeXLinkMargin=\dimen105
+\Fld@menulength=\count96
+\Field@Width=\dimen106
+\Fld@charsize=\dimen107
+Package hyperref Info: Hyper figures OFF on input line 6380.
+Package hyperref Info: Link nesting OFF on input line 6385.
+Package hyperref Info: Hyper index ON on input line 6388.
+Package hyperref Info: backreferencing OFF on input line 6395.
+Package hyperref Info: Link coloring ON on input line 6398.
+Package hyperref Info: Link coloring with OCG OFF on input line 6405.
+Package hyperref Info: PDF/A mode OFF on input line 6410.
+LaTeX Info: Redefining \ref on input line 6450.
+LaTeX Info: Redefining \pageref on input line 6454.
+\Hy@abspage=\count97
+\c@Item=\count98
+\c@Hfootnote=\count99
+)
+Package hyperref Info: Driver: hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
+\Fld@listcount=\count100
+\c@bookmark@seq@number=\count101
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip43
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/hypcap.sty
+Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/theorem.sty
+Package: theorem 2014/10/28 v2.2c Theorem extension package (FMi)
+\theorem@style=\toks16
+\theorem@bodyfont=\toks17
+\theorempreskipamount=\skip44
+\theorempostskipamount=\skip45
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/thp.sty
+File: thp.sty 2014/10/28 v2.2c Theorem extension package (FMi)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks18
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks19
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amscd.sty
+Package: amscd 2017/04/14 v2.1 AMS Commutative Diagrams
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen108
+)
+\athelp@=\toks21
+\minaw@=\dimen109
+\bigaw@=\dimen110
+\minCDarrowwidth=\dimen111
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen112
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count102
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count103
+\leftroot@=\count104
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count105
+\DOTSCASE@=\count106
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen113
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count107
+\c@MaxMatrixCols=\count108
+\dotsspace@=\muskip11
+\c@parentequation=\count109
+\dspbrk@lvl=\count110
+\tag@help=\toks22
+\row@=\count111
+\column@=\count112
+\maxfields@=\count113
+\andhelp@=\toks23
+\eqnshift@=\dimen114
+\alignsep@=\dimen115
+\tagshift@=\dimen116
+\tagwidth@=\dimen117
+\totwidth@=\dimen118
+\lineht@=\dimen119
+\@envbody=\toks24
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen120
+\Gin@req@width=\dimen121
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/eurosym/eurosym.sty
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/epsdice/epsdice.sty
+Package: epsdice 2007/02/15 by Thomas Heim (v. 2.1)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/epsdice/epsdice.cfg)
+\c@eps@face=\count114
+)
+\c@definition=\count115
+\@indexfile=\write3
+\openout3 = `apuntes_estadistica_2019.idx'.
+
+
+Writing index file apuntes_estadistica_2019.idx
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip49
+\f@nch@O@elh=\skip50
+\f@nch@O@erh=\skip51
+\f@nch@O@olh=\skip52
+\f@nch@O@orh=\skip53
+\f@nch@O@elf=\skip54
+\f@nch@O@erf=\skip55
+\f@nch@O@olf=\skip56
+\f@nch@O@orf=\skip57
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancybox/fancybox.sty
+Package: fancybox 2010/05/15 1.4
+
+Style option: `fancybox' v1.4 <2010/05/15> (tvz)
+\@fancybox=\box30
+\shadowsize=\dimen122
+\@Sbox=\box31
+\do@VerbBox=\toks26
+\the@fancyput=\toks27
+\this@fancyput=\toks28
+\EndVerbatimTokens=\toks29
+\Verbatim@Outfile=\write4
+\Verbatim@Infile=\read1
+) (./apuntes_estadistica_2019.aux
+LaTeX Info: Redefining \. on input line 23.
+LaTeX Info: Redefining \% on input line 23.
+)
+\openout1 = `apuntes_estadistica_2019.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Info: Redefining \. on input line 168.
+LaTeX Info: Redefining \% on input line 168.
+\AtBeginShipoutBox=\box32
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+Package hyperref Info: Link coloring ON on input line 168.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count116
+)
+LaTeX Info: Redefining \ref on input line 168.
+LaTeX Info: Redefining \pageref on input line 168.
+LaTeX Info: Redefining \nameref on input line 168.
+
+(./apuntes_estadistica_2019.out) (./apuntes_estadistica_2019.out)
+\@outlinefile=\write5
+\openout5 = `apuntes_estadistica_2019.out'.
+
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count117
+\scratchdimen=\dimen123
+\scratchbox=\box33
+\nofMPsegments=\count118
+\nofMParguments=\count119
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count120
+\MPscratchDim=\dimen124
+\MPnumerator=\count121
+\makeMPintoPDFobject=\count122
+\everyMPtoPDFconversion=\toks31
+)
+
+! LaTeX Error: No \title given.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.170 
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Try loading font information for U+lasy on input line 170.
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 170.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 170.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Warning: No \author given.
+
+<fons.pdf, id=530, 597.23125pt x 845.1575pt>
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 170.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./fons.pdf>]
+(./apuntes_estadistica_2019.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 40.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.40 ...\IeC {\'o}n ordinal}{51}{subsection.1.6.4}
+                                                  % [1
+
+]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 80.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [2]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 147.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [3]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 178.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [4])
+\tf@toc=\write6
+\openout6 = `apuntes_estadistica_2019.toc'.
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 194.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [5]
+Cap\'{\i }tulo 1.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 223.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[6
+
+]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 268.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [7]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 279.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 279.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 311.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [8]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 354.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [9]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 428.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+
+[10]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 450.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [11]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 497.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [12]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 527.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [13]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 584.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [14]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 678.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [15]
+Package epstopdf Info: Source file: <frecuencias.eps>
+(epstopdf)                    date: 2004-02-23 11:30:06
+(epstopdf)                    size: 56150 bytes
+(epstopdf)             Output file: <frecuencias-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:08
+(epstopdf)                    size: 9267 bytes
+(epstopdf)             Command: <repstopdf --outfile=frecuencias-eps-converted-
+to.pdf frecuencias.eps>
+(epstopdf)             \includegraphics on input line 916.
+Package epstopdf Info: Output file is already uptodate.
+<frecuencias-eps-converted-to.pdf, id=787, 363.3575pt x 170.6375pt>
+File: frecuencias-eps-converted-to.pdf Graphic file (type pdf)
+<use frecuencias-eps-converted-to.pdf>
+Package pdftex.def Info: frecuencias-eps-converted-to.pdf  used on input line 9
+16.
+(pdftex.def)             Requested size: 363.3566pt x 170.63707pt.
+Package epstopdf Info: Source file: <histograma.eps>
+(epstopdf)                    date: 2004-02-23 11:30:34
+(epstopdf)                    size: 54074 bytes
+(epstopdf)             Output file: <histograma-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:08
+(epstopdf)                    size: 7403 bytes
+(epstopdf)             Command: <repstopdf --outfile=histograma-eps-converted-t
+o.pdf histograma.eps>
+(epstopdf)             \includegraphics on input line 948.
+Package epstopdf Info: Output file is already uptodate.
+<histograma-eps-converted-to.pdf, id=790, 258.9675pt x 157.58875pt>
+File: histograma-eps-converted-to.pdf Graphic file (type pdf)
+<use histograma-eps-converted-to.pdf>
+Package pdftex.def Info: histograma-eps-converted-to.pdf  used on input line 94
+8.
+(pdftex.def)             Requested size: 258.96684pt x 157.58835pt.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 951.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [16]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 984.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [17 <./frecuencias-eps-converted-to.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1002.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+
+[18 <./histograma-eps-converted-to.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1043.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [19]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1082.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [20]
+Package epstopdf Info: Source file: <interpretacion.eps>
+(epstopdf)                    date: 2004-02-23 13:33:56
+(epstopdf)                    size: 47690 bytes
+(epstopdf)             Output file: <interpretacion-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:08
+(epstopdf)                    size: 8371 bytes
+(epstopdf)             Command: <repstopdf --outfile=interpretacion-eps-convert
+ed-to.pdf interpretacion.eps>
+(epstopdf)             \includegraphics on input line 1191.
+Package epstopdf Info: Output file is already uptodate.
+<interpretacion-eps-converted-to.pdf, id=855, 194.7275pt x 166.6225pt>
+File: interpretacion-eps-converted-to.pdf Graphic file (type pdf)
+<use interpretacion-eps-converted-to.pdf>
+Package pdftex.def Info: interpretacion-eps-converted-to.pdf  used on input lin
+e 1191.
+(pdftex.def)             Requested size: 194.727pt x 166.62209pt.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1212.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [21]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1244.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [22 <./interpretacion-eps-converted-to.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1289.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [23]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1347.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [24]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1384.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [25]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1433.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [26]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1469.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [27]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1523.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [28]
+Package epstopdf Info: Source file: <diagrama.eps>
+(epstopdf)                    date: 2004-02-23 11:32:08
+(epstopdf)                    size: 43013 bytes
+(epstopdf)             Output file: <diagrama-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:09
+(epstopdf)                    size: 5130 bytes
+(epstopdf)             Command: <repstopdf --outfile=diagrama-eps-converted-to.
+pdf diagrama.eps>
+(epstopdf)             \includegraphics on input line 1569.
+Package epstopdf Info: Output file is already uptodate.
+<diagrama-eps-converted-to.pdf, id=920, 299.1175pt x 122.4575pt>
+File: diagrama-eps-converted-to.pdf Graphic file (type pdf)
+<use diagrama-eps-converted-to.pdf>
+Package pdftex.def Info: diagrama-eps-converted-to.pdf  used on input line 1569
+.
+(pdftex.def)             Requested size: 299.11676pt x 122.45718pt.
+Package epstopdf Info: Source file: <curva.eps>
+(epstopdf)                    date: 2004-02-23 11:34:12
+(epstopdf)                    size: 53497 bytes
+(epstopdf)             Output file: <curva-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:09
+(epstopdf)                    size: 8378 bytes
+(epstopdf)             Command: <repstopdf --outfile=curva-eps-converted-to.pdf
+ curva.eps>
+(epstopdf)             \includegraphics on input line 1673.
+Package epstopdf Info: Output file is already uptodate.
+<curva-eps-converted-to.pdf, id=923, 358.33875pt x 129.48375pt>
+File: curva-eps-converted-to.pdf Graphic file (type pdf)
+<use curva-eps-converted-to.pdf>
+Package pdftex.def Info: curva-eps-converted-to.pdf  used on input line 1673.
+(pdftex.def)             Requested size: 358.33788pt x 129.48341pt.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1680.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [29 <./diagrama-eps-converted-to.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1703.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [30 <./curva-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <histogramas2.eps>
+(epstopdf)                    date: 2004-02-23 11:35:36
+(epstopdf)                    size: 44439 bytes
+(epstopdf)             Output file: <histogramas2-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:09
+(epstopdf)                    size: 3476 bytes
+(epstopdf)             Command: <repstopdf --outfile=histogramas2-eps-converted
+-to.pdf histogramas2.eps>
+(epstopdf)             \includegraphics on input line 1755.
+Package epstopdf Info: Output file is already uptodate.
+<histogramas2-eps-converted-to.pdf, id=961, 360.34625pt x 105.39375pt>
+File: histogramas2-eps-converted-to.pdf Graphic file (type pdf)
+<use histogramas2-eps-converted-to.pdf>
+Package pdftex.def Info: histogramas2-eps-converted-to.pdf  used on input line 
+1755.
+(pdftex.def)             Requested size: 360.34537pt x 105.39348pt.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1782.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [31 <./histogramas2-eps-converted-to.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1823.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [32]
+Package epstopdf Info: Source file: <histogramas3.eps>
+(epstopdf)                    date: 2004-02-23 11:37:02
+(epstopdf)                    size: 44446 bytes
+(epstopdf)             Output file: <histogramas3-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:09
+(epstopdf)                    size: 3371 bytes
+(epstopdf)             Command: <repstopdf --outfile=histogramas3-eps-converted
+-to.pdf histogramas3.eps>
+(epstopdf)             \includegraphics on input line 1883.
+Package epstopdf Info: Output file is already uptodate.
+<histogramas3-eps-converted-to.pdf, id=975, 376.40625pt x 99.37125pt>
+File: histogramas3-eps-converted-to.pdf Graphic file (type pdf)
+<use histogramas3-eps-converted-to.pdf>
+Package pdftex.def Info: histogramas3-eps-converted-to.pdf  used on input line 
+1883.
+(pdftex.def)             Requested size: 376.40532pt x 99.371pt.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1899.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [33 <./histogramas3-eps-converted-to.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1933.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [34]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 1977.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [35]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2032.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [36]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2082.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+
+[37]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2138.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [38]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2200.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [39]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2260.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [40]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2308.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [41]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2365.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [42]
+Overfull \hbox (5.19685pt too wide) in paragraph at lines 2397--2398
+[]\OT1/cmr/m/it/12 Consideremos las si-guien-tes dis-tri-bu-ci^^Son de las va-r
+ia-bles $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X; Y\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/
+12 : 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2431.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[43]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2469.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [44]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2518.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [45]
+Overfull \hbox (9.10289pt too wide) in paragraph at lines 2543--2547
+\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 x[]; x[]; [] ; x[]\OMS/cmsy/m/n/12 g$\OT1/cm
+r/m/n/12 , con las co-rres-pon-dien-tes fre-cuen-cias ab-so-lu-tas $\OMS/cmsy/m
+/n/12 f\OML/cmm/m/it/12 n[]; n[]; [] ; n[]\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 ,
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2571.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[46]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2618.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [47]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2670.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [48]
+Package epstopdf Info: Source file: <nube.eps>
+(epstopdf)                    date: 2004-02-23 11:37:52
+(epstopdf)                    size: 42808 bytes
+(epstopdf)             Output file: <nube-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:10
+(epstopdf)                    size: 5024 bytes
+(epstopdf)             Command: <repstopdf --outfile=nube-eps-converted-to.pdf 
+nube.eps>
+(epstopdf)             \includegraphics on input line 2724.
+Package epstopdf Info: Output file is already uptodate.
+<nube-eps-converted-to.pdf, id=1066, 359.3425pt x 172.645pt>
+File: nube-eps-converted-to.pdf Graphic file (type pdf)
+<use nube-eps-converted-to.pdf>
+Package pdftex.def Info: nube-eps-converted-to.pdf  used on input line 2724.
+(pdftex.def)             Requested size: 359.34161pt x 172.64456pt.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2735.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [49 <./nube-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <nube2.eps>
+(epstopdf)                    date: 2004-02-23 11:41:46
+(epstopdf)                    size: 42407 bytes
+(epstopdf)             Output file: <nube2-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:10
+(epstopdf)                    size: 4824 bytes
+(epstopdf)             Command: <repstopdf --outfile=nube2-eps-converted-to.pdf
+ nube2.eps>
+(epstopdf)             \includegraphics on input line 2778.
+Package epstopdf Info: Output file is already uptodate.
+<nube2-eps-converted-to.pdf, id=1081, 173.64874pt x 172.645pt>
+File: nube2-eps-converted-to.pdf Graphic file (type pdf)
+<use nube2-eps-converted-to.pdf>
+Package pdftex.def Info: nube2-eps-converted-to.pdf  used on input line 2778.
+(pdftex.def)             Requested size: 173.64832pt x 172.64456pt.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2811.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [50]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2836.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [51 <./nube2-eps-converted-to.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2887.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [52]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2912.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [53]
+Cap\'{\i }tulo 2.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 2959.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[54
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 2985--2988
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2988--2991
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2992--3002
+\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 ![]\OMS/c
+msy/m/n/12 g\OT1/cmr/m/n/12 ) = [][]\OML/cmm/m/it/12 i \OT1/cmr/m/n/12 = 1\OML/
+cmm/m/it/12 ; [] ; n$
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3021.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[55]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3069.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [56]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3122.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [57]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3152.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [58]
+Cap\'{\i }tulo 3.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3181.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[59
+
+]
+Overfull \hbox (1.73352pt too wide) in paragraph at lines 3181--3184
+[]\OT1/cmr/m/n/12 Los va-lo-res que ``\OT1/cmr/m/it/12 to-man\OT1/cmr/m/n/12 ''
+ las v.a. los re-pre-sen-ta-re-mos por le-tras min^^Suscu-
+ []
+
+<dice.pdf, id=1158, 258.9675pt x 86.3225pt>
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3189.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3189.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3189.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3189.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3189.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3190.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3194.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3194.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3194.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3195.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3195.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3195.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3195.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3196.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3196.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3197.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3198.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+File: dice.pdf Graphic file (type pdf)
+<use dice.pdf>
+Package pdftex.def Info: dice.pdf  used on input line 3198.
+(pdftex.def)             Requested size: 9.04172pt x 9.04167pt.
+
+Overfull \hbox (3.9084pt too wide) in paragraph at lines 3193--3201
+\OT1/cmr/m/it/12 sobre es-te es-pa-cio que-da de-fi-ni-da por $\OML/cmm/m/it/12
+ X\OT1/cmr/m/n/12 ([]) = 1\OML/cmm/m/it/12 ; X\OT1/cmr/m/n/12 ([]) = 2\OML/cmm/
+m/it/12 ; X\OT1/cmr/m/n/12 ([]) = 3\OML/cmm/m/it/12 ; X\OT1/cmr/m/n/12 ([]) =
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3232.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[60 <./dice.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3276.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [61]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3320.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [62]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3362.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [63]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3418.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [64]
+Overfull \hbox (1.36844pt too wide) detected at line 3445
+\OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ) = \O
+ML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X \OMS/cmsy/m/n/12 ^^T \OML/c
+mm/m/it/12 x[]\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 P [] \OT1/cmr/m/n/12 = [] \O
+ML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X \OT1/cmr/m/n/12 = \OML/cmm/
+m/it/12 x\OT1/cmr/m/n/12 ) = [] \OML/cmm/m/it/12 P[]\OT1/cmr/m/n/12 (\OML/cmm/m
+/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 :
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3464.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[65]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3510.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [66]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3551.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [67]
+Overfull \hbox (52.59027pt too wide) detected at line 3615
+\OML/cmm/m/it/12 E\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 ) = [] \OM
+L/cmm/m/it/12 xP\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X \OT1/cmr/m/n/12 = \OML/cmm/
+m/it/12 x\OT1/cmr/m/n/12 ) = [] \OML/cmm/m/it/12 x [][] \OT1/cmr/m/n/12 = [][] 
+[] \OML/cmm/m/it/12 x [][] \OT1/cmr/m/n/12 = [][] [] = 1
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3615.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[68]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3643.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [69]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3686.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [70]
+Overfull \hbox (73.18817pt too wide) detected at line 3727
+\OML/cmm/m/it/12 E\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Y\OT1/cmr/m/n/12 ) = \OML/c
+mm/m/it/12 E\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a \OT1/cmr/m/n/12 + \OML/cmm/m/it
+/12 bX\OT1/cmr/m/n/12 ) = [](\OML/cmm/m/it/12 a \OT1/cmr/m/n/12 + \OML/cmm/m/it
+/12 bX\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 P[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\
+OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 a [] P[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x
+\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 b [] xP[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12
+ x\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 a \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 bE\
+OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 a \OT1/c
+mr/m/n/12 + \OML/cmm/m/it/12 b^^V[]
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3735.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[71]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3775.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [72]
+<distribucionuniforme.pdf, id=1315, 289.08pt x 137.51375pt>
+File: distribucionuniforme.pdf Graphic file (type pdf)
+<use distribucionuniforme.pdf>
+Package pdftex.def Info: distribucionuniforme.pdf  used on input line 3781.
+(pdftex.def)             Requested size: 289.07928pt x 137.51341pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3806--3808
+
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3811.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[73 <./distribucionuniforme.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3864.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [74]
+<densidaduniforme.pdf, id=1349, 289.08pt x 96.36pt>
+File: densidaduniforme.pdf Graphic file (type pdf)
+<use densidaduniforme.pdf>
+Package pdftex.def Info: densidaduniforme.pdf  used on input line 3882.
+(pdftex.def)             Requested size: 289.07928pt x 96.35974pt.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3897.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [75 <./densidaduniforme.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3955.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [76]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 3992.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+
+[77]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4043.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [78]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4085.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [79]
+Overfull \hbox (13.03508pt too wide) in paragraph at lines 4110--4117
+\OML/cmm/m/it/12 E\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 ) = [][] \
+OML/cmm/m/it/12 xf[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cm
+m/m/it/12 dx \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 xf[]\OT1/cmr/m/n/12 (\OML/
+cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 dx \OT1/cmr/m/n/12 = [][] \OML/c
+mm/m/it/12 xf[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/i
+t/12 dx \OT1/cmr/m/n/12 + [][] \OML/cmm/m/it/12 xf[]\OT1/cmr/m/n/12 (\OML/cmm/m
+/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 dx \OMS/cmsy/m/n/12 ^^U
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4130.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[80]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4194.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [81]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4202.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [82]
+Cap\'{\i }tulo 4.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4229.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[83
+
+]
+Overfull \hbox (53.06622pt too wide) in paragraph at lines 4233--4244
+[][] 
+ []
+
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 4283.
+
+
+Overfull \hbox (100.9678pt too wide) in paragraph at lines 4276--4287
+[][] 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4289.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[84]
+Overfull \hbox (38.17978pt too wide) in paragraph at lines 4329--4346
+[][] 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4347.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[85]
+Overfull \hbox (54.77028pt too wide) in paragraph at lines 4347--4368
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4347--4368
+
+ []
+
+
+Overfull \hbox (18.39073pt too wide) in paragraph at lines 4394--4403
+[][] 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4418.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[86]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4487.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [87]
+Overfull \hbox (79.75748pt too wide) in paragraph at lines 4515--4531
+[][] 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4539.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[88]
+<densidaduniforme12.pdf, id=1468, 289.08pt x 178.6675pt>
+File: densidaduniforme12.pdf Graphic file (type pdf)
+<use densidaduniforme12.pdf>
+Package pdftex.def Info: densidaduniforme12.pdf  used on input line 4582.
+(pdftex.def)             Requested size: 216.80946pt x 134.00029pt.
+<distribucionuniforme12.pdf, id=1469, 289.08pt x 178.6675pt>
+File: distribucionuniforme12.pdf Graphic file (type pdf)
+<use distribucionuniforme12.pdf>
+Package pdftex.def Info: distribucionuniforme12.pdf  used on input line 4585.
+(pdftex.def)             Requested size: 216.80946pt x 134.00029pt.
+
+Overfull \hbox (67.61893pt too wide) in paragraph at lines 4582--4586
+ [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4609.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[89]
+Overfull \hbox (1.65288pt too wide) in paragraph at lines 4615--4627
+[][] 
+ []
+
+
+Overfull \hbox (4.0311pt too wide) in paragraph at lines 4632--4632
+[]\OT1/cmr/bx/n/14.4 Distribuci^^Son ex-po-nen-cial (ex-po-nen-cial ne-ga-ti-va
+): 
+ []
+
+
+Overfull \hbox (28.55765pt too wide) detected at line 4646
+\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 T > t\OT1/cmr/m/n/12 ) = \O
+ML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([](0\OML/cmm/m/it/12 ; t\OT1/cmr/m/n/12 ]) = \
+OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 N[] \OT1/cmr/m/n/12 = 0) = [
+]\OML/cmm/m/it/12 e[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 e[]:
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4646.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[90 <./densidaduniforme12.pdf> <./distribucionuniforme12.pdf>]
+Overfull \hbox (49.6021pt too wide) in paragraph at lines 4680--4691
+[][] 
+ []
+
+<densidadgaussiana.pdf, id=1506, 289.08pt x 178.6675pt>
+File: densidadgaussiana.pdf Graphic file (type pdf)
+<use densidadgaussiana.pdf>
+Package pdftex.def Info: densidadgaussiana.pdf  used on input line 4747.
+(pdftex.def)             Requested size: 216.80946pt x 134.00029pt.
+<distribuciongaussiana.pdf, id=1507, 289.08pt x 178.6675pt>
+File: distribuciongaussiana.pdf Graphic file (type pdf)
+<use distribuciongaussiana.pdf>
+Package pdftex.def Info: distribuciongaussiana.pdf  used on input line 4749.
+(pdftex.def)             Requested size: 216.80946pt x 134.00029pt.
+
+Overfull \hbox (67.61893pt too wide) in paragraph at lines 4746--4750
+ [] 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4752.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[91]
+
+Package amsmath Warning: Foreign command \over;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 4765.
+
+
+Overfull \hbox (4.91924pt too wide) in paragraph at lines 4780--4789
+[][] 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4798.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[92 <./densidadgaussiana.pdf> <./distribuciongaussiana.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4836.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [93]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4866.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [94]
+Cap\'{\i }tulo 5.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4915.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[95
+
+]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 4995.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [96]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5055.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [97]
+Overfull \hbox (10.82388pt too wide) detected at line 5063
+\OML/cmm/m/it/12 P[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c\OT1/cmr/m/n/12 ) = \OML
+/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 C \OT1/cmr/m/n/12 = \OML/cmm/m/
+it/12 c\OT1/cmr/m/n/12 ) = [] \OML/cmm/m/it/12 P[]\OT1/cmr/m/n/12 (\OML/cmm/m/i
+t/12 c; r\OT1/cmr/m/n/12 ) = [](1 \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 p\OT1/c
+mr/m/n/12 )\OML/cmm/m/it/12 p[] \OT1/cmr/m/n/12 = (1 \OMS/cmsy/m/n/12 ^^@ \OML/
+cmm/m/it/12 p\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 p[] [] p[] \OT1/cmr/m/n/12 =
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5101.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[98]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5174.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [99]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5247.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [100]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5302.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [101]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5357.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [102]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5435.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [103]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5495.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [104]
+Overfull \hbox (4.63155pt too wide) in paragraph at lines 5537--5539
+[]\OT1/cmr/m/it/12 Sea $\OML/cmm/m/it/12 X$\OT1/cmr/m/it/12 = de-man-da en tiem
+-po de un ser-vi-cio; $\OML/cmm/m/it/12 X > \OT1/cmr/m/n/12 0$\OT1/cmr/m/it/12 
+. Sea $\OML/cmm/m/it/12 Y$\OT1/cmr/m/it/12 =coste
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5564.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[105]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5633.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [106]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5693.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [107]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5798.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [108]
+Overfull \hbox (13.80649pt too wide) in paragraph at lines 5808--5816
+[]\OT1/cmr/m/n/12 Luego la fun-ci^^Son de dis-tri-bu-ci^^Son es: $\OML/cmm/m/it
+/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = []$ 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5871.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[109]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5926.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [110]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 5965.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [111]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6027.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [112]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6104.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [113]
+Package epstopdf Info: Source file: <normal2d.eps>
+(epstopdf)                    date: 1998-02-05 12:11:30
+(epstopdf)                    size: 295565 bytes
+(epstopdf)             Output file: <normal2d-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:11
+(epstopdf)                    size: 8746 bytes
+(epstopdf)             Command: <repstopdf --outfile=normal2d-eps-converted-to.
+pdf normal2d.eps>
+(epstopdf)             \includegraphics on input line 6107.
+Package epstopdf Info: Output file is already uptodate.
+<normal2d-eps-converted-to.pdf, id=1723, 449.68pt x 326.21875pt>
+File: normal2d-eps-converted-to.pdf Graphic file (type pdf)
+<use normal2d-eps-converted-to.pdf>
+Package pdftex.def Info: normal2d-eps-converted-to.pdf  used on input line 6107
+.
+(pdftex.def)             Requested size: 449.6789pt x 326.21794pt.
+
+Overfull \hbox (59.6789pt too wide) in paragraph at lines 6107--6108
+[][] 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6128.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[114 <./normal2d-eps-converted-to.pdf>]
+Overfull \hbox (2.46666pt too wide) in paragraph at lines 6160--6165
+[]\OT1/cmr/m/n/12 Sean $\OML/cmm/m/it/12 X[]; X[]; [] ; X[]$ \OT1/cmr/m/n/12 v.
+a. in-de-pen-dien-tes e id^^Senti-ca-men-te dis-tri-bui-das (iid.)
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6169.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[115]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6214.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [116]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6267.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [117]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6324.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [118]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6356.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [119]
+Cap\'{\i }tulo 6.
+
+Overfull \hbox (4.4393pt too wide) in paragraph at lines 6369--6371
+[]\OT1/cmr/bx/n/12 Poblaci^^Son\OT1/cmr/m/n/12 : Con-jun-to de in-di-vi-duos co
+n una ca-rac-ter^^S^^Psti-ca ob-ser-va-ble com^^Sun. 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6393.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[120
+
+]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6420.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [121]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6445.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [122]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6487.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [123]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6530.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [124]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6577.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [125]
+Overfull \hbox (21.08113pt too wide) in paragraph at lines 6595--6597
+[]\OT1/cmr/m/n/12 Llamaremos \OT1/cmr/bx/n/12 me-dia aritm^^Seti-ca o me-dia mu
+es-tral \OT1/cmr/m/n/12 de la mues-tra $\OML/cmm/m/it/12 X[]; [] ; X[]$
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6634.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[126]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6675.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [127]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6716.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [128]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6769.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [129]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6813.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [130]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6861.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [131]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6912.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [132]
+Package epstopdf Info: Source file: <chi2.eps>
+(epstopdf)                    date: 1997-05-07 18:52:28
+(epstopdf)                    size: 97993 bytes
+(epstopdf)             Output file: <chi2-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-18 10:03:11
+(epstopdf)                    size: 3668 bytes
+(epstopdf)             Command: <repstopdf --outfile=chi2-eps-converted-to.pdf 
+chi2.eps>
+(epstopdf)             \includegraphics on input line 6921.
+Package epstopdf Info: Output file is already uptodate.
+<chi2-eps-converted-to.pdf, id=1896, 289.08pt x 167.62625pt>
+File: chi2-eps-converted-to.pdf Graphic file (type pdf)
+<use chi2-eps-converted-to.pdf>
+Package pdftex.def Info: chi2-eps-converted-to.pdf  used on input line 6921.
+(pdftex.def)             Requested size: 173.44933pt x 100.5765pt.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6957.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [133 <./chi2-eps-converted-to.pdf>]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 6990.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+
+[134]
+Cap\'{\i }tulo 7.
+
+Overfull \hbox (4.05046pt too wide) in paragraph at lines 7011--7014
+[]\OT1/cmr/bx/it/12 Estimador pun-tual\OT1/cmr/m/it/12 : Un \OT1/cmr/m/n/12 es-
+ti-ma-dor pun-tual \OT1/cmr/m/it/12 de un par^^Same-
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7024.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[135
+
+]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7093.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [136]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7159.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [137]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7207.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [138]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7266.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [139]
+Overfull \hbox (65.20224pt too wide) detected at line 7268
+\OML/cmm/m/it/12 L\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 ) = \OML/c
+mm/m/it/12 P[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; [] ; x[]\OT1/cmr/m/n/12 ) 
+= \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X[] \OT1/cmr/m/n/12 = \OM
+L/cmm/m/it/12 x[]; [] ; X[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/
+12 ) = \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X[] \OT1/cmr/m/n/12 
+= \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ) [] \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\
+OML/cmm/m/it/12 X[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ) =
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7312.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[140]
+Overfull \hbox (19.05992pt too wide) in paragraph at lines 7368--7370
+[]\OT1/cmr/m/it/12 mirando en las ta-blas de la dis-tri-bu-ci^^Son nor-mal est^
+^Sandar, en-ton-ces $\OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 (2[]24) =
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7371.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[141]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7439.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [142]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7500.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [143]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7556.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [144]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7606.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [145]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7656.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [146]
+Overfull \hbox (28.86551pt too wide) in paragraph at lines 7676--7681
+\OT1/cmtt/m/it/12 Datos t^^Secnicos: Muestra mensual de tama~no $\OML/cmm/m/it/
+12 n \OT1/cmr/m/n/12 = 25$ \OT1/cmtt/m/it/12 poblaci^^Son supuesta
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7710.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[147]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7753.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [148]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7803.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [149]
+Overfull \hbox (141.27945pt too wide) detected at line 7816
+\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (2[]16 \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 
+^^_[] \OMS/cmsy/m/n/12 ^^T \OT1/cmr/m/n/12 25[]19) = \OML/cmm/m/it/12 P\OT1/cmr
+/m/n/12 (\OML/cmm/m/it/12 ^^_[] \OMS/cmsy/m/n/12 ^^T \OT1/cmr/m/n/12 25[]19) \O
+MS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^_[] \O
+MS/cmsy/m/n/12 ^^T \OT1/cmr/m/n/12 2[]16) = (1 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/
+n/12 0[]005) \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (1 \OMS/cmsy/m/n/12 ^^@ \OT1/
+cmr/m/n/12 0[]995) = 0[]995 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 0[]005 = 0[]99
+
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7866.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[150]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 7912.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [151]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8014.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [152]
+Cap\'{\i }tulo 8.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8051.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[153
+
+]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8110.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [154]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8164.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [155]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8206.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [156]
+Overfull \hbox (102.61807pt too wide) detected at line 8220
+\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 H[]=H[][]\OT1/cmr/m/n/12 
+) = 1 \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/1
+2 H[]=H[][]\OT1/cmr/m/n/12 ) = 1 \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 P\OT1/cm
+r/m/n/12 ([]) = 1 \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^L
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8254.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[157]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8309.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [158]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8362.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [159]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8415.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [160]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8469.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [161]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8528.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [162]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8569.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [163]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8605.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [164]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8679.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [165]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8737.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [166]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8793.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [167]
+Overfull \hbox (0.6738pt too wide) in paragraph at lines 8804--8804
+[]\OT1/cmr/bx/n/17.28 Contrastes pa-ra la pro-por-ci^^Son mues-tral:
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8825.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[168]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8880.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [169]
+Overfull \hbox (2.3959pt too wide) in paragraph at lines 8890--8898
+[]\OT1/cmr/m/it/12 Un cons-truc-tor afir-ma que se po-ne preins-ta-la-ci^^Son d
+e ai-re acon-
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8938.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[170]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 8992.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [171]
+Overfull \hbox (220.75853pt too wide) detected at line 9017
+\OML/cmm/m/it/12 ^^_[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^_[] \OT1/cmr/m/n/12
+ = [] + [] + [] + [] + [] + [] = 1[]7 \OMS/cmsy/m/n/12 6\OML/cmm/m/it/12 > ^^_[
+] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^_[] \OT1/cmr/m/n/12 = 11[]071
+ []
+
+
+Overfull \hbox (0.5964pt too wide) in paragraph at lines 9023--9032
+\OT1/cmtt/m/it/12 una distribuci^^Son normal de media 3.5 horas y desviaci^^Son
+ t^^S^^Ppica
+ []
+
+
+Overfull \hbox (13.36502pt too wide) in paragraph at lines 9023--9032
+\OT1/cmtt/m/it/12 0.7 horas siempre que se con-ser-ven en un sitio seco y fresc
+o\OT1/cmr/m/it/12 ''. La
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9064.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[172]
+Overfull \hbox (145.11235pt too wide) detected at line 9073
+\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (1[]95 \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 
+X \OMS/cmsy/m/n/12 ^^T \OT1/cmr/m/n/12 2[]45\OML/cmm/m/it/12 =H[]\OT1/cmr/m/n/1
+2 ) = \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (1[]95 \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/
+it/12 X \OMS/cmsy/m/n/12 ^^T \OT1/cmr/m/n/12 2[]45\OML/cmm/m/it/12 =X[]^^V \OT1
+/cmr/m/n/12 = 3[]5[]\OML/cmm/m/it/12 ^^[ \OT1/cmr/m/n/12 = 0[]7) =
+ []
+
+
+Overfull \hbox (92.85197pt too wide) detected at line 9075
+\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([] \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 Z <
+ []\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^
+@\OT1/cmr/m/n/12 1[]5) \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 F[]\OT1/cmr/m/n/12
+ (\OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 2[]21) \OMS/cmsy/m/n/12 ^^Y \OT1/cmr/m/n/
+12 (1 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 0[]9332) \OMS/cmsy/m/n/12 ^^@ \OT1/c
+mr/m/n/12 (1 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 0[]9864) = 0[]0532\OML/cmm/m/
+it/12 :
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9122.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[173]
+Overfull \hbox (12.1266pt too wide) in paragraph at lines 9124--9124
+[]\OT1/cmr/bx/n/14.4 Un con-tras-te de bon-dad de ajus-te: alg^^Sun par^^Same-
+ []
+
+
+Overfull \hbox (7.22809pt too wide) in paragraph at lines 9162--9165
+[]\OT1/cmr/m/n/12 Calculemos las fre-cuen-cias es-pe-ra-das $\OML/cmm/m/it/12 e
+[]$ \OT1/cmr/m/n/12 cuan-do la dis-tri-bu-ci^^Son de $\OML/cmm/m/it/12 X$\OT1/c
+mr/m/n/12 =n^^Sume-
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9187.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[174]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9231.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [175]
+Overfull \hbox (91.7768pt too wide) in paragraph at lines 9271--9285
+[][] 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9286.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[176]
+\c@cas=\count123
+\c@aux=\count124
+
+Overfull \hbox (2.47176pt too wide) in paragraph at lines 9497--9499
+[]\OT1/cmr/m/n/12 As^^S^^P ten-dre-mos una mues-tra ser^^Sa $\OML/cmm/m/it/12 x
+[]; x[]; [] x[]$ \OT1/cmr/m/n/12 y la otra $\OML/cmm/m/it/12 x[]; x[]; [] ; x[]
+$\OT1/cmr/m/n/12 .
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9506.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[177]
+Overfull \hbox (174.78561pt too wide) detected at line 9517
+\OT1/cmr/m/n/12 10[]54\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 10[]73\OML/cmm/m/it/12
+ ; \OT1/cmr/m/n/12 9[]11\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 8[]07\OML/cmm/m/it/1
+2 ; \OT1/cmr/m/n/12 10[]56\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 9[]87\OML/cmm/m/it
+/12 ; \OT1/cmr/m/n/12 9[]52\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 8[]34\OML/cmm/m/i
+t/12 ; \OT1/cmr/m/n/12 9[]83\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 8[]11\OML/cmm/m/
+it/12 ; \OT1/cmr/m/n/12 11[]14\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 10[]11\OML/cmm
+/m/it/12 ; \OT1/cmr/m/n/12 7[]6\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 11[]13\OML/cm
+m/m/it/12 ; \OT1/cmr/m/n/12 10[]95\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 9[]48\OML/
+cmm/m/it/12 ; \OT1/cmr/m/n/12 9[]31\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 11[]82\OM
+L/cmm/m/it/12 ; \OT1/cmr/m/n/12 10[]93\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 8[]63
+ []
+
+
+Overfull \hbox (227.66006pt too wide) detected at line 9522
+\OT1/cmr/m/n/12 11[]93\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 14[]24\OML/cmm/m/it/12
+ ; \OT1/cmr/m/n/12 11[]06\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 11[]2\OML/cmm/m/it/
+12 ; \OT1/cmr/m/n/12 12[]31\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 12[]92\OML/cmm/m/
+it/12 ; \OT1/cmr/m/n/12 13[]61\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 15[]03\OML/cmm
+/m/it/12 ; \OT1/cmr/m/n/12 13[]06\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 11[]47\OML/
+cmm/m/it/12 ; \OT1/cmr/m/n/12 12[]8\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 14[]55\OM
+L/cmm/m/it/12 ; \OT1/cmr/m/n/12 10[]46\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 15[]21
+\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 12[]58\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 11[
+]76\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 9[]63\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 1
+0[]81\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 12[]54\OML/cmm/m/it/12 ; \OT1/cmr/m/n/1
+2 10[]53
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9554.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[178]
+Overfull \hbox (120.16283pt too wide) detected at line 9563
+[] \OT1/cmr/m/n/12 = []
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9602.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[179]
+Overfull \hbox (1.97617pt too wide) in paragraph at lines 9610--9613
+[]\OT1/cmr/m/it/12 Luego en nues-tro ca-so $[] \OT1/cmr/m/n/12 = [] =
+ []
+
+
+Overfull \hbox (7.54773pt too wide) in paragraph at lines 9616--9617
+[]\OT1/cmr/m/it/12 Entonces el va-lor del es-tad^^S^^Psti-co de con-tras-te es 
+$\OML/cmm/m/it/12 t \OT1/cmr/m/n/12 = [] = \OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 
+5[]850441$ 
+ []
+
+
+Overfull \hbox (113.96764pt too wide) detected at line 9651
+\OT1/cmr/m/n/12 (9[]789 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 12[]385 \OMS/cmsy/
+m/n/12 ^^@ \OT1/cmr/m/n/12 2[]021075 \OMS/cmsy/m/n/12 ^^A \OT1/cmr/m/n/12 0[]44
+37272\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 9[]789 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/
+n/12 12[]385 + 2[]021075 \OMS/cmsy/m/n/12 ^^A \OT1/cmr/m/n/12 0[]4437272) = (\O
+MS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 3[]492806\OML/cmm/m/it/12 ; \OMS/cmsy/m/n/12 
+^^@\OT1/cmr/m/n/12 1[]699194)
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9676.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[180]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9721.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [181]
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9732.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [182]
+Overfull \hbox (38.17386pt too wide) in paragraph at lines 9738--9747
+ [] 
+ []
+
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9778.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+[183]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9932.
+File: fons.pdf Graphic file (type pdf)
+<use fons.pdf>
+Package pdftex.def Info: fons.pdf  used on input line 9932.
+(pdftex.def)             Requested size: 482.56085pt x 682.86613pt.
+ [184]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 9932.
+ (./apuntes_estadistica_2019.aux
+LaTeX Info: Redefining \. on input line 23.
+LaTeX Info: Redefining \% on input line 23.
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 9932.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9932.
+
+Package rerunfilecheck Info: File `apuntes_estadistica_2019.out' has not change
+d.
+(rerunfilecheck)             Checksum: 6C1B9BD86F22D294876711726978AA5C;12273.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 9932.
+ ) 
+Here is how much of TeX's memory you used:
+ 8585 strings out of 492615
+ 119829 string characters out of 6131390
+ 227447 words of memory out of 5000000
+ 11533 multiletter control sequences out of 15000+600000
+ 19166 words of font info for 76 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 29i,20n,43p,1076b,685s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/latxfont/line10.pfb>
+Output written on apuntes_estadistica_2019.pdf (185 pages, 990845 bytes).
+PDF statistics:
+ 2517 PDF objects out of 2984 (max. 8388607)
+ 2217 compressed objects within 23 object streams
+ 808 named destinations out of 1000 (max. 500000)
+ 1252 words of extra memory for PDF output out of 10000 (max. 10000000)
+

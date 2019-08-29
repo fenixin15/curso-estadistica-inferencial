@@ -1,0 +1,187 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Estad\IeC {\'\i }stica descriptiva}{6}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Conceptos b\IeC {\'a}sicos}{6}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Estad\IeC {\'\i }stica descriptiva}{7}{subsection.1.1.1}% 
+\contentsline {subsection}{\numberline {1.1.2}Estad\IeC {\'\i }stica Inferencial}{7}{subsection.1.1.2}% 
+\contentsline {section}{\numberline {1.2}Estad\IeC {\'\i }stica descriptiva}{7}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Datos y series estad\IeC {\'\i }sticas}{7}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}Clasificaci\IeC {\'o}n de los datos}{8}{subsection.1.2.2}% 
+\contentsline {subsection}{\numberline {1.2.3}Descripci\IeC {\'o}n de una serie}{9}{subsection.1.2.3}% 
+\contentsline {subsection}{\numberline {1.2.4}Representaci\IeC {\'o}n gr\IeC {\'a}fica}{9}{subsection.1.2.4}% 
+\contentsline {subsubsection}{Diagramas causa-efecto}{10}{section*.2}% 
+\contentsline {section}{\numberline {1.3}Variables unidimensionales}{11}{section.1.3}% 
+\contentsline {subsection}{\numberline {1.3.1}Descripci\IeC {\'o}n num\IeC {\'e}rica}{11}{subsection.1.3.1}% 
+\contentsline {subsection}{\numberline {1.3.2}Descripci\IeC {\'o}n gr\IeC {\'a}fica}{15}{subsection.1.3.2}% 
+\contentsline {section}{\numberline {1.4}An\IeC {\'a}lisis de las distribuciones}{17}{section.1.4}% 
+\contentsline {subsection}{\numberline {1.4.1}Medidas de posici\IeC {\'o}n}{18}{subsection.1.4.1}% 
+\contentsline {subsubsection}{Media aritm\IeC {\'e}tica}{18}{section*.3}% 
+\contentsline {subsubsection}{Medias arm\IeC {\'o}nica y geom\IeC {\'e}trica}{19}{section*.4}% 
+\contentsline {subsubsection}{Media general de orden m}{20}{section*.5}% 
+\contentsline {subsubsection}{Mediana y percentiles}{20}{section*.6}% 
+\contentsline {subsubsection}{Moda}{23}{section*.7}% 
+\contentsline {subsection}{\numberline {1.4.2}Medidas de dispersi\IeC {\'o}n}{24}{subsection.1.4.2}% 
+\contentsline {subsubsection}{Varianza y desviaci\IeC {\'o}n t\IeC {\'\i }pica o est\IeC {\'a}ndar}{25}{section*.8}% 
+\contentsline {subsubsection}{Coeficiente de variaci\IeC {\'o}n}{27}{section*.9}% 
+\contentsline {subsubsection}{Desviaci\IeC {\'o}n media}{27}{section*.10}% 
+\contentsline {subsubsection}{Recorrido}{28}{section*.11}% 
+\contentsline {subsection}{\numberline {1.4.3}Perfil de una distribuci\IeC {\'o}n}{29}{subsection.1.4.3}% 
+\contentsline {subsection}{\numberline {1.4.4}Medidas de simetr\IeC {\'\i }a}{30}{subsection.1.4.4}% 
+\contentsline {subsection}{\numberline {1.4.5}Medidas de apuntamiento}{33}{subsection.1.4.5}% 
+\contentsline {section}{\numberline {1.5}Variables multidimensionales}{35}{section.1.5}% 
+\contentsline {subsection}{\numberline {1.5.1}Descripci\IeC {\'o}n num\IeC {\'e}rica: caso bidimensional}{35}{subsection.1.5.1}% 
+\contentsline {subsection}{\numberline {1.5.2}Distribuciones marginales}{38}{subsection.1.5.2}% 
+\contentsline {subsection}{\numberline {1.5.3}Distribuciones condicionadas}{40}{subsection.1.5.3}% 
+\contentsline {subsection}{\numberline {1.5.4}Momentos bidimensionales}{42}{subsection.1.5.4}% 
+\contentsline {subsection}{\numberline {1.5.5}Independencia e incorrelaci\IeC {\'o}n}{45}{subsection.1.5.5}% 
+\contentsline {section}{\numberline {1.6}Asociaci\IeC {\'o}n, concordancia y correlaci\IeC {\'o}n}{46}{section.1.6}% 
+\contentsline {subsection}{\numberline {1.6.1}Introducci\IeC {\'o}n}{46}{subsection.1.6.1}% 
+\contentsline {subsection}{\numberline {1.6.2}Coeficientes de asociaci\IeC {\'o}n}{47}{subsection.1.6.2}% 
+\contentsline {subsection}{\numberline {1.6.3}Correlaci\IeC {\'o}n lineal}{49}{subsection.1.6.3}% 
+\contentsline {subsection}{\numberline {1.6.4}Correlaci\IeC {\'o}n ordinal}{51}{subsection.1.6.4}% 
+\contentsline {chapter}{\numberline {2}Probabilidad}{54}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Espacio muestral}{54}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Propiedades del \IeC {\'a}lgebra de sucesos }{54}{subsection.2.1.1}% 
+\contentsline {section}{\numberline {2.2}Definici\IeC {\'o}n de probabilidad}{55}{section.2.2}% 
+\contentsline {subsection}{\numberline {2.2.1}Probabilidad Condicionada}{56}{subsection.2.2.1}% 
+\contentsline {subsubsection}{Regla del producto}{57}{section*.12}% 
+\contentsline {section}{\numberline {2.3}F\IeC {\'o}rmula de la probabilidad total}{57}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Regla de Bayes}{57}{section.2.4}% 
+\contentsline {section}{\numberline {2.5}Independencia Estad\IeC {\'\i }stica}{57}{section.2.5}% 
+\contentsline {chapter}{\numberline {3}Variables aleatorias}{59}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Variables aleatorias}{59}{section.3.1}% 
+\contentsline {subsection}{\numberline {3.1.1}Definici\IeC {\'o}n de variable aleatoria}{59}{subsection.3.1.1}% 
+\contentsline {subsection}{\numberline {3.1.2}Tipos de variables aleatorias}{60}{subsection.3.1.2}% 
+\contentsline {section}{\numberline {3.2}Distribuciones de probabilidad para v.a. discretas.}{61}{section.3.2}% 
+\contentsline {subsection}{\numberline {3.2.1}Funci\IeC {\'o}n de probabilidad de una variable aleatoria discreta}{62}{subsection.3.2.1}% 
+\contentsline {subsection}{\numberline {3.2.2}Propiedades de la funci\IeC {\'o}n de probabilidad}{63}{subsection.3.2.2}% 
+\contentsline {section}{\numberline {3.3}Funci\IeC {\'o}n de distribuci\IeC {\'o}n}{64}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Momentos de variables aleatorias discretas}{66}{section.3.4}% 
+\contentsline {subsection}{\numberline {3.4.1}Esperanza para variables aleatorias discretas}{66}{subsection.3.4.1}% 
+\contentsline {subsubsection}{Relaci\IeC {\'o}n de la esperanza para variables aleatorias discretas con la media aritm\IeC {\'e}tica}{67}{section*.13}% 
+\contentsline {subsection}{\numberline {3.4.2}Esperanzas de funciones de variables aleatorias discretas}{67}{subsection.3.4.2}% 
+\contentsline {subsection}{\numberline {3.4.3}Momentos de una v.a. discreta}{69}{subsection.3.4.3}% 
+\contentsline {subsection}{\numberline {3.4.4}Varianza de una variable aleatoria discreta}{70}{subsection.3.4.4}% 
+\contentsline {subsubsection}{Esperanza y varianza de transformaciones lineales}{71}{section*.14}% 
+\contentsline {section}{\numberline {3.5}Variables aleatorias continuas}{72}{section.3.5}% 
+\contentsline {subsection}{\numberline {3.5.1}Distribuciones de probabilidad de v.a. continuas}{72}{subsection.3.5.1}% 
+\contentsline {subsection}{\numberline {3.5.2}Funci\IeC {\'o}n de densidad}{74}{subsection.3.5.2}% 
+\contentsline {section}{\numberline {3.6}Momentos para variables aleatorias continuas}{77}{section.3.6}% 
+\contentsline {subsection}{\numberline {3.6.1}Esperanza de una v.a. continua}{77}{subsection.3.6.1}% 
+\contentsline {subsection}{\numberline {3.6.2}Varianza de una v.a. continuas}{77}{subsection.3.6.2}% 
+\contentsline {subsubsection}{Esperanza y varianza de trasformaciones lineales}{78}{section*.15}% 
+\contentsline {section}{\numberline {3.7}Transformaci\IeC {\'o}n de variables aleatorias}{78}{section.3.7}% 
+\contentsline {subsection}{\numberline {3.7.1}Transformaciones de v.a. discretas}{79}{subsection.3.7.1}% 
+\contentsline {subsection}{\numberline {3.7.2}Transformaciones de v.a. continuas}{79}{subsection.3.7.2}% 
+\contentsline {subsubsection}{M\IeC {\'e}todo general}{79}{section*.16}% 
+\contentsline {section}{\numberline {3.8} Desigualdad de Chebyshef}{80}{section.3.8}% 
+\contentsline {subsection}{\numberline {3.8.1}Desigualdad de Markov}{80}{subsection.3.8.1}% 
+\contentsline {subsubsection}{Desigualdad de Chebyshef}{81}{section*.17}% 
+\contentsline {subsubsection}{La varianza como medida de dispersi\IeC {\'o}n}{81}{section*.18}% 
+\contentsline {chapter}{\numberline {4}Distribuciones notables}{83}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Algunas variables aleatorias discretas}{83}{section.4.1}% 
+\contentsline {subsection}{\numberline {4.1.1}Bernoulli}{83}{subsection.4.1.1}% 
+\contentsline {subsubsection}{Resumen v.a con distribuci\IeC {\'o}n Bernoulli, $Ber(p)$}{84}{section*.19}% 
+\contentsline {subsection}{\numberline {4.1.2}Binomial: }{84}{subsection.4.1.2}% 
+\contentsline {subsubsection}{Resumen v.a con distribuci\IeC {\'o}n binomial $B(n,p)$}{85}{section*.20}% 
+\contentsline {subsection}{\numberline {4.1.3}Geom\IeC {\'e}trica }{85}{subsection.4.1.3}% 
+\contentsline {subsubsection}{Propiedad de la carencia de memoria}{85}{section*.21}% 
+\contentsline {subsubsection}{La variable geom\IeC {\'e}trica que cuenta el n\IeC {\'u}mero de fracasos}{85}{section*.22}% 
+\contentsline {subsubsection}{Resumen v.a con distribuci\IeC {\'o}n geom\IeC {\'e}trica $Ge(p)$}{86}{section*.23}% 
+\contentsline {subsection}{\numberline {4.1.4}Binomial negativa}{86}{subsection.4.1.4}% 
+\contentsline {subsubsection}{Resumen v.a con distribuci\IeC {\'o}n Binomial Negativa $BN(r,p)$}{86}{section*.24}% 
+\contentsline {subsection}{\numberline {4.1.5}Poisson}{86}{subsection.4.1.5}% 
+\contentsline {subsubsection}{La distribuci\IeC {\'o}n Poisson como ``l\IeC {\'\i }mite'' de una binomial.}{87}{section*.25}% 
+\contentsline {subsubsection}{Resumen v.a con distribuci\IeC {\'o}n Poisson $Po(\lambda )$}{88}{section*.26}% 
+\contentsline {subsubsection}{Aproximaci\IeC {\'o}n de la distribuci\IeC {\'o}n binomial por la Poisson:}{88}{section*.27}% 
+\contentsline {subsection}{\numberline {4.1.6}Distribuci\IeC {\'o}n hipergeom\IeC {\'e}trica: }{88}{subsection.4.1.6}% 
+\contentsline {subsubsection}{Resumen v.a con distribuci\IeC {\'o}n hipergeom\IeC {\'e}trica $H(N_1,N_2,n)$.}{88}{section*.28}% 
+\contentsline {section}{\numberline {4.2}Algunas variables aleatorias continuas}{89}{section.4.2}% 
+\contentsline {subsection}{\numberline {4.2.1}Distribuci\IeC {\'o}n uniforme en el intervalo (a,b):}{89}{subsection.4.2.1}% 
+\contentsline {subsubsection}{Esperanza y varianza para $X\equiv U(a,b)$}{89}{section*.29}% 
+\contentsline {subsubsection}{Cambio lineal v.a. uniforme}{90}{section*.30}% 
+\contentsline {subsubsection}{Resumen v.a con distribuci\IeC {\'o}n uniforme, $U(a,b)$}{90}{section*.31}% 
+\contentsline {subsection}{\numberline {4.2.2}Distribuci\IeC {\'o}n exponencial (exponencial negativa):}{90}{subsection.4.2.2}% 
+\contentsline {subsubsection}{Propiedad de la falta de memoria}{91}{section*.32}% 
+\contentsline {subsubsection}{Resumen v.a con distribuci\IeC {\'o}n exponencial, $Exp(\lambda )$}{91}{section*.33}% 
+\contentsline {subsection}{\numberline {4.2.3}Distribuci\IeC {\'o}n normal o Gaussiana}{91}{subsection.4.2.3}% 
+\contentsline {subsubsection}{Resumen v.a con distribuci\IeC {\'o}n normal, $N(\mu ,\sigma ^2)$}{92}{section*.34}% 
+\contentsline {subsubsection}{Propiedades de la distribuci\IeC {\'o}n normal.}{92}{section*.35}% 
+\contentsline {subsubsection}{Transformaciones lineales de variables aleatorias normales}{93}{section*.36}% 
+\contentsline {chapter}{\numberline {5}Variables aleatorias vectoriales}{95}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Variables aleatorias bidimensionales}{95}{section.5.1}% 
+\contentsline {subsubsection}{Independencia}{95}{section*.37}% 
+\contentsline {subsection}{\numberline {5.1.1}Variables aleatorias conjuntamente discretas}{96}{subsection.5.1.1}% 
+\contentsline {subsection}{\numberline {5.1.2}Variables aleatorias bidimensionales continuas}{98}{subsection.5.1.2}% 
+\contentsline {subsection}{\numberline {5.1.3}Distribuciones condicionales. (OPCIONAL)}{101}{subsection.5.1.3}% 
+\contentsline {subsubsection}{Variables condicionadas a un suceso}{103}{section*.38}% 
+\contentsline {section}{\numberline {5.2}Valores Esperados}{110}{section.5.2}% 
+\contentsline {subsubsection}{Vector de esperanzas}{111}{section*.39}% 
+\contentsline {section}{\numberline {5.3}Medida de la variaci\IeC {\'o}n conjunta}{111}{section.5.3}% 
+\contentsline {subsection}{\numberline {5.3.1}Covarianza}{111}{subsection.5.3.1}% 
+\contentsline {subsubsection}{Propiedades}{111}{section*.40}% 
+\contentsline {section}{\numberline {5.4}Propiedades de las sumas de v.a.}{112}{section.5.4}% 
+\contentsline {subsection}{\numberline {5.4.1}Matriz de varianzas-covarianzas, matriz de correlaciones}{113}{subsection.5.4.1}% 
+\contentsline {section}{\numberline {5.5}Distribuci\IeC {\'o}n normal bivariante}{113}{section.5.5}% 
+\contentsline {subsection}{\numberline {5.5.1}Normal bivariante est\IeC {\'a}ndar}{113}{subsection.5.5.1}% 
+\contentsline {subsection}{\numberline {5.5.2}La ley normal multivariante}{115}{subsection.5.5.2}% 
+\contentsline {section}{\numberline {5.6}Teorema del L\IeC {\'\i }mite Central (T.L.C.)}{115}{section.5.6}% 
+\contentsline {subsubsection}{Teorema del L\IeC {\'\i }mite Central }{116}{section*.41}% 
+\contentsline {subsubsection}{Aproximaci\IeC {\'o}n de la distribuci\IeC {\'o}n binomial y la Poisson por la normal}{117}{section*.42}% 
+\contentsline {chapter}{\numberline {6}Muestreo Estad\IeC {\'\i }stico}{120}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Conceptos b\IeC {\'a}sicos}{120}{section.6.1}% 
+\contentsline {subsubsection}{Pasos en un estudio con muestreo}{121}{section*.43}% 
+\contentsline {subsection}{\numberline {6.1.1}Tipos de muestreo}{121}{subsection.6.1.1}% 
+\contentsline {subsubsection}{Muestreo aleatorio simple}{123}{section*.44}% 
+\contentsline {section}{\numberline {6.2}Inferencias}{124}{section.6.2}% 
+\contentsline {subsubsection}{Estad\IeC {\'\i }sticos y distribuciones muestrales}{124}{section*.45}% 
+\contentsline {subsection}{\numberline {6.2.1}Distribuci\IeC {\'o}n muestral de un estad\IeC {\'\i }stico}{124}{subsection.6.2.1}% 
+\contentsline {subsection}{\numberline {6.2.2}Distribuci\IeC {\'o}n la media muestral}{126}{subsection.6.2.2}% 
+\contentsline {subsubsection}{Distribuci\IeC {\'o}n muestral de $\overline {X}$}{128}{section*.46}% 
+\contentsline {subsection}{\numberline {6.2.3}Distribuci\IeC {\'o}n de una proporci\IeC {\'o}n muestral}{130}{subsection.6.2.3}% 
+\contentsline {subsubsection}{Distribuci\IeC {\'o}n en el muestreo de $\mathbf {\mathaccentV {hat}05E{p}_{X}}$}{130}{section*.47}% 
+\contentsline {subsection}{\numberline {6.2.4}Distribuci\IeC {\'o}n muestral de la varianza muestral}{132}{subsection.6.2.4}% 
+\contentsline {subsubsection}{Distribuci\IeC {\'o}n en el muestreo de $\mathaccentV {tilde}07E{S}_{X}^2$}{132}{section*.48}% 
+\contentsline {subsubsection}{La distribuci\IeC {\'o}n $\chi ^{2}_{n}$ (chi-cuadrado con n g.l.)}{133}{section*.49}% 
+\contentsline {chapter}{\numberline {7} Inferencia estad\'{\i }stica: estimaci\'on de par\'ametros.}{135}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}Introducci\'on}{135}{section.7.1}% 
+\contentsline {section}{\numberline {7.2}Estimadores}{135}{section.7.2}% 
+\contentsline {subsection}{\numberline {7.2.1}Estimadores insesgados}{136}{subsection.7.2.1}% 
+\contentsline {section}{\numberline {7.3}M\'etodos para calcular estimadores}{138}{section.7.3}% 
+\contentsline {subsubsection}{Estimadores m\'aximo veros\'{\i }miles.}{139}{section*.50}% 
+\contentsline {section}{\numberline {7.4}Estimaci\'on por intervalos}{141}{section.7.4}% 
+\contentsline {subsection}{\numberline {7.4.1}Intervalo de confianza para la media de una poblaci\'on normal: varianza poblacional conocida}{141}{subsection.7.4.1}% 
+\contentsline {subsubsection}{Resumen: Intervalo de confianza para $\mathbf {\mu }$: $\mathbf {\sigma ^2}$ conocida.}{143}{section*.51}% 
+\contentsline {subsubsection}{Amplitud del intervalo de confianza}{144}{section*.52}% 
+\contentsline {subsection}{\numberline {7.4.2}Intervalo de confianza para la media poblacional: tama\~{n}os muestrales grandes}{145}{subsection.7.4.2}% 
+\contentsline {subsubsection}{Distribuci\'on $t$ de Student}{146}{section*.53}% 
+\contentsline {subsection}{\numberline {7.4.3}Intervalo de confianza para la media de una poblaci\'on normal: varianza poblacional desconocida}{146}{subsection.7.4.3}% 
+\contentsline {subsection}{\numberline {7.4.4}Intervalos de confianza para una proporci\'on}{148}{subsection.7.4.4}% 
+\contentsline {subsubsection}{Intervalos de confianza para la proporci\'on poblacional:(muestras grandes)}{148}{section*.54}% 
+\contentsline {subsection}{\numberline {7.4.5}Intervalo de confianza para la varianza de una poblaci\'on normal}{149}{subsection.7.4.5}% 
+\contentsline {subsubsection}{Intervalo de confianza para la varianza de una poblaci\'on normal}{150}{section*.55}% 
+\contentsline {chapter}{\numberline {8}Inferencia estad\IeC {\'\i }stica: contraste de hip\IeC {\'o}tesis}{153}{chapter.8}% 
+\contentsline {section}{\numberline {8.1}Tipos de hip\IeC {\'o}tesis}{154}{section.8.1}% 
+\contentsline {section}{\numberline {8.2}Tipos de Error en un contraste}{155}{section.8.2}% 
+\contentsline {subsubsection}{Terminolog\IeC {\'\i }a}{156}{section*.56}% 
+\contentsline {section}{\numberline {8.3}?`Inocente o culpable?}{157}{section.8.3}% 
+\contentsline {section}{\numberline {8.4}Ejemplo de un contraste de hip\IeC {\'o}tesis para la media de una distribuci\IeC {\'o}n normal: varianza poblacional conocida}{158}{section.8.4}% 
+\contentsline {section}{\numberline {8.5}Terminolog\IeC {\'\i }a:}{159}{section.8.5}% 
+\contentsline {section}{\numberline {8.6}Ejemplo tabla de un contraste para la media poblacional de una poblaci\IeC {\'o}n normal con varianza poblacional conocida}{159}{section.8.6}% 
+\contentsline {section}{\numberline {8.7}M\IeC {\'e}todo de los seis pasos}{159}{section.8.7}% 
+\contentsline {section}{\numberline {8.8}Reglas de decisi\IeC {\'o}n para contraste de la media de una poblaci\IeC {\'o}n normal: varianza poblacional conocida}{161}{section.8.8}% 
+\contentsline {section}{\numberline {8.9}Contraste para la media: tama\IeC {\~n}os muestrales grandes}{162}{section.8.9}% 
+\contentsline {subsection}{\numberline {8.9.1}Reglas de decisi\IeC {\'o}n para el contraste de una media: Tama\IeC {\~n}os muestrales grandes}{164}{subsection.8.9.1}% 
+\contentsline {section}{\numberline {8.10}Contrastes para la media de una poblaci\IeC {\'o}n normal: varianza poblacional desconocida}{164}{section.8.10}% 
+\contentsline {subsection}{\numberline {8.10.1}Reglas de decisi\IeC {\'o}n para el contraste de una media de una distribuci\IeC {\'o}n normal: varianza poblacional desconocida}{164}{subsection.8.10.1}% 
+\contentsline {section}{\numberline {8.11}Contraste para la varianza de una distribuci\IeC {\'o}n normal.}{166}{section.8.11}% 
+\contentsline {subsection}{\numberline {8.11.1}Reglas de decisi\IeC {\'o}n para el contraste de la varianza de una poblaci\IeC {\'o}n normal}{166}{subsection.8.11.1}% 
+\contentsline {section}{\numberline {8.12}Contrastes para la proporci\IeC {\'o}n muestral: muestras grandes}{168}{section.8.12}% 
+\contentsline {subsection}{\numberline {8.12.1}Reglas de decisi\IeC {\'o}n para el contraste de una proporci\IeC {\'o}n muestral: tama\IeC {\~n}o muestral grande}{169}{subsection.8.12.1}% 
+\contentsline {section}{\numberline {8.13}Pruebas de bondad de ajuste}{171}{section.8.13}% 
+\contentsline {subsection}{\numberline {8.13.1}Un contraste de bondad de ajuste: distribuci\IeC {\'o}n totalmente conocida}{171}{subsection.8.13.1}% 
+\contentsline {subsection}{\numberline {8.13.2}Un contraste de bondad de ajuste: alg\IeC {\'u}n par\IeC {\'a}metro poblacional desconocido}{174}{subsection.8.13.2}% 
+\contentsline {subsection}{\numberline {8.13.3}Prueba de bondad de ajuste de Kolgomorov-Smirnov (K-S)}{175}{subsection.8.13.3}% 
+\contentsline {section}{\numberline {8.14}Contraste de las medias de dos poblaciones normales o tama\IeC {\~n}os muestrales grandes}{177}{section.8.14}% 
+\contentsline {section}{\numberline {8.15}Contraste de dos proporciones}{181}{section.8.15}% 
+\contentsline {section}{\numberline {8.16}Muestras dependientes}{181}{section.8.16}% 
+\contentsline {section}{\numberline {8.17}Comparaci\IeC {\'o}n de dos varianzas}{184}{section.8.17}% 
