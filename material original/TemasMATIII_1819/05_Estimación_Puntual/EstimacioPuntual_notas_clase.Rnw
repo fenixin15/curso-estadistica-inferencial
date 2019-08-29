@@ -97,6 +97,7 @@ n\to\infty}}}
 
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 \beamertemplatedotitem
 
 \lstset{backgroundcolor=\color{green!50}}

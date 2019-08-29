@@ -13,7 +13,313 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Estimación puntual
+
+# Definiciones básicas
+
+## Estadística inferencial
+
+El problema usual de la **estadística inferencial** es:
+
+* Queremos conocer el valor de una característica en una población
+
+* No podemos medir esta característica en todos los individuos de la población
+
+* Extraemos una muestra  aleatoria de la población,  medimos la característica en los  individuos de esta muestra e  **inferimos** el valor de la característica para la toda la población
+
+  * ¿Cómo lo tenemos que hacer?
+  * ¿Cómo tenemos que hacer la muestra?
+  * ¿Qué información podemos inferir?
+  
+## Idea intuitiva de muestra aleatoria simple
+
+<l class="definition"> Muestra aleatoria simple (m.a.s.) de tamaño $n$</l>: de una población de $N$ individuos, repetimos $n$ veces el proceso consistente en escoger **equiprobablemente** un individuo de la población; *los individuos escogidos se pueden repetir*
+
+<div class="example"> 
+Ejemplo: escogemos  al azar $n$ estudiantes de la Universidad de las Islas Baleares (UIB) (con reposición) para medirles la estatura
+</div>
+
+De esta manera, todas las muestras posibles de $n$ individuos (posiblemente repetidos: *multiconjuntos*) tienen la misma probabilidad
+
+## Idea intuitiva de estadístico
+<l class="definition"> Estadístico (*Estimador puntual*)</l>: una función que aplicada a una muestra nos permite *estimar* un valor que queramos conocer sobre  toda la población.
+
+<div class="example"> 
+Ejemplo: la media de les estaturas  de una muestra de estudiantes de la UIB nos permite estimar la media de las alturas de todos los estudiantes de la UIB.
+</div>
+
+## Definición formal de muestra aleatoria simple
+
+<l class="definition"> Una m.a.s. de tamaño $n$ (de una v.a. $X$)</l> es
+
+* un conjunto de $n$ copias \blue{independientes} de $X$, o
+
+* un conjunto de $n$ variables aleatorias  \blue{independientes} $X_1,\ldots,X_n$, todas con la distribución de $X$.
+
+<div class="example">
+**Ejemplo:** Sea $X$ la v.a. "escogemos un estudiante de la UIB y le medimos la altura". Una m.a.s. de $X$ de tamaño $n$ serán $n$ copias independientes $X_1,\ldots,X_n$ de esta $X$.
+</div>
+
+<l class="definition"> Una realización de una m.a.s.</l> son los $n$ valores $x_1,\ldots,x_n$ que  toman las v.a. $X_1,\ldots,X_n$.
+
+## Definición formal de estadístico
+<l class="definition"> Un  *estadístico* $T$</l> es una función aplicada a la muestra $X_1,\ldots,X_n$:
+$$
+T=f(X_1,\ldots,X_n)
+$$
+Este estadístico se aplica a les realizaciones  de la muestra
+
+<div class="example">
+**Ejemplo**: La **media muestral** de una m.a.s. $X_1,\ldots,X_n$ de tamaño $n$ es 
+$$
+\overline{X}:=\frac{X_1+\cdots+X_n}{n}
+$$
+Estima $E(X)$.
+</div>
+
+<div class="example">
+**Ejemplo:** La **media muestral** de las alturas de una
+realización de una m.a.s. de  las alturas  de estudiantes estima  la altura media de un estudiante de la UIB.
+</div>
+
+## Definición formal de estadístico
+
+Así pues, un **estadístico** es una (otra) variable aleatoria, con distribución, esperanza, etc.
+
+La **distribución muestral** de $T$ es la distribución de  esta variable aleatoria.
+
+Estudiando  esta distribución muestral, podremos estimar propiedades de $X$ a partir del comportamiento de una muestra.
+
+
+<l class="definition">Error estándar de $T$</l>: desviación típica de $T$.
+
+## Convenio: LOS ESTADÍSTICOS, EN MAYÚSCULAS; las realizaciones, en minúsculas
+
+<div class="example">
+**Ejemplo**: 
+
+* $X_1,\ldots,X_n$ una m.a.s. y 
+$$
+\overline{X}:=\frac{X_1+\cdots+X_n}{n}
+$$
+la media muestral.
+
+* $x_1,\ldots,x_n$ una realización de esta  m.a.s. y 
+$$
+\overline{x}:=\frac{x_1+\cdots+x_n}{n}
+$$
+la media (muestral) de esta realización
+
+
+## En la vida real...
+
+En la vida real, las muestras aleatorias se toman, casi siempre, sin reposición (es decir sin repetición del mismo individuo de la población).
+
+No son muestras aleatorias simples. pero:
+
+* Si $N$ es mucho más grande que $n$,  los resultados para una   m.a.s.\ son  (aproximadamente) los mismos,  ya que las  repeticiones son improbables y las variables aleatorias que forman la muestra son prácticamente  independientes.
+
+* En estos casos cometeremos el abuso de lenguaje  de decir que es una m.a.s.
+
+* Si $n$ es relativamente grande, se suelen dar  versiones corregidas de los estadísticos.
+
+
+# La media muestral
+
+## Definición de media muestral
+
+<l class="definition">Media muestral </l>: sea $X_1,\ldots, X_n$ una m.a.s.\ de tamaño $n$ de una v.a.\ $X$ de esperanza $\mu_X$ y desviación típica $\sigma_X$
+
+La \emph{media muestral} es:
+$$
+\overline{X}=\frac{X_1+\cdots+X_n}{n}
+$$
+
+<div class="prop">
+En estas condiciones,
+</div>
+$$
+E(\overline{X})=\mu_X,\quad \sigma_{\overline{X}}=\frac{\sigma_X}{\sqrt{n}}
+$$
+donde $\sigma_{\overline{X}}$ es el **error estándar** de $\overline{X}$.
+
+
+
+## Propiedades de la media muestral
+
+* Es un estimador puntual de $\mu_X$
+
+* $E(\overline{X})=\mu_X$: el valor esperado de $\overline{X}$ es $\mu_X$.
+
+* Si tomamos muchas veces una m.a.s. y calculamos la media muestral, el valor medio  de estas medias tiende con mucha probabilidad a ser $\mu_X$.
+
+* $\sigma_{\overline{X}}= \sigma_X/\sqrt{n}$: la variabilidad de los resultados de $\overline{X}$ tiende a 0  a medida que tomamos muestras más grandes.
+
+## Media muestral. Ejemplo.
+<div class="example">
+Consideremos la tabla de datos `iris` (ver tema de Muestreo). 
+Vamos a testear las propiedades anteriores sobre la variable **longitud del pétalo** (`Petal.Length`).
+
+Generaremos 10000 muestras de tamaño 40 con reposición de las longitudes del pétalo.
+A continuación hallaremos los valores medios de cada muestra.
+
+Consideraremos la media y la desviación típica de dichos valores medios y los compararemos con los valores exactos dados por las propiedades de la media muestral. 
+</div>
+
+## Media muestral. Ejemplo.
+<div class="example-sol">
+Para generar los valores medios de las longitudes del pétalo de las 10000 muestras usaremos la función `replicate` de `R`. Fijaos en su sintaxis:
+
+* `replicate(n,expresión)` evalúa `n` veces la `expresión`, y organiza los resultados como las columnas de una matriz (o un vector, si el resultado de cada `expresión` es unidimensional).
+
+```{r}
+set.seed(1001)
+valores.medios.long.pétalo=replicate(10000,mean(sample(iris$Petal.Length,40,
+                                                       replace =TRUE)))
+```
+</div>
+
+
+## Media muestral. Ejemplo.
+<div class="example-sol">
+El valor medio de los valores medios de las muestras anteriores vale:
+```{r}
+mean(valores.medios.long.pétalo)
+```
+Dicho valor tiene que estar cerca del valor medio de la variable longitud del pétalo:
+```{r}
+mean(iris$Petal.Length)
+```
+
+Fijáos que los dos valores están muy próximos.
+</div>
+
+
+## Media muestral. Ejemplo.
+<div class="example-sol">
+La desviación típica de los valores medios de las muestras vale:
+```{r}
+sd(valores.medios.long.pétalo)
+```
+Dicho valor tiene que estar cerca de $\frac{\sigma_{lp}}{\sqrt{40}}$ (donde $\sigma_{lp}$ es la desviación típica de la variable longitud del pétalo) tal como predice la propiedad de la media muestral referida a la desviación típica de la misma:
+```{r}
+sd(iris$Petal.Length)/sqrt(40)
+```
+Fijáos también en que los dos valores están muy próximos.
+
+
+</div>
+
+# Poblaciones normales
+
+## Combinación lineal de distribuciones normales
+
+<l class="prop">Combinación lineal de distribuciones normales es normal</l>:
+Si $Y_1,\ldots,Y_n$ son v.a.\ normales independientes, cada $Y_i\sim N(\mu_i,\sigma_i)$, y $a_1,\ldots,a_n,b\in \mathbb{R}$ entonces
+$$
+Y=a_1Y_1+\cdots+a_nY_n+b
+$$
+es una v.a.\ $N(\mu,\sigma)$ con $\mu$ y $\sigma$ las que correspondan:
+
+* $E(Y)=a_1\cdot\mu_1+\cdots+a_n\cdot\mu_n+b$
+
+* $\sigma(Y)^2=a_1^2\cdot\sigma_1^2+\cdots+a_n^2\cdot\sigma_n^2$
+
+## Distribución de la media muestral
+
+<l class="prop">Distribución de la media muestral en el caso en que la población $X$ sea normal </l>:
+Sea $X_1,\ldots, X_n$ una m.a.s. de una v.a. $X$ de esperanza $\mu_X$ y desviación típica $\sigma_X$.
+
+Si $X$ es $N(\mu_X,\sigma_X)$, entonces
+$$
+\overline{X}\mbox{ es }N\Big(\mu_X,\frac{\sigma_X}{\sqrt{n}}\Big)
+$$
+y por lo tanto
+$$
+Z=\frac{\overline{X}-\mu_X}{\frac{\sigma_X}{\sqrt{n}}}\mbox{ es }N(0,1)
+$$
+
+
+$Z$ es la **expresión tipificada** de la media muestral.
+
+## Teorema Central del Límite
+
+<l class="prop">Teorema Central del Límite. </l>
+Sea $X_1,\ldots, X_n$ una m.a.s. de una v.a. $X$ **cualquiera** de esperanza $\mu_X$ y desviación típica $\sigma_X$. Cuando $n\to \infty$, 
+$$
+\overline{X}\to N\Big(\mu_X,\frac{\sigma_X}{\sqrt{n}}\Big)
+$$
+y por lo tanto
+$$
+Z=\frac{\overline{X}-\mu_X}{\frac{\sigma_X}{\sqrt{n}}}\to N(0,1)
+$$
+(estas convergencias se refieren a las distribuciones.)
+
+## Teorema Central del Límite
+<l class="observ">Caso $n$ grande</l>:
+Si $n$ es grande (**$n\geq 30$ o 40**), 
+$\overline{X}$ es aproximadamente normal, con esperanza  $\mu_X$ y desviación típica  $\dfrac{\sigma_X}{\sqrt{n}}$
+
+
+<div class="example">
+**Ejemplo**:
+Tenemos una v.a. $X$ de media $\mu_X=3$ y desv. típ. 
+$\sigma_X=0.2$. Tomamos  muestras aleatorias  simples de tamaño 50. La distribución de la media muestral $\overline{X}$ es aproximadamente
+$$
+N\left(3,\frac{0.2}{\sqrt{50}}\right)=N(3,`r round(0.2/sqrt(50),4)`).
+$$
+</div>
+
+## Teorema Central del Límite
+
+<div class="example-sol">
+En el gráfico siguiente podemos observar el histograma de los valores medios de las longitudes del pétalo de las 10000 muestras junto con la distribución normal correspondiente:
+```{r echo=FALSE}
+hist(valores.medios.long.pétalo,freq=FALSE, main="Histograma 
+ de les medias de 10000 muestras\n de tamaño 40 de las longitudes del pétalo",xlab="Valores medios de las longitudes del pétalo",ylab="Densidad",ylim=c(0,1.5))
+lines(density(valores.medios.long.pétalo),lty=2,lwd=2,col="red")
+x=sort(iris$Petal.Length)
+lines(x,dnorm(x,mean(iris$Petal.Length),sd(iris$Petal.Length)/sqrt(40)),lty=3,lwd=2,col="blue")
+legend("topright",legend=c("densidad","normal"),
+ lwd=c(2,2),lty=c(2,3),col=c("red","blue"))
+```
+</div>
+
+## Ejemplo
+<div class="example">
+El tamaño en megabytes (MB)  de un  tipo de imágenes comprimidas tiene  un  valor medio de   $115$ MB, con una desviación típica de $25$. Tomamos  una m.a.s. de $100$ imágenes de este tipo.
+
+¿Cuál es la probabilidad de que la media muestral del tamaño de los ficheros  sea $\leq 110$ MB?
+</div>
+
+<div class="example-sol">
+Sea $X$ la variable aletoria que nos da el tamaño en megabytes del tipo de imágenes comprimidas. La distribución de $X$ será $X=N(\mu=115,\sigma = 25)$
+
+Sea $X_1,\ldots,X_{100}$ la m.a.s. La distribución aproximada de la media muestral $\overline{X}$ usando el **Teorema Central del Límite** será: $\overline{X}\approx N\left(\mu_{\overline{X}}=115,\sigma_{\overline{X}}=\frac{25}{\sqrt{100}}=`r 25/sqrt(100)`\right)$.
+
+Nos piden la probabilidad siguiente: $P(\overline{X}\leq 110)$. Si estandarizamos:
+
+$$
+P(\overline{X}\leq 100)=P\left(Z=\frac{\overline{X}-115}{2.5}\leq \frac{110-115}{2.5}\right) =p(Z\leq `r (110-115)/2.5`)=`r round(pnorm((110-115)/2.5),4)`.
+$$ 
+dond $Z$ es la normal estándard $N(0,1)$
+
+</div>
+
+## Media muestral en muestras sin reposición
+
+Sea $X_1,\ldots, X_n$ una m.a. **sin  reposición** de tamaño $n$ de una v.a. $X$ de esperanza $\mu_X$ y desviación típica $\sigma_X$. 
+
+Si $n$ es  pequeño en relación al tamaño $N$ de la población, todo lo que hemos contado funciona (aproximadamente).
+
+Si $n$ es grande en relación a $N$, entonces
+$$
+E(\overline{X})=\mu_X,\quad \sigma_{\overline{X}}=\frac{\sigma_X}{\sqrt{n}}\cdot \sqrt{\frac{N-n}{N-1}}
+$$
+(**factor de población finita**)
+
+El Teorema Central del Límite ya no funciona exactamente en este último caso.
+
+## Definiciones básicas
 
 * Estudio inferencial: deducir información sobre la población a partir de los datos de la muestra. Dos formas:
   * Suponiendo que conocemos el **modelo** al que se ajusta la población, es decir, suponiendo que conocemos el tipo de distribución de la variable aleatoria que modela la característica de la población en la que estamos interesados, pero desconocemos uno o varios parámetros de los que depende dicha distribución: **estimación paramétrica**.
