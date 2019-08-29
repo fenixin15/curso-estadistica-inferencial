@@ -12,5 +12,4 @@
 * Tema 11: Estadística multidimensional: Ricardo
 * Tema 12: Análisis de la varianza: Arnau
 * Tema 13: Regresión lineal: Ricardo
-* Tema 14: Introducción al clustering: Arnau. 
-Tema 15: Tumbet
+* Tema 14: Introducción al clustering: Arnau.
