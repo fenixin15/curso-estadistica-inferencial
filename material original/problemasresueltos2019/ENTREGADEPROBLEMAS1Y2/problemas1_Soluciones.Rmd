@@ -1,0 +1,233 @@
+---
+title: "Entrega  de Problemas 1 de 2 Soluciones. Problemas MATIII"
+header-includes:
+   - \usepackage{amsmath}
+output:
+  pdf_document: default
+  html_notebook: default
+  html_document:
+    df_print: paged
+---
+
+
+**Esta entrega de problemas se puntúa sobre 10. Aporta 1 punto a la nota final global y no es recuperable. La entrega es indivdual y se entrega en papel que proporciona el profesor ¡¡¡Suerte!!!** 
+
+**Problema 1.-** Un estuche contiene 2 lápices azules y 3 rojos. Se extraen dos lápices del estuche.
+
+a.	Escribe los resultados elementales que definen los sucesos.
+$M =$ "Solo ha salido un lápiz rojo" y $N =$ "El segundo lápiz extraído es azul".  (**0.5 puntos**)
+b.	Halla las probabilidades de $M$, $N$ y $M \cap N$. (**1 punto.**)
+c.	¿Son los sucesos M y N independientes? (**1 punto.**)
+
+**Solución**
+
+El espacio muestral que resuelve el problema puede tener varias formas.
+
+
+**Forma 1**
+Tenemos 5 lápices en total de los que 2 son de color azul y 3 son rojos.
+Extraemos dos lápices (sí sin reponerlos hemos sacado dos)
+
+
+Hemos elegido (hay otros modelos para definir el experimento que dan el mismo resultado) definir pares ordenados para el color del primer lápiz extraído  y para el del segundo: por ejemplo $(Azul,Rojo)$ será que el primer lápiz es azul y el segundo (notemos que es sin reponer el lápiz en el estuche). 
+
+Así es espacio muestral es $\Omega=\{(Azul,Azul),(Azul,Rojo),(Rojo,Azul),(Rojo,Rojo)\}$.
+
+Veamos las probabilidades de cada suceso elemental.
+
+$P(\{(Azul,Azul)\})=P(Primero\quad Azul)\cdot P(Segundo\quad Azul/Primero Azul)=\frac{2}{5}\cdot \frac{1}{4}=\frac{2}{20}.$
+
+$P(\{(Azul,Rojo)\})=P(Primero\quad Azul)\cdot P(Segundo\quad Rojo/Primero \quad Azul)=\frac{2}{5}\cdot\frac{3}{4}=\frac{6}{20}.$
+
+$P(\{(Rojo,Azul)\})=P(Primero\quad Rojo)\cdot P(Segundo\quad Azul/Primero  \quad Rojo)=\frac{3}{5}\cdot \frac{2}{4}=\frac{6}{20}.$
+
+$P(\{(Rojo,Rojo)\})=P(Primero\quad Rojo)\cdot P(Segundo\quad Rojo/Primero \quad Rojo)=\frac{3}{5}\cdot \frac{2}{4}=\frac{6}{20}.$
+
+El suceso "solo un lápiz rojo es" $M=\{(Azul,Rojo),(Rojo,Azul)\}$.
+
+El suceso "el segundo lápiz es azul es" $N=\{(Rojo,Azul),(Azul,Azul)\}$
+
+
+
+Por lo tanto 
+$$P(M)=P(\{(Azul,Rojo),(Rojo,Azul)\})=P((Azul,Rojo))+P((Rojo,Azul))=\frac{12}{20}=\frac{3}{5}=0.6.$$ 
+
+$$P(N)=P(\{(Rojo, Azul),(Azul,Azul)\})=P((Rojo,Azul))+P((Azul,Azul))=\frac{8}{20}=\frac{2}{5}=0.4.$$
+
+
+El suceso $M\cap N=\{(Azul,Rojo),(Rojo,Azul)\}\cup \{(Rojo,Azul),(Azul,Azul)\}=\{(Rojo,Azul)\}$
+
+por lo tanto 
+
+$$P(M\cap N)=P(\{(Rojo),Azul)\})=\frac{6}{20}=\frac{3}{10}=0.3.$$
+Para que $M$y $N$ sean independientes se tiene que cumplir  que  $P(M\cap N)=P(M)\cdot P(N)$, pero esto no sucede
+
+$$\frac{6}{20}=0.3=P(M\cap N)\not =P(M)\cdot P(N)=\frac{12}{20} \cdot\frac{8}{20}=0.12.$$
+
+Al no cumplirse la anterior igualdad resulta  los sucesos $M$ y $N$ no son independientes.
+
+
+
+
+**Problema 2.-** En promedio, 3 servidores de cada 20 se bloquea durante una tormenta eléctrica. La compañía Amazonas  tiene  numerosos servidores repartidos  en varios Data Centers. 
+Responder, modelando con una distribución notable las siguientes cuestiones:
+
+a. ¿Calcula la probabilidad de que menos de 5 servidores se bloqueen en un Data Center con 20 servidores? (**0.5 puntos.**)
+b. ¿Calcula la probabilidad de que exactamente 5 servidores se hayan bloqueado en un Data Center de 20 servidores? (**1 punto.**)
+c.  En un Data Center de 60 servidores  ¿Cuál es la probabilidad de  más de 10 ($>10$) servidores se bloqueen? Hacerlo utilizando aproximación por una distribución de Poisson. (**1 punto.**)
+
+```{r code,echo=FALSE,eval=FALSE}
+p=3/20
+pbinom(1:300,4000,p)
+60**p
+1-0.7060 
+1-ppois(10,60**p)
+```
+
+**Solución**
+
+La probabilidad de fallo en un servidor es $P(fallo)=\frac{3}{20}=0.15$.
+
+Sea $X$ la va.a que nos da el número de servidores que han fallado entre 20. Bajo estas condiciones $X$ sigue una ley $B(n=20,p=\frac{3}{20}=0.15).$
+
+En la pregunta a) nos piden $P(X<5)$ así que $P(X<5)=P(X\leq 4)=`r round(pbinom(4,20,0.15),4)`.$
+
+Donde la última igualdad se ha deducido utilizando las tablas de la distribución acumulada de una variable aleatoria  $B(n=20,p=0.25)$.  Con R es `round(pbinom(4,20,0.15))` que da el mismo resultado .
+
+Para el apartado b) 
+
+
+\begin{eqnarray*}
+P(X=5) &=&\binom{20}{5}\cdot 0.15^5\cdot (1-0.15)^{20-5}=\frac{20!}{(20-5)!\cdot 5!} \cdot 0.15^5\cdot 0.85^{15}
+ \\
+&=&\frac{16\cdot 17\cdot 18\cdot 19\cdot 20}{5\cdot 4\cdot 3\cdot 2\cdot 1}\cdot 0.15^5\cdot 0.85^{15}=`r (16* 17* 18* 19* 20)/(5* 4* 3* 2* 1)* 0.15^5* 0.85^15`.
+\end{eqnarray*}
+
+
+
+
+**Problema 3.-** El profesor de estadística repite la palabra *muestra* a  un ritmo de 20 veces por cada 60 minutos. Sea $X_t$ la variable que cuenta el número de veces que el profesor ha dicho *muestra*  en $t$ minutos.
+
+a.  Modelizad $X_t$  mediante una distribución Poisson. De $X_t$ dad  su parámetro, su valor esperado y varianza. (**0.5 puntos.**)
+b.  ¿Cuál es la probabilidad de que diga  muestra más de  10 veces en media hora? (**1 punto.**)
+c.  Sea $T=$ el tiempo transcurrido entre la última vez que el profesor dice *muestra* hasta la siguiente vez ¿Cuál es la probabilidad de que $T> 15$? (**1 punto**)
+
+
+
+**Solución**
+Sea la $\lambda$ el promedio de veces que dice "muestra" por minuto como lo dice 20  veces en 60 minutos tenemos que el número promedio de veces es  $\lambda=\frac{1}{3}.$ por minuto.
+
+
+
+Sea $X_t=$ número de veces que dice muestra en $t$ minutos modelizado como un proceso Poisson será que $X_t\equiv Po(\lambda\cdot t=\frac{t}{3})$. Al ser una Poisson tenemos que $E(X_t)=Var(X_t)=\lambda\cdot t=\frac{t}{3}.$
+
+$P(``\mbox{diga muestra más de 10 veces en media hora}")=P(X_{30}>10)=1- P(X_{30}\leq 10).$
+
+Ahora como $X_{30}\equiv Po(\frac{30}{3}=10)$ consultando la distribución acumulada de  una $Po(10)$ tenemos que $P(X_{30}\leq 10)=`r round(ppois(10,10),4)`$, por lo tanto 
+
+$P(``\mbox{diga muestra más de 10 veces en media hora}")=1- P(X_{30})=1-`r round(ppois(10,10),4)`=`r 1-round(ppois(10,10),4)`
+.$
+
+Sea $T=$ ``tiempo en minutos  que tarda en decir muestra desde la última vez que lo dijo''. Como $X_t$ es una $Po(\frac{t}{3})$ sabemos que $T$ sigue una ley $Exp(\frac{1}{3})$  y por lo tanto  
+
+$$P(T>15)=1-P(T\leq 15)=1-(1-e^{-\frac{1}{3}\cdot 15})=e^{-\frac{1}{3}\cdot 15}=`r round(exp(-15/3),4)`.$$
+
+
+
+
+
+**Problema 4.-** Consideremos la va. $X$ con densidad, donde $\alpha$ es un parámetro real.
+
+$$
+f(x)=\left\{
+\begin{array}{ll}
+\alpha \cdot e^{1-x} & \mbox{si } -1<x<1\\
+0 & \mbox{en otro caso} \\
+\end{array}
+\right.
+$$
+
+
+
+a. Calculad $\alpha$ para que $f$ sea densidad. (**1 punto.**)
+b. Calculad la función de distribución de $X.$ (**1 punto.**)
+c. Calculad $P(|X|>\frac{1}{2}).$ (**0.5 puntos.**)
+d. Calculad $E(X).$ (**Punto extra de esta entrega**. Indicación: hay que integrar por partes)
+
+```{r dd, echo=FALSE}
+alpha=1/(exp(2)-1)
+```
+
+```{r plot,echo=FALSE,fig.width=4,fig.height=3,fig.align='center'}
+f=function(x,alpha) {ifelse(abs(x)<1,alpha*exp(1-x),0)} 
+  curve(f(x,alpha),xlim=c(-2,2),col="tomato",ylab="densidad",n=1000,cex=0.5,cex.lab=0.5,cex.axis=0.5)
+```
+
+
+**Solución**
+
+Calculemos el área  bajo la densidad que debe ser 1.
+
+$$
+\int_{-\infty}^{\infty} f(x) dx= \int_{-1}^{1}  \alpha \cdot e^{1-x} dx
+=\left[ -\alpha \cdot e^{1-x}\right]_{-1}^1=-\alpha\cdot e^0+ \alpha\cdot e^2=
+\alpha\cdot (e^2-1).
+$$
+Luego el valor de $\alpha$ para que  sea densidad es  la solución de 
+$1=\alpha\cdot (e^2-1)$ por tanto $\alpha=\frac{1}{e^2-1}\approx `r round(1/(exp(2)-1),4)`.$
+
+Por comodidad de la escritura seguiremos llamando $\alpha$ a esta constante.
+
+
+
+
+
+Nos piden la función de distribución. Dado $x$ tal que $-1<x<1$ tenemos que la función de distribución de $X$ es 
+
+$$F(x)=P(X\leq x)=\int_{-\infty}^{x} f(t) dt= \int_{-1}^{x}  \alpha \cdot e^{1-t} dt
+=\left[ -\alpha \cdot e^{1-t}\right]_{-1}^x=-\alpha\cdot e^{1-x}+ \alpha\cdot e^{2}=
+\alpha\cdot (e^{2}-e^{1-x}).$$
+Luego la función de distribución es 
+
+$$
+F(x)=P(X\leq x)=\left\{
+\begin{array}{ll}
+0 & \mbox{ si } x\leq -1\\
+\alpha\cdot (e^{2}-e^{1-x}) & \mbox{ si } -1<x<1\\
+1 & \mbox{ si } 1<x\\
+\end{array}
+\right.
+$$
+
+Calculemos  $P\left(|X|>\frac{1}{2}\right)$
+
+\begin{eqnarray*}
+P\left(|X|>\frac{1}{2}\right) &=&  1- P\left(|X|\leq\frac{1}{2}\right) = 1- P\left(-\frac{1}{2}\leq X\leq \frac{1}{2}\right)=1-\left(F\left(\frac{1}{2}\right)-F\left(-\frac{1}{2}\right)\right)\\
+&=& 1- \left(\alpha\cdot \left(e^{2}-e^{1-\frac{1}{2}}\right)-\alpha\cdot \left(e^{2}-e^{1+\frac{1}{2}}\right)\right)= 1-\alpha\cdot \left(e^{\frac{1}{2}}-e^{\frac{3}{2}}\right)\\
+&\approx& 1 +0.1565 \cdot \left(e^{\frac{1}{2}}-e^{\frac{3}{2}}\right)=`r round(1 +0.1565* (exp(1/2)-exp(3/2)),4)`.
+\end{eqnarray*}
+
+
+
+
+Solo nos queda el cálculo del valor esperado (punto extra)
+
+
+\begin{eqnarray*}
+E(X)&=&\int_{-\infty}^{+\infty} x\cdot f(x) dx=
+\int_{-1}^{1} 0.1565\cdot x\cdot  e^{1-x} dx=
+\left|
+\begin{array}{cc}
+u=x & du=dx\\
+dv=e^{1-x}dx & v= -e^{1-x} 
+\end{array}\right|\\
+&=& 
+0.1565\cdot \left[\left[x \left(-e^{1-x}\right)\right]_{-1}^1-
+\int_{-1}^{1} \left(-e^{1-x} \right)dx\right]\\
+&=&
+0.1565\cdot \left[1\cdot \left(-e^{1-1}\right)-(-1)\cdot\left( e^{1-(-1)}\right)-\left[e^{1-x}\right]_{-1}^1\right]\\
+&=& 0.1565\cdot \left[-1-e^{2}-\left(e^{1-1}-e^{1-(-1)}\right)\right]\\
+&=& 0.1565\cdot \left[-1-e^{2}-1+e^{2}\right]\\
+&=& 0.1565\cdot (-2)=`r 0.1565*(-2)`.
+\end{eqnarray*}
+

@@ -1,0 +1,575 @@
+\documentclass[10pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,accents,enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}        
+%\pagestyle{plain} 
+\usepackage[spanish]{babel}
+\decimalpoint
+\advance\hoffset by -0.9in
+\advance\textwidth by 1.8in
+\advance\voffset by -1in
+\advance\textheight by 2in
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+
+\newcommand{\novapart}{\noindent\hrulefill}
+\newcommand{\VV}{\textbf{\Large \checkmark}}
+\newcommand{\coment}[1]{\noindent{\footnotesize\textbf{Comentario}: #1\par}}
+\newcommand{\sol}[1]{{\footnotesize #1\par}}
+
+\renewcommand{\VV}{}
+\renewcommand{\sol}[1]{}
+\renewcommand{\coment}[1]{}
+
+
+\pagestyle{plain}
+
+\newif\ifsol
+\soltrue
+%\solfalse
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+%1
+ \vspace*{-2cm}
+
+
+  
+
+
+\begin{center}
+\textsc{Matemáticas III. GINF UIB 18-19. Entrega  de problemas 2 de 2: Inferencia, contrastes de hipótesis, bondad de ajuste, independencia.}
+\end{center}
+
+\textbf{Esta entrega de problemas se puntúa sobre 10. Aporta 1 punto a la nota final global y no es recuperable. La entrega es indivdual y se entrega en papel que proporciona el profesor ¡¡¡Suerte!!!}
+
+\setcounter{problemes}{0}
+
+\probl Consideremos los siguientes datos de una muestra aleatoria simple:
+
+$$-4,-3,-2,-1,0,1,2,3,4,$$
+Estimad el error estándar de la media aritmética (\textbf{0.5 puntos})
+
+
+
+\ifsol
+{\sf
+\textbf{Solución:}
+
+La doy solo con R vosotros tenéis que hacerla de forma manual (con calculadora convencional)
+
+<<>>=
+x=(-4):4
+mean(x)
+sd(x)
+n=length(x)
+n
+sqrt(60/8)
+sqrt(60/9)
+sd(x)
+estandard_error=sd(x)/sqrt(length(x))
+estandard_error
+sqrt(60/(8*9))
+@
+
+
+
+}
+\fi
+
+
+\probl   Se realiza el siguiente contraste de hipótesis
+
+$$
+\left\{
+\begin{array}{ll}
+H_0: & \mu=3\\
+H_1: & \mu>3
+\end{array}
+\right.
+$$
+
+resultado que el $p$-valor del contraste es $0.10$ ¿Para qué niveles de significación aceptaríamos la hipótesis nula? (\textbf{0.5 puntos})
+
+\ifsol
+{\sf
+\textbf{Solución:}
+
+
+
+Aceptamos las hipótesis nula del contraste para todos los niveles de significación $\alpha$ menores que $0.10$
+
+
+}
+\fi
+
+
+\probl  Nuestro jefe nos has dicho  que pagará una encuesta para saber cuál es el porcentaje de sus clientes que  están interesados en un nuevo producto. Desconocemos totalmente el posible porcentaje de clientes interesados.
+El jefe se pregunta cuál debe ser el tamaño de la muestra para tener un error del $\pm 1\%$ con un nivel de confianza del $95\%$. Se pide que contestemos suponiendo el peor de los casos el que $p=0.5$. (\textbf{1 punto})
+
+\ifsol
+{\sf
+\textbf{Solución:}
+
+
+La amplitud del intervalos es $A_0=0.02$, $1-\alpha=0.95$, $1-\alpha=0.025$, $1-\frac{\alpha}{2}=0.975$ $z_{0.975}=1.959964$ con las tablas $1.96$. 
+
+Supuesto el  peor caso que la proporción poblacional sea $p=0.5$ sabemos que el tamaño de la muestra  buscado es 
+
+$$n=\left\lceil\frac{z_{1-\frac{\alpha}{2}}^2}{A_0^2}\right\rceil\approx\left\lceil\frac{1.96^2}{0.02^2}\right\rceil=9604.$$
+
+
+Con código  R
+
+<<>>=
+n=ceiling(qnorm(1-0.05/2)^2/0.02^2)
+n
+@
+}
+
+\fi
+
+
+\probl  Continuando con la encuesta el jefe ha decidido, por el momento, pagar una muestra de  tamaño $200$. En esa muestra 108 clientes están interesado en el producto. Ahora el jefe nos pregunta
+
+
+\begin{enumerate}[a)]
+\item Contrastad  que la proporción de clientes interesados es mayor del 60\% contra que es menor. Resolved el contraste utilizando el $p$-valor. (\textbf{2 puntos})
+\item Dad el  intervalo de confianza del 95\%  asociado al contraste, e interpretarlo. (\textbf{1 punto})
+%\item  El jefe se pregunta cual debe ser el tamaño de la muestra para tener un error del $\pm 1\%$ con un nivel de confianza del $95\%$. (\textbf{1 puntos})
+\end{enumerate}
+
+
+\ifsol
+{\sf
+\textbf{Solución:}
+
+\textbf{Apartado a)}
+
+
+Sea $p$ la proporción de clientes interesados queremos compararla con $p_0=0.6$. Nos piden que contrastesmos
+
+$$\left\{
+\begin{array}{ll}
+H_0: & p\geq 0.6\\
+H_1: & p< 0.6
+\end{array}
+\right.
+$$
+
+El tamaño de la muestra es $n=200$ y la proporción muestral es $\hat{p}=\frac{108}{200}=0.54.$
+
+Utilizaremos el estadistico $Z=\frac{\hat{p}-p_0}{\sqrt{p_0\cdot(1-p_0)}{n}}$ que en nuestra caso toma un valor 
+
+$$z_0==\frac{0.54-0.6}{\sqrt{0.6\cdot(1-0.6)}{200}}=-1.732051\approx=-1.73.$$
+
+
+Para esta hipótesis alternativa el $p$-valor es $P(Z<-1.73)=1-P(Z<1.73)=0.0418$. Es un valor inferior a $0.05$ (aunque cercano)  hay cierta evidencia para rechazar la hipótesis nula de que el producto interesa al 60\% o más de los clientes.
+
+\textbf{Apartado b)}
+
+El intevalor de confianza unilateral en este caso es 
+
+$$\left(-\infty, \hat{p}+z_{1-\alpha}\cdot\sqrt{\frac{\hat{p}\cdot(1-\hat{p})}{n}}\right)\approx
+\left(-\infty, 0.54+1.65\cdot\sqrt{\frac{0.54\cdot(1-0.54)}{200}}\right)=\left(-\infty,0.5981493\right).$$
+
+
+El intervalo de confianza no contiene la proporción $p=0.6$ que confirma que hay cierta evidencia de queesa porporción no supera 0.6 aunque sea por pocas centésimas.
+
+
+
+\textbf{No se pide pero  con R comprobamos los resultados}
+
+<<>>=
+n=200
+phat=108/200
+p0=0.6
+z0=(phat-p0)/sqrt(p0*(1-p0)/n)
+z0
+pvalue=pnorm(z0)
+pvalue
+IC=c(-Inf,phat+qnorm(1-0.05)*sqrt(phat*(1-phat)/n))
+IC
+@
+}
+\fi
+
+
+
+
+\probl El \verb+data frame+ \verb+datos_vuelos+ contiene información del retraso en minutos de vuelos de varias compañías aéreas diferentes.
+
+<<anovaA, echo=FALSE>>=
+set.seed(2019)
+retraso=c(rnorm(120,10,4),rnorm(120,11.5,4))
+compania=as.factor(rep(paste("C",1:2,sep=""),each=120))
+datos_vuelos=data.frame(retraso,compania)
+@
+
+
+<<comparación_de_medias1>>=
+head(datos_vuelos)
+str(datos_vuelos)
+table(datos_vuelos$compania)
+aggregate(retraso~compania,data=datos_vuelos,FUN=mean)
+aggregate(retraso~compania,data=datos_vuelos,FUN=sd) 
+var.test(retraso~compania)
+retrasoC1=datos_vuelos$retraso[datos_vuelos$compania=="C1"]
+retrasoC2=datos_vuelos$retraso[datos_vuelos$compania=="C2"]
+ks.test(retrasoC1,"pnorm",mean(retrasoC1),sd(retrasoC1))
+ks.test(retrasoC2,"pnorm",mean(retrasoC2),sd(retrasoC2))
+@
+
+
+Contestad a las siguientes cuestiones justificando que parte del código utilizáis
+
+% \punt  Interpretar y poner un título adecuado al diagrama de cajas ¿Qué nos dice el diagrama sobre la igualdad de medias del retraso? (\textbf{ 0.5 puntos})
+
+\punt  Enunciar las hipótesis necesarias para  el contraste de medias y discutid, utilizando sólo los resultados del código, si se cumplen las condiciones necesarias para realizar este contraste. (\textbf{ 1.5 punto})
+
+\punt Contrastad si  las medias de retraso son iguales contra  que son distintas; definid el contraste y resolved calculando el $p$-valor\footnote{Podéis aproximar la $t$ de Student por una normal estándar.}. (\textbf{ 1.5 punto})
+
+\ifsol
+{\sf
+\textbf{Solución:}
+
+\textbf{Apartado a)}
+
+Tenemos un contraste de medias de poblaciones independientes, necesitamos normalidad de la distribución del retraso en cada población tamaños muestrales grandes. También tenemos que saber si aplicamos el test suponiendo igualdad  entra las varianzas de ambas poblaciones.
+
+Denotemos por $\mu_1 $ y $\mu_2$ las medias poblacionales de los retrasos de las compañías C1 y C2,  igualmente denotemos por $\sigma_1^2$ y $\sigma_2^2$ las varianzas poblacionales de los retrasos en cada compañía.
+
+El test de igualdad de varianzas (razón de varianzas) es 
+
+$$\left\{
+\begin{array}{ll}
+H_0: & \sigma_1^2=\sigma_2^2\\
+H_1: & \sigma_1^2\not=\sigma_2^2\\
+\end{array}
+\right.
+$$
+
+Con R se resuelve con la función
+
+<<>>=
+var.test(retraso~compania)
+@
+
+
+El $p$ valor obtenido es muy alto así que aceptamos la igualdad de varianzas.
+
+
+Para la normalidad hacemos los \texttt{ks.test} (hubiera sido más correcto utilizar el \texttt{lillie.test}\footnote{El El Kolgomorov-Smirnov-lilliefors test de normalidad} que es el \texttt{ks.test} específico para la distribución normal). En cada población aceptamos con $p$ valores altos la normalidad.
+
+\textbf{Apartado b)}
+
+El test de igualdad de medias es 
+
+
+$$\left\{
+\begin{array}{ll}
+H_0: & \mu_1^2=\mu_2^2\\
+H_1: & \mu_1^2\not=\mu_2^2\\
+\end{array}
+\right.
+$$
+
+
+
+Bajo estas condiciones el estadístico de contraste es
+
+$$T=\frac{\overline{x}_1-\overline{x}_2}{\sqrt{\frac{(n_1-1)\cdot \tilde{S}_1^2+(n_2-2)\cdot \tilde{S}_1^2}{n_1+n_2-2}\cdot 
+\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}.$$
+
+que sigue una ley de distribución $t_{n1+n2-2}=t_{138}.$
+
+Donde, de la función \texttt{table} y de las dos funciones \texttt{aggregate} se deduce   que los tamaños muestrales son 
+$n_1=n_2=120$, las medias muestrales son $\overline{x}_1=9.508184$ y $\overline{x}_2=11.006678$, por último las desviaciones típicas muestrales son $\tilde{S}_1=3.723884$ y   $\tilde{S}_2^2=4.058315.$ Así es valor del estadístico de contraste es
+
+$$t=\frac{9.508184-11.006678}{\sqrt{\frac{(120-1)\cdot 3.723884^2+(120-1)\cdot 4.058315^2}{120+120-2} \cdot \left(\frac{1}{120}+\frac{1}{120}\right)}}=\Sexpr{round((9.508184-11.006678)/sqrt(((120-1)* 3.723884^2+(120-1)*4.058315^2)/(120+120-2)*(1/120+1/120)),4)}.$$
+
+<<echo=FALSE,results=hide>>=
+tt=round((9.508184-11.006678)/sqrt(((120-1)* 3.723884^2+(120-1)*4.058315^2)/(120+120-2)*(1/120+1/120)),4)
+@
+
+
+
+El $p$-valor es $2\cdot P(t_{238}>|\Sexpr{tt}|)=2\cdot (1-P(t_138\leq\Sexpr{abs(tt)}).$ Para hacerlo manualmente con las tablas aproximamos $t_{138}$ por una normal estándar $Z$ así el $p$-valor es , aproximadamente $2\cdot (1-P(Z\leq\Sexpr{round(abs(tt),2)}))=2\cdot (1-0.9986)=\Sexpr{round(2*(1-0.9986),4)}.$
+
+
+\textbf{No se pedía pero la solución con R es}
+
+
+<<>>=
+t.test(retrasoC1,retrasoC2,var.equal = TRUE)
+@
+
+Haciendo los cálculos con R
+
+<<>>=
+m1=mean(retrasoC1)
+m1
+m2=mean(retrasoC2)
+m2
+sd1=sd(retrasoC1)
+sd1
+sd2=sd(retrasoC2)
+sd2
+n1=length(retrasoC1)
+n1
+n2=length(retrasoC2)
+n2
+T.test=(m1-m2)/sqrt((((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))*(1/n1+1/n2))
+T.test
+2*(1-pt(abs(-2.9803),n1+n2-2))
+
+@
+
+
+
+
+}
+\fi
+
+
+
+%\newpage
+
+% \probl  Para estudiar si hay evidencia de que el retraso de un vuelo en la salida aumenta el retraso de su llegada se toma una muestra aleatoria simple de 100 vuelos y se anota para cada vuelo si tuvo retraso en la salida y en la llegada (en minutos).
+% La tabla siguiente resume los resultados:
+% 
+% << probxx, echo=FALSE,results='hide'>>=
+% set.seed(2018)
+% salida =rbinom(100,size=1,prob=0.1)
+% llegada=rbinom(100,size=1,prob=0.2)
+% aux=table(salida,llegada)
+% b=aux[2,1]
+% d=aux[1,2]
+% n=sum(aux)
+% n
+% t=(b/n-d/n)/sqrt((b+d)/n^2)
+% t
+% 2*(1-pt(abs(t),100-1))
+% aux
+% @
+% 
+% 
+% 
+% % <<tabla,echo=FALSE>>=
+% % library(knitr)
+% % cat(kable(aux,format="latex"))
+% % @
+% 
+% $$
+% \begin{tabular}{l|r|r}
+% 
+% \hline
+% Salida /Llegada  &  No Retraso  & Retraso\\
+% \hline
+% No Retraso & 75 & 15\\
+% \hline
+% Retraso & 6 & 4\\
+% \hline
+% \end{tabular}
+% $$
+% 
+% 
+% 
+% \punt Plantear un contraste de igualdad  de proporciones entre la proporción de vuelos  retrasados en la salida y en la llegada. ¿Qué diseño experimental estamos utilizando? (\textbf{0.5 puntos.})
+% 
+% \punt Resolver el contraste al nivel de significación $\alpha=0.1$ (\textbf{0.5 puntos.})
+% 
+% \punt Calcular el $p$-valor del contraste anterior. (\textbf{0.5 puntos.})
+% 
+% \punt Calcular e interpretar  un intervalo de confianza para la diferencia de proporciones al nivel 99\%. (\textbf{0.5 puntos.})
+% 
+
+
+
+\probl Se simula que el tiempo en segundos transcurrido entre dos reservas de vuelos de avión  en un mismo día podría seguir una distribución exponencial con  $\lambda=1/5$. Se  toma una muestra de 10 tiempos en segundos. 
+
+<<ppp,echo=FALSE>>=
+set.seed(2018)
+retraso=sort(round(rexp(10,1/5),1))
+#datos
+#1-pexp(datos,rate=1/5)
+#mean(datos)
+retraso=c(1.6,1.8,2.8,3.9,4.3,4.7,4.8,7.3,8.7,11.1)
+retraso
+n=length(retraso)
+Fn=(1:n)/n
+Fn
+Fx=pexp(retraso,1/5)
+Fx
+F1=abs(Fx-c(0,Fn[-10]))
+F2=abs(Fx-Fn)
+max(pmax(F1,F2))
+ks.test(retraso,"pexp",1/5)
+tabla_ks=data.frame(i=1:10,retraso,Fn=Fn,Fx,F1=abs(Fx-c(0,Fn[-10])),F2=abs(Fx-Fn),pmax=pmax(F1,F2))
+@
+
+
+% latex table generated in R 3.4.4 by xtable 1.8-2 package
+% Thu Jun  7 11:32:07 2018
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+Vuelo & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ 
+  \hline
+Retraso & 0.50 & 1.40 & 1.60 & 2.20 & 2.40 & 3.70 & 3.90 & 4.50 & 5.20 & 7.10 \\ 
+   \hline
+\end{tabular}
+%\caption{latex} 
+\end{table}
+
+
+\punt ¿Cuál es y qué parámetros tiene la función de distribución teórica propuesta? Escribid correctamente la función de distribución. (\textbf{0.5 puntos})
+
+\punt   Contrastar la hipótesis del enunciado con el test KS, al nivel de significación $\alpha=0.1$. (\textbf{1.5 puntos})
+
+\ifsol
+{\sf
+\textbf{Solución:}
+
+
+\textbf{Apartado a)} La distribución es una  exponencial del parámetro $\frac{1}{5}$, por lo tanto su función de distribución es 
+
+
+$$F_X(x)=\left\{
+\begin{array}{ll}
+1-e^{-\frac{1}{5}\cdot x}  & \mbox{ si } x>0. \\
+0 &  \mbox{en otro caso}
+\end{array}\right.$$
+
+\textbf{Apartado b)}
+
+El contraste es 
+
+$$\left\{
+\begin{array}{ll}
+H_0: & \mbox{Los datos provienen de una distribución} Exp(\frac{1}{5}). \\
+H_1: &  \mbox{Los datos NO provienen de una distribución} Exp(\frac{1}{5})
+\end{array}\right.$$
+
+Calculemos el estadístico del test  K-S.
+
+
+% latex table generated in R 3.5.2 by xtable 1.8-4 package
+% Tue Jun  4 11:59:50 2019
+\begin{table}[ht]
+\centering
+\scriptsize
+\begin{tabular}{|r|r|r|r|r|r|r|}
+  \hline
+   &  retraso  &  &  & & &  \\
+  $i$ & $x_i$ & $Fn(x_i)=\frac{i}{n=10}$ & $Fx(x)=1-e^{-\frac{1}{5}\cdot x_i}$ & $F_1=|Fx(x_i)-\frac{i-1}{10}|$ & $F_2=|Fx(x_i)-\frac{i}{10}|$ &  $\max\{F1,F2\}$ \\ 
+  \hline
+   1 & 1.60 & 0.10 & 0.27 & 0.27 & 0.17 & 0.27 \\ 
+   2 & 1.80 & 0.20 & 0.30 & 0.20 & 0.10 & 0.20 \\ 
+   3 & 2.80 & 0.30 & 0.43 & 0.23 & 0.13 & 0.23 \\ 
+   4 & 3.90 & 0.40 & 0.54 & 0.24 & 0.14 & 0.24 \\ 
+   5 & 4.30 & 0.50 & 0.58 & 0.18 & 0.08 & 0.18 \\ 
+   6 & 4.70 & 0.60 & 0.61 & 0.11 & 0.01 & 0.11 \\ 
+   7 & 4.80 & 0.70 & 0.62 & 0.02 & 0.08 & 0.08 \\ 
+   8 & 7.30 & 0.80 & 0.77 & 0.07 & 0.03 & 0.07 \\ 
+   9 & 8.70 & 0.90 & 0.82 & 0.02 & 0.08 & 0.08 \\ 
+  10 & 11.10 & 1.00 & 0.89 & 0.01 & 0.11 & 0.11 \\ 
+   \hline
+\multicolumn{6}{c|}{} & $D_{10}=\Sexpr{round(max(pmax(F1,F2)),4)}$\\
+\cline{7-7}
+\end{tabular}
+\end{table}
+
+
+Ahora mirando en las tablas de los valores cŕiticos del test K-S tenemos que $D_{n=10,\alpha=0.1}=0.368$.
+
+Como  $D_{10}=\Sexpr{round(max(pmax(F1,F2)),4)}\not> D_{n=10,\alpha=0.1}=0.368$, no podemos rechazar la hipótesis nula de que los datos provengan de una población $Exp(-\frac{1}{5}).$
+
+
+
+\textbf{Con R}
+
+<<>>=
+retraso=c(1.6,1.8,2.8,3.9,4.3,4.7,4.8,7.3,8.7,11.1)
+retraso
+n=length(retraso)
+Fn=(1:n)/n
+Fn
+Fx=pexp(retraso,1/5)
+Fx
+F1=abs(Fx-c(0,Fn[-10]))
+F2=abs(Fx-Fn)
+max(pmax(F1,F2))
+ks.test(retraso,"pexp",1/5)
+@
+
+
+
+
+}
+\fi
+
+
+
+
+
+
+
+% \probl La siguiente tabla contiene los valores de \verb+retraso_llegada, retraso_salida+ y \verb+distancia+ del trayecto del vuelo para cuatro vuelos. Las distancias vienen dadas en centenas de kilómetros y los retrasos en decenas de minutos. 
+% 
+% <<chunkvuelosRegre2,echo=FALSE>>=
+% set.seed(2018)
+% distancia=c(1000,1500,2000,500)/100    # centenas de KM
+% retraso_salida=c(30,-10,20,50)/10 #decenas de minutos de retraso
+% retraso_llegada=round(9*retraso_salida+ 0.005*distancia+rnorm(4,4/10,3/10))
+% @
+% 
+% <<chunkvuelosRegre3,echo=TRUE>>=
+% df=data.frame(retraso_llegada,retraso_salida,distancia)
+% df
+% X=cbind(rep(1,4),df$retraso_salida,df$distancia)
+% X
+% Y=matrix(df$retraso_llegada,ncol=1)
+% Y
+% t(X)%*%X
+% det(t(X)%*%X)
+% solve(t(X)%*%X)
+% solve(t(X)%*%X)%*%t(X)%*%Y
+% X%*%solve(t(X)%*%X)%*%t(X)%*%Y
+% sum((X%*%solve(t(X)%*%X)%*%t(X)%*%Y)^2)
+% @
+% 
+% <<chunkvuelosRegre1,echo=FALSE>>=
+% sol=lm(retraso_llegada~retraso_salida+distancia,data=df)
+% #summary(sol)
+% #predict(sol,df[,-1])
+% #step(sol)
+% #predict(sol,newdata = data.frame(retraso_salida=c(0.8),distancia=c(11.3)),interval="prediction")
+% #confint(sol)
+% 
+% @
+%    
+% Usad el código anterior cuando pertoque para contestar a las siguientes preguntas.
+% 
+% \punt Escribid y explicad la ecuación del modelo de regresión lineal múltiple que predice el \verb+retraso_llegada+ a partir de las otras dos variables. (\textbf{0.5 puntos.})
+% 
+% \punt Calcular $R^2$ y $R^2$ ajustado de la anterior regresión. (\textbf{0.5 puntos.}) 
+% 
+% \punt  Calcula el AIC de este modelo. (\textbf{0.5 puntos.})
+% 
+% \punt Calcular el intervalo de confianza al 95\% para el  coeficiente de la variable distancia ¿Qué se puede deducir de su presencia en el modelo? (\textbf{0.5 puntos.})
+\end{document}
+
