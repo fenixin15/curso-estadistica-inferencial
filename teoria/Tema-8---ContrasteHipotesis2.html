@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tema 8 - Contrastes de hipótesis paramétricos</title>
+  <title>Tema 8 - Contrastes de hipótesis paramétricos con R y Python</title>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -19,7 +19,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Tema 8 - Contrastes de hipótesis paramétricos',
+                title: 'Tema 8 - Contrastes de hipótesis paramétricos con R y Python',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -3206,7 +3206,1726 @@ font-size: 0.5em
           </hgroup>
   </slide>
 
-<slide class=""><hgroup><h2>AQUI VA EL TEMA DE MAT3</h2></hgroup><article  id="aqui-va-el-tema-de-mat3"></article></slide>
+<slide class=""><hgroup><h2>Contrastes de hipótesis. Conceptos básicos</h2></hgroup><article  id="contrastes-de-hipotesis.-conceptos-basicos">
+
+<ul>
+<li><p>Para que la <strong>estadística inferencial</strong> sea útil no solo necesitamos estimar un valor sino que además tendremos que tomar una <em>decisión</em> apoyada en los datos (muestras) que acepte o rechace alguna afirmación relativa al valor de un <strong>parámetro</strong>.</p></li>
+<li><p>Estas afirmaciones reciben el nombre de <strong>hipótesis</strong> y el método estadístico de toma de una decisión sobre una hipótesis recibe el nombre de <strong>contraste de hipótesis</strong>.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis. Conceptos básicos</h2></hgroup><article  id="contrastes-de-hipotesis.-conceptos-basicos-1">
+
+<p>En un <strong>contraste de hipótesis</strong> tenemos dos hipótesis:</p>
+
+<ul>
+<li><p><strong>Hipótesis alternativa</strong>, \(H_1\): Aquella de la que buscamos evidencia en nuestro estudio.</p></li>
+<li><p><strong>Hipótesis nula</strong>, \(H_0\): La hipótesis que estamos dispuestos a aceptar si no encontramos evidencia suficiente de la hipótesis alternativa. Suele plantearse en términos de &ldquo;no hay diferencia&rdquo;.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis. Conceptos básicos</h2></hgroup><article  id="contrastes-de-hipotesis.-conceptos-basicos-2">
+
+<p>En un contraste de hipótesis podemos cometer dos errores:</p>
+
+<ul>
+<li><strong>Error de tipo I</strong>, o <strong>Falso positivo</strong>: Concluir que la hipótesis alternativa es verdadera cuando en realidad es falsa. La probabilidad de cometer un error de tipo I se llama el <strong>nivel de significación</strong> de un contraste, o \(\alpha\).
+
+<ul>
+<li>El <strong>nivel de confianza</strong>, \(1-\alpha\) será la probabilidad de <em>no</em> cometer un error de tipo I.</li>
+</ul></li>
+<li><strong>Error de tipo II</strong>, o <strong>Falso negativo</strong>: Concluir que la hipótesis alternativa es falsa cuando en realidad es verdadera.
+
+<ul>
+<li>La <strong>potencia</strong>, \(1-\beta\) será la probabilidad de <em>no</em> cometer un error de tipo II.</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis. Conceptos básicos</h2></hgroup><article  id="contrastes-de-hipotesis.-conceptos-basicos-3">
+
+<p>Para realizar un contraste, disponemos de una muestra y, a partir de ésta, calculamos el</p>
+
+<ul>
+<li><strong>Estadístico de contraste</strong>: es el valor que se calcula a partir dicha muestra y que se usará para tomar la decisión en el contraste planteado.</li>
+</ul>
+
+<p>Existe un número que, dependiendo de si es pequeño (menor que 0.05) o grande (mayor que 0.1) nos indica si tenemos <em>evidencias</em> para <strong>rechazar</strong> o no la hipótesis nula, respectivamente:</p>
+
+<ul>
+<li><strong>p-valor</strong>: es la probabilidad, si la hipótesis nula es verdadera, de que el estadístico de contraste tome un valor tan o más extremo <em>en el sentido de la hipótesis alternativa</em> que el obtenido en el estudio.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis. Conceptos básicos</h2></hgroup><article  id="contrastes-de-hipotesis.-conceptos-basicos-4">
+
+<p>Todo contraste de hipótesis tiene asociado un:</p>
+
+<ul>
+<li><strong>Intervalo de confianza</strong> al nivel de confianza \(1-\alpha\): es un intervalo en el que el parámetro poblacional que contrastamos tiene probabilidad \(1-\alpha\) de pertenecer, ver el tema de intervalos de confianza. Está formado por los valores del parámetro poblacional que, si fueran los que contrastáramos en nuestro contraste, producirían un p-valor como mínimo \(\alpha\).</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis. Conceptos básicos</h2></hgroup><article  id="contrastes-de-hipotesis.-conceptos-basicos-5">
+
+<p>Para tomar la decisión de <strong>aceptar</strong> o <strong>rechazar</strong> la hipótesis nula, tenemos la</p>
+
+<ul>
+<li><p><strong>Regla de rechazo</strong>: rechazamos la hipótesis nula en favor de la alternativa con un nivel de significación \(\alpha\) dado cuando se da alguna de las dos condiciones siguientes (que son equivalentes, es decir, se dan las dos o ninguna):</p>
+
+<ul>
+<li>El p-valor és menor que el nivel de significación.</li>
+<li>El valor contrastado del parámetro poblacional pertenece al intervalo de confianza del nivel \(1-\alpha\).</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis. Ejemplo de aplicación</h2></hgroup><article  id="contrastes-de-hipotesis.-ejemplo-de-aplicacion">
+
+<div class="example">
+<p>Sospechamos que en una moneda determinada salen menos caras que si fuese honrada. O sea queremos contrastar si la probabilidad de obtener cara \(p\), es menor que \(0.5\). Por tanto, el contraste que nos planteamos es: \[
+\left.
+\begin{array}{ll}
+H_0: &amp; p=0.5, \\
+H_1: &amp; p&lt; 0.5.
+\end{array}
+\right\}
+\] Para ello, hemos lanzado la moneda 50 veces y hemos obtenido 30 caras.</p>
+
+<p>Nos preguntamos si con estos valores obtenidos tenemos evidencia suficiente para concluir que la moneda está trucada o que la hipótesis nula es falsa.</p>
+
+<p>Fijémonos que cometeríamos un error de tipo I si la moneda fuera honrada y nosotros concluyéramos que está trucada y cometeríamos un error de tipo II si la moneda estuviera trucada y nosotros concluyéramos que no lo está.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis. Ejemplo de aplicación</h2></hgroup><article  id="contrastes-de-hipotesis.-ejemplo-de-aplicacion-1">
+
+<div class="example">
+<p>Consideremos como <strong>estadístico de contraste</strong> el número de caras obtenidas (30).</p>
+
+<p>Calculemos el p-valor del contraste. Si la hipótesis nula fuese cierta, o la moneda fuese honrada (\(p=0.5\)), la variable aleatoria que nos da el número de caras de la moneda \(X\) se distribuiría según una variable Binomial de parámetros \(n=50\) (número de veces que hemos lanzado la moneda) y \(p=0.5\), ya que suponemos que \(H_0\) es cierta.</p>
+
+<p>El p-valor sería la probabilidad de obtener 30 caras o menos al lanzar la moneda 50 veces: \[
+p=p(X&lt;=30),
+\] Dicho valor vale, usando <code>R</code>:</p>
+
+<pre class = 'prettyprint lang-r'>pbinom(30,50,0.5)</pre>
+
+<pre >## [1] 0.9405398</pre>
+
+<p>Usando la regla de rechazo, como dicho valor es mayor que 0.1, concluimos que no tenemos suficientes evidencias para decir que en dicha moneda salen menos cara que las que saldrían si fuese holgada.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis. Ejemplo de aplicación</h2></hgroup><article  id="contrastes-de-hipotesis.-ejemplo-de-aplicacion-2">
+
+<div class="example">
+<p>El intervalo de confianza del 95% de este contraste está formado por los valores para la \(p\) para los que la probabilidad de obtener 30 o menos caras al lanzar al aire 50 veces la moneda es mayor o igual que el 5%:</p>
+
+<pre class = 'prettyprint lang-r'>round(binom.test(30,50,p=0.5,alternative=&quot;less&quot;)$conf.int,4)</pre>
+
+<pre >## [1] 0.0000 0.7169
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</pre>
+
+<p>Y bueno, tras todo este vocabulario, ¿cuál sería la conclusión?</p>
+
+<p>El p-valor obtenido significa que si la moneda no estuviera trucada, la probabilidad de obtener el número de caras que hemos obtenido o menos es muy grande, lo que hace difícil de creer que la moneda esté trucada.</p>
+
+<p>En particular, si trabajamos con un nivel de significación del 5%, como el p-valor es más grande que 0.1, aceptamos la hipótesis nula.</p>
+
+<p>Equivalentemente, como el intervalo de confianza del 95% para la \(p\) contiene el valor 0.5, con este nivel de confianza hemos de concluir que \(p=0.5\).</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t</h2></hgroup><article  id="contrastes-para-medias.-el-test-t">
+
+<ul>
+<li><p>El <strong>test t</strong> para contrastar una o dos medias basado en la t de Student está implementado en la función <code>t.test</code>.</p></li>
+<li><p>Este test usa diferentes estadísticos según que el contraste sea de <strong>una media</strong> o de <strong>dos</strong>.</p></li>
+<li><p>En el caso de dos medias, hay dos casos: se pueden usar muestras <strong>emparejadas</strong> o <strong>independientes</strong>.</p></li>
+<li><p>En el caso de contrastes de dos medias independientes, hay que tener en cuenta si las <strong>varianzas</strong> de las dos poblaciones son <strong>iguales</strong> o no.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t</h2></hgroup><article  id="contrastes-para-medias.-el-test-t-1">
+
+<ul>
+<li><p>Aunque este test solo es exacto (en el sentido de que da la conclusión con el nivel de significación requerido) cuando las poblaciones involucradas siguen distribuciones normales, el <strong>Teorema Central del Límite</strong> garantiza que también da resultados aproximadamente correctos cuando las muestras son grandes (\(n\geq 30\)), aunque las poblaciones no sean normales.</p></li>
+<li><p>En resumen, su resultado es fiable solo</p>
+
+<ul>
+<li><p>cuando las variables poblacionales involucradas son (aproximadamente) normales, o</p></li>
+<li><p>cuando todas las muestras usadas son grandes.</p></li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t</h2></hgroup><article  id="contrastes-para-medias.-el-test-t-2">
+
+<p>La sintaxis básica de la función <code>t.test</code> es</p>
+
+<pre class = 'prettyprint lang-r'>t.test(x, y, mu=..., alternative=..., conf.level=..., paired=..., 
+       var.equal=..., na.omit=...)</pre>
+
+<p>donde:</p>
+
+<ul>
+<li><p><code>x</code> es el vector de datos que forma la muestra que analizamos.</p></li>
+<li><p><code>y</code> es un vector opcional; si lo entramos, <code>R</code> entiende que estamos realizando un contraste de dos medias, con hipótesis nula la igualdad de estas medias.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t</h2></hgroup><article  id="contrastes-para-medias.-el-test-t-3">
+
+<ul>
+<li><p>Podemos sustituir los vectores <code>x</code> e <code>y</code> por una fórmula <code>variable1~variable2</code> que indique que separamos la variable numérica <code>variable1</code> en dos vectores definidos por los niveles de un factor <code>variable2</code> de dos niveles (o de otra variable asimilable a un factor de dos niveles, como por ejemplo una variable numérica que solo tome dos valores diferentes).</p></li>
+<li><p>Solamente tenemos que especificar el parámetro <code>mu</code> si hemos entrado una sola muestra, y en este caso lo hemos de igualar al valor \(\mu_0\) que queremos contrastar, de manera que la hipótesis nula será \(H_0: \mu=\mu_0\).</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t</h2></hgroup><article  id="contrastes-para-medias.-el-test-t-4">
+
+<ul>
+<li><p>El parámetro <code>alternative</code> puede tomar tres valores: <code>&quot;two.sided&quot;</code>, para contrastes bilaterales, y <code>&quot;less&quot;</code> y <code>&quot;greater&quot;</code>, para contrastes unilaterales. En esta función, y en todas las que explicamos en esta lección, su valor por defecto, que no hace falta especificar, es <code>&quot;two.sided&quot;</code>. El significado de estos valores depende del tipo de test que efectuemos:</p>
+
+<ul>
+<li>Si el test es de una sola muestra, <code>&quot;two.sided&quot;</code> representa la hipótesis alternativa \(H_1: \mu\neq \mu_0\), <code>&quot;less&quot;</code> corresponde a \(H_1: \mu&lt; \mu_0\), y <code>&quot;greater&quot;</code> corresponde a \(H_1: \mu&gt; \mu_0\).</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t</h2></hgroup><article  id="contrastes-para-medias.-el-test-t-5">
+
+<ul>
+<li>Parámetro <code>alternative</code>:
+
+<ul>
+<li>Si hemos entrado dos muestras y llamamos \(\mu_x\) y \(\mu_y\) a las medias de las poblaciones de las que hemos extraído las muestras \(x\) e \(y\), respectivamente, entonces <code>&quot;two.sided&quot;</code> representa la hipótesis alternativa \(H_1: \mu_x \neq \mu_y\); <code>&quot;less&quot;</code> indica que la hipótesis alternativa es \(H_1: \mu_x&lt; \mu_y\); y <code>&quot;greater&quot;</code>, que la hipótesis alternativa es \(H_1: \mu_x&gt; \mu_y\).</li>
+</ul></li>
+<li>El valor del parámetro <code>conf.level</code> es el nivel de confianza \(1-\alpha\). Su valor por defecto es 0.95, que corresponde a un nivel de confianza del 95%, es decir, a un nivel de significación \(\alpha=0.05\).</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t</h2></hgroup><article  id="contrastes-para-medias.-el-test-t-6">
+
+<ul>
+<li><p>El parámetro <code>paired</code> solo lo tenemos que especificar si llevamos a cabo un contraste de dos medias. En este caso, con <code>paired=TRUE</code> indicamos que las muestras son emparejadas, y con <code>paired=FALSE</code> (que es su valor por defecto) que son independientes.</p></li>
+<li><p>El parámetro <code>var.equal</code> solo lo tenemos que especificar si llevamos a cabo un contraste de dos medias usando muestras independientes, y en este caso sirve para indicar si queremos considerar las dos varianzas poblacionales iguales (igualándolo a TRUE) o diferentes (igualándolo a FALSE, que es su valor por defecto).</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t</h2></hgroup><article  id="contrastes-para-medias.-el-test-t-7">
+
+<ul>
+<li><p>El parámetro <code>na.action</code> sirve para especificar qué queremos hacer con los valores NA. Es un parámetro genérico que se puede usar en casi todas las funciones de estadística inferencial y análisis de datos. Sus valores más útiles son:</p>
+
+<ul>
+<li><p><code>na.omit</code>, su valor por defecto, elimina las entradas NA de los vectores (o los pares que contengan algún NA, en el caso de muestras emparejadas). Por ahora, esta opción por defecto es la adecuada, por lo que no hace falta usar este parámetro, pero conviene saber que hay alternativas.</p></li>
+<li><p><code>na.fail</code> hace que la ejecución pare si hay algún NA en los vectores.</p></li>
+<li><p><code>na.pass</code> no hace nada con los NA y permite que las operaciones internas de la función sigan su curso y los manejen como les corresponda.</p></li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de una muestra.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-una-muestra.">
+
+<div class="example">
+<p>Veamos si, dada una muestra de tamaño 40 de flores de la tabla de datos iris, podemos considerar que la media de la longitud del sépalo es mayor que \(5.7\).</p>
+
+<p>Para ello, primero obtenemos la muestra correspondiente fijando la semilla de aleatoriedad:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(230)
+flores.elegidas=sample(1:150,40,replace=TRUE)</pre>
+
+<p>Seguidamente, hallamos las longitudes del sépalo de las flores de la muestra:</p>
+
+<pre class = 'prettyprint lang-r'>(long.sépalo.muestra=iris[flores.elegidas,]$Sepal.Length)</pre>
+
+<pre >##  [1] 5.0 4.9 6.0 4.6 4.7 5.1 5.8 4.4 4.6 7.0 7.7 4.8 4.9 7.2 6.5 4.8 7.7
+## [18] 6.2 5.1 6.8 7.2 5.0 6.7 6.9 4.6 5.7 6.4 6.1 6.4 4.7 5.0 7.7 6.2 5.0
+## [35] 5.1 4.9 6.3 5.0 5.6 5.2</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de una muestra.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-una-muestra.-1">
+
+<div class="example">
+<p>Por último, realizamos el contraste requerido:</p>
+
+<pre class = 'prettyprint lang-r'>t.test(long.sépalo.muestra,mu=5.7,alternative = &quot;greater&quot;)</pre>
+
+<pre >## 
+##  One Sample t-test
+## 
+## data:  long.sépalo.muestra
+## t = 0.23664, df = 39, p-value = 0.4071
+## alternative hypothesis: true mean is greater than 5.7
+## 95 percent confidence interval:
+##  5.470505      Inf
+## sample estimates:
+## mean of x 
+##    5.7375</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de una muestra.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-una-muestra.-2">
+
+<div class="example">
+<p>Fijémonos que se trata de un contraste de una muestra, por tanto, no ha sido necesario especificar el vector <code>y</code>.</p>
+
+<p>El contraste que hemos realizado ha sido el siguiente: \[
+\left.
+\begin{array}{ll}
+H_0: &amp; \mu =5.7, \\
+H_1: &amp; \mu &gt; 5.7,
+\end{array}
+\right\}
+\] donde \(\mu\) representa la media de la longitud del sépalo de todas las flores de la tabla de datos <strong>iris</strong>.</p>
+
+<p>El p-valor obtenido ha sido 0.4071, valor superior a \(0.1\).</p>
+
+<p>Por tanto, podemos concluir que no tenemos evidencias suficientes para rechazar la hipótesis nula y concluir que la media de la longitud del sépalo de las flores de la tabla de datos <strong>iris</strong> no es mayor que \(5.7\). De hecho, podemos observar en el &ldquo;output&rdquo; del <code>t.test</code> que la media de la muestra considerada vale 5.737, valor no significativamente mayor que \(5.7\).</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de una muestra.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-una-muestra.-3">
+
+<div class="example">
+<p>Observamos que el <code>t.test</code> nos dice que el valor del estadístico de contraste es 1.499 y que dicho estadístico se distribuye según una \(t\) de Student con \(39\) grados de libertad (tamaño de la muestra, 40 menos 1).</p>
+
+<p>El &ldquo;output&rdquo; del <code>t.test</code> también nos da el intervalo de confianza al 95% de confianza asociado al contraste:</p>
+
+<pre class = 'prettyprint lang-r'>t.test(long.sépalo.muestra,mu=5.7,alternative = &quot;greater&quot;)$conf.int</pre>
+
+<pre >## [1] 5.470505      Inf
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</pre>
+
+<p>intervalo que contiene el valor de \(\mu_0 =5.7\), razón por la cual hemos aceptado la hipótesis nula \(H_0\).</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras independientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-independientes.">
+
+<div class="example">
+<p>Imaginemos ahora que nos planteamos si la media de la longitud del pétalo es la misma para las flores de las especies setosa y versicolor.</p>
+
+<p>Para ello seleccionamos una muestra de tamaño 40 flores para cada especie:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(45)
+flores.elegidas.setosa = sample(1:50,40,replace=TRUE)
+flores.elegidas.versicolor = sample(51:100,40,replace=TRUE)</pre>
+
+<p>Las muestras serán las siguientes:</p>
+
+<pre class = 'prettyprint lang-r'>muestra.setosa = iris[flores.elegidas.setosa,]
+muestra.versicolor = iris[flores.elegidas.versicolor,]</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras independientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-independientes.-1">
+
+<div class="example">
+<p>Por último realizamos el contraste planteado:</p>
+
+<pre class = 'prettyprint lang-r'>t.test(muestra.setosa$Petal.Length,muestra.versicolor$Petal.Length,
+       alternative=&quot;two.sided&quot;)</pre>
+
+<pre >## 
+##  Welch Two Sample t-test
+## 
+## data:  muestra.setosa$Petal.Length and muestra.versicolor$Petal.Length
+## t = -42.766, df = 49.953, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.913186 -2.651814
+## sample estimates:
+## mean of x mean of y 
+##    1.4075    4.1900</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras independientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-independientes.-2">
+
+<div class="example">
+<p>El contraste realizado es de dos muestras independientes (`paired=FALSE’, no hace falta especificarlo ya que es el valor por defecto): \[
+\left.
+\begin{array}{ll}
+H_0: &amp; \mu_{{setosa}} =\mu_{{versicolor}}, \\
+H_1: &amp; \mu_{{setosa}} \neq \mu_{{versicolor}},
+\end{array}
+\right\}
+\] donde \(\mu_{{setosa}}\) representa la media de la longitud del pétalo de las flores de la especie setosa y \(\mu_{{versicolor}}\), la media de la longitud del pétalo de las flores de la especie versicolor.</p>
+
+<p>El p-valor del contraste ha sido pràcticamente cero, lo que nos hace concluir que tenemos evidencias suficientes para concluir que las medias de la longitud del pétalo son diferentes para las dos especies.</p>
+
+<p>De hecho, las medias de cada una de la dos muestras son 1.4075 y 4.19, valores muy diferentes.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras independientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-independientes.-3">
+
+<div class="example">
+<p>El intervalo de confianza al 95% de confianza para la diferencia de medias \(\mu_{{setosa}}-\mu_{{versicolor}}\) asociado al contraste anterior vale, si nos fijamos en el &ldquo;output&rdquo; del <code>t.test</code>:</p>
+
+<pre class = 'prettyprint lang-r'>t.test(muestra.setosa$Petal.Length,muestra.versicolor$Petal.Length,
+       alternative=&quot;two.sided&quot;)$conf.int</pre>
+
+<pre >## [1] -2.913186 -2.651814
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</pre>
+
+<p>intervalo que no contiene el valor cero y está totalmente a la izquierda de cero. Por tanto, debemos rechazar la hipótesis nula.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras independientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-independientes.-4">
+
+<div class="example">
+<p>Fijémonos que hemos considerado que las varianzas de las dos variable son diferentes. Si las hubiésemos considerado iguales, tendríamos que hacer:</p>
+
+<pre class = 'prettyprint lang-r'>t.test(muestra.setosa$Petal.Length,muestra.versicolor$Petal.Length,
+       alternative=&quot;two.sided&quot;,var.equal = TRUE)</pre>
+
+<pre >## 
+##  Two Sample t-test
+## 
+## data:  muestra.setosa$Petal.Length and muestra.versicolor$Petal.Length
+## t = -42.766, df = 78, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.91203 -2.65297
+## sample estimates:
+## mean of x mean of y 
+##    1.4075    4.1900</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras independientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-independientes.-5">
+
+<div class="example">
+<p>En este caso, el p-valor también es despreciable, por lo que llegamos a la misma conclusión anterior: las medias son diferentes.</p>
+
+<p>Más adelante veremos cómo realizar un contraste de varianzas para comprobar si éstas son iguales o no y por tanto, actuar en consecuencia con el parámetro <code>var.equal</code>.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras dependientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-dependientes.">
+
+<div class="example">
+<p>Cómo tercer ejemplo, nos planteamos si la longitud del sépalo supera la longitud del pétalo para las flores de la especie virginica.</p>
+
+<p>En este caso se trataría de un contraste de medias dependientes: \[
+\left.
+\begin{array}{ll}
+H_0: &amp; \mu_{{sépalo,virginica}} =\mu_{{pétalo,virginica}}, \\
+H_1: &amp; \mu_{{sépalo,virginica}} &gt; \mu_{{pétalo,virginica}},
+\end{array}
+\right\}
+\] donde \(\mu_{{sépalo,virginica}}\) y \(\mu_{{pétalo,virginica}}\) son las longitudes del sépalo y del pétalo de las flores de la especie virginica.</p>
+
+<p>Para realizar dicho contraste, vamos a considerar una muestra de 40 flores de la especie virgínica y sobre <strong>las mismas flores</strong> calcular las longitudes del sépalo y del pétalo.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras dependientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-dependientes.-1">
+
+<div class="example">
+<p>En primer lugar seleccionamos las flores de la muestra:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(100)
+flores.elegidas.virginica=sample(101:150,40,replace=TRUE)</pre>
+
+<p>La muestra elegida será:</p>
+
+<pre class = 'prettyprint lang-r'>muestra.virginica = iris[flores.elegidas.virginica,]</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras dependientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-dependientes.-2">
+
+<div class="example">
+<p>El contraste a realizar es el siguiente:</p>
+
+<pre class = 'prettyprint lang-r'>t.test(muestra.virginica$Sepal.Length,muestra.virginica$Petal.Length,
+       paired=TRUE,alternative=&quot;greater&quot;)</pre>
+
+<pre >## 
+##  Paired t-test
+## 
+## data:  muestra.virginica$Sepal.Length and muestra.virginica$Petal.Length
+## t = 22.041, df = 39, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  0.9050861       Inf
+## sample estimates:
+## mean of the differences 
+##                    0.98</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras dependientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-dependientes.-3">
+
+<div class="example">
+<p>Vemos que el p-valor del contraste es prácticamente nulo, lo que nos hace concluir que tenemos evidencias suficientes para afirmar que la longitud del sépalo es superior a la longitud del pétalo para las flores de la especie virginica.</p>
+
+<p>Fijémonos que la media de la diferencia entre las medias de las longitudes del sépalo y del pétalo vale 0.98, valor suficientemente alejado del cero para poder afirmar que la media de la longitud del sépalo es superior a la media de la longitud del pétalo.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. El test t. Ejemplo de dos muestras dependientes.</h2></hgroup><article  id="contrastes-para-medias.-el-test-t.-ejemplo-de-dos-muestras-dependientes.-4">
+
+<div class="example">
+<p>El intervalo de confianza al 95% de confianza para la diferencia de medias asociado al contraste anterior vale:</p>
+
+<pre class = 'prettyprint lang-r'>t.test(muestra.virginica$Sepal.Length,muestra.virginica$Petal.Length,
+       paired=TRUE,alternative=&quot;greater&quot;)$conf.int</pre>
+
+<pre >## [1] 0.9050861       Inf
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</pre>
+
+<p>intervalo que no contiene el cero y que está a la derecha del mismo, lo que nos hace reafirmar que tenemos evidencias suficientes para rechazar la hipótesis nula \(H_0\).</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos">
+
+<ul>
+<li><p>Cuando comparamos dos medias, o una media con un valor, usando un test t sobre <strong>muestras pequeñas</strong>, suponemos que las variables poblacionales que han producido las muestras son <strong>normales</strong>.</p></li>
+<li><p>Nos podemos encontrar con conjuntos de datos para los cuales el supuesto de <strong>normalidad</strong> de la variable poblacional no esté justificado: por ejemplo, porque sean datos cuantitativos <strong>discretos</strong> o porque la variable sea claramente muy <strong>asimétrica</strong>.</p></li>
+<li><p>En estas situaciones, sería razonable usar un <strong>test no paramétrico</strong> alternativo.</p></li>
+<li><p>En el caso de los contrastes de <strong>medias</strong>, los tests no paramétricos para comparar medias en realidad lo que comparan son las <strong>medianas</strong>.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Test de signos</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-test-de-signos">
+
+<p>El <strong>test de signos</strong> permite contrastar si la mediana de una variable aleatoria cualquiera (incluso ordinal) es un valor dado \(M_0\) estudiando la distribución de los signos de las diferencias entre este valor y los de una muestra.</p>
+
+<ul>
+<li>si la mediana fuera \(M_0\), los números de diferencias positivas y negativas en muestras aleatorias seguirían distribuciones binomiales con \(p=0.5\).</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Test de signos</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-test-de-signos-1">
+
+<p>En <code>R</code> está implementado en la función <code>SIGN.test</code> del paquete <strong>BSDA</strong>.</p>
+
+<ul>
+<li><p>Su sintaxis es similar a la de <code>t.test</code> para una muestra, cambiando el parámetro <code>mu</code>, que en <code>t.test</code> sirve para especificar el valor de la media que contrastamos, por <code>md</code>, que en <code>SIGN.test</code> sirve para especificar el valor de la <strong>mediana</strong> que contrastamos.</p></li>
+<li><p>Esta función también se puede aplicar a dos muestras emparejadas: en este caso, la hipótesis nula del contraste que realiza es que &ldquo;la mediana de las diferencias de las dos variables es 0&rdquo;.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Test de Wilcoxon</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-test-de-wilcoxon">
+
+<ul>
+<li><p>El <strong>test de Wilcoxon</strong> compara la media de una variable continua simétrica con un valor dado o las medias de dos variables continuas cuya diferencia sea simétrica por medio de muestras emparejadas.</p></li>
+<li><p>Más en general, se puede usar para comparar la mediana de una variable continua con un valor dado o para comparar la mediana de la diferencia de dos variables continuas (medidas sobre muestras emparejadas) con 0.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Test de Wilcoxon</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-test-de-wilcoxon-1">
+
+<ul>
+<li><p>Observad que cuando las variables en juego son simétricas, las medianas coinciden con las medias y el contraste de medianas es también un contraste de medias.</p></li>
+<li><p>En <code>R</code> está implementado en la función <code>wilcox.test</code> y su sintaxis es la misma que la de <code>t.test</code> para una muestra o para dos muestras emparejadas (en este último caso, hay que especificar <code>paired=TRUE</code>).</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Test de Mann-Whitney</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-test-de-mann-whitney">
+
+<ul>
+<li><p>El <strong>test de Mann-Whitney</strong> compara las medianas de dos variables aleatorias por medio de muestras independientes.</p></li>
+<li><p>En <code>R</code> también está implementado en la función <code>wilcox.test</code> y su sintaxis es la misma que la de <code>t.test</code> para dos muestras independientes (especificando <code>paired=FALSE</code>), salvo que aquí no hay que especificar si las varianzas son iguales o diferentes, puesto que esto no se usa en este test.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de una muestra</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-una-muestra">
+
+<div class="example">
+<p>Consideremos la tabla de datos <strong>birthwt</strong> del paquete <strong>MASS</strong>. Dicha tabla de datos contiene información acerca de 189 recién nacidos en un hospital de Springfield en el año 1986.</p>
+
+<p>Las variables consideradas son las siguientes:</p>
+
+<ul>
+<li>low: indicador de si el peso del recién nacido ha sido menor que 2.5 kg.</li>
+<li>age: edad de la madre en años.</li>
+<li>lwt: peso de la madre en libras durante el último período.</li>
+<li>race: raza de la madre (1: blanca, 2: negra, 3: otra)</li>
+<li>smoke: indicador de si la madre fumaba durante el embarazo.</li>
+<li>ptl: número de embarazos previos de la madre.</li>
+<li>ht: indicador de si la madre es hipertensa.</li>
+<li>ui: indicador de irritabilidad uterina en la madre.</li>
+<li>ftw: número de visitas médicas realizadas durante el primer trimestre.</li>
+<li>bwt: peso del recién nacido en gramos.</li>
+</ul></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de una muestra</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-una-muestra-1">
+
+<div class="example">
+<p>Nos planteamos contrastar si la mediana del peso de la madre es menor que 130 libras.</p>
+
+<p>O sea, nos planteamos el contraste siguiente: \[
+\left.
+\begin{array}{ll}
+H_0: &amp; md_{{madre}} =130, \\
+H_1: &amp; md_{{madre}} &lt; 130,
+\end{array}
+\right\}
+\] donde \(md_{{madre}}\) representa la mediana del peso de las madres de nuestra tabla de datos.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de una muestra</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-una-muestra-2">
+
+<div class="example">
+<p>La variable <code>lwt</code> es una variable asimétrica a la derecha como se puede observar en su histograma:</p></div>
+
+<div class="center">
+<p><img src="data:image/png;base64,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AggggAACCCCAAALpIEAAnA5XiTYigAACCCCAAAIIIIAAAgi4FiAAdk1IAQgggAACCCCAAAIIIIAAAukgQACcDleJNiKAAAIIIIAAAggggAACCLgWIAB2TUgBCCCAAAIIIIAAAggggAAC6SBAAJwOV4k2IoAAAggggAACCCCAAAIIuBYgAHZNSAEIIIAAAggggAACCCCAAALpIEAAnA5XiTYigAACCCCAAAIIIIAAAgi4FiAAdk1IAQgggAACCCCAAAIIIIAAAukgQACcDleJNiKAAAIIIIAAAggggAACCLgWIAB2TUgBCCCAAAIIIIAAAggggAAC6SBAAJwOV4k2IoAAAggggAACCCCAAAIIuBYgAHZNSAEIIIAAAggggAACCCCAAALpIEAAnA5XiTYigAACCCCAAAIIIIAAAgi4FiAAdk1IAQgggAACCCCAAAIIIIAAAukgQACcDleJNiKAAAIIIIAAAggggAACCLgWIAB2TUgBCCCAAAIIIIAAAggggAAC6SBAAJwOV4k2IoAAAggggAACCCCAAAIIuBYgAHZNSAEIIIAAAggggAACCCCAAALpIEAAnA5XiTYigAACCCCAAAIIIIAAAgi4FiAAdk1IAQgggAACCCCAAAIIIIAAAukgQACcDleJNiKAAAIIIIAAAggggAACCLgWIAB2TUgBCCCAAAIIIIAAAggggAAC6SBAAJwOV4k2IoAAAggggAACCCCAAAIIuBYgAHZNSAEIIIAAAggggAACCCCAAALpIEAAnA5XiTYigAACCCCAAAIIIIAAAgi4FijsugQKcCWwbds22bt3rxw5csQ8ihcvLmXLlpWsrCwpX7686HsSAggggAACCCCAAAIIIICAewECYPeGcZVw8OBBmTRpkkyZMkVWrlwp+j5cKly4sDRs2FBatWol2dnZ0qFDBylQoEC47GxHAAEEEEAAAQQQQAABBBCIIFDAZ6UI+9nlkcDOnTvl0UcflcmTJ0cMeiNV16BBA3nyySelY8eOkbKxDwEEEEAAAQQQQAABBBBAwEGAANgBxetNP//8s1xxxRWyYsUKf9Hak1ulShWpXr26VKhQQUqUKCHFihWTkydPyrFjx+TAgQOyZcsW2bx5sxw/ftx/XMGCBWXUqFFy3333+bfxAgEEEEAAAQQQQAABBBBAILoAAXB0I1c5Dh8+LG3btpWFCxea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IIAAAggggAACqRUgAE6tP7UjgAACCCCAAAIIIIAAAggkSYAAOEnQVIMAAggggAACCCCAAAIIIJBaAQLg1PpTOwIIIIAAAggggAACCCCAQJIECICTBE01CCCAAAIIIIAAAggggAACqRUgAE6tP7UjgAACCCCAAAIIIIAAAggkSYAAOEnQVIMAAggggAACCCCAAAIIIJBaAQLg1PpTOwIIIIAAAggggAACCCCAQJIECICTBE01CCCAAAIIIIAAAggggAACqRUgAE6tP7UjgAACCCCAAAIIIIAAAggkSYAAOEnQVIMAAggggAACCCCAAAIIIJBaAQLg1PpTOwIIIIAAAggggAACCCCAQJIECICTBE01CCCAAAIIIIAAAggggAACqRUgAE6tP7UjgAACCCCAAAIIIIAAAggkSYAAOEnQVIMAAggggAACCCCAAAIIIJBaAQLg1PpTOwIIIIAAAggggAACCCCAQJIECICTBE01CCCAAAIIIIAAAggggAACqRUgAE6tP7UjgAACCCCAAAIIIIAAAggkSYAAOEnQVIMAAggggAACCCCAAAIIIJBaAQLg1PpTOwIIIIAAAggggAACCCCAQJIECICTBE01CCCAAAIIIIAAAggggAACqRUgAE6tP7UjgAACCCCAAAIIIIAAAggkSYAAOEnQVIMAAggggAACCCCAAAIIIJBaAQLg1PpTOwIIIIAAAggggAACCCCAQJIECICTBE01CCCAAAIIIIAAAggggAACqRUgAE6tP7UjgAACCCCAAAIIIIAAAggkSYAAOEnQVIMAAggggAACCCCAAAIIIJBaAQLg1PpTOwIIIIAAAggggAACCCCAQJIECICTBE01CCCAAAIIIIAAAggggAACqRUgAE6tP7UjgAACCCCAAAIIIIAAAggkSYAAOEnQVIMAAggggAACCCCAAAIIIJBaAQLg1PpTOwIIIIAAAggggAACCCCAQJIECICTBE01CCCAAAIIIIAAAggggAACqRUgAE6tP7UjgAACCCCAAAIIIIAAAggkSYAAOEnQVIMAAggggAACCCCAAAIIIJBagcKprZ7a00Xg5MmTcvr0adfNPXXqlOsyKAABBBBAAAEEEEAAAQQQyI0AAXBu1DLsmIEDB8qoUaM8Pet169Z5Wh6FIYAAAggggAACCCCAAALRBAiAowmxX0qUKCHFihUTn8/nWsPuSS5UqJDrsigAAQQQQAABBBBAAAEEEIhHgHuA49HK0LzDhg2TY8eOyfHjx10/+vXrZxRr1aqVoZqcNgIIIIAAAggggAACCKRKgAA4VfLUiwACCCCAAAIIIIAAAgggkFQBAuCkclMZAggggAACCCCAAAIIIIBAqgQIgFMlT70IIIAAAggggAACCCCAAAJJFSAATio3lSGAAAIIIIAAAggggAACCKRKgAA4VfLUiwACCCCAAAIIIIAAAgggkFQBAuCkclMZAggggAACCCCAAAIIIIBAqgQIgFMlT70IIIAAAggggAACCCCAAAJJFSAATio3lSGAAAIIIIAAAggggAACCKRKgAA4VfLUiwACCCCAAAIIIIAAAgggkFQBAuCkclMZAggggAACCCCAAAIIIIBAqgQIgFMlT70IIIAAAggggAACCCCAAAJJFSAATio3lSGAAAIIIIAAAggggAACCKRKgAA4VfLUiwACCCCAAAIIIIAAAgggkFQBAuCkclMZAggggAACCCCAAAIIIIBAqgQIgFMlT70IIIAAAggggAACCCCAAAJJFSAATio3lSGAAAIIIIAAAggggAACCKRKgAA4VfLUiwACCCCAAAIIIIAAAgggkFQBAuCkclMZAggggAACCCCAAAIIIIBAqgQIgFMlT70IIIAAAggggAACCCCAAAJJFSAATio3lSGAAAIIIIAAAggggAACCKRKgAA4VfLUiwACCCCAAAIIIIAAAgggkFQBAuCkclMZAggggAACCCCAAAIIIIBAqgQIgFMlT70IIIAAAggggAACCCCAAAJJFSAATio3lSGAAAIIIIAAAggggAACCKRKgAA4VfLUiwACCCCAAAIIIIAAAgggkFQBAuCkclMZAggggAACCCCAAAIIIIBAqgQIgFMlT70IIIAAAggggAACCCCAAAJJFSAATio3lSGAAAIIIIAAAggggAACCKRKgAA4VfLUiwACCCCAAAIIIIAAAgggkFQBAuCkclMZAggggAACCCCAAAIIIIBAqgQIgFMlT70IIIAAAggggAACCCCAAAJJFSAATio3lSGAAAIIIIAAAggggAACCKRKgAA4VfLUiwACCCCAAAIIIIAAAgggkFQBAuCkclMZAggggAACCCCAAAIIIIBAqgQIgFMlT70IIIAAAggggAACCCCAAAJJFSAATio3lSGAAAII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wIGtPO+882TYsGGiQ5/nzp0rvXv39s9qrEOkJ0+eLG3atDEzHz/88MOycePGwMN5jQACCCCAAAIIIIAAAggggIBnAgkNgO1W6tq1l19+uYwbN84MkZ4/f74MHDhQSpYsabJs3rzZBMq1a9c2kz3p/cRMnGXr8YwAAggggAACCCCAAAIIIOCFQFICYLuhR48elZkzZ8r48ePltddekyNHjti7zLMGvZ9++qlcd9110rx5c/nhhx9y7OcNAggggAACCCCAAAIIIIAAArkV8GQd4EiVnzp1ygS1r7/+uvzzn/8MmfxK7xm+6aabJDs7Wz755BPRfDt27JCvvvpKWrZsKe+//760aNEiUhXsQwABBBBAAAEEEEAAAQQQQCCqQMJ6gDWAHTBggFStWlXatWtn7ve1Z34uVKiQ/O53v5N33nlHtm3bJi+88ILJM2LECNPr++CDD5qG79y50wyVjnoWZEAAAQQQQAABBBBAAAEEEEAgioCnPcB6L++UKVNML+6qVatCqq5Tp4706tVLbrnlFjn77LND9uuGIkWKyOOPPy5z5syRBQsWmMeBAwckKyvLMT8bEUAAAQQQQAABBBBAAAEEEIhFwJMA+ODBg9KxY0eZN29eyORVZcqUkRtvvNEEvpdcckksbTJ5dPizBsAnT56ULVu2yAUXXBDzsWREAAEEEEAAAQQQQAABBBBAIFjAkwBYJ7P64osv/GXrrM9XXnmlCXq7du3qn+3ZnyGGF/v27TO5ihUrJnXr1o3hCLIggAACCCCAAAIIIIAAAgggEF7AkwDYLr5GjRrSo0cP86hZs6a9OVfPffv2lf79+8s555wjhQt72sxctYeDEEAAAQQQQAABBBBAAAEE0lvAk8iydOnSZqbnq666SrT314ukyyCREEAAAQQQQAABBBBAAAEEEPBKwJNZoEuVKiW//e1v/cGvrvc7d+5cxzauWLFCnnjiCVm9erXjfjYigAACCCCAAAIIIIAAAgggkAgBTwJgu2E6YdXAgQOlUqVKcv3119ubczx/+eWXossc1atXT66++mr56aefcuznDQIIIIAAAggggAACCCCAAAKJEPAsANaJsDp06CCjRo0SnRV67969snv37pA2b9y40b/t008/lWbNmsl3333n38YLBBBAAAEEEEAAAQQQQAABBBIh4FkA/PTTT8vHH39s2liuXDkzgZWu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CBAgQIAAAQIEOklAANxJrTlEdTniiCNS/LQiHXXUUenb3/52GjduXCuKUwYBAgQIECBAgAABAgSaFjAIVtNUMhIgQIAAAQIECBAgQIBAOwsIgNu59Zw7AQIECBAgQIAAAQIECDQtIABumkpGAgQIECBAgAABAgQIEGhnAQFwO7eecydAgAABAgQIECBAgACBpgUEwE1TyUiAAAECBAgQIECAAAEC7SwgAG7n1nPuBAgQIECAAAECBAgQINC0gAC4aSoZCRAgQIAAAQIECBAgQKCdBQTA7dx6zp0AAQIECBAgQIAAAQIEmhYQADdNJSMBAgQIECBAgAABAgQItLOAALidW8+5EyBAgAABAgQIECBAgEDTAgLgpqlkJECAAAECBAgQIECAAIF2FhAAt3PrOXcCBAgQIECAAAECBAgQaFpAANw0lYwECBAgQIAAAQIECBAg0M4CAuB2bj3nToAAAQIECBAgQIAAAQJNCwiAm6aSkQABAgQIECBAgAABAgTaWUAA3M6t59wJECBAgAABAgQIECBAoGkBAXDTVDISIECAAAECBAgQIECAQDsLCIDbufWcOwECBAgQIECAAAECBAg0LSAAbppKRgIECBAgQIAAAQIECBBoZwEBcDu3nnMnQIAAAQIECBAgQIAAgaYFBMBNU8lIgAABAgQIECBAgAABAu0sIABu59Zz7gQIECBAgAABAgQIECDQtIAAuGkqGQkQIECAAAECBAgQIECgnQUEwO3ces6dAAECBAgQIECAAAECBJoWEAA3TSUjAQIECBAgQIAAAQIECLSzgAC4nVvPuRMgQIAAAQIECBAgQIBA0wIC4KapZCRAgAABAgQIECBAgACBdhYQALdz6zl3AgQIECBAgAABAgQIEGhaQADcNJWMBAgQIECAAAECBAgQINDOAgLgdm49506AAAECBAgQIECAAAECTQsIgJumkpEAAQIECBAgQIAAAQIE2llAANzOrefcCRAgQIAAAQIECBAgQKBpAQFw01QyEiBAgAABAgQIECBAgEA7CwiA27n1nDsBAgQIECBAgAABAgQINC0gAG6aSkYCBAgQIECAAAECBAgQaGcBAXA7t55zJ0CAAAECBAgQIECAAIGmBQTATVPJSIAAAQIECBAgQIAAAQLtLCAAbufWc+4ECBAgQIAAAQIECBAg0LTAyKZzyjgkAnPnzk1PPfVUeuGFF/KfUaNGpTFjxqTRo0en1VZbLcV7iQABAgQIECBAgAABAgQGLyAAHrxhv0p49tln07nnnptmzJiRZs2aleJ9ozRy5Mi06aabpm233Tbtvffeac8990wjRoxolN16AgQIECBAgAABAgQIEOhFwC3QveC0ctOjjz6aDjvssDRu3Lh0+OGHp+uvv77X4DeO/eqrr6bbbrstTZ8+PQ+AN9tss3TJJZe08rSURYAAAQIECBAgQIAAgcoI6AEehqZ++umn0+67757uuOOO8mjRk7v22mun9dZbL40dOzatuOKKaYUVVsiD3pdeeinNnz8/Pfzww+nBBx9MCxYsyPeLHuN99tknnXTSSenII48sy7JAgAABAgQIECBAgAABAn0LCID7NhpUjueffz7ttddeZfA7efLkdPTRR6fddtstD3z7KvyVV15JN954Y37b9FlnnZXi/VFHHZUmTJiQ3xLd1/62EyBAgAABAgQIECBAgMA/BdwCPcRXwvnnn5/f7hyHOfDAA9PMmTPz1+j1bSYtt9xyacqUKen0009PF154YYr3kT7/+c+nRYsWNVOEPAQIECBAgAABAgQIECCQCQiAh/gyuO666/IjxPO7MfjVMssMnDwGwTrxxBPz8uJ26tmzZw/x2SueAAECBAgQIECAAAECnSMw8GiscwyGtCbXXnttXv473/nOsvd2MAfcb7/9yt3vvvvuctkCAQIECBAgQIAAAQIECPQuIADu3WfQW+fMmZOXMX78+EGXFQXE3MDFbdAvvvhiS8pUCAECBAgQIECAAAECBKogIAAe4lbeaKON8iPEtEetSHFLdQyEFWmLLbZoRZHKIECAAAECBAgQIECAQCUEBMBD3MxbbbVVfoTzzjsvXXXVVYM62rx589KnP/3pvIxVV101bbDBBoMqz84ECBAgQIAAAQIECBCokoAAeIhb+wtf+EJ+y3LM7bvvvvvmozm//PLL/T7q7bffnvbYY48Ur5EOPfTQfpdhBwIECBAgQIAAAQIECFRZwDzAQ9z6cQv0V77ylfTZz342PfPMM3ngGss77bRTmjRpUt6Lu+aaa6YVV1wxjRo1Kr366qspguX58+enhx9+ON17773p6quvTrNmzSrPNALh4447rnxvgQABAgQIECBAgAABAgT6FhAA92006Byf+cxn8sGrDjvssBQDVz377LPp4osvzn/6W/jUqVPTjBkzBjWdUn+PKT8BAgQIECBAgAABAgQ6QcAt0MPUigcffHB68MEH0zHHHJPWWmutfh11hRVWyG+fvuiii9Jll12W4vlfiQABAgQIECBAgAABAgT6J6AHuH9eg8o9duzYdPzxx+c/DzzwQJo5c2a655578tud4/bo6BmOKY5WXnnlNHr06BS3T2+yySZp8803z9cN6uCD2PnSSy9NZ599dqrVaoMo5Z+7Fs8wx4BeEgECBKos8OSTT+bV//KXv5ymT59eZYpe6/7888+nu+66K02YMCH/3dhr5opvHDFiRDrwwAPTu9/97opLqD4BAgQaCwiAG9sM6Zb1118/xU87pDPOOCNdeOGFLT3VCPwlAgQIVFngoYceyqt/zTXXVJmh6brHF8dS3wKzZ88WAPfNJAcBAhUWEABXuPGbrfrpp5+eDjrooLRo0aJmd2mYL3qSL7nkklRMD9Uwow0ECBDocIHirpoPfOAD+WMuHV7dAVcv7pyKu4fe8IY3pK9+9asDLqfTd4zA93Of+1xauHBhp1dV/QgQIDAoAQHwoPiqsfMaa6zRsm+Tr7322hxtmWU8fl6Nq0ctCRDoS2CzzTZL06ZN6ytbZbefeeaZeQAc419wanwZ3HbbbY032kKAAAECpYAopKSwQIAAAQIECBAgQIAAAQKdLCAA7uTWVTcCBAgQIECAAAECBAgQKAUEwCWFBQIECBAgQIAAAQIECBDoZAEBcCe3rroRIECAAAECBAgQIECAQClgEKySYmgWYu7fYqTPVh/hiSeeaHWRyiNAgAABAgQIECBAgEDHCgiAh7hpn3rqqZZMHzTEp6l4AgQIECBAgAABAgQIdLyAAHiIm/iaa65JBx98cLr77rvLI6211lpp2WWXLd9bIECAAAECBAgQIECAAIGhFxAAD7HxDjvskGbOnJmmTp2abrzxxvxoH/7wh9Pxxx8/xEdWPAECBAgQIECAAAECBAjUCxgEq15jiJZXWWWVdPnll6eJEyfmR/ja176WrrjiiiE6mmIJECBAgAABAgQIECBAoCcBAXBPKkOwbvTo0el///d/0zLLLJM/E3zQQQel+fPnD8GRFEmAAAECBAgQIECAAAECPQkIgHtSGaJ122+/fTriiCPy0ufOnZtOPfXUITqSYgkQIECAAAECBAgQIECgu4AAuLvIEL+PZ3832GCD/Cjf/OY303PPPTfER1Q8AQIECBAgQIAAAQIECISAQbCG+TpYaaWV0o9//ON00UUX5UeePXt22nTTTYf5LByOAAECBAgQIECAAAEC1RMQAC+BNt92221T/EgECBAgQIAAAQIECBAgMHwCboEePmtHIkCAAAECBAgQIECAAIElKCAAXoL4Dk2AAAECBAgQIECAAAECwycgAB4+a0ciQIAAAQIECBAgQIAAgSUoIABegvgOTYAAAQIECBAgQIAAAQLDJyAAHj5rRyJAgAABAgQIECBAgACBJSggAF6C+A5NgAABAgQIECBAgAABAsMnIAAePmtHIkCAAAECBAgQIECAAIElKCAAXoL4Dk2AAAECBAgQIECAAAECwycgAB4+a0ciQIAAAQIECBAgQIAAgSUoIABegvgOTYAAAQIECBAgQIAAAQLDJyAAHj5rRyJAgAABAgQIECBAgACBJSggAF6C+A5NgAABAgQIECBAgAABAsMnIAAePmtHIkCAAAECBAgQIECAAIElKCAAXoL4Dk2AAAECBAgQIECAAAECwycgAB4+a0ciQIAAAQIECBAgQIAAgSUoIABegvgOTYAAAQIECBAgQIAAAQLDJyAAHj5rRyJAgAABAgQIECBAgACBJSggAF6C+A5NgAABAgQIECBAgAABAsMnIAAePmtHIkCAAAECBAgQIECAAIElKCAAXoL4Dk2AAAECBAgQIECAAAECwycgAB4+a0ciQIAAAQIECBAgQIAAgSUoIABegvgOTYAAAQIECBAgQIAAAQLDJyAAHj5rRyJAgAABAgQIECBAgACBJSggAF6C+A5NgAABAgQIECBAgAABAsMnIAAePmtHIkCAAAECBAgQIECAAIElKCAAXoL4Dk2AAAECBAgQIECAAAECwycgAB4+a0ciQIAAAQIECBAgQIAAgSUoMHIJHtuhCRAgQIAAAQIEWijwj3/8I/3Xf/1XC0vsvKJmz56dXnzxxbTJJpt0XuVaWKOnn3463X333WmrrbZKI0cKGXqjDZ+DDjoojR8/vrdsti0lAq7mpaQhnAYBAgQIECBAYKAC999/f77rI488kr70pS8NtBj7EVhM4NJLL11snRWLCzz88MPpe9/73uIbrFnqBATAS12TOCECBAgQIECAQP8EXn755XyH6Ik65phj+rdzxXIXPeSf+MQn0uqrr16x2jdf3ZNPPjk988wzafLkyekd73hH8ztWLOftt9+efvWrX6WXXnqpYjVv3+oKgNu37Zw5AQIECBAgQKCLwHLLLZe+/OUvd1nnTVeB4447LtVqtfTJT34ybbzxxl03elcKnHPOOXkAvO2227qmSpXFF84+++w8AF58izVLq4BBsJbWlnFeBAgQIECAAAECBAgQINBSAT3ALeXsf2Fz585NTz31VHrhhRfyn1GjRqUxY8ak0aNHp9VWWy3Fe4kAAQIECBAgQIAAAQIEBi8gAB68Yb9KePbZZ9O5556bZsyYkWbNmpXifaMUz/FsuummKW492XvvvdOee+6ZRowY0Si79QQIECBAgAABAgQIECDQi4BboHvBaeWmRx99NB122GFp3Lhx6fDDD0/XX399r8FvHPvVV19Nt912W5o+fXoeAG+22WbpkksuaeVpKYsAAQIECBAgQIAAAQKVEdADPAxNHfOo7b777umOO+4ojxY9uWuvvXZab7310tixY9OKK66YVlhhhTzojVHk5s+fn2I49QcffDAtWLAg3y96jPfZZ5900kknpSOPPLIsywIBAgQIECBAgAABAgQI9C0gAO7baFA5nn/++bTXXnuVwW8MJX/00Uen3XbbLQ98+yr8lVdeSTfeeGN+2/RZZ52V4v1RRx2VJkyYkN8S3df+thMgQIAAAQIECBAgQIDAPwXcAj3EV8L555+f3+4chznwwAPTzJkz89fo9W0mxXQGU6ZMSaeffnq68MILU7yP9PnPfz4tWrSomSLkIUCAAAECBAgQIECAAIFMQA/wEF8G1113XX6EeH43Br9aZpmBf+cQg2CdeOKJ6VOf+lTeozx79uy00UYbDXENUj6x91133dWSgDuehR7udOedd6aXX355uA/bNseLuxQixWT3t9xyS9uc93CfaIzYHimezefUWL/+izlOjZ1iy8KFC/MMc+bMcU31QhWfTZHis8o11Rgq/iaIFP8HOTV2qt/yl7/8JT333HP1qyzXCRSP4D322GOuqTqX7osPPPBA91XeL+0C2UTg0hAKTJw4sZZdA7UvfvGLLTlK9odSXl6Ueemll7akzL4Kee9731seM47bip+DDz64r8MOenv2pUNLzrUV9VVGa64bjhxdA64B14BrwDXgGlgar4Hh+Nt20H8cKyAX0AOc/Q8ayhTf7EcaP358Sw4TcwPHbdDxLPCLL77YkjL7KuRtb3tbuueee1J2xfSVtc/t8U3rI488kqZNm9Zn3sFmOOSQQ/Je98GW0+n7R5tE72ZcozEYm9SzQPT8Rg9L/B9cddVVe85kbS7w0EMP5VO2tepzr1NZn3zyyXwe+A022CDFtHdSzwLxuy4GhVxnnXXSyiuv3HMma/Oe3/iMeu1rX5vWWGMNIr0IxO+86N2M/3tSY4F58+al6P1df/310/LLL984oy1p2WWXTQcccACJNhEYEWFwm5xrW57mFltskW6//fb0wQ9+MJ199tmDrsMVV1yRD6AVBd1///0+vActqgACBAgQIECAAAECBKoiMPAHUqsiNMh6brXVVnkJ5513XrrqqqsGVVp8E/fpT386LyN6oHxzOShOOxMgQIAAAQIECBAgUDEBAfAQN/gXvvCF/JblmNt33333zUdzHsiATNGLvMcee+S9yXHKhx566BCfueIJECBAgAABAgQIECDQWQJugR6G9oyRmz/72c+WR4rnc3baaac0adKkvBd3zTXXzJ+9HDVqVD7CbATL8+fPz595uvfee9PVV1+dZs2aVe4fgfBll102qBGly8IsECBAgAABAgQIECBAoCICAuBhauizzjorHXbYYYMeuGrq1KlpxowZBuEZpnZzGAIECBAgQIAAAQIEOkdAADyMbfn444+nb3/72+nMM8/MR0Ju9tArrLBCisD3Ix/5SNp7772b3U0+AgQIECBAgAABAgQIEKgTEADXYQznYkyaPXPmzHx6objd+ZlnnknPPvts/rxwTPMwevTotNFGG6VNNtkkbb755qZ+GM7GcSwCBAgQIECAAAECBDpSQADckc2qUgQIECBAgAABAgQIECDQXcAo0N1FvCdAgAABAgQIECBAgACBjhQQAHdks6oUAQIECBAgQIAAAQIECHQXEAB3F/GeAAECBAgQIECAAAECBDpSQADckc2qUgQIECBAgAABAgQIECDQXUAA3F3EewIECBAgQIAAAQIECBDoSIGRHVkrlSJAoGmBmJv6mGOOSWuuuWYaNWpU0/vJSKCdBGIe9gULFqRx48alESNGtNOpO1cCTQksWrQozZkzJ6200kpptdVWa2ofmQi0m8CLL76Y4vP8tNNOSx/84Afb7fSd71IiYBqkpaQhnAaBJSWw2267pSuuuGJJHd5xCRAgQIAAAQL9Epg2bVr66U9/2q99ZCZQCOgBLiS8EqiowBZbbJEHwJ/73OfSwQcfXFEF1e50gfiiZ+7cuel3v/td3gvc6fVVv+oJ3HnnnWm//fZLEydOTBdccEH1ANS4EgInn3xymj59etp8880rUV+VHBoBAfDQuCqVQNsJrLHGGulNb3pT2523EybQjMDyyy+fZ9too43S+uuv38wu8hBoK4G4NTRSPMris7ytms7J9kNg9dVX70duWQn0LGAQrJ5drCVAgAABAgQIECBAgACBDhMQAHdYg6oOAQIECBAgQIAAAQIECPQsIADu2cVaAgQIECBAgAABAgQIEOgwAQFwhzWo6hAgQIAAAQIECBAgQIBAzwIC4J5drCVAgAABAgQIECBAgACBDhMQAHdYg6oOAQIECBAgQIAAAQIECPQsIADu2cVaAgQIECBAgAABAgQIEOgwAQFwhzWo6hAgQIAAAQIECBAgQIBAzwIC4J5drCVAgAABAgQIECBAgACBDhMQAHdYg6oOAQIECBAgQIAAAQIECPQsIADu2cVaAgQIECBAgAABAgQIEOgwAQFwhzWo6hAgQIAAAQIECBAgQIBAzwIC4J5drCVAgAABAgQIECBAgACBDhMQAHdYg6oOAQIECBAgQIAAAQIECPQsIADu2cVaAgQIECBAgAABAgQIEOgwAQFwhzWo6hAgQIAAAQIECBAgQIBAzwIC4J5drCVQGYHRo0fndR0zZkxl6qyi1ROI63uZZZZJK620UvUqr8aVECg+y4vXSlRaJSsnUFzfxWvlAFS4JQIjallqSUkKIUCgLQVeeOGF9Pvf/z5NnTo1Lbfccm1ZBydNoC+B++67Lz322GNp++237yur7QTaVuCqq65KG264YRo/fnzb1sGJE+hN4KWXXkqXX355evvb356WX3753rLaRqChgAC4IY0NBAgQIECAAAECBAgQINBJAm6B7qTWVBcCBAgQIECAAAECBAgQaCggAG5IYwMBAgQIECBAgAABAgQIdJKAALiTWlNdCBAgQIAAAQIECBAgQKChgAC4IY0NBAgQIECAAAECBAgQINBJAgLgTmpNdSFAgAABAgQIECBAgACBhgIC4IY0NhAgQIAAAQIECBAgQIBAJwkIgDupNdWFAAECBAgQIECAAAECBBoKCIAb0thAgAABAgQIECBAgAABAp0kIADupNZUFwIECBAgQIAAAQIECBBoKCAAbkhjAwECBAgQIECAAAECBAh0koAAuJNaU10IECBAgAABAgQIECBAoKGAALghjQ0ECBAgQIAAAQIECBAg0EkCAuBOak11IUCAAAECBAgQIECAAIGGAgLghjQ2ECBAgAABAgQIECBAgEAnCQiAO6k11YUAAQIECBAgQIAAAQIEGgoIgBvS2ECAAAECBAgQIECAAAECnSQgAO6k1lQXAgQIECBAgAABAgQIEGgoIABuSGMDAQIECBAgQIAAAQIECHSSgAC4k1pTXQgQIECAAAECBAgQIECgoYAAuCGNDQQIECBAgAABAgQIECDQSQIC4E5qTXUhQIAAAQIECBAgQIAAgYYCAuCGNDYQIECAAAECBAgQIECAQCcJCIA7qTXVhQABAgQIECBAgAABAgQaCgiAG9LYQIAAAQIECBAgQIAAAQKdJCAA7qTWVBcCBAgQIECAAAECBAgQaCgwsuEWGwgQaAuBd7zjHenXv/51+s53vpMOP/zwps554cKF6eyzz04//vGP0z333JPmz5+fttlmmzRlypS05557pq233rqpcu6777701a9+Nd1yyy0pltddd920ww475OUccMABaaWVVmqqHJkI9CZw3XXXpR133DGtssoq6Yknnugta75t0aJF+f+FeG0mxbW66667NszqOm9IY8MgBC655JL0ox/9KP8Mjs/h5ZdfPm288cZp4sSJ6eMf/3iaNGlSn6W36rO8VeX0ecIyVErgySefTN/85jfzvxHiGv/HP/6RNthgg/w6j8/0ww47LL/ue0O56KKLUvxfaSa95jWvyY/XKK/P8kYyFVxfkwgQaFuB7373u7XsYyv/yQLgpuoxZ86c2lve8pZyv2L/4nXkyJG1H/yhUixHAAApbklEQVTgB32W9Y1vfKO23HLLNSxn++23rz311FN9liMDgd4E4hqaMGFCfp2tttpqvWUtt911110Nr8viOq9//da3vlXu233Bdd5dxPvBCmR/hNfe9ra39XqNLrvssrVPfvKTteeee67h4Vr1Wd6qchqeqA2VFDj55JNrr3vd63q9zrMvfGpXXnllrz7vec97ei2j/rN8zJgxDcvyWd6QppIb9ABn/3MkAu0oED0HRxxxRL9OPXp6o4d31qxZ+X7Rw/DOd74zjRs3Ll199dXpF7/4RXrxxRfTv/3bv6Vnnnkm/3a2pwOcddZZ6bOf/Wy+adSoUSn7BZWygDc9/PDD6eKLL05/+tOf0vXXX5922mmndPnll6c111yzp2KsI9CrQFyvb3/729Pdd9/da77uG2+77bbuqwb03nU+IDY79SLw0ksvpXe9613pjjvuyHOtscYa6f3vf3/aZJNN0gsvvJD3lMVn+6uvvppOOeWUNG/evHTOOecsVmKrPstbVc5iJ2hFpQVmzJiRPvWpT5UGcada9Pius8466d57700XXHBBuvPOO9Pf/va3/G+Sm2++Of8/UO5Qt9CKz3Of5XWgFv8pUMmwX6UJtLFA9kdSLQs+a9FDkP0vLn+a6QH+9Kc/XebPbvusLViwoIvENddcU4tvUKPc6An++9//3mV7vHnsscdqK664Yp4n8v7hD3/okufll1+uHXjggeVxPvGJT3TZ7g2BZgSy255r2a2g5XUU12SzPcCf+9znyv2yxwNq2W13vf48//zzi52S63wxEitaIJDd8llem9mXO7XsFtHFSr399ttr2ZeGZb6f/vSni+VpxWd5FNqqchY7QSsqK3D//ffXXvva1+bXb9wlln2xvphF/J2QfYFfXuPZl/G1WNc9xR0QyyyzTJ4v7pro67P80Ucf7V6Ev1kWE7EiBBIGAgTaR+Cqq66qvfGNbyx/afQnAI4/tFZeeeV83/XWW2+x4LdQyJ63Kcv/0pe+VKwuX4855phy+/Tp08v19QvZ82S1yZMn5/nimFkvQ/1mywQaCsQfPFnPQflHT/013mwAvMcee+TXXnyJk93R0PBYvW1wnfemY9tABF555ZVaNi5Cfm1mz7PXHnnkkYbF/PKXvyw/Z6dOndolX6s+y1tVTpeT86byAl/5ylfKazc+Rxul7C6H8u+E+JyfOXPmYlnji9Did8Cxxx672PZmVvgsb0apenmMAp39z5IILO0C2UdTfjvyzjvvnA+YEuf7pje9qV+3QGe9CCkLLvKqHnrooQ0Hnth7773zASoi4//8z/+k7I+2fJ/inzPPPDNfzL7hTQcffHCxustr9o1tOvroo/N1ccxzzz23y3ZvCPQkcMMNN6RNN900Zc+OpRjAKq6j7I+XtNZaa/WUveG6rAct3/bmN785xS36A0mu84Go2ac3gbjNM7vbIM+y77779vpoSHwOF4MI3nrrrV2KbdVneavK6XJy3lReIPuivjT42Mc+Vi53X8juYkv77bdfubr7dR4bis/y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IECAQGcJCIA7qz3VhgABAgQIECBAgAABAgQaCAiAG8BYTYAAAQIECBAgQIAAAQKdJSAA7qz2VBsCBAgQIECAAAECBAgQaCAgAG4AYzUBAgQIECBAgAABAgQIdJaAALiz2lNtCBAgQIAAAQIECBAgQKCBgAC4AYzVBAgQIECAAAECBAgQINBZAgLgzmpPtSFAgAABAgQIECBAgACBBgIC4AYwVhMgQIAAAQIECBAgQIBAZwkIgDurPdWGAAECBAgQIECAAAECBBoICIAbwFhNgAABAgQIECBAgAABAp0lIADurPZUGwIECBAgQIAAAQIECBBoICAAbgBjNQECBAgQIECAAAECBAh0loAAuLPaU20IECBAgAABAgQIECBAoIGAALgBjNUECBAgQIAAAQIECBAg0FkCAuDOak+1IUCAAAECBAgQIECAAIEGAgLgBjBWEyBAgAABAgQIECBAgEBnCQiAO6s91YYAAQIECBAgQIAAAQIEGggIgBvAWE2AAAECBAgQIECAAAECnSUgAO6s9lQbAgQIECBAgAABAgQIEGggIABuAGM1AQIECBAgQIAAAQIECHSWgAC4s9pTbQgQIECAAAECBAgQIECggYAAuAGM1QQIECBAgAABAgQIECDQWQIC4M5qT7UhQIAAAQIECBAgQIAAgQYCAuAGMFYTIECAAAECBAgQIECAQGcJCIA7qz3VhgABAgQIECBAgAABAgQaCAiAG8BYTYAAAQIECBAgQIAAAQKdJSAA7qz2VBsCBAgQIECAAAECBAgQaCAgAG4AYzUBAgQIECBAgAABAgQIdJaAALiz2lNtCBAgQIAAAQIECBAgQKCBgAC4AYzVBAgQIECAAAECBAgQINBZAgLgzmpPtSFAgAABAgQIECBAgACBBgIC4AYwVhMgQIAAAQIECBAgQIBAZwkIgDurPdWGAAECBAgQIECAAAECBBoICIAbwFhNgAABAgQIECBAgAABAp0lIADurPZUGwIECBAgQIAAAQIECBBoICAAbgBjNQECBAgQIECAAAECBAh0loAAuLPaU20IECBAgEDbCLz66qtp0aJFbXO+TpQAAQIE2l9AANz+bagGBAgQIECg7QQWLFiQlltuuXTIIYe03bk7YQIECBBoX4GR7XvqzpwAAQIECBBoN4GHH344XX311en666/PT/2aa65Jxx9/fNp+++3TzjvvnJZZxnfz7damzpcAAQLtJOC3TDu1lnMlQIAAgQELnHvuuWmttdbKf2J5oOm8884ryznjjDMGWky538KFC9OcOXPK9/ULW265ZX6sN7/5zfWrl8rl3uoRJ/zMM8+kT33qU2nDDTdMH/jAB9J3v/vdvB733XdfOvbYY9Nuu+2WJk+enGbOnNlj/b73ve+V7j//+c97zDPUK/uq41AfX/kECBAgMHgBAfDgDZVAgAABAm0g8OKLL6ZHH300/4nlgaaXXnqpLOeFF14YaDH5fn/84x9TBLkXXnhhj+U8/vjj+bEee+yxHrcvLSv7qketVkvvec970imnnJLiud9Ib3nLW/LXVVddtez1vfXWW9Mee+yR7rzzznxb/T9hXbRftMFwp77qONzn43gECBAgMDABAfDA3OxFgAABAgQGJfCrX/0q7bjjjunPf/7zoMpZ0js3U4+vf/3r6Te/+U1+qhtvvHG6/fbb080335y/32effdJtt92WB76x4tlnn0377rtvevnll/PtS8M/zdRxaThP50CAAAECfQt4BrhvIzkIECBAgEApEM+p/uxnP8vfb7755uX6/i48/fTT5S4jRowol9ttoZl6RAAcaaWVVkqXX355Gj9+fIpBsIq02WabpQgyx40bl5588sl07733piuvvDK9/e1vL7Is0ddm6rhET9DBCRAgQKBpAT3ATVPJSIAAAQIEUnr961+f9ttvv/znDW94A5I+BO6///40b968PFfcBh3Bb09phRVWSB/+8IfLTREQSwQIECBAoNUCeoBbLao8AgQIECBAoBSov8V7o402Ktf3tHDUUUelf/mXf0lxm3QMliURIECAAIFWCwiAWy2qPAIECBBoG4EYDTqeTY0peUaOHJm23XbbtN122+U9kSuuuGKP9Yi855xzTr7tgAMOSLvuumuZ7w9/+EP6yU9+kr//2te+lo98HK+XXHJJfvtvDPAU5V911VXp7rvvLveLfe644478/dFHH50mTJhQbqtfiOdjTzvttHTjjTemm266KY0ePTrtsMMO+U/0Sr/2ta+tz55PLxTTDkU68cQT08orr9xle/HmyCOPTMXAUieccEJebrGteI2BrCJf3LocPd8xeNf555/fZz022GCDooj00EMPlcs9Lay99topngluNv3pT39KMTp0pLg1/cADD+xx17jtuhg5+q1vfWt6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etwnTpyY9w7HipjOKNYV01AV59rM69prr50mT55cZo3prKZMmVK+LxaKALh439f8xs3UsSjLKwECBAgs3QIC4KW7fZwdAQIECAyBQMwHGyMFR29nBHyvvvpqfpQYhThuCb711lvTtGnThuDI/1dkBN0xT+3WW2+dDz5VbLnrrruKxZa/xnRH9SM5dw90iwPWB4h9zY3bTD0iEI1Rp+PZ6ngmt978lVdeyQ8btybHVEYxQFn98Ytzava1uA068seUR3F+3dOECRPKADy29Rbgx/Zm6hj5JAIECBBY+gVGZN9015b+03SGBAgQIEBgaARiROS4DToGSoqevp4CpqE58v+VumDBghS3YK+22mpprbXWKp+Z/b8c7bHUbD0ef/zxFNMPfehDH0rbbbdd3vvd0+3YS2Otm63j0njuzokAAQIEUhIAuwoIECBAgACBYReIQDKmLYoguBhsa9hPwgEJECBAoHICboGuXJOrMAECBAgQIECAAAECBKopMLKa1VZrAgQIECBAYEkKxBRMF198cVp33XWX5Gk4NgECBAhUTMAt0BVrcNUlQIAAAQIECBAgQIBAVQXcAl3VlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFVAAFzVlldvAgQIECBAgAABAgQIVExAAFyxBlddAgQIECBAgAABAgQIVFXg/wEIe6ULy62AXQAAAABJRU5ErkJggg==" width="480" /></p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de una muestra</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-una-muestra-3">
+
+<div class="example">
+<p>Por tanto, no podemos usar un <code>t.test</code> en el caso en que tengamos una muestra de 10 valores.</p>
+
+<p>Tendremos que aplicar el test de los signos.</p>
+
+<p>En primer lugar, seleccionamos la muestra de 10 recién nacidos:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(1000)
+bebés.elegidos=sample(1:189,10,replace=TRUE)</pre>
+
+<p>La muestra será:</p>
+
+<pre class = 'prettyprint lang-r'>muestra.bebés=birthwt[bebés.elegidos,]</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de una muestra</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-una-muestra-4">
+
+<div class="example">
+<p>A continuación, realizamos el contraste planteado:</p>
+
+<pre class = 'prettyprint lang-r'>library(BSDA)
+SIGN.test(muestra.bebés$lwt,md=130,alternative = &quot;less&quot;)</pre>
+
+<pre >## 
+##  One-sample Sign-Test
+## 
+## data:  muestra.bebés$lwt
+## s = 5, p-value = 0.8555
+## alternative hypothesis: true median is less than 130
+## 95 percent confidence interval:
+##      -Inf 169.7067
+## sample estimates:
+## median of x 
+##       138.5 
+## 
+## Achieved and Interpolated Confidence Intervals: 
+## 
+##                   Conf.Level L.E.pt   U.E.pt
+## Lower Achieved CI     0.9453   -Inf 168.0000
+## Interpolated CI       0.9500   -Inf 169.7067
+## Upper Achieved CI     0.9893   -Inf 184.0000</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de una muestra</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-una-muestra-5">
+
+<div class="example">
+<p>La salida de la función es muy similar a la de t.test.</p>
+
+<p>El p-valor ha sido 0.8555, valor muy superior a \(0.1\) Por tanto, concluimos que no tenemos evidencias suficientes para rechazar que la mediana del peso de las madres de nuestra tabla de datos sea inferor a 130 libras.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de una muestra</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-una-muestra-6">
+
+<div class="example">
+<p>Si hubiésemos usado el test de wilcoxon, hubiésemos obtenido un resultado un bastante parecido:</p>
+
+<pre class = 'prettyprint lang-r'>wilcox.test(muestra.bebés$lwt, mu=130, alternative=&quot;less&quot;)</pre>
+
+<pre >## Warning in wilcox.test.default(muestra.bebés$lwt, mu = 130, alternative =
+## &quot;less&quot;): cannot compute exact p-value with zeroes</pre>
+
+<pre >## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  muestra.bebés$lwt
+## V = 30, p-value = 0.96
+## alternative hypothesis: true location is less than 130</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de dos muestras</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-dos-muestras">
+
+<div class="example">
+<p>Imaginemos ahora que queremos ver si la mediana del peso de las madres de raza blanca es superior a la mediana del peso de las madres de raza diferente a la blanca y a la negra: \[
+\left.
+\begin{array}{ll}
+H_0: &amp; md_b = md_a, \\
+H_1: &amp; md_b &gt; md_a,
+\end{array}
+\right\}
+\] donde \(md_b\) y \(md_a\) representan las medianas de los pesos de las madres de razas blanca y otras, respectivamente.</p>
+
+<p>Primero tenemos que hallar las etiquetas de los bebés de raza blanca y otras:</p>
+
+<pre class = 'prettyprint lang-r'>etiquetas.bebés.madres.raza.blanca =  rownames(birthwt[birthwt$race==1,])
+etiquetas.bebés.madres.raza.otras =  rownames(birthwt[birthwt$race==3,])</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de dos muestras</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-dos-muestras-1">
+
+<div class="example">
+<p>A continuación seleccionamos los bebés de nuestras muestras de tamaño 10:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(1001)
+bebés.elegidos.madres.raza.blanca = sample(etiquetas.bebés.madres.raza.blanca,10,
+                                           replace=TRUE)
+bebés.elegidos.madres.raza.otras = sample(etiquetas.bebés.madres.raza.otras,10,
+                                          replace=TRUE)</pre>
+
+<p>Seguidamente, consideramos las muestras de dichos bebés:</p>
+
+<pre class = 'prettyprint lang-r'>muestra.bebés.madres.raza.blanca = birthwt[bebés.elegidos.madres.raza.blanca,]
+muestra.bebés.madres.raza.otras = birthwt[bebés.elegidos.madres.raza.otras,]</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de dos muestras</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-dos-muestras-2">
+
+<div class="example">
+<p>El contraste considerado es el siguiente:</p>
+
+<pre class = 'prettyprint lang-r'>wilcox.test(muestra.bebés.madres.raza.blanca$lwt,
+            muestra.bebés.madres.raza.otras$lwt,alternative=&quot;greater&quot;)</pre>
+
+<pre >## Warning in wilcox.test.default(muestra.bebés.madres.raza.blanca$lwt,
+## muestra.bebés.madres.raza.otras$lwt, : cannot compute exact p-value with
+## ties</pre>
+
+<pre >## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  muestra.bebés.madres.raza.blanca$lwt and muestra.bebés.madres.raza.otras$lwt
+## W = 59.5, p-value = 0.2466
+## alternative hypothesis: true location shift is greater than 0</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para medias. Tests no paramétricos. Ejemplo de dos muestras</h2></hgroup><article  id="contrastes-para-medias.-tests-no-parametricos.-ejemplo-de-dos-muestras-3">
+
+<div class="example">
+<p>En primer lugar, el test nos avisa que, como hay empates, el p-valor no puede considerarse exacto.</p>
+
+<p>Como se trata de un contraste de muestras independientes, el valor del parámetro <code>paired</code> es <code>FALSE</code> que es su valor por defecto.</p>
+
+<p>El p-valor vale 0.247 valor muy superior a \(0.1\). Esto significa que no tenemos suficientes evidencias para aceptar que el peso de las madres de raza blanca sea superior al peso de las madres de otras razas.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas</h2></hgroup><article  id="contrastes-para-varianzas">
+
+<ul>
+<li><p>El <strong>test \(\chi^2\)</strong> para comparar la varianza \(\sigma^2\) (o la desviación típica \(\sigma\)) de una población normal con un valor dado \(\sigma_0^2\) (o \(\sigma_0\)) usa el estadístico \[
+\frac{(n-1)\widetilde{S}_X^2}{\sigma_0^2}
+\] que, si la hipótesis nula \(\sigma^2=\sigma_0^2\) es verdadera, sigue una distribución \(\chi^2_{n-1}\).</p></li>
+<li><p>Dicho test está convenientemente implementado en la función <code>sigma.test</code> del paquete <strong>TeachingDemos</strong>. Su sintaxis es la misma que la de la función <code>t.test</code> para una muestra, substituyendo el parámetro <code>mu</code> de <code>t.test</code> por el parámetro <code>sigma</code> (para especificar el valor de la desviación típica que contrastamos, \(\sigma_0\)) o <code>sigmasq</code> (por &ldquo;sigma al cuadrado&rdquo;, para especificar el valor de la varianza que contrastamos, \(\sigma_0^2\)).</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas. Ejemplo de una muestra.</h2></hgroup><article  id="contrastes-para-varianzas.-ejemplo-de-una-muestra.">
+
+<div class="example">
+<p>Vamos a contrastar si la varianza de la amplitud del sépalo de las flores de la tabla de datos <strong>iris</strong> es menor que \(0.2\).</p>
+
+<p>En primer lugar consideremos una muestra de 40 flores:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(2019)
+flores.elegidas=sample(1:150,40,replace=TRUE)
+muestra.flores.elegidas = iris[flores.elegidas,]</pre>
+
+<p>A continuación realizamos el contraste: \[
+\left.
+\begin{array}{ll}
+H_0: &amp; \sigma^2 = 0.2, \\
+H_1: &amp; \sigma^2 &lt; 0.2,
+\end{array}
+\right\}
+\] donde \(\sigma^2\) representa la varianza de la amplitud del sépalo de las flores de la tabla de datos <strong>iris</strong>.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas. Ejemplo de una muestra.</h2></hgroup><article  id="contrastes-para-varianzas.-ejemplo-de-una-muestra.-1">
+
+<div class="example">
+<p>El contraste anterior, en <code>R</code>, se realiza de la forma siguiente:</p>
+
+<pre class = 'prettyprint lang-r'>library(TeachingDemos)
+sigma.test(muestra.flores.elegidas$Sepal.Width,sigmasq = 0.2,alternative = &quot;less&quot;)</pre>
+
+<pre >## 
+##  One sample Chi-squared test for variance
+## 
+## data:  muestra.flores.elegidas$Sepal.Width
+## X-squared = 45.369, df = 39, p-value = 0.7763
+## alternative hypothesis: true variance is less than 0.2
+## 95 percent confidence interval:
+##  0.0000000 0.3531275
+## sample estimates:
+## var of muestra.flores.elegidas$Sepal.Width 
+##                                  0.2326603</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas. Ejemplo de una muestra.</h2></hgroup><article  id="contrastes-para-varianzas.-ejemplo-de-una-muestra.-2">
+
+<div class="example">
+<p>El p-valor del contraste ha sido 0.7763, valor muy superior a 0.1.</p>
+
+<p>Concluimos por tanto, que no tenemos evidencias suficientes para aceptar que la varianza de la amplitud del sépalo sea menor que 0.2.</p>
+
+<p>Si observamos el intervalo de confianza,</p>
+
+<pre class = 'prettyprint lang-r'>sigma.test(muestra.flores.elegidas$Sepal.Width,sigmasq = 0.2,
+           alternative = &quot;less&quot;)$conf.int</pre>
+
+<pre >## [1] 0.0000000 0.3531275
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</pre>
+
+<p>vemos que el valor 0.2 está en él, hecho que nos reafirma nuestra conclusión.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas.</h2></hgroup><article  id="contrastes-para-varianzas.">
+
+<ul>
+<li>El test \(\chi^2\) no se usa mucho en la práctica. En parte, porque
+
+<ul>
+<li>realmente es poco interesante ya que suele ser difícil conjeturar la desviación típica a contrastar,</li>
+<li>y en parte porque su validez depende fuertemente de la hipótesis de que la variable aleatoria poblacional sea normal.</li>
+</ul></li>
+<li><p>En cambio, el contraste de las desviaciones típicas de dos poblaciones sí que es muy utilizado.</p></li>
+<li><p>Por ejemplo, en un contraste de dos medias usando un test t sobre dos muestras independientes, nos puede interesar conocer <em>a priori</em> si las varianzas poblacionales son iguales o diferentes, en lugar de realizar el test bajo ambas suposiciones.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas.</h2></hgroup><article  id="contrastes-para-varianzas.-1">
+
+<ul>
+<li><p>Si no las conocemos, ¿cómo podemos saber cuál es el caso? Si las dos variables poblacionales son normales, podemos contrastar la igualdad de las varianzas con el <strong>test F</strong>, basado en el estadístico \[
+\frac{\widetilde{S}_{X_1}^2} {\widetilde{S}_{X_2}^2}
+\] que, si las dos poblaciones tienen la misma varianza, sigue una distribución F de Fisher-Snedecor.</p></li>
+<li><p>Por desgracia, este test es también muy sensible a la no normalidad de las poblaciones objeto de estudio: a la que una de ellas se aleja un poco de la normalidad, el test deja de dar resultados fiables.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas.</h2></hgroup><article  id="contrastes-para-varianzas.-2">
+
+<ul>
+<li>La función para efectuar este test en <code>R</code> es <code>var.test</code>y su sintaxis básica es la misma que la de <code>t.test</code> para dos muestras:</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>var.test(x, y, alternative=..., conf.level=...)</pre>
+
+<p>donde <code>x</code> e <code>y</code> son los dos vectores de datos, que se pueden especificar mediante una fórmula como en el caso de <code>t.test</code>, y el parámetro <code>alternative</code> puede tomar los tres mismos valores que en los tests anteriores.</p>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas. Ejemplo de dos muestras.</h2></hgroup><article  id="contrastes-para-varianzas.-ejemplo-de-dos-muestras.">
+
+<div class="example">
+<p>Recordemos que cuando explicábamos el contraste para dos medias independientes, contrastamos si las medias de las longitudes del pétalo para las especies setosa y versicolor eran iguales o no pero necesitábamos saber si las varianzas eran iguales o no para poder tenerlo en cuenta en la función <code>t.test</code>.</p>
+
+<p>Veamos ahora si podemos considerar las varianzas iguales o no.</p>
+
+<p>Las muestras eran <code>muestra.setosa</code> y <code>muestra.versicolor</code>.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas. Ejemplo de dos muestras.</h2></hgroup><article  id="contrastes-para-varianzas.-ejemplo-de-dos-muestras.-1">
+
+<div class="example">
+<p>Realicemos el contraste de igualdad de varianzas:</p>
+
+<pre class = 'prettyprint lang-r'>var.test(muestra.setosa$Petal.Length,muestra.versicolor$Petal.Length)</pre>
+
+<pre >## 
+##  F test to compare two variances
+## 
+## data:  muestra.setosa$Petal.Length and muestra.versicolor$Petal.Length
+## F = 0.14331, num df = 39, denom df = 39, p-value = 1.738e-08
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.07579578 0.27095614
+## sample estimates:
+## ratio of variances 
+##          0.1433085</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas. Ejemplo de dos muestras.</h2></hgroup><article  id="contrastes-para-varianzas.-ejemplo-de-dos-muestras.-2">
+
+<div class="example">
+<p>El p-valor del contraste ha sido prácticamente cero. Por tanto, concluimos que tenemos evidencias suficientes para afirmar que las varianzas de las longitudes del pétalo de las flores de las especies setosa y versicolor son diferentes.</p>
+
+<p>Si no fijamos en el intervalo de confianza en el cociente de varianzas \(\frac{\sigma^2_{{ setosa}}}{\sigma^2_{{versicolor}}}\),</p>
+
+<pre class = 'prettyprint lang-r'>var.test(muestra.setosa$Petal.Length,muestra.versicolor$Petal.Length)$conf.int</pre>
+
+<pre >## [1] 0.07579578 0.27095614
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</pre>
+
+<p>vemos que no contiene el valor 1, de hecho está a la izquierda de él. Este hecho nos hace reafirmar la conclusión anterior.</p>
+
+<p>Para que el contraste anterior tenga sentido, hemos de suponer que las longitudes del pétalo de las flores de las especies setosa y versicolor siguen distribuciones normales.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas.</h2></hgroup><article  id="contrastes-para-varianzas.-3">
+
+<ul>
+<li><p>Hemos insistido en que el test F solo es válido si las dos poblaciones cuyas varianzas comparamos son normales.</p></li>
+<li><p>¿Qué podemos hacer si dudamos de su normalidad? Usar un test no paramétrico que no presuponga esta hipótesis.</p></li>
+<li><p>Hay diversos tests no paramétricos para realizar contrastes bilaterales de dos varianzas. Aquí os recomendamos el <strong>test de Fligner-Killeen</strong>, implementado en la función <code>fligner.test</code>.</p>
+
+<ul>
+<li>Se aplica o bien a una <code>list</code> formada por las dos muestras, o bien a una fórmula que separe un vector numérico en dos muestras por medio de un factor de dos niveles.</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para varianzas. Ejemplo.</h2></hgroup><article  id="contrastes-para-varianzas.-ejemplo.">
+
+<div class="example">
+<p>Realicemos el contraste previo de igualdad de varianzas usando el test no paramétrico anterior para ver si llegamos a la misma conclusión:</p>
+
+<pre class = 'prettyprint lang-r'>fligner.test(list(muestra.setosa$Petal.Length,muestra.versicolor$Petal.Length))</pre>
+
+<pre >## 
+##  Fligner-Killeen test of homogeneity of variances
+## 
+## data:  list(muestra.setosa$Petal.Length, muestra.versicolor$Petal.Length)
+## Fligner-Killeen:med chi-squared = 22.39, df = 1, p-value =
+## 2.226e-06</pre>
+
+<p>Como el p-valor vuelve a ser insignificante, llegamos a la misma conclusión anterior: tenemos evidencias suficientes para afirmar que las varianzas de las longitudes del pétalo de las flores de las especies setosa y versicolor son diferentes.</p>
+
+<p>La ventaja de este test es que no necesitamos la normalidad de las muestras, aunque su potencia, que explicaremos más adelante, sea inferior.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones</h2></hgroup><article  id="contrastes-para-proporciones">
+
+<ul>
+<li><p>Cuando tenemos que efectuar un contraste sobre una probabilidad de éxito \(p\) de una variable Bernoulli, podemos emplear el <strong>test binomial exacto</strong>.</p></li>
+<li><p>Este test se basa en que, si la hipótesis nula \(H_0: p=p_0\) es verdadera, el número de éxitos en una muestra aleatoria simple de tamaño \(n\) de la variable sigue una ley binomial \(B(n,p_0)\).</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones</h2></hgroup><article  id="contrastes-para-proporciones-1">
+
+<ul>
+<li>Este test está implementado en la función <code>binom.test</code>, cuya sintaxis es</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>binom.test(x, n, p=..., alternative=..., conf.level=...)</pre>
+
+<p>donde</p>
+
+<ul>
+<li><p><code>x</code> y <code>n</code> son números naturales: el número de éxitos y el tamaño de la muestra.</p></li>
+<li><p><code>p</code> es la probabilidad de éxito que queremos contrastar.</p></li>
+<li><p>Puede ser útil saber que el intervalo de confianza para la \(p\) que da <code>binom.test</code> en un contraste bilateral es el de Clopper-Pearson.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo">
+
+<div class="example">
+<p>Consideremos la tabla de datos <code>birthwt</code> del paquete <strong>MASS</strong>. Vamos a contrastar si la proporción de madres fumadoras supera el 30%: \[
+\left.
+\begin{array}{ll}
+H_0: &amp; p = 0.3, \\
+H_1: &amp; p&gt; 0.3,
+\end{array}
+\right\}
+\]</p>
+
+<p>donde \(p\) representa la proporción de madres fumadoras.</p>
+
+<p>En primer lugar consideramos una muestra de tamaño 30:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(1001)
+madres.elegidas=sample(1:189,30,replace=TRUE)
+muestra.madres.elegidas=birthwt[madres.elegidas,]</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-1">
+
+<div class="example">
+<p>A continuación vemos cuál es el número de &ldquo;éxitos&rdquo; o número de madres fumadoras:</p>
+
+<pre class = 'prettyprint lang-r'>table(muestra.madres.elegidas$smoke)</pre>
+
+<pre >## 
+##  0  1 
+## 14 16</pre>
+
+<p>Tenemos un total de 16 madres fumadoras en nuestra muestra de 30 madres.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-2">
+
+<div class="example">
+<p>Por último realizamos el contraste planteado:</p>
+
+<pre class = 'prettyprint lang-r'>número.madres.fumadoras=table(muestra.madres.elegidas$smoke)[2]
+binom.test(número.madres.fumadoras,30,p=0.3,alternative=&quot;greater&quot;)</pre>
+
+<pre >## 
+##  Exact binomial test
+## 
+## data:  número.madres.fumadoras and 30
+## number of successes = 16, number of trials = 30, p-value = 0.00637
+## alternative hypothesis: true probability of success is greater than 0.3
+## 95 percent confidence interval:
+##  0.3699476 1.0000000
+## sample estimates:
+## probability of success 
+##              0.5333333</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-3">
+
+<div class="example">
+<p>Como el p-valor del contraste es prácticamente nulo, concluimos que tenemos evidencias suficientes para afirmar que la proporción de madres fumadoras supera el 30%.</p>
+
+<p>Si nos fijamos en el intervalo de confianza para la proporción asociado al contraste:</p>
+
+<pre class = 'prettyprint lang-r'>binom.test(número.madres.fumadoras,30,p=0.3,alternative=&quot;greater&quot;)$conf.int</pre>
+
+<pre >## [1] 0.3699476 1.0000000
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</pre>
+
+<p>vemos que no contiene la proporción 0.3, hecho que nos reafirma la conclusión anterior.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones.</h2></hgroup><article  id="contrastes-para-proporciones.">
+
+<ul>
+<li>Cuando la muestra es grande, pongamos de 40 o más sujetos, podemos usar también el <strong>test aproximado</strong>, basado en la aproximación de la distribución de la proporción muestral por medio de una normal dada por el <strong>Teorema Central del Límite</strong>.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones.</h2></hgroup><article  id="contrastes-para-proporciones.-1">
+
+<ul>
+<li>En <code>R</code> está implementado en la función <code>prop.test</code>, que además también sirve para contrastar dos proporciones por medio de muestras independientes grandes. Su sintaxis es</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>prop.test(x, n, p =..., alternative=..., conf.level=...)</pre>
+
+<p>donde:</p>
+
+<ul>
+<li><p><code>x</code> puede ser dos cosas:</p>
+
+<ul>
+<li>Un número natural: en este caso, <code>R</code> entiende que es el número de éxitos en una muestra.</li>
+<li>Un vector de dos números naturales: en este caso, <code>R</code> entiende que es un contraste de dos proporciones y que éstos son los números de éxitos en las muestras.</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones.</h2></hgroup><article  id="contrastes-para-proporciones.-2">
+
+<ul>
+<li><p>Cuando trabajamos con una sola muestra, <code>n</code> es su tamaño. Cuando estamos trabajando con dos muestras, <code>n</code> es el vector de dos entradas de sus tamaños.</p></li>
+<li><p>Cuando trabajamos con una sola muestra, <code>p</code> es la proporción poblacional que contrastamos. En el caso de un contraste de dos muestras, no hay que especificarlo.</p></li>
+<li><p>El significado de <code>alternative</code> y <code>conf.level</code>, y sus posibles valores, son los usuales.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo de dos muestras.</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-de-dos-muestras.">
+
+<div class="example">
+<p>Contrastemos como ejemplo si la proporción de madres fumadoras de raza blanca es la misma que la proporción de madres fumadoras de raza negra.</p>
+
+<p>En primer lugar calculamos las etiquetas de las madres de cada raza:</p>
+
+<pre class = 'prettyprint lang-r'>madres.raza.blanca = rownames(birthwt[birthwt$race==1,])
+madres.raza.negra = rownames(birthwt[birthwt$race==2,])</pre>
+
+<p>Seguidamente, elegimos las muestras de tamaño 50 de cada raza y creamos las muestras correspondientes:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(2000)
+madres.elegidas.blanca=sample(madres.raza.blanca,50,replace=TRUE)
+madres.elegidas.negra = sample(madres.raza.negra,50, replace=TRUE)
+muestra.madres.raza.blanca = birthwt[madres.elegidas.blanca,]
+muestra.madres.raza.negra = birthwt[madres.elegidas.negra,]</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo de dos muestras.</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-de-dos-muestras.-1">
+
+<div class="example">
+<p>A continuación, hemos de calcular cuántas madres fumadores hay de cada muestra:</p>
+
+<pre class = 'prettyprint lang-r'>table(muestra.madres.raza.blanca$smoke)</pre>
+
+<pre >## 
+##  0  1 
+## 24 26</pre>
+
+<pre class = 'prettyprint lang-r'>table(muestra.madres.raza.negra$smoke)</pre>
+
+<pre >## 
+##  0  1 
+## 33 17</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo de dos muestras.</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-de-dos-muestras.-2">
+
+<div class="example">
+<pre class = 'prettyprint lang-r'>n.blanca = table(muestra.madres.raza.blanca$smoke)[2] # número de madres fumadoras 
+# de raza blanca
+n.negra = table(muestra.madres.raza.negra$smoke)[2] # número de madres fumadoras 
+# de raza negra</pre>
+
+<p>Tenemos un total de 26 madres fumadoras de raza blanca entre las 50 de la muestra y 17 madres fumadores de raza negra entre las 50 de la muestra.</p>
+
+<p>Finalmente, realizamos el contraste planteado: \[
+\left.
+\begin{array}{ll}
+H_0: &amp; p_b = p_n, \\
+H_1: &amp; p_b \neq p_n,
+\end{array}
+\right\}
+\] donde \(p_b\) y \(p_n\) representan las proporciones de madres fumadoras de raza blanca y negra, respectivamente.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo de dos muestras.</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-de-dos-muestras.-3">
+
+<div class="example">
+<p>El contraste en <code>R</code> se realizaría de la forma siguiente:</p>
+
+<pre class = 'prettyprint lang-r'>prop.test(c(n.blanca,n.negra),c(50,50))</pre>
+
+<pre >## 
+##  2-sample test for equality of proportions with continuity
+##  correction
+## 
+## data:  c(n.blanca, n.negra) out of c(50, 50)
+## X-squared = 2.6112, df = 1, p-value = 0.1061
+## alternative hypothesis: two.sided
+## 95 percent confidence interval:
+##  -0.03083246  0.39083246
+## sample estimates:
+## prop 1 prop 2 
+##   0.52   0.34</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo de dos muestras.</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-de-dos-muestras.-4">
+
+<div class="example">
+<p>El p-valor del contraste ha sido 0.1061, valor mayor que 0.1. Concluimos que no tenemos evidencias para rechazar que las proporciones de madres fumadoras de razas blanca y negra sean iguales.</p>
+
+<p>O, dicho de otra manera, no rechazamos la hipótesis nula de igualdad de proporciones.</p>
+
+<p>Si nos fijamos en el intervalo de confianza para la diferencia de proporciones:</p>
+
+<pre class = 'prettyprint lang-r'>prop.test(c(n.blanca,n.negra),c(50,50))$conf.int</pre>
+
+<pre >## [1] -0.03083246  0.39083246
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</pre>
+
+<p>vemos que el 0 está dentro de dicho intervalo, hecho que reafirma nuestra conclusión.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones</h2></hgroup><article  id="contrastes-para-proporciones-2">
+
+<ul>
+<li><p>La función <code>prop.test</code> solo sirve para contrastar dos proporciones cuando las dos muestras son independientes y grandes.</p></li>
+<li><p>Un test que se puede usar siempre para contrastar dos proporciones usando muestras independientes es el <strong>test exacto de Fisher</strong>, que usa una distribución hipergeométrica.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones</h2></hgroup><article  id="contrastes-para-proporciones-3">
+
+<ul>
+<li><p>Supongamos que evaluamos una característica dicotómica (es decir, que solo puede tomar dos valores y por tanto define distribuciones de Bernoulli) sobre dos poblaciones y tomamos dos muestras independientes, una de cada población.</p></li>
+<li><p>Resumimos los resultados en una tabla como la que sigue:</p></li>
+</ul>
+
+<p>\[
+\begin{array}{r|c}
+ &amp; \quad\mbox{Población}\quad \\
+\mbox{Característica} &amp;\quad 1 \qquad 2\quad \\\hline
+ \mbox{Sí} &amp;\quad a  \qquad b\quad \\
+ \mbox{No} &amp;\quad c  \qquad d\quad
+\end{array}
+\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones</h2></hgroup><article  id="contrastes-para-proporciones-4">
+
+<ul>
+<li><p>Llamemos \(p_{1}\) a la proporción de individuos con la característica bajo estudio en la población 1 y \(p_{2}\) a su proporción en la población 2.</p></li>
+<li><p>Queremos contrastar la hipótesis nula \(H_{0}:p_1=p_2\) contra alguna hipótesis alternativa.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones</h2></hgroup><article  id="contrastes-para-proporciones-5">
+
+<ul>
+<li>El test exacto de Fisher está implementado en la función <code>fisher.test</code>. Su sintaxis es</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>fisher.test(x, alternative=..., conf.level=...)</pre>
+
+<p>donde</p>
+
+<ul>
+<li><code>x</code> es la matriz \(\left(\begin{array}{cc} a &amp; b\\ c &amp; d\end{array}\right)\), en la que los números de éxitos van en la primera fila y los de fracasos en la segunda, y las poblaciones se ordenan por columnas.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo del test de Fisher</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-del-test-de-fisher">
+
+<div class="example">
+<p>Realicemos el contraste anterior de igualdad de proporciones de madres fumadores de raza blanca y negra pero usando el test de Fisher.</p>
+
+<p>En primer lugar definimos una nueva tabla de datos que contenga la información de las dos muestras consideradas:</p>
+
+<pre class = 'prettyprint lang-r'>muestra.madres = rbind(muestra.madres.raza.blanca,muestra.madres.raza.negra)</pre>
+
+<p>A continuación calculamos la matriz para usar en el test de Fisher:</p>
+
+<pre class = 'prettyprint lang-r'>(matriz.fisher=table(muestra.madres$smoke,muestra.madres$race))</pre>
+
+<pre >##    
+##      1  2
+##   0 24 33
+##   1 26 17</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo del test de Fisher</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-del-test-de-fisher-1">
+
+<div class="example">
+<p>La matriz anterior no es correcta ya que la primera fila debería ser la fila de &ldquo;éxitos&rdquo; y es la fila de &ldquo;fracasos&rdquo;. Lo arreglamos:</p>
+
+<pre class = 'prettyprint lang-r'>(matriz.fisher = rbind(matriz.fisher[2,],matriz.fisher[1,]))</pre>
+
+<pre >##       1  2
+## [1,] 26 17
+## [2,] 24 33</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo del test de Fisher</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-del-test-de-fisher-2">
+
+<div class="example">
+<p>Por último realizamos el contraste:</p>
+
+<pre class = 'prettyprint lang-r'>fisher.test(matriz.fisher)</pre>
+
+<pre >## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  matriz.fisher
+## p-value = 0.1056
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  0.8723106 5.1038153
+## sample estimates:
+## odds ratio 
+##   2.087041</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Ejemplo del test de Fisher</h2></hgroup><article  id="contrastes-para-proporciones.-ejemplo-del-test-de-fisher-3">
+
+<div class="example">
+<p>Vemos que el p-valor es parecido al obtenido usando la función <code>prop.test</code>.</p>
+
+<p>Como el test Fisher es exacto, dejamos al lector que repita el experimento anterior pero en lugar de tomar muestras de tamaño 50, tome muestras de tamaño más pequeño como por ejemplo 10.</p>
+
+<p>Hay que ir con cuidado con la interpretación del intervalo de confianza que da esta función: no es ni para la diferencia de las proporciones ni para su cociente, sino para su <strong>odds ratio</strong>: el cociente \[
+\Big({\frac{p_b}{1-p_b}}\Big)\Big/\Big({\frac{p_n}{1-p_n}}\Big).
+\]</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones.</h2></hgroup><article  id="contrastes-para-proporciones.-3">
+
+<p>El <strong>odds</strong> de un suceso \(A\) es el cociente \[
+\mbox{Odds}(A)=\frac{P(A)}{1-P(A)},
+\] donde \(P(A)\) es la probabilidad que suceda \(A\) y mide cuántas veces es más probable \(A\) que su contrario.</p>
+
+<p>Las <em>odds</em> son una función creciente de la probabilidad, y por lo tanto \[
+\mbox{Odds}(A)&lt;\mbox{Odds}(B)\Longleftrightarrow P(A)&lt;P(B).
+\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones.</h2></hgroup><article  id="contrastes-para-proporciones.-4">
+
+<p>Esto permite comparar <em>odds</em> en vez de probabilidades, con la misma conclusión.</p>
+
+<div class="example">
+<p>Por ejemplo, en nuestro caso, como el intervalo de confianza para la <em>odds ratio</em> va de 0.8723 a 5.1038. En particular, contiene el 1, por lo que no podemos rechazar que</p>
+
+<p>\[
+\Big({\frac{p_b}{1-p_b}}\Big)\Big/\Big({\frac{p_n}{1-p_n}}\Big)=1,
+\] es decir, no podemos rechazar que \[
+\frac{p_b}{1-p_b}=\frac{p_n}{1-p_n}
+\] y esto es equivalente a \(p_b=p_n\).</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones</h2></hgroup><article  id="contrastes-para-proporciones-6">
+
+<div class="example">
+<p>Si, por ejemplo, el intervalo de confianza hubiera ido de 0 a 0.8, entonces la conclusión a este nivel de confianza hubiera sido que \[
+\Big({\frac{p_b}{1-p_b}}\Big)\Big/\Big({\frac{p_n}{1-p_n}}\Big)&lt;1
+\] es decir, que \[
+\frac{p_b}{1-p_b}&lt;\frac{p_n}{1-p_n}
+\] y esto es equivalente a \(p_b&lt;p_n\).</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas">
+
+<ul>
+<li><p>Supongamos ahora que queremos comparar dos proporciones usando muestras emparejadas.</p></li>
+<li><p>Supongamos que evaluamos dos características dicotómicas sobre una misma muestra de \(n\) sujetos. Resumimos los resultados obtenidos en la tabla siguiente:</p></li>
+</ul>
+
+<p>\[
+\begin{array}{r|c}
+ &amp; \ \mbox{Característica 1}\  \\
+\mbox{Característica 2} &amp;\ \ \, \mbox{Sí}\qquad \mbox{No}\\\hline
+ \mbox{Sí} &amp; \quad\ \  a \qquad \ \ \, b\quad  \\
+ \mbox{No} &amp; \quad\ \   c  \qquad \ \ \, d\quad
+ \end{array}
+\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas-1">
+
+<ul>
+<li><p>Se cumple \(a+b+c+d=n\). Esta tabla quiere decir, naturalmente, que \(a\) sujetos de la muestra tuvieron la característica 1 y la característica 2, que \(b\) sujetos de la muestra tuvieron la característica 2 y pero no tuvieron la característica 2, etc.</p></li>
+<li><p>Vamos a llamar \(p_{1}\) a la proporción poblacional de individuos con la característica 1, y \(p_{2}\) a la proporción poblacional de individuos con la característica 2.</p></li>
+<li><p>Queremos contrastar la hipótesis nula \(H_{0}:p_1=p_2\) contra alguna hipótesis alternativa. En este caso, no pueden usarse las funciones <code>prop.test</code> o <code>fisher.test</code>.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas-2">
+
+<ul>
+<li><p>Tenemos dos soluciones posibles:</p>
+
+<ul>
+<li>La primera nos permite realizar el contraste bilateral \[
+\left\{\begin{array}{l}
+H_{0}:p_1=p_2\\
+H_{1}:p_1\neq p_2
+\end{array}\right.
+\] cuando \(n\) es grande y el número \(b+c\) de <strong>casos discordantes</strong> (en los que una característica da Sí y la otra da No) es razonablemente grande, pongamos \(\geq 20\).</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas-3">
+
+<ul>
+<li>En esta situación podemos usar el <strong>test de McNemar</strong>, que se lleva a cabo en <code>R</code> con la instrucción <code>mcnemar.test</code>. Su sintaxis básica es</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>mcnemar.test(X)</pre>
+
+<p>donde <code>X</code> es la matriz \(\left(\begin{array}{cc} a &amp; b\\ c&amp; d \end{array}\right)\) que corresponde a la tabla anterior.</p>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas. Ejemplo</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-ejemplo">
+
+<div class="example">
+<p>Vamos a ver si la proporción de madres fumadoras es la misma que la proporción de madres hipertensas.</p>
+
+<p>Para ello, vamos a considerar una muestra de 30 madres y vamos a realizar el contraste correspondiente.</p>
+
+<p>En primer lugar elegimos las madres y consideramos la muestra correspondiente:</p>
+
+<pre class = 'prettyprint lang-r'>set.seed(333)
+madres.elegidas.prop.empar = sample(1:189,30,replace=TRUE)
+muestra.madres.prop.empar = birthwt[madres.elegidas.prop.empar,]</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas. Ejemplo</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-ejemplo-1">
+
+<div class="example">
+<p>Seguidamente, calculamos la matriz para usar en el contraste:</p>
+
+<pre class = 'prettyprint lang-r'>(matriz.prop.empar = table(muestra.madres.prop.empar$smoke,muestra.madres.prop.empar$ht))</pre>
+
+<pre >##    
+##      0  1
+##   0 16  3
+##   1 10  1</pre>
+
+<p>Fijémonos que dicha matriz no es correcta ya que \(a=1\), \(b=10\), \(c=3\) y \(d=16\). Arreglamos la matriz:</p>
+
+<pre class = 'prettyprint lang-r'>matriz.prop.empar = rbind(matriz.prop.empar[2,],matriz.prop.empar[1,])
+matriz.prop.empar = cbind(matriz.prop.empar[,2],matriz.prop.empar[,1])</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas. Ejemplo</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-ejemplo-2">
+
+<div class="example">
+<p>Comprobamos que es correcta:</p>
+
+<pre class = 'prettyprint lang-r'>matriz.prop.empar</pre>
+
+<pre >##      [,1] [,2]
+## [1,]    1   10
+## [2,]    3   16</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas. Ejemplo</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-ejemplo-3">
+
+<div class="example">
+<p>Por último, realizamos el contraste planteado:</p>
+
+<pre class = 'prettyprint lang-r'>mcnemar.test(matriz.prop.empar)</pre>
+
+<pre >## 
+##  McNemar&#39;s Chi-squared test with continuity correction
+## 
+## data:  matriz.prop.empar
+## McNemar&#39;s chi-squared = 2.7692, df = 1, p-value = 0.09609</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas. Ejemplo</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-ejemplo-4">
+
+<div class="example">
+<p>Hemos obtenido un p-valor de 0.0961, valor que está entre 0.05 y 0.1, la llamada zona de penumbra donde no se puede tomar una decisión clara.</p>
+
+<p>Podemos decir, si consideramos que el p-valor es suficientemente grande, que no tenemos evidencias suficientes para aceptar que la proporción de madres fumadoras y con hipertensión sea diferente.</p>
+
+<p>En otras palabras, no rechazamos la hipótesis nula \(H_0\).</p>
+
+<p>Ahora bien, hay que tener en cuenta que el p-valor no es demasiado grande para tal conclusión.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas.</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.">
+
+<ul>
+<li><p>Otra posibilidad para realizar un contraste de dos proporciones usando muestras emparejadas, que no requiere de ninguna hipótesis sobre los tamaños de las muestras, es usar de manera adecuada la función <code>binom.test</code>.</p></li>
+<li><p>Para explicar este método, consideremos la tabla siguiente, donde ahora damos las probabilidades poblacionales de las cuatro combinaciones de resultados: \[
+\begin{array}{r|c}
+ &amp; \ \mbox{Característica 1}\  \\
+\mbox{Característica 2} &amp;\quad \ \!\mbox{Sí}\qquad\quad\, \mbox{No}\quad \\\hline
+ \mbox{Sí} &amp; \quad \  p_{11}  \qquad\quad p_{01}\quad  \\
+ \mbox{No} &amp; \quad \  p_{10} \qquad\quad  p_{00}\quad
+ \end{array}
+\]</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas.</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-1">
+
+<ul>
+<li><p>De esta manera \(p_1=p_{11}+p_{10}\) y \(p_2=p_{11}+p_{01}\).</p></li>
+<li>Entonces, \(p_1=p_2\) es equivalente a \(p_{10}=p_{01}\) y cualquier hipótesis alternativa se traduce en la misma desigualdad, pero para \(p_{10}\) y \(p_{01}\):
+
+<ul>
+<li>\(p_1\neq p_2\) es equivalente a \(p_{10}\neq p_{01}\);</li>
+<li>\(p_1&lt; p_2\) es equivalente a \(p_{10}&lt; p_{01}\); y</li>
+<li>\(p_1&gt; p_2\) es equivalente a \(p_{10}&gt; p_{01}\).</li>
+</ul></li>
+<li><p>Por lo tanto podemos traducir el contraste sobre \(p_1\) y \(p_2\) al mismo contraste sobre \(p_{10}\) y \(p_{01}\).</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas.</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-2">
+
+<ul>
+<li><p>La gracia ahora está en que si la hipótesis nula \(p_{10}=p_{01}\) es cierta, entonces, en el total de casos discordantes, el número de sujetos en los que la característica 1 da Sí y la característica 2 da No sigue una ley binomial con \(p=0.5\).</p></li>
+<li>Por lo tanto, podemos efectuar el contraste usando un test binomial exacto tomando
+
+<ul>
+<li>como muestra los casos discordantes de nuestra muestra, de tamaño \(b+c\),</li>
+<li>como éxitos los sujetos que han dado Sí en la característica 1 y No en la característica 2, de tamaño \(c\),</li>
+<li>con proporción a contrastar \(p=0.5\) y con hipótesis alternativa la que corresponda.</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas.</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-3">
+
+<ul>
+<li>La ventaja de este test es que su validez no requiere de ninguna hipótesis sobre los tamaños de las muestras. El inconveniente es que el intervalo de confianza que nos dará será para \(p_{10}/(p_{10}+p_{01})\), y no permite obtener un intervalo de confianza para la diferencia o el cociente de las probabilidades \(p_1\) y \(p_2\) de interés.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas. Ejemplo.</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-ejemplo.">
+
+<div class="example">
+<p>Realicemos el contraste anterior usando este método.</p>
+
+<p>Recordemos que la matriz de proporciones era:</p>
+
+<pre class = 'prettyprint lang-r'>matriz.prop.empar</pre>
+
+<pre >##      [,1] [,2]
+## [1,]    1   10
+## [2,]    3   16</pre>
+
+<p>Por tanto, el tamaño de nuestra muestra será:</p>
+
+<pre class = 'prettyprint lang-r'>(n=matriz.prop.empar[1,2]+matriz.prop.empar[2,1])</pre>
+
+<pre >## [1] 13</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas. Ejemplo.</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-ejemplo.-1">
+
+<div class="example">
+<p>El número de éxitos será:</p>
+
+<pre class = 'prettyprint lang-r'>(éxitos=matriz.prop.empar[2,1])</pre>
+
+<pre >## [1] 3</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas. Ejemplo.</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-ejemplo.-2">
+
+<div class="example">
+<p>El contraste a realizar será:</p>
+
+<pre class = 'prettyprint lang-r'>binom.test(éxitos,n,p=0.5)</pre>
+
+<pre >## 
+##  Exact binomial test
+## 
+## data:  éxitos and n
+## number of successes = 3, number of trials = 13, p-value = 0.09229
+## alternative hypothesis: true probability of success is not equal to 0.5
+## 95 percent confidence interval:
+##  0.05038107 0.53813154
+## sample estimates:
+## probability of success 
+##              0.2307692</pre></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes para proporciones. Muestras emparejadas. Ejemplo.</h2></hgroup><article  id="contrastes-para-proporciones.-muestras-emparejadas.-ejemplo.-3">
+
+<div class="example">
+<p>Vemos que el p-valor es parecido usando el método anterior y por tanto, las conclusiones son las mismas.</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Cálculo de la potencia de un contraste</h2></hgroup><article  id="calculo-de-la-potencia-de-un-contraste">
+
+<ul>
+<li><p>La <strong>potencia</strong> de un contraste de hipótesis es la probabilidad de no cometer un <strong>error de tipo II</strong>, es decir, la probabilidad de aceptar la hipótesis alternativa si es verdadera.</p></li>
+<li><p>Usualmente, la probabilidad de cometer un error de tipo II se denota por \(\beta\), y por lo tanto la potencia es \(1-\beta\).</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Cálculo de la potencia de un contraste</h2></hgroup><article  id="calculo-de-la-potencia-de-un-contraste-1">
+
+<ul>
+<li>La potencia de un contraste está relacionada con lo que se llama la <strong>magnitud del efecto</strong>.
+
+<ul>
+<li>En un contraste, el <strong>efecto</strong> es la diferencia entre el valor estimado del parámetro a partir de la muestra usada y el valor que se da a dicho parámetro como hipótesis nula:</li>
+<li>por ejemplo, en el contraste de una media, la diferencia entre la media muestral \(\overline{x}\) y el valor contrastado \(\mu_0\);</li>
+<li>o, en el contraste de dos medias, la diferencia entre las dos medias muestrales.</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Cálculo de la potencia de un contraste</h2></hgroup><article  id="calculo-de-la-potencia-de-un-contraste-2">
+
+<ul>
+<li><p>Se rechaza entonces la hipótesis nula si el efecto observado es tan grande que es muy improbable cuando la hipótesis nula es verdadera.</p></li>
+<li><p>Pero recordad que, en realidad, no se tiene en cuenta si el efecto observado ha sido grande o no por si mismo, solo si es estadísticamente significativo, es decir, si es improbable cuando la hipótesis nula es verdadera.</p></li>
+<li><p>Entonces, sin entrar en detalle, digamos que la <strong>magnitud del efecto</strong> es una medida estadística específica del tamaño del efecto observado respecto de su valor esperado. La fórmula para calcular la magnitud del efecto depende del contraste y del estadístico usado.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Cálculo de la potencia de un contraste</h2></hgroup><article  id="calculo-de-la-potencia-de-un-contraste-3">
+
+<ul>
+<li><p>Para cada tipo de test se han consensuado unos valores de la magnitud del efecto considerados como &ldquo;pequeño&rdquo;, &ldquo;medio&rdquo; y &ldquo;grande&rdquo;.</p></li>
+<li><p>Estos valores se obtienen con <code>R</code> con la función <code>cohen.ES</code> del paquete <strong>pwr</strong> aplicada al tipo de test (entrado en el parámetro <code>test</code>: por ejemplo, <code>test=&quot;t&quot;</code> para un test t usando <code>t.test</code>, o <code>test=&quot;p&quot;</code> para un test aproximado de proporciones usando <code>prop.test</code>) y el tipo de magnitud esperada (especificando en el parámetro <code>size</code> si esperamos que sea <code>&quot;small&quot;</code>, <code>&quot;medium&quot;</code> o <code>&quot;large&quot;</code>).</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Cálculo de la potencia de un contraste</h2></hgroup><article  id="calculo-de-la-potencia-de-un-contraste-4">
+
+<ul>
+<li>A modo de ejemplo, la magnitud de efecto que se considera pequeña en un test t es:</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>library(pwr)
+cohen.ES(test=&quot;t&quot;,size=&quot;small&quot;)</pre>
+
+<pre >## 
+##      Conventional effect size from Cohen (1982) 
+## 
+##            test = t
+##            size = small
+##     effect.size = 0.2</pre>
+
+</article></slide><slide class=""><hgroup><h2>Cálculo de la potencia de un contraste</h2></hgroup><article  id="calculo-de-la-potencia-de-un-contraste-5">
+
+<ul>
+<li>y la magnitud de efecto que se considera media en un test aproximado de proporciones es:</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>cohen.ES(test=&quot;p&quot;,size=&quot;medium&quot;)</pre>
+
+<pre >## 
+##      Conventional effect size from Cohen (1982) 
+## 
+##            test = p
+##            size = medium
+##     effect.size = 0.5</pre>
+
+</article></slide><slide class=""><hgroup><h2>Cálculo de la potencia de un contraste</h2></hgroup><article  id="calculo-de-la-potencia-de-un-contraste-6">
+
+<ul>
+<li>Si se desea solo el valor de la magnitud del efecto, para poderlo entrar en otras funciones, se obtiene con el sufijo <code>$effect.size</code>:</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>cohen.ES(test=&quot;p&quot;,size=&quot;medium&quot;)$effect.size</pre>
+
+<pre >## [1] 0.5</pre>
+
+<ul>
+<li>Así pues, en un contraste de hipótesis intervienen cuatro cantidades fundamentales:
+
+<ul>
+<li>el <strong>tamaño</strong> de la muestra, \(n\);</li>
+<li>el <strong>nivel de significación</strong>, \(\alpha\);</li>
+<li>la <strong>potencia</strong>, \(1-\beta\);</li>
+<li>y la <strong>magnitud del efecto</strong>.</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Cálculo de la potencia de un contraste</h2></hgroup><article  id="calculo-de-la-potencia-de-un-contraste-7">
+
+<ul>
+<li><p>El tamaño de la muestra y el nivel de significación están bajo el control del investigador;</p></li>
+<li>sin embargo, la potencia del contraste y la magnitud del efecto afectan al contraste de forma más indirecta y su control escapa al investigador:
+
+<ul>
+<li>Por ejemplo, si incrementamos el tamaño de la muestra, la potencia aumenta, pero el aumento preciso depende de la magnitud del efecto esperada. De hecho, las cuatro cantidades anteriores no son independientes, sino que, a partir de tres cualesquiera de ellas, se puede calcular la cuarta. Las funciones del paquete <strong>pwr</strong> permiten realizar estos cálculos para los contrastes de medias y proporciones.</li>
+</ul></li>
+</ul>
+
+<p>Las funciones de dicho paquete que por ahora nos interesan en este sentido son las siguientes:</p>
+
+<ul>
+<li><p><code>pwr.t.test</code>, para utilizar en tests t de una media, de dos medias usando muestras emparejadas o de dos medias usando muestras independientes del mismo tamaño.</p></li>
+<li><p><code>pwr.t2n.test</code>, para utilizar en tests t de dos medias usando muestras independientes de distinto tamaño.</p></li>
+<li><p><code>pwr.p.test</code>, para utilizar en contrastes aproximados de una proporción.</p></li>
+<li><p><code>pwr.2p.test</code>, para utilizar en contrastes aproximados de dos proporciones usando muestras independientes del mismo tamaño.</p></li>
+<li><p><code>pwr.2p2n.test</code>, para utilizar en contrastes aproximados de dos proporciones usando muestras de distinto tamaño.</p></li>
+</ul>
+
+<p>Estas funciones tienen los parámetros básicos siguientes:</p>
+
+<ul>
+<li><p><code>n</code>: el tamaño de la muestra (o de las muestras cuando son del mismo tamaño).</p></li>
+<li><p><code>n1</code> y <code>n2</code>: los tamaños de las dos muestras en <code>pwr.2p2n.test</code> y <code>pwr.t2n.test</code>.</p></li>
+<li><p><code>d</code> (en las dos primeras) o <code>h</code> (en las tres últimas): la magnitud del efecto.</p></li>
+<li><p><code>sig.level</code>: el nivel de significación.</p></li>
+<li><p><code>power</code>: la potencia.</p></li>
+<li><p><code>type</code> (en la primera): el tipo de muestras usado, siendo sus posibles valores <code>&quot;one.sample&quot;</code> (para contrastes de una muestra), <code>&quot;two.sample&quot;</code> (para contrastes de dos muestras independientes), o <code>&quot;paired&quot;</code> (para contrastes de dos muestras emparejadas).</p></li>
+<li><p><code>alternative</code>: el tipo de hipótesis alternativa, con sus valores usuales.</p></li>
+</ul>
+
+<p>Si, en una cualquiera de estas funciones se especifican todos los parámetros <code>n</code> (o <code>n1</code> y <code>n2</code>), <code>d</code> (o <code>h</code>), <code>sig.level</code> y <code>power</code> menos uno, la función da el valor del parámetro que falta.</p>
+
+<p>Veamos algunos ejemplos de uso.</p>
+
+<pre class = 'prettyprint lang-example'>Queremos calcular la potencia del contraste llevado a cabo en el Ejemplo  \@ref(exm:norm1bis). Se trataba de un contraste bilateral de una media usando un test t, por lo que utilizaremos la función  `pwr.t.test`. Los parámetros que le entraremos son:
+</pre>
+
+<ul>
+<li><p><code>n</code>, el tamaño de la muestra; en este ejemplo, \(n=25\).</p></li>
+<li><p><code>d</code>, la magnitud del efecto. Para tests t de una media e hipótesis nula \(H_0: \mu = \mu_0\), la magnitud del efecto se calcula con la fórmula \[
+d=\frac{\overline{x}-\mu_0}{\widetilde{s}_x}.
+\] En nuestro ejemplo, \(d=\frac{|2.8048-2|}{0.68064}= 1.1824\).</p></li>
+<li><p><code>sig.level</code>, el nivel de significación; en este ejemplo, \(\alpha=0.05\).</p></li>
+</ul>
+
+<p>Además como es un contraste bliateral de una media, especificaremos <code>type=&quot;one.sample&quot;</code> y <code>alternative=&quot;two.sided&quot;</code> (esto último en realidad no hace falta: como siempre, este es su valor por defecto).</p>
+
+<pre class = 'prettyprint lang-r'>x=c(2.2,2.66,2.74,3.41,2.46,2.96,3.34,2.16,2.46,2.71,2.04,
+  3.74,3.24,3.92,2.38,2.82,2.2,2.42,2.82,2.84,4.22,3.64,1.77,
+  3.44,1.53)
+mag.ef=abs(mean(x)-2)/sd(x) #Magnitud del efecto
+pwr.t.test(n=25, d=mag.ef, sig.level=0.05, type=&quot;one.sample&quot;, alternative=&quot;two.sided&quot;)</pre>
+
+<pre >## 
+##      One-sample t test power calculation 
+## 
+##               n = 25
+##               d = 1.18241
+##       sig.level = 0.05
+##           power = 0.9998934
+##     alternative = two.sided</pre>
+
+<p>Obtenemos que la potencia del test es prácticamente 1.</p>
+
+<p>Si estuviéramos diseñando el experimento y quisiéramos calcular el tamaño mínimo de una muestra para tener un nivel de significación del 5% y potencia del 99%, suponiendo <em>a priori</em> que la magnitud del efecto esperado va a ser grande (y que por lo tanto detectar que la hipótesis alternativa es verdadera va a ser fácil), primero calcularíamos cuánto vale una magnitud del efecto grande:</p>
+
+<pre class = 'prettyprint lang-r'>cohen.ES(test=&quot;t&quot;,size=&quot;large&quot;)$effect.size</pre>
+
+<pre >## [1] 0.8</pre>
+
+<p>y a continuación la usaríamos en la función <code>pwr.t.test</code>:</p>
+
+<pre class = 'prettyprint lang-r'>pwr.t.test(d=0.8, sig.level=0.05,power=0.99, type=&quot;one.sample&quot;)</pre>
+
+<pre >## 
+##      One-sample t test power calculation 
+## 
+##               n = 30.71433
+##               d = 0.8
+##       sig.level = 0.05
+##           power = 0.99
+##     alternative = two.sided</pre>
+
+<p>Bastarían 31 observaciones para tener la potencia deseada. Si en cambio esperáramos una magnitud del efecto pequeña:</p>
+
+<pre class = 'prettyprint lang-r'>pwr.t.test(d=cohen.ES(test=&quot;t&quot;,size=&quot;small&quot;)$effect.size,
+           sig.level=0.05, power=0.99, type=&quot;one.sample&quot;)</pre>
+
+<pre >## 
+##      One-sample t test power calculation 
+## 
+##               n = 461.2382
+##               d = 0.2
+##       sig.level = 0.05
+##           power = 0.99
+##     alternative = two.sided</pre>
+
+<p>En este caso necesitaríamos 462 observaciones.</p>
+
+<pre class = 'prettyprint lang-example'>Vamos a  calcular la potencia del contraste
+</pre>
+
+<p>\[
+\left\{
+\begin{array}{l} 
+ H_0:p_v=p_n\\
+ H_1:p_v&lt;p_n
+ \end{array}
+ \right.
+\]</p>
+
+<p>del Ejemplo @ref(exm:trampas1). En este caso, usamos la función <code>pwr.2p.test</code>, ya que usamos dos muestras del mismo tamaño, y le entramos los parámetros siguientes:</p>
+
+<ul>
+<li><p><code>n</code>, el tamaño de las muestras; en este ejemplo, \(n=60\).</p></li>
+<li><p><code>h</code>, la magnitud del efecto. Para calcularla,<a id="fnref1" href="#fn1"><sup>1</sup></a> usamos la función <code>ES.h</code> del mismo paquete <strong>pwr</strong> y que se aplica a las proporciones muestrales de éxitos de las dos muestras: en este ejemplo, \(\widehat{p}_v=0.67\) y \(\widehat{p}_n =0.8\).</p></li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>mag.ef=ES.h(0.67,0.8) 
+mag.ef  </pre>
+
+<pre >## [1] -0.2965842</pre>
+
+<ul>
+<li><code>sig.level</code>, el nivel de significación, 0.05.</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>pwr.2p.test(h=mag.ef, n=60, sig.level=0.05,alternative=&quot;less&quot;)</pre>
+
+<pre >## 
+##      Difference of proportion power calculation for binomial distribution (arcsine transformation) 
+## 
+##               h = -0.2965842
+##               n = 60
+##       sig.level = 0.05
+##           power = 0.4918641
+##     alternative = less
+## 
+## NOTE: same sample sizes</pre>
+
+<p>Hemos obtenido una potencia de, aproximadamente, un 49%.</p>
+
+<p>Si estuviéramos diseñando el experimento y quisiéramos calcular el tamaño de las muestras necesario para tener una potencia del 90% al nivel de significación del 5% y esperando una magnitud del efecto pequeña (porque esperamos una mejora con las nuevas trampas, pero solo pequeña), entraríamos:</p>
+
+<pre class = 'prettyprint lang-r'>cohen.ES(test=&quot;p&quot;,size=&quot;small&quot;)$effect.size</pre>
+
+<pre >## [1] 0.2</pre>
+
+<pre class = 'prettyprint lang-r'>pwr.2p.test(h=-0.2, sig.level=0.05, power=0.9, 
+   alternative=&quot;less&quot;)</pre>
+
+<pre >## 
+##      Difference of proportion power calculation for binomial distribution (arcsine transformation) 
+## 
+##               h = -0.2
+##               n = 428.1924
+##       sig.level = 0.05
+##           power = 0.9
+##     alternative = less
+## 
+## NOTE: same sample sizes</pre>
+
+<p>Tendríamos que usar dos muestras de 429 cucarachas cada una. Observad que en <code>pwr.2p.test</code> hemos entrado en <code>h</code> la magnitud del efecto en negativo: esto es debido a que usamos <code>alternative=&quot;less&quot;</code> y por lo tanto esperamos que la primera proporción sea menor que la segunda.</p>
+
+<pre class = 'prettyprint lang-example'>En el contraste
+</pre>
+
+<p>\[
+\left\{\begin{array}{l}
+H_{0}:\mu_n=\mu_f\\
+H_{1}:\mu_n&gt; \mu_f
+\end{array}\right.
+\] del Ejemplo @ref(exm:fumar), ¿qué tamaño de la muestra de mujeres fumadoras tendríamos que tomar si usáramos una muestra de 100 no fumadoras, quisiéramos una potencia del 90% y un nivel de significación del 5% y esperáramos una magnitud del efecto media?</p>
+
+<p>Como es un contraste de dos medias independientes y los tamaños de las muestras pueden ser diferentes, usaremos la función <code>pwr.t2n.test</code>:</p>
+
+<pre class = 'prettyprint lang-r'>pwr.t2n.test(n1=100, d=cohen.ES(test=&quot;t&quot;,size=&quot;medium&quot;)$effect.size,  
+             sig.level=0.05, power=0.9, alternative=&quot;greater&quot;)</pre>
+
+<pre >## 
+##      t test power calculation 
+## 
+##              n1 = 100
+##              n2 = 52.82509
+##               d = 0.5
+##       sig.level = 0.05
+##           power = 0.9
+##     alternative = greater</pre>
+
+<p>Bastaría estudiar 53 madres fumadoras.</p>
+
+</article></slide><slide class=""><hgroup><h2>Guía rápida</h2></hgroup><article  id="guia-rapida">
+
+<p>Excepto en las que decimos lo contrario, todas las funciones para realizar contrastes que damos a continuación admiten los parámetros <code>alternative</code>, que sirve para especificar el tipo de contraste (unilateral en un sentido u otro o bilateral), y <code>conf.level</code>, que sirve para indicar el nivel de confianza \(1-\alpha\). Sus valores por defecto son contraste bilateral y nivel de confianza 0.95.</p>
+
+<ul>
+<li><p><code>t.test</code> realiza tests t para contrastar una o dos medias (tanto usando muestras independientes como emparejadas). Aparte de <code>alternative</code> y <code>conf.level</code>, sus parámetros principales son:</p>
+
+<ul>
+<li><p><code>mu</code> para especificar el valor de la media que queremos contrastar en un test de una media.</p></li>
+<li><p><code>paired</code> para indicar si en un contraste de dos medias usamos muestras independientes o emparejadas.</p></li>
+<li><p><code>var.equal</code> para indicar en un contraste de dos medias usando muestras independientes si las varianzas poblacionales son iguales o diferentes.</p></li>
+</ul></li>
+<li><p><code>SIGN.test</code> del paquete <strong>BSDA</strong>, realiza un test de signos para contrastar una mediana. Dispone del parámetro <code>md</code> para entrar la mediana a contrastar.</p></li>
+<li><p><code>wilcox.test</code>, para realizar tests de Wilcoxon y de Mann-Whitney para contrastar una o dos medianas (tanto usando muestras independientes como emparejadas). Sus parámetros son los mismos que los de <code>t.test</code> (salvo <code>var.equal</code>, que en estos tests no tiene sentido).</p></li>
+<li><p><code>sigma.test</code>, para realizar tests \(\chi^2\) para contrastar una varianza (o una desviación típica). Dispone de los parámetros <code>sigma</code> y <code>sigmasq</code> para indicar, respectivamente, la desviación típica o la varianza a contrastar.</p></li>
+<li><p><code>var.test</code>, para realizar tests F para contrastar dos varianzas (o dos desviaciones típicas).</p></li>
+<li><p><code>fligner.test</code>, para realizar tests no paramétricos de Fligner-Killeen para contrastar dos varianzas (o dos desviaciones típicas). No dispone de los parámetros <code>alternative</code> (solo sirve para contastes bilaterales) ni <code>conf.level</code> (no calcula intervalos de confianza).</p></li>
+<li><p><code>binom.test</code>, para realizar tests binomiales exactos para contrastar una proporción. Dispone del parámetro <code>p</code> para indicar la proporción a contrastar.</p></li>
+<li><p><code>prop.test</code>, para realizar tests aproximados para contrastar una proporción o dos proporciones de poblaciones usando muestras independientes. También dispone del parámetro <code>p</code> para indicar la proporción a contrastar en un contraste de una proporción.</p></li>
+<li><p><code>fisher.test</code>, para realizar tests exactos de Fisher para contrastar dos proporciones usando muestras independientes.</p></li>
+<li><p><code>mcnemar.test</code>, para realizar tests bilaterales de McNemar para contrastar dos proporciones usando muestras emparejadas. No dispone de los parámetros <code>alternative</code> ni <code>conf.level</code>.</p></li>
+<li><p><code>cohen.ES</code> del paquete <strong>pwr</strong>, da los valores aceptados por convenio como &ldquo;pequeño&rdquo;, &ldquo;mediano&rdquo; y &ldquo;grande&rdquo; para diferentes tests.</p></li>
+<li><code>pwr.t.test</code> del paquete <strong>pwr</strong>, relaciona el tamaño de la(s) muestra(s), el nivel de significación, la potencia y la magnitud del efecto (en el sentido de que si se entran tres de estos valores se obtiene el cuarto) en tests t de una media, de dos medias usando muestras emparejadas o de dos medias usando muestras independientes del mismo tamaño. Sus parámetros, son
+
+<ul>
+<li><code>n</code>: el tamaño de la muestra o de las muestras.</li>
+<li><code>sig.level</code>: el nivel de significación.</li>
+<li><code>power</code>: la potencia.</li>
+<li><code>d</code>: la magnitud del efecto</li>
+<li><code>type</code>: el tipo de muestras (una muestra, dos muestras emparejadas, dos muestras independientes).</li>
+<li><code>alternative</code>: el tipo de hipótesis alternativa.</li>
+</ul></li>
+<li><code>pwr.t2n.test</code>del paquete <strong>pwr</strong>, relaciona los tamaños de muestras, el nivel de significación, la potencia y la magnitud del efecto en tests t de dos medias usando muestras independientes de distinto tamaño. Sus parámetros son
+
+<ul>
+<li><code>n1</code> y <code>n2</code>: los tamaños de las dos muestras.</li>
+<li><code>sig.level</code>, <code>power</code>, <code>d</code> y <code>alternative</code> como en <code>pwr.t.test</code>.</li>
+</ul></li>
+<li><code>pwr.p.test</code> del paquete <strong>pwr</strong>, relaciona los tamaños de muestras, el nivel de significación, la potencia y la magnitud del efecto en contrastes aproximados de una proporción. Sus parámetros son
+
+<ul>
+<li><code>n</code>, <code>sig.level</code>, <code>power</code> y <code>alternative</code> como en <code>pwr.t.test</code>.</li>
+<li><code>h</code>: la magnitud del efecto</li>
+</ul></li>
+<li><p><code>pwr.2p.test</code> del paquete <strong>pwr</strong>, relaciona los tamaños de muestras, el nivel de significación, la potencia y la magnitud del efecto en contrastes aproximados de dos proporciones usando muestras independientes del mismo tamaño. Sus parámetros son los mismos que los de <code>pwr.p.test</code>.</p></li>
+<li><code>pwr.2p2n.test</code>, del paquete <strong>pwr</strong>, relaciona los tamaños de muestras, el nivel de significación, la potencia y la magnitud del efecto en contrastes aproximados de dos proporciones usando muestras de distinto tamaño. Sus parámetros son
+
+<ul>
+<li><code>n1</code> y <code>n2</code>: los tamaños de las dos muestras.</li>
+<li><code>sig.level</code>, <code>power</code> y <code>alternative</code> como en <code>pwr.p.test</code>.</li>
+</ul></li>
+</ul></article></slide>
 
 
   <slide class="backdrop"></slide>
