@@ -1,5 +1,4 @@
-\beamer@endinputifotherversion {3.33pt}
-\select@language {catalan}
+\babel@toc {catalan}{}
 \beamer@sectionintoc {1}{Bondat d'ajust}{2}{0}{1}
 \beamer@subsectionintoc {1}{1}{Introducci\IeC {\'o}}{2}{0}{1}
 \beamer@subsectionintoc {1}{2}{Test $\chi ^2$ de Pearson}{5}{0}{1}
