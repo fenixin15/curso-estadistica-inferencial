@@ -1,54 +1,4 @@
-\documentclass[12pt,t]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
-  \else
-    \Gin@nat@width
-  \fi
-}
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-\let\hlipl\hlkwb
-
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
+\documentclass[12pt,t]{beamer}
 % \documentclass[t]{beamer}
 
 \usepackage{pgfpages}
@@ -143,8 +93,12 @@ n\to\infty}}}
 \title[\red{Matemáticas III GINF}]{}
 \author[]{}
 \date{}
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+
+
+\usepackage{Sweave}
 \begin{document}
+\input{EstimacioPuntual_notas_clase-concordance}
 \beamertemplatedotitem
 
 \lstset{backgroundcolor=\color{green!50}}
@@ -467,46 +421,44 @@ $$
 \vspace*{-2ex}
 
 
-\begin{knitrout}\tiny
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlcom{# tests.txt=notas de un examen  sobre estadística descriptiva }
-\hlstd{notas}\hlkwb{=}\hlkwd{read.table}\hlstd{(}\hlstr{"http://bioinfo.uib.es/~recerca/matIII_GIN/notas.txt"}\hlstd{,} \hlkwc{header}\hlstd{=}\hlnum{TRUE}\hlstd{)}
-\hlkwd{str}\hlstd{(notas)}
-\end{alltt}
-\begin{verbatim}
-## 'data.frame':	185 obs. of  1 variable:
-##  $ x: num  54.5 60.1 53 57.3 54.4 ...
-\end{verbatim}
-\begin{alltt}
-\hlkwd{mean}\hlstd{(notas}\hlopt{$}\hlstd{x)}
-\end{alltt}
-\begin{verbatim}
-## [1] 55.32254
-\end{verbatim}
-\begin{alltt}
-\hlkwd{set.seed}\hlstd{(}\hlnum{100}\hlstd{)}
-\hlstd{medias}\hlkwb{=}\hlkwd{replicate}\hlstd{(}\hlnum{10}\hlopt{^}\hlnum{4}\hlstd{,}\hlkwd{mean}\hlstd{(}\hlkwd{sample}\hlstd{(notas}\hlopt{$}\hlstd{x,}\hlnum{40}\hlstd{,}\hlkwc{rep}\hlstd{=}\hlnum{TRUE}\hlstd{)))}
-\hlkwd{head}\hlstd{(medias)}
-\end{alltt}
-\begin{verbatim}
-## [1] 55.86225 55.90700 54.74575 56.39950 56.02750 54.99475
-\end{verbatim}
-\begin{alltt}
-\hlkwd{mean}\hlstd{(medias)}
-\end{alltt}
-\begin{verbatim}
-## [1] 55.33279
-\end{verbatim}
-\begin{alltt}
-\hlcom{#sd, por ir  deprisa}
-\hlkwd{c}\hlstd{(}\hlkwd{sd}\hlstd{(notas}\hlopt{$}\hlstd{x)}\hlopt{/}\hlkwd{sqrt}\hlstd{(}\hlnum{40}\hlstd{),}\hlkwd{sd}\hlstd{(medias))}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.5209303 0.5156658
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> # tests.txt=notas de un examen  sobre estadística descriptiva 
+> notas=read.table("http://bioinfo.uib.es/~recerca/matIII_GIN/notas.txt", header=TRUE)
+> str(notas)
+\end{Sinput}
+\begin{Soutput}
+'data.frame':	185 obs. of  1 variable:
+ $ x: num  54.5 60.1 53 57.3 54.4 ...
+\end{Soutput}
+\begin{Sinput}
+> mean(notas$x)
+\end{Sinput}
+\begin{Soutput}
+[1] 55.32254
+\end{Soutput}
+\begin{Sinput}
+> set.seed(100)
+> medias=replicate(10^4,mean(sample(notas$x,40,rep=TRUE)))
+> head(medias)
+\end{Sinput}
+\begin{Soutput}
+[1] 54.72700 55.14975 54.79800 56.43350 54.36725 54.97000
+\end{Soutput}
+\begin{Sinput}
+> mean(medias)
+\end{Sinput}
+\begin{Soutput}
+[1] 55.3281
+\end{Soutput}
+\begin{Sinput}
+> #sd, por ir  deprisa
+> c(sd(notas$x)/sqrt(40),sd(medias))
+\end{Sinput}
+\begin{Soutput}
+[1] 0.5209303 0.5252889
+\end{Soutput}
+\end{Schunk}
 
 
 \end{frame}
@@ -607,23 +559,19 @@ $$
 
 \begin{frame}[fragile]
 \frametitle{Teorema Central del Límite}
-\begin{knitrout}\tiny
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlcom{# con los datos de las  10000 medias de muestras}
-\hlcom{#de tamaño 40  las notas anteriores}
-\hlkwd{hist}\hlstd{(medias,}\hlkwc{freq}\hlstd{=}\hlnum{FALSE}\hlstd{,} \hlkwc{main}\hlstd{=}\hlstr{"Histograma 
- de les medias de 10000 muestras de 40 notas"}\hlstd{,}\hlkwc{ylab}\hlstd{=}\hlstr{"Densidad"}\hlstd{,}\hlkwc{ylim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{0.8}\hlstd{))}
-\hlkwd{lines}\hlstd{(}\hlkwd{density}\hlstd{(medias),}\hlkwc{lty}\hlstd{=}\hlnum{2}\hlstd{,}\hlkwc{lwd}\hlstd{=}\hlnum{2}\hlstd{,}\hlkwc{col}\hlstd{=}\hlstr{"red"}\hlstd{)}
-\hlkwd{curve}\hlstd{(}\hlkwd{dnorm}\hlstd{(x,}\hlkwd{mean}\hlstd{(notas}\hlopt{$}\hlstd{x),}\hlkwd{sd}\hlstd{(notas}\hlopt{$}\hlstd{x)}\hlopt{/}\hlkwd{sqrt}\hlstd{(}\hlnum{40}\hlstd{)),}
- \hlkwc{lty}\hlstd{=}\hlnum{3}\hlstd{,}\hlkwc{lwd}\hlstd{=}\hlnum{2}\hlstd{,}\hlkwc{col}\hlstd{=}\hlstr{"blue"}\hlstd{,}\hlkwc{add}\hlstd{=}\hlnum{TRUE}\hlstd{)}
-\hlkwd{legend}\hlstd{(}\hlstr{"topright"}\hlstd{,}\hlkwc{legend}\hlstd{=}\hlkwd{c}\hlstd{(}\hlstr{"densidad"}\hlstd{,}\hlstr{"normal"}\hlstd{),}
- \hlkwc{lwd}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{2}\hlstd{,}\hlnum{2}\hlstd{),}\hlkwc{lty}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{2}\hlstd{,}\hlnum{3}\hlstd{),}\hlkwc{col}\hlstd{=}\hlkwd{c}\hlstd{(}\hlstr{"red"}\hlstd{,}\hlstr{"blue"}\hlstd{))}
-\end{alltt}
-\end{kframe}
-\includegraphics[width=\maxwidth]{figure/notas_y_2-1} 
-
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> # con los datos de las  10000 medias de muestras
+> #de tamaño 40  las notas anteriores
+> hist(medias,freq=FALSE, main="Histograma 
++  de les medias de 10000 muestras de 40 notas",ylab="Densidad",ylim=c(0,0.8))
+> lines(density(medias),lty=2,lwd=2,col="red")
+> curve(dnorm(x,mean(notas$x),sd(notas$x)/sqrt(40)),
++  lty=3,lwd=2,col="blue",add=TRUE)
+> legend("topright",legend=c("densidad","normal"),
++  lwd=c(2,2),lty=c(2,3),col=c("red","blue"))
+\end{Sinput}
+\end{Schunk}
 
 \end{frame}
 
@@ -1137,31 +1085,27 @@ Sentados en una terraza de un bar del Paseo Marítimo de Palma hemos anotado el 
 \vspace*{-1ex}
 
 
-\begin{knitrout}\scriptsize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{taxis}\hlkwb{=}\hlkwd{c}\hlstd{(}\hlnum{1217}\hlstd{,}\hlnum{600}\hlstd{,}\hlnum{883}\hlstd{,}\hlnum{1026}\hlstd{,}\hlnum{150}\hlstd{,}\hlnum{715}\hlstd{,}\hlnum{297}\hlstd{,}\hlnum{137}\hlstd{,}\hlnum{508}\hlstd{,}\hlnum{134}\hlstd{,}\hlnum{38}\hlstd{,}\hlnum{961}\hlstd{,}\hlnum{538}\hlstd{,}\hlnum{1154}\hlstd{,}
-        \hlnum{314}\hlstd{,}\hlnum{1121}\hlstd{,}\hlnum{823}\hlstd{,}\hlnum{158}\hlstd{,}\hlnum{940}\hlstd{,}\hlnum{99}\hlstd{,}\hlnum{977}\hlstd{,}\hlnum{286}\hlstd{,}\hlnum{1006}\hlstd{,}\hlnum{1207}\hlstd{,}\hlnum{264}\hlstd{,}\hlnum{1183}\hlstd{,}\hlnum{1120}\hlstd{,}
-        \hlnum{498}\hlstd{,}\hlnum{606}\hlstd{,}\hlnum{566}\hlstd{,}\hlnum{1239}\hlstd{,}\hlnum{860}\hlstd{,}\hlnum{114}\hlstd{,}\hlnum{701}\hlstd{,}\hlnum{381}\hlstd{,}\hlnum{836}\hlstd{,}\hlnum{561}\hlstd{,}\hlnum{494}\hlstd{,}\hlnum{858}\hlstd{,}\hlnum{187}\hlstd{)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> taxis=c(1217,600,883,1026,150,715,297,137,508,134,38,961,538,1154,
++         314,1121,823,158,940,99,977,286,1006,1207,264,1183,1120,
++         498,606,566,1239,860,114,701,381,836,561,494,858,187)
+\end{Sinput}
+\end{Schunk}
 
 \vspace*{-1ex}
 
 Supondremos que estas observaciones son  una m.a.s. de los taxis de Palma. Entonces, estimamos  que el número de taxis de Palma es
 \vspace*{-1ex}
-\begin{knitrout}\scriptsize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{N}\hlkwb{=}\hlkwd{max}\hlstd{(taxis)}\hlopt{+}\hlstd{(}\hlkwd{max}\hlstd{(taxis)}\hlopt{-}\hlkwd{length}\hlstd{(taxis))}\hlopt{/}\hlkwd{length}\hlstd{(taxis)}
-\hlstd{N}
-\end{alltt}
-\begin{verbatim}
-## [1] 1268.975
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> N=max(taxis)+(max(taxis)-length(taxis))/length(taxis)
+> N
+\end{Sinput}
+\begin{Soutput}
+[1] 1268.975
+\end{Soutput}
+\end{Schunk}
 \vspace*{-1ex}
 En realidad, hay  1246 
 \medskip
@@ -1440,17 +1384,13 @@ $$
 P(\mbox{$k$ marcados de $n$ capturados})=\dfrac{\binom{K}{k}\cdot \binom{N-K}{n-k}}{\binom{N}{n}}
 $$
 
-\begin{knitrout}\tiny
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{N}\hlkwb{=}\hlnum{15}\hlopt{:}\hlnum{100}
-\hlstd{p}\hlkwb{=}\hlkwd{choose}\hlstd{(}\hlnum{15}\hlstd{,}\hlnum{4}\hlstd{)}\hlopt{*}\hlkwd{choose}\hlstd{(N}\hlopt{-}\hlnum{15}\hlstd{,}\hlnum{6}\hlstd{)}\hlopt{/}\hlkwd{choose}\hlstd{(N,}\hlnum{10}\hlstd{)}
-\hlkwd{plot}\hlstd{(N,p,}\hlkwc{type}\hlstd{=}\hlstr{"h"}\hlstd{,}\hlkwc{xaxp}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{15}\hlstd{,}\hlnum{100}\hlstd{,}\hlnum{17}\hlstd{))}
-\end{alltt}
-\end{kframe}
-\includegraphics[width=\maxwidth]{figure/Marca_recaptura-1} 
-
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> N=15:100
+> p=choose(15,4)*choose(N-15,6)/choose(N,10)
+> plot(N,p,type="h",xaxp=c(15,100,17))
+\end{Sinput}
+\end{Schunk}
 %\vspace*{-4ex}
 
 % \begin{center}

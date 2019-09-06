@@ -5,17 +5,13 @@ $$
 P(\mbox{$k$ marcados de $n$ capturados})=\dfrac{\binom{K}{k}\cdot \binom{N-K}{n-k}}{\binom{N}{n}}
 $$
 
-\begin{knitrout}\tiny
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{N}\hlkwb{=}\hlnum{15}\hlopt{:}\hlnum{100}
-\hlstd{p}\hlkwb{=}\hlkwd{choose}\hlstd{(}\hlnum{15}\hlstd{,}\hlnum{4}\hlstd{)}\hlopt{*}\hlkwd{choose}\hlstd{(N}\hlopt{-}\hlnum{15}\hlstd{,}\hlnum{6}\hlstd{)}\hlopt{/}\hlkwd{choose}\hlstd{(N,}\hlnum{10}\hlstd{)}
-\hlkwd{plot}\hlstd{(N,p,}\hlkwc{type}\hlstd{=}\hlstr{"h"}\hlstd{,}\hlkwc{xaxp}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{15}\hlstd{,}\hlnum{100}\hlstd{,}\hlnum{17}\hlstd{))}
-\end{alltt}
-\end{kframe}
-\includegraphics[width=\maxwidth]{figure/Marca_recaptura-1}
-
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> N=15:100
+> p=choose(15,4)*choose(N-15,6)/choose(N,10)
+> plot(N,p,type="h",xaxp=c(15,100,17))
+\end{Sinput}
+\end{Schunk}
 %\vspace*{-4ex}
 
 % \begin{center}
