@@ -35,7 +35,9 @@ El problema usual de la **estadística inferencial** es:
 <l class="definition"> Muestra aleatoria simple (m.a.s.) de tamaño $n$</l>: de una población de $N$ individuos, repetimos $n$ veces el proceso consistente en escoger **equiprobablemente** un individuo de la población; *los individuos escogidos se pueden repetir*
 
 <div class="example"> 
-Ejemplo: escogemos  al azar $n$ estudiantes de la Universidad de las Islas Baleares (UIB) (con reposición) para medirles la estatura
+**Ejemplo** 
+
+Escogemos  al azar $n$ estudiantes de la Universidad de las Islas Baleares (UIB) (con reposición) para medirles la estatura
 </div>
 
 De esta manera, todas las muestras posibles de $n$ individuos (posiblemente repetidos: *multiconjuntos*) tienen la misma probabilidad
@@ -273,7 +275,7 @@ $$
 
 <div class="example-sol">
 En el gráfico siguiente podemos observar el histograma de los valores medios de las longitudes del pétalo de las 10000 muestras junto con la distribución normal correspondiente:
-```{r echo=FALSE}
+```{r echo=FALSE, fig.align='center'}
 hist(valores.medios.long.pétalo,freq=FALSE, main="Histograma 
  de las medias de 10000 muestras\n de tamaño 40 de las longitudes del pétalo",xlab="Valores medios de las longitudes del pétalo",ylab="Densidad",ylim=c(0,1.5))
 lines(density(valores.medios.long.pétalo),lty=2,lwd=2,col="red")
@@ -286,7 +288,7 @@ legend("topright",legend=c("densidad","normal"),
 
 ## Ejemplo
 <div class="example">
-El tamaño en megabytes (MB)  de un  tipo de imágenes comprimidas tiene  un  valor medio de   $115$ MB, con una desviación típica de $25$. Tomamos  una m.a.s. de $100$ imágenes de este tipo.
+El tamaño en megabytes (MB)  de un  tipo de imágenes comprimidas tiene  un  valor medio de $115$ MB, con una desviación típica de $25$. Tomamos  una m.a.s. de $100$ imágenes de este tipo.
 
 ¿Cuál es la probabilidad de que la media muestral del tamaño de los ficheros  sea $\leq 110$ MB?
 </div>
@@ -340,12 +342,16 @@ Notemos que $\widehat{p}_X$ es un caso particular de $\overline{X}$, por lo que 
 
 ## Proporción muestral. Propiedades
 
-* Valor esperado de la proporción muestral: $E(\widehat{p}_X)=p_X$.
+* Valor esperado de la proporción muestral: 
+$$E(\widehat{p}_X)=p_X$$
 
-* **Error estándar** de la proporción muestral: $\displaystyle \sigma_{\widehat{p}_X}=\sqrt{\frac{p_X(1-p_X)}{n}}$
+* **Error estándar** de la proporción muestral: 
+
+$$\displaystyle \sigma_{\widehat{p}_X}=\sqrt{\frac{p_X(1-p_X)}{n}}$$
 
 * Si la muestra es sin reposición y $n$ es relativamente grande,
-$\displaystyle\sigma_{\widehat{p}_X}=\sqrt{\frac{p_X(1-p_X)}{n}}\cdot{\sqrt{\frac{N-n}{N-1}}}$.
+
+$$\displaystyle\sigma_{\widehat{p}_X}=\sqrt{\frac{p_X(1-p_X)}{n}}\cdot{\sqrt{\frac{N-n}{N-1}}}.$$
 
 ## Proporción muestral. Propiedades
 
@@ -405,7 +411,7 @@ valor muy próximo al valor real que vale: $\displaystyle \sigma_{\widehat{p}_X}
 ## Proporción muestral. Ejemplo.
 <div class="example-sol">
 En el gráfico siguiente podemos observar el histograma de las proporciones muestrales de las 10000 muestras junto con la distribución normal correspondiente:
-```{r echo=FALSE}
+```{r echo=FALSE, fig.align='center'}
 hist(props.muestrales,freq=FALSE, main="Histograma 
  de las proporciones muestrales de 10000 muestras\n de tamaño 60",xlab="Proporciones muestrales",ylab="Densidad",ylim=c(0,6.5))
 lines(density(props.muestrales),lty=2,lwd=2,col="red")
@@ -420,7 +426,7 @@ legend("topright",legend=c("densidad","normal"),
 # Varianza muestral y desviación típica muestral
 
 ## Varianza muestral y desviación típica muestral. Definición
-<l class="definition"> Varianza muestral y desviación típica muestral. </l> Sea $X_1,\ldots, X_n$ una m.a.s. de tamaño $n$ de una v.a. $X$ de esperanza $\mu_X$ y desviación típica $\sigma_X$.
+<l class="definition"> Varianza muestral y desviación típica muestral.</l> Sea $X_1,\ldots, X_n$ una m.a.s. de tamaño $n$ de una v.a. $X$ de esperanza $\mu_X$ y desviación típica $\sigma_X$.
 
 La **varianza muestral** es
 $$
