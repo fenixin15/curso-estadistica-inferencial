@@ -1,54 +1,4 @@
-\documentclass[12pt,t]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
-  \else
-    \Gin@nat@width
-  \fi
-}
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-\let\hlipl\hlkwb
-
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
+\documentclass[12pt,t]{beamer}
 % \documentclass[t]{beamer}
 
 \usepackage{pgfpages}
@@ -145,8 +95,12 @@ n\to\infty}}}
 \title[\red{Matemáticas III GINF}]{}
 \author[]{}
 \date{}
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+
+
+\usepackage{Sweave}
 \begin{document}
+\input{Intervalos_notas_clase-concordance}
 \beamertemplatedotitem
 
 \lstset{backgroundcolor=\color{green!50}}
@@ -511,27 +465,25 @@ Observad que está centrado   en $\overline{X}$
 \frametitle{I.C. para $\mu$ de población normal con $\sigma$ conocida}
 \vspace*{-4ex}
 
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{ICZ}\hlkwb{=}\hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{,}\hlkwc{sigma}\hlstd{,}\hlkwc{alpha}\hlstd{)\{}
-  \hlkwd{c}\hlstd{(}\hlkwd{mean}\hlstd{(x)}\hlopt{-}\hlkwd{qnorm}\hlstd{(}\hlnum{1}\hlopt{-}\hlstd{alpha}\hlopt{/}\hlnum{2}\hlstd{)}\hlopt{*}\hlstd{sigma}\hlopt{/}\hlkwd{sqrt}\hlstd{(}\hlkwd{length}\hlstd{(x)),}
-  \hlkwd{mean}\hlstd{(x)}\hlopt{+}\hlkwd{qnorm}\hlstd{(}\hlnum{1}\hlopt{-}\hlstd{alpha}\hlopt{/}\hlnum{2}\hlstd{)}\hlopt{*}\hlstd{sigma}\hlopt{/}\hlkwd{sqrt}\hlstd{(}\hlkwd{length}\hlstd{(x)))\}}
-\hlkwd{set.seed}\hlstd{(}\hlnum{5}\hlstd{)}
-\hlstd{mu}\hlkwb{=}\hlnum{1.5}\hlstd{; sigma}\hlkwb{=}\hlnum{1}\hlstd{; alpha}\hlkwb{=}\hlnum{0.05}
-\hlstd{Población}\hlkwb{=}\hlkwd{rnorm}\hlstd{(}\hlnum{10}\hlopt{^}\hlnum{6}\hlstd{,mu,sigma)}
-\hlstd{M}\hlkwb{=}\hlkwd{replicate}\hlstd{(}\hlnum{100}\hlstd{,}\hlkwd{ICZ}\hlstd{(}\hlkwd{sample}\hlstd{(Población,}\hlnum{50}\hlstd{,}\hlkwc{replace}\hlstd{=T),}
- \hlstd{sigma,alpha))}
-\hlkwd{plot}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{10}\hlstd{,}\hlkwc{type}\hlstd{=}\hlstr{"n"}\hlstd{,}\hlkwc{xlim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{1.2}\hlstd{,}\hlnum{1.8}\hlstd{),}\hlkwc{ylim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{100}\hlstd{),}
-\hlkwc{xlab}\hlstd{=}\hlstr{"Valores"}\hlstd{,}\hlkwc{ylab}\hlstd{=}\hlstr{"Replicaciones"}\hlstd{)}
-\hlstd{seg.int}\hlkwb{=}\hlkwa{function}\hlstd{(}\hlkwc{i}\hlstd{)\{color}\hlkwb{=}\hlstr{"grey"}\hlstd{;}
-  \hlkwa{if}\hlstd{((mu}\hlopt{<}\hlstd{M[}\hlnum{1}\hlstd{,i])} \hlopt{|} \hlstd{(mu}\hlopt{>}\hlstd{M[}\hlnum{2}\hlstd{,i]))\{color} \hlkwb{=} \hlstr{"red"}\hlstd{\}}
-  \hlkwd{segments}\hlstd{(M[}\hlnum{1}\hlstd{,i],i,M[}\hlnum{2}\hlstd{,i],i,}\hlkwc{col}\hlstd{=color,}\hlkwc{lwd}\hlstd{=}\hlnum{3}\hlstd{)\}}
-\hlkwd{invisible}\hlstd{(}\hlkwd{sapply}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{100}\hlstd{,}\hlkwc{FUN}\hlstd{=seg.int))}
-\hlkwd{abline}\hlstd{(}\hlkwc{v}\hlstd{=mu,}\hlkwc{lwd}\hlstd{=}\hlnum{3}\hlstd{)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> ICZ=function(x,sigma,alpha){
++   c(mean(x)-qnorm(1-alpha/2)*sigma/sqrt(length(x)), 
++   mean(x)+qnorm(1-alpha/2)*sigma/sqrt(length(x)))}
+> set.seed(5)
+> mu=1.5; sigma=1; alpha=0.05
+> Población=rnorm(10^6,mu,sigma)
+> M=replicate(100,ICZ(sample(Población,50,replace=T),
++  sigma,alpha))
+> plot(1:10,type="n",xlim=c(1.2,1.8),ylim=c(0,100),
++ xlab="Valores",ylab="Replicaciones")
+> seg.int=function(i){color="grey";
++   if((mu<M[1,i]) | (mu>M[2,i])){color = "red"}
++   segments(M[1,i],i,M[2,i],i,col=color,lwd=3)}
+> invisible(sapply(1:100,FUN=seg.int))
+> abline(v=mu,lwd=3)
+\end{Sinput}
+\end{Schunk}
 
 \end{frame}
 
@@ -543,11 +495,6 @@ Observad que está centrado   en $\overline{X}$
 % \begin{center}
 % \includegraphics[width=0.9\linewidth]{intervals1}
 % \end{center}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=0.9\linewidth]{figure/plot_intervalos-1} 
-
-\end{knitrout}
 
 
 
@@ -604,20 +551,18 @@ La probabilidad que un parámetro $\mu$ que haya producido la muestra esté en e
 Queremos que analizar un sensor que mide la temperatura de un procesador en grados centígrados \footnote{En concreto un \emph{Intel Core i7-2600K}} que tiene 	como temperatura normal de  $32^{\circ}$ a $40^{\circ}$. Para saber si está bien calibrado, diseñamos un experimento en el que ponemos  el procesador el procesador en las mismas condiciones y  tomamos 40 muestras de su temperatura.
 Los resultados son los siguientes:
 
-\begin{knitrout}\small
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{temperatura}\hlkwb{=}\hlkwd{c}\hlstd{(}\hlnum{36}\hlstd{,}\hlnum{35}\hlstd{,}\hlnum{38}\hlstd{,}\hlnum{38}\hlstd{,}\hlnum{36}\hlstd{,}\hlnum{37}\hlstd{,}\hlnum{38}\hlstd{,}\hlnum{36}\hlstd{,}\hlnum{37}\hlstd{,}\hlnum{36}\hlstd{,}
-              \hlnum{37}\hlstd{,}\hlnum{37}\hlstd{,}\hlnum{34}\hlstd{,}\hlnum{38}\hlstd{,}\hlnum{35}\hlstd{,}\hlnum{37}\hlstd{,}\hlnum{36}\hlstd{,}\hlnum{36}\hlstd{,}\hlnum{34}\hlstd{,}\hlnum{38}\hlstd{,}
-              \hlnum{36}\hlstd{,}\hlnum{37}\hlstd{,}\hlnum{35}\hlstd{,}\hlnum{35}\hlstd{,}\hlnum{35}\hlstd{,}\hlnum{35}\hlstd{,}\hlnum{36}\hlstd{,}\hlnum{36}\hlstd{,}\hlnum{36}\hlstd{,}\hlnum{35}\hlstd{,}
-              \hlnum{36}\hlstd{,}\hlnum{35}\hlstd{,}\hlnum{34}\hlstd{,}\hlnum{34}\hlstd{,}\hlnum{37}\hlstd{,}\hlnum{37}\hlstd{,}\hlnum{35}\hlstd{,}\hlnum{36}\hlstd{,}\hlnum{34}\hlstd{,}\hlnum{36}\hlstd{)}
-\hlkwd{mean}\hlstd{(temperatura)}
-\end{alltt}
-\begin{verbatim}
-## [1] 35.975
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> temperatura=c(36,35,38,38,36,37,38,36,37,36,
++               37,37,34,38,35,37,36,36,34,38,
++               36,37,35,35,35,35,36,36,36,35,
++               36,35,34,34,37,37,35,36,34,36)
+> mean(temperatura)
+\end{Sinput}
+\begin{Soutput}
+[1] 35.975
+\end{Soutput}
+\end{Schunk}
 
 \end{frame}
 
@@ -639,16 +584,14 @@ Tenemos las siguientes condiciones:
 \begin{itemize}
 \item Con la tabla de $Z$, $P(Z\leq 1.64)=0.9495\approx 0.95$
 \item Con R
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{qnorm}\hlstd{(}\hlnum{0.95}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 1.644854
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> qnorm(0.95)
+\end{Sinput}
+\begin{Soutput}
+[1] 1.644854
+\end{Soutput}
+\end{Schunk}
 \end{itemize}
 \end{itemize}
 
@@ -870,11 +813,6 @@ curve(dt(x, df = 10), col = "darkblue", add = TRUE)
 
 %\includegraphics[width=0.95\linewidth]{tstud-div.pdf}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/plotStudent-1} 
-
-\end{knitrout}
 
 
 
@@ -1009,23 +947,20 @@ Consultando las tablas de la distribución  $t$ de Student, Obtenemos $t_{24,0.9
 
 \blue{Con esta muestra ¿la media   poblacional anunciada por fabricante cae en el  intervalo de confianza  del 90\%?}
 
-\begin{knitrout}\small
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{qt}\hlstd{(}\hlnum{0.95}\hlstd{,}\hlnum{24}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 1.710882
-\end{verbatim}
-\begin{alltt}
-\hlkwd{round}\hlstd{(}\hlkwd{qt}\hlstd{(}\hlnum{0.95}\hlstd{,}\hlnum{24}\hlstd{),}\hlnum{2}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 1.71
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-
+\begin{Schunk}
+\begin{Sinput}
+> qt(0.95,24)
+\end{Sinput}
+\begin{Soutput}
+[1] 1.710882
+\end{Soutput}
+\begin{Sinput}
+> round(qt(0.95,24),2)
+\end{Sinput}
+\begin{Soutput}
+[1] 1.71
+\end{Soutput}
+\end{Schunk}
 
 Operando: $]531.962,504.038[$, y no contiene a 500 (¡pero se equivoca a favor del consumidor!)
 \end{frame}
@@ -1173,42 +1108,38 @@ El siguiente código simula este experimento supuesto que la tasa de alcoholemia
 
 
 
-\begin{knitrout}\scriptsize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{set.seed}\hlstd{(}\hlnum{1234}\hlstd{)}\hlcom{# por reproducibilidad}
-\hlstd{tasa_alcoholemia}\hlkwb{=}\hlkwd{round}\hlstd{(}\hlkwd{rnorm}\hlstd{(}\hlnum{40}\hlstd{,}\hlkwc{mean}\hlstd{=}\hlnum{0.7}\hlstd{,}\hlkwc{sd}\hlstd{=}\hlnum{0.1}\hlstd{),}\hlnum{2}\hlstd{)}
-\hlkwd{head}\hlstd{(tasa_alcoholemia,}\hlnum{10}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-##  [1] 0.58 0.73 0.81 0.47 0.74 0.75 0.64 0.65 0.64 0.61
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> set.seed(1234)# por reproducibilidad
+> tasa_alcoholemia=round(rnorm(40,mean=0.7,sd=0.1),2)
+> head(tasa_alcoholemia,10)
+\end{Sinput}
+\begin{Soutput}
+ [1] 0.58 0.73 0.81 0.47 0.74 0.75 0.64 0.65 0.64 0.61
+\end{Soutput}
+\end{Schunk}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Ejemplo}
 \vspace*{-2ex}
 
-\begin{knitrout}\scriptsize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{media}\hlkwb{=}\hlkwd{round}\hlstd{(}\hlkwd{mean}\hlstd{(tasa_alcoholemia),}\hlnum{3}\hlstd{)}
-\hlstd{media}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.659
-\end{verbatim}
-\begin{alltt}
-\hlstd{des.tip}\hlkwb{=}\hlkwd{round}\hlstd{(}\hlkwd{sd}\hlstd{(tasa_alcoholemia),}\hlnum{3}\hlstd{)}
-\hlstd{des.tip}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.091
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> media=round(mean(tasa_alcoholemia),3)
+> media
+\end{Sinput}
+\begin{Soutput}
+[1] 0.659
+\end{Soutput}
+\begin{Sinput}
+> des.tip=round(sd(tasa_alcoholemia),3)
+> des.tip
+\end{Sinput}
+\begin{Soutput}
+[1] 0.091
+\end{Soutput}
+\end{Schunk}
 Así que tenemos los siguientes estadísticos
 $$
 \overline{x}=0.659,\quad \widetilde{s}=0.091
@@ -1285,45 +1216,41 @@ $$
 $$
 Con estos valores obtenemos que 
 
-\begin{knitrout}\small
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{media}\hlkwb{=}\hlnum{9.5}
-\hlstd{sd}\hlkwb{=}\hlnum{0.5}
-\hlstd{n}\hlkwb{=}\hlnum{1000}
-\hlstd{alpha}\hlkwb{=}\hlnum{0.5}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> media=9.5
+> sd=0.5
+> n=1000
+> alpha=0.5
+\end{Sinput}
+\end{Schunk}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Ejemplo}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{cuantil}\hlkwb{=}\hlkwd{qnorm}\hlstd{(}\hlnum{1}\hlopt{-}\hlnum{0.5}\hlopt{/}\hlnum{2}\hlstd{)}
-\hlstd{cuantil}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.6744898
-\end{verbatim}
-\begin{alltt}
-\hlstd{a}\hlkwb{=}\hlkwd{round}\hlstd{(media}\hlopt{-}\hlstd{cuantil}\hlopt{*}\hlstd{sd}\hlopt{/}\hlkwd{sqrt}\hlstd{(n),}\hlnum{3}\hlstd{)}
-\hlstd{a}
-\end{alltt}
-\begin{verbatim}
-## [1] 9.489
-\end{verbatim}
-\begin{alltt}
-\hlstd{b}\hlkwb{=}\hlkwd{round}\hlstd{(media}\hlopt{+}\hlstd{cuantil}\hlopt{*}\hlstd{sd}\hlopt{/}\hlkwd{sqrt}\hlstd{(n),}\hlnum{3}\hlstd{)}
-\hlstd{b}
-\end{alltt}
-\begin{verbatim}
-## [1] 9.511
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> cuantil=qnorm(1-0.5/2)
+> cuantil
+\end{Sinput}
+\begin{Soutput}
+[1] 0.6744898
+\end{Soutput}
+\begin{Sinput}
+> a=round(media-cuantil*sd/sqrt(n),3)
+> a
+\end{Sinput}
+\begin{Soutput}
+[1] 9.489
+\end{Soutput}
+\begin{Sinput}
+> b=round(media+cuantil*sd/sqrt(n),3)
+> b
+\end{Sinput}
+\begin{Soutput}
+[1] 9.511
+\end{Soutput}
+\end{Schunk}
 
 
 
@@ -1473,21 +1400,19 @@ para calcularlo
 \blue{De 10 pacientes tratados con un medicamento, 2 se han curado. Dar un intervalo de confianza  del 95\% I.C. 
 para  la proporción poblacional $p$ de pacientes que este medicamento sana}
 
-\begin{knitrout}\scriptsize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlcom{#descomentar para instalar}
-\hlcom{#install.packages("epitools",dep=TRUE)}
-\hlkwd{library}\hlstd{(epitools)}
-\hlstd{solución}\hlkwb{=}\hlkwd{round}\hlstd{(}\hlkwd{binom.exact}\hlstd{(}\hlnum{2}\hlstd{,}\hlnum{10}\hlstd{,}\hlnum{0.95}\hlstd{),}\hlnum{3}\hlstd{)}
-\hlstd{solución}
-\end{alltt}
-\begin{verbatim}
-##   x  n proportion lower upper conf.level
-## 1 2 10        0.2 0.025 0.556       0.95
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> #descomentar para instalar
+> #install.packages("epitools",dep=TRUE)
+> library(epitools)
+> solución=round(binom.exact(2,10,0.95),3)
+> solución
+\end{Sinput}
+\begin{Soutput}
+  x  n proportion lower upper conf.level
+1 2 10        0.2 0.025 0.556       0.95
+\end{Soutput}
+\end{Schunk}
 
 Da $]0.025,0.556[$
 \end{frame}
@@ -1621,24 +1546,22 @@ $$
 Con los otros métodos:
 
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{round}\hlstd{(}\hlkwd{binom.exact}\hlstd{(}\hlnum{340}\hlstd{,}\hlnum{500}\hlstd{,}\hlnum{0.95}\hlstd{),}\hlnum{3}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-##     x   n proportion lower upper conf.level
-## 1 340 500       0.68 0.637 0.721       0.95
-\end{verbatim}
-\begin{alltt}
-\hlkwd{round}\hlstd{(}\hlkwd{binom.wilson}\hlstd{(}\hlnum{340}\hlstd{,}\hlnum{500}\hlstd{,}\hlnum{0.95}\hlstd{),}\hlnum{3}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-##     x   n proportion lower upper conf.level
-## 1 340 500       0.68 0.638 0.719       0.95
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> round(binom.exact(340,500,0.95),3)
+\end{Sinput}
+\begin{Soutput}
+    x   n proportion lower upper conf.level
+1 340 500       0.68 0.637 0.721       0.95
+\end{Soutput}
+\begin{Sinput}
+> round(binom.wilson(340,500,0.95),3)
+\end{Sinput}
+\begin{Soutput}
+    x   n proportion lower upper conf.level
+1 340 500       0.68 0.638 0.719       0.95
+\end{Soutput}
+\end{Schunk}
 
 
 Obtenemos:
@@ -1889,32 +1812,30 @@ $95\%$
 \red{$\displaystyle \left] \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2},
 \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}
 \right[$}
-\begin{knitrout}\footnotesize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlstd{tiempo}\hlkwb{=}\hlkwd{c}\hlstd{(}\hlnum{12}\hlstd{,} \hlnum{13}\hlstd{,} \hlnum{13}\hlstd{,} \hlnum{14}\hlstd{,} \hlnum{14}\hlstd{,} \hlnum{14}\hlstd{,} \hlnum{15}\hlstd{,} \hlnum{15}\hlstd{,} \hlnum{16}\hlstd{,} \hlnum{17}\hlstd{,}
-         \hlnum{17}\hlstd{,} \hlnum{18}\hlstd{,} \hlnum{18}\hlstd{,} \hlnum{19}\hlstd{,} \hlnum{19}\hlstd{,} \hlnum{25}\hlstd{,} \hlnum{25}\hlstd{,} \hlnum{26}\hlstd{,} \hlnum{27}\hlstd{,} \hlnum{30}\hlstd{,}
-         \hlnum{33}\hlstd{,} \hlnum{34}\hlstd{,} \hlnum{35}\hlstd{,} \hlnum{40}\hlstd{,} \hlnum{40}\hlstd{,} \hlnum{51}\hlstd{,} \hlnum{51}\hlstd{,} \hlnum{58}\hlstd{,} \hlnum{59}\hlstd{,} \hlnum{83}\hlstd{)}
-\hlstd{n}\hlkwb{=}\hlkwd{length}\hlstd{(tiempo)}
-\hlstd{n}
-\end{alltt}
-\begin{verbatim}
-## [1] 30
-\end{verbatim}
-\begin{alltt}
-\hlkwd{var}\hlstd{(tiempo)}
-\end{alltt}
-\begin{verbatim}
-## [1] 301.5506
-\end{verbatim}
-\begin{alltt}
-\hlkwd{sd}\hlstd{(tiempo)}
-\end{alltt}
-\begin{verbatim}
-## [1] 17.36521
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> tiempo=c(12, 13, 13, 14, 14, 14, 15, 15, 16, 17,
++          17, 18, 18, 19, 19, 25, 25, 26, 27, 30,
++          33, 34, 35, 40, 40, 51, 51, 58, 59, 83)
+> n=length(tiempo)
+> n
+\end{Sinput}
+\begin{Soutput}
+[1] 30
+\end{Soutput}
+\begin{Sinput}
+> var(tiempo)
+\end{Sinput}
+\begin{Soutput}
+[1] 301.5506
+\end{Soutput}
+\begin{Sinput}
+> sd(tiempo)
+\end{Sinput}
+\begin{Soutput}
+[1] 17.36521
+\end{Soutput}
+\end{Schunk}
 \end{frame}
  
 \begin{frame}[fragile]
@@ -1923,24 +1844,22 @@ $95\%$
 \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}
 \right[$}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlcom{#cuantiles}
-\hlstd{alpha}\hlkwb{=}\hlnum{0.05}
-\hlkwd{qchisq}\hlstd{(alpha}\hlopt{/}\hlnum{2}\hlstd{,n}\hlopt{-}\hlnum{1}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 16.04707
-\end{verbatim}
-\begin{alltt}
-\hlkwd{qchisq}\hlstd{(}\hlnum{1}\hlopt{-}\hlstd{alpha}\hlopt{/}\hlnum{2}\hlstd{,n}\hlopt{-}\hlnum{1}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 45.72229
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> #cuantiles
+> alpha=0.05
+> qchisq(alpha/2,n-1)
+\end{Sinput}
+\begin{Soutput}
+[1] 16.04707
+\end{Soutput}
+\begin{Sinput}
+> qchisq(1-alpha/2,n-1)
+\end{Sinput}
+\begin{Soutput}
+[1] 45.72229
+\end{Soutput}
+\end{Schunk}
 \medskip
 
 

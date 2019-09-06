@@ -1,0 +1,1506 @@
+
+# Nociones básicas
+\subsection{Contrastes}
+
+
+## Decisiones
+
+Para que la estadística inferencial sea útil no solo necesitamos estimar un valor sino que además tendremos que tomar una *decisión* apoyada en los datos (muestras) que acepte o rechace alguna afirmación relativa 
+al valor de un parámetro 
+
+
+{**Ejemplo:**
+Los  responsables de salud pública  del gobierno han determinado que el número medio de bacterias por cc en las aguas  en las que se practica la recogida de moluscos para el consumo humano tiene que ser $\leq 70$
+
+
+Tomamos una serie de muestras de agua de una zona, y hemos de decidir so podemos recoger moluscos}
+
+
+
+
+## Decisiones
+
+{**Ejemplo:**
+Una empresa de telecomunicaciones recibe una partida de 100 routers cada mes. El técnico  que se encarga de la recepción del material tiene la orden de rechazar entera las partidas que contengan más de un 5\% de unidades defectuosas.}
+
+
+El técnico toma la decisión de aceptar o rechazar la partida basándose en el análisis de una muestra aleatoria de unidades
+
+
+
+
+
+**Estas  afirmaciones reciben el nombre de} \emph{hipótesis** y el método
+estadístico de toma  de  una decisión sobre una hipótesis recibe el nombre de *contraste de hipótesis*
+
+
+
+
+
+
+
+## Decisiones
+
+En un contraste de hipótesis, se contrastan dos hipótesis  alternativas: la *hipótesis nula} $H_{0*$ y la \emph{hipótesis
+alternativa} $H_{1}$
+
+
+
+ La hipótesis alternativa **$H_{1}$** es de la que buscamos evidencia
+
+
+ La hipótesis nula **$H_{0}$** es la que rechazaremos si obtenemos evidencia de la hipótesis alternativa
+
+
+ Si no obtenemos evidencia a favor de $H_1$, *no podemos rechazar $H_0$* 
+(**$\approx$ aceptamos $H_0$**, pero es un abuso de lenguaje)
+
+
+
+
+
+## Ejemplos
+
+Los  responsables de salud pública  del gobierno han determinado que el número medio de bacterias por cc en las aguas  en las que se practica la recogida de moluscos para el consumo humano tiene que ser $\leq 70$
+
+
+$\mu=$ número media de bacterias por cc de agua
+
+
+**Contraste:**
+$$
+\left\{\begin{array}{ll} 
+H_{0}:\mu\leq 70\\ 
+H_{1}:\mu>70
+\end{array}
+\right.
+$$
+**Decisión:** Tomaremos algunas muestras y calcularemos la media muestral del nombre de bacterias por cc. Si es bastante grande, lo consideraremos como una  evidencia de $H_1$, y si no, aceptaremos $H_0$.
+
+
+
+
+
+
+## Ejemplos
+
+Un técnico recibe una partida de 100 routers cada mes. El técnico tiene la orden de rechazar entera las partidas que contengan más de un 5\% de unidades defectuosas.
+
+
+
+$p=$ proporción de unidades defectuosas
+
+
+**Contraste:**
+$$
+\left\{\begin{array}{ll} 
+H_{0}:p\leq 0.05\\ 
+H_{1}:p>0.05
+\end{array}
+\right.
+$$
+**Decisión:** El encargado comprueba algunas unidades  y calcula la proporción muestral de routers  defectuosos. Si es bastante grande, lo considerará una evidencia de $H_1$, y si no, aceptará  $H_0$.
+
+
+
+
+
+## Decisiones
+
+Un *contraste    de hipótesis* 
+$$
+\left\{\begin{array}{ll}
+H_{0}:\mbox{hipótesis nula}\\ H_{1}:\mbox{hipótesis alternativa}
+\end{array}
+\right.
+$$
+ consiste en plantear:
+
+ *Hipótesis nula $H_{0}$*: Es la hipótesis que ``por defecto'' aceptamos como verdadera, y que rechazamos si hay pruebas en contra
+
+
+ *Hipótesis alternativa $H_{1}$*: Es la hipótesis contra la que
+contrastamos la hipótesis nula y que aceptamos cuando rechazamos la nula
+
+
+y  generar una *regla de decisión} para **rechazar* o \blue{no** la hipótesis nula a partir de la información contenida en una muestra
+
+
+
+
+## Ejemplo
+
+*La parábola del juicio y el contraste de hipótesis*
+
+En un juicio, tenemos que  declarar a un acusado inocente o culpable
+
+
+**Contraste:**
+$$
+\left\{\begin{array}{ll} 
+H_{0}:\mbox{El acusado es inocente}\\ 
+H_{1}:\mbox{El acusado es culpable}
+\end{array}
+\right.
+$$
+
+Las pruebas son los elementos de la muestra
+
+
+Si el jurado  encuentra suficiente mente incriminatorias las pruebas, declara *culpable*  al acusado (rechaza $H_0$ en favor de $H_1$)
+
+
+Si no las encuentra suficientemente  incriminatorias, le declara *no culpable} (no rechaza $H_{0*$)
+
+
+**Considerar no culpable $\neq$ declarar inocente**
+
+
+
+
+
+## ¿Cómo escoger $H_0$ y $H_1$?
+
+Las pruebas tienen que aportar evidencia de $H_1$, lo que nos permitirá rechazar $H_0$
+
+
+Es imposible encontrar evidencia de que $\mu=$ lo que sea, en cambio sí que es puede demostrar que $\mu>$, o que $\mu<$, o que $\mu\neq$ lo que sea
+
+
+**Ejemplo:} ¿Es $e^{\pi\sqrt{163}**=262537412640768744$? 
+%\pause
+
+Si  calculamos
+$$
+262537412640768743.99999999\ldots9999\ldots**250072597198**\ldots
+$$
+
+Hemos demostrado que no; pero, para demostrar  que sí, tendríamos que haber calculado infinitas cifras decimales
+
+
+
+
+## ¿Cómo escoger $H_0$ y $H_1$?
+
+Las pruebas han de poder dar evidencia de $H_1$, lo que permitirá rechazar $H_0$
+
+
+
+Es imposible encontrar evidencia de que $\mu=$ lo que sea, en cambio sí que es puede demostrar que $\mu>$, o que $\mu<$, o que $\mu\neq$ lo que sea
+
+
+En este contexto:
+
+
+
+**$H_1$ se define  con  $>$, $<$, o $\neq$**
+
+ **$H_0$ se define con  $=$, $\leq $, o $\geq $**
+
+ **$H_1$ es la hipótesis de la que podemos hallar pruebas incriminatorias, $H_0$ la que estamos dispuestos a aceptar si no hay pruebas en contra**
+
+
+
+
+## ¿Cómo elegir $H_0$?
+
+**Ejemplos**
+
+
+ Queremos decidir si la media es más pequeña que 2 o no
+$$
+\left\{\begin{array}{ll} 
+H_{0}:\mu= 2\ (\mbox{o } \mu \geq 2)\\ 
+H_{1}:\mu< 2
+\end{array}
+\right.
+$$
+ Queremos decidir si la media es igual o diferente de 5
+$$
+\left\{\begin{array}{ll} 
+H_{0}:\mu= 5\\
+H_{1}:\mu\neq 5
+\end{array}
+\right.
+\mbox{ o }
+\left\{\begin{array}{ll} 
+H_{0}:\mu\neq 5\\
+H_{1}:\mu= 5
+\end{array}
+\right.
+\mbox{?}
+$$
+ Queremos decidir si la media es igual o diferente de 5
+$$
+\left\{\begin{array}{ll} 
+H_{0}:\mu= 5\\
+H_{1}:\mu\neq 5
+\end{array}
+\right.
+$$
+
+
+
+
+
+## Tipos de hipótesis alternativas
+
+  *Hipótesis unilateral} (\textsl{one-sided}; también  \emph{de una cola}, \textsl{one-tailed}):  $H: \theta>\theta_{0}$, $H: \theta<\theta_{0*$
+
+
+ *Hipótesis bilateral} (\textsl{two-sided}; también  \emph{de dos colas}, \textsl{two-tailed}): $H: \theta\neq\theta_{0*$
+
+
+
+Los tests suelen tomar el nombre de la hipótesis alternativa: *test unilateral}, \emph{test de dos colas*,\ldots
+
+
+
+
+
+
+\subsection{Tipos de errores}
+
+
+## Tipos de errores
+
+\begin{center}
+\begin{tabular}{c|c|c}
+Decisión & \multicolumn{2}{c}{Realidad} \\
+\hline\hline
+& $H_{0}$ cierta & $H_{0}$ falsa\\
+\hline
+Aceptar $H_{0}$ & Dec. correcta & *Error Tipos II* \\
+& Prob=$1-\alpha$ & **Prob=$\beta$**\\
+\hline
+Rechazar $H_{0}$ & *Error Tipos I* & Dec. correcta \\
+&**Prob=$\alpha$** & Prob=$1-\beta$\\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\only<1>{ *Error de Tipos I*: Rechazar $H_0$ cuando es cierta\\[1ex]
+$P(\mbox{Error Tipos I})=P(\mbox{Rechazar } H_{0}\mid H_{0} \mbox{ cierta})=\alpha$\\[1ex] $\alpha$ es el *nivel   de significación} del contraste*
+\only<2>{ *Error de Tipos II*:
+Aceptar $H_0$ cuando es falsa\\[1ex]
+$P(\mbox{Error Tipos II})=P(\mbox{Aceptar } H_{0}| H_{0} \mbox{ falsa})=\beta$\\[1ex]
+ $1-\beta=P(\mbox{Rechazar } H_{0}|H_{0} \mbox{ falsa})$ es la  *potencia} del contraste*
+
+
+
+
+
+
+
+## Tipos de errores
+
+En un juicio, se  declarar un acusado inocente o culpable
+
+
+**Contraste:**
+$$
+\left\{\begin{array}{ll} 
+H_{0}:\mbox{El acusado es inocente}\\ 
+H_{1}:\mbox{El  acusado es culpable}
+\end{array}
+\right.
+$$
+
+
+ **Error de Tipo I**: Declarar culpable un inocente
+
+
+ **Error de Tipo II**: Declarar no culpable un culpable
+
+
+ Es peor el error de Tipo I, conviene minimizarlo
+
+
+
+
+## Tipos de errores
+
+ Lo más conveniente es encontrar una regla de rechazo de $H_{0}$ que tenga poca
+probabilidad de Error de Tipo I, $\alpha$
+
+
+ Pero también querríamos minimizar la probabilidad  de Error de Tipo II, $\beta$
+
+
+ Problema:  cuando hacemos disminuir $\alpha$, suele aumentar $\beta$
+
+
+**¿Qué se suele hacer?** 
+\begin{enumerate}
+ Encontrar una regla de decisión para a un $\alpha$ máximo fijado
+ Después, si es posible, controlar la tamaño $n$ de la muestra para minimizar $\beta$
+\end{enumerate}
+
+
+
+
+## Tipos de errores
+
+**¿Qué se suele hacer?** 
+
+\begin{enumerate}
+ **Encontrar una regla de decisión para a un $\alpha$ máximo fijado**
+ Después, si es posible, controlar la tamaño $n$ de la muestra para minimizar $\beta$
+\end{enumerate}
+**Este caso solo lo veremos en una de las  lecciones de AprendeR2**
+
+
+\subsection{C.H. para a $\mu$ de normal con $\sigma$ conocida}
+
+## Ejemplo: C.H. para a $\mu$ de normal con $\sigma$ conocida
+
+Sea $X$ una v.a. $N(\mu,\sigma)$ con $\mu$ desconocida y $\sigma$ conocida
+
+<<>>=
+
+@
+
+Sea  $X_{1},\ldots,X_{n}$ una m.a.s. de $X$ de tamaño $n$
+
+
+Consideremos  el contraste  
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu**>}\mu_{0**
+\end{array}
+\right.
+$$
+
+
+Idea: Rechazarnos $H_0$ en favor de $H_1$ si $\overline{X}$ es *bastante más grande* que $\mu_0$
+
+
+
+
+## Ejemplo: C.H. para a $\mu$ de normal con $\sigma$ conocida
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu>\mu_{0}
+\end{array}
+\right.
+$$
+
+Si $H_0$ es verdadera  ,
+
+$$
+**Z=\frac{\overline{X}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}**\sim N(0,1)
+$$
+
+Entonces, la regla consistirá en  rechazar   $H_{0}$ si el *estadístico de contraste* $Z$ es mayor que un
+cierto umbral, que determinaremos con $\alpha$
+
+
+
+## Ejemplo: C.H. para la media $\mu$ de normal con $\sigma$ conocida
+\vspace*{-0.75cm}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu>\mu_{0}
+\end{array}
+\right.
+$$
+Queremos
+$$
+\begin{array}{l}
+\alpha =P(\mbox{rechazar   } H_{0}| H_{0} \mbox{ cierto })=P(Z>\mbox{umbral  })\\
+\quad \Longrightarrow 1-\alpha= P(Z\leq \mbox{umbral  })\Longrightarrow **\mbox{umbral  }=z_{1-\alpha}**
+\end{array}
+$$
+por lo  tanto,  para que el nivel de significación del contraste sea $\alpha$,  la regla de rechazo tiene que ser
+$$
+Z>z_{1-\alpha}
+$$
+**Rechazamos $H_0$ si\quad $\dfrac{\overline{X}-\mu_{0}}{\sigma/\sqrt{n}}>z_{1-\alpha}$**
+
+
+
+
+
+## Ejemplo: C.H. para a $\mu$ de normal con $\sigma$ conocida
+\vspace*{-0.75cm}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu>\mu_{0}
+\end{array}
+\right.
+$$
+\begin{center}
+\includegraphics[width=0.7\linewidth]{rebutjamH0z.pdf}
+\end{center}
+
+
+
+
+
+## Ejemplo: C.H. para la media $\mu$ de normal con $\sigma$ conocida
+\vspace*{-0.75cm}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu>\mu_{0}
+\end{array}
+\right.
+$$
+\begin{center}
+\includegraphics[width=0.7\linewidth]{acceptamH0z.pdf}
+\end{center}
+
+
+
+
+
+
+
+## Terminología
+Dado un contraste:
+
+
+
+ *Estadístico de contraste*: el que
+nos permite definir una regla de rechazo de $H_{0}$
+
+
+ *Nivel de significación $\alpha$*:  la probabilidad (máxima) de error de Tipo I
+
+
+
+ *Región crítica o de rechazo*:
+si el estadístico de contraste pertenece a la región crítica, entonces rechazamos$H_{0}$
+
+
+ *Región de aceptación*:  el complementario de la región
+crítica
+
+
+
+
+
+## Terminología
+Dado un contraste:
+
+
+
+
+ *Intervalo de confianza del $(1-\alpha)\cdot 100\%$*:  un intervalo  en el que el parámetro poblacional tiene probabilidad $1-\alpha$ de pertenecer (en el sentido de los intervalos de confianza del tema anterior)\\
+
+
+Se suele obtener imponiendo que el estadístico pertenezca a la región de aceptación para al nivel de significación   $\alpha$ y despejando el parámetro
+
+
+
+
+
+
+
+## Ejemplo: C.H. para a $\mu$ de normal con $\sigma$ conocida
+
+Si la población es normal con $\sigma$ conocida,  un contraste    al nivel   de significación   $\alpha$ de
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu>\mu_{0}
+\end{array}
+\right.
+$$
+tiene 
+
+ *Estadístico de contraste*: $Z=
+\dfrac{\overline{X}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}$
+
+
+ *Región crítica}: $]z_{1-\alpha*,\infty[$
+
+
+ *Región de aceptación}: $]-\infty,z_{1-\alpha*]$
+
+
+ *Regla de decisión*:
+rechazar   $H_{0}$ si
+$Z>z_{1-\alpha}$
+
+
+
+
+
+## Ejemplo: C.H. para a $\mu$ de normal con $\sigma$ conocida
+
+
+ *Intervalo de confianza*: 
+$$
+\begin{array}{l}
+\displaystyle Z\leq  z_{1-\alpha}\Longleftrightarrow  \dfrac{\overline{X}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}\leq  z_{1-\alpha} \\[2ex]
+\displaystyle\qquad\quad\Longleftrightarrow  \mu_0\geq \overline{X}-z_{1-\alpha}\cdot\frac{\sigma}{\sqrt{n}}\\[2ex]
+\displaystyle\qquad\quad\Longleftrightarrow \mu_0\in **\Big[\overline{X}-z_{1-\alpha}\cdot\frac{\sigma}{\sqrt{n}},\infty\Big[**
+\end{array}
+$$
+Es
+$$
+\Big[\overline{X}-z_{1-\alpha}\cdot\frac{\sigma}{\sqrt{n}},\infty\Big[
+$$
+
+
+
+ *Regla de decisión II*:
+rechazar   $H_{0}$ si el $\mu_0$ contrastado no pertenece  al intervalo de confianza
+
+
+
+
+
+## Ejemplo
+Sea $X$ una población normal con $\sigma=1.8$. Queremos hacer el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=20\\ H_{1}:\mu>20
+\end{array}
+\right.
+$$
+con un nivel   de significación   de $0.05$
+
+
+Tomamos una m.a.s. de $n=25$ observaciones y obtenemos  $\overline{x}=20.25$
+
+
+¿Qué decidimos?
+
+
+
+
+## Ejemplo
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=20\\ H_{1}:\mu>20
+\end{array}
+\right.
+$$
+$\alpha=0.05$, $\sigma=1.8$, $n=25$, $\overline{x}=20.25$
+%\pause
+
+
+
+ *Estadístico de contraste*: $Z=
+\dfrac{\overline{X}-20}{\frac{1.8}{\sqrt{25}}}$
+
+
+ Toma el valor $z_0=\dfrac{20.25-20}{\frac{1.8}{\sqrt{25}}}=0.694$
+%\pause
+
+
+ *Región crítica}: $]z_{1-0.05*,\infty[=]1.64,\infty[$
+%\pause
+
+
+ *Decisión*: Como que $0.694<1.64$, no podemos rechazar   $H_0$
+
+
+
+
+
+
+## Ejemplo
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=20\\ H_{1}:\mu>20
+\end{array}
+\right.
+$$
+$\alpha=0.05$, $\sigma=1.8$, $n=25$, $\overline{x}=20.25$
+
+
+
+
+ *Intervalo de confianza*: 
+$$
+\Big[\overline{X}-z_{1-\alpha}\cdot\frac{\sigma}{\sqrt{n}},\infty\Big[=[19.66,\infty[
+$$
+%\pause
+
+
+ *Decisión*: Como que $20$ pertenece  al intervalo de confianza, no podemos rechazar   $H_0$
+
+
+
+
+
+## Ejemplo
+Sea $X$ una población normal con $\sigma=1.8$. Queremos hacer el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=20\\ H_{1}:\mu>20
+\end{array}
+\right.
+$$
+con un nivel   de significación   de $0.05$
+
+
+Tomamos una m.a.s. de $n=25$ observaciones y obtenemos  $\overline{x}=20.75$
+
+
+¿Qué decidimos?
+
+
+
+
+## Ejemplo
+\vspace*{-4ex}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=20\\ H_{1}:\mu>20
+\end{array}
+\right.
+$$
+$\alpha=0.05$, $\sigma=1.8$, $n=25$, $\overline{x}=20.75$
+%\pause
+
+
+
+ *Estadístico de contraste*: $Z=
+\dfrac{\overline{X}-20}{\frac{1.8}{\sqrt{25}}}$
+
+
+ Toma el valor $z_0=\dfrac{20.75-20}{\frac{1.8}{\sqrt{25}}}=2.083$
+%\pause
+
+ *Región crítica}: $]z_{1-0.05*,\infty[=]1.64,\infty[$
+
+
+ *Intervalo de confianza}: $[\overline{X}-z_{1-\alpha}\cdot\frac{\sigma}{\sqrt{n}*,\infty[=[20.16,\infty[$
+%\pause
+
+
+ *Decisión*: Rechazamos  $H_0$: Concluimos  que $\mu>20$
+
+
+
+
+
+
+
+
+
+## Ejemplo
+Sea $X$ una población normal con $\sigma=1.8$. Queremos hacer el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=20\\ H_{1}:\mu>20
+\end{array}
+\right.
+$$
+con un nivel   de significación   de $0.05$
+
+
+Tomamos una m.a.s. de $n=25$ observaciones y obtenemos  $\overline{x}=19.75$
+
+
+¿Qué decidimos?
+%\pause
+
+
+Queremos rechazar $H_0$ contra $H_1$, si  $\overline{x}<20$? (**Ejercicio:** Haced el cálculo, si no nos creéis)
+
+
+
+
+
+%%%%%%%
+
+
+## Ejemplo: C.H. para a $\mu$ de normal con $\sigma$ conocida
+
+Sea $X$ una v.a. $N(\mu,\sigma)$ con $\mu$ desconocida y $\sigma$ conocida
+
+
+Sea  $X_{1},\ldots,X_{n}$ una m.a.s. de $X$ de tamaño $n$
+
+
+Consideremos  el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\ **<}\ \mu_{0**
+\end{array}
+\right.
+$$
+
+
+rechazar   $H_{0}$ si $Z=\dfrac{\overline{X}-\mu_{0}}{{\sigma}/{\sqrt{n}}}$ es *inferior a* un cierto umbral, que determinaremos con $\alpha$
+
+
+
+## Ejemplo: C.H. para una media poblacional  $\mu$ de una distribución normal con $\sigma$ conocida
+\vspace*{-0.75cm}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\ **<}\ \mu_{0**
+\end{array}
+\right.
+$$
+Queremos
+$$
+\begin{array}{rl}
+\alpha & =P(\mbox{rechazar   } H_{0}| H_{0} \mbox{ cierta})\\ 
+& =P(Z<\mbox{umbral  })\Longrightarrow **\mbox{umbral  }=z_{\alpha}**
+\end{array}
+$$
+por lo tanto,  para que  el nivel   de significación   del contraste    Sea $\alpha$,  la
+**regla de rechazo** tiene que ser
+$$
+**Z<z_{\alpha}**
+$$
+La Región crítica es $]-\infty,z_{\alpha}[$
+
+
+
+
+
+
+## Ejemplo: C.H. para la media   $\mu$ de una población   normal con $\sigma$ conocida
+
+Sea $X$ una v.a. $N(\mu,\sigma)$ con $\mu$ desconocida y $\sigma$ conocida
+
+
+Sea  $X_{1},\ldots,X_{n}$ una m.a.s. de $X$ de tamaño $n$
+
+
+Consideremos  el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\ **\neq}\ \mu_{0**
+\end{array}
+\right.
+$$
+
+
+Rechazar $H_{0}$ si $Z=\dfrac{\overline{X}-\mu_{0}}{{\sigma}/{\sqrt{n}}}$ está a *bastante lejos de* de 0, y la determinaremos con el valor de  $\alpha$
+
+
+
+## Ejemplo: C.H. para la media   $\mu$ de una población   normal con $\sigma$ conocida
+
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\ **\neq}\ \mu_{0**
+\end{array}
+\right.
+$$
+Queremos
+$$
+\begin{array}{rl}
+\alpha & =P(\mbox{rechazar   } H_{0}| H_{0} \mbox{ cierta })\\ 
+& =P(Z<-\mbox{umbral  }\mbox{ o }Z>\mbox{umbral  })\\
+& =P(Z<-\mbox{umbral  })\!+\!P(Z>\mbox{umbral  })\\
+& = 2P(Z>\mbox{umbral  })=2(1-P(Z<\mbox{umbral  }))\\
+& \qquad \Longrightarrow P(Z<\mbox{umbral  })=1-\dfrac{\alpha}{2}\\
+&  \qquad \Longrightarrow **\mbox{umbral  }=z_{1-\frac{\alpha}{2}}**
+\end{array}
+$$
+
+
+
+## Ejemplo: C.H. para la media   $\mu$ de una población   normal con $\sigma$ conocida
+
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\ **\neq}\ \mu_{0**
+\end{array}
+\right.
+$$
+
+
+ahora para que el nivel de significación del contraste sea $\alpha$,  la
+regla de rechazo tiene que ser
+$$
+**Z<-z_{1-\frac{\alpha}2}=z_{\frac{\alpha}2}\mbox{ o }Z>z_{1-\frac{\alpha}2}**
+$$
+La región crítica es $]-\infty,z_{\frac\alpha2}[\cup ]z_{1-\frac{\alpha}2},\infty[$
+
+
+
+
+## Ejemplo: C.H. para la media   $\mu$ de una población   normal con $\sigma$ conocida
+
+\vspace*{-0.75cm}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\neq\mu_{0}
+\end{array}
+\right.
+$$
+\begin{center}
+\includegraphics[width=0.7\linewidth]{rebutjamH0z2.pdf}
+\end{center}
+
+
+
+
+## Ejemplo: C.H. para la media   $\mu$ de una población   normal con $\sigma$ conocida
+
+\vspace*{-0.75cm}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\neq\mu_{0}
+\end{array}
+\right.
+$$
+\begin{center}
+\includegraphics[width=0.7\linewidth]{acceptamH0z2.pdf}
+\end{center}
+
+
+
+
+
+
+
+
+## Ejemplo: C.H. para la media   $\mu$ de una población   normal con $\sigma$ conocida
+
+\vspace*{-0.75cm}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\ **\neq}\ \mu_{0**
+\end{array}
+\right.
+$$
+¿Intervalo de confianza?
+$$
+\begin{array}{l}
+\displaystyle -z_{1-\frac{\alpha}2}\leq Z\leq z_{1-\frac{\alpha}2}\Longleftrightarrow -z_{1-\frac{\alpha}2}\leq \dfrac{\overline{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}\leq z_{1-\frac{\alpha}2}\\[2ex]
+ \displaystyle\qquad\Longleftrightarrow -z_{1-\frac{\alpha}2}\frac{\sigma}{\sqrt{n}}\leq \overline{X}-\mu_0\leq z_{1-\frac{\alpha}2}\frac{\sigma}{\sqrt{n}} \\[2ex]
+\displaystyle  \qquad\Longleftrightarrow \overline{X}-z_{1-\frac\alpha2}\frac{\sigma}{\sqrt{n}}\leq \mu_0\leq \overline{X}+z_{1-\frac{\alpha}2}\frac{\sigma}{\sqrt{n}} \\[2ex]
+\displaystyle  \qquad\Longleftrightarrow\mu_0\in **\Big[\overline{X}-z_{1-\frac\alpha2}\frac{\sigma}{\sqrt{n}},\overline{X}+z_{1-\frac{\alpha}2}\frac{\sigma}{\sqrt{n}}\Big]**
+   \end{array}
+$$
+¿Os recuerda a algo\ldots?
+
+
+
+
+
+
+
+## Ejemplo
+Sea $X$ una población normal con $\sigma=1.8$. Queremos realizar el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=20\\ H_{1}:\mu\neq 20
+\end{array}
+\right.
+$$
+con un nivel   de significación   de $0.05$
+
+
+Tomamos una m.a.s. de $n=25$ observaciones y obtenemos  $\overline{x}=20.5$
+
+
+¿Qué decidimos?
+
+
+
+
+## Ejemplo
+\vspace*{-4ex}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=20\\ H_{1}:\mu\neq 20
+\end{array}
+\right.
+$$
+$\alpha=0.05$, $\sigma=1.8$, $n=25$, $\overline{x}=20.5$
+%\pause
+
+
+
+ *Estadístico de contraste*: $Z=
+\dfrac{\overline{X}-20}{\frac{1.8}{\sqrt{25}}}$
+
+
+ Toma el valor $z_0=\dfrac{20.5-20}{\frac{1.8}{\sqrt{25}}}=1.39$
+%\pause
+
+
+ *Región crítica}: $]-\infty,z_{0.025}[\cup ]z_{0.975*,\infty[$=$]-\infty,-1.96[\cup ]1.96,\infty[$
+
+
+ *Intervalo de confianza*: $[19.794,21.206]$
+%\pause
+
+
+ *Decisión*:
+No podemos  rechazar   $H_0$
+
+
+
+
+
+
+
+\subsection{$p$-valor}
+
+
+## El $p$-valor
+
+El  *$p$-valor} o  \emph{valor crítico}  ($p$-\textsl{value*) de un contraste es la probabilidad que, si $H_0$ es verdadera, el estadístico de contraste tome un valor tan extremo o  más que el que se ha observado
+
+
+**Ejemplo:** En un contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\ **>}\ \mu_{0**
+\end{array}
+\right.
+$$
+si el estadístico $Z$ tiene el  valor $z_0$,
+$$
+\mbox{$p$-valor}=P(Z\ **\geq**\ z_0)
+$$ 
+
+
+
+
+
+## El $p$-valor
+\vspace*{-0.75cm}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu>\mu_{0}
+\end{array}
+\right.
+$$
+\begin{center}
+\includegraphics[width=0.7\linewidth]{pvalor01.pdf}
+\end{center}
+
+
+
+
+
+
+## El $p$-valor
+
+El  *$p$-valor} o  \emph{valor crítico}  ($p$-\textsl{value*) de un contraste es la probabilidad que, si $H_0$ es verdadera, el estadístico de contraste tome un valor tan extremo o  más que el que se ha observado
+
+
+**Ejemplo:** En un contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\ **<}\ \mu_{0**
+\end{array}
+\right.
+$$
+si el estadístico $Z$  es  $z_0$,
+$$
+\mbox{$p$-valor}=P(Z\ **\leq**\ z_0)
+$$
+
+
+
+## El $p$-valor
+\vspace*{-0.75cm}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu<\mu_{0}
+\end{array}
+\right.
+$$
+\begin{center}
+\includegraphics[width=0.7\linewidth]{pvalor10.pdf}
+\end{center}
+
+
+
+
+
+## El $p$-valor
+
+El  *$p$-valor} o  \emph{valor crítico}  ($p$-\textsl{value*) de un contraste es la probabilidad que, si $H_0$ es verdadera, el estadístico de contraste tome un valor tan extremo o  más que el que se ha observado
+
+
+**Ejemplo:** En un contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\ **\neq}\ \mu_{0**
+\end{array}
+\right.
+$$
+si el estadístico $Z$ ha dado  $z_0$,
+$$
+\begin{array}{rl}
+\mbox{$p$-valor} & =2\cdot \min\{P(Z\ **\leq} -|z_0|),P(Z\ \red{\geq}\ |z_0|)\**\\
+ & =2\cdot P(Z\ **\geq**\ |z_0|)
+\end{array}
+$$
+
+
+
+
+
+## El $p$-valor
+\vspace*{-0.75cm}
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu\neq\mu_{0}
+\end{array}
+\right.
+$$
+\begin{center}
+\includegraphics[width=0.7\linewidth]{pvalor11.pdf}
+\end{center}
+
+
+
+
+
+## El $p$-valor
+
+El  *$p$-valor} o  \emph{valor crítico}  ($p$-\textsl{value*) de un contraste es la probabilidad que, si $H_0$ es verdadera, el estadístico de contraste tome un valor tan extremo o  más que el que se ha observado
+
+
+
+Es una  *medida inversa de la fuerza de las pruebas o evidencias que hay en contra de $H_1$*: si $H_0$ es verdadera, cuanto más pequeño sea el $p$-valor, más improbable es observar lo  que hemos observado. 
+
+
+en consecuencia, cuanto  más pequeño sea el $p$-valor, con más fuerza podemos rechazar $H_0$.
+
+
+
+
+
+
+## El $p$-valor
+
+**por ejemplo tomemos,} $p$-valor${** =0.03$ 
+
+
+
+ *Significa* que la probabilidad que, si $H_0$ es verdadera, el estadístico de contraste tome un valor tan extremo o más que el que ha pres  es 0.03 (pequeño: evidencia que $H_0$ es falsa)
+
+
+ *No significa*:
+
+
+
+ La probabilidad que $H_0$ Sea verdadera   es $0.03$
+
+
+  $H_0$ es verdadera   un 3\% de les veces
+
+
+
+
+
+
+
+
+
+
+## El $p$-valor
+\vspace*{-3ex}
+
+\begin{block}{¡Importante!}
+En un contraste con nivel de significación   $\alpha$, 
+
+ rechazamos $H_0$ si $p$-valor $<\alpha$
+
+ aceptamos $H_0$ si $\alpha\leq p$-valor
+
+\end{block}
+
+
+**Ejemplo:** En un contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu> \mu_{0}
+\end{array}
+\right.
+$$
+
+supongamos  que el estadístico $Z$ vale $z_0$. El $p$-valor es $P(Z \geq z_0)$
+$$
+\begin{array}{l}
+\hspace*{-2ex}\mbox{Rechazamos }  H_0  \Longleftrightarrow z_0>z_{1-\alpha}\\
+ \Longleftrightarrow P(Z \geq z_0)<P(Z\geq z_{1-\alpha})=1-(1-\alpha)=\alpha
+\end{array}
+$$
+
+
+
+## El $p$-valor
+\vspace*{-3ex}
+
+\begin{block}{¡Importante!}
+En un contraste con nivel   de significación   $\alpha$, 
+
+ rechazamos $H_0$ si $p$-valor $<\alpha$
+
+ aceptamos $H_0$ si $\alpha\leq p$-valor
+
+\end{block}
+
+
+**Ejemplo:** En un contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu \neq \mu_{0}
+\end{array}
+\right.
+$$
+supongamos  que el estadístico $Z$ vale $z_0>0$. El $p$-valor es $2P(Z \geq z_0)$
+$$
+\begin{array}{l}
+\hspace*{-2ex}\mbox{Rechazamos }  H_0  \Longleftrightarrow z_0>z_{1-\frac{\alpha}{2}}\\
+ \Longleftrightarrow 2P(Z \geq z_0)<2P(Z\geq z_{1-\frac{\alpha}{2}})=2(1-(1-\frac{\alpha}{2}))=\alpha
+\end{array}
+$$
+
+
+
+
+
+## El $p$-valor
+\vspace*{-3ex}
+
+\begin{block}{Importante!}
+En un contraste con nivel de significación $\alpha$, 
+
+ rechazamos $H_0$ si $p$-valor $<\alpha$
+
+ aceptamos $H_0$ si $\alpha\leq p$-valor
+
+\end{block}
+
+
+El  *$p$-valor*  de un contraste    es 
+
+  El nivel   de significación   $\alpha$ más pequeño para el que rechazamos  la hipótesis nula
+
+
+ El nivel   de significación   $\alpha$ más grande para el que aceptaríamos la hipótesis nula
+
+
+%\only<2>{
+ **La probabilidad mínima de error de Tipo  I que permitimos  si rechazamos la hipótesis nula con el valor del estadístico de contraste obtenido**
+%}
+
+%\only<3>{
+ \blue{La probabilidad máxima de error de Tipo  I que permitimos  si aceptamos la hipótesis nula con el valor del estadístico de contraste
+obtenido}
+%}
+
+
+
+
+
+[fragile]
+## El $p$-valor
+\vspace*{-3ex}
+
+\begin{block}{¡Importante!}
+Si no establecemos un nivel   de significación   $\alpha$, entonces
+
+ Aceptamos $H_0$ si el $p$-valor es ``grande'' ($\geq 0.1$)
+
+
+ Rechazamos $H_0$ si el $p$-valor es ``pequeño'' ($<0.05$). En este caso, el $p$-valor es 
+
+ *Significativo* si es $< 0.05$
+ *Fuertemente significativo* si es $<0.01$
+ *Muy significativo* si es $<0.001$
+
+
+\end{block}
+{\small \begin{verbatim}
+Signif. codes: 0‘***’0.001‘**’0.01‘*’0.05‘.’0.1‘ ’1 
+\end{verbatim}
+}
+
+Si el $p$-valor está entre $0.05$ y $0.1$ y no tenemos nivel de significación, se requieren¡ estudios posteriores para tomar una decisión ("la *zona crepuscular}, \textsl{twilight zone*")
+
+
+
+
+
+## Ejemplo
+Sea $X$ una población normal con $\sigma=1.8$. Queremos hacer el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=20\\ H_{1}:\mu>20
+\end{array}
+\right.
+$$
+
+
+Tomamos una m.a.s. de $n=25$ observaciones y obtenemos  $\overline{x}=20.25$
+
+
+¿Qué decidimos?%\pause
+
+ No tenemos $\alpha$: Observamos  el $p$-valor
+
+
+
+
+## Ejemplo
+
+
+ *Estadístico de contraste*: $Z=
+\dfrac{\overline{X}-20}{\frac{1.8}{\sqrt{25}}}$
+
+
+Toma el valor $z_0=\dfrac{20.25-20}{\frac{1.8}{\sqrt{25}}}=0.694$
+%\pause
+
+ **$p$-valor**$=P(Z\geq 0.694)=0.2438>0.1$ gran
+%\pause
+
+ *Decisión*:
+No podemos rechazar   $H_{0}$
+
+
+
+
+
+
+## Ejemplo
+Sea $X$ una población normal con $\sigma=1.8$. Queremos hacer el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=20\\ H_{1}:\mu>20
+\end{array}
+\right.
+$$
+
+
+Tomamos una m.a.s. de $n=25$ observaciones y obtenemos  **$\overline{x}=20.75$**
+
+
+¿Qué decidimos?
+
+
+
+
+
+## Ejemplo
+
+
+ *Estadístico de contraste*: $Z=
+\dfrac{\overline{X}-20}{\frac{1.8}{\sqrt{25}}}$
+
+
+Toma el valor $z_0=\dfrac{20.75-20}{\frac{1.8}{\sqrt{25}}}=2.083$
+%\pause
+
+ **$p$-valor**$=P(Z\geq 2.083)=0.0186$  pequeño
+%\pause
+
+ *Decisión*:
+Rechazamos $H_{0}$ contra $H_1$
+
+
+
+
+
+
+## Decisiones
+
+Podemos decidir un contraste:
+
+ *con la regio crítica:* Si el estadístico de contraste    cae dentro la Región crítica para al nivel   de significación   $\alpha$, rechazamos$H_0$
+
+
+ *con el intervalo de confianza:* Si el parámetro poblacional a contrastar cae dentro el intervalo de confianza para al nivel   $(1-\alpha)\cdot 100\%$, aceptamos $H_0$
+
+
+ *con el $p$-valor:* Si el $p$-valor es más pequeño que el nivel   de significación   $\alpha$, rechazamos $H_0$
+
+
+ *con el $p$-valor y sin $\alpha$:* Si el $p$-valor es pequeño, rechazamos $H_0$, y si es grande,  aceptamos
+
+
+
+**Aquí utilizaremos el $p$-valor**
+
+
+
+
+\subsection{Los pasos de un contraste}
+
+
+## El método de los *seis* pasos (con $\alpha$)
+
+\begin{enumerate}[1)]
+ Establecer   la hipótesis nula  $H_{0}$   y la hipótesis alternativa  $H_{1}$
+\smallskip
+
+  Fijar un nivel   de significación   $\alpha$
+\smallskip
+
+ Seleccionar el estadístico de contraste    apropiado 
+\smallskip
+
+ Calcular el valor del estadístico de contraste a partir de les
+datos muestrales
+\smallskip
+
+  Calcular el $p$-valor del contraste
+\smallskip
+
+ *Decisión:} rechazar $H_{0*$ en favor de $H_1$  si el $p$-valor es 
+más pequeño que $\alpha$; en caso contrario, aceptar $H_{0}$
+\end{enumerate}
+
+
+
+
+## El método de los *cinco* pasos (sin $\alpha$)
+
+\begin{enumerate}[1)]
+ Establecer   la hipótesis nula  $H_{0}$   y la hipótesis alternativa  $H_{1}$
+\smallskip
+
+ Seleccionar el estadístico de contraste apropiado
+\smallskip
+
+ Calcular el valor del estadístico de contraste a partir de los valores de la muestra
+\smallskip
+
+  Calcular el $p$-valor del contraste
+\smallskip
+
+ *Decisión:} rechazar $H_{0}$ en favor de $H_1$  si el $p$-valor es pequeño ($<0.05$), aceptar $H_{0*$ si el $p$-valor es grande ($\geq 0.1$), y ampliar el estudio si el $p$-valor está entre 0.05 y 0.1
+\end{enumerate}
+
+
+
+
+
+
+
+
+## Ejemplo
+
+Los años de vida de un  router sigue  aproximadamente una ley de distribución normal con $\sigma=0.89$ años
+
+
+Una muestra aleatoria de la duración de 100 aparatos ha dado una vida media de 7.18 años
+
+
+Queremos decidir si la vida media en de estos routers es superior a  7 años
+
+
+utilizaremos el contraste
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=7\\ 
+H_{1}:\mu>7
+\end{array}
+\right.
+$$
+
+
+
+## Ejemplo: con $\alpha$
+
+Tomamos  un nivel   de significación   $\alpha=0.05$
+
+
+EL estadístico  de contraste    es 
+$$
+Z=\frac{\overline{X}-7}{0.89/\sqrt{100}}=\frac{\overline{X}-7}{0.089}
+$$
+El valor en este contraste  es $z_0\!=\!\dfrac{71.8-70}{0.89}\!=\!2.02$
+
+
+El $p$-valor es 
+$$
+P(Z\geq 2.02)=0.0217
+$$
+Como  $0.0217<\alpha$, rechazamos $H_0$: concluimos que $\mu>70$
+
+
+
+
+
+## Ejemplo: con $\alpha$
+
+**Supongamos  que tomamos  un nivel  de significación   $\alpha=0.01$**
+
+
+El estadístico  de contraste    es 
+$$
+Z=\frac{\overline{X}-70}{6.8/\sqrt{100}}=\frac{\overline{X}-70}{0.68}
+$$
+
+El valor del estadístico de contraste con esta muestra es $z_0\!=\!\dfrac{71.8-70}{0.68}\!=\!2.022$
+
+
+El $p$-valor es 
+$$
+P(Z\geq 2.022)=0.0217
+$$
+**Como $0.0217>\alpha$, no podemos rechazar   $H_0$: concluimos que $\mu\leq 70$ con este nivel de significación**
+
+
+
+
+
+
+
+## Ejemplo: sin $\alpha$
+
+El estadístico  de contraste    es 
+$$
+Z=\frac{\overline{X}-70}{6.8/\sqrt{100}}=\frac{\overline{X}-70}{0.68}
+$$
+Su valor en este contraste es $z_0\!=\!\dfrac{71.8-70}{0.68}\!=\!2.022$
+
+
+
+El $p$-valor es 
+$$
+P(Z> 2.022)=0.0216
+$$
+Como es pequeño ($<0.05$), rechazamos $H_0$: concluimos que $\mu>70$
+
+
+
+
+## Un último consejo 
+
+Como una regla recomendaríamos en un informe:
+
+
+
+ *Si tenemos fijado (conocemos)  $\alpha$:* Encontrar el $p$-valor y el intervalo de confianza del contraste para $\alpha$ dado    (nivel   de confianza $(1-\alpha)\cdot 100\%$)
+
+
+ *Si no tenemos fijado (no conocemos) $\alpha$:* Encontrar el $p$-valor, y el intervalo de confianza del contraste al nivel  de confianza  $95\%$
+
+
+
+
+
+
+
+
+
+\end{document}
