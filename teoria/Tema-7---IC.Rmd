@@ -29,12 +29,16 @@ Estas reglas definirán,  a su vez, estimadores.
 
 ## Estimación por intervalos. Ejemplos
 <div class="example">
+**Ejemplo**
+
 Hemos escogido al azar 50 estudiantes de grado de la UIB, hemos calculada sus notas medias de las asignaturas del primer semestre, y la media de estas medias ha sido un 6.3, con una varianza muestral de 1.8.
 
 Determinar un intervalo del que podamos afirmar con probabilidad 95% que contiene la media real de las notas medias de los estudiantes de grado de la UIB este primer semestre.
 </div>
 
 <div class="example">
+**Ejemplo**
+
 En un experimento en el que se ha medido la tasa oficial  de  alcoholemia en sangre a 40 varones (sobrios) después de tomar 3 cañas de cerveza de 330 ml.
 La media y la desviación típica de esta tasa han sido
 $$
@@ -133,9 +137,9 @@ Además tenemos que está centrado en $\overline{X}$: el 0.025 de probabilidad r
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida
 
-Como  estimador: Un 97.5% de las veces  que tomemos una muestra de tamaño $n$ de $X$, el verdadero valor de $\mu$ caerá dentro de este intervalo 
+Como estimador: un 97.5% de las veces  que tomemos una muestra de tamaño $n$ de $X$, el verdadero valor de $\mu$ caerá dentro de este intervalo 
 
-Para una muestra concreta: La probabilidad de que, si una media $\mu$ poblacional ha producido esta muestra, entonces esté en este intervalo concreto, es del 97.5%.
+Para una muestra concreta: la probabilidad de que, si una media $\mu$ poblacional ha producido esta muestra, entonces esté en este intervalo concreto, es del 97.5%.
 
 En ocasiones lo entenderemos como: "La probabilidad de que $\mu$ esté en este intervalo es del 97.5%"
 
@@ -176,29 +180,32 @@ La tabla siguiente muestra los cuantiles más usados:
 
 
 
-## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida. Simulación
+## Simulación de intervalos de confianza
+<div class="example">
+**Simulación**
 
 A continuación vamos a simular el funcionamiento de un intervalo de confianza para una distribución normal.
+</div>
 
+<div class="example-sol">
 Consideramos una población de $10^6$ valores de una distribución normal de parámetros $\mu =1.5$ y $\sigma =1$:
 ```{r}
 set.seed(1012)
 mu=1.5; sigma=1; alpha=0.05
 Población=rnorm(10^6,mu,sigma)
 ```
-
-## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida. Simulación
-
 Vamos a generar 100 muestras aleatorias simples de tamaño 50 de dicha población para posteriormente generar un intervalo de confianza al 95% de confianza para el parámetro $\mu$ para cada muestra.
 
+</div>
+## Simulación de intervalos de confianza
+
+<div class="example-sol">
 Primero definiremos una función para que, dada una muestra, un valor $\sigma$ y un nivel de significación $\alpha$ nos genere el intervalo correspondiente para el parámetro $\mu$ al nivel de confianza $100\cdot (1-\alpha)$%. La llamaremos `ICZ`:
 ```{r}
 ICZ=function(x,sigma,alpha){
   c(mean(x)-qnorm(1-alpha/2)*sigma/sqrt(length(x)), 
   mean(x)+qnorm(1-alpha/2)*sigma/sqrt(length(x)))}
 ```
-
-## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida. Simulación
 
 Usando la función `replicate` de `R` generamos las muestras y los intervalos de confianza correspondientes usando la función anterior:
 ```{r}
@@ -207,10 +214,10 @@ M=replicate(100,ICZ(sample(Población,50,replace=T),
  sigma,alpha))
 ```
 El objeto $M$ de `R` es una matriz de 2 filas y 100 columnas donde la columna $i$-ésima representa el intervalo de confianza para la muestra $i$-ésima generada.
+</div>
 
-
-## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida. Simulación
-
+## Simulación de intervalos de confianza
+<div class="example-sol">
 Finalmente vamos a dibujar todos los intervalos anteriores y resaltaremos en color rojo aquéllos en los que el parámetro $\mu =1.5$ no esté en ellos. Esperamos que haya aproximadamente 5 en los que esta condición falle.
 
 
@@ -223,8 +230,10 @@ seg.int=function(i){color="grey";
 invisible(sapply(1:100,FUN=seg.int))
 abline(v=mu,lwd=3)
 ```
+</div>
 
-## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida. Simulación
+## Simulación de intervalos de confianza
+<div class="example-sol">
 El resultado se muestra en la figura siguiente:
 <div class="center">
 ```{r, echo=FALSE,fig=TRUE}
@@ -237,7 +246,7 @@ invisible(sapply(1:100,FUN=seg.int))
 abline(v=mu,lwd=3)
 ```
 </div>
-
+</div>
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida.
 <l class="important">¡Atención!</l>
 De media, un $\alpha\cdot 100$% de las veces, un intervalo de confianza  del $(1-\alpha)\cdot 100$%  no contendrá el valor real del parámetro.
@@ -270,6 +279,7 @@ La probabilidad de que, si una media $\mu$ poblacional ha producido esta muestra
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida. Ejemplo
 <div class="example">
 **Ejemplo**
+
 Queremos analizar un sensor que mide la temperatura de un procesador en grados centígrados, en concreto un Intel Core i7-2600K, que tiene 	como temperatura normal de  $32^{\circ}$ a $40^{\circ}$. Para saber si está bien calibrado, diseñamos un experimento en el que ponemos el procesador en las mismas condiciones y  tomamos una muestra de 40 valores de su temperatura.
 
 Los resultados son los siguientes:
@@ -455,6 +465,8 @@ $$
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ desconocida. Ejemplo
 <div class="example">
+**Ejemplo**
+
 La empresa *3D-print* ofrece una impresora industrial de papel en color de alta capacidad. En su publicidad afirma que sus cartuchos imprimen una media de 500 mil copias con la especificación: 
 
 `Ficha técnica: Muestra de  tamaño  n=100,
@@ -539,6 +551,7 @@ $$
 ## Intervalos de confianza para el parámetro $\mu$ de una población cualquiera con $\sigma$ desconocida y tamaño muestral grande. Ejemplo
 <div class="example">
 **Ejemplo**
+
 Se ha tomado una muestra del tiempo de visualización de vídeo semanal en horas de  1000  usuarios de un canal de videos por internet. Se ha obtenido  una media   muestral de 9.5 horas/semana con una desviació típica muestral de 0.5 horas/semana. 
 
 Calculad un intervalo de confianza  del 95% para la media poblacional del número de horas visualizadas por semana supuesto que sigue aproximadamente una población normal con  $\sigma$ desconocida.
@@ -575,7 +588,7 @@ cuantil=qnorm(1-alpha/2)
 Podemos afirmar con un 95% de confianza  que la media poblacional de  vídeo consumido en horas por semana está entre $`r round(extremo.izquierdo,3)`$  y  $`r round(extremo.derecho,3)`$ horas/semana
 </div>
 
-## Intervalos de confianza para el parámetro $\mu$ de una población cualquiera con $\sigma$ desconocida y tamaño muestral grande. Estimación del tamaño de la muestra con una amplitud prefijada
+## Intervalos de confianza para el parámetro $\mu$ de una población cualquiera con $\sigma$ desconocida y tamaño muestral grande. Amplitud
 
 La amplitud de $\left]\overline{X}-z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}},
     \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}}\right[$ es $A=2z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}}$.
@@ -635,11 +648,15 @@ donde  `conf.level` es el nivel de confianza $1-\alpha$ en tanto por uno. Valor 
 
 
 
-## Intervalo de confianza para el parámetro $\mu$ de una población normal basado en la t de Student en `R`
+## Ejemplo tabla de datos `iris`
 
 <div class="example">
-Hallemos un intervalo de confianza para la media de la longitud del pétalo para una muestra de 30 flores de la tabla de datos **iris**:
+**Ejemplo**
 
+Hallemos un intervalo de confianza para la media de la longitud del pétalo para una muestra de 30 flores de la tabla de datos **iris**.
+</div>
+
+<div class="example-sol">
 * En primer lugar elegimos las flores de la muestra:
 ```{r}
 set.seed(1000)
@@ -649,12 +666,12 @@ A continuación calculamos las longitudes del pétalo de las flores de nuestra m
 ```{r}
 long.pétalo.muestra = iris[muestra.iris,]$Petal.Length
 ```
-
 </div>
 
-## Intervalo de confianza para el parámetro $\mu$ de una población normal basado en la t de Student en `R`
+## Ejemplo tabla de datos `iris`
 
-<div class="example">
+
+<div class="example-sol">
 Un intervalo de confianza al 95% de confianza para las longitudes del pétalo sería:
 ```{r}
 t.test(long.pétalo.muestra,conf.level=0.95)$conf.int
@@ -662,9 +679,11 @@ t.test(long.pétalo.muestra,conf.level=0.95)$conf.int
 
 </div>
 
-## Intervalo de confianza para el parámetro $\mu$ de una población normal basado en la t de Student en `R`
+## Experimento sobre la "confianza"
 
 <div class="example">
+**Experimento**
+
 Vamos a comprobar con un experimento qué papel juega la “confianza” en los intervalos de confianza.
 
 Vamos a generar al azar una Población de 10000000 ($10^7$) “individuos” con distribución normal estándard. Vamos a tomar 200 muestras aleatorias simples de tamaño 50 de esta población y calcularemos el intervalo de confianza para la media poblacional usando dicha fórmula. 
@@ -673,8 +692,9 @@ Finalmente, contaremos cuántos de estos intervalos de confianza contienen la me
 </div>
 
 
-## Intervalo de confianza para el parámetro $\mu$ de una población normal basado en la t de Student en `R`
-<div class="example">
+## Experimento sobre la "confianza"
+
+<div class="example-sol">
 En primer lugar, generamos la población de valores:
 ```{r}
 set.seed(2020)
@@ -687,9 +707,10 @@ Seguidamente, hallamos la media poblacional:
 
 </div>
 
-## Intervalo de confianza para el parámetro $\mu$ de una población normal basado en la t de Student en `R`
+## Experimento sobre la "confianza"
 
-<div class="example">
+
+<div class="example-sol">
 Para hallar 200 muestras, usaremos la función `replicate` de `R` que nos permite ejecutar una misma función las veces que le indiquemos:
 ```{r}
 muestras=replicate(200, sample(valores.población,50,replace=TRUE))
@@ -707,9 +728,9 @@ IC.t= function(X){t.test(X)$conf.int}
 
 </div>
 
-## Intervalo de confianza para el parámetro $\mu$ de una población normal basado en la t de Student en `R`
+## Experimento sobre la "confianza"
 
-<div class="example">
+<div class="example-sol">
 En segundo lugar, calculamos los 200 intervalos de confianza para nuestras 200 muestras usando la función `apply` de `R`:
 ```{r}
 ICs= apply(muestras,FUN=IC.t,MARGIN=2)
@@ -723,10 +744,10 @@ Aciertos
 Hemos acertado `r Aciertos` veces, o sea, el `r Aciertos*100/200`% de las veces. Es una buena aproximación del valor 95%, que era el esperado.
 </div>
 
+## Experimento sobre la "confianza"
 
-## Intervalo de confianza para el parámetro $\mu$ de una población normal basado en la t de Student en `R`
 
-<div class="example">
+<div class="example-sol">
 Para visualizar mejor los aciertos, vamos a dibujar los intervalos apilados en un gráfico, donde aparecerán en azul claro los que aciertan y en rojo los que no aciertan.
 ```{r,eval=FALSE,results='hide'}
 plot(1,type="n",xlim=c(-0.8,0.8),ylim=c(0,200),xlab="Valores",ylab="Repeticiones",main="")
@@ -742,7 +763,8 @@ abline(v=mu,lwd=2)
 
 </div>
 
-## Intervalo de confianza para el parámetro $\mu$ de una población normal basado en la t de Student en `R`
+## Experimento sobre la "confianza"
+
 
 ```{r,fig=TRUE,results='hide',echo=FALSE}
 plot(1,type="n",xlim=c(-0.8,0.8),ylim=c(0,200),xlab="Valores",
@@ -787,11 +809,15 @@ binom.exact(x,n,conf.level)
 ```
 donde `x` y `n` representan, respectivamente, el número de éxitos y el tamaño de la muestra, y `conf.level` es $1-\alpha$, el nivel de confianza en tanto por uno.
 
-## Método "exacto" o de Clopper-Pearson
+## Ejemplo tabla de datos `iris`
 
 <div class="example">
-Hallemos un intervalo de confianza para la proporción de flores con especie "setosa" dada una muestra de 60 flores.
+**Ejemplo**
 
+Hallemos un intervalo de confianza para la proporción de flores con especie "setosa" dada una muestra de 60 flores.
+</div>
+
+<div class="example-sol">
 Sabemos que la proporción real $p$ en este caso vale $p=\frac{50}{150}=\frac{1}{3}=`r round(1/3,3)`$.
 
 Primero hallamos la muestra de las 60 flores:
@@ -802,19 +828,21 @@ flores.elegidas = sample(1:150,60,replace=TRUE)
 
 </div>
 
-## Método "exacto" o de Clopper-Pearson
+## Ejemplo tabla de datos `iris`
 
-<div class="example">
+<div class="example-sol">
 Las flores elegidas son: (sólo mostramos las 10 primeras)
+
 ```{r}
 muestra.flores.prop = iris[flores.elegidas,]
 head(muestra.flores.prop,10)
 ```
+
 </div>
 
-## Método "exacto" o de Clopper-Pearson
+## Ejemplo tabla de datos `iris`
 
-<div class="example">
+<div class="example-sol">
 El número de flores de especie setosa será:
 ```{r}
 (número.flores.setosa=table(muestra.flores.prop$Species=="setosa")[2])
@@ -828,9 +856,9 @@ binom.exact(número.flores.setosa,60,conf.level=0.95)
 
 </div>
 
-## Método "exacto" o de Clopper-Pearson
+## Ejemplo tabla de datos `iris`
 
-<div class="example">
+<div class="example-sol">
 Según el método de Clopper-Pearson, con un 95% de confianza podemos decir que en la tabla de datos **iris** hay entre un `r round(binom.exact(número.flores.setosa,60,conf.level=0.95)$lower*100,2)`% y `r round(binom.exact(número.flores.setosa,60,conf.level=0.95)$upper*100,2)`% de flores de especie "setosa".
 
 </div>
@@ -865,32 +893,35 @@ El problema es que no conocemos $p$, la literatura plantea entre otras solucione
 <l class="definition">Definición.</l>
 En estas  condiciones, un intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ I.C. para $p$ es  (donde $\widehat{q}_{X}=1-\widehat{p}_{X}$) es:
 $$
-\left]\frac{\widehat{p}_{X}+\frac{z_{1-{\alpha}/{2}}^2}{2n}-z_{1-{\alpha}/{2}}\sqrt{\frac{\widehat{p}_{X}\widehat{q}_{X}}{n}+\frac{z_{1-{\alpha}/{2}}^2}{4n^2}}}{1+\frac{z_{1-{\alpha}/{2}}^2}{n}}\right.,
- \left.\frac{\widehat{p}_{X}+\frac{z_{1-{\alpha}/{2}}^2}{2n}+z_{1-{\alpha}/{2}}\sqrt{\frac{\widehat{p}_{X}\widehat{q}_{X}}{n}+\frac{z_{1-{\alpha}/{2}}^2}{4n^2}}}{1+\frac{z_{1-{\alpha}/{2}}^2}{n}}\right[
+\begin{array}{l}
+\left]\frac{\widehat{p}_{X}+\frac{z_{1-{\alpha}/{2}}^2}{2n}-z_{1-{\alpha}/{2}}\sqrt{\frac{\widehat{p}_{X}\widehat{q}_{X}}{n}+\frac{z_{1-{\alpha}/{2}}^2}{4n^2}}}{1+\frac{z_{1-{\alpha}/{2}}^2}{n}}\right.,\\
+\quad \left.\frac{\widehat{p}_{X}+\frac{z_{1-{\alpha}/{2}}^2}{2n}+z_{1-{\alpha}/{2}}\sqrt{\frac{\widehat{p}_{X}\widehat{q}_{X}}{n}+\frac{z_{1-{\alpha}/{2}}^2}{4n^2}}}{1+\frac{z_{1-{\alpha}/{2}}^2}{n}}\right[,
+\end{array}
 $$
 
 
-## Método de Wilson.
+## Método de Wilson
 
 Para hallar un intervalo de confianza para la proporción poblacional en `R` según el método de Wilson, hay que usar la función `binom.wilson` del mismo paquete **epitools**:
 ```{r, eval=FALSE}
 binom.wilson(x,n,conf.level)
 ```
 
-## Método de Wilson.
+## Ejemplo tabla de datos `iris`
 <div class="example">
-Usando el ejemplo anterior, hallemos un intervalo de confianza para la proporción de flores de especie "setosa" según el método de Wilson al 95% de confianza:
+**Ejemplo**
+
+Usando el ejemplo anterior, hallemos un intervalo de confianza para la proporción de flores de especie "setosa" según el método de Wilson al 95% de confianza.
+
+</div>
+
+<div class="example-sol">
+El intervalo será:
 ```{r}
 binom.wilson(número.flores.setosa,60,conf.level=0.95)
 ```
 Según el método de Wilson, con un 95% de confianza podemos decir que en la tabla de datos **iris** hay entre un `r round(binom.wilson(número.flores.setosa,60,conf.level=0.95)$lower*100,2)`% y `r round(binom.wilson(número.flores.setosa,60,conf.level=0.95)$upper*100,2)`% de flores de especie "setosa".
 </div>
-
-
-
-
-
-
 
 
 ## Fórmula de Laplace.
@@ -905,38 +936,218 @@ $$
 (1-\widehat{p}_{X})}{n}}.
 $$
 
-## Intervalos de confianza para la proporción poblacional. Fórmula de Laplace.
+## Fórmula de Laplace.
 
 Para hallar un intervalo de confianza para la proporción poblacional en `R` según la fórmula de Laplace, hay que usar la función `binom.approx` del mismo paquete **epitools**:
 ```{r, eval=FALSE}
 binom.approx(x,n,conf.level)
 ```
 
-
-## Intervalos de confianza para la proporción poblacional. Fórmula de Laplace.
+## Fórmula de Laplace. Ejemplo
 <div class="example">
-Usando el ejemplo anterior, hallemos un intervalo de confianza para la proporción de flores de especie "setosa" según la fórmula de Laplace al 95% de confianza:
+**Ejemplo**
+
+En una muestra aleatoria de 500 familias con niños en edad escolar se encontró que 
+340 introducían fruta de forma diaria en la dieta de sus hijos
+
+Calculad un intervalo de confianza  del 95\% para  conocida la proporción real de
+familias de esta ciudad con niños en edad escolar que incorporen fruta fresca de
+forma diaria en la dieta de sus hijos.
+</div>
+
+<div class="example-sol">
+El tamaño de la muestra es $n=500$ y la estimación de la proporción muestral, $\widehat{p}_{X}=\dfrac{340}{500}=`r round(340/500,3)`$.
+
+Como que $n=500\geq 100$, $n\widehat{p}_X=340\geq 10$ y $n\cdot (1-\widehat{p}_X)=160\geq 10$, podemos utilizar la fórmula de Laplace.  
+
+Usando que $z_{1-\frac{\alpha}{2}}=z_{`r 1-0.05/2`}=`r round(qnorm(1-0.05/2),3)`$, el intervalo de confianza será:
+$$
+\left]`r 340/500`-`r round(qnorm(1-0.05/2),3)`\cdot \sqrt{\frac{`r 340/500`\cdot `r (500-340)/500`}{500}},`r 340/500`-`r round(qnorm(1-0.05/2),3)`\cdot \sqrt{\frac{`r 340/500`\cdot `r (500-340)/500`}{500}}\right[=]`r round(340/500-qnorm(1-0.05/2)*sqrt((340/500)*((500-340)/500)/500),3)`,
+`r round(340/500+qnorm(1-0.05/2)*sqrt((340/500)*((500-340)/500)/500),3)`[.
+$$
+</div>
+
+
+## Ejemplo tabla de datos `iris`
+<div class="example">
+**Ejemplo**
+
+Usando el ejemplo anterior, hallemos un intervalo de confianza para la proporción de flores de especie "setosa" según la fórmula de Laplace al 95% de confianza.
+</div>
+
+<div class="example-sol">
+El intervalo será:
 ```{r}
 binom.approx(número.flores.setosa,60,conf.level=0.95)
 ```
 Según la fórmula de Laplace, con un 95% de confianza podemos decir que en la tabla de datos **iris** hay entre un `r round(binom.approx(número.flores.setosa,60,conf.level=0.95)$lower*100,2)`% y `r round(binom.approx(número.flores.setosa,60,conf.level=0.95)$upper*100,2)`% de flores de especie "setosa".
 </div>
 
+## Fórmula de Laplace. Amplitud
 
+<l class="prop">Problema:</l> hallar el tamaño de la muestra fijada la amplitud del intervalo de confianza.
+
+
+La **amplitud** del intervalo de confianza usando la fórmulade Laplace es 
+$$
+A=2 z_{1-\frac{\alpha}{2}} \sqrt{\frac{\widehat{p}_{X} (1-\widehat{p}_{X})}{n}}.
+$$
+
+No podemos determinar el tamaño de la muestra para que el intervalo de confianza  tenga como máximo una cierta amplitud sin
+conocer $\widehat{p}_{X}$.
+
+
+## Fórmula de Laplace. Amplitud
+Vamos a considerar que estamos en el peor de los casos.
+
+O sea, usando que $\widehat{p}_{X}\in [0,1]$, nos planteamos hallar el máximo de la expresión $\widehat{p}_{X} (1-\widehat{p}_{X})$ que aparece en la fórmula de la amplitud.
+
+El máximo de la función anterior, para $\widehat{p}_{X}\in [0,1]$ se alcanza en $\widehat{p}_{X}=\frac{1}{2}$ y dicho máximo vale $\frac{1}{4}$:
+
+## Fórmula de Laplace. Amplitud
+
+```{r,echo=FALSE,fig=TRUE,fig.align="center"}
+x=seq(from=0,to=1,by=0.01)
+plot(x,x*(1-x),xlab="p",type="l",ylab=expression(p*(1-p)),xaxp=c(0,1,10))
+abline(v=0.5,lty=2,col="blue")
+abline(h=0.25,lty=2,col="blue")
+points(0.5,0.25,col="red")
+```
+
+## Fórmula de Laplace. Amplitud
+En resumen, calcularemos $n$ para obtener una  amplitud máxima $A_0$ suponiendo el peor de los casos ($\widehat{p}_{X}=0.5$):
+$$
+A_0\geq 2z_{1-\frac{\alpha}{2}}\sqrt{\frac{0.5^2}{n}}=\frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}
+\Rightarrow
+n\geq \left\lceil\frac{z_{1-\frac{\alpha}{2}}^2}{A_0^2}\right\rceil.
+$$
+
+## Fórmula de Laplace. Amplitud. Ejemplo
+<div class="example">
+**Ejemplo**
+
+Quemos estudiar qué fración teléfonos móviles utilizan android para determinar esta proporción con un  nivel de confianza del 95\%
+y garantizar un error máximo de 0.05.
+
+¿De qué  tamaño  ha de ser la muestra **en el peor de los casos**?
+</div>
+
+<div class="example-sol">
+Usando la fórmula anterior, el valor de $n$ tiene que verificar:
+$$
+n\geq \left\lceil\frac{z_{1-\frac{\alpha}{2}}^2}{A^2}\right\rceil 
+$$
+donde $\frac{A}{2}=0.05$, ($A=`r 2*0.05`$) y $z_{1-\frac{\alpha}{2}}=z_{`r 1-0.05/2`}=`r round(qnorm(1-0.05/2),3)`$.
+
+El tamaño de la muestra valdrá, como mínimo:
+$$
+n\geq \left\lceil\frac{`r round(qnorm(1-0.05/2),3)`^2}{0.1^2}\right\rceil =\lceil`r round(qnorm(1-0.05/2)^2/0.1^2,3)` \rceil=`r ceiling(qnorm(1-0.05/2)^2/0.1^2)`.
+$$
+
+
+</div>
+
+
+# Intervalo de confianza para la varianza de una población normal 
 
 ## Intervalo de confianza para la varianza de una población normal 
+Consideremos la siguiente situación:
 
-* Supongamos ahora que queremos estimar la varianza $\sigma^2$, o la desviación típica $\sigma$, de una población que sigue una distribución normal. Tomamos una muestra aleatoria simple de tamaño $n$, y sea $\tilde{S}_X$ su desviación típica muestral.
+*  Consideramos una $X$ una v.a. normal con $\mu$ y $\sigma$ desconocidas.
 
-* Un intervalo de confianza para la varianza $\sigma^2$ es:
-$$
-\left( \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,(1+q)/2}^2},\
-\frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,(1-q)/2}^2}\right),
-$$
-donde $\chi_{n-1,(1-q)/2}^2$  y $\chi_{n-1,(1+q)/2}^2$ son, respectivamente, los cuantiles de orden $(1-q)/2$ y $(1+q)/2$ de una variable aleatoria que sigue una distribución $\chi^2$ con
-$n-1$ grados de libertad. 
+* Sea $X_1,\ldots,X_n$ una m.a.s. de $X$ y varianza muestral $\widetilde{S}_X^2$.
+
+En estas condiciones tenemos el siguiente:
+
+<l class="prop">Teorema.</l>
+
+La variable aleatoria $\frac{(n-1) \tilde{S}_{X}^2}{\sigma^2}$
+se distribuye según una distribución $\chi^2_{n-1}$.
 
 ## Intervalo de confianza para la varianza de una población normal 
+<l class="prop">Teorema.</l>
+
+En las condiciones anteriores, un intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ para la varianza $\sigma^2$ de la población $X$ es 
+$$
+\left] \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2},
+\frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}
+\right[,
+$$
+donde $\chi_{\nu,q}^2$ es el $q$-cuantil de la distribución $\chi_{\nu}^2$.
+
+## Intervalo de confianza para la varianza de una población normal. Ejemplo
+<div class="example">
+**Ejemplo**
+
+Un algoritmo probabilístico depende de la semilla de aleatorización
+que se genera en cada paso. 
+Para saber si la semilla influye mucho en el resultado se ejecuta el 
+algoritmo varias veces  hasta obtener un resultado similar y 
+se estudia la varianza de su tiempo de ejecución. 
+
+Queremos ver si la desviación típica $\sigma$ es $\leq 30$.
+
+Se supone  que la distribución del tiempo de ejecución del algoritmo  es 
+aproximadamente normal. 
+
+Se realizan 30 ejecuciones del algoritmo de las que se mide el tiempo
+de ejecución. Los resultados son:
+```{r}
+tiempo=c(12, 13, 13, 14, 14, 14, 15, 15, 16, 17,
+         17, 18, 18, 19, 19, 25, 25, 26, 27, 30,
+         33, 34, 35, 40, 40, 51, 51, 58, 59, 83)
+```
+
+Nos piden calcular un intervalo de confianza para $\sigma^2$ del tiempo de ejecución a un $95\%$ de confianza.
+</div>
+
+## Intervalo de confianza para la varianza de una población normal. Ejemplo
+<div class="example-sol">
+En primer lugar calculamos la varianza muestral de nuestra muestra:
+```{r}
+n=30
+(var.muestral.tiempo = var(tiempo))
+```
+</div>
+
+## Intervalo de confianza para la varianza de una población normal. Ejemplo
+<div class="example-sol">
+En segundo lugar, calculamos los cuantiles que necesitamos:
+```{r}
+alpha=0.05
+(cuantil.izquierda = qchisq(1-alpha/2,n-1))
+(cuantil.derecha = qchisq(alpha/2,n-1))
+```
+
+
+</div>
+
+## Intervalo de confianza para la varianza de una población normal. Ejemplo
+<div class="example-sol">
+El intervalo de confianza para la varianza del tiempo de ejecución será:
+```{r}
+(valor.izquierdo= (n-1)*var.muestral.tiempo/cuantil.izquierda)
+(valor.derecho= (n-1)*var.muestral.tiempo/cuantil.derecha)
+```
+
+
+</div>
+
+## Intervalo de confianza para la varianza de una población normal. Ejemplo
+<div class="example-sol">
+El intervalo de confianza para la desviación típica $\sigma$ del tiempo de ejecución será:
+```{r}
+c(sqrt(valor.izquierdo),sqrt(valor.derecho))
+```
+Vemos que el valor 30 está a la derecha del intervalo de confianza.
+
+Por tanto, podemos afirmar con un 95% de confianza que $\sigma\leq 30$.
+
+</div>
+
+
+
+## Intervalo de confianza para la varianza de una población normal en `R`
 
 * Para hallar un intervalo de confianza para la varianza poblacional en `R` hay que usar la función `varTest` del paquete **EnvStats**:
 ```{r,eval=FALSE}
@@ -944,18 +1155,22 @@ varTest(X,conf.level)$conf.int
 ```
 donde `X` es el vector que contiene la muestra y `conf.level` el nivel de confianza, que por defecto es igual a 0.95.
 
-## Intervalo de confianza para la varianza de una población normal 
+## Intervalo de confianza para la varianza de una población normal en `R`
 <div class="example">
-Hallemos un intervalo de confianza para la varianza de la amplitud del sépalo de la tabla de datos **iris** a partir de la muestra anterior. Suponemos que dicha variable es normal. Veremos en temas posteriores cómo se puede comprobar la normalidad de una variable.
+**Ejemplo**
 
+Hallemos un intervalo de confianza para la varianza de la amplitud del sépalo de la tabla de datos **iris** a partir de la muestra anterior. Suponemos que dicha variable es normal. Veremos en temas posteriores cómo se puede comprobar la normalidad de una variable.
+</div>
+
+<div class="example-sol">
 Hallemos los valores de la amplitud del sépalo para las flores de nuestra muestra:
 ```{r}
 (amplitud.sépalo.muestra = iris[flores.elegidas,]$Sepal.Width)
 ```
 </div>
 
-## Intervalo de confianza para la varianza de una población normal 
-<div class="example">
+## Intervalo de confianza para la varianza de una población normal en `R`
+<div class="example-sol">
 Un intervalo de confianza para la varianza de las amplitudes del sépalo para la tabla de datos **iris** al 95% de confianza será:
 ```{r message=FALSE}
 library(EnvStats)
@@ -963,8 +1178,10 @@ varTest(amplitud.sépalo.muestra,conf.level=0.95)$conf.int
 ```
 
 </div>
-## Bootstrap
 
+# Bootstrap o remuestreo
+
+## Técnicas de remuestreo
 * Cuando no se satisfacen las condiciones teóricas que garantizan que el intervalo obtenido contiene el 95% de las veces el parámetro poblacional deseado, podemos recurrir a un método no paramétrico. El más utilizado es el **bootstrap**, que básicamente consiste en:
 
   1. **Remuestrear** la muestra: tomar muchas muestras aleatorias simples de la muestra de la que disponemos, cada una de ellas del mismo tamaño que la muestra original (pero simples, es decir, con reposición).
@@ -978,14 +1195,18 @@ varTest(amplitud.sépalo.muestra,conf.level=0.95)$conf.int
   
 ## Bootstrap: método de los percentiles
 
-* La manera más sencilla de llevar a cabo el cálculo final del intervalo de confianza es el llamado **método de los percentiles** , en el que se toman como extremos del intervalo de confianza del $q\times 100%$ los cuantiles de orden $\frac{1−q}{2}$ y $\frac{1+q}{2}$ del vector de estimadores.
+* La manera más sencilla de llevar a cabo el cálculo final del intervalo de confianza es el llamado **método de los percentiles** , en el que se toman como extremos del intervalo de confianza del $(1-\alpha)\cdot 100%$ los cuantiles de orden $\frac{\alpha}{2}$ y $1-\frac{\alpha}{2}$ del vector de estimadores.
 
 
 
-## Bootstrap: método de los percentiles
+## Bootstrap: método de los percentiles. Ejemplo
 <div class="example">
-Como aplicación del **método de los percentiles** hallemos un intervalo de confianza para la varianza de la longitud del pétalo de la tabla de datos **iris**. 
+**Ejemplo**
 
+Como aplicación del **método de los percentiles** hallemos un intervalo de confianza para la varianza de la longitud del pétalo de la tabla de datos **iris**.
+</div>
+
+<div class="example-sol">
 No podemos usar la fórmula vista anteriormente ya que la variable considerada no puede considerarse normal.
 
 Tomaremos la muestra de la tabla de datos **iris** que hemos calculado anteriormente en la sección de intervalo de confianza para proporciones.
@@ -998,9 +1219,9 @@ X=replicate(1000, var(sample(iris[flores.elegidas,]$Petal.Length,replace=TRUE)))
 ```
 </div>
 
-## Bootstrap: método de los percentiles
-<div class="example">
-A continuación hallamos el intervalo de confianza al 95% ($q=0.95$) calculando los cuantiles del método: (cuantiles de orden $\frac{1-0.95}{2}=`r (1-0.95)/2`$ y $\frac{1+0.95}{2}=`r (1+0.95)/2`$)
+## Bootstrap: método de los percentiles. Ejemplo
+<div class="example-sol">
+A continuación hallamos el intervalo de confianza al 95% ($1-\alpha=0.95$) calculando los cuantiles del método: (cuantiles de orden $\frac{\alpha}{2}=`r (1-0.95)/2`$ y $1-\frac{\alpha}{2}=`r (1+0.95)/2`$)
 ```{r}
 IC.boot=c(quantile(X,0.025),quantile(X,0.975))
 round(IC.boot,2)
@@ -1025,9 +1246,11 @@ donde:
   * El `estadístico` es la función que calcula el estadístico deseado de la submuestra, y tiene que tener dos parámetros: el primero representa la muestra original `X` y el segundo representa el vector de índices de una m.a.s. de `X`. 
   
   
-## Bootstrap: método de los percentiles en `R`
+## Bootstrap: método de los percentiles en `R`. Ejemplo
   
-<div class="example">
+<div class="example-sol">
+**Ejemplo anterior**
+
 Vamos a aplicar la función `boot` al ejemplo anterior definiendo primero el estadístico a usar que sería la varianza en nuestro caso:
 ```{r}
 library(boot)
@@ -1036,9 +1259,9 @@ simulación=boot(iris[flores.elegidas,]$Petal.Length,var.boot,1000)
 ```
 </div>
 
-## Bootstrap: método de los percentiles en `R`
+## Bootstrap: método de los percentiles en `R`. Ejemplo
   
-<div class="example">
+<div class="example-sol">
 El intervalo de confianza viene dado por la función `boot.ci`:
 ```{r warning=FALSE}
 boot.ci(simulación)
@@ -1046,9 +1269,9 @@ boot.ci(simulación)
 
 </div>
 
-## Bootstrap: método de los percentiles en `R`
+## Bootstrap: método de los percentiles en `R`. Ejemplo
   
-<div class="example">
+<div class="example-sol">
 Obtenemos cuatro intervalos de confianza para $\sigma^2$, calculados con cuatro métodos a partir de la simulación realizada.
 
 El intervalo `Percentile` es el calculado con el método de los percentiles que hemos explicado antes, y se obtiene con el sufijo `$percent[4:5]`.
