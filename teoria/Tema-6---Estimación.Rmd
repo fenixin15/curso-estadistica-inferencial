@@ -35,7 +35,9 @@ El problema usual de la **estadística inferencial** es:
 <l class="definition"> Muestra aleatoria simple (m.a.s.) de tamaño $n$</l>: de una población de $N$ individuos, repetimos $n$ veces el proceso consistente en escoger **equiprobablemente** un individuo de la población; *los individuos escogidos se pueden repetir*
 
 <div class="example"> 
-Ejemplo: escogemos  al azar $n$ estudiantes de la Universidad de las Islas Baleares (UIB) (con reposición) para medirles la estatura
+**Ejemplo** 
+
+Escogemos  al azar $n$ estudiantes de la Universidad de las Islas Baleares (UIB) (con reposición) para medirles la estatura
 </div>
 
 De esta manera, todas las muestras posibles de $n$ individuos (posiblemente repetidos: *multiconjuntos*) tienen la misma probabilidad
@@ -44,7 +46,9 @@ De esta manera, todas las muestras posibles de $n$ individuos (posiblemente repe
 <l class="definition"> Estadístico (*Estimador puntual*)</l>: una función que aplicada a una muestra nos permite *estimar* un valor que queramos conocer sobre  toda la población.
 
 <div class="example"> 
-Ejemplo: la media de las estaturas  de una muestra de estudiantes de la UIB nos permite estimar la media de las alturas de todos los estudiantes de la UIB.
+**Ejemplo**
+
+La media de las estaturas  de una muestra de estudiantes de la UIB nos permite estimar la media de las alturas de todos los estudiantes de la UIB.
 </div>
 
 ## Definición formal de muestra aleatoria simple
@@ -56,7 +60,9 @@ Ejemplo: la media de las estaturas  de una muestra de estudiantes de la UIB nos 
 * un conjunto de $n$ variables aleatorias independientes $X_1,\ldots,X_n$, todas con la distribución de $X$.
 
 <div class="example">
-**Ejemplo:** Sea $X$ la v.a. "escogemos un estudiante de la UIB y le medimos la altura". Una m.a.s. de $X$ de tamaño $n$ serán $n$ copias independientes $X_1,\ldots,X_n$ de esta $X$.
+**Ejemplo** 
+
+Sea $X$ la v.a. "escogemos un estudiante de la UIB y le medimos la altura". Una m.a.s. de $X$ de tamaño $n$ serán $n$ copias independientes $X_1,\ldots,X_n$ de esta $X$.
 </div>
 
 <l class="definition"> Una realización de una m.a.s.</l> son los $n$ valores $x_1,\ldots,x_n$ que  toman las v.a. $X_1,\ldots,X_n$.
@@ -68,16 +74,16 @@ T=f(X_1,\ldots,X_n)
 $$
 Este estadístico se aplica a las realizaciones  de la muestra
 
-<div class="example">
-**Ejemplo**: La **media muestral** de una m.a.s. $X_1,\ldots,X_n$ de tamaño $n$ es 
+<l class="definition"> Definición:</l> la **media muestral** de una m.a.s. $X_1,\ldots,X_n$ de tamaño $n$ es 
 $$
 \overline{X}:=\frac{X_1+\cdots+X_n}{n}
 $$
-Estima $E(X)$.
-</div>
+y estima $E(X)$.
 
 <div class="example">
-**Ejemplo:** La **media muestral** de las alturas de una
+**Ejemplo:** 
+
+La **media muestral** de las alturas de una
 realización de una m.a.s. de  las alturas  de estudiantes estima  la altura media de un estudiante de la UIB.
 </div>
 
@@ -94,21 +100,17 @@ Estudiando  esta distribución muestral, podremos estimar propiedades de $X$ a p
 
 ## Convenio: LOS ESTADÍSTICOS, EN MAYÚSCULAS; las realizaciones, en minúsculas
 
-<div class="example">
-**Ejemplo**: 
-
 * $X_1,\ldots,X_n$ una m.a.s. y 
 $$
-\overline{X}:=\frac{X_1+\cdots+X_n}{n}
+\overline{X}:=\frac{X_1+\cdots+X_n}{n},
 $$
 la media muestral.
 
 * $x_1,\ldots,x_n$ una realización de esta  m.a.s. y 
 $$
-\overline{x}:=\frac{x_1+\cdots+x_n}{n}
+\overline{x}:=\frac{x_1+\cdots+x_n}{n},
 $$
-la media (muestral) de esta realización
-
+la media (muestral) de esta realización.
 
 ## En la vida real...
 
@@ -129,7 +131,7 @@ No son muestras aleatorias simples. pero:
 
 <l class="definition">Media muestral </l>: sea $X_1,\ldots, X_n$ una m.a.s.\ de tamaño $n$ de una v.a.\ $X$ de esperanza $\mu_X$ y desviación típica $\sigma_X$
 
-La \emph{media muestral} es:
+La *media muestral* es:
 $$
 \overline{X}=\frac{X_1+\cdots+X_n}{n}
 $$
@@ -154,8 +156,10 @@ donde $\sigma_{\overline{X}}$ es el **error estándar** de $\overline{X}$.
 
 * $\sigma_{\overline{X}}= \sigma_X/\sqrt{n}$: la variabilidad de los resultados de $\overline{X}$ tiende a 0  a medida que tomamos muestras más grandes.
 
-## Media muestral. Ejemplo.
+## Media muestral. Ejemplo de la tabla de datos `iris`
 <div class="example">
+**Ejemplo**
+
 Consideremos la tabla de datos `iris` (ver tema de Muestreo). 
 Vamos a comprobar las propiedades anteriores sobre la variable **longitud del pétalo** (`Petal.Length`).
 
@@ -165,7 +169,7 @@ A continuación hallaremos los valores medios de cada muestra.
 Consideraremos la media y la desviación típica de dichos valores medios y los compararemos con los valores exactos dados por las propiedades de la media muestral. 
 </div>
 
-## Media muestral. Ejemplo.
+## Media muestral. Ejemplo de la tabla de datos `iris`
 <div class="example-sol">
 Para generar los valores medios de las longitudes del pétalo de las 10000 muestras usaremos la función `replicate` de `R`. Fijaos en su sintaxis:
 
@@ -179,7 +183,7 @@ valores.medios.long.pétalo=replicate(10000,mean(sample(iris$Petal.Length,40,
 </div>
 
 
-## Media muestral. Ejemplo.
+## Media muestral. Ejemplo de la tabla de datos `iris`
 <div class="example-sol">
 El valor medio de los valores medios de las muestras anteriores vale:
 ```{r}
@@ -194,7 +198,7 @@ Fijaos que los dos valores están muy próximos.
 </div>
 
 
-## Media muestral. Ejemplo.
+## Media muestral. Ejemplo de la tabla de datos `iris`
 <div class="example-sol">
 La desviación típica de los valores medios de las muestras vale:
 ```{r}
@@ -261,7 +265,8 @@ $\overline{X}$ es aproximadamente normal, con esperanza  $\mu_X$ y desviación t
 
 
 <div class="example">
-**Ejemplo**:
+**Ejemplo**
+
 Tenemos una v.a. $X$ de media $\mu_X=3$ y desviación típica. 
 $\sigma_X=0.2$. Tomamos  muestras aleatorias  simples de tamaño 50. La distribución de la media muestral $\overline{X}$ es aproximadamente
 $$
@@ -273,7 +278,7 @@ $$
 
 <div class="example-sol">
 En el gráfico siguiente podemos observar el histograma de los valores medios de las longitudes del pétalo de las 10000 muestras junto con la distribución normal correspondiente:
-```{r echo=FALSE}
+```{r echo=FALSE, fig.align='center'}
 hist(valores.medios.long.pétalo,freq=FALSE, main="Histograma 
  de las medias de 10000 muestras\n de tamaño 40 de las longitudes del pétalo",xlab="Valores medios de las longitudes del pétalo",ylab="Densidad",ylim=c(0,1.5))
 lines(density(valores.medios.long.pétalo),lty=2,lwd=2,col="red")
@@ -286,7 +291,9 @@ legend("topright",legend=c("densidad","normal"),
 
 ## Ejemplo
 <div class="example">
-El tamaño en megabytes (MB)  de un  tipo de imágenes comprimidas tiene  un  valor medio de   $115$ MB, con una desviación típica de $25$. Tomamos  una m.a.s. de $100$ imágenes de este tipo.
+**Ejemplo**
+
+El tamaño en megabytes (MB)  de un  tipo de imágenes comprimidas tiene  un  valor medio de $115$ MB, con una desviación típica de $25$. Tomamos  una m.a.s. de $100$ imágenes de este tipo.
 
 ¿Cuál es la probabilidad de que la media muestral del tamaño de los ficheros  sea $\leq 110$ MB?
 </div>
@@ -340,12 +347,16 @@ Notemos que $\widehat{p}_X$ es un caso particular de $\overline{X}$, por lo que 
 
 ## Proporción muestral. Propiedades
 
-* Valor esperado de la proporción muestral: $E(\widehat{p}_X)=p_X$.
+* Valor esperado de la proporción muestral: 
+$$E(\widehat{p}_X)=p_X$$
 
-* **Error estándar** de la proporción muestral: $\displaystyle \sigma_{\widehat{p}_X}=\sqrt{\frac{p_X(1-p_X)}{n}}$
+* **Error estándar** de la proporción muestral: 
+
+$$\displaystyle \sigma_{\widehat{p}_X}=\sqrt{\frac{p_X(1-p_X)}{n}}$$
 
 * Si la muestra es sin reposición y $n$ es relativamente grande,
-$\displaystyle\sigma_{\widehat{p}_X}=\sqrt{\frac{p_X(1-p_X)}{n}}\cdot{\sqrt{\frac{N-n}{N-1}}}$.
+
+$$\displaystyle\sigma_{\widehat{p}_X}=\sqrt{\frac{p_X(1-p_X)}{n}}\cdot{\sqrt{\frac{N-n}{N-1}}}.$$
 
 ## Proporción muestral. Propiedades
 
@@ -355,8 +366,10 @@ $$
 \frac{\widehat{p}_X-p_X}{\sqrt{\frac{{p}_X(1-{p}_X)}{n}}}\approx N(0,1)
 $$
 
-## Proporción muestral. Ejemplo
+## Proporción muestral. Ejemplo tabla de datos `iris`
 <div class="example">
+**Ejemplo**
+
 Dada una muestra de 60 flores de la tabla de datos `iris` vamos a estimar la proporción de flores de la especie `setosa`.
 También estimaremos la desviación estándar de dicha proporción.
 </div>
@@ -368,27 +381,33 @@ set.seed(1000)
 flores.elegidas = sample(1:150,60,replace=TRUE)
 muestra.flores = iris[flores.elegidas,]
 ```
+
+</div>
+
+## Proporción muestral. Ejemplo tabla de datos `iris`
+<div class="example-sol">
 A continuación miramos cuántas flores de la muestra son de la especie `setosa`:
 ```{r}
 table(muestra.flores$Species=="setosa")
 ```
+
+Tenemos entonces `r table(muestra.flores$Species=="setosa")[2]` flores de la especie `setosa`. 
 </div>
 
-## Proporción muestral. Ejemplo
-<div class="example-sol">
 
-Tenemos entonces `r table(muestra.flores$Species=="setosa")[2]` flores de la especie `setosa`. La estimación de la proporción de flores de especie `setosa` será:
+## Proporción muestral. Ejemplo tabla de datos `iris`
+<div class="example-sol">
+La estimación de la proporción de flores de especie `setosa` será:
 ```{r}
 (prop.setosa = table(muestra.flores$Species=="setosa")[2]/60)
 ```
 valor que no está muy lejos del valor poblacional de la proporción $p_{setosa}$ que es $p_{setosa}=\frac{50}{150}=`r round(1/3,4)`$.
+
+Para estimar la desviación estándar de la proporción muestral de flores de tamaño 60 de la especie `setosa`, repetiremos el experimento anterior 10000 veces y hallaremos la desviación estándar de las proporciones obtenidas. Al final, compararemos dicho valor con el valor exacto dado por la propiedad correspondiente.
 </div>
 
-
-## Proporción muestral. Ejemplo
+## Proporción muestral. Ejemplo tabla de datos `iris`
 <div class="example-sol">
-Para estimar la desviación estándar de la proporción muestral de flores de tamaño 60 de la especie `setosa`, repetiremos el experimento anterior 10000 veces y hallaremos la desviación estándar de las proporciones obtenidas. Al final, compararemos dicho valor con el valor exacto dado por la propiedad correspondiente.
-
 Para generar las proporciones de las 10000 muestras usaremos la función `replicate` de `R`:
 ```{r}
 set.seed(1002)
@@ -402,10 +421,10 @@ sd(props.muestrales)
 valor muy próximo al valor real que vale: $\displaystyle \sigma_{\widehat{p}_X}=\sqrt{\frac{p_X(1-p_X)}{n}}= \sqrt{\frac{\frac{50}{150}\cdot \left(1-\frac{50}{150}\right)}{60}}=`r round(sqrt((1/3)*(2/3)/60),4)`$.
 </div>
 
-## Proporción muestral. Ejemplo.
+## Proporción muestral. Ejemplo tabla de datos `iris`
 <div class="example-sol">
 En el gráfico siguiente podemos observar el histograma de las proporciones muestrales de las 10000 muestras junto con la distribución normal correspondiente:
-```{r echo=FALSE}
+```{r echo=FALSE, fig.align='center'}
 hist(props.muestrales,freq=FALSE, main="Histograma 
  de las proporciones muestrales de 10000 muestras\n de tamaño 60",xlab="Proporciones muestrales",ylab="Densidad",ylim=c(0,6.5))
 lines(density(props.muestrales),lty=2,lwd=2,col="red")
@@ -420,7 +439,7 @@ legend("topright",legend=c("densidad","normal"),
 # Varianza muestral y desviación típica muestral
 
 ## Varianza muestral y desviación típica muestral. Definición
-<l class="definition"> Varianza muestral y desviación típica muestral. </l> Sea $X_1,\ldots, X_n$ una m.a.s. de tamaño $n$ de una v.a. $X$ de esperanza $\mu_X$ y desviación típica $\sigma_X$.
+<l class="definition"> Varianza muestral y desviación típica muestral.</l> Sea $X_1,\ldots, X_n$ una m.a.s. de tamaño $n$ de una v.a. $X$ de esperanza $\mu_X$ y desviación típica $\sigma_X$.
 
 La **varianza muestral** es
 $$
@@ -499,6 +518,8 @@ legend("topright",legend=c("n=1","n=2","n=3","n=4","n=5","n=10"),
 
 ## La distribución $\chi_{n-1}^2$. Ejemplo
 <div class="example">
+**Ejemplo**
+
 Supongamos que  el  aumento  diario del la ocupación de una granja de  discos duros medido  en Gigas sigue una distribución normal con desviación típica $1.7$. Se toma una muestras de 12 discos. Supongamos que esta  muestra es pequeña respecto del total de la población de la granja de discos.
 
 ¿Cual es  la probabilidad de que la desviación típica muestral
@@ -519,7 +540,7 @@ $$
 
 
 ## La distribución $\chi_{n-1}^2$. Ejemplo
-<div class="example">
+<div class="example-sol">
 Nos piden: $\displaystyle P(\widetilde{S}_{X}<2.5)= P\left(\widetilde{S}_{X}^2<2.5^2\right)$:
 $$
 P\left(\widetilde{S}_{X}^2<2.5^2\right)  =  P\left(\frac{11\cdot \widetilde{S}_{X}^2}{`r 1.7^2`}<\frac{11
@@ -635,6 +656,8 @@ O sea, la manera más eficiente de estimar el número de elementos de la poblaci
 
 ## Estimadores eficientes. Ejemplo
 <div class="example">
+**Ejemplo**
+
 Sentados en una terraza de un bar del Paseo Marítimo de Palma hemos anotado el número de licencia de los 40 primeros taxis que hemos visto pasar:
 
 ```{r}
@@ -643,7 +666,13 @@ taxis=c(1217,600,883,1026,150,715,297,137,508,134,38,961,538,1154,
         498,606,566,1239,860,114,701,381,836,561,494,858,187)
 ```
 
-Supondremos que estas observaciones son una m.a.s. de los taxis de Palma. Entonces, estimamos que el número de taxis de Palma es
+Supondremos que estas observaciones son una m.a.s. de los taxis de Palma. 
+Vamos a estimar el número total de taxis.
+</div>
+
+<div class="example-sol">
+
+Entonces, estimamos que el número de taxis de Palma es
 ```{r}
 (N=max(taxis)+(max(taxis)-length(taxis))/length(taxis))
 ```
@@ -803,8 +832,10 @@ $$
 **Ejemplo**
 
 Supongamos que hemos marcado 15 peces del lago, y que en una captura, de 10 peces, hay  4 marcados. ¿Cuántos peces estimamos  que contiene el lago?
+</div>
 
-
+<div class="example-sol">
+El número de peces estimados del lago será:
 $$
 \widehat{N}=\frac{15\cdot 10}{4}=37.5
 $$
@@ -842,23 +873,23 @@ donde
 ## La función `fitdistr`
   *  Si `fitdistr` no dispone de una fórmula cerrada para el estimador  máximo verosímil de algún parámetro, usa un algoritmo numérico para aproximarlo que requiere de un valor inicial para arrancar. Este valor (o valores) se puede especificar igualando el parámetro `start` a una `list` con cada parámetro a estimar igualado a un valor inicial.  
 
-## Ejemplos de uso de `fitdistr`
+## Ejemplos de uso de `fitdistr`. Estimación del parámetro $\lambda$ de una variable de Poisson
 
 <div class="example">
-Estimación del parámetro $\lambda$ de una variable de Poisson:
+**Ejemplo**
 
-En primer lugar generamos una muestra de tamaño~$50$ de una variable de Poisson de parámetro $\lambda =5$:
+Consideramos la  muestra siguiente de tamaño 50 de una variable de Poisson de parámetro $\lambda =5$:
 ```{r}
 set.seed(98)
 muestra.poisson = rpois(50,lambda=5)
 muestra.poisson
 ```
-
+Vamos a estimar el valor del parámetro $\lambda$ a partir de la muestra anterior.
 </div>
 
 ## Ejemplos de uso de `fitdistr`
-<div class="example">
-Vamos a estimar el valor del parámetro $\lambda$ a partir de la muestra anterior:
+<div class="example-sol">
+Para estimar $\lambda$ usamos la función `fitdistr`:
 ```{r}
 library(MASS)
 fitdistr(muestra.poisson, densfun = "poisson")
@@ -867,7 +898,7 @@ La función `fitdistr` nos ha dado el siguiente valor de $\lambda$: `r fitdistr(
 </div>
 
 ## Ejemplos de uso de `fitdistr`
-<div class="example">
+<div class="example-sol">
 Recordemos que el estimador máximo verosímil de $\lambda$ es $\overline{X}$ con error típico $\frac{\sqrt{\lambda}}{\sqrt{n}}$. Veamos si la función `fitdistr` nos ha mentido:
 ```{r}
 (estimación.lambda = mean(muestra.poisson))
@@ -879,7 +910,7 @@ Comprobamos que los valores anteriores coinciden con los dados por la función.
 ## Ejemplos de uso de `fitdistr`
 
 
-<div class="example">
+<div class="example-sol">
 ¿Qué estimaciones hubiésemos obtenido de la media $\mu$ y la desviación típica $\sigma$ si suponemos que la muestra anterior es normal?
 
 ```{r}

@@ -43,10 +43,10 @@
 
 \setbeamertemplate{frametitle}
 {\begin{centering}
-\medskip
+
 \color{blue}
 \textbf{\insertframetitle}
-\medskip
+
 \end{centering}
 }
 \usecolortheme{rose}
@@ -86,20 +86,19 @@ n\to\infty}}}
 
 \newcounter{seccions}
 \newcommand{\seccio}[1]{\addtocounter{seccions}{1}
-\medskip\par\noindent\textbf{\theseccions.
+\par\noindent\textbf{\theseccions.
 #1}\smallskip\par }
 
 \newcommand{\EM}{\Omega}
 \newcommand{\PP}{\mathcal{P}}
 
-\title[\red{Matemáticas III GINF}]{}
+\title[Matemáticas III GINF}]{
 \author[]{}
 \date{}
 
 
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
 \beamertemplatedotitem
 
 \lstset{backgroundcolor=\color{green!50}}
@@ -110,18 +109,18 @@ n\to\infty}}}
 \section{Estimación por intervalos}
 
 \begin{frame}
-\vfill
+
 \begin{center}
 \gray{\LARGE Estimación por intervalos}
 \end{center}
-\vfill
+
 \end{frame}
 
 
 \subsection{Definiciones básicas}
 
 \begin{frame}
-\frametitle{El problema}
+## El problema
 \vspace*{-1cm}
 
 \begin{center}
@@ -131,31 +130,31 @@ n\to\infty}}}
 \vspace*{-1ex}
 
 Con un estimador, estimamos el parámetro con una cierta precisión, que depende:
-\medskip
 
-\begin{itemize}
-\item De la variabilidad del estimador
-\medskip
 
-\item Del tamaño de la muestra
-\medskip
 
-\item Del \emph{nivel de confianza} de la  estimación: cuan seguros  queremos estar de que la estimación es correcta
-\end{itemize}
+ De la variabilidad del estimador
+
+
+ Del tamaño de la muestra
+
+
+ Del nivel de confianza de la  estimación: cuan seguros  queremos estar de que la estimación es correcta
+
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{El problema}
+## El problema
 \vspace*{-1cm}
 
 \begin{center}
 \hspace*{-0.5cm}
-\includegraphics[width=1.1\linewidth]{plagiUIB1.jpg}\medskip
+\includegraphics[width=1.1\linewidth]{plagiUIB1.jpg}
 
 \hspace*{-0.4cm}
-\includegraphics[width=1.05\linewidth]{plagiUIB3.jpg}\medskip
+\includegraphics[width=1.05\linewidth]{plagiUIB3.jpg}
 
 \hspace*{-0.5cm}\includegraphics[width=1.1\linewidth]{plagiUIB2.jpg}
 \end{center}
@@ -163,13 +162,13 @@ Con un estimador, estimamos el parámetro con una cierta precisión, que depende
 
 Por lo tanto ( y por el momento):
 \begin{quote}
-\red{Con 95\% de confianza podemos afirmar que entre un 73.1\% y un 80.1\% de los estudiantes de la UIB aceptan \ldots}
+Con 95\% de confianza podemos afirmar que entre un 73.1\% y un 80.1\% de los estudiantes de la UIB aceptan \ldots
 \end{quote}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{El problema}
+## El problema
 \vspace*{-0.5cm}
 
 \begin{center}
@@ -178,15 +177,15 @@ Por lo tanto ( y por el momento):
 \end{frame}
 
 \begin{frame}
-\frametitle{Definiciones básicas}
+## Definiciones básicas
 
-En la \blue{Encuesta de Población Activa} (\blue{EPA}):
+En la Encuesta de Población Activa} (\blue{EPA):
 
 \begin{center}
 \includegraphics[width=0.6\linewidth]{EPA1}
 
 {\scriptsize \url{http://www.ine.es/jaxi/tabla.do?per=03&type=db&divi=EPA&idtab=313}}
-\medskip
+
 
 \includegraphics[width=\linewidth]{EPA2}
 
@@ -196,16 +195,16 @@ En la \blue{Encuesta de Población Activa} (\blue{EPA}):
 \end{frame}
 
 \begin{frame}
-\frametitle{El problema}
+## El problema
 \vspace*{-2ex}
 
-\blue{EPA de octubre de 2013}: \smallskip
-\begin{itemize}
-\item El número  estimado de parados a nivel nacional fue del  5\,904\,700 \smallskip
+EPA de octubre de 2013: \smallskip
 
-\item El error de muestreo fue de un 0.87\% \smallskip
+ El número  estimado de parados a nivel nacional fue del  5\,904\,700 \smallskip
 
-\item Por lo tanto, estamos bastante seguros (nivel de confianza del 95\%) de que el número de parados estaba entre
+ El error de muestreo fue de un 0.87\% \smallskip
+
+ Por lo tanto, estamos bastante seguros (nivel de confianza del 95\%) de que el número de parados estaba entre
 $$
 \begin{array}{rl}
 \hspace*{-2ex} 5\,904\,700\!-\! 2\!\cdot \! 0.0087\!\cdot\! 5\,904\,700 & \hspace*{-1ex}=\! 5\,904\,700\!-\! 102\,742\\ &  \hspace*{-1ex}=\! 5\,801\,958\quad \mbox{ y}\\
@@ -213,42 +212,42 @@ $$
  \end{array}
  $$
  
- \item La EPA de junio del 2013 había estimado el número de parados  en  5\,977\,500
+  La EPA de junio del 2013 había estimado el número de parados  en  5\,977\,500
  \smallskip
  
- \item \red{No hay evidencia de que  el paro bajase}
- \end{itemize}
+  No hay evidencia de que  el paro bajase
+ 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Definiciones básicas}
+## Definiciones básicas
 
-Una \emph{estimación por intervalos} de un parámetro poblacional es una regla para calcular, a partir de una muestra,
-un intervalo en el que, con una cierta probabilidad (\emph{nivel de confianza}), se encuentra el  valor verdadero del parámetro
-\bigskip
+Una estimación por intervalos de un parámetro poblacional es una regla para calcular, a partir de una muestra,
+un intervalo en el que, con una cierta probabilidad (nivel de confianza), se encuentra el  valor verdadero del parámetro
 
-Estas reglas definirán,  a su vez, \emph{estimadores}
+
+Estas reglas definirán,  a su vez, estimadores
 
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{Ejemplos}
+## Ejemplos
 
 
-\blue{Ejemplo:} 
-Hemos escogido al azar 50 estudiantes de grado de la UIB, hemos calculada sus notas medias de las asignaturas del primer semestre, y la media de estas medias ha sido un 6.3, con una varianza muestral de 1.8.\medskip
+Ejemplo: 
+Hemos escogido al azar 50 estudiantes de grado de la UIB, hemos calculada sus notas medias de las asignaturas del primer semestre, y la media de estas medias ha sido un 6.3, con una varianza muestral de 1.8.
 
 Determinar un intervalo del que podamos afirmar con probabilidad 95\% que contiene la media real de las notas medias de los estudiantes de grado de la UIB este primer semestre.
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Ejemplos}
+## Ejemplos
 
-\blue{Ejemplo:} En un experimento en el que se ha medido la tasa oficial  de  alcoholemia en sangre a 40 varones (sobrios) después de tomar 3 cañas de cerveza de 330 ml.
+Ejemplo: En un experimento en el que se ha medido la tasa oficial  de  alcoholemia en sangre a 40 varones (sobrios) después de tomar 3 cañas de cerveza de 330 ml.
 La media y la desviación típica de esta tasa han sido
 $$
 \overline{x}=0.7,\quad \widetilde{s}=0.1
@@ -260,21 +259,21 @@ Determinar un intervalo que podamos afirmar con probabilidad 95\% que contiene l
 
 
 \begin{frame}
-\frametitle{Definiciones básicas}
+## Definiciones básicas
 
-Dado un parámetro $\theta$, el intervalo $]A,B[$ es un \emph{intervalo de confianza} del
+Dado un parámetro $\theta$, el intervalo $]A,B[$ es un intervalo de confianza del
 $(1-\alpha)\cdot 100\% $ para al parámetro $\theta$ cuando
 $$
 P(A<\theta<B)=1-\alpha
 $$
-El valor $(1-\alpha)\cdot 100\% $ (o contiene solo el $1-\alpha$) recibe el nombre de \emph{nivel de confianza} 
-\medskip
-
-El valor $\alpha$ recibe el nombre de \emph{nivel de significación}
-\medskip 
+El valor $(1-\alpha)\cdot 100\% $ (o contiene solo el $1-\alpha$) recibe el nombre de nivel de confianza 
 
 
-\blue{Ejemplo:} $]A,B[$ es un intervalo de confianza del $95\%$ (o de nivel de significación de 0.05) si
+El valor $\alpha$ recibe el nombre de nivel de significación
+ 
+
+
+Ejemplo: $]A,B[$ es un intervalo de confianza del $95\%$ (o de nivel de significación de 0.05) si
 $$
 P(A<\theta<B)=0.95
 $$
@@ -284,9 +283,9 @@ $$
 
 
 \begin{frame}
-\frametitle{Definiciones básicas}
+## Definiciones básicas
 
-\emph{Por defecto}, buscaremos  intervalos bilaterales tales que la \emph{cola} de probabilidad sobrante $\alpha$ se reparta por igual a cada lado  del intervalo:
+Por defecto}, buscaremos  intervalos bilaterales tales que la \emph{cola de probabilidad sobrante $\alpha$ se reparta por igual a cada lado  del intervalo:
 $$
 P(\theta<A)=P(\theta>B)=\frac{\alpha}{2}
 $$
@@ -304,7 +303,7 @@ $$
 \end{center}
 
 
-\blue{Ejemplo:} Para buscar  un intervalo de confianza  $]A,B[$ del $95\%$, buscaremos $A,B$ de manera que 
+Ejemplo: Para buscar  un intervalo de confianza  $]A,B[$ del $95\%$, buscaremos $A,B$ de manera que 
 $$
 P(\theta<A)=0.025\quad\mbox{ y }\quad P(\theta>B)=0.025
 $$
@@ -314,13 +313,13 @@ $$
 
 \subsection{$\mu$ de población normal con $\sigma$ conocida}
 \begin{frame}
-\frametitle{Ejemplo: $\mu$ de población normal con $\sigma$ conocida}
+## Ejemplo: $\mu$ de población normal con $\sigma$ conocida
 
-Sea $X$ una v.a. normal con media poblacional $\mu$ desconocida y desviación típica poblacional $\sigma$ conocida (a la práctica, usualmente, \emph{estimada en un experimento anterior})
-\medskip
+Sea $X$ una v.a. normal con media poblacional $\mu$ desconocida y desviación típica poblacional $\sigma$ conocida (a la práctica, usualmente, estimada en un experimento anterior)
+
 
 Sea $X_1,\ldots,X_n$ una m.a.s. de $X$, con media muestral $\overline{X}$
-\medskip
+
 
 Queremos determinar un intervalo de confianza para a $\mu$ con un cierto nivel de confianza (digamos, 97.5\%):  un intervalo $]A,B[$ tal que
 $$
@@ -331,14 +330,14 @@ $$
 \end{frame}
 
 \begin{frame}
-\frametitle{Ejemplo: $\mu$ de población normal con $\sigma$ conocida}
+## Ejemplo: $\mu$ de población normal con $\sigma$ conocida
 
 Bajo estas  condiciones, sabemos que 
 $$
 Z=\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}
 $$
 sigue una distribución normal estándar
-\medskip
+
 
 Comencemos calculando un intervalo centrado en $0$ en el que   $Z$ 
 tenga probabilidad $0.975$:
@@ -354,7 +353,7 @@ $$
 
 
 \begin{frame}
-\frametitle{Ejemplo: $\mu$ de población normal con $\sigma$ conocida}
+## Ejemplo: $\mu$ de población normal con $\sigma$ conocida
 Por lo tanto
 $$
 P(-2.24<Z<2.24)=0.975
@@ -371,7 +370,7 @@ $$
 \end{frame}
 
 \begin{frame}
-\frametitle{Ejemplo: $\mu$ de población normal con $\sigma$ conocida}
+## Ejemplo: $\mu$ de población normal con $\sigma$ conocida
 Por  lo tanto, la probabilidad que la media  $\mu$ de $X$ 
 se encuentre dentro del intervalo
 $$
@@ -381,49 +380,49 @@ $$
 $$
 es $0.975$: es un intervalo de confianza  del 97.5\%
 %\pause
-\medskip
-
-\red{Además tenemos que:}
-\begin{itemize}
-\item Está centrado en $\overline{X}$
-\medskip
-
-\item El 0.025 de probabilidad restante  está repartido por igual en los dos extremos del intervalo
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Ejemplo: $\mu$ de población normal con $\sigma$ conocida}
 
 
-\begin{itemize}
-\item \blue{Como  estimador:} Un 97.5\% de las veces  que tomemos una muestra de tamaño $n$ de $X$, el verdadero valor de $\mu$ caerá dentro de este intervalo 
-\medskip
+Además tenemos que:
 
-\item \blue{Para una muestra concreta:} La probabilidad de que la media  $\mu$ de la población que ha producido esta muestra, esté en este intervalo concreto, es del 97.5\%
-\medskip
+ Está centrado en $\overline{X}$
 
-\item \blue{En ocasiones lo entenderemos como}:  ``La probabilidad de que $\mu$ esté en este intervalo es del 97.5\%''
-\medskip
 
-\item \blue{Pero la frase anterior es mentira} (\emph{es un abuso de lenguaje}): La $\mu$ concreta es un valor fijo, por lo  tanto  que pertenezca o   no a este intervalo concreto tiene probabilidad 1 (si   pertenece) y 0 (si no  pertenece) 
-\end{itemize}
-
+ El 0.025 de probabilidad restante  está repartido por igual en los dos extremos del intervalo
 
 \end{frame}
 
+\begin{frame}
+## Ejemplo: $\mu$ de población normal con $\sigma$ conocida
+
+
+
+ Como  estimador: Un 97.5\% de las veces  que tomemos una muestra de tamaño $n$ de $X$, el verdadero valor de $\mu$ caerá dentro de este intervalo 
+
+
+ Para una muestra concreta: La probabilidad de que la media  $\mu$ de la población que ha producido esta muestra, esté en este intervalo concreto, es del 97.5%
+
+
+ En ocasiones lo entenderemos como:  ``La probabilidad de que $\mu$ esté en este intervalo es del 97.5\%''
+
+
+ Pero la frase anterior es mentira} (\emph{es un abuso de lenguaje): La $\mu$ concreta es un valor fijo, por lo  tanto  que pertenezca o   no a este intervalo concreto tiene probabilidad 1 (si   pertenece) y 0 (si no  pertenece) 
+
+
+
+\end{frame}
+
 
 
 \begin{frame}
-\frametitle{I.C. para $\mu$ de población normal con $\sigma$ conocida}
+## I.C. para $\mu$ de población normal con $\sigma$ conocida
 \vspace*{-3ex}
 
 \begin{teorema}
 Sea $X\sim N(\mu,\sigma)$ con $\mu$ desconocida y $\sigma$ conocida.
-\medskip
+
 
 Tomamos una m.a.s. de $X$ de medida $n$, con media $\overline{X}$.
-\medskip
+
 
 Un intervalo de confianza  del $(1-\alpha)\cdot 100\%$ para $\mu$  es
 $$
@@ -439,17 +438,17 @@ donde $z_{1-\frac{\alpha}{2}}$ es el $(1-\frac{\alpha}{2})$-cuantil de la normal
 
 
 \begin{frame}
-\frametitle{I.C. para $\mu$ de población normal con $\sigma$ conocida}
+## I.C. para $\mu$ de población normal con $\sigma$ conocida
 
 Si $X$ es normal con $\sigma$ conocida, un intervalo de confianza  I.C. para $\mu$ de población normal con $\sigma$ conocida $\mu$ del $(1-\alpha)\cdot 100\%$ es
 $$
-\red{\overline{X} \pm z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}}:=\left]\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}
+\overline{X} \pm z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}}:=\left]\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}
 \right[
 $$
 Observad que está centrado   en $\overline{X}$
 \begin{center}
 \begin{tabular}{c|c|c}
-\blue{confianza  $1-\alpha$} & \blue{Significación $\alpha$} & \blue{$z_{1-\frac{\alpha}{2}}$}\\
+confianza  $1-\alpha$} & Significación $\alpha$} & \blue{$z_{1-\frac{\alpha}{2}$\\
  \hline
 0.900\ & 0.100 &1.64 \\   
 0.950 & 0.050 & 1.96\\
@@ -461,7 +460,7 @@ Observad que está centrado   en $\overline{X}$
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{I.C. para $\mu$ de población normal con $\sigma$ conocida}
+## I.C. para $\mu$ de población normal con $\sigma$ conocida
 \vspace*{-4ex}
 
 <<codigo_plot_intervalos,size="footnotesize",eval=FALSE>>=
@@ -486,7 +485,7 @@ abline(v=mu,lwd=3)
 
 \begin{frame}
 
-\frametitle{I.C. para $\mu$ de población normal con $\sigma$ conocida}
+## I.C. para $\mu$ de población normal con $\sigma$ conocida
 \vspace*{-1cm}
 
 % \begin{center}
@@ -516,13 +515,13 @@ abline(v=mu,lwd=3)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{I.C. para $\mu$ de población normal con $\sigma$ conocida}
+## I.C. para $\mu$ de población normal con $\sigma$ conocida
 
-\begin{block}{\red{¡Atención!}}
+\begin{block}{¡Atención!}
 De media, un $\alpha\cdot 100\%$ de las veces, un intervalo de confianza  del $(1-\alpha)\cdot 100\%$  no contendrá el valor real del parámetro 
 \end{block}
 
-\blue{Ejemplo}: De media, un 5\% de las veces un intervalo de confianza  del 95\% no contendrá el valor real del parámetro
+Ejemplo: De media, un 5\% de las veces un intervalo de confianza  del 95\% no contendrá el valor real del parámetro
 
 \end{frame}
 
@@ -530,18 +529,18 @@ De media, un $\alpha\cdot 100\%$ de las veces, un intervalo de confianza  del $(
 
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 \red{$\displaystyle
 \left]\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}
 \right[$}
-\medskip
+
 
 
 Tomamos una m.a.s. de  tamaño  $n=16$ de una v.a. normal con $\sigma=4$ y $\mu$ desconocida. La media   de la m.a.s. es
 $\overline{x}=20$.
-\medskip
 
-\blue{Calculad un intervalo de confianza  del 97.5\%  para $\mu$ de  una población normal con $\sigma$ conocida}
+
+Calculad un intervalo de confianza  del 97.5\%  para $\mu$ de  una población normal con $\sigma$ conocida
 %\pause
 $$
 \left] 20-2.24\cdot \frac{4}{\sqrt{16}} ,
@@ -552,7 +551,7 @@ $$
 
 La probabilidad que un parámetro $\mu$ que haya producido la muestra esté en este intervalo  es $0.975$
 %\pause
-\medskip
+
 
 \textsl{``La probabilidad que el parámetro $\mu$  de la población que ha producido la muestra este  en este intervalo  es $0.975$''}
 
@@ -561,8 +560,8 @@ La probabilidad que un parámetro $\mu$ que haya producido la muestra esté en e
 
 
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
-Queremos que analizar un sensor que mide la temperatura de un procesador en grados centígrados \footnote{En concreto un \emph{Intel Core i7-2600K}} que tiene 	como temperatura normal de  $32^{\circ}$ a $40^{\circ}$. Para saber si está bien calibrado, diseñamos un experimento en el que ponemos  el procesador el procesador en las mismas condiciones y  tomamos 40 muestras de su temperatura.
+## Ejemplo
+Queremos que analizar un sensor que mide la temperatura de un procesador en grados centígrados \footnote{En concreto un Intel Core i7-2600K}} que tiene 	como temperatura normal de  $32^{\circ}$ a $40^{\circ$. Para saber si está bien calibrado, diseñamos un experimento en el que ponemos  el procesador el procesador en las mismas condiciones y  tomamos 40 muestras de su temperatura.
 Los resultados son los siguientes:
 
 <<temperatura_sensor, size="small">>=
@@ -576,34 +575,34 @@ mean(temperatura)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
+## Ejemplo
 \vspace*{-3ex}
 
-\blue{Supongamos  que las medidas de nuestro sensor siguen  una distribución normal con varianza poblacional conocida $\sigma^2=1.44$. Calculad un intervalo de confianza  del 90\% para al resultado medio de la temperatura del procesador.}
+Supongamos  que las medidas de nuestro sensor siguen  una distribución normal con varianza poblacional conocida $\sigma^2=1.44$. Calculad un intervalo de confianza  del 90\% para al resultado medio de la temperatura del procesador.
 %\pause
-\medskip
+
 
 Tenemos las siguientes condiciones:
-\begin{itemize}
-\item Población normal con $\sigma=\sqrt{1.44}=\Sexpr{sqrt(1.44)}$ conocida
-\item Muestra aleatoria simplede  tamaño  $n=40$
-\item Media de la muestra  $\overline{x}=\Sexpr{mean(temperatura)}$
-\item $1-\alpha=0.9\Rightarrow \alpha=0.1\Rightarrow 1-\frac{\alpha}{2}=0.95$
-\item $z_{0.95}\approx 1.64$
-\begin{itemize}
-\item Con la tabla de $Z$, $P(Z\leq 1.64)=0.9495\approx 0.95$
-\item Con R
+
+ Población normal con $\sigma=\sqrt{1.44}=\Sexpr{sqrt(1.44)}$ conocida
+ Muestra aleatoria simplede  tamaño  $n=40$
+ Media de la muestra  $\overline{x}=\Sexpr{mean(temperatura)}$
+ $1-\alpha=0.9\Rightarrow \alpha=0.1\Rightarrow 1-\frac{\alpha}{2}=0.95$
+ $z_{0.95}\approx 1.64$
+
+ Con la tabla de $Z$, $P(Z\leq 1.64)=0.9495\approx 0.95$
+ Con R
 <<>>=
 qnorm(0.95)
 @
-\end{itemize}
-\end{itemize}
+
+
 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 Aplicamos la fórmula
 $$
 \overline{X}\pm z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}
@@ -624,9 +623,9 @@ $$
 
 
 \begin{frame}
-\frametitle{Amplitud}
+## Amplitud
 
-La \emph{amplitud} $A$ de un intervalo de confianza  
+La amplitud $A$ de un intervalo de confianza  
 $$
 \left]\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}
 \right[
@@ -634,22 +633,22 @@ $$
 es
 $$
 \begin{array}{rl}
-\red{A}& \displaystyle =\overline{X}+ z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}-\Big(\overline{X} -z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}\Big)\\[2ex] & \displaystyle =\red{2\cdot z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}}
+A}& \displaystyle =\overline{X}+ z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}-\Big(\overline{X} -z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}\Big)\\[2ex] & \displaystyle =\red{2\cdot z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}
 \end{array}
 $$
 %\end{frame}
 
-El \emph{error máximo}, al nivel de confianza  $(1-\alpha)$, que cometemos al estimar $\mu$
+El error máximo, al nivel de confianza  $(1-\alpha)$, que cometemos al estimar $\mu$
 por  $\overline{X}$ es la mitad de la amplitud, 
 $$
-\red{z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}}
+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}
 $$
 \end{frame}
 
 \begin{frame}
-\frametitle{Amplitud}
+## Amplitud
 
-La \emph{Amplitud} $A$ del intervalo de confianza 
+La Amplitud $A$ del intervalo de confianza 
 $$
 \left]\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}
 \right[
@@ -659,26 +658,26 @@ $$
 A= 2\cdot z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}
 $$
 
-\blue{Observaciones}
-\begin{itemize}
-\item I.C. para $\mu$ de una población normal con $\sigma$ conocida $n$ y $\alpha$ fijos, si $\sigma$ crece,
+Observaciones
+
+ I.C. para $\mu$ de una población normal con $\sigma$ conocida $n$ y $\alpha$ fijos, si $\sigma$ crece,
  $A$ crece
 \smallskip
 
-\item I.C. para $\mu$ de población normal con $\sigma$ conocida $\sigma$ y $\alpha$ fijos, si $n$
+ I.C. para $\mu$ de población normal con $\sigma$ conocida $\sigma$ y $\alpha$ fijos, si $n$
 crece,  $A$ decrece
 \smallskip
 
-\item I.C. para $\mu$ de población normal con $\sigma$ conocida $\sigma$ y $n$ fijos, si
+ I.C. para $\mu$ de población normal con $\sigma$ conocida $\sigma$ y $n$ fijos, si
 $1-\alpha$ crece, $A$ crece
-\end{itemize}
+
 \end{frame}
 
 
 
 
 \begin{frame}
-\frametitle{Amplitud}
+## Amplitud
 
 Si queremos calcular el   tamaño  $n$ de la muestra para asegurar que el intervalo de confianza  para $\mu$ al nivel de confianza $(1-\alpha)$ tenga una amplitud prefijada máxima $A_0$ (o un
 error máximo $A_0/2$), podemos despejar el tamaño muestral  $n$ de:
@@ -689,7 +688,7 @@ n\geq \left( 2 z_{1-\frac{\alpha}{2}}\frac{\sigma}{A_0}
 $$
 Dada $A_0$, tomaremos
 $$
-\red{n=\left\lceil \left( 2 z_{1-\frac{\alpha}{2}}\frac{\sigma}{A_0}
+n=\left\lceil \left( 2 z_{1-\frac{\alpha}{2}}\frac{\sigma}{A_0
 \right)^2\right\rceil}
 $$
 
@@ -697,12 +696,12 @@ $$
 
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 
-\blue{Recordemos  que las medidas de nuestro sensor  de temperatura seguían una distribución normal con varianza poblacional conocida $\sigma^2=1.44$,  $\sigma=1.2$}
-\medskip
+Recordemos  que las medidas de nuestro sensor  de temperatura seguían una distribución normal con varianza poblacional conocida $\sigma^2=1.44$,  $\sigma=1.2$
 
-\blue{¿Cuántas medidas tendríamos que tomar para obtener la  temperatura media  con un error máximo de $0.05^{\circ}$ al nivel de confianza del 90\%?}
+
+¿Cuántas medidas tendríamos que tomar para obtener la  temperatura media  con un error máximo de $0.05^{\circ}$ al nivel de confianza del 90\%?
 %\pause
 $$
 n=\left\lceil \left( 2 z_{1-\frac{\alpha}{2}}\frac{\sigma}{A_0}
@@ -719,74 +718,74 @@ Obtenemos $n= \lceil10.76\rceil= 11$
 \subsection{$\mu$ de población normal con $\sigma$ desconocida}
 
 \begin{frame}
-\frametitle{Distribución $t$ de Student}
+## Distribución $t$ de Student
 
 
 Sea $X\sim N(\mu,\sigma)$
-\medskip
+
 
 Sea $X_1,\ldots,X_n$ una m.a.s. de $X$, con media   $\overline{X}$ y desviación típica muestral $\widetilde{S}_{X}$
-\medskip
+
 
 \begin{teorema}
 En estas condiciones, la v.a.
 $$
 t=\frac{\overline{X}-\mu}{\widetilde{S}_{X}/\sqrt{n}}
 $$
-sigue una distribución \emph{$t$ de Student} con $n-1$ grados de libertad, \red{$t_{n-1}$}
+sigue una distribución $t$ de Student} con $n-1$ grados de libertad, $t_{n-1$
 \end{teorema}
-\medskip
 
-\red{$\widetilde{S}_{X}/\sqrt{n}$}: el \emph{error muestral}, estima el error estándar $\sigma/\sqrt{n}$
+
+$\widetilde{S}_{X}/\sqrt{n}$}: el error muestral, estima el error estándar $\sigma/\sqrt{n$
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{distribución $t$ de Student}
+## distribución $t$ de Student
 
 
-La distribución $t$ de Student con $\nu$ grados de libertad, \red{$t_{\nu}$}:
-\medskip
+La distribución $t$ de Student con $\nu$ grados de libertad, $t_{\nu}$:
 
-\begin{itemize}
-\item  Tiene  densidad
+
+
+  Tiene  densidad
 $$
 f_{t_\nu}(x) = \frac{\Gamma(\frac{\nu+1}{2})} {\sqrt{\nu\pi}\,\Gamma(\frac{\nu}{2})} \Big(1+\frac{x^2}{\nu} \Big)^{-\frac{\nu+1}{2}}
 $$
 donde $\Gamma(x)=\int_{0}^{\infty} t^{x-1}e^{-t}\, dt$ si $x> 0$. 
-\bigskip
 
-\item La distribución está tabulada (\emph{las tablas en el moodle de la asignatura}), y con R es \texttt{t}.
-\end{itemize}
+
+ La distribución está tabulada (las tablas en el moodle de la asignatura}), y con R es \texttt{t.
+
 \end{frame}
 
 
 
 
 \begin{frame}
-\frametitle{Distribución $t$ de Student}
+## Distribución $t$ de Student
 
 Sea $t_{\nu}$ una v.a. que sigue la distribución $t$ de
 Student con $\nu$ grados de libertad
-\medskip
 
-\begin{itemize}
-\item $E(t_{\nu})=0$  si $\nu>1$ y $Var(t_{\nu})=\dfrac{\nu}{\nu-2}$ si $\nu>2$
-\medskip
 
-\item Su  función de distribución es simétrica respecto de $E(t_{\nu})=0$ (como la de una $N(0,1)$):
+
+ $E(t_{\nu})=0$  si $\nu>1$ y $Var(t_{\nu})=\dfrac{\nu}{\nu-2}$ si $\nu>2$
+
+
+ Su  función de distribución es simétrica respecto de $E(t_{\nu})=0$ (como la de una $N(0,1)$):
 $$
 P(t_{\nu}\leq -x)=P(t_{\nu}\geq x)=1-P(t_{\nu}\leq x)
 $$
 
-\item Si $\nu$ es grande, su distribución es aproximadamente la de $N(0,1)$ (pero con más varianza: un poco más aplastada)
-\end{itemize}
+ Si $\nu$ es grande, su distribución es aproximadamente la de $N(0,1)$ (pero con más varianza: un poco más aplastada)
+
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Distribución $t$ de Student}
+## Distribución $t$ de Student
 %\vspace*{-1cm}
 
 %\includegraphics[width=0.95\linewidth]{tstud-div.pdf}
@@ -812,7 +811,7 @@ curve(dt(x, df = 10), col = "darkblue", add = TRUE)
 \end{frame}
 
 \begin{frame}
-\frametitle{Distribución $t$ de Student}
+## Distribución $t$ de Student
 \vspace*{-1cm}
 
 %\includegraphics[width=0.95\linewidth]{tstud-div.pdf}
@@ -839,16 +838,16 @@ curve(dt(x, df = 10), col = "darkblue", add = TRUE)
 
 
 \begin{frame}
-\frametitle{Distribución $t$ de Student}
+## Distribución $t$ de Student
 
 Indicaremos con
-\red{$t_{\nu,q}$} el  $q$-cuantil de una  v.a.  $X_{t_{\nu}}$ que sigue una distribución $t_\nu$:
+$t_{\nu,q}$} el  $q$-cuantil de una  v.a.  $X_{t_{\nu}$ que sigue una distribución $t_\nu$:
 $$
 P(X_{t_{\nu}}\leq t_{\nu,q})=q
 $$
 
 Por simetría,
-\red{$t_{\nu,q}=-t_{\nu,1-q}$}
+$t_{\nu,q}=-t_{\nu,1-q}$
 \vspace*{-1ex}
 
 \begin{center}
@@ -859,14 +858,14 @@ Por simetría,
 
 
 \begin{frame}
-\frametitle{I.C. para $\mu$ de población normal con $\sigma$ desconocida}
+## I.C. para $\mu$ de población normal con $\sigma$ desconocida
 
 Consideremos  la situación siguiente  :
-\begin{itemize}
-\item  $X$ una v.a.  normal con $\mu$ y $\sigma$ desconocidas
 
-\item $X_1,\ldots,X_n$ una m.a.s. de $X$  de  tamaño  $n$, con media   $\overline{X}$ y varianza muestral $\widetilde{S}_X^2$
-\end{itemize}
+  $X$ una v.a.  normal con $\mu$ y $\sigma$ desconocidas
+
+ $X_1,\ldots,X_n$ una m.a.s. de $X$  de  tamaño  $n$, con media   $\overline{X}$ y varianza muestral $\widetilde{S}_X^2$
+
 
 
 \begin{teorema}
@@ -884,7 +883,7 @@ $$
 %
 %
 %\begin{frame}[fragile]
-%\frametitle{$\mu$ de població normal con $\sigma$ desconocida}
+%## $\mu$ de població normal con $\sigma$ desconocida
 %\vspace*{-5ex}
 %
 %\small
@@ -909,7 +908,7 @@ $$
 %\end{frame}
 %
 %\begin{frame}
-%\frametitle{$\mu$ de població normal con $\sigma$ desconocida}
+%## $\mu$ de població normal con $\sigma$ desconocida
 %\vspace*{-1.2cm}
 %
 %\begin{center}
@@ -925,27 +924,27 @@ $$
 
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 
 La empresa \textsl{3D-print} ofrece una impresora industrial de papel en color de alta capacidad. En su publicidad afirma que sus cartuchos imprimen una media de 500 mil copias con la especificación: 
-\medskip
+
 
 \blue{\texttt{Ficha técnica: Muestra de  tamaño  $n=100$,
 población aproximadamente normal, nivel de confianza  del 90\%}}
-\medskip 
+ 
 
 La OCU (asociación de consumidores) desea comprobar estas  afirmaciones y su laboratorio toma una muestra aleatoria de  tamaño  $n=24$, obteniendo una media de $\overline{x}=518$ mil impresiones y una desviación típica muestral 
 $\widetilde{s}=40$
-\medskip
+
 
 Con esta muestra ¿la media   poblacional anunciada por fabricante cae en el  intervalo de confianza  del 90\%?
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
+## Ejemplo
 
 
-\blue{Con esta muestra ¿la media   poblacional anunciada por fabricante cae en el  intervalo de confianza  del 90\%?}
+Con esta muestra ¿la media   poblacional anunciada por fabricante cae en el  intervalo de confianza  del 90\%?
 
 Hay que  calcular el intervalo de confianza  para la $\mu$ de una población normal con $\sigma$ conocida $\mu$ con 
 $$
@@ -961,9 +960,9 @@ Consultando las tablas de la distribución  $t$ de Student, Obtenemos $t_{24,0.9
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
+## Ejemplo
 
-\blue{Con esta muestra ¿la media   poblacional anunciada por fabricante cae en el  intervalo de confianza  del 90\%?}
+Con esta muestra ¿la media   poblacional anunciada por fabricante cae en el  intervalo de confianza  del 90\%?
 
 <<qtimpresora, size="small">>=
 qt(0.95,24)
@@ -985,13 +984,13 @@ Operando: $]\Sexpr{a},\Sexpr{b}[$, y no contiene a 500 (¡pero se equivoca a fav
 
 
 \begin{frame}
-\frametitle{Observaciones }
+## Observaciones 
 
-\begin{itemize}
-\item El intervalo de confianza  obtenido  está centrado   en $\overline{X}$
-\medskip
 
-\item La fórmula
+ El intervalo de confianza  obtenido  está centrado   en $\overline{X}$
+
+
+ La fórmula
 $$
 \left] 
 \overline{X}-t_{n-1,1-\frac{\alpha}{2}} \frac{\widetilde{S}_{X}}{\sqrt{n}},
@@ -999,15 +998,15 @@ $$
 $$
 
 nos da el I.C. para $\mu$ en una población normal con $\sigma$ conocida, el   intervalo de confianza  del $(1-\alpha)\cdot 100\%$ se  puede utilizar  cuando $X$ es normal y $n$ cualquiera
-\bigskip
 
-\item Si $n$ es grande $t_{n-1,1-\frac{\alpha}{2}}\approx z_{1-\frac{\alpha}{2}}$ y podemos \emph{aproximarlo}  mediante
+
+ Si $n$ es grande $t_{n-1,1-\frac{\alpha}{2}}\approx z_{1-\frac{\alpha}{2}}$ y podemos aproximarlo  mediante
 $$
 \left] 
 \overline{X}-z_{1-\frac{\alpha}{2}} \frac{\widetilde{S}_{X}}{\sqrt{n}},
 \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_{X}}{\sqrt{n}} \right[
 $$
-\end{itemize}
+
 
 
 \end{frame}
@@ -1021,16 +1020,16 @@ $$
 \subsection{I.C. para $\mu$ de una población normal con $\sigma$ conocida y  muestra grande}
 
 \begin{frame}
-\frametitle{I.C. para $\mu$ una población normal con $\sigma$ conocida y  muestra grande}
+## I.C. para $\mu$ una población normal con $\sigma$ conocida y  muestra grande
 
 Consideremos la situación siguiente  :
-\begin{itemize}
-\item  $X$ una v.a.  \emph{cualquiera} con media   poblacional $\mu$ desconocida y desv. típ. $\sigma$ conocida
 
-\item $X_1,\ldots,X_n$ una m.a.s. de $X$, con media   $\overline{X}$
+  $X$ una v.a.  cualquiera con media   poblacional $\mu$ desconocida y desv. típ. $\sigma$ conocida
 
-\item \emph{$n$ es grande} (pongamos que $n\geq 40$)
-\end{itemize}
+ $X_1,\ldots,X_n$ una m.a.s. de $X$, con media   $\overline{X}$
+
+ $n$ es grande (pongamos que $n\geq 40$)
+
 
 %\only<2>{En estas  condiciones (T.C.L.)
 
@@ -1051,16 +1050,16 @@ $$
 
 
 \begin{frame}
-\frametitle{I.C. para $\mu$ de población normal con $\sigma$ conocida muestra grande}
+## I.C. para $\mu$ de población normal con $\sigma$ conocida muestra grande
 
 Consideremos  la situación siguiente  :
-\begin{itemize}
-\item  $X$ una v.a.  \emph{cualquiera} con media   poblacional $\mu$ desconocida  \emph{y desv. típ. $\sigma$ desconocida}
 
-\item $X_1,\ldots,X_n$ una m.a.s. de $X$, con media   $\overline{X}$ \emph{y desviación típica muestral $\widetilde{S}_X$}
+  $X$ una v.a.  cualquiera} con media   poblacional $\mu$ desconocida  \emph{y desv. típ. $\sigma$ desconocida
 
-\item \emph{$n$ es grande} (pongamos que $n\geq 40$)
-\end{itemize}
+ $X_1,\ldots,X_n$ una m.a.s. de $X$, con media   $\overline{X}$ y desviación típica muestral $\widetilde{S}_X$
+
+ $n$ es grande (pongamos que $n\geq 40$)
+
 %\pause
 
 
@@ -1079,7 +1078,7 @@ $$
 
 %
 %\begin{frame}[fragile]
-%\frametitle{$\mu$ I.C. para $\mu$ de población normal con $\sigma$ conocidamostres grans}
+%## $\mu$ I.C. para $\mu$ de población normal con $\sigma$ conocidamostres grans
 %\vspace*{-2ex}
 %
 %\small
@@ -1105,7 +1104,7 @@ $$
 %\end{frame}
 %
 %\begin{frame}
-%\frametitle{$\mu$ I.C. para $\mu$ de población normal con $\sigma$ conocidamostres grans}
+%## $\mu$ I.C. para $\mu$ de población normal con $\sigma$ conocidamostres grans
 %\vspace*{-1.2cm}
 %
 %\begin{center}
@@ -1116,7 +1115,7 @@ $$
 
 
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
+## Ejemplo
 \vspace*{-2ex}
 Consultad el enlace \MYhref[green]{https://twitter.com/guardiacivil/status/805154653977608192/photo/1}{Guardia civil informa...}
 
@@ -1133,7 +1132,7 @@ head(tasa_alcoholemia,10)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
+## Ejemplo
 \vspace*{-2ex}
 
 <<tasa_cerveza2 ,size="scriptsize">>=
@@ -1153,17 +1152,17 @@ $$
 
 
 \begin{frame}
-\frametitle{Ejemplo}
-\blue{Calculad  un intervalo del que podamos afirmar que con una probabilidad del 95\% contiene la media poblacional de  la tasa de alcoholemia  para hombres después de beber 3 cerveza de 330ml.}
-\medskip
+## Ejemplo
+Calculad  un intervalo del que podamos afirmar que con una probabilidad del 95\% contiene la media poblacional de  la tasa de alcoholemia  para hombres después de beber 3 cerveza de 330ml.
 
-Nos piden un \emph{intervalo de confianza  del 95\%}  para $\mu$ de una población normal con $\sigma$ conocida  de la v.a. $X$ ``tasa de alcoholemia  para hombres después de beber 3 cervezas de 330ml''
+
+Nos piden un intervalo de confianza  del 95\%  para $\mu$ de una población normal con $\sigma$ conocida  de la v.a. $X$ ``tasa de alcoholemia  para hombres después de beber 3 cervezas de 330ml''
 
 No conocemos la distribución de  $X$, pero $n=40$ es "grande"
 \end{frame}
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 Podemos emplear
 \red{$$
 \left]\overline{x}-z_{1-\frac{\alpha}{2}}\frac{\widetilde{s}}{\sqrt{n}},
@@ -1190,19 +1189,19 @@ Podemos afirmar con un 95\% de confianza  que la tasa de alcoholemia media en sa
 
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 \vspace*{-2ex}
 
 Se ha tomado una muestra del tiempo de visualización de vídeo semanal en horas de  1000  usuarios de un canal de videos por internet. Se ha obtenido  una media   muestral de 9.5 horas/semana con una desviació típica muestral de 0.5 horas/semana. 
-\medskip
 
-\blue{Calculad un intervalo de confianza  del 95\% para la media poblacional del número de horas visualizadas por semana supuesto que sigue aproximadamente una población normal con  $\sigma$ desconocida}
+
+Calculad un intervalo de confianza  del 95\% para la media poblacional del número de horas visualizadas por semana supuesto que sigue aproximadamente una población normal con  $\sigma$ desconocida
 
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
+## Ejemplo
 \vspace*{-2ex}
 
 Como $n=1000$ es grande, podemos utilizar
@@ -1227,7 +1226,7 @@ alpha=0.5
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
+## Ejemplo
 <<>>=
 cuantil=qnorm(1-0.5/2)
 cuantil
@@ -1254,7 +1253,7 @@ Podemos afirmar con un 95\% de confianza  que la media poblacional de  vídeo co
 
 
 \begin{frame}
-\frametitle{Amplitud}
+## Amplitud
 \vspace*{-2ex}
 
 La amplitud de 
@@ -1267,23 +1266,23 @@ $$
 A=2z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}}
 $$
 Para determinar $n$ (grande) que dé cómo  máximo una amplitud $A$ prefijada, necesitamos $\widetilde{S}_X$, que depende de la muestra.
-\medskip
+
 
  Soluciones:
-\begin{itemize}
-\item Si sabemos  la desv. típ. poblacional $\sigma$, la utilizaremos en lugar de  $\widetilde{S}_X$
-\item Si hemos tomado una muestra previa (\emph{piloto}), emplearemos  la desviación típica muestral para estimar $\sigma$
-\end{itemize}
+
+ Si sabemos  la desv. típ. poblacional $\sigma$, la utilizaremos en lugar de  $\widetilde{S}_X$
+ Si hemos tomado una muestra previa (piloto), emplearemos  la desviación típica muestral para estimar $\sigma$
+
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{Amplitud}
+## Amplitud
 
 \begin{block}{}
-De una población $X$ hemos tomado una  \emph{m.a.s.\ piloto} que ha tenido una  desviación típica muestral $\widetilde{s}_{pilot}$.
-\medskip
+De una población $X$ hemos tomado una  m.a.s.\ piloto} que ha tenido una  desviación típica muestral $\widetilde{s}_{pilot$.
+
 
 Estimaremos que el tamaño  mínima $n$ de una m.a.s.\ de $X$ que dé un intervalo de confianza  I.C. para $\mu$ de una población normal
 con $\sigma$ desconocida de nivell de confianza  $1-\alpha$ y amplitud máxima $A_0$ es 
@@ -1301,7 +1300,7 @@ $$
 
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 
 Queremos  estimar la estatura media de los  estudiantes de la UIB. Queremos obtener un intervalo de confianza  del 99\% con 
 una precisión máxima de 1 cm. En una muestra piloto de 25 estudiantes,  obtuvimos que  
@@ -1315,7 +1314,7 @@ $$
 
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 
 $$
 n=
@@ -1323,15 +1322,15 @@ n=
 \left\lceil \Big(z_{1-\frac{\alpha}{2}}\frac{\widetilde{s}_{pilot}}{A/2}\Big)^2\right\rceil
 $$
 
-\begin{itemize}
-\item Precisión = error máximo = ${A}/{2}=1$
-\medskip
 
-\item $\widetilde{s}_{pilot}=10$
-\medskip
+ Precisión = error máximo = ${A}/{2}=1$
 
-\item $\alpha=0.01\Rightarrow z_{1-\frac{\alpha}{2}}=z_{0.995}=2.58$
-\end{itemize}
+
+ $\widetilde{s}_{pilot}=10$
+
+
+ $\alpha=0.01\Rightarrow z_{1-\frac{\alpha}{2}}=z_{0.995}=2.58$
+
 Dóna
 $$
 n=\left\lceil \Big(2.58\cdot \frac{10}{1}\Big)^2\right\rceil=\lceil 665.64\rceil=666
@@ -1345,14 +1344,14 @@ $$
 
 
 \begin{frame}
-\frametitle{I.C para una proporción}
+## I.C para una proporción
 
 Consideremos la situación siguiente  :
-\begin{itemize}
-\item  $X$ una v.a. Bernoulli con $p$ desconocida
 
-\item $X_1,\ldots,X_n$ una m.a.s. de $X$, con número de éxitos  $x$ y por lo tanto la frecuencia relativa de éxitos  es $\widehat{p}_{X}=x/n$
-\end{itemize}
+  $X$ una v.a. Bernoulli con $p$ desconocida
+
+ $X_1,\ldots,X_n$ una m.a.s. de $X$, con número de éxitos  $x$ y por lo tanto la frecuencia relativa de éxitos  es $\widehat{p}_{X}=x/n$
+
 
 Recordad que $X$ es $B(n,p)$
 \scriptsize{
@@ -1372,7 +1371,7 @@ Manualmente (consultando las tablas) sería un trabajo muy pesado.
 %\end{document}
 
 \begin{frame}[fragile]
-\frametitle{I.C.\ para  una proporción}
+## I.C.\ para  una proporción
 \vspace*{-2ex}
 
 El paquete \texttt{epitools} incorpora la función 
@@ -1380,7 +1379,7 @@ El paquete \texttt{epitools} incorpora la función
 {\tt binom.exact(éxitos, tamaño ,conf.)}
 \end{center}
 para calcularlo
-\medskip
+
 
 \blue{De 10 pacientes tratados con un medicamento, 2 se han curado. Dar un intervalo de confianza  del 95\% I.C. 
 para  la proporción poblacional $p$ de pacientes que este medicamento sana}
@@ -1400,15 +1399,15 @@ Da $]\Sexpr{solución$low},\Sexpr{solución$upper}[$
 
 
 \begin{frame}
-\frametitle{I.C. para la proporción poblacional muestras grandes I}
+## I.C. para la proporción poblacional muestras grandes I
 
 Consideremos la situación siguiente  :
-\begin{itemize}
-\item  $X$ una v.a. Bernoulli con $p$ desconocida
 
-\item $X_1,\ldots,X_n$ una m.a.s. de $X$, con $n$  gran (por Ejemplo, $n\geq 40$) y frecuencia relativa de éxitos $\widehat{p}_{X}$
-\end{itemize}
-\medskip
+  $X$ una v.a. Bernoulli con $p$ desconocida
+
+ $X_1,\ldots,X_n$ una m.a.s. de $X$, con $n$  gran (por Ejemplo, $n\geq 40$) y frecuencia relativa de éxitos $\widehat{p}_{X}$
+
+
 
 En estas  condiciones (por el  T.C.L.), 
 $$
@@ -1419,7 +1418,7 @@ $$
 
 
 \begin{frame}
-\frametitle{I.C. para la proporción $p$ muestral muestras grandes I}
+## I.C. para la proporción $p$ muestral muestras grandes I
 Por lo tanto
 
 $$
@@ -1429,17 +1428,17 @@ $$
 
 El problema es que no conocemos $p$, la literatura plantea entre otras soluciones :
 
-\begin{itemize}
-\item[I)] El método de Wilson
-\item[II)] La solución de Laplace (1812)
-\end{itemize}
+
+[I)] El método de Wilson
+[II)] La solución de Laplace (1812)
+
 
 Exponemos estas soluciones a continuación
 \end{frame}
 
 
 \begin{frame}
-\frametitle{I.C. para la proporción poblacional muestras grandes I}
+## I.C. para la proporción poblacional muestras grandes I
 
 \begin{block}{Método de Wilson}
 En estas  condiciones, un intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ I.C. para $p$ es  (donde $\widehat{q}_{X}=1-\widehat{p}_{X}$)
@@ -1450,7 +1449,7 @@ $$
 \end{array}
 $$
 \end{block}
-\medskip
+
 
 \texttt{binom.wilson} del paquete \texttt{epitools}
 \end{frame}
@@ -1458,16 +1457,16 @@ $$
 
 
 \begin{frame}[fragile]
-\frametitle{I.C. para la proporción poblacional muestras grandes II}
+## I.C. para la proporción poblacional muestras grandes II
 
-\begin{itemize}
-\item  $X$ una v.a. Bernoulli con $p$ desconocida
-\item $X_1,\ldots,X_n$ una m.a.s. de $X$, con $n$  grande y $\widehat{p}_{X}$ alejado  de 0 y 1. Por ejemplo, tal que:
+
+  $X$ una v.a. Bernoulli con $p$ desconocida
+ $X_1,\ldots,X_n$ una m.a.s. de $X$, con $n$  grande y $\widehat{p}_{X}$ alejado  de 0 y 1. Por ejemplo, tal que:
 $$
 n\geq 100, n\widehat{p}_{X}\geq 10,  n(1-\widehat{p}_{X})\geq 10
 $$
-\end{itemize}
-\medskip
+
+
 
 \begin{block}{Fórmula de Laplace (1812)}
 Bajo  estas  condiciones, se puede tomar como intervalo de  confianza  del $(1-\alpha)\cdot 100\%$ para $p$
@@ -1482,11 +1481,11 @@ $$
 
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 
 En una muestra aleatoria de 500 familias con niños en edad escolar se encontró que 
 340 introducían fruta de forma diaria en la dieta de sus hijos
-\medskip
+
 
 Calculad un intervalo de confianza  del 95\% para  conocida la proporción real de
 familias de esta ciudad con niños en edad escolar que incorporen fruta fresca de
@@ -1495,11 +1494,11 @@ forma diaria en la dieta de sus hijos.
 
 \end{frame}
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 
 $X=$ ``Aportan diariamente fruta a la dieta de sus hijos''\\
  es $Be(p)$, y buscamos el  intervalo de confianza  del 95\%  para $p$ 
-\bigskip
+
 
 Como que $n=500\geq 100$, $n\widehat{p}_X=340\geq 10$ y $n\cdot (1-\widehat{p}_X)=160\geq 10$, podemos utilizar  este intervalo
 $$
@@ -1514,13 +1513,13 @@ n=500, \widehat{p}_{X}=\dfrac{340}{500}=0.68
 $$
 Que vale (recordad que  {\small $\alpha=0.05\Rightarrow z_{1-\frac{\alpha}{2}}=z_{0.975}=1.96$})
 $$
-\red{]0.639,0.721[}
+]0.639,0.721[
 $$
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
+## Ejemplo
 
 Con los otros métodos:
 
@@ -1532,28 +1531,28 @@ round(binom.wilson(340,500,0.95),3)
 
 
 Obtenemos:
-\medskip
 
-\begin{itemize}
-\item Clopper-Pearson: $]0.637,0.721[$
-\medskip
 
-\item Wilson: $]0.638, 0.719[$
-\medskip
 
-\item Laplace: $]0.639,0.721[$
-\end{itemize}
+ Clopper-Pearson: $]0.637,0.721[$
+
+
+ Wilson: $]0.638, 0.719[$
+
+
+ Laplace: $]0.639,0.721[$
+
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 
 \blue{En un ensayo de un nuevo  tratamiento de quimioterapia, en una muestra de $n$ (grande) enfermos tratados, ninguno desarrolla cáncer testicular
 como  efecto secundario. Calculad un intervalo de confianza  al 95\%  para la proporción poblacional  de enfermos tratados con esta
 quimioterapia que no tienen cáncer testicular.}
 %\pause
-\bigskip
+
 
 No podemos emplear la fórmula de Laplace, porqué $\widehat{p}_X=0$. Tenemos que emplear el método de Wilson:
 
@@ -1561,7 +1560,7 @@ No podemos emplear la fórmula de Laplace, porqué $\widehat{p}_X=0$. Tenemos qu
 \end{frame}
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 \vspace*{-5ex}
 
 {\small
@@ -1580,35 +1579,35 @@ $$
 
 }
 
-\red{En el área de sanidad se emplea  $\Big]0,\dfrac{3}{n}\Big[$ (la regla del 3)}
+En el área de sanidad se emplea  $\Big]0,\dfrac{3}{n}\Big[$ (la regla del 3)
 
 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Observaciones }
-\begin{itemize}
-\item El método  de Wilson da un I.C. centrado   en
+## Observaciones 
+
+ El método  de Wilson da un I.C. centrado   en
 $$
 \frac{\widehat{p}_{X}+\frac{z_{1-{\alpha}/{2}}^2}{2n}}{1+\frac{z_{1-{\alpha}/{2}}^2}{n}}
 =\frac{2n\widehat{p}_{X}+ z_{1-\frac{\alpha}{2}}^2}{2n+2 z_{1-\frac{\alpha}{2}}^2}
 $$
 
-\item No se conoce una fórmula para el centro del I.C. de Clopper-Pearson.
+ No se conoce una fórmula para el centro del I.C. de Clopper-Pearson.
 
-\item La fórmula de Laplace dóna un I.C.  centrado   en $\widehat{p}_{X}$
-\medskip
+ La fórmula de Laplace dóna un I.C.  centrado   en $\widehat{p}_{X}$
 
-\item Cuando $n$ crece se reduce la amplitud del intervalo de confianza 
 
-\end{itemize}
+ Cuando $n$ crece se reduce la amplitud del intervalo de confianza 
+
+
 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Amplitud}
+## Amplitud
 
 La amplitud del intervalo de confianza  de Laplace es 
 $$
@@ -1620,7 +1619,7 @@ conocer $\widehat{p}_{X}$, que obviamente no conocemos sin hacer una muestra
 \end{frame}
 
 \begin{frame}
-\frametitle{Amplitud}
+## Amplitud
 \vspace*{-4ex}
 
 $$
@@ -1638,18 +1637,18 @@ Por lo tanto, calcularemos $n$ para obtener una  amplitud máxima $A_0$ suponien
 $$
 A_0\geq 2z_{1-\frac{\alpha}{2}}\sqrt{\frac{0.5^2}{n}}=\frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}
 \Rightarrow
-\red{n=\left\lceil\frac{z_{1-\frac{\alpha}{2}}^2}{A_0^2}\right\rceil}
+n=\left\lceil\frac{z_{1-\frac{\alpha}{2}}^2}{A_0^2}\right\rceil
 $$}
 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Ejemplos}
+## Ejemplos
 
 \begin{center}
 \hspace*{-0.5cm}
-\includegraphics[width=1.1\linewidth]{plagiUIB1.jpg}\bigskip
+\includegraphics[width=1.1\linewidth]{plagiUIB1.jpg}
 
 \hspace*{-0.5cm}\includegraphics[width=1.1\linewidth]{plagiUIB2.jpg}
 \end{center}
@@ -1663,9 +1662,9 @@ $$
 
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 Quemos estudiar qué fración teléfonos móviles utilizan android. Para determinar esta proporción con un  nivel de confianza  del 95\%
-y garantizar un error máximo de 0.05, ¿de qué  tamaño  ha de ser la muestra \emph{en el peor de los casos}?
+y garantizar un error máximo de 0.05, ¿de qué  tamaño  ha de ser la muestra en el peor de los casos?
 $$
 n=\left\lceil\frac{z_{1-\frac{\alpha}{2}}^2}{A^2}\right\rceil
 $$
@@ -1684,16 +1683,16 @@ Obtenemos que  $n= \lceil 384.16\rceil=385$.
 \subsection{I.C. para $\sigma^2$ de una población normal}
 
 \begin{frame}
-\frametitle{I.C. de la varianza $\sigma^2$ de una población normal}
+## I.C. de la varianza $\sigma^2$ de una población normal
 
 
 
 Consideremos  la siguiente situación:
-\begin{itemize}
-\item  $X$ una v.a. normal con $\mu$ y $\sigma$ desconocidas
 
-\item $X_1,\ldots,X_n$ una m.a.s. de $X$ y varianza muestral $\widetilde{S}_X^2$
-\end{itemize}
+  $X$ una v.a. normal con $\mu$ y $\sigma$ desconocidas
+
+ $X_1,\ldots,X_n$ una m.a.s. de $X$ y varianza muestral $\widetilde{S}_X^2$
+
 
 
 \begin{teorema}
@@ -1706,13 +1705,13 @@ té distribución $\chi^2_{n-1}$
 \end{frame}
 
 \begin{frame}
-\frametitle{I.C. de la varianza $\sigma^2$ de una població normal}
+## I.C. de la varianza $\sigma^2$ de una població normal
 Tenemos  la situación siguiente:
 
-\begin{itemize}
-\item  $X$ una v.a. normal con $\mu$ y $\sigma$ desconocidas
-\item $X_1,\ldots,X_n$ una m.a.s. de $X$ y varianza muestral $\widetilde{S}_X^2$
-\end{itemize}
+
+  $X$ una v.a. normal con $\mu$ y $\sigma$ desconocidas
+ $X_1,\ldots,X_n$ una m.a.s. de $X$ y varianza muestral $\widetilde{S}_X^2$
+
 
 \begin{teorema}
 En estas  condiciones,  un intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ para varianza $\sigma^2$ de una población normal es 
@@ -1727,7 +1726,7 @@ donde $\chi_{\nu,q}^2$ es el $q$-cuantil de la distribución $\chi_{\nu}^2$
 
 
 \begin{frame}
-\frametitle{I.C. de la varianza $\sigma^2$ de una població normal}
+## I.C. de la varianza $\sigma^2$ de una població normal
 
 En efecto
 $$
@@ -1744,16 +1743,16 @@ $$
 \end{array}
 $$
 Como $\chi_{n-1}^2$ no es simétrica, hemos de calcular $\chi_{n-1,\frac{\alpha}{2}}^2$ y $\chi_{n-1,1-\frac{\alpha}{2}}^2$
-\medskip
 
-\blue{Observación:} el intervalo de confianza  per $\sigma^2$ no está
+
+Observación: el intervalo de confianza  per $\sigma^2$ no está
 centrado   en $\widetilde{S}_{X}^2$
 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 
 Un algoritmo probabilístico depende de la semilla de aleatorización
 que se genera en cada paso. 
@@ -1763,11 +1762,11 @@ se estudia la varianza de su tiempo de ejecución. Queremos que se esta varianza
 
 Se supone  que la distribución del tiempo de ejecución del algoritmo  es 
 aproximadamente normal. 
-\medskip
+
 
 Se realizan 30  ejecuciones del algoritmo de las que se mide el tiempo
 de ejecución, los resultados son :
-\medskip
+
 
 
 Nos piden calcular un intervalo de confianza   para $\sigma^2$ de una población normal al nivel
@@ -1775,8 +1774,8 @@ $95\%$
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
-\red{$\displaystyle \left] \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2},
+## Ejemplo
+$\displaystyle \left] \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2,
 \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}
 \right[$}
 <<tiempo ,size="footnotesize">>=
@@ -1791,8 +1790,8 @@ sd(tiempo)
 \end{frame}
  
 \begin{frame}[fragile]
-\frametitle{Ejemplo}
-\red{$\displaystyle \left] \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2},
+## Ejemplo
+$\displaystyle \left] \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2,
 \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}
 \right[$}
 
@@ -1802,7 +1801,7 @@ alpha=0.05
 qchisq(alpha/2,n-1)
 qchisq(1-alpha/2,n-1)
 @
-\medskip
+
 
 
 $\alpha=0.05$:
@@ -1814,7 +1813,7 @@ $$
 \end{frame}
 
 \begin{frame} 
-\frametitle{Ejemplo}
+## Ejemplo
 
 el intervalo será
 $$
@@ -1827,28 +1826,28 @@ $$
 \left] \frac{29\cdot 301.5506}{45.72},
 \frac{29\cdot 301.5506}{16.05}
 \right[=
-\red{]191.27, 544.86[}
+]191.27, 544.86[
 $$
 %\pause
 
 Este  es el I.C. para $\sigma$ de una población normal con $\sigma$, para la desviación típica podemos hacer (hay otras fórmulas) 
 $$
-]\sqrt{191.27}, \sqrt{544.86}[=\red{]13.83,23.34[}
+]\sqrt{191.27}, \sqrt{544.86}[=]13.83,23.34[
 $$
 
 \end{frame}
 
 \subsection{Poblaciones $N$ pequeñas}
 \begin{frame}
-\frametitle{``Poblaciones finitas''}
+## ``Poblaciones finitas''
 Por el momento hemos utilizado  muestras  aleatorias simples
-\medskip
+
 
 En la práctica,  se toman muestras aleatorias sin sin reposición
-\medskip
+
 
 Si la  tamaño  $N$ de la población es mucho más grande que la  tamaño  $n$ de la muestra (digamos que  $N\geq 40\geq n$), las fórmulas dadas hasta ahora  funcionan (aproximadamente) bien
-\medskip
+
 
 Pero\ldots
 \vspace*{-4ex}
@@ -1861,10 +1860,10 @@ Pero\ldots
 \end{frame}
 
 \begin{frame}
-\frametitle{``Poblaciones finitas''}
+## ``Poblaciones finitas''
 
-En este caso sí se da el efecto de \emph{población finita} cuando $N$ es relativamente pequeño
-\medskip
+En este caso sí se da el efecto de población finita cuando $N$ es relativamente pequeño
+
 
 Así que en esta situación, en las fórmulas que hemos propuesto para los intervalos de confianza  I.C. para $\mu$ o $p$ hay que multiplicar el error estándar o el error muestral por el factor corrector de población finita
 $$
@@ -1874,16 +1873,16 @@ $$
 \end{frame}
 
 \begin{frame}
-\frametitle{``Poblaciones finitas''}
+## ``Poblaciones finitas''
 
 Consideremos  la situación siguiente  :
-\begin{itemize}
-\item  $X$ una población de  tamaño  $N$ que sigue una distribución con media   poblacional $\mu$ desconocida
 
-\item $X_1,\ldots,X_n$ una m.a.\ sin reposición de $X$, con media   $\overline{X}$
+  $X$ una población de  tamaño  $N$ que sigue una distribución con media   poblacional $\mu$ desconocida
 
-\item  $n$ es grande 
-\end{itemize}
+ $X_1,\ldots,X_n$ una m.a.\ sin reposición de $X$, con media   $\overline{X}$
+
+  $n$ es grande 
+
 
 \begin{block}{``Teorema''}
 En estas  condiciones, se recomienda utilizar el intervalo de confianza de $(1-\alpha)\cdot 100\%$  para $\mu$ de una población normal con $\sigma$ conocida
@@ -1902,16 +1901,16 @@ $$
 
 
 \begin{frame}
-\frametitle{``Poblaciones finitas''}
+## ``Poblaciones finitas''
 \vspace*{-2ex}
 
 Consideremos  la situación siguiente  :
-\begin{itemize}
-\item  $X$ una población de  tamaño  $N$ que sigue una distribución Bernoulli con $p$ desconocida
 
-\item $X_1,\ldots,X_n$ una m.a.\ sin reposición de $X$, con $n$ muy grande  y con frecuencia relativa de éxitos $\widehat{p}_{X}$ lejos de los  extremos
-\end{itemize}
-\medskip
+  $X$ una población de  tamaño  $N$ que sigue una distribución Bernoulli con $p$ desconocida
+
+ $X_1,\ldots,X_n$ una m.a.\ sin reposición de $X$, con $n$ muy grande  y con frecuencia relativa de éxitos $\widehat{p}_{X}$ lejos de los  extremos
+
+
 
 \begin{block}{``Teorema''}
 En estas  condiciones, es recomienda tomar como  intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ el parámetro $p$
@@ -1928,7 +1927,7 @@ $$
 
 
 \begin{frame}
-\frametitle{``Poblaciones finitas''}
+## ``Poblaciones finitas''
 
 \begin{block}{``Teorema''}
 En las condiciones anteriores, para obtener un intervalo de confianza  del $(1-\alpha)\cdot 100\%$ para $p$ en el peor de los casos necesitaremos tomar una muestra de tamaño 
@@ -1939,14 +1938,14 @@ $$
 \end{frame}
 
 \begin{frame}
-\frametitle{Ejemplo}
+## Ejemplo
 \vspace*{-5ex}
 
 \begin{center}
 \hspace*{-0.5cm}\includegraphics[width=1.1\linewidth]{plagiUIB2.jpg}
 \end{center}
 
-\blue{De la población total de estudiantes de grado de la UIB ¿cuántos hemos de escoger de manera aleatoria  y sin  reposición para estimar la proporción de los que han cometido plagio, con un error del 3.52\% y un nivel de confianza  del 95\%?}
+De la población total de estudiantes de grado de la UIB ¿cuántos hemos de escoger de manera aleatoria  y sin  reposición para estimar la proporción de los que han cometido plagio, con un error del 3.52\% y un nivel de confianza  del 95\%?
 %\pause
 
 $$

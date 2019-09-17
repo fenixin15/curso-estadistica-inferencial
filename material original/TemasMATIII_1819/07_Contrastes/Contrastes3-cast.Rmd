@@ -1,0 +1,738 @@
+## Contrastes de dos muestras
+
+Ahora queremos contrastar el valor de un mismo parámetro a dos poblaciones
+
+Dos tipos:
+
+* **Muestras independientes:** Las dos muestras se han obtenido de manera independiente
+
+
+Ejemplo: Probamos un medicamento sobre dos muestras de enfermos de características diferentes
+
+* **Muestras aparejadas:** Las dos muestras corresponden a los mismos
+individuos, o a individuos aparejados de alguna manera
+
+
+Ejemplo: Probamos dos medicamentos sobre los mismos enfermos
+
+Tenéis una Tabla de contrastes de dos muestras exhaustiva a Campus Extenso
+
+## Muestras independientes
+
+Tenemos dos variables aleatorias (que representan dos poblaciones)
+
+Ejemplo: Hombres y Mujeres
+
+Queremos comparar el valor de un parámetro a las dos poblaciones
+
+Ejemplo: Son, de media, los hombres más altos que las mujeres?
+
+Lo haremos a partir de una m.a.s.\ de cada v.a., escogidas además de manera independiente
+
+## Contrastes para $\mu$
+
+Tenemos dos v.a.\ $X_1$ y $X_2$, de medianas $\mu_1$ y $\mu_2$
+
+Tomamos m.a.s.
+$$
+\begin{array}{l}
+X_{1,1}, X_{1,2},\ldots, X_{1,n_1}\quad\mbox{ de }X_1\\
+X_{2,1}, X_{2,2},\ldots, X_{2,n_2}\quad\mbox{ de }X_2
+\end{array}
+$$
+Sean $\overline{X}_1$ y $\overline{X}_2$ sus medias, respectivamente
+
+Las hipótesis
+$$
+H: \mu_1\left\{\hspace{-1ex}\begin{array}{c} > \\ < \\ \neq\\ = \end{array}\hspace{-1ex}\right\}\mu_2 \mbox{\quad equivalen a\quad }
+H: \mu_1-\mu_2\left\{\hspace{-1ex}\begin{array}{c} > \\ < \\ \neq\\ = \end{array}\hspace{-1ex}\right\}0
+$$
+Empleamos un estadístico de contraste para $\mu_1-\mu_2$
+
+## C.H. para $\mu$ de poblaciones normales o $n$ grandes: $\sigma$ conocidas
+
+Suponemos una de las dos situaciones siguientes:
+
+* $X_1$ y $X_2$ son normales, o 
+
+$n_1$ y $n_2$ son grandes ($n_1,n_2\geq 30\mbox{ o }  40)$
+
+Suponemos que conocemos además las desv. típ. $\sigma_1$ y $\sigma_2$ de $X_1$ y $X_2$
+
+En este caso el estadístico de contraste es
+$$
+Z=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}
+$$
+y los contrastes son cómo en el caso cuando $H_0:\mu=0$
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Queremos comparar los tiempos de realización de una maceta entre estudiantes de dos grados $G_1$ y $G_2$, y contrastar si es verdad que los estudiantes de $G_1$ emplean menos tiempo que los de $G_2$
+
+Suponemos que las desviaciones típicas son conocidas: $\sigma_1=1$ y $\sigma_2=2$
+
+Disponemos de dos muestras independientes de macetas realizadas por estudiantes de cada grado, $n_1=n_2=40$. Calculamos las medias de los tiempos empleados a cada muestra (en minutos):
+$$
+\overline{X}_1= 9.789,\quad \overline{X}_2=11.385
+$$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Contraste:
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1=\mu_2\\
+H_1:\mu_1< \mu_2
+\end{array}\right.
+\Longleftrightarrow
+\left\{\begin{array}{l}
+H_0:\mu_1-\mu_2=0\\
+H_1:\mu_1- \mu_2<0
+\end{array}\right.
+$$
+
+Estadístico de contraste*: $Z=\dfrac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim N(0,1)$
+
+Valor que toma*: $z_0=\dfrac{9.789-11.385}{\sqrt{\frac1{40}+\frac4{40}}}=-4.514$
+
+$p$-valor*: $P(Z\leq -4.514)\approx 3\cdot 10^{-6}$ muy pequeño
+
+Decisión*: Rechazamos la hipótesis que son iguales, en favor que a $G_1$ tardan menos que a $G_2$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+También podemos calcular un intervalo de confianza del 95\% para
+la diferencia de medianas $\mu_1-\mu_2$ al contraste
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1-\mu_2=0\\
+H_1:\mu_1- \mu_2<0
+\end{array}\right.
+$$
+
+Según la Tabla de Contrastes, este intervalo es
+{\small $$
+\left] -\infty, \overline{X}_1 -\overline{X}_2
+-z_{\alpha}\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\right[}
+$$
+A nuestro caso, para $\alpha=0.05$, da
+$$
+]-\infty,-1.0145[
+$$
+0 no  pertenece: Rechazamos que $\mu_1-\mu_2=0$
+
+</div>
+
+## C.H. para $\mu$ de normales o $n$ grandes: $\sigma$ desconocidas
+
+Suponemos otra vez una de las dos situaciones siguientes, y que ahora no conocemos $\sigma_1$ y $\sigma_2$:
+
+* $X_1$ y $X_2$ son normales, o 
+
+$n_1$ y $n_2$ son grandes ($n_1,n_2\geq 40)$
+
+En este caso, tenemos que distinguir dos subcasos:
+\begin{enumerate}
+* Suponemos que $\sigma_1=\sigma_2$
+* Suponemos que $\sigma_1\neq \sigma_2$
+\end{enumerate}
+
+Como decidimos en qué caso estambre? Dos posibilidades:
+
+* Basura los dos casos, y si dan el mismo, es el que contestamos
+* (Si son normales) Basura un contraste de igualdad de varianzas para decidir cuál es el caso
+
+## C.H. para $\mu$ de normales o $n$ grandes: $\sigma$ desconocidas
+
+Si suponemos que $\sigma_1=\sigma_2$, el estadístico de contraste es
+$$
+T=\frac{\overline{X}_1-\overline{X}_2}%
+{\sqrt{(\frac1{n_1}+\frac1{n_2})\cdot 
+\frac{(n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2}%
+{n_1+n_2-2}}}
+$$
+que, cuando $\mu_1=\mu_2$, tiene distribución (aproximadamente, en caso de muestras grandes) $t_{n_1+n_2-2}$
+
+## C.H. para $\mu$ de normales o $n$ grandes: $\sigma$ desconocidas
+
+Si suponemos que $\sigma_1\neq \sigma_2$, el estadístico de contraste es
+$$
+T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}}\sim t_f
+$$
+que, cuando $\mu_1=\mu_2$, tiene distribución (aproximadamente, en caso de muestras grandes) $t_{f}$ con
+$$
+f=\left\lfloor\frac{\displaystyle \left( \frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}\right)^2}%
+{\displaystyle \frac1{n_1-1}\left(\frac{\widetilde{S}_1^2}{n_1}\right)^2+\frac1{n_2-1}\left(\frac{\widetilde{S}_2^2}{n_2}\right)^2}\right\rfloor -2
+$$
+
+En los dos casos, los contrastes son cómo en el caso de $H_0:\mu=0$
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Queremos comparar los tiempos de realización de una maceta entre estudiantes de dos grados $G_1$ y $G_2$, y determinar si es verdad que los estudiantes de $G_1$ emplean menos tiempo que los de $G_2$
+
+No conocemos $\sigma_1$ y $\sigma_2$
+
+Disponemos de dos muestras independientes de macetas realizadas por estudiantes de cada grado, $n_1=n_2=40$. Calculamos las medias y las desviaciones típicas
+muestrales de los tiempos empleados a cada muestra:
+$$
+\begin{array}{ll}
+\overline{X}_1= 9.789,&\quad \overline{X}_2=11.385,\\[1ex]
+\widetilde{S}_1=1.201,&\quad \widetilde{S}_2=1.579
+\end{array}
+$$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Caso 1: Suponemos $\sigma_1=\sigma_2$
+
+Contraste*:
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1=\mu_2\\
+H_1:\mu_1< \mu_2
+\end{array}\right.
+\Longleftrightarrow
+\left\{\begin{array}{l}
+H_0:\mu_1-\mu_2=0\\
+H_1:\mu_1- \mu_2<0
+\end{array}\right.
+$$
+
+Estadístico de contraste: 
+$$
+T=\frac{\overline{X}_1-\overline{X}_2}%
+{\sqrt{(\frac1{n_1}+\frac1{n_2})\cdot 
+\frac{(n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2}%
+{n_1+n_2-2}}}\sim t_{40+40-2}
+$$
+
+Valor que toma: 
+$$
+t_0=\frac{9.789-11.385}{\sqrt{(\frac1{40}+\frac1{40})\frac{39\cdot 1.201^2+39\cdot 1.579^2}{78}}}=-5.0881
+$$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Caso 1: Suponemos $\sigma_1=\sigma_2$
+
+$p$-valor: 
+$$
+P(t_{78}<-5.0881)= 1.2\cdot 10^{-6},
+$$
+muy pequeño
+
+Decisión: Rechazamos la hipótesis que son iguales, en favor que a $G_1$ tardan menos que a $G_2$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Caso 2: Suponemos $\sigma_1\neq \sigma_2$
+
+Contraste:
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1=\mu_2\\
+H_1:\mu_1 \mu_2
+\end{array}\right.
+\Longleftrightarrow
+\left\{\begin{array}{l}
+H_0:\mu_1-\mu_2=0\\
+H_1:\mu_1- \mu_2<0
+\end{array}\right.
+$$
+
+Estadístico de contraste: 
+$$
+T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}}\sim t_f
+$$
+donde
+{\small
+$$
+\hspace{-2ex}f=\left\lfloor\frac{\displaystyle \left( \frac{1.201^2}{40}+\frac{1.579^2}{40}\right)^2}%
+{\displaystyle \frac1{39}\left(\frac{1.201^2}{40}\right)^2+\frac1{39}\left(\frac{1.579^2}{40}\right)^2}\right\rfloor -2
+=\lfloor 72.81\rfloor-2=70
+$$
+}
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Caso 2: Suponemos $\sigma_1\neq \sigma_2$
+
+Valor que toma: 
+$$
+t_0=\frac{9.789-11.385}{\sqrt{\frac{1.201^2}{40}+\frac{1.579^2}{40}}}=-5.0881
+$$
+
+$p$-valor: 
+$P(t_{70}\leq-5.0881)=1.5\cdot 10^{-6}$ muy pequeño
+
+Decisión Rechazamos la hipótesis que son iguales, en favor que a $G_1$ tardan menos que a $G_2$
+ 
+
+ Decisión final: Los dos casos han dado el mismo, así que concluimos que a $G_1$ tardan menos que a $G_2$
+
+</div>
+
+## Contraste para dos proporciones: Maceta de Fisher
+
+Tenemos dos variables aleatorias $X_1$ y $X_2$ Bernoulli de proporciones $p_1$ y $p_2$
+
+Tomamos m.a.s. de cada una y obtenemos la tabla siguiente
+\begin{center}
+\begin{tabular}{c|cc|c|}
+ & $X_1$ & $X_2$ & Total\\\hline
+Éxitos & $n_{11}$ & $n_{12}$ & $n_{1\bullet}$\\
+Fracasos & $n_{21}$ & $n_{22}$ & $n_{2\bullet}$ \\\hline 
+Total & $n_{\bullet1}$ & $n_{\bullet2}$ & $n_{\bullet\bullet}$
+\\\hline
+\end{tabular}
+\end{center}
+
+La hipótesis nula que contrastamos es $H_0: p_1=p_2$
+
+## Contraste para dos proporciones: Maceta de Fisher
+
+\begin{center}
+\begin{tabular}{c|cc|c|}
+ & $X_1$ & $X_2$ & Total\\\hline
+Éxitos & $n_{11}$ & $n_{12}$ & $n_{1\bullet}$\\
+Fracasos & $n_{21}$ & $n_{22}$ & $n_{2\bullet}$ \\\hline 
+Total & $n_{\bullet1}$ & $n_{\bullet2}$ & $n_{\bullet\bullet}$
+\\\hline
+\end{tabular}
+\end{center}
+
+Si $p_1=p_2$, la probabilidad de obtener $n_{11}$ éxitos dentro de $X_1$ es la de:
+\begin{quote}
+En una bolsa  tenemos $n_{1\bullet}$ bolles E y $n_{2\bullet}$ bolles F. Probabilidad de obtener $n_{11}$ bolles E si en triam $n_{\bullet1}$ de golpe.
+\end{quote}
+Es una hipergeométrica $H(n_{1\bullet},n_{2\bullet},n_{\bullet1})$. Lo empleamos para calcular los p-valores.
+
+## Contraste para dos proporciones: Maceta de Fisher
+
+Contraste:
+$
+\left\{\begin{array}{l}
+H_0:p_1=p_2\\
+H_1:p_1> p_2
+\end{array}\right.
+$
+
+p-valor: $P(H(n_{1\bullet},n_{2\bullet},n_{\bullet1})\geq n_{11})$
+
+Contraste:
+$
+\left\{\begin{array}{l}
+H_0:p_1=p_2\\
+H_1:p_1< p_2
+\end{array}\right.
+$
+
+p-valor: $P(H(n_{1\bullet},n_{2\bullet},n_{\bullet1})\leq n_{11})$
+
+Contraste:
+$
+\left\{\begin{array}{l}
+H_0:p_1=p_2\\
+H_1:p_1\neq p_2
+\end{array}\right.
+$
+
+p-valor: $\min\left\{2\min\{P(H\leq n_{11}), P(H\geq n_{11})\},1\right\}$.
+
+ 
+(Controvertido; por ejemplo, R lo hace de otro modo)
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Para determinar si el Síndrome de Muerte Repentina del Bebé (SIDS) tiene componiendo genético, se consideran los casos de SIDS en parejas de gemelos monozigóticos y dizigòtics. Digamos: 
+
+* $p_1$: proporción de parejas de gemelos monozigóticos con algún caso de SIDS donde solo un hermano la sufrió
+
+* $p_2$: proporción de parejas de gemelos dizigòtics con algún caso de SIDS donde solo un hermano la sufrió
+
+Si la SIDS tiene componiendo genético, es de esperar que $p_1<p_2$
+
+Hem de realitzar el contrast
+$$
+\left\{\begin{array}{l}
+H_0:p_1=p_2\\
+H_1:p_1< p_2
+\end{array}\right.
+$$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+En un estudio (Peterson te al, 1980), se obtuvieron los datos siguientes:
+\begin{center}
+\begin{tabular}{l|cc|c|}
+\multicolumn4{c}{\hphantom{ \textbf{Casos de } Tipos de gemelos}} \\ \hline
+ Casos de SIDS & Monozigóticos & Dizigòtics & Total \\
+ Un & 23 & 35 & 58\\
+ Dos & 1 & 2 & 3\\\hline
+Total & 24 & 37 & 61
+\\\hline
+\end{tabular}
+\end{center}
+
+p-valor:
+$$
+P(H(58,3,24)\leq 23) =\mbox{phyper(23,58,3,24)}=0.7841
+$$
+
+No podemos rechazar la hipótesis desnudo\l.la
+
+%%%%%Continuar
+
+</div>
+
+## Contraste para dos proporciones: muestras grandes
+
+Tenemos dos variables aleatorias $X_1$ y $X_2$ Bernoulli de proporciones $p_1$ y $p_2$
+
+Tomamos m.a.s. grandes* ($n_1,n_2\geq 50$ o  100)
+$$
+\begin{array}{l}
+X_{1,1}, X_{1,2},\ldots, X_{1,n_1}\quad\mbox{ de }X_1\\
+X_{2,1}, X_{2,2},\ldots, X_{2,n_2}\quad\mbox{ de }X_2
+\end{array}
+$$
+Sean $\widehat{p}_1$ y $\widehat{p}_2$ sus proporciones muestrales
+
+Suponemos que los números de éxitos y de fracasos a cada muestra son $\geq 5$ o  10)
+
+La hipótesis nula que contrastamos es $H_0: p_1=p_2$, que tenemos que entender $H_0: p_1-p_2=0$
+
+## Contraste para dos proporciones: muestras grandes
+
+El estadístico de contraste es
+$$
+Z=\frac{\widehat{p}_1 -\widehat{p}_2}{
+\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(\frac1{n_1}+\frac1{n_2}
+\Big)}}$$
+y tiene distribución aproximadamente $N(0,1)$ si $p_1=p_2$.
+
+Los contrastes son cómo en el caso de $H_0:p=0$
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Se toman una muestra de ADN de 100 individuos con al menos tres generaciones
+familiares a la isla de Mallorca, y otra de 50 individuos con al menos tres generaciones
+familiares a la isla de Menorca
+
+Se quiere saber si un determinado alelo de un gen es presente con la misma proporción a las dos poblaciones
+
+A la muestra mallorquina, 20 individuos lo tienen, y a la muestra menorquina, 12
+
+Contrastáis la hipótesis de igualdad de proporciones al
+nivel de significación $0.05$, y calculáis el intervalo de confianza
+para la diferencia de proporciones para este $\alpha$
+
+Suponéis que 50 es bastante grande
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Contraste:
+$$
+\left\{\begin{array}{l}
+H_0:p_1=p_2\\
+H_1:p_1\neq p_2
+\end{array}\right.
+$$
+
+Estadístico de contraste: 
+$$
+Z=\frac{\widehat{p}_1 -\widehat{p}_2}{
+\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(\frac1{n_1}+\frac1{n_2}
+\Big)}}\sim N(0,1)$$
+
+Valor que toma: $\widehat{p}_1=0.2$, $\widehat{p}_2=0.24$, $n_1=100$, $n_2=50$
+$$
+z_0=\frac{0.2 -0.24}{
+\sqrt{\Big(\frac{20 +12}{100+50}\Big)\Big(1-\frac{20 +12}{100+50}\Big)\Big(\frac1{100}+\frac1{50}
+\Big)}}
+=-0.5637$$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+$p$-valor: $2\cdot P(Z\geq 0.5637)=0.573$
+
+Decisión: Como que el $p$-valor es más grande que $\alpha=0.05$, aceptamos la hipótesis que las dos proporciones son la misma
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+El intervalo de confianza para $p_1-p_2$
+al nivel de confianza $(1-\alpha)\cdot 100\%$ en un contraste bilateral es
+{\small $$
+\begin{array}{l}
+\left]\widehat{p}_1-\widehat{p}_2-z_{1-\frac{\alpha}2}\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(\frac1{n_1}+\frac1{n_2}
+\Big)},\right.\\[2ex]
+\quad
+\left.\widehat{p}_1-\widehat{p}_2+z_{1-\frac{\alpha}2}\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(\frac1{n_1}+\frac1{n_2}
+\Big)}
+\right[
+\end{array}
+$$
+
+}
+
+$$
+\begin{array}{l}
+](0.2 -0.24)-1.96\cdot 0.071,(0.2 -0.24)+1.96\cdot 0.071[\\
+\qquad\qquad =]-0.179,0.099[
+\end{array}
+$$
+Contiene el 0, por lo tanto no podemos rechazar que $p_1-p_2=0$
+
+</div>
+
+## Contrastes algo más generales
+
+Hasta ahora hemos tomado $H_0:\mu_1=\mu_2$. Un tipo de contrastes ligeramente más generales serían
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1-\mu_2=\Delta\\
+H_1:\mu_1-\mu_2<\Delta\mbox{ o }\mu_1-\mu_2>\Delta\mbox{ o }\mu_1-\mu_2\neq\Delta
+\end{array}\right.
+$$
+con $\Delta\in \RR$.
+
+Se hacen igual, modificando ligeramente el estadístico: sustituimos a los numeradores
+\begin{center}
+$\overline{X}_1-\overline{X}_2$ por
+$\overline{X}_1-\overline{X}_2-\Delta$
+\end{center}
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+Tenemos dos tratamientos, A y B, de una dolencia. Tratamos 50 enfermos con A y 100 con B. 20 enfermos tratados con A y 25 tratados con B manifiestan haber sentido malestar general durante los 7 días posteriores a iniciar el tratamiento.
+
+Podemos concluir, a un nivel de significación del 5\%, que A produce malestar general en una proporción de los enfermos que es 5 puntos porcentuales superior a la proporción de los enfermos en que lo produce B?
+
+%%%%%%%%%
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+$p_1$: Fracción de enfermos en que A produce malestar general\\
+$p_2$: Fracción de enfermos en que B produce malestar general
+
+Contraste*:
+$$
+\left\{\begin{array}{l}
+H_0:p_1\leq p_2+0.05\\
+H_1:p_1>p_2+0.05
+\end{array}\right.
+$$
+
+Estadístico de contraste:
+$$
+Z=\frac{\widehat{p}_1 -\widehat{p}_2-\Delta}{
+\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(\frac1{n_1}+\frac1{n_2}
+\Big)}}\sim N(0,1)
+$$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Valor que toma*: $\widehat{p}_1=0.4$, $\widehat{p}_2=0.25$, $n_1=50$, $n_2=100$, $\Delta=0.05$
+$$
+z_0=\frac{0.4 -0.25-0.05}{
+\sqrt{\Big(\frac{20+25}{50+100}\Big)\Big(1-\frac{20+25}{50+100}\Big)\Big(\frac1{50}+\frac1{100}
+\Big)}}
+=1.26
+$$
+
+$p$-valor: $P(Z\geq 1.26)= 0.104$
+
+Decisión: Como que el $p$-valor es más grande que $\alpha=0.05$, no podemos rechazar la hipótesis que $p_1-p_2$ es inferior a un $5\%$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+El intervalo de confianza* para $p_1-p_2$
+al nivel de confianza $(1-\alpha)\cdot 100\%$ en este contraste es
+
+{\footnotesize $$
+\left[\widehat{p}_1-\widehat{p}_2+z_{\alpha}\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(\frac1{n_1}+\frac1{n_2}
+\Big)},\infty
+\right[
+$$
+}
+Operante:
+$$
+[(0.4-0.25)-1.645\cdot 0.0794,\infty [=[0.0194,\infty[
+$$
+Contiene $0.05$, por lo tanto no podemos rechazar que $p_1\leq p_2+ 0.05$ (pero en cambio, no contiene 0 y por tanto podríamos rechazar que $p_1=p_2$)
+
+</div>
+
+## Contraste para dos varianzas
+
+Necesitamos decidir si las varianzas de las dos poblaciones son iguales o diferentes, por ejemplo en el marco de una comparación de medias de muestras independientes
+
+Tenemos dos variables aleatorias $X_1$ y $X_2$ normales* de desviaciones típicas $\sigma_1$, $\sigma_2$ desconocidas
+
+Tomamos m.a.s. 
+$$
+\begin{array}{l}
+X_{1,1}, X_{1,2},\ldots, X_{1,n_1}\quad\mbox{ de }X_1\\
+X_{2,1}, X_{2,2},\ldots, X_{2,n_2}\quad\mbox{ de }X_2
+\end{array}
+$$
+Sean $\widetilde{S}_1^2$ y $\widetilde{S}_2^2$ sus varianzas muestrales
+
+## Contraste para dos varianzas
+
+El contraste tiene hipótesis nula $H_0: \sigma_1=\sigma_2$, que corresponde a $H_0:\dfrac{\sigma^2_1}{\sigma_2^2}=1$
+
+
+Se emplea el estadístico de contraste
+$$
+F=\frac{\widetilde{S}_1^2}{\widetilde{S}_2^2}
+$$
+que, si las dos poblaciones son normales, tiene distribución $F$ de Fisher* con grados de libertado $n_1-1$ y $n_2-1$
+
+## La distribución $F$ de Fisher
+
+La distribución $F_{n,m}$, donde $n,m$ son los grados de libertad*,
+es la de una variable aleatoria
+$$
+{\chi_{n}^2}/{\chi_m^2}
+$$
+Tiene densidad
+$$
+f_{F_{n,m}}(x)=\frac{\Gamma(\frac{n+m}2)\cdot(\frac{m}{n})^{m/2}x^{(m-2)/2}}%
+{\Gamma(\frac{n}2)\Gamma(\frac{m}2)(1+\frac{m}{n}x)^{(m+n)/2}}
+\quad\mbox{ si $x\geq 0$}
+$$
+donde $\Gamma(x)=\int_0^{\infty} t^{x-1}e^{-t}\, dt$ si $x> 0$
+
+La distribución está tabulada (Tenéis las mesas a Campus Extenso), y con R es f 
+
+No es simétrica. Los $p$-valores se calculan como en el caso de la $\chi^2$. Alerta en el caso bilateral!
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+Recordáis el ejemplo donde queríamos comparar los tiempos de realización de una maceta 
+entre estudiantes de dos grados $G_1$ y $G_2$. Suponemos que estos tiempos siguen distribuciones normales*.
+
+Disponemos de dos muestras independientes de macetas realizadas por estudiantes de cada grado, $n_1=n_2=40$. Calculamos las desviaciones típicas
+muestrales de los tiempos empleados a cada muestra:
+$$
+\widetilde{S}_1=1.201,\quad \widetilde{S}_2=1.579
+$$
+
+Contrastáis la hipótesis de igualdad de varianzas al
+nivel de significación $0.05$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Contraste*:
+$$
+\left\{\begin{array}{l}
+H_0:\sigma_1=\sigma_2\\
+H_1:\sigma_1\neq \sigma_2
+\end{array}\right.
+$$
+
+Estadístico de contraste:
+$$
+F=\frac{\widetilde{S}_1^2}{\widetilde{S}_2^2}\sim F_{39,39}
+$$
+
+Valor que toma: $\widetilde{S}_1=1.201$, $\widetilde{S}_2=1.579$
+$$
+f_0=\frac{1.201^2}{1.579^2}=0.5785
+$$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+$p$-valor: No es simétrica
+$$
+\begin{array}{l}
+2\cdot P(F_{39,39}\geq 0.5785)= 1.909\\
+2\cdot P(F_{39,39}\leq 0.5785)=0.091
+\end{array}
+$$
+El $p$-valor es $0.091$
+
+Decisión: Como que el $p$-valor es más grande que $\alpha=0.05$, no podemos rechazar la hipótesis
