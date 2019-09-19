@@ -2070,7 +2070,7 @@ Los **$p$-valores** usando las mismas expresiones que en el caso en que $\sigma_
 Queremos comparar los tiempos de realización de una tarea entre estudiantes de dos grados $G_1$ y $G_2$, y determinar si es verdad que los estudiantes de $G_1$ emplean menos tiempo que los de $G_2$
 suponiendo que desconocemos una o las dos desviaciones típicas poblaciones $\sigma_1$ y $\sigma_2$.
 
-Disponemos de dos muestras independientes de tiempos de tareas realizadas por estudiantes de cada grado de tamaño $40$ ($n_1=n_2=40$). Las medias y las desviaciones típicas
+Disponemos de dos muestras independientes de tiempos de tareas realizadas por estudiantes de cada grado de tamaños $n_1=40$ y $n_2=60$. Las medias y las desviaciones típicas
 muestrales de los tiempos empleados para cada muestra son:
 $$
 \overline{X}_1= 9.789,\  \overline{X}_2=11.385,\ 
@@ -2088,7 +2088,7 @@ media2=11.385
 s1=1.201
 s2=1.579
 n1=40
-n2=40
+n2=60
 ```
 
 El contraste a realizar es el siguiente:
@@ -2113,7 +2113,7 @@ El **estadístico de contraste** es:
 $T=\frac{\overline{X}_1-\overline{X}_2}
 {\sqrt{(\frac1{n_1}+\frac1{n_2})\cdot 
 \frac{((n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2)}
-{(n_1+n_2-2)}}}\sim t_{40+40-2}=t_{`r 40+40-2`},$
+{(n_1+n_2-2)}}}\sim t_{`r n1`+`r n2`-2}=t_{`r n1+n2-2`},$
 cuyo valor, usando los valores correspondientes de las muestras, será:
 $t_0=\frac{`r media1`-`r media2`}{\sqrt{(\frac1{`r n1`}+\frac1{`r n2`})\frac{(`r n1-1`\cdot `r s1`^2+`r n2-1`\cdot `r s2`^2)}{`r n1+n2-2`}}}=`r round((media1-media2)/sqrt((1/n1+1/n2)*((n1-1)*s1^2+(n2-1)*s2^2)/(n1+n2-2)),3)`.$
 
