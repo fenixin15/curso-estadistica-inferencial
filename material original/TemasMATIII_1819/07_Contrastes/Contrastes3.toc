@@ -1,5 +1,4 @@
-\beamer@endinputifotherversion {3.36pt}
-\select@language {catalan}
+\babel@toc {catalan}{}
 \beamer@sectionintoc {1}{Dues mostres independents}{2}{1}{1}
 \beamer@subsectionintoc {1}{1}{Z-test}{4}{1}{1}
 \beamer@subsectionintoc {1}{2}{T-test}{9}{1}{1}
