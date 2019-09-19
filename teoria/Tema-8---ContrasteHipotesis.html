@@ -4919,7 +4919,7 @@ X_{2,1}, X_{2,2},\ldots, X_{2,n_2},\mbox{ de }X_2
 \] Sean \(\overline{X}_1\) y \(\overline{X}_2\) sus medias, respectivamente.</p>
 
 <p>La hipótesis nula será del tipo: \[
-\mu_1  = \mu_2,\mbox{ o, equivalentemente, }\mu_1-\mu_2 = 0.\\
+H_0: \mu_1  = \mu_2,\mbox{ o, equivalentemente, }H_0:\mu_1-\mu_2 = 0.\\
 \]</p>
 
 </article></slide><slide class=""><hgroup><h2>Introducción</h2></hgroup><article  id="introduccion-2">
@@ -5000,7 +5000,129 @@ H_1:\mu_1- \mu_2&lt;0
 \left( -\infty, \overline{X}_1 -\overline{X}_2
 -z_{0.05}\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\right)  &amp; =  \left(-\infty,9.789-11.385 +1.645\cdot \sqrt{\frac{1^2}{40}+\frac{2^2}{40}}\right) \\  &amp; =  (-\infty, -1.014).
 \end{array}
-\] Observamos que el valor \(0\) no pertenece al intervalo de confianza anterior, hecho que nos hace reafirmar la decisión de rechazar \(H_0:\mu_1-\mu_2=0\).</p></div></article></slide>
+\] Observamos que el valor \(0\) no pertenece al intervalo de confianza anterior, hecho que nos hace reafirmar la decisión de rechazar \(H_0:\mu_1-\mu_2=0\).</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis para \(\mu\) de poblaciones normales o \(n\) grandes: \(\sigma_1\) o \(\sigma_2\) desconocidas</h2></hgroup><article  id="contrastes-de-hipotesis-para-mu-de-poblaciones-normales-o-n-grandes-sigma_1-o-sigma_2-desconocidas">
+
+<p>Suponemos otra vez que estamos en una de las dos situaciones siguientes, pero ahora no conocemos \(\sigma_1\) o \(\sigma_2\):</p>
+
+<ul>
+<li><p>\(X_1\) y \(X_2\) son normales, o</p></li>
+<li><p>\(n_1\) y \(n_2\) son grandes (\(n_1,n_2\geq 40)\).</p></li>
+</ul>
+
+<p>Recordemos que disponemos de una m.a.s. de cada variable: \[
+\begin{array}{l}
+X_{1,1}, X_{1,2},\ldots, X_{1,n_1},\mbox{ de }X_1,\\
+X_{2,1}, X_{2,2},\ldots, X_{2,n_2},\mbox{ de }X_2.
+\end{array}
+\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis para \(\mu\) de poblaciones normales o \(n\) grandes: \(\sigma_1\) o \(\sigma_2\) desconocidas</h2></hgroup><article  id="contrastes-de-hipotesis-para-mu-de-poblaciones-normales-o-n-grandes-sigma_1-o-sigma_2-desconocidas-1">
+
+<p>En este caso, tenemos que distinguir dos subcasos:</p>
+
+<ul>
+<li>Suponemos que \(\sigma_1=\sigma_2\).</li>
+<li>Suponemos que \(\sigma_1\neq \sigma_2\).</li>
+</ul>
+
+<p>¿Como decidimos en qué caso estamos? Dos posibilidades:</p>
+
+<ul>
+<li>Realizamos los dos casos, y si dan lo mismo, es lo que contestamos.</li>
+<li>En caso de poblaciones normales, realizamos un contraste de igualdad de varianzas para decidir cuál es el caso.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis para \(\mu\) de poblaciones normales o \(n\) grandes: \(\sigma_1\) o \(\sigma_2\) desconocidas</h2></hgroup><article  id="contrastes-de-hipotesis-para-mu-de-poblaciones-normales-o-n-grandes-sigma_1-o-sigma_2-desconocidas-2">
+
+<p>Si suponemos que \(\sigma_1=\sigma_2\), el estadístico de contraste es \[
+T=\frac{\overline{X}_1-\overline{X}_2}
+{\sqrt{(\frac1{n_1}+\frac1{n_2})\cdot 
+\frac{((n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2)}
+{(n_1+n_2-2)}}},
+\] que, cuando \(\mu_1=\mu_2\), tiene distribución (aproximadamente, en caso de muestras grandes) \(t_{n_1+n_2-2}\).</p>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis para \(\mu\) de poblaciones normales o \(n\) grandes: \(\sigma_1\) o \(\sigma_2\) desconocidas</h2></hgroup><article  id="contrastes-de-hipotesis-para-mu-de-poblaciones-normales-o-n-grandes-sigma_1-o-sigma_2-desconocidas-3">
+
+<p>Si suponemos que \(\sigma_1\neq \sigma_2\), el estadístico de contraste es \(T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}}\sim t_f,\) que, cuando \(\mu_1=\mu_2\), tiene distribución (aproximadamente, en caso de muestras grandes) \(t_{f}\) con \[
+f=\left\lfloor\frac{\displaystyle \left( \frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}\right)^2}
+{\displaystyle \frac1{n_1-1}\left(\frac{\widetilde{S}_1^2}{n_1}\right)^2+\frac1{n_2-1}\left(\frac{\widetilde{S}_2^2}{n_2}\right)^2}\right\rfloor -2.
+\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Contrastes de hipótesis para \(\mu\) de poblaciones normales o \(n\) grandes: \(\sigma_1\) o \(\sigma_2\) desconocidas</h2></hgroup><article  id="contrastes-de-hipotesis-para-mu-de-poblaciones-normales-o-n-grandes-sigma_1-o-sigma_2-desconocidas-4">
+
+<p>Los <strong>\(p\)-valores</strong> usando las mismas expresiones que en el caso en que \(\sigma_1\) y \(\sigma_2\) conocidas sustituyendo el <strong>estadístico de contraste</strong> \(Z\) por el <strong>estadístico de contraste</strong> correspondiente.</p>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplo</h2></hgroup><article  id="ejemplo-25">
+
+<div class="example">
+<p><strong>Ejemplo</strong></p>
+
+<p>Queremos comparar los tiempos de realización de una tarea entre estudiantes de dos grados \(G_1\) y \(G_2\), y determinar si es verdad que los estudiantes de \(G_1\) emplean menos tiempo que los de \(G_2\) suponiendo que desconocemos una o las dos desviaciones típicas poblaciones \(\sigma_1\) y \(\sigma_2\).</p>
+
+<p>Disponemos de dos muestras independientes de tiempos de tareas realizadas por estudiantes de cada grado de tamaño \(40\) (\(n_1=n_2=40\)). Las medias y las desviaciones típicas muestrales de los tiempos empleados para cada muestra son: \[
+\overline{X}_1= 9.789,\  \overline{X}_2=11.385,\ 
+\widetilde{S}_1=1.201,\  \widetilde{S}_2=1.579.
+\]</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplo</h2></hgroup><article  id="ejemplo-26">
+
+<div class="example-sol">
+<p>El contraste a realizar es el siguiente: \[
+\left\{\begin{array}{l}
+H_0:\mu_1=\mu_2,\\
+H_1:\mu_1&lt; \mu_2,
+\end{array}\right.
+\Longleftrightarrow
+\left\{\begin{array}{l}
+H_0:\mu_1-\mu_2=0,\\
+H_1:\mu_1- \mu_2&lt;0,
+\end{array}\right.
+\] donde \(\mu_1\) y \(\mu_2\) representan los tiempos medios que tardan los estudiantes de los grados \(G_1\) y \(G_2\) para realizar la tarea, respectivamente.</p>
+
+<p>Consideremos los dos casos anteriores:</p>
+
+<ul>
+<li>Caso 1: Suponemos \(\sigma_1=\sigma_2\).</li>
+</ul>
+
+<p>El <strong>estadístico de contraste</strong> es: \(T=\frac{\overline{X}_1-\overline{X}_2} {\sqrt{(\frac1{n_1}+\frac1{n_2})\cdot \frac{((n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2)} {(n_1+n_2-2)}}}\sim t_{40+40-2}=t_{78},\) cuyo valor, usando los valores correspondientes de las muestras, será: \(t_0=\frac{9.789-11.385}{\sqrt{(\frac1{40}+\frac1{40})\frac{(39\cdot 1.201^2+39\cdot 1.579^2)}{78}}}=-5.088.\)</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplo</h2></hgroup><article  id="ejemplo-27">
+
+<div class="example-sol">
+<p>El \(p\)-valor será, en este caso: \(P(t_{78}&lt;-5.088)\approx 0,\) valor muy pequeño.</p>
+
+<p>La decisión que tomamos, por tanto, es rechazar la hipótesis de que son iguales, en favor de que los estudiantes del grado \(G_1\) tardan menos tiempo en realizar la tarea que los estudiantes del grado \(G_2\).</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplo</h2></hgroup><article  id="ejemplo-28">
+
+<div class="example-sol">
+<p>Consideremos ahora el otro caso:</p>
+
+<ul>
+<li>Caso 2: Suponemos \(\sigma_1\neq \sigma_2\).</li>
+</ul>
+
+<p>El <strong>estadístico de contraste</strong> será, en este caso: \(T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}}\sim t_f\) donde \[
+f=\left\lfloor\frac{ \left( \frac{1.201^2}{40}+\frac{1.201^2}{40}\right)^2}
+{\frac1{39}\left(\frac{1.201^2}{40}\right)^2+\frac1{39}\left(\frac{1.579^2}{40}\right)^2}\right\rfloor -2
+=\lfloor 72.81\rfloor-2=70.
+\]</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplo</h2></hgroup><article  id="ejemplo-29">
+
+<div class="example-sol">
+<p>El valor que toma el estadístico anterior será: \[
+t_0=\frac{9.789-11.385}{\sqrt{\frac{1.201^2}{40}+\frac{1.579^2}{40}}}=-5.088.
+\]</p>
+
+<p>\(p\)-valor: \(P(t_{70}\leq-5.0881)=1.5\cdot 10^{-6}\) muy pequeño</p>
+
+<p>Decisión Rechazamos la hipótesis que son iguales, en favor que a \(G_1\) tardan menos que a \(G_2\)</p>
+
+<p>Decisión final: Los dos casos han dado el mismo, así que concluimos que a \(G_1\) tardan menos que a \(G_2\)</p></div></article></slide>
 
 
   <slide class="backdrop"></slide>

@@ -1907,7 +1907,7 @@ Sean $\overline{X}_1$ y $\overline{X}_2$ sus medias, respectivamente.
 
 La hipótesis nula será del tipo:
 $$
-\mu_1  = \mu_2,\mbox{ o, equivalentemente, }\mu_1-\mu_2 = 0.\\
+H_0: \mu_1  = \mu_2,\mbox{ o, equivalentemente, }H_0:\mu_1-\mu_2 = 0.\\
 $$
 
 ## Introducción
@@ -2008,12 +2008,161 @@ Observamos que el valor $0$ no pertenece al intervalo de confianza anterior, hec
 
 </div>
 
+## Contrastes de hipótesis para $\mu$ de poblaciones normales o $n$ grandes: $\sigma_1$ o $\sigma_2$ desconocidas
+Suponemos otra vez que estamos en una de las dos situaciones siguientes, pero ahora no conocemos $\sigma_1$ o $\sigma_2$:
+
+* $X_1$ y $X_2$ son normales, o 
+
+* $n_1$ y $n_2$ son grandes ($n_1,n_2\geq 40)$.
+
+Recordemos que disponemos de una m.a.s. de cada variable:
+$$
+\begin{array}{l}
+X_{1,1}, X_{1,2},\ldots, X_{1,n_1},\mbox{ de }X_1,\\
+X_{2,1}, X_{2,2},\ldots, X_{2,n_2},\mbox{ de }X_2.
+\end{array}
+$$
 
 
+## Contrastes de hipótesis para $\mu$ de poblaciones normales o $n$ grandes: $\sigma_1$ o $\sigma_2$ desconocidas
+En este caso, tenemos que distinguir dos subcasos:
+
+* Suponemos que $\sigma_1=\sigma_2$.
+* Suponemos que $\sigma_1\neq \sigma_2$.
+
+¿Como decidimos en qué caso estamos? Dos posibilidades:
+
+* Realizamos los dos casos, y si dan lo mismo, es lo que contestamos.
+* En caso de poblaciones normales, realizamos un contraste de igualdad de varianzas para decidir cuál es el caso.
 
 
+## Contrastes de hipótesis para $\mu$ de poblaciones normales o $n$ grandes: $\sigma_1$ o $\sigma_2$ desconocidas
+Si suponemos que $\sigma_1=\sigma_2$, el estadístico de contraste es
+$$
+T=\frac{\overline{X}_1-\overline{X}_2}
+{\sqrt{(\frac1{n_1}+\frac1{n_2})\cdot 
+\frac{((n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2)}
+{(n_1+n_2-2)}}},
+$$
+que, cuando $\mu_1=\mu_2$, tiene distribución (aproximadamente, en caso de muestras grandes) $t_{n_1+n_2-2}$.
 
 
+## Contrastes de hipótesis para $\mu$ de poblaciones normales o $n$ grandes: $\sigma_1$ o $\sigma_2$ desconocidas
+
+Si suponemos que $\sigma_1\neq \sigma_2$, el estadístico de contraste es
+$T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}}\sim t_f,$
+que, cuando $\mu_1=\mu_2$, tiene distribución (aproximadamente, en caso de muestras grandes) $t_{f}$ con
+$$
+f=\left\lfloor\frac{\displaystyle \left( \frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}\right)^2}
+{\displaystyle \frac1{n_1-1}\left(\frac{\widetilde{S}_1^2}{n_1}\right)^2+\frac1{n_2-1}\left(\frac{\widetilde{S}_2^2}{n_2}\right)^2}\right\rfloor -2.
+$$
+
+
+## Contrastes de hipótesis para $\mu$ de poblaciones normales o $n$ grandes: $\sigma_1$ o $\sigma_2$ desconocidas
+
+Los **$p$-valores** usando las mismas expresiones que en el caso en que $\sigma_1$ y $\sigma_2$ conocidas sustituyendo el **estadístico de contraste** $Z$ por el **estadístico de contraste** correspondiente.
+
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Queremos comparar los tiempos de realización de una tarea entre estudiantes de dos grados $G_1$ y $G_2$, y determinar si es verdad que los estudiantes de $G_1$ emplean menos tiempo que los de $G_2$
+suponiendo que desconocemos una o las dos desviaciones típicas poblaciones $\sigma_1$ y $\sigma_2$.
+
+Disponemos de dos muestras independientes de tiempos de tareas realizadas por estudiantes de cada grado de tamaño $40$ ($n_1=n_2=40$). Las medias y las desviaciones típicas
+muestrales de los tiempos empleados para cada muestra son:
+$$
+\overline{X}_1= 9.789,\  \overline{X}_2=11.385,\ 
+\widetilde{S}_1=1.201,\  \widetilde{S}_2=1.579.
+$$
+
+</div>
+
+## Ejemplo
+<div class="example-sol">
+
+```{r,echo=FALSE}
+media1=9.789
+media2=11.385
+s1=1.201
+s2=1.579
+n1=40
+n2=40
+```
+
+El contraste a realizar es el siguiente:
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1=\mu_2,\\
+H_1:\mu_1< \mu_2,
+\end{array}\right.
+\Longleftrightarrow
+\left\{\begin{array}{l}
+H_0:\mu_1-\mu_2=0,\\
+H_1:\mu_1- \mu_2<0,
+\end{array}\right.
+$$
+donde $\mu_1$ y $\mu_2$ representan los tiempos medios que tardan los estudiantes de los grados $G_1$ y $G_2$ para realizar la tarea, respectivamente.
+
+Consideremos los dos casos anteriores:
+
+* Caso 1: Suponemos $\sigma_1=\sigma_2$.
+
+El **estadístico de contraste** es:
+$T=\frac{\overline{X}_1-\overline{X}_2}
+{\sqrt{(\frac1{n_1}+\frac1{n_2})\cdot 
+\frac{((n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2)}
+{(n_1+n_2-2)}}}\sim t_{40+40-2}=t_{`r 40+40-2`},$
+cuyo valor, usando los valores correspondientes de las muestras, será:
+$t_0=\frac{`r media1`-`r media2`}{\sqrt{(\frac1{`r n1`}+\frac1{`r n2`})\frac{(`r n1-1`\cdot `r s1`^2+`r n2-1`\cdot `r s2`^2)}{`r n1+n2-2`}}}=`r round((media1-media2)/sqrt((1/n1+1/n2)*((n1-1)*s1^2+(n2-1)*s2^2)/(n1+n2-2)),3)`.$
+
+</div>
+
+## Ejemplo
+<div class="example-sol">
+
+El $p$-valor será, en este caso: 
+$P(t_{78}<`r round((media1-media2)/sqrt((1/n1+1/n2)*((n1-1)*s1^2+(n2-1)*s2^2)/(n1+n2-2)),3)`)\approx `r round(pt((media1-media2)/sqrt((1/n1+1/n2)*((n1-1)*s1^2+(n2-1)*s2^2)/(n1+n2-2)),n1+n2-2),3)`,$
+valor muy pequeño.
+
+La decisión que tomamos, por tanto, es rechazar la hipótesis de que son iguales, en favor de que los estudiantes del grado $G_1$ tardan menos tiempo en realizar la tarea que los estudiantes del grado $G_2$.
+
+</div>
+
+## Ejemplo
+<div class="example-sol">
+Consideremos ahora el otro caso:
+
+* Caso 2: Suponemos $\sigma_1\neq \sigma_2$.
+
+El **estadístico de contraste** será, en este caso:
+$T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}}\sim t_f$
+donde
+$$
+f=\left\lfloor\frac{ \left( \frac{`r s1`^2}{`r n1`}+\frac{`r s1`^2}{`r n2`}\right)^2}
+{\frac1{`r n1-1`}\left(\frac{`r s1`^2}{`r n1`}\right)^2+\frac1{`r n2-1`}\left(\frac{`r s2`^2}{`r n2`}\right)^2}\right\rfloor -2
+=\lfloor `r round((s1^2/n1+s2^2/n2)^2/((1/(n1-1))*(s1^2/n1)^2+(1/(n2-1))*(s2^2/n2)^2),2)`\rfloor-2=`r floor((s1^2/n1+s2^2/n2)^2/((1/(n1-1))*(s1^2/n1)^2+(1/(n2-1))*(s2^2/n2)^2))-2`.
+$$
+
+</div>
+
+## Ejemplo
+<div class="example-sol">
+El valor que toma el estadístico anterior será: 
+$$
+t_0=\frac{`r media1`-`r media2`}{\sqrt{\frac{`r s1`^2}{`r n1`}+\frac{`r s2`^2}{`r n2`}}}=`r round((media1-media2)/sqrt(s1^2/n1+s2^2/n2),3)`.
+$$
+
+$p$-valor: 
+$P(t_{70}\leq-5.0881)=1.5\cdot 10^{-6}$ muy pequeño
+
+Decisión Rechazamos la hipótesis que son iguales, en favor que a $G_1$ tardan menos que a $G_2$
+ 
+
+ Decisión final: Los dos casos han dado el mismo, así que concluimos que a $G_1$ tardan menos que a $G_2$
+
+</div>
 
 
 
