@@ -971,7 +971,7 @@ $$
 <div class="example">
 **Ejemplo**
 
-Un test para detección de VIH da positivo un 99\% de los casos en los que  está presente y en un 5\% de los casos  en los que el virus está ausente. En una población con un  $0.5\%$ de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado  \Omegaph{negativo} en el test \Omegaph{no} esté infectado?
+Un test para detección de VIH da positivo un 99\% de los casos en los que  está presente y en un 5\% de los casos  en los que el virus está ausente. En una población con un  $0.5\%$ de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado **negativo** en el test **no** esté infectado?
 </div>
 
 <div class="example-sol">
@@ -1099,7 +1099,7 @@ $$
 Diremos que  los sucesos $A$ y  $B$ son **independientes** si  $P(A\cap B)=P(A)\cdot P(B)$
 
 
-$A_1,\ldots, A_n$ son sucesos \Omegaph{independientes} cuando, para  toda
+$A_1,\ldots, A_n$ son sucesos **independientes** cuando, para  toda
 subfamilia $A_{i_1},\ldots,A_{i_k}$,
 $$
 P(A_{i_1}\cap \cdots\cap A_{i_k})=P(A_{i_1})\cdots P(A_{i_k})
