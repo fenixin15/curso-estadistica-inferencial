@@ -1,0 +1,1043 @@
+\documentclass[12pt,t]{beamer}
+% \documentclass[t]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[catalan]{babel}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{amsfonts,amssymb,amsmath,amsthm, wasysym}
+\usepackage{listings}
+\usepackage[T1]{fontenc}        
+\usepackage{pgf}
+%\usepackage{epsdice}
+\usepackage{pgfpages}
+\usepackage{tikz}
+%\usetikzlibrary{arrows,shapes,plotmarks,backgrounds,trees,positioning}
+%\usetikzlibrary{decorations.pathmorphing,calc,snakes}
+%\usepackage{marvosym}
+%
+\usetheme[hideothersubsections,left]{Marburg}
+\usecolortheme{sidebartab}
+\useinnertheme[shadow]{rounded}
+% \useoutertheme[footline=empty,subsection=true,compress]{infolines}
+% \useoutertheme[footline=empty,subsection=true,compress]{miniframes}
+% \usefonttheme{serif}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{navigation symbols}{}
+
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+\renewcommand{\emph}[1]{{\color{red}#1}}
+
+\setbeamertemplate{frametitle}
+{\begin{centering}
+\
+\color{blue}
+\textbf{\insertframetitle}
+\
+\end{centering}
+}
+\usecolortheme{rose}
+\usecolortheme{dolphin}
+\mode<presentation>
+
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\MM}{\mathcal{M}}
+%\newcommand{\dbinom}{\displaystyle\binom}
+
+\newcommand{\limn}{{\displaystyle \lim_{n\to\infty}}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\def\tendeix{{\displaystyle\mathop{\longrightarrow}_{\scriptscriptstyle
+n\to\infty}}}
+
+\newcommand{\matriu}[1]{\left(\begin{matrix} #1 \end{matrix}\right)}
+
+% \newcommand{\qed}{\hbox{}\nobreak\hfill\vrule width 1.4mm height 1.4mm depth 0mm
+%     \par \goodbreak \smallskip}
+%
+% %
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposició}
+\newtheorem{cor}{Coro\l.lari}
+\theoremstyle{definition}
+\newtheorem{exemple}{Exemple}
+\newtheorem{defin}{Definició}
+\newtheorem{obs}{Observació}
+
+\newcounter{seccions}
+\newcommand{\seccio}[1]{\addtocounter{seccions}{1}
+\\par\noindent\emph{\theseccions.
+#1}\smallskip\par }
+
+\newcommand{\EM}{\Omega}
+\newcommand{\PP}{\mathcal{P}}
+
+\title[\red{Matemàtiques III}]{}
+\author[]{}
+\date{}
+
+
+
+\begin{document}
+\beamertemplatedotitem
+
+\lstset{backgroundcolor=\color{green!50}}
+\lstset{breaklines=true}
+\lstset{basicstyle=\ttfamily}
+
+
+\begin{frame}
+\vfill
+\begin{center}
+\gray{\LARGE Contrastos d'hipòtesis:}\\[1ex]
+
+\gray{\LARGE Una mostra}
+\end{center}
+\vfill
+\end{frame}
+
+
+\part{Contrastos d'hipòtesis}
+
+\section{Contrastos d'hipòtesis d'una mostra}
+
+\begin{frame}
+\frametitle{Contrastos d'hipòtesis d'una mostra}
+Anem a estudiar els principals contrastos
+per a una mostra
+\
+
+Un cop fixades les hipòtesi nul·la i alternativa, hem d'estudiar les condicions de la mostra per saber el test
+que podem aplicar
+\
+
+\blue{Teniu una Taula de Contrastos exhaustiva a Campus Extens, aquí nomes veurem alguns dels més comuns}
+\end{frame}
+
+
+\subsection{Z-test}
+
+
+\begin{frame}
+\frametitle{Contrast per a $\mu$ de normal amb $\sigma$ coneguda: \emph{Z-test}}
+
+\blue{Condicions:} m.a.s. de mida $n$ d'una població $N(\mu,\sigma)$ amb $\sigma$ coneguda
+\
+
+Empram l'estadístic de contrast
+$$
+Z=\frac{\overline{X}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}
+$$
+Calculam el seu valor $z_0$ sobre la mostra
+\
+
+\only<2>{\blue{Contrast:} $\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0} \quad (\mbox{ o } H_{0}:\mu\leq \mu_{0})\\
+H_{1}:\mu>\mu_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} $P(Z\geq z_0)$}
+\only<3>{\blue{Contrast:}
+$\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0} \quad (\mbox{ o } H_{0}:\mu\geq \mu_{0})\\
+H_{1}:\mu<\mu_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} $P(Z\leq z_0)$}
+
+\only<4>{\blue{Contrast:}
+$\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0} \\
+H_{1}:\mu
+\neq
+\mu_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} $2P(Z\geq |z_0|)$}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Contrast per a  $\mu$  quan $n$ és gran: \emph{Z-test}}
+
+Si la mida $n$ de la mostra és gran (posem, si $n\geq 40$), podem aplicar les regles anteriors encara que la població no sigui normal
+\bigskip
+
+Si, a més, $\sigma$ és desconeguda, en aquest cas es pot substituir a $Z$ per la desviació
+típica mostral $\widetilde{S}_X$:
+$$
+Z=\frac{\overline{X}-\mu_{0}}
+{\frac{\widetilde{S}_X}{\sqrt{n}}}
+$$
+Mateixos $p$-valors que al cas anterior
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple}
+
+Una organització ecologista afirma que el pes  mitjà dels individus
+adults d'una espècie marina ha disminuït dràsticament
+\
+
+Se sap per les dades històriques que el pes mitjà poblacional era de 460 g
+\
+
+Una mostra aleatòria de 40 individus d'aquesta espècie ha donat una mitjana
+mostral de 420 g i una desviació típica mostral de 119 g
+\
+
+\blue{Amb aquestes dades, podem afirmar  amb un nivell de significació del 5\%
+ que el pes mitjà és inferior a 460 g?}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+\begin{itemize}
+\item [(1)] \red{Hipòtesis:}
+$$\left\{\begin{array}{l}
+H_{0}:\mu=460\\
+H_{1}:\mu<460
+\end{array}
+\right.$$
+\blue{Estam en el cas VIII de la Taula I}\pause
+
+\item[(2)] $\alpha=0.05$
+\pause
+
+\item[(3)]  \red{Estadístic:} Com que $n=40$ és  gran, emprarem
+$$
+Z=\frac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}
+$$
+\pause
+
+\item[(4)] \red{Valor:} 
+$z=\dfrac{420-460}{{119}/{\sqrt{40}}}=
+-2.126
+$
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+\begin{itemize}
+
+\item[(5)]  \red{$p$-valor}:
+$$
+P(Z\leq -2.126)=0.017
+$$
+\pause\
+
+
+
+\item[(6)] \red{Decisió:} Com que $\alpha>p$-valor,  rebutjam (al nivell de significació $\alpha=0.05$) que el pes mitjà és de $460$ g ($H_0$) contra que és
+menor de $460$ g  ($H_{1}$).
+\
+
+ \blue{Concloem que el pes mitjà és $<460$ g i que per tant ha minvat en els darrers anys}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+
+\emph{Interval de confiança}:
+$$
+\left]-\infty, \overline{X}-z_{\alpha}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}\right]=]-\infty,450.95]
+$$
+\bigskip
+
+\blue{Informe:} El $p$-valor d'aquest contrast és 0.017, i l'interval de confiança al nivell de significació $\alpha=0.05$ per a la mitjana poblacional $\mu$ és $]-\infty,450.95]$. Per tant, hi ha evidència significativa per rebutjar  la hipòtesi nu\l.la en favor que $\mu<460$.
+
+\end{frame}
+
+
+
+
+
+
+
+
+\subsection{T-test}
+\begin{frame}
+
+\frametitle{Contrast per a $\mu$ de normal amb $\sigma$ desconeguda: \red{T-test}}
+
+Les regles de decisió són similars al cas amb $\sigma$ coneguda, excepte que \emph{substituïm $\sigma$ per $\widetilde{S}_X$} i \emph{empram la distribució $t$ de Student}
+\
+
+Recordau que si $X_1,\ldots,X_n$ és una m.a.s. d'una població normal $X$ amb mitjana $\mu_0$,
+$$
+T= \frac{\overline{X}-\mu_{0}}{\frac{\widetilde{S}_X}{\sqrt{n}}}
+$$
+segueix una distribució t de Student amb $n-1$ graus de llibertat
+\
+
+Els $p$-valors es calculen amb aquesta distribució
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Contrast de $\mu$ de normal amb $\sigma$ desconeguda: \red{T-test}}
+\blue{Condicions:} m.a.s. de mida $n$ d'una població $N(\mu,\sigma)$ amb $\mu$ i $\sigma$ desconegudes
+\
+
+Empram l'estadístic de contrast
+$$
+T= \frac{\overline{X}-\mu_{0}}{\frac{\widetilde{S}_X}{\sqrt{n}}}
+$$
+Calculam el seu valor $t_0$ sobre la mostra
+\
+
+\only<2>{\blue{Contrast:} $\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0} \quad (\mbox{ o } H_{0}:\mu\leq \mu_{0})\\
+H_{1}:\mu>\mu_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} $P(t_{n-1}\geq t_0)$}
+\only<3>{\blue{Contrast:}
+$\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0} \quad (\mbox{ o } H_{0}:\mu\geq \mu_{0})\\
+H_{1}:\mu<\mu_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} $P(t_{n-1}\leq t_0)$}
+
+\only<4>{\blue{Contrast:}
+$\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0} \\
+H_{1}:\mu
+\neq
+\mu_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} $2P(t_{n-1}\geq |t_0|)$}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+S'espera que el nivell de colesterol en plasma d'uns malalts sota un determinant
+tractament es distribueixi normalment amb mitjana 220 mg/dl
+\
+
+Es pren una mostra de 9 malalts, i es mesuren els seus nivells:
+$$ 
+203, 229, 215, 220, 223, 233, 208, 228, 209
+$$
+
+Contrastau la hipòtesi que aquesta mostra efectivament prové d'una població amb
+mitjana 220 mg/dl 
+
+\end{frame}
+
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}
+
+\begin{itemize}
+\item [(1)] \red{Hipòtesis:}
+$$\left\{\begin{array}{l}
+H_{0}:\mu=220\\
+H_{1}:\mu\neq 220
+\end{array}
+\right.$$
+\blue{Estam en el cas IV de la Taula I}\pause
+
+\item[(2)]  \red{Estadístic:} Sota aquestes condicions (població normal, $\sigma$ desconeguda,
+mostra petita de  $n=9$) emprarem
+$$
+T= \frac{\overline{X}-\mu_{0}}{{\widetilde{S}_X}/{\sqrt{9}}}
+$$
+que segueix una distribució $t_8$
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}
+
+\begin{itemize}
+
+\item[(3)] \red{Valor:} $\mu_0=220$, $n=9$, 
+\begin{verbatim}
+> colesterol=c(203,229,215,220,223,233,
+ 208,228,209)
+> x.bar=round(mean(colesterol),4)
+> x.bar
+[1] 218.6667
+> s.tilde=round(sd(colesterol),4)
+> s.tilde
+[1] 10.5238
+\end{verbatim}
+\pause\
+
+$$
+t_0=\frac{218.6667-220}{10.5238/{\sqrt{9}}}=-0.3801
+$$
+
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+\begin{itemize}
+\item[(4)] \red{$p$-valor:}\pause
+$$
+2P(t_8\geq |-0.3801|)=2P(t_8\geq  0.3801)=0.7138
+$$
+\pause\vspace*{-3ex}
+
+Amb la taula:
+$$
+\begin{array}{l}
+2P(t_8\geq  0.3801) > 2P(t_8\geq  1.3968)\\[1ex]
+\qquad=2(1-P(t_8\leq  1.3968))=2(1-0.9)=0.2
+ $$
+ \end{array}
+ $$
+ \pause
+
+\item[(5)] \red{Decisió:} Com que el $p$-valor és molt gran,  no podem rebutjar  que el nivell mitjà de colesterol en plasma sigui igual a 220 mg/dl 
+\
+
+\blue{Acceptam que el nivell de colesterol en plasma en aquesta població té mitjana 220 mg/dl}
+
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple}
+
+\emph{Interval de confiança al 95\%}:\pause
+$$
+\left[\overline{X}-t_{8,0.975}\frac{\widetilde{S}_X}{\sqrt{n}},\ \overline{X}+t_{8,0.975}\frac{\widetilde{S}_X}{\sqrt{n}}\right]=[210.577,226.756]
+$$
+\bigskip
+
+\blue{Informe:} El $p$-valor d'aquest contrast és 0.7138, i l'interval de confiança del $95\%$ per al nivell mitjà de colesterol $\mu$ és $[210.577,226.756]$. Per tant, no hi ha evidència que ens permeti rebutjar  que $\mu=220$.
+
+
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Amb R}
+
+El T-test està implementat en R en la funció \texttt{t.test}. 
+$$\left\{\begin{array}{l}
+H_{0}:\mu=220\\
+H_{1}:\mu\neq 220
+\end{array}
+\right.$$
+
+{\small
+\begin{verbatim}
+> t.test(colesterol,mu=220,alternative="two.sided",
+  conf.level=0.95)	
+
+        One Sample t-test
+data:  colesterol
+t = -0.3801, df = 8, p-value = 0.7138
+alternative hypothesis: true mean is not equal
+   to 220
+95 percent confidence interval:
+ 210.5774 226.7560
+sample estimates:
+mean of x 
+ 218.6667 
+\end{verbatim}
+}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Z-test contra T-test}
+
+En el cas d'una població amb $\sigma$ desconeguda:
+\
+
+\begin{itemize}
+\item Si la mostra és petita i la població és normal, hem d'emprar el T-test
+\
+
+\item Si la mostra és gran i la població qualsevol, podem emprar el Z-test
+\
+
+\item Si la mostra és gran i la població  és normal, els podem emprar tots dos
+\
+
+\item En aquest darrer cas, \emph{us recomanam que empreu el T-test} (que és més exacte)
+\end{itemize}
+
+
+
+\end{frame}
+
+
+
+
+\subsection{binom-test}
+
+\begin{frame}
+\frametitle{Contrastos per a $p$: \red{binom-test}}
+
+\blue{Condicions:} m.a.s. de mida $n$ d'una població $Be(p)$
+\
+
+Obtenim $x_0$ èxits, de manera que $\widehat{p}_X=x_0/n$
+\
+
+Considerem un contrast amb $H_0: p=p_0$
+\
+
+Si $H_0$ és vertadera, el nombre d'èxits segueix una distribució $B(n,p_0)$
+\bigskip
+
+\only<2>{\blue{Contrast:} $\left\{\begin{array}{l}
+H_{0}:p=p_{0} \quad (\mbox{ o } H_{0}:p\leq p_{0})\\
+H_{1}:p>p_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} $P(B(n,p_0)\geq x_0)$}
+\only<3>{\blue{Contrast:}
+$\left\{\begin{array}{l}
+H_{0}:p=p_{0} \quad (\mbox{ o } H_{0}:p\geq p_{0})\\
+H_{1}:p<p_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} $P(B(n,p_0)\leq x_0)$}
+
+\only<4>{\blue{Contrast:}
+$\left\{\begin{array}{l}
+H_{0}:p=p_{0} \\
+H_{1}:p\neq p_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} \blue{$2\min\{P(B(n,p_0)\leq x_0),P(B(n,p_0)\geq x_0)\}$}}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple}
+Tenim un test per detectar un determinat microorganisme. En una mostra de 25 cultius amb aquest microorganisme, el test el detectà en 21 casos. Hi ha evidència que la sensibilitat del test sigui superior al 80\%?
+\pause\
+
+\begin{itemize}
+\item [(1)] \red{Hipòtesis:}
+$$\left\{\begin{array}{l}
+H_{0}:p=0.8\\
+H_{1}:p>0.8
+\end{array}
+\right.$$
+\pause
+
+\item[(2)]  \red{Estadístic:} Emprarem el nombre d'èxits, que sota $H_0$ és $B(25,0.8)$
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}
+
+\begin{itemize}
+
+\item[(3)] \red{Valor:} $x_0=21$
+\
+
+\item[(4)] \red{$p$-valor:}
+$$
+\begin{array}{rl}
+P(B(25,0.8)\geq 21) & =\mbox{\texttt{1-pbinom(20,25,0.8)}}\\ & 
+=0.421
+\end{array}
+$$
+\pause
+
+\item[(5)] \red{Decisió:} Com que el $p$-valor és molt gran,  no podem rebutjar  la hipòtesi nu\l.la\
+
+\blue{No hi ha evidència que la sensibilitat del test sigui superior al 80\%}
+
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame} 
+\frametitle{Exemple}
+\vspace*{-2ex}
+
+\red{\textbf{Alerta als $p$-valors dels C.H. bilaterals no simètrics}}
+
+$n=25$, $x_0=21$
+
+\only<1>{$$\left\{\begin{array}{l}
+H_{0}:p=0.8 \\
+H_{1}:p\ \red{>}\ 0.8
+\end{array}
+\right.
+$$
+El $p$-valor és
+$$
+P(B(25,0.8)\geq 21)\!=\!\mbox{\texttt{1-pbinom(20,25,0.8)}}\!
+=\!0.421
+$$}
+\only<2>{$$\left\{\begin{array}{l}
+H_{0}:p=0.8 \\
+H_{1}:p\ \red{<}\ 0.8
+\end{array}
+\right.$$
+El $p$-valor és
+$$
+P(B(25,0.8)\leq 21)=\mbox{\texttt{pbinom(21,25,0.8)}}=0.766
+$$}
+\only<3>{$$\left\{\begin{array}{l}
+H_{0}:p=0.8 \\
+H_{1}:p\ \red{\neq}\  0.8
+\end{array}
+\right.$$
+
+El $p$-valor és:
+$$
+\begin{array}{rl}
+2\cdot P(B(25,0.8)\geq 21)& =2\cdot 0.421=0.842\\[1ex]
+2\cdot P(B(25,0.8)\leq 21) &=2\cdot 0.766=1.532
+\end{array}
+$$
+Prenem com a $p$-valor el més petit (\red{l'únic $\leq 1$}): 0.842}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Amb R}
+
+El binom-test està implementat en R en la funció \texttt{binom.test}. 
+
+{\small
+\begin{verbatim}
+> binom.test(21,25,p=0.8,alternative="greater",
+   conf.level=0.95)
+
+     Exact binomial test
+data:  21 and 25
+number of successes = 21, number of trials = 25, 
+  p-value = 0.4207
+alternative hypothesis: true probability of success
+   is greater than 0.8
+95 percent confidence interval:
+ 0.6703917 1.0000000
+sample estimates:
+probability of success 
+                  0.84 
+\end{verbatim}
+}
+\end{frame}
+
+%%%%%%
+\subsection{prop-test}
+
+\begin{frame}
+\frametitle{Contrastos per a $p$ quan $n$ és gran: \red{prop-test}}
+
+Si indicam amb $p$  la proporció poblacional i  $\widehat{p}_X$ la
+proporció mostral, sabem que si la mostra és gran $(n\geq 40)$
+$$
+Z=\frac{\widehat{p}_X-p}{\sqrt{\frac{p(1-p)}{n}}}\approx N(0,1)
+$$
+\
+
+Si la hipòtesi nul·la $H_{0}:p=p_{0}$ és vertadera, 
+$$
+Z=\frac{\widehat{p}_X-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\approx N(0,1)
+$$
+Mateixos $p$-valors que al $Z$-test. S'ha d'anar alerta amb l'interval de confiança. Si tenim $n\geq 100$, $n\hat{p}_X\geq 10$ i $n(1-\hat{p}_X)\geq 10$, es pot emprar el de Laplace. En cas contrari, s'ha d'emprar el de Wilson.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+Una associació ramadera afirma que, a les matances casolanes a les Balears,
+com a mínim el 70\% dels porcs han estat analitzats de triquinosi
+\
+
+En una investigació, es visita una mostra aleatòria de 100 matances i resulta que en 53 d'aquestes
+ s'ha realitzat l'anàlisi de triquinosi
+\
+
+Hem d'acceptar l'afirmació dels ramaders? 
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple}
+\begin{itemize}
+\item[(1)]  \emph{Contrast:}
+$$\left\{\begin{array}{l}
+H_{0}:p\geq 0.7\\
+H_{1}:p<0.7
+\end{array}
+\right.$$
+
+\item[(2)] \red{Estadístic:} Sota aquestes condicions podem emprar
+$$
+Z=\frac{\widehat{p}_X-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
+$$
+\blue{Estam en el cas XI de la Taula I}\pause
+
+\item[(3)] \red{Valor:} 
+$$
+\widehat{p}_X=\frac{53}{100}=0.53\Longrightarrow 
+z_0=\frac{0.53-0.7}{\sqrt{\frac{0.7\cdot 0.3}{100}}}=-3.71
+$$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple}
+\begin{itemize}
+
+
+\item[(4)] \red{$p$-valor}:
+$$
+P(Z\leq -3.71)=0.0001
+$$
+
+
+\item[(5)] \red{Decisió}: El $p$-valor és molt petit, per tant rebutjam la hipòtesi nul·la en favor de l'alternativa. Podem afirmar amb contundència que l'afirmació dels ramaders és falsa
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+\emph{Interval de confiança al 95\%}:\pause (estam en les condicions necessàries)
+$$
+\left]-\infty,\widehat{p}_X-z_{0.05}\sqrt{\frac{\widehat{p}_X(1-\widehat{p}_X)}{n}}\right]=]-\infty,0.6121]
+$$
+\bigskip
+
+\blue{Informe:} El $p$-valor d'aquest contrast és 0.0001, i l'interval de confiança del $95\%$ per a la proporció $p$ de matances on s'han fet anàlisis de triquinosi és $]-\infty,0.6121]$. Per tant,  hi ha evidència molt significativa per rebutjar  que $p=0.7$.
+
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Amb R}
+
+El prop-test està (millor) implementat en R en la funció \texttt{prop.test}. 
+
+{\small
+\begin{verbatim}
+> prop.test(53,100,p=0.7,alternative="less",
+  conf.level=0.95)
+
+     1-sample proportions test with continuity 
+     correction
+
+data:  53 out of 100, null probability 0.7
+X-squared = 12.9643, df = 1, p-value = 0.0001587
+alternative hypothesis: true p is less than 0.7
+95 percent confidence interval:
+ 0.0000000 0.6150364
+sample estimates:
+   p 
+0.53 
+\end{verbatim}
+}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Amb R}
+
+El prop-test està (millor) implementat en R en la funció \texttt{prop.test}. 
+
+{\small
+\begin{verbatim}
+> prop.test(53,100,p=0.7,alternative="less",
+  conf.level=0.95, correct=FALSE)
+
+     1-sample proportions test without 
+     continuity correction
+
+data:  53 out of 100, null probability 0.7
+X-squared = 13.7619, df = 1, p-value = 0.0001038
+alternative hypothesis: true p is less than 0.7
+95 percent confidence interval:
+ 0.0000000 0.6102196
+sample estimates:
+   p 
+0.53 
+\end{verbatim}
+}
+\end{frame}
+
+
+\subsection{$\chi^2$-test}
+
+\begin{frame}
+\frametitle{Contrast per a $\sigma$ de normal: \red{$\chi^2$-test}}
+
+Recordem que si $X_1,\ldots,X_n$ és una m.a.s. d'una v.a. $X\sim N(\mu,\sigma)$, aleshores
+ l'estadístic 
+ $$
+ \chi_{n-1}^2=\frac{(n-1)\widetilde{S}_X^2}{\sigma^2}
+$$
+segueix una distribució $\chi^2$ amb $n-1$ graus de llibertat
+\
+
+Per tant, si la hipòtesi nul·la $H_{0}:\sigma=\sigma_{0}$ és vertadera, 
+$$
+\chi_{n-1}^2=\frac{(n-1) \widetilde{S}_X^2}{\sigma_{0}^2}
+$$
+tindrà  una distribució $\chi^2$ amb $n-1$ graus de llibertat
+\
+
+\end{frame}
+
+
+
+%%%
+
+\begin{frame}
+\frametitle{Contrast per a $\sigma$ de normal: \red{$\chi^2$-test}}
+\blue{Condicions:} m.a.s. de mida $n$ d'una població $N(\mu,\sigma)$ amb $\sigma$ desconeguda
+\
+
+Empram l'estadístic de contrast
+$$
+ \chi_{n-1}^2=\frac{(n-1)\widetilde{S}_X^2}{\sigma_0^2}
+$$
+Calculam el seu valor $\chi^2_0$ sobre la mostra
+\
+
+\only<2>{\blue{Contrast:} $\left\{\begin{array}{l}
+H_{0}:\sigma=\sigma_{0} \quad (\mbox{ o } H_{0}:\sigma\leq \sigma_{0})\\
+H_{1}:\sigma>\sigma_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} $P(\chi^2_{n-1}\geq \chi^2_0)$}
+\only<3>{\blue{Contrast:}
+$\left\{\begin{array}{l}
+H_{0}:\sigma=\sigma_{0} \quad (\mbox{ o } H_{0}:\sigma\geq \sigma_{0})\\
+H_{1}:\sigma<\sigma_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} $P(\chi^2_{n-1}\leq \chi^2_0)$}
+
+\only<4>{\blue{Contrast:}
+$\left\{\begin{array}{l}
+H_{0}:\sigma=\sigma_{0} \\
+H_{1}:\sigma\neq \sigma_{0}
+\end{array}
+\right.$
+\
+
+\red{$p$-valor:} \blue{$2\mbox{min}\big\{P(\chi_{n-1}^2\leq \chi^2_0), P(\chi_{n-1}^2\geq \chi^2_0)\big\}$}}
+\end{frame}
+%%%
+
+
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+S'han mesurat els següents valors en milers de persones per a l'audiència
+d'un programa de ràdio en $n=10$ dies:
+$$
+521, 742, 593, 635, 788, 717, 606, 639, 666, 624
+$$
+
+Contrastau si la variància de l'audiència és 6400 al nivell
+de significació del 5\%, suposant que la població és normal
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple}
+\begin{itemize}
+\item[(1)] \red{Hipòtesis:}
+$$\left\{\begin{array}{l}
+H_{0}:\sigma=\sqrt{6400}=80 \\
+H_{1}:\sigma\neq 80
+\end{array}
+\right.$$
+(no s'especifica quina alternativa es
+demana)
+\
+
+
+\item[(2)] $\alpha=0.05$
+
+\item[(3)] \red{Estadístic:} Sota aquestes condicions podem emprar
+$$
+\chi_{n-1}^2=\frac{(n-1) \widetilde{S}_X^2}{\sigma_{0}^2}
+$$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}
+\begin{itemize}
+
+\item[(4)] \red{Valor:}
+\begin{verbatim}
+> x=c(521,742,593,635,788,717,
+ 606,639,666,624)
+> var(x)
+[1] 6111.656
+\end{verbatim}
+$$
+\chi_0^2=\frac{9\cdot 6111.656}{6400}=8.5945
+$$
+
+
+
+
+
+
+
+\item[(5)] \red{$p$-valor:}
+$$
+\begin{array}{rl}
+2\cdot P(\chi_9^2\geq 8.5945)& =2\cdot 0.4755=0.951\\[1ex]
+2\cdot P(\chi_9^2\leq 8.5945) &=2\cdot 0.5245=1.049
+\end{array}
+$$
+Prenem com a $p$-valor el més petit: 0.951
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Exemple}
+\begin{itemize}
+
+\item[(4)] \red{Valor:}
+\begin{verbatim}
+> x=c(521,742,593,635,788,717,
+ 606,639,666,624)
+> var(x)
+[1] 6111.656
+\end{verbatim}
+$$
+\chi_0^2=\frac{9\cdot 6111.656}{6400}=8.5945
+$$
+
+
+\item[(5)] \red{$p$-valor:} $0.951$
+
+\item[(6)] \red{Decisió:} No podem rebutjar la hipòtesi que la variància sigui 6400 al nivell
+de significació del 5\%
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple}
+
+\emph{Interval de confiança del 95\%} (Taula I, cas XIII):
+$$
+\left[ \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,0.975}^2},
+\frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,0.025}^2}
+\right]=[2891.53,20369.25]
+$$
+\bigskip
+
+
+\blue{Informe:} El $p$-valor d'aquest contrast és 0.951, i l'interval de confiança del $95\%$ per a la variància $\sigma^2$ de l'audiència és $[2891.53,20369.25]$. Per tant,  no hi ha evidència que ens permeti rebutjar que $\sigma^2=6400$.
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Amb R}
+
+El $\chi^2$-test està implementat en R en la funció \texttt{sigma.test} del paquet \texttt{TeachingDemos}
+
+{\small
+\begin{verbatim}
+> library("TeachingDemos")
+> sigma.test(x,sigma=80,alternative="two.sided",
+conf.level=0.95)
+
+     One sample Chi-squared test for variance
+data:  x
+X-squared = 8.5945, df = 9, p-value = 0.951
+alternative hypothesis: true variance is not equal
+ to 6400
+95 percent confidence interval:
+  2891.53 20369.25
+sample estimates:
+var of x 
+6111.656 
+\end{verbatim}
+}
+\end{frame}
+
+
+\end{document}
