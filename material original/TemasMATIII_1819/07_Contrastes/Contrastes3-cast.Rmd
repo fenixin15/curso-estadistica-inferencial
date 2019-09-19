@@ -1,245 +1,4 @@
 
-## Contraste para dos proporciones: Maceta de Fisher
-
-Tenemos dos variables aleatorias $X_1$ y $X_2$ Bernoulli de proporciones $p_1$ y $p_2$
-
-Tomamos m.a.s. de cada una y obtenemos la tabla siguiente
-\begin{center}
-\begin{tabular}{c|cc|c|}
- & $X_1$ & $X_2$ & Total\\\hline
-Éxitos & $n_{11}$ & $n_{12}$ & $n_{1\bullet}$\\
-Fracasos & $n_{21}$ & $n_{22}$ & $n_{2\bullet}$ \\\hline 
-Total & $n_{\bullet1}$ & $n_{\bullet2}$ & $n_{\bullet\bullet}$
-\\\hline
-\end{tabular}
-\end{center}
-
-La hipótesis nula que contrastamos es $H_0: p_1=p_2$
-
-## Contraste para dos proporciones: Maceta de Fisher
-
-\begin{center}
-\begin{tabular}{c|cc|c|}
- & $X_1$ & $X_2$ & Total\\\hline
-Éxitos & $n_{11}$ & $n_{12}$ & $n_{1\bullet}$\\
-Fracasos & $n_{21}$ & $n_{22}$ & $n_{2\bullet}$ \\\hline 
-Total & $n_{\bullet1}$ & $n_{\bullet2}$ & $n_{\bullet\bullet}$
-\\\hline
-\end{tabular}
-\end{center}
-
-Si $p_1=p_2$, la probabilidad de obtener $n_{11}$ éxitos dentro de $X_1$ es la de:
-\begin{quote}
-En una bolsa  tenemos $n_{1\bullet}$ bolles E y $n_{2\bullet}$ bolles F. Probabilidad de obtener $n_{11}$ bolles E si en triam $n_{\bullet1}$ de golpe.
-\end{quote}
-Es una hipergeométrica $H(n_{1\bullet},n_{2\bullet},n_{\bullet1})$. Lo empleamos para calcular los p-valores.
-
-## Contraste para dos proporciones: Maceta de Fisher
-
-Contraste:
-$
-\left\{\begin{array}{l}
-H_0:p_1=p_2\\
-H_1:p_1> p_2
-\end{array}\right.
-$
-
-p-valor: $P(H(n_{1\bullet},n_{2\bullet},n_{\bullet1})\geq n_{11})$
-
-Contraste:
-$
-\left\{\begin{array}{l}
-H_0:p_1=p_2\\
-H_1:p_1< p_2
-\end{array}\right.
-$
-
-p-valor: $P(H(n_{1\bullet},n_{2\bullet},n_{\bullet1})\leq n_{11})$
-
-Contraste:
-$
-\left\{\begin{array}{l}
-H_0:p_1=p_2\\
-H_1:p_1\neq p_2
-\end{array}\right.
-$
-
-p-valor: $\min\left\{2\min\{P(H\leq n_{11}), P(H\geq n_{11})\},1\right\}$.
-
- 
-(Controvertido; por ejemplo, R lo hace de otro modo)
-
-## Ejemplo
-<div class="example">
-**Ejemplo**
-
-Para determinar si el Síndrome de Muerte Repentina del Bebé (SIDS) tiene componiendo genético, se consideran los casos de SIDS en parejas de gemelos monozigóticos y dizigòtics. Digamos: 
-
-* $p_1$: proporción de parejas de gemelos monozigóticos con algún caso de SIDS donde solo un hermano la sufrió
-
-* $p_2$: proporción de parejas de gemelos dizigòtics con algún caso de SIDS donde solo un hermano la sufrió
-
-Si la SIDS tiene componiendo genético, es de esperar que $p_1<p_2$
-
-Hem de realitzar el contrast
-$$
-\left\{\begin{array}{l}
-H_0:p_1=p_2\\
-H_1:p_1< p_2
-\end{array}\right.
-$$
-
-</div>
-
-## Ejemplo
-<div class="example">
-**Ejemplo**
-
-En un estudio (Peterson te al, 1980), se obtuvieron los datos siguientes:
-\begin{center}
-\begin{tabular}{l|cc|c|}
-\multicolumn4{c}{\hphantom{ \textbf{Casos de } Tipos de gemelos}} \\ \hline
- Casos de SIDS & Monozigóticos & Dizigòtics & Total \\
- Un & 23 & 35 & 58\\
- Dos & 1 & 2 & 3\\\hline
-Total & 24 & 37 & 61
-\\\hline
-\end{tabular}
-\end{center}
-
-p-valor:
-$$
-P(H(58,3,24)\leq 23) =\mbox{phyper(23,58,3,24)}=0.7841
-$$
-
-No podemos rechazar la hipótesis desnudo\l.la
-
-%%%%%Continuar
-
-</div>
-
-## Contraste para dos proporciones: muestras grandes
-
-Tenemos dos variables aleatorias $X_1$ y $X_2$ Bernoulli de proporciones $p_1$ y $p_2$
-
-Tomamos m.a.s. grandes* ($n_1,n_2\geq 50$ o  100)
-$$
-\begin{array}{l}
-X_{1,1}, X_{1,2},\ldots, X_{1,n_1}\quad\mbox{ de }X_1\\
-X_{2,1}, X_{2,2},\ldots, X_{2,n_2}\quad\mbox{ de }X_2
-\end{array}
-$$
-Sean $\widehat{p}_1$ y $\widehat{p}_2$ sus proporciones muestrales
-
-Suponemos que los números de éxitos y de fracasos a cada muestra son $\geq 5$ o  10)
-
-La hipótesis nula que contrastamos es $H_0: p_1=p_2$, que tenemos que entender $H_0: p_1-p_2=0$
-
-## Contraste para dos proporciones: muestras grandes
-
-El estadístico de contraste es
-$$
-Z=\frac{\widehat{p}_1 -\widehat{p}_2}{
-\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
-+n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
-+n_2}\Big)\Big(\frac1{n_1}+\frac1{n_2}
-\Big)}}$$
-y tiene distribución aproximadamente $N(0,1)$ si $p_1=p_2$.
-
-Los contrastes son cómo en el caso de $H_0:p=0$
-
-## Ejemplo
-<div class="example">
-**Ejemplo**
-
-Se toman una muestra de ADN de 100 individuos con al menos tres generaciones
-familiares a la isla de Mallorca, y otra de 50 individuos con al menos tres generaciones
-familiares a la isla de Menorca
-
-Se quiere saber si un determinado alelo de un gen es presente con la misma proporción a las dos poblaciones
-
-A la muestra mallorquina, 20 individuos lo tienen, y a la muestra menorquina, 12
-
-Contrastáis la hipótesis de igualdad de proporciones al
-nivel de significación $0.05$, y calculáis el intervalo de confianza
-para la diferencia de proporciones para este $\alpha$
-
-Suponéis que 50 es bastante grande
-
-</div>
-
-## Ejemplo
-<div class="example">
-**Ejemplo**
-
-Contraste:
-$$
-\left\{\begin{array}{l}
-H_0:p_1=p_2\\
-H_1:p_1\neq p_2
-\end{array}\right.
-$$
-
-Estadístico de contraste: 
-$$
-Z=\frac{\widehat{p}_1 -\widehat{p}_2}{
-\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
-+n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
-+n_2}\Big)\Big(\frac1{n_1}+\frac1{n_2}
-\Big)}}\sim N(0,1)$$
-
-Valor que toma: $\widehat{p}_1=0.2$, $\widehat{p}_2=0.24$, $n_1=100$, $n_2=50$
-$$
-z_0=\frac{0.2 -0.24}{
-\sqrt{\Big(\frac{20 +12}{100+50}\Big)\Big(1-\frac{20 +12}{100+50}\Big)\Big(\frac1{100}+\frac1{50}
-\Big)}}
-=-0.5637$$
-
-</div>
-
-## Ejemplo
-<div class="example">
-**Ejemplo**
-
-$p$-valor: $2\cdot P(Z\geq 0.5637)=0.573$
-
-Decisión: Como que el $p$-valor es más grande que $\alpha=0.05$, aceptamos la hipótesis que las dos proporciones son la misma
-
-</div>
-
-## Ejemplo
-<div class="example">
-**Ejemplo**
-
-El intervalo de confianza para $p_1-p_2$
-al nivel de confianza $(1-\alpha)\cdot 100\%$ en un contraste bilateral es
-{\small $$
-\begin{array}{l}
-\left]\widehat{p}_1-\widehat{p}_2-z_{1-\frac{\alpha}2}\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
-+n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
-+n_2}\Big)\Big(\frac1{n_1}+\frac1{n_2}
-\Big)},\right.\\[2ex]
-\quad
-\left.\widehat{p}_1-\widehat{p}_2+z_{1-\frac{\alpha}2}\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
-+n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
-+n_2}\Big)\Big(\frac1{n_1}+\frac1{n_2}
-\Big)}
-\right[
-\end{array}
-$$
-
-}
-
-$$
-\begin{array}{l}
-](0.2 -0.24)-1.96\cdot 0.071,(0.2 -0.24)+1.96\cdot 0.071[\\
-\qquad\qquad =]-0.179,0.099[
-\end{array}
-$$
-Contiene el 0, por lo tanto no podemos rechazar que $p_1-p_2=0$
-
-</div>
-
 ## Contrastes algo más generales
 
 Hasta ahora hemos tomado $H_0:\mu_1=\mu_2$. Un tipo de contrastes ligeramente más generales serían
@@ -383,10 +142,10 @@ No es simétrica. Los $p$-valores se calculan como en el caso de la $\chi^2$. Al
 ## Ejemplo
 <div class="example">
 **Ejemplo**
-Recordáis el ejemplo donde queríamos comparar los tiempos de realización de una maceta 
+Recordáis el ejemplo donde queríamos comparar los tiempos de realización de una test 
 entre estudiantes de dos grados $G_1$ y $G_2$. Suponemos que estos tiempos siguen distribuciones normales*.
 
-Disponemos de dos muestras independientes de macetas realizadas por estudiantes de cada grado, $n_1=n_2=40$. Calculamos las desviaciones típicas
+Disponemos de dos muestras independientes de tests realizadas por estudiantes de cada grado, $n_1=n_2=40$. Calculamos las desviaciones típicas
 muestrales de los tiempos empleados a cada muestra:
 $$
 \widetilde{S}_1=1.201,\quad \widetilde{S}_2=1.579
@@ -434,4 +193,315 @@ $$
 $$
 El $p$-valor es $0.091$
 
-Decisión: Como que el $p$-valor es más grande que $\alpha=0.05$, no podemos rechazar la hipótesis
+Decisión: Como que el $p$-valor es más grande que $\alpha=0.05$, no podemos rechazar la hipótesis que las dos varianzas son iguales.
+
+
+
+
+Concluimos que $\sigma_1= \sigma_2$. Esta sería la asunción que tendríamos que hacer en la test de las $\mu$.
+
+%
+%## Ejemplo
+<div class="example">
+**Ejemplo**
+%
+%El intervalo de confianza para $\sigma_1^2/\sigma_2^2$
+%al nivel de confianza $(1-\alpha)\cdot 100\%$ es
+%$$
+%\left]\frac{\widetilde{S}_1^2}{\widetilde{S}_2^2}\cdot F_{n_1-1,n_2-1,\frac{\alpha}2},\frac{\widetilde{S}_1^2}{\widetilde{S}_2^2}\cdot F_{n_1-1,n_2-1,1-\frac{\alpha}2}\right[
+%$$
+%Da
+%$$
+%]0.5785\cdot 0.529, 0.5785\cdot 1.891[=]0.306,1.094[
+%$$
+%Contiene el 1%
+
+%
+%
+%
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+Se desea comparar la actividad motora espontánea de un grupo de 25 ratas control y otro de 36 ratas desnutridas. Se mesuró el número a veces que pasaban ante una célula fotoeléctrica durante 24 horas. Los datos obtenidos fueron las siguientes
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+& $n$ & $\overline{X}$ & $\widetilde{S}$ \\ \hline
+1. Control & 25 & $869.8$ & $106.7$\\ \hline
+2. Desnutridas & 36 & $665$ & $133.7$\\ \hline
+\end{tabular}
+\end{center}
+
+Se observan diferencias significativas entre el grupo de control y el grupo desnutrido? 
+
+*Supondremos que estos números a veces siguen distribuciones normales*
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+*Contraste*:
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1=\mu_2\\
+H_1:\mu_1\neq \mu_2
+\end{array}\right.
+$$
+
+Para poderlo efectuar, efectuaremos primero el contraste
+$$
+\left\{\begin{array}{l}
+H_0:\sigma_1=\sigma_2\\
+H_1:\sigma_1\neq \sigma_2
+\end{array}\right.
+$$
+para decidir qué test hacer
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+*Contraste*:
+$$
+\left\{\begin{array}{l}
+H_0:\sigma_1=\sigma_2\\
+H_1:\sigma_1\neq \sigma_2
+\end{array}\right.
+$$
+
+*Estadístico de contraste*: 
+$$
+F=\frac{\widetilde{S}_1^2}{\widetilde{S}_2^2}\sim F_{24,35}
+$$
+
+*Valor que toma*: $\widetilde{S}_1=106.7$, $\widetilde{S}_2=133.7$
+$$
+f_0=\frac{106.7^2}{133.7^2}=0.637
+$$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+*$p$-valor*: 
+$$
+\begin{array}{l}
+2\cdot P(F_{24,35}\leq 0.637)= 0.25\\
+2\cdot P(F_{24,35}\geq 0.637)=1.75
+\end{array}
+$$
+El $p$-valor es $0.25$, grande
+
+*Decisión*: $\sigma_1= \sigma_2$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+*Contraste*:
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1=\mu_2\\
+H_1:\mu_1\neq \mu_2
+\end{array}\right.
+$$
+
+*Estadístico de contraste*: Como que suponemos que $\sigma_1= \sigma_2$
+$$
+T=\frac{\overline{X}_1-\overline{X}_2}%
+{\sqrt{(\frac1{n_1}+\frac1{n_2})\cdot 
+\frac{(n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2}%
+{n_1+n_2-2}}}\sim t_{25+36-2}
+$$
+
+*Valor que toma*: 
+$$
+t_0=\frac{869.8-665}%
+{\sqrt{(\frac1{25}+\frac1{36})\cdot 
+\frac{24\cdot 106.7^2+35\cdot 133.7^2}%
+{25+36-2}}}=6.37
+$$
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+*$p$-valor*: 
+$2\cdot P(t_{59}\geq 6.37)\approx 0$
+
+*Decisión*: Hay diferencia (y como que $\overline{x}_2<\overline{x}_1$, concluimos que las desnutridas se mueven menos)
+
+</div>
+
+## Muestras aparejadas
+
+Hasta ahora hemos considerado que las muestras eran independientes
+
+Un caso completamente diferente es cuando las dos muestras corresponden a los mismos
+individuos o a individuos aparejados por algún factor 
+
+Ejemplos:
+
+* Mesuramos el estado de una dolencia a los mismos individuos antes y después de un tratamiento
+
+* Mesuramos la incidencia de cáncer en parejas de hermanos gemelos
+
+Se habla en este caso de *muestras aparejadas* (*paired*)
+
+## Muestras aparejadas
+
+Para decidir si hay diferencias, el contraste más común consiste a calcular las diferencias
+de los valores de cada una de las parejas de muestras y realizar un
+contraste para averiguar si la media de las diferencias es 0
+
+ 
+
+Es importante observar aquí que hay diferentes maneras de realizar
+un diseño experimental para contrastar una hipótesis, y que el diseño se tiene que fijar antes de la recogida de datos
+
+## Ejemplo: Contraste de dos medias de muestras aparejadas
+
+Disponemos de dos algoritmos de plegamiento de proteínas. Los dos
+producen resultados de la misma calidad
+
+Estambre interesados a saber qué de los dos es *más eficiente*, en el sentido que tiene la media de tiempo de ejecución
+más pequeña. Suponemos que estos tiempos de ejecución siguen leyes normales.
+
+Tomamos una muestra de proteínas, le aplicamos los dos algoritmos, y anotamos los tiempos de ejecución sobre cada proteína
+
+## Ejemplo: Contraste de dos medias de muestras aparejadas
+Los resultados obtenidos son:
+\begin{table}
+\centering
+\scalebox{0.80}[0.8]{
+\begin{tabular}{c|cccccccccc}
+& 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+alg. 1 & 8.1 & 11.9 & 11.4 & 12.9 & 9.0 & 7.2 & 12.4 & 6.9 & 8.9 & 8.3\\
+\hline
+alg. 2 & 6.9 & 6.7 & 8.3 & 8.6 & 18.9 & 7.9 & 7.4 & 8.7 & 7.9 &
+12.4\\
+\hline
+$d$ & 1.2 & 5.2 & 3.1 & 4.3 & -9.9 & -0.7 & 5.0 & -1.8 &
+1.0 & -4.1
+\end{tabular}
+
+}
+\end{table}
+(La hilera $d$ contiene las diferencias de tiempos entre el primero y el segundo algoritmo)
+$$
+\overline{d}=0.33,\ \widetilde{S}_d=4.72
+$$
+\smallskip
+
+Queremos contrastar la igualdad de medias con la test que corresponda. Y si son diferentes, decidir cuál tiene mayor tiempo de ejecución.
+
+## Ejemplo: Contraste de dos medias de muestras aparejadas
+*Contraste*:
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1=\mu_2\\
+H_1:\mu_1\neq \mu_2
+\end{array}\right.
+$$
+
+Consultamos la mesa. El estadístico de contraste es
+$$
+T=\frac{\overline{d}}{\widetilde{S}_d/\sqrt{n}}
+$$
+que tiene distribución $t_{n-1}=t_9$. Toma el valor
+$$
+t_0=\frac{0.33}{4.72/\sqrt{10}}=0.22
+$$
+
+## Ejemplo: Contraste de dos medias de muestras aparejadas
+
+El $p$-valor es
+$$
+2P(t_9\geq 0.22)=0.83
+$$
+muy grande, no podemos rechazar la hipótesis nula que los tiempos medianos son iguales. Por lo tanto, no tiene sentido buscar cuál tiene el tiempo de ejecución más grande
+
+## Ejemplo: Contraste de dos proporciones de muestras aparejadas
+
+Se toma una muestra de $1000$ personas afectadas por migraña. Se los
+facilita un fármaco porque aligere los síntomas.\
+medskip
+
+Después de la administración se los pregunta si han notado alivio en
+el dolor
+
+Al jefe de un tiempo se suministra a los mismos individuos un placebo
+y se los vuelve a preguntar si han notado o no milloria
+
+## Ejemplo: Contraste de dos proporciones de muestras aparejadas
+
+Los resultados son:
+$$
+\begin{tabular}{|c|c|cc|}
+\cline{3-4}
+\multicolumn2{c|}{}& \multicolumn2{|c|} {Placebo}\\\cline{3-4}
+\multicolumn2{c|}{} & Sí & No \\\hline
+Fármaco & Sí & 300 & 62 \\
+& No & 38 & 590
+\\\hline
+\end{tabular}
+$$
+
+Es más efectivo el fármaco que el placebo?
+
+## Ejemplo: Contraste de dos proporciones de muestras aparejadas
+
+$p_1$: Proporción que encuentra milloria con el fármaco\\
+$p_2$: Proporción que encuentra milloria con el placebo
+
+Contraste:
+$$
+\left\{\begin{array}{l}
+H_0:p_1=p_2\\
+H_1:p_1> p_2
+\end{array}\right.
+$$
+
+## Ejemplo: Contraste de dos proporciones de muestras aparejadas
+
+Consultamos la mesa. El estadístico de contraste es
+$$
+Z=\frac{\frac{b}{n}-\frac{d}{n}}{\sqrt{\frac{b+d}{n^2}}}\sim N(0,1)
+$$
+donde
+$$
+\begin{tabular}{|c|c|cc|}
+\cline{3-4}
+\multicolumn2{c|}{}& \multicolumn2{|c|} {Placebo}\\\cline{3-4}
+\multicolumn2{c|}{} & Sí & No \\\hline
+Fármaco & Sí & $a$ & $b$ \\
+& No & $d$ & $c$
+\\\hline
+\end{tabular}
+$$
+Este contraste solo es válido cuando la muestra es grande y el número de *casos discordantes* $b+d$ es "bastante grande", posamos $\geq 20$
+
+## Ejemplo: Contraste de dos proporciones de muestras aparejadas
+
+El estadístico de contraste tiene el valor $z_0=2.4$
+
+El $p$-valor es
+$$
+P(Z>2.4)=0.0082,
+$$
+pequeño. Por lo tanto, concluimos que el fármaco es más efectivo que el placebo.
+
+\end{documento}
