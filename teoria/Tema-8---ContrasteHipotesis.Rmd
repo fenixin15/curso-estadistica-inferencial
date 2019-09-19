@@ -1841,7 +1841,7 @@ sigma.test(muestra.flores.elegidas$Sepal.Width,sigmasq = 0.2,
 vemos que el valor 0.2 está en él, hecho que nos reafirma nuestra conclusión.
 </div>
 
-<<<<<<< HEAD
+
 # Contrastes de hipótesis para dos muestras
 
 ## Introducción
@@ -2008,10 +2008,7 @@ $$
 Observamos que el valor $0$ no pertenece al intervalo de confianza anterior, hecho que nos hace reafirmar la decisión de rechazar $H_0:\mu_1-\mu_2=0$.
 
 </div>
-=======
 
-
->>>>>>> 9d58f3b59697fde560731446b46ee667e1b0c97d
 
 
 
