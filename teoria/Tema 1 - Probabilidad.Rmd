@@ -59,13 +59,15 @@ knitr::include_graphics(c("Images/proba1dibujos/dice/1.png",
 
 El espacio muestral del ejemplo anterior del dado es 
 <div class="center">
-$\Omega=\big\{$`r knitr::include_graphics(c("Images/proba1dibujos/dice/1.png", 
-                          "Images/proba1dibujos/dice/2.png",
-                          "Images/proba1dibujos/dice/3.png",
-                          "Images/proba1dibujos/dice/4.png",
-                          "Images/proba1dibujos/dice/5.png",
-                          "Images/proba1dibujos/dice/6.png"))`$\}$
+$\Omega=\Big\{$`r knitr::include_graphics("Images/proba1dibujos/dice/1.png")`,
+`r knitr::include_graphics("Images/proba1dibujos/dice/2.png")`,
+`r knitr::include_graphics("Images/proba1dibujos/dice/3.png")`,
+`r knitr::include_graphics("Images/proba1dibujos/dice/4.png")`,
+`r knitr::include_graphics("Images/proba1dibujos/dice/5.png")`,
+`r knitr::include_graphics("Images/proba1dibujos/dice/6.png")`$\Big\}$
 </div>
+pero por comodidad, a partir de ahora pondremos
+$$\Omega = \{1,2,3,4,5,6\}$$
 </div>
 
 
@@ -78,7 +80,6 @@ $\Omega=\big\{$`r knitr::include_graphics(c("Images/proba1dibujos/dice/1.png",
  Alguno sucesos notables que merece la pena nombrar son:
 
 * <l class="definition">Suceso seguro o cierto</l>: $\Omega$
-<!-- epsdice{1},epsdice{2},\epsdice{3},\epsdice{4},\epsdice{5},\epsdice{6} -->
 
 * <l class="definition">Suceso imposible o vacio</l>: $\emptyset$
 
