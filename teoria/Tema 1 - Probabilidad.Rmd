@@ -92,11 +92,11 @@ $\Omega=\big\{$`r knitr::include_graphics(c("Images/proba1dibujos/dice/1.png",
 
 ## Ejemplo $n$-grama
 
+Se define un $n$-grama de una palabra como el conjunto de $n$ letras consecutivas de la misma (contando los blancos de inicio y final de palabra que marcamos como "\_"). 
+
 <div class="example">
 
 **Ejemplo**
-
-Se define un $n$-grama de una palabra como el conjunto de $n$ letras consecutivas de la misma (contando los blancos de inicio y final de palabra que marcamos como "\_"). 
 
 Consideremos el experimento aleatorio que consiste en escoger al  azar un 3-grama de la palabra "\_Baleares\_". Vamos a escribir el espacio muestral y algunos sucesos elementales del mismo.
 
