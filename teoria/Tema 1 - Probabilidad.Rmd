@@ -59,13 +59,15 @@ knitr::include_graphics(c("Images/proba1dibujos/dice/1.png",
 
 El espacio muestral del ejemplo anterior del dado es 
 <div class="center">
-$\Omega=\big\{$`r knitr::include_graphics(c("Images/proba1dibujos/dice/1.png", 
-                          "Images/proba1dibujos/dice/2.png",
-                          "Images/proba1dibujos/dice/3.png",
-                          "Images/proba1dibujos/dice/4.png",
-                          "Images/proba1dibujos/dice/5.png",
-                          "Images/proba1dibujos/dice/6.png"))`$\}$
+$\Omega=\Big\{$`r knitr::include_graphics("Images/proba1dibujos/dice/1.png")`,
+`r knitr::include_graphics("Images/proba1dibujos/dice/2.png")`,
+`r knitr::include_graphics("Images/proba1dibujos/dice/3.png")`,
+`r knitr::include_graphics("Images/proba1dibujos/dice/4.png")`,
+`r knitr::include_graphics("Images/proba1dibujos/dice/5.png")`,
+`r knitr::include_graphics("Images/proba1dibujos/dice/6.png")`$\Big\}$
 </div>
+pero por comodidad, a partir de ahora pondremos
+$$\Omega = \{1,2,3,4,5,6\}$$
 </div>
 
 
@@ -78,7 +80,6 @@ $\Omega=\big\{$`r knitr::include_graphics(c("Images/proba1dibujos/dice/1.png",
  Alguno sucesos notables que merece la pena nombrar son:
 
 * <l class="definition">Suceso seguro o cierto</l>: $\Omega$
-<!-- epsdice{1},epsdice{2},\epsdice{3},\epsdice{4},\epsdice{5},\epsdice{6} -->
 
 * <l class="definition">Suceso imposible o vacio</l>: $\emptyset$
 
@@ -92,11 +93,11 @@ $\Omega=\big\{$`r knitr::include_graphics(c("Images/proba1dibujos/dice/1.png",
 
 ## Ejemplo $n$-grama
 
+Se define un $n$-grama de una palabra como el conjunto de $n$ letras consecutivas de la misma (contando los blancos de inicio y final de palabra que marcamos como "\_"). 
+
 <div class="example">
 
 **Ejemplo**
-
-Se define un $n$-grama de una palabra como el conjunto de $n$ letras consecutivas de la misma (contando los blancos de inicio y final de palabra que marcamos como "\_"). 
 
 Consideremos el experimento aleatorio que consiste en escoger al  azar un 3-grama de la palabra "\_Baleares\_". Vamos a escribir el espacio muestral y algunos sucesos elementales del mismo.
 
@@ -971,7 +972,7 @@ $$
 <div class="example">
 **Ejemplo**
 
-Un test para detección de VIH da positivo un 99\% de los casos en los que  está presente y en un 5\% de los casos  en los que el virus está ausente. En una población con un  $0.5\%$ de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado  \Omegaph{negativo} en el test \Omegaph{no} esté infectado?
+Un test para detección de VIH da positivo un 99\% de los casos en los que  está presente y en un 5\% de los casos  en los que el virus está ausente. En una población con un  $0.5\%$ de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado **negativo** en el test **no** esté infectado?
 </div>
 
 <div class="example-sol">
@@ -1099,7 +1100,7 @@ $$
 Diremos que  los sucesos $A$ y  $B$ son **independientes** si  $P(A\cap B)=P(A)\cdot P(B)$
 
 
-$A_1,\ldots, A_n$ son sucesos \Omegaph{independientes} cuando, para  toda
+$A_1,\ldots, A_n$ son sucesos **independientes** cuando, para  toda
 subfamilia $A_{i_1},\ldots,A_{i_k}$,
 $$
 P(A_{i_1}\cap \cdots\cap A_{i_k})=P(A_{i_1})\cdots P(A_{i_k})
