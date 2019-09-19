@@ -26,7 +26,7 @@ Experimento aleatorio
 ```
 
 
-<l class="definition"> Experimento aleatorio </l>  experimento que  repetido  en las mismas condiciones puede  dar resultados diferentes, pero que a largo plazo son predecibles
+<l class="definition"> Experimento aleatorio </l>  experimento que  repetido  en las mismas condiciones puede  dar resultados diferentes, pero que a largo plazo son predecibles 
 
 
 <l class="example"> Ejemplo tirar  un dado </l>  anotar el número de  puntos de la cara superior
@@ -40,14 +40,14 @@ Experimento aleatorio
 <l class="definition"> Espacio muestral</l>  el conjunto  $\Omega$ formado por todos los sucesos elementales del experimento aleatorio
 
 
-<l class="example"> Ejemplo 
-
-
+<div class="example"> Ejemplo 
 $\Omega=$
-<<r>>=
+
+```{r}
 knitr::include_graphics("Images/basev.png",dpi=400)
-@
-</div>
+```
+
+</l>
 
 
 
