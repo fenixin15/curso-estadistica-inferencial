@@ -1842,6 +1842,172 @@ vemos que el valor 0.2 está en él, hecho que nos reafirma nuestra conclusión.
 </div>
 
 
+# Contrastes de hipótesis para dos muestras
+
+## Introducción
+
+Queremos comparar el valor de un mismo parámetro en dos poblaciones.
+
+Para ello dispondremos de una muestra para cada población. 
+
+Hay que tener en cuenta que las muestras pueden ser de dos tipos:
+
+* **Muestras independientes:** las dos muestras se han obtenido de manera independiente.
+
+<div class="example">
+**Ejemplo**
+
+Probamos un medicamento sobre dos muestras de enfermos de características diferentes
+</div>
+
+* **Muestras aparejadas:** las dos muestras corresponden a los mismos
+individuos, o a individuos aparejados de alguna manera.
+
+<div class="example">
+**Ejemplo**
+
+Probamos dos medicamentos sobre los mismos enfermos.
+</div>
+
+## Muestras independientes
+
+Tenemos dos variables aleatorias (que representan los valores de la característica a estudiar sobre dos **poblaciones**).
+
+<div class="example">
+**Ejemplo**
+
+Poblaciones: Hombres y Mujeres.
+Característica a estudiar: estatura.
+</div>
+
+Queremos comparar el valor de un parámetro a las dos poblaciones
+
+<div class="example">
+**Ejemplo**
+
+¿Son, de media, los hombres más altos que las mujeres?
+</div>
+
+Lo haremos a partir de una m.a.s. de cada v.a., escogidas además de manera independiente.
+
+
+# Contrastes para la media poblacional $\mu$
+
+## Introducción
+
+Tenemos dos v.a. $X_1$ y $X_2$, de medias $\mu_1$ y $\mu_2$
+
+Tomamos una m.a.s. de cada variable:
+$$
+\begin{array}{l}
+X_{1,1}, X_{1,2},\ldots, X_{1,n_1},\mbox{ de }X_1\\
+X_{2,1}, X_{2,2},\ldots, X_{2,n_2},\mbox{ de }X_2
+\end{array}
+$$
+Sean $\overline{X}_1$ y $\overline{X}_2$ sus medias, respectivamente.
+
+La hipótesis nula será del tipo:
+$$
+\mu_1  = \mu_2,\mbox{ o, equivalentemente, }\mu_1-\mu_2 = 0.\\
+$$
+
+## Introducción
+
+Las hipótesis alternativas que nos plantearemos serán del tipo:
+$$
+\begin{array}{l}
+\mu_1   <  \mu_2,\mbox{ o, equivalentemente, }\mu_1-\mu_2<0,\\
+\mu_1  > \mu_2,\mbox{ o, equivalentemente, }\mu_1-\mu_2>0,\\
+\mu_1  \neq \mu_2,\mbox{ o, equivalentemente, }\mu_1-\mu_2\neq 0.
+\end{array}
+$$
+
+
+## Contrastes de hipótesis para $\mu$ de poblaciones normales o $n$ grandes: $\sigma$ conocidas
+
+Suponemos una de las dos situaciones siguientes:
+
+* $X_1$ y $X_2$ son normales, o 
+$n_1$ y $n_2$ son grandes ($n_1,n_2\geq 30\mbox{ o }  40)$
+
+Suponemos que conocemos además las desviaciones típicas $\sigma_1$ y $\sigma_2$ de $X_1$ y $X_2$, respectivamente.
+
+En este caso el **estadístico de contraste** es
+$$
+Z=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}},
+$$
+que, si la hipótesis nula es cierta ($\mu_1=\mu_2$), se distribuye según una $N(0,1)$.
+
+## Contrastes de hipótesis para $\mu$ de poblaciones normales o $n$ grandes: $\sigma$ conocidas
+
+Sea $z_0$ el valor del estadístico de contraste sobre la muestra. Los $p$-valores dependiendo de la hipótesis alternativa son:
+
+* $H_1:\mu_1 >\mu_2$: $p=P(Z \geq z_0)$.
+* $H_1:\mu_1 <\mu_2$: $p=P(Z \leq z_0)$.
+* $H_1:\mu_1 \neq \mu_2$: $p=2\cdot P(Z \geq |z_0|)$.
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Queremos comparar los tiempos de realización de una tarea entre estudiantes de dos grados $G_1$ y $G_2$, y contrastar si es verdad que los estudiantes de $G_1$ emplean menos tiempo que los de $G_2$
+
+Suponemos que las desviaciones típicas son conocidas: $\sigma_1=1$ y $\sigma_2=2$
+
+Disponemos de dos muestras independientes de macetas realizadas por estudiantes de cada grado, $n_1=n_2=40$. Calculamos las medias de los tiempos empleados en cada muestra (en minutos):
+$$
+\overline{X}_1= 9.789,\quad \overline{X}_2=11.385
+$$
+
+</div>
+
+
+## Ejemplo
+<div class="example-sol">
+**Ejemplo**
+
+El contraste planteado es el siguiente:
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1=\mu_2\\
+H_1:\mu_1< \mu_2
+\end{array}\right.
+\Longleftrightarrow
+\left\{\begin{array}{l}
+H_0:\mu_1-\mu_2=0\\
+H_1:\mu_1- \mu_2<0
+\end{array}\right.
+$$
+```{r, echo=FALSE}
+x1=9.789
+x2=11.385
+sigma1=1
+sigma2=2
+n1=40
+n2=40
+```
+
+El **estadístico de contraste** toma el valor: $z_0=\dfrac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}=\frac{`r x1`-`r x2`}{\sqrt{\frac{`r sigma1`^2}{`r n1`}+\frac{`r sigma2`^2}{`r n2`}}}=`r round((x1-x2)/sqrt(sigma1^2/n1+sigma2^2/n2),3)`$.
+
+El $p$-valor será: $P(Z\leq `r round((x1-x2)/sqrt(sigma1^2/n1+sigma2^2/n2),3)`)\approx `r round(pnorm((x1-x2)/sqrt(sigma1^2/n1+sigma2^2/n2)),3)`$ muy pequeño.
+
+Decisión: rechazamos la hipótesis de que son iguales, en favor de que los alumnos del grado $G_1$ tardan menos que los del grado $G_2$.
+
+</div>
+
+## Ejemplo
+<div class="example-sol">
+**Ejemplo**
+
+Si calculamos un intervalo de confianza del 95\% para
+la diferencia de medias $\mu_1-\mu_2$ asociado al contraste anterior, obtenemos:
+$$
+\left] -\infty, \overline{X}_1 -\overline{X}_2
+-z_{0.05}\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\right[ =\left]-\infty,`r x1`-`r x2` +`r round(qnorm(0.95),3)`\cdot \sqrt{\frac{`r sigma1`^2}{`r n1`}+\frac{`r sigma2`^2}{`r n2`}}\right[ = ]-\infty, `r round(x1-x2+qnorm(0.95)*sqrt(sigma1^2/n1+sigma2^2/n2),3)`[.
+$$
+Observamos que el valor $0$ no pertenece al intervalo de confianza anterior, hecho que nos hace reafirmar la decisión de rechazar $H_0:\mu_1-\mu_2=0$.
+
+</div>
 
 
 

@@ -127,9 +127,9 @@ $$
 Por  lo tanto, la probabilidad que la media  $\mu$ de $X$ 
 se encuentre dentro del intervalo
 $$
-\left]\overline{X} -`r round(qnorm(1.975/2),4)` \frac{\sigma}{\sqrt{n}},
+\left(\overline{X} -`r round(qnorm(1.975/2),4)` \frac{\sigma}{\sqrt{n}},
 \overline{X}+ `r round(qnorm(1.975/2),4)`\frac{\sigma}{\sqrt{n}}
-\right[
+\right)
 $$
 es $0.975$: es un intervalo de confianza  del 97.5%.
 
@@ -153,8 +153,8 @@ Tomamos una m.a.s. de $X$ de tamaño $n$, con media $\overline{X}$.
 
 Un intervalo de confianza  del $(1-\alpha)\cdot 100$% para $\mu$ es
 $$
-\left]\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}
-\right[
+\left(\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}
+\right)
 $$
 donde $z_{1-\frac{\alpha}{2}}$ es el $(1-\frac{\alpha}{2})$-cuantil de la normal  estándar $Z$ (es decir, $z_{1-\frac{\alpha}{2}}=F_Z^{-1}(1-\frac{\alpha}{2})$, o $P(Z\leq z_{1-\frac{\alpha}{2}})=1-\frac{\alpha}{2}$).
 
@@ -162,8 +162,8 @@ donde $z_{1-\frac{\alpha}{2}}$ es el $(1-\frac{\alpha}{2})$-cuantil de la normal
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida
 Si $X$ es normal con $\sigma$ conocida, un intervalo de confianza  I.C. para $\mu$ de población normal con $\sigma$ conocida $\mu$ del $(1-\alpha)\cdot 100$% es
 $$
-\overline{X} \pm z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}:=\left]\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}.
-\right[
+\overline{X} \pm z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}:=\left(\overline{X} -z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}.
+\right)
 $$
 Observad que está centrado en $\overline{X}$.
 
@@ -267,9 +267,9 @@ Calculad un intervalo de confianza  del 97.5%  para $\mu$ de  una población nor
 <div class="example-sol">
 El valor de $\alpha$ será $\alpha = 1-0.975=`r 1-0.975`$. El intervalo de confianza será:
 $$
-\left]\overline{x}-z_{1-\frac{\alpha}{2}}\cdot\frac{\sigma}{\sqrt{n}},\overline{x}+z_{1-\frac{\alpha}{2}}\cdot\frac{\sigma}{\sqrt{n}}\right[= \left] 20-`r round(qnorm(1-0.025/2),3)`\cdot \frac{4}{\sqrt{16}} ,
+\left(\overline{x}-z_{1-\frac{\alpha}{2}}\cdot\frac{\sigma}{\sqrt{n}},\overline{x}+z_{1-\frac{\alpha}{2}}\cdot\frac{\sigma}{\sqrt{n}}\right)= \left( 20-`r round(qnorm(1-0.025/2),3)`\cdot \frac{4}{\sqrt{16}} ,
 20+`r round(qnorm(1-0.025/2),3)`\cdot \frac{4}{\sqrt{16}}
-\right[
+\right)
 =]`r round(20-qnorm(1-0.025/2)*4/sqrt(16),3)`,`r round(20+qnorm(1-0.025/2)*4/sqrt(16),3)`[.
 $$
 
@@ -324,6 +324,7 @@ $$
 <l class="observ"> Error máximo cometido. </l>
 El error máximo, al nivel de confianza  $100\cdot (1-\alpha)$%, que cometemos al estimar $\mu$
 por  $\overline{X}$ es la mitad de la amplitud, 
+
 $$
 z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}.
 $$
@@ -363,9 +364,12 @@ Recordemos  que las medidas de nuestro sensor  de temperatura seguían una distr
 
 <div class="example-sol">
 Nos dicen que $\frac{A_0}{2}=0.05$, o sea, $A_0=0.1$. Usando la expresión anterior, tendremos que el número de medidas mínimo $n$ que tendríamos que tomar será:
+
 $$
 n=\left\lceil \left( 2 z_{1-\frac{\alpha}{2}}\frac{\sigma}{A_0}
-\right)^2\right\rceil$$
+\right)^2\right\rceil
+$$
+
 donde 
 $z_{1-\frac{\alpha}{2}}=`r round(qnorm(0.95),3)`,\  \sigma=1.2$.
 Obtenemos $n= \left\lceil \left(2\cdot `r round(qnorm(0.95),3)`\cdot \frac{1.2}{0.1}\right)^2 \right\rceil= \lceil `r round((2*qnorm(0.95)*1.2/0.1)^2,3)`\rceil = `r ceiling((2*qnorm(0.95)*1.2/0.1)^2)`.$
@@ -457,9 +461,9 @@ Consideremos la situación siguiente:
 <l class="prop"> Intervalo de confianza para el parámetro</l> $\mu$.
 En estas  condiciones, un intervalo  de confianza  del $(1-\alpha)\cdot 100$% para el parámetro $\mu$ de una población normal con $\sigma$ desconocida es 
 $$
-\left] 
+\left( 
 \overline{X}-t_{n-1,1-\frac{\alpha}{2}} \frac{\widetilde{S}_{X}}{\sqrt{n}},
-\overline{X}+t_{n-1,1-\frac{\alpha}{2}}\frac{\widetilde{S}_{X}}{\sqrt{n}} \right[.
+\overline{X}+t_{n-1,1-\frac{\alpha}{2}}\frac{\widetilde{S}_{X}}{\sqrt{n}} \right).
 $$
 
 
@@ -486,11 +490,11 @@ Hay que  calcular el intervalo de confianza  para la $\mu$ de una población nor
 
 Dicho intervalo será el siguiente:
 $$
-\left]\overline{x}-t_{23,0.95} \frac{\widetilde{s}}{\sqrt{n}},
-\overline{x}+t_{23,0.95} \frac{\widetilde{s}}{\sqrt{n}}\right[ =
-\left]518-`r round(qt(0.95,23),3)` \frac{40}{\sqrt{24}},
-518 + `r round(qt(0.95,23),3)` \frac{40}{\sqrt{24}}\right[ = 
-\left] `r round(518-qt(0.95,23)*40/sqrt(24),3)`, `r round(518+qt(0.95,23)*40/sqrt(24),3)`\right[.
+\left(\overline{x}-t_{23,0.95} \frac{\widetilde{s}}{\sqrt{n}},
+\overline{x}+t_{23,0.95} \frac{\widetilde{s}}{\sqrt{n}}\right) =
+\left(518-`r round(qt(0.95,23),3)` \frac{40}{\sqrt{24}},
+518 + `r round(qt(0.95,23),3)` \frac{40}{\sqrt{24}}\right) = 
+\left( `r round(518-qt(0.95,23)*40/sqrt(24),3)`, `r round(518+qt(0.95,23)*40/sqrt(24),3)`\right).
 $$
 Observamos que no contiene a 500 (¡pero se equivoca a favor del consumidor!)
 </div>
@@ -501,9 +505,9 @@ Observamos que no contiene a 500 (¡pero se equivoca a favor del consumidor!)
 * El intervalo de confianza  obtenido  está centrado   en $\overline{X}$
 
 
-* La fórmula $\left] 
+* La fórmula $\left( 
 \overline{X}-t_{n-1,1-\frac{\alpha}{2}} \frac{\widetilde{S}_{X}}{\sqrt{n}},
-\overline{X}+t_{n-1,1-\frac{\alpha}{2}}\frac{\widetilde{S}_{X}}{\sqrt{n}} \right[$
+\overline{X}+t_{n-1,1-\frac{\alpha}{2}}\frac{\widetilde{S}_{X}}{\sqrt{n}} \right)$
 nos da el intervalo de confianza para $\mu$ en una población normal con $\sigma$ desconocida. La expresión anterior se  puede utilizar  cuando $X$ es normal y $n$ cualquiera
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ desconocida. Ejemplo
@@ -511,9 +515,9 @@ nos da el intervalo de confianza para $\mu$ en una población normal con $\sigma
 
 * Si $n$ es grande $t_{n-1,1-\frac{\alpha}{2}}\approx z_{1-\frac{\alpha}{2}}$ y podemos **aproximar** el intervalo de confianza anterior mediante la expresión siguiente:
 $$
-\left] 
+\left( 
 \overline{X}-z_{1-\frac{\alpha}{2}} \frac{\widetilde{S}_{X}}{\sqrt{n}},
-\overline{X}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_{X}}{\sqrt{n}} \right[
+\overline{X}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_{X}}{\sqrt{n}} \right)
 $$
 
 
@@ -533,8 +537,8 @@ $\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\approx N(0,1)$.
 <l class="prop">Teorema. </l>
 En las condiciones anteriores, podemos tomar como intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ de confianza para el parámetro $\mu$ de una población cualquiera con $\sigma$ conocida la expresión siguiente:
 $$
-\left]\overline{X}-z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}},
-    \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}\right[
+\left(\overline{X}-z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}},
+    \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}\right)
 $$
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población cualquiera con $\sigma$ desconocida y tamaño muestral grande
@@ -543,8 +547,8 @@ Si la $\sigma$ es desconocida, podemos aplicar el Teorema anterior sustituyendo 
 <l class="prop">Teorema. </l>
 En las condiciones anteriores, podemos tomar como intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ de confianza para el parámetro $\mu$ de una población cualquiera con $\sigma$ desconocida la expresión siguiente:
 $$
-\left]\overline{X}-z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}},
-    \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}}\right[
+\left(\overline{X}-z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}},
+    \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}}\right)
 $$
 
 
@@ -561,8 +565,8 @@ Calculad un intervalo de confianza  del 95% para la media poblacional del númer
 
 <div class="example-sol">
 Como $n=1000$ es grande, podemos utilizar la expresión siguiente para hallar el intervalo de confianza:
-$\left]\overline{x}-z_{1-\frac{\alpha}{2}}\frac{\widetilde{s}}{\sqrt{n}},
-    \overline{x}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{s}}{\sqrt{n}}\right[$,
+$\left(\overline{x}-z_{1-\frac{\alpha}{2}}\frac{\widetilde{s}}{\sqrt{n}},
+    \overline{x}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{s}}{\sqrt{n}}\right)$,
 donde $\overline{x}=9.5,\ \widetilde{s}=0.5,\
 \alpha=0.05,\  z_{1-\frac{\alpha}{2}}=`r round(qnorm(0.975),3)`.$
 El intervalo de confianza será, pues:
@@ -590,8 +594,8 @@ Podemos afirmar con un 95% de confianza  que la media poblacional de  vídeo con
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población cualquiera con $\sigma$ desconocida y tamaño muestral grande. Amplitud
 
-La amplitud de $\left]\overline{X}-z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}},
-    \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}}\right[$ es $A=2z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}}$.
+La amplitud de $\left(\overline{X}-z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}},
+    \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}}\right)$ es $A=2z_{1-\frac{\alpha}{2}}\frac{\widetilde{S}_X}{\sqrt{n}}$.
     
     
 Para determinar $n$ (grande) que dé cómo  máximo una amplitud $A$ prefijada, necesitamos $\widetilde{S}_X$, que depende de la muestra.
@@ -641,10 +645,11 @@ s.piloto = 10
 
 ## Intervalo de confianza para el parámetro $\mu$ de una población normal basado en la t de Student en `R`
 
-* ```{r}
+```{r, eval=FALSE}
 t.test(X,conf.level=...)$conf.int
 ```
-donde  `conf.level` es el nivel de confianza $1-\alpha$ en tanto por uno. Valor por defecto: $1-\alpha =0.95$.
+
+donde  `conf.level` es el nivel de confianza $1-\alpha$ en tanto por uno. Su valor por defecto es $1-\alpha =0.95$.
 
 
 
@@ -722,7 +727,7 @@ A continuación, Vamos a aplicar a cada una de estas muestras la función `t.tes
 Primero definimos la función `IC.t` que nos da el intervalo de confianza para la media dada una muestra `X`:
 
 ```{r}
-IC.t= function(X){t.test(X)$conf.int}
+IC.t= function(X, confianza=0.95){t.test(X, conf.level=confianza)$conf.int}
 ```
 
 
@@ -766,7 +771,7 @@ abline(v=mu,lwd=2)
 ## Experimento sobre la "confianza"
 
 
-```{r,fig=TRUE,results='hide',echo=FALSE}
+```{r,fig=TRUE,results='hide',echo=FALSE, fig.align="center"}
 plot(1,type="n",xlim=c(-0.8,0.8),ylim=c(0,200),xlab="Valores",
   ylab="Repeticiones",main="")
 seg.int=function(i){
@@ -792,8 +797,9 @@ En este caso, la distribución de la variable $Y=$"número de éxitos en la mues
 
 
 ## Método "exacto" o de Clopper-Pearson
+
 <l class="definition">Definición.</l>
-Un intervalo de confianza  $]p_0,p_1[$ del $(1-\alpha)100\%$nivel de confianza para $p$ de una población $X$ de Bernoulli se obtiene encontrando el $p_0$ más grande y el $p_1$ más pequeño tales que
+Un intervalo de confianza  $(p_0,p_1)$ del $(1-\alpha)100\%$ nivel de confianza para $p$ de una población $X$ de Bernoulli se obtiene encontrando el $p_0$ más grande y el $p_1$ más pequeño tales que
 $$
 \displaystyle\sum_{k=x}^n 
 \left(\begin{array}{c} n \\ k\end{array}\right)
@@ -803,7 +809,8 @@ $$
 
 ## Método "exacto" o de Clopper-Pearson
 
-* Para hallar un intervalo de confianza para la proporción poblacional en `R` según el método de Clopper-Pearson, hay que usar la función `binom.exact` del paquete **epitools**:
+* Para hallar un intervalo de confianza para la proporción poblacional en `R` según el método de Clopper-Pearson, hay que usar la función `binom.exact` del paquete `epitools`:
+
 ```{r, eval=FALSE}
 binom.exact(x,n,conf.level)
 ```
@@ -854,11 +861,6 @@ library(epitools)
 binom.exact(número.flores.setosa,60,conf.level=0.95)
 ```
 
-</div>
-
-## Ejemplo tabla de datos `iris`
-
-<div class="example-sol">
 Según el método de Clopper-Pearson, con un 95% de confianza podemos decir que en la tabla de datos **iris** hay entre un `r round(binom.exact(número.flores.setosa,60,conf.level=0.95)$lower*100,2)`% y `r round(binom.exact(número.flores.setosa,60,conf.level=0.95)$upper*100,2)`% de flores de especie "setosa".
 
 </div>
@@ -892,17 +894,14 @@ El problema es que no conocemos $p$, la literatura plantea entre otras solucione
 ## Método de Wilson
 <l class="definition">Definición.</l>
 En estas  condiciones, un intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ I.C. para $p$ es  (donde $\widehat{q}_{X}=1-\widehat{p}_{X}$) es:
+
+
 $$
-\begin{array}{l}
-\left]\frac{\widehat{p}_{X}+\frac{z_{1-{\alpha}/{2}}^2}{2n}-z_{1-{\alpha}/{2}}\sqrt{\frac{\widehat{p}_{X}\widehat{q}_{X}}{n}+\frac{z_{1-{\alpha}/{2}}^2}{4n^2}}}{1+\frac{z_{1-{\alpha}/{2}}^2}{n}}\right.,\\
-\quad \left.\frac{\widehat{p}_{X}+\frac{z_{1-{\alpha}/{2}}^2}{2n}+z_{1-{\alpha}/{2}}\sqrt{\frac{\widehat{p}_{X}\widehat{q}_{X}}{n}+\frac{z_{1-{\alpha}/{2}}^2}{4n^2}}}{1+\frac{z_{1-{\alpha}/{2}}^2}{n}}\right[,
-\end{array}
+\left(\frac{\widehat{p}_{X}+\frac{z_{1-{\alpha}/{2}}^2}{2n}-z_{1-{\alpha}/{2}}\sqrt{\frac{\widehat{p}_{X}\widehat{q}_{X}}{n}+\frac{z_{1-{\alpha}/{2}}^2}{4n^2}}}{1+\frac{z_{1-{\alpha}/{2}}^2}{n}}\right., \left.\frac{\widehat{p}_{X}+\frac{z_{1-{\alpha}/{2}}^2}{2n}+z_{1-{\alpha}/{2}}\sqrt{\frac{\widehat{p}_{X}\widehat{q}_{X}}{n}+\frac{z_{1-{\alpha}/{2}}^2}{4n^2}}}{1+\frac{z_{1-{\alpha}/{2}}^2}{n}}\right).
 $$
 
+Para hallar un intervalo de confianza para la proporción poblacional en `R` según el método de Wilson, hay que usar la función `binom.wilson` del mismo paquete `epitools`:
 
-## Método de Wilson
-
-Para hallar un intervalo de confianza para la proporción poblacional en `R` según el método de Wilson, hay que usar la función `binom.wilson` del mismo paquete **epitools**:
 ```{r, eval=FALSE}
 binom.wilson(x,n,conf.level)
 ```
@@ -932,13 +931,13 @@ Según el método de Wilson, con un 95% de confianza podemos decir que en la tab
 
 * En este caso, podemos usar la fórmula de **Laplace**:
 $$
-\widehat{p}_{X}\pm z_{(1+q)/2}\sqrt{\frac{\widehat{p}_{X}
+\widehat{p}_{X}\pm z_{1-\alpha/2}\sqrt{\frac{\widehat{p}_{X}
 (1-\widehat{p}_{X})}{n}}.
 $$
 
 ## Fórmula de Laplace.
 
-Para hallar un intervalo de confianza para la proporción poblacional en `R` según la fórmula de Laplace, hay que usar la función `binom.approx` del mismo paquete **epitools**:
+Para hallar un intervalo de confianza para la proporción poblacional en `R` según la fórmula de Laplace, hay que usar la función `binom.approx` del mismo paquete `epitools`:
 ```{r, eval=FALSE}
 binom.approx(x,n,conf.level)
 ```
@@ -962,8 +961,8 @@ Como que $n=500\geq 100$, $n\widehat{p}_X=340\geq 10$ y $n\cdot (1-\widehat{p}_X
 
 Usando que $z_{1-\frac{\alpha}{2}}=z_{`r 1-0.05/2`}=`r round(qnorm(1-0.05/2),3)`$, el intervalo de confianza será:
 $$
-\left]`r 340/500`-`r round(qnorm(1-0.05/2),3)`\cdot \sqrt{\frac{`r 340/500`\cdot `r (500-340)/500`}{500}},`r 340/500`-`r round(qnorm(1-0.05/2),3)`\cdot \sqrt{\frac{`r 340/500`\cdot `r (500-340)/500`}{500}}\right[=]`r round(340/500-qnorm(1-0.05/2)*sqrt((340/500)*((500-340)/500)/500),3)`,
-`r round(340/500+qnorm(1-0.05/2)*sqrt((340/500)*((500-340)/500)/500),3)`[.
+\left(`r 340/500`-`r round(qnorm(1-0.05/2),3)`\cdot \sqrt{\frac{`r 340/500`\cdot `r (500-340)/500`}{500}},`r 340/500`-`r round(qnorm(1-0.05/2),3)`\cdot \sqrt{\frac{`r 340/500`\cdot `r (500-340)/500`}{500}}\right)=(`r round(340/500-qnorm(1-0.05/2)*sqrt((340/500)*((500-340)/500)/500),3)`,
+`r round(340/500+qnorm(1-0.05/2)*sqrt((340/500)*((500-340)/500)/500),3)`).
 $$
 </div>
 
@@ -1069,9 +1068,9 @@ se distribuye según una distribución $\chi^2_{n-1}$.
 
 En las condiciones anteriores, un intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ para la varianza $\sigma^2$ de la población $X$ es 
 $$
-\left] \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2},
+\left( \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2},
 \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}
-\right[,
+\right),
 $$
 donde $\chi_{\nu,q}^2$ es el $q$-cuantil de la distribución $\chi_{\nu}^2$.
 
@@ -1149,7 +1148,7 @@ Por tanto, podemos afirmar con un 95% de confianza que $\sigma\leq 30$.
 
 ## Intervalo de confianza para la varianza de una población normal en `R`
 
-* Para hallar un intervalo de confianza para la varianza poblacional en `R` hay que usar la función `varTest` del paquete **EnvStats**:
+* Para hallar un intervalo de confianza para la varianza poblacional en `R` hay que usar la función `varTest` del paquete `EnvStats`:
 ```{r,eval=FALSE}
 varTest(X,conf.level)$conf.int
 ```
@@ -1182,7 +1181,8 @@ varTest(amplitud.sépalo.muestra,conf.level=0.95)$conf.int
 # Bootstrap o remuestreo
 
 ## Técnicas de remuestreo
-* Cuando no se satisfacen las condiciones teóricas que garantizan que el intervalo obtenido contiene el 95% de las veces el parámetro poblacional deseado, podemos recurrir a un método no paramétrico. El más utilizado es el **bootstrap**, que básicamente consiste en:
+
+Cuando no se satisfacen las condiciones teóricas que garantizan que el intervalo obtenido contiene el 95% de las veces el parámetro poblacional deseado, podemos recurrir a un método no paramétrico. El más utilizado es el **bootstrap**, que básicamente consiste en:
 
   1. **Remuestrear** la muestra: tomar muchas muestras aleatorias simples de la muestra de la que disponemos, cada una de ellas del mismo tamaño que la muestra original (pero simples, es decir, con reposición).
 
@@ -1195,7 +1195,7 @@ varTest(amplitud.sépalo.muestra,conf.level=0.95)$conf.int
   
 ## Bootstrap: método de los percentiles
 
-* La manera más sencilla de llevar a cabo el cálculo final del intervalo de confianza es el llamado **método de los percentiles** , en el que se toman como extremos del intervalo de confianza del $(1-\alpha)\cdot 100%$ los cuantiles de orden $\frac{\alpha}{2}$ y $1-\frac{\alpha}{2}$ del vector de estimadores.
+La manera más sencilla de llevar a cabo el cálculo final del intervalo de confianza es el llamado **método de los percentiles** , en el que se toman como extremos del intervalo de confianza del $(1-\alpha)\cdot 100%$ los cuantiles de orden $\frac{\alpha}{2}$ y $1-\frac{\alpha}{2}$ del vector de estimadores.
 
 
 
@@ -1232,7 +1232,7 @@ round(IC.boot,2)
 
 ## Bootstrap: método de los percentiles en `R`
 
-* Para aplicar el **método de los percentiles** en `R`, podemos usar la función `boot` del paquete **boot**:
+Para aplicar el **método de los percentiles** en `R`, podemos usar la función `boot` del paquete `boot`:
 ```{r, eval=FALSE}
 boot(X,estadístico,R)
 ```
@@ -1259,7 +1259,7 @@ simulación=boot(iris[flores.elegidas,]$Petal.Length,var.boot,1000)
 ```
 </div>
 
-## Bootstrap: método de los percentiles en `R`. Ejemplo
+## Ejemplo
   
 <div class="example-sol">
 El intervalo de confianza viene dado por la función `boot.ci`:
@@ -1291,9 +1291,9 @@ Vemos que los valores son parecidos a los obtenidos en la simulación "hecha a m
 
 ## Guía rápida
 
-* `varTest(X,conf.level=...)$conf.int` del paquete **EnvStats**, calcula el intervalo de confianza del `conf.level`$\times 100\%$ para la varianza poblacional usando la fórmula basada en la khi cuadrado aplicada a la muestra `X`.
+* `varTest(X,conf.level=...)$conf.int` del paquete `EnvStats`, calcula el intervalo de confianza del `conf.level`$\times 100\%$ para la varianza poblacional usando la fórmula basada en la khi cuadrado aplicada a la muestra `X`.
 
-* `boot(X,E,R)` del paquete **boot**, lleva a cabo una simulación *bootstrap*, tomando `R` submuestras del vector `X` y calculando sobre ellas el estadístico representado por la función `E`.
+* `boot(X,E,R)` del paquete `boot`, lleva a cabo una simulación *bootstrap*, tomando `R` submuestras del vector `X` y calculando sobre ellas el estadístico representado por la función `E`.
 
-* `boot.ci` del paquete **boot**, aplicado al resultado de una función `boot`, calcula diversos intervalos de confianza a partir del resultado de la simulación efectuada con `boot`. El nivel de confianza se especifica con el parámetro `conf`. 
+* `boot.ci` del paquete `boot`, aplicado al resultado de una función `boot`, calcula diversos intervalos de confianza a partir del resultado de la simulación efectuada con `boot`. El nivel de confianza se especifica con el parámetro `conf`. 
 

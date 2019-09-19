@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+
+
+
+
+
+=======
 ## Contrastes de dos muestras
 
 Ahora queremos contrastar el valor de un mismo parámetro a dos poblaciones
@@ -132,6 +139,7 @@ $$
 
 </div>
 
+>>>>>>> 9d58f3b59697fde560731446b46ee667e1b0c97d
 ## C.H. para $\mu$ de normales o $n$ grandes: $\sigma$ desconocidas
 
 Suponemos otra vez una de las dos situaciones siguientes, y que ahora no conocemos $\sigma_1$ y $\sigma_2$:
