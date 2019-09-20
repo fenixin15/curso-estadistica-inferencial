@@ -1,18 +1,18 @@
-\beamer@endinputifotherversion {3.36pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
 \headcommand {\partentry {Contrastos d'hip\IeC {\`o}tesis}{1}}
 \headcommand {\beamer@partpages {1}{1}}
 \headcommand {\beamer@sectionpages {1}{1}}
 \headcommand {\beamer@subsectionpages {1}{1}}
-\headcommand {\sectionentry {1}{Dues mostres independents}{2}{Dues mostres independents}{1}}
 \headcommand {\beamer@sectionpages {2}{1}}
 \headcommand {\beamer@subsectionpages {2}{1}}
+\headcommand {\sectionentry {1}{Dues mostres independents}{2}{Dues mostres independents}{1}}
 \headcommand {\slideentry {1}{0}{1}{2/2}{}{1}}
 \headcommand {\beamer@framepages {2}{2}}
 \headcommand {\slideentry {1}{0}{2}{3/3}{}{1}}
 \headcommand {\beamer@framepages {3}{3}}
-\headcommand {\beamer@subsectionentry {1}{1}{1}{4}{Z-test}}\headcommand {\beamer@subsectionpages {2}{3}}
+\headcommand {\beamer@subsectionpages {2}{3}}
+\headcommand {\beamer@subsectionentry {1}{1}{1}{4}{Z-test}}
 \headcommand {\slideentry {1}{1}{1}{4/4}{Z-test}{1}}
 \headcommand {\beamer@framepages {4}{4}}
 \headcommand {\slideentry {1}{1}{2}{5/5}{Z-test}{1}}
@@ -23,7 +23,8 @@
 \headcommand {\beamer@framepages {7}{7}}
 \headcommand {\slideentry {1}{1}{5}{8/8}{Z-test}{1}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@subsectionentry {1}{1}{2}{9}{T-test}}\headcommand {\beamer@subsectionpages {4}{8}}
+\headcommand {\beamer@subsectionpages {4}{8}}
+\headcommand {\beamer@subsectionentry {1}{1}{2}{9}{T-test}}
 \headcommand {\slideentry {1}{2}{1}{9/10}{T-test}{1}}
 \headcommand {\beamer@framepages {9}{10}}
 \headcommand {\slideentry {1}{2}{2}{11/11}{T-test}{1}}
@@ -40,7 +41,8 @@
 \headcommand {\beamer@framepages {16}{16}}
 \headcommand {\slideentry {1}{2}{8}{17/18}{T-test}{1}}
 \headcommand {\beamer@framepages {17}{18}}
-\headcommand {\beamer@subsectionentry {1}{1}{3}{19}{Fisher-test}}\headcommand {\beamer@subsectionpages {9}{18}}
+\headcommand {\beamer@subsectionpages {9}{18}}
+\headcommand {\beamer@subsectionentry {1}{1}{3}{19}{Fisher-test}}
 \headcommand {\slideentry {1}{3}{1}{19/19}{Fisher-test}{1}}
 \headcommand {\beamer@framepages {19}{19}}
 \headcommand {\slideentry {1}{3}{2}{20/20}{Fisher-test}{1}}
@@ -51,7 +53,8 @@
 \headcommand {\beamer@framepages {22}{22}}
 \headcommand {\slideentry {1}{3}{5}{23/23}{Fisher-test}{1}}
 \headcommand {\beamer@framepages {23}{23}}
-\headcommand {\beamer@subsectionentry {1}{1}{4}{24}{Prop-test}}\headcommand {\beamer@subsectionpages {19}{23}}
+\headcommand {\beamer@subsectionpages {19}{23}}
+\headcommand {\beamer@subsectionentry {1}{1}{4}{24}{Prop-test}}
 \headcommand {\slideentry {1}{4}{1}{24/24}{Prop-test}{1}}
 \headcommand {\beamer@framepages {24}{24}}
 \headcommand {\slideentry {1}{4}{2}{25/25}{Prop-test}{1}}
@@ -74,7 +77,8 @@
 \headcommand {\beamer@framepages {34}{34}}
 \headcommand {\slideentry {1}{4}{11}{35/35}{Prop-test}{1}}
 \headcommand {\beamer@framepages {35}{35}}
-\headcommand {\beamer@subsectionentry {1}{1}{5}{36}{Var-test}}\headcommand {\beamer@subsectionpages {24}{35}}
+\headcommand {\beamer@subsectionpages {24}{35}}
+\headcommand {\beamer@subsectionentry {1}{1}{5}{36}{Var-test}}
 \headcommand {\slideentry {1}{5}{1}{36/36}{Var-test}{1}}
 \headcommand {\beamer@framepages {36}{36}}
 \headcommand {\slideentry {1}{5}{2}{37/37}{Var-test}{1}}
@@ -99,14 +103,15 @@
 \headcommand {\beamer@framepages {47}{47}}
 \headcommand {\slideentry {1}{5}{12}{48/48}{Var-test}{1}}
 \headcommand {\beamer@framepages {48}{48}}
-\headcommand {\sectionentry {2}{Dues mostres aparellades}{49}{Dues mostres aparellades}{1}}
 \headcommand {\beamer@sectionpages {2}{48}}
 \headcommand {\beamer@subsectionpages {36}{48}}
+\headcommand {\sectionentry {2}{Dues mostres aparellades}{49}{Dues mostres aparellades}{1}}
 \headcommand {\slideentry {2}{0}{1}{49/49}{}{1}}
 \headcommand {\beamer@framepages {49}{49}}
 \headcommand {\slideentry {2}{0}{2}{50/51}{}{1}}
 \headcommand {\beamer@framepages {50}{51}}
-\headcommand {\beamer@subsectionentry {1}{2}{1}{52}{Contrast per a dues $\mu $}}\headcommand {\beamer@subsectionpages {49}{51}}
+\headcommand {\beamer@subsectionpages {49}{51}}
+\headcommand {\beamer@subsectionentry {1}{2}{1}{52}{Contrast per a dues $\mu $}}
 \headcommand {\slideentry {2}{1}{1}{52/52}{Contrast per a dues $\mu $}{1}}
 \headcommand {\beamer@framepages {52}{52}}
 \headcommand {\slideentry {2}{1}{2}{53/53}{Contrast per a dues $\mu $}{1}}
@@ -115,7 +120,8 @@
 \headcommand {\beamer@framepages {54}{54}}
 \headcommand {\slideentry {2}{1}{4}{55/55}{Contrast per a dues $\mu $}{1}}
 \headcommand {\beamer@framepages {55}{55}}
-\headcommand {\beamer@subsectionentry {1}{2}{2}{56}{Contrast per a dues proporcions}}\headcommand {\beamer@subsectionpages {52}{55}}
+\headcommand {\beamer@subsectionpages {52}{55}}
+\headcommand {\beamer@subsectionentry {1}{2}{2}{56}{Contrast per a dues proporcions}}
 \headcommand {\slideentry {2}{2}{1}{56/56}{Contrast per a dues proporcions}{1}}
 \headcommand {\beamer@framepages {56}{56}}
 \headcommand {\slideentry {2}{2}{2}{57/57}{Contrast per a dues proporcions}{1}}
@@ -130,4 +136,4 @@
 \headcommand {\beamer@subsectionpages {56}{60}}
 \headcommand {\beamer@sectionpages {49}{60}}
 \headcommand {\beamer@documentpages {60}}
-\headcommand {\def \inserttotalframenumber {55}}
+\headcommand {\gdef \inserttotalframenumber {55}}
