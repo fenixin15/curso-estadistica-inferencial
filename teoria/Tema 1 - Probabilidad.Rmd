@@ -80,9 +80,7 @@ $$\Omega = \{1,2,3,4,5,6\}$$
  Alguno sucesos notables que merece la pena nombrar son:
 
 * <l class="definition">Suceso seguro o cierto</l>: $\Omega$
-
 * <l class="definition">Suceso imposible o vacio</l>: $\emptyset$
-
 * <l class="definition">Partes de un conjunto</l>: $\mathcal{P}(\Omega)$: conjunto de todos los sucesos del experimento aleatorio (es decir, el conjunto de todos los subconjuntos de $\Omega$)
 
 <div class="exercise">
