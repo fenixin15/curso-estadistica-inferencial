@@ -357,6 +357,8 @@ de distribución:
 
 ## Propiedades
 
+<div class="dem"> 
+
 **Demostración**:
 
 Tenemos que  $\overline{\left\{X>x\right\}}=\left\{X\leq x\right\}$. Además
@@ -375,7 +377,7 @@ P(a<X\leq b)&=&P(\left\{X\leq b\right\}-\left\{X\leq a\right\})\\
 &=& F_{X}(b)-F_{X}(a).
 \end{eqnarray*}
 $$
-
+</div>
 
 ## Propiedades
 
@@ -438,6 +440,7 @@ x_0$
 
 ## Propiedades
 
+<div class="dem"> 
 
 **Demostración**:
 
@@ -461,7 +464,7 @@ x_0; x\in D_X} \{x\}\right)= \sum_{x\leq x_0}P(X=x)= \sum_{x\leq x_0}P_{X}(x).
 $$
   
 
-
+</div>
 
 
 ## Ejemplo
@@ -818,6 +821,8 @@ Por lo tanto la varianza es el momento
 
 ## Demostración
 
+<div class="dem"> 
+
 **Demostración de b)**
 $$
 \begin{eqnarray*}
@@ -829,10 +834,17 @@ $$
 
 
 
-
+</div>
 ## Ejemplo
 
-Calculemos en  el ejemplo anterior la varianza del número de errores. Recordemos que:
+
+<l class="example"> 
+Calculemos en  el ejemplo anterior la varianza del número de errores.
+</l>
+
+<div class="example-sol"> 
+
+Recordemos que:
    
 $$
 P(X=0)=0.42,\quad P(X=1)=0.4, \quad P(X=2)=0.18
@@ -865,16 +877,20 @@ $$
   En resumen $\sigma_{X}^2=0.542$ y $\sigma_{X}=\sqrt{0.542}$
      
 
-
+</div>
 
 ## Propiedades de la varianza
  
+ 
+<l class="prop"> **Propiedades de la varianza**</l>
+
 * $Var(X)\geq 0$
 * $Var(cte)=E(cte^2)-(E(cte))^2= cte^2 - cte^2=0$
 * El mínimo de $E((X-C)^2)$ se alcanza cuando $C=E(X)$ y es $Var(X)$. Esta propiedad es una de las que hace útil a la varianza como medida de dispersión.
   
 
-**Demostración**: (ejercicio)
+
+**Demostración**:  Se deja como ejercicio
 
 
 
@@ -886,7 +902,7 @@ $$
 
 <l class="definition"> **Transformación lineal** </l>
 
-Un **cambio de variable lineal** o **transformación lineal**
+Un **cambio de variable lineal** o **tran^sformación lineal**
 de una v.a. $X$ es otra v.a. $Y= a+ b X$  donde $a,b\in\mathbb{R}$.
 
 <l class="prop"> **Esperanza de una transformación lineal** </l>
@@ -980,43 +996,48 @@ Ya que
 
 "Función de distribución de una v.a. uniforme en el intervalo unidad."
 
-```{r figUNIF,echo=FALSE}
+```{r figUNIF, fig.align='center',echo=FALSE}
 curve(punif(x,0,1),xlim=c(-1,2),col="blue",
       main="Función distribución uniforme.")
 ```
+
+## Propiedades
 
 En las variables continuas los sucesos del tipo $\{X\leq x \}$ y $\{X< x \}$ tendrán la
 misma probabilidad, y otros tipos de sucesos similares también, algunas de estas
 propiedades se explicitan en la siguiente proposición.
 
-\begin{prop}
+<l class="prop"> **Propiedad**>/l>
+
 Dada una v.a. continua $X$ se tiene que:
  
 * $P(X\leq b)=P(X<b)$
 * $P(X<b)=P(X<a)+P(a<X<b)$
 * $P(a<X<b)=P(X<b)-P(X<a)$
   
-\end{prop}
+## Demostración  
+  
+**Demostración:**
 
+La primera es evidente  $P(X<b)=P(X<b)+P(X=b)=P(X<b)$
 
+Para demostra la segunda
 
+$\{X<a\}\cap \{a<X<b\}=\emptyset$ $\{X<a\}\cup \{a<X<b\}=\{X<a\}$ entonces
 
-\textbf{Demostración:}
-
-*[b)] $\{X<a\}\cap \{a<X<b\}=\emptyset$
-$\{X<a\}\cup \{a<X<b\}=\{X<a\}$ entonces
-\begin{equation*}
-\begin{split}
+$$
+\begin{eqnarray*}
 P(X\leq b)= & P(\{X<a\}\cup \{a<X<b\})\\
 & = P(X<a)+P(a<X<b)
-\end{split}
-\end{equation*}
-
-*[a)] $P(X<b)=P(X<b)+P(X=b)=P(X<b)$
-*[c)] \'Idem que b) aplicando a).
+\end{eqnarray*}
+$$
 
 
+La demostracñon de la tercera propiedad es similar a laa segunda  pero aplicando la primera.
 
+
+
+## Propiedades de la función de distribución
 
 Las propiedades anteriores  y combinaciones de ellas se pueden
 escribir utilizando la función de distribución de $X$:
@@ -1033,32 +1054,35 @@ Dada una variable aleatoria continua se tiene que:
 <div class="exercice"> Se deja la demostración como ejercicio </div>
 
 
+## Ejemplo 
 
-<l class="exercice"> ** Ejemplo juego de lanzamiento de dardos**</l>
+<l class="exercice"> **Ejemplo: lanzamiento de dardos**</l>
 
+<div class="exercice-sol">
 En los dardos:
 $$P(0.25<X<0.3)=F_{X}(0.3)-F_{X}(0.25)=$$
 $$=0.3-0.25=0.05$$
-
+</div>
 
 ## Función de densidad
+
+<l class="definition"> **Función de densidad** </l> 
+
 Una función $f:\mathbb{R}\to\mathbb{R}$ es una función de densidad sobre $\mathbb{R}$ si cumple que
 
 
 * $f_{X}(x)\geq 0$ para todo $x \in\mathbb{R}.$
 * $f$ es continua salvo a lo más en una cantidad finita de puntos sobre
 cada intervalo acotado de $\mathbb{R}$.
-* $\int\limits_{-\infty}^{+\infty} f_{X}(x) dx=1.$
+* $\displaystyle\int\limits_{-\infty}^{+\infty} f_{X}(x) dx=1.$
 
+## Función de densidad de una variable aleatoria.
 
+<l class="definition"> **Función de densidad de una variable aleatoria** </l>
 
-
-
-
-<l class="definition"> **Función de densidad** </l>
 Sea $X$ una v.a. con función de distribución $F_X$. Sea $f:\mathbb{R}\to\mathbb{R}$ una función de densidad tal que
 
-$$F_X(x)=\int_{-\infty}^{x} f_X(t) dt.\mbox{ para todo } x\in\mathbb{R}.$$
+$$F_X(x)=\displaystyle\int_{-\infty}^{x} f_X(t) dt.\mbox{ para todo } x\in\mathbb{R}.$$
 
 Entonces $X$ es una variable aleatoria continua y $f_X$ es la densidad de la v.a.  $X$.
 
@@ -1069,8 +1093,7 @@ El conjunto $D_X=\{x\in\mathbb{R}| f_x(x)>0\}$ recibe el nombre de <l class="def
 variable aleatoria continua</l> y se interpreta su conjunto de resultados posibles.
 
 
-
-
+<div class="example-sol">
 
 En nuestra diana la función $f$ es una densidad
 $$f_{X}(x)=\left\{
@@ -1085,92 +1108,125 @@ $$
 
 que es la densidad de $X$, en efecto:
 
+</div>
 
-* Si $x \leq 0$ entonces $\int_{-\infty}^x f_X(t) dt = 0.$
-*  Si $0\leq x\leq 1$ entonces $\int_{-\infty}^x f_X(t) dt =
-\int_0^x 1 dt = x.$
-* Si $x\geq 1$  entonces $\int_{-\infty}^x f_X(t) dt =
-\int_0^1 1 dt = 1.$
+## Densidad diana
+
+<div class="example-sol">
+
+Si $x \leq 0$ entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = 0.$
+
+Si $0\leq x\leq 1$ entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = \int_0^x 1 dt = x.$
+
+Si $x\geq 1$  entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = \int_0^1 1 dt = 1.$
 
 
-Por lo tanto  $F_X(x)=\int_{-\infty}^x f_X(t) dt$ para todo $x\in\mathbb{R}.$
+Por lo tanto  $F_X(x)=\displaystyle\int_{-\infty}^x f_X(t) dt$ para todo $x\in\mathbb{R}.$
+
+</div>
+
+##  Densidad diana
 
 
+<div class="example-sol">
 
 
-\begin{figure}
-\begin{center}
-%\includegraphics{densidaduniforme}
-<<fig.height=6>>=
+```{r fig.align="center",  fig_caption="Función de densidad de una v.a. uniforme en el intervalo$(0,1)$"}
 curve(dunif(x,0,1),xlim=c(-0.5,1.5),col="blue",
       main="Densidad uniforme")
-@
-\end{center}
-\caption{Función de densidad de una v.a. uniforme en el intervalo
-$(0,1)$}
-\end{figure}
+```
+</div>
 
-
-
+## Utilidad de la función de densidad
 
 La función de densidad nos permite calcular diversas probabilidades.
 
-\begin{prop} Sea $X$ una v.a. continua con función de distribución $F_X$ y de
+<l class="prop">**Propiedades de la función de densidad 1** </l> 
+
+Sea $X$ una v.a. continua con función de distribución $F_X$ y de
 densidad $f_X$, entonces
  
-* \begin{equation*}
-\begin{split}
-P(a< X< b)= & P(a<X\leq b)= P(a\leq X< b)\\
-= &  P(a\leq X\leq b)= \int_{a}^b f_X(x) dx.
-\end{split}
-\end{equation*}
-* Si $A$ es un conjunto  adecuado de $\mathbb{R}$
-entonces $P(X\in A)=\int_{A} f(x) dx=\int_{A\cap D_X} f(x) dx$.
+* $$\begin{eqnarray*}
+P(a< X< b) &=&  P(a<X\leq b)= P(a\leq X< b)=\\
+ & & P(a\leq X\leq b)= \displaystyle\int_{a}^b f_X(x) dx.
+\end{eqnarray*}
+$$
+* Si $A$ es un conjunto  adecuado de $\mathbb{R}$ entonces 
+$$P(X\in A)=\displaystyle\int_{A} f(x) dx=\displaystyle\int_{A\cap D_X} f(x) dx.$$
 
 
 
 
+## Utilidad de la función de densidad
 
+<l class="prop">**Propiedades de la función de densidad 2** </l>
 
-\begin{prop}
 Sea $X$ una v.a. continua con función de distribución $F_X$ y de densidad $f_X$, entonces:
 
- 
 * Si $f_x$ es continua en un punto $x$, $F_X$ es derivable en ese punto y
 $F_X'(x)=f_X(x).$
 * $P(X=x)=0$ para todo $x\in\mathbb{R}.$
   
-\end{prop}
 
-%%%  \textbf{Ejercicio:} Comprobar estas propiedades en la diana.
-
+<div  class="exercise"> **Ejercicio**: Comprobar estas propiedades en la diana. </div>
 
 
 
-## Ejemplo
+
+## Ejemplo tiempo ejecución de un proceso
+
+<div  class="example">
+**Ejemplo: Tiempo ejecución de un proceso.**
+
 Sea $X=$ tiempo de ejecución de un proceso. Se supone que $X$
 sigue una distribución uniforme en dos unidades de tiempo,
-si tarda más el proceso se cancela. Entonces
+si tarda más el proceso se cancela.
 
-$$F_{X}(x)=P(X\leq x)=\frac{CF}{CP}=\frac{x}2$$
+</div>
+
+<div  class="example-sol">
+
+Entonces
+
+$$
+F_{X}(x)=P(X\leq x)=\frac{CF}{CP}=\frac{x}2
+$$
+
+</div>
+
+## Ejemplo tiempo ejecución de un proceso
+
+<div  class="example-sol">
+
 Luego su función de distribución es:
 
 
 
-$$F_{X}(x)=\left\{\begin{array}{ll}
+$$
+F_{X}(x)=\left\{\begin{array}{ll}
 0 & \mbox{si } x\leq 0\\
 \frac{x}2 & \mbox{si } 0<x<2\\
 1 & \mbox{si } 2\leq x
-\end{array}\right.$$
+\end{array}\right.
+$$
 
 
 
 mientras que su función de densidad es:
-$$f_{X}(x)=F_{X}'(x)=\left\{\begin{array}{ll}
+$$
+f_{X}(x)=F_{X}'(x)=\left\{\begin{array}{ll}
 0 & \mbox{si } x\leq 0\\
 \frac12 & \mbox{si } 0<x\leq 2\\
 0 & \mbox{si } 2\leq x
-\end{array}\right.$$
+\end{array}\right.
+$$
+
+</div>
+
+## Ejemplo tiempo ejecución de un proceso
+
+<div  class="example-sol">
+
 
 Efectivamente
 
@@ -1181,50 +1237,55 @@ resolverlo gráficamente.)
 \int\limits_0^2\frac12dx=\frac{x}2\mid_0^2=
 =\frac22-\frac02=1.$
 
+</div>
 
+## Ejemplo tiempo ejecución de un proceso
 
+<div  class="exercice">
+**Ejercicio: Tiempo de un proceso:**
 
-\textbf{Ejercicio:} Calcular la probabilidad de que uno de nuestros procesos tarde
+Calcular la probabilidad de que uno de nuestros procesos tarde
 más de una unidad de tiempo en ser procesado. Calcular también la  probabilidad de
 que dure entre $0.5$ y $1.5$ unidades de tiempo.
+</div>
 
 
+
+## Esperanza y varianza para variables aleatorias continuas
 
 Los mismos comentarios y definiciones que se dieron en la sección correspondiente del tema
-de estadística descriptiva %\ref{modis}
-son aplicables aquí. Así que sólo daremos las
-definiciones, la forma de cálculo y algunos ejemplos.
+de estadística descriptiva son aplicables aquí.
+
+Así que sólo daremos las definiciones, la forma de cálculo y algunos ejemplos.
+
+En lo que sigue, salvo que diagamos lo contrario,  $X$  es una v.a. continua con función de densidad $f_{X}(x)$
 
 
 
+## Esperanza y varianza para variables aleatorias continuas
+
+<l class="definition"> **Esperanza v.a. continuas** </l>
+
+* Su esperanza es:
+$$E(X)=\displaystyle\int\limits_{-\infty}^{+\infty} xf_{X}(x)dx.$$
+* Si $g(x)$ es una función de la variable $X$ entonces:
+$$E(g(X))=\displaystyle\int\limits_{-\infty}^{+\infty} g(x)\cdot f_{X}(x)dx.$$
+
+## Esperanza y varianza para variables aleatorias continuas
 
 
 
-Sea $X$ una v.a. continua con función de densidad $f_{X}(x)$
-entonces:
+* Su varianza es:
+$$
+Var(X)=\sigma_{X}^2=E((X-\mu_{X})^2)=
+\displaystyle\int\limits_{-\infty}^{+\infty} (x-\mu_{X})^2 f_{X}(x)dx.
+$$
+* Su desviación típica es:  $$\sigma_{X}=+\sqrt{\sigma_{X}^2}.$$
 
 
-* su esperanza es :
-$E(X)=\int\limits_{-\infty}^{+\infty} xf_{X}(x)dx.$
-* Si $g(x)$ es una función de la variable $X$ entonces
-$$E(g(X))=\int\limits_{-\infty}^{+\infty} g(x)f_{X}(x)dx.$$
+## Propiedades
 
-
-
-
-
-
-
-* $Var(X)=\sigma_{X}^2=E((X-\mu_{X})^2)=
-\int\limits_{-\infty}^{+\infty} (x-\mu_{X})^2 f_{X}(x)dx.$
-* A $\sigma_{X}=+\sqrt{\sigma_{X}^2}$ se le denomina desviación típica  de $X$.
-
-
-
-
-
-
-\textbf{Propiedades}
+<l class="prop"> **Propiedades** </l>
 
 * $\sigma_{X}^2\geq 0$
 * $Var(cte)=E(cte^2)-(E(cte))^2= cte^2 - cte^2=0$
@@ -1234,23 +1295,31 @@ f_{X}(x)dx - \mu_{X}^2.$
 
 
 
+## Ejemplo
+
+<div  class="example">
+
+**Ejemplo: Dardo**
+
+Calcular $\mu_{X}$ y $\sigma_{X}^2$ en el dardo.
+</div>
+
+<div  class="example-sol">
+Resultado 
+$$\mu_{X}=\frac12,$$ 
+$$E(X^2)=\frac13,$$
+$Var(X)=\frac1{12}.$
+
+</div>
 
 
-\textbf{Ejemplos} Calcular $\mu_{X}$ y $\sigma_{X}^2$ en el dardo.
-
-Resultado $\mu_{X}=\frac12$, $E(X^2)=\frac13$,
-$Var(X)=\frac1{12}$.
-
-%
-\subsubsection{Esperanza y varianza de trasformaciones lineales}
-
-
+## Esperanza de trasformaciones lineales de v.a. continuas
 
 Sea $X$ una v.a. continua con $E(X)=\mu_{X}$ y $Var(X)=\sigma_{X}^2$ sea $Y=a+b X$, donde
 $a,b\in\mathbb{R}$, es una nueva v.a. continua obtenida mediante una transformación lineal de $X$.
 Se verifican las mismas propiedades que en el caso discreto:
 
-*  $E(Y)=E(a+b X)=a+b E(X)$
+* $E(Y)=E(a+b X)=a+b E(X)$
 * $Var(Y)=Var(a+b X)=b^2 Var(X)$
 * $\sigma_{Y}=|b| \sigma_{X}$
 * $Z=\frac{X-\mu_{X}}{\sigma_{X}}$ es una transformación
@@ -1261,22 +1330,30 @@ $$E(Z)=0 \mbox{ y } Var(Z)=1$$
 
 
 
-\textbf{Ejemplo}
+## Ejemplo
+
+<div class="example"> 
+**Ejemplo**
+
 En una empresa de venta de vinos por internet, sea
 $X=$ número de  litros de vino del país vendidos en un año.
 Supongamos que sabemos que $E(X)=10000$ y que $Var(X)=100$
 Supongamos que los gastos fijos de distribución son
-50000 y el beneficio por litro es de 10 pts por botella.
-Definimos $T=10 X-50000$ que será el beneficio después de gastos
-entonces:
+5 &euro; y el beneficio por litro es de 10 pts por botella.
+Definimos $T=10 X-50000$ que será el beneficio después de gastos.
+</div>
+
+<div class="example-sol"> 
+
+Entonces la esperanza del neneficio es 
 $$E(T)=10 E(X)-50000 = 50000$$
 y
 $$Var(T)=10^2 VAR(X)= 10000$$
+</div>
 
 
 
-
-
+## Transformaciones de variables aleatorias
 
 Muchas variables aleatorias son funciones de otras v.a. En lo que
 sigue resumiremos diversas técnicas para dada una v.a. $X$ y una
@@ -1284,15 +1361,11 @@ transformación $Y=h(X)$  encontrar $F_{Y}$ a
 partir de $F_{X}$.
 
 
+## Propiedad
 
+<l class="prop"> **Propiedad: Tranformación de v.a. discretas </l>
 
-
-
-
-
-\begin{prop}
-Sea $X$ una v.a. discreta con \newline
-$X(\Omega)=\{x_1,x_2,\ldots,x_{n},..\}$ y sea $h:\mathbb{R}\to\mathbb{R}$ una aplicación.
+Sea $X$ una v.a. discreta con $X(\Omega)=\{x_1,x_2,\ldots,x_{n},..\}$ y sea $h:\mathbb{R}\to\mathbb{R}$ una aplicación.
 Entonces $Y=h(X)$ es también una v.a. discreta. Además si $P_X$
 y $F_{X}$ son las funciones de probabilidad y de distribución de
 $X$ entonces
@@ -1301,8 +1374,6 @@ $X$ entonces
 * $\displaystyle P_{Y}(y)=\sum_{x_{i}|h(x_{i})=y}P_X(x_{i}).$
 * $\displaystyle F_{Y}(y)=\sum_{x_{i}|h(x_{i})\leq y} P_X(x_{i}).$
   
-\end{prop}
-
 
 
 
@@ -1312,9 +1383,15 @@ $X$ entonces
 
 
 Desafortunadamente este caso no es tan sencillo como el anterior, pues la
-transformación de una v.a. continua puede ser continua, discreta, mixta \ldots
+transformación de una v.a. continua puede ser continua, discreta, mixta...
 
-\begin{prop}
+## Propiedades
+
+Desafortunadamente para variables no discetas el asunto  no es tan sencillo como el anterior, pues la
+transformación de, por ejemplo, una v.a. continua puede ser continua, discreta, mixta...
+
+<l class="prop"> **Propiedad: Transformación de v.a. continuas en continuas** </l>
+
 Sea $X$ una v.a. continua cuya función de densidad es $f_{X}$. Sea
 $h:\mathbb{R}\to\mathbb{R}$ una aplicación estrictamente monótona y derivable, tal
 que $h'(x)\not=0$ para todo $x\in\mathbb{R}$. Sea $Y=h(X)$ la
@@ -1323,25 +1400,31 @@ de densidad
 
 $$f_{Y}(y)=\left.\frac{f_{X}(x)}
 {\left|h'(x)\right|}\right|_{x=h^{-1}(y)}$$
-\end{prop}
 
 
 
-
-\begin{prop}
-Sea $X$ una v.a. continua cuya función de densidad es $f_{X}$. Si
-$h:\mathbb{R}\to\mathbb{R}$ es  una aplicación, no necesariamente monótona,
-pero sí derivable con derivada no nula, y si
-la ecuación $h(x)=y$ tiene un número finito de soluciones
-$x_1,x_2,..,x_{n}$ entonces:
-
-$$\displaystyle f_{Y}(y)=\left.\sum_{k=1}^{n} \frac{f_{X}(x)}
-{\left|h'(x)\right|}\right|_{x=x_{k}}$$
-\end{prop}
-
-\subsubsection{Método general}
+## Propiedades
 
 
+<l class="prop"> **Propiedad: Densidad de una transformación de una v.a. continua**</l>
+
+Sea $X$ una v.a. continua cuya función de densidad es $f_{X}$.  Sea 
+$$h:\mathbb{R}\to\mathbb{R}$$ 
+una aplicación, no necesariamente monótona tal que :
+
+* sea derivable con derivada no nula
+* la ecuación $h(x)=y$ tiene un número finito de soluciones
+$x_1,x_2,..,x_{n}$
+
+entonces:
+
+$$
+\displaystyle f_{Y}(y)=\left.\sum_{k=1}^{n} \frac{f_{X}(x)}
+{\left|h'(x)\right|}\right|_{x=x_{k}}.
+$$
+
+
+## Método general del transformación de v.a.
 
 Cuando no podamos aplicar las propiedades anteriores intentaremos
 calcular primero la función de distribución de la transformación
@@ -1350,88 +1433,94 @@ y luego su densidad.
 Notemos que en general si $Y=g(X)$ es una v.a. transformación  de la
 v.a. $X$ entonces
 
-$$F_{Y}(y)=P(Y\leq y)=P(g(X)\leq y)$$
+$$
+F_{Y}(y)=P(Y\leq y)=P(g(X)\leq y).
+$$
+
+## Método general del transformación de variables aleatorias
+
 
 Por ejemplo si $g$ es estrictamente creciente y cont.
 
-$$F_{Y}(y)=P(g(X)\leq y)=P(X\leq g^{-1}(y))=F_{X}(g^{-1}(y))$$
+$$
+F_{Y}(y)=P(g(X)\leq y)=P(X\leq g^{-1}(y))=F_{X}(g^{-1}(y)).
+$$
 
 y si $g$ es estrictamente decreciente y cont.
-$$F_{Y}(y)=P(g(X)\leq y)=P(X\geq g^{-1}(y))=1-F_{X}(g^{-1}(y))$$
+$$
+F_{Y}(y)=P(g(X)\leq y)=P(X\geq g^{-1}(y))=1-F_{X}(g^{-1}(y)).
+$$
 
 
 
+# Desigualdades   básicas: Markov y Chebychev
 
 
 
+## Desigualdades de Markov y de Chebychev
 
-## Desigualdades de Markov y de Chebyshef
-* Veremos en esta sección distintas desigualdades que acotan determinadas probabilidades de
+* En esta sección distintas desigualdades que acotan determinadas probabilidades de
 una variable aleatoria.
-* Estas desigualdades sirven en algunos casos para acotar
-probabilidades de determinados sucesos.
-* También son útiles desde el punto de vista
-teórico, por ejemplo para justificar que la varianza es una mediada de la dispersión de
+* Estas desigualdades sirven en algunos casos para acotar probabilidades de determinados sucesos.
+* También son útiles desde el punto de vista teórico, por ejemplo para justificar que la varianza es una mediada de la dispersión de
 los datos.
 
 
 
 
+## Desigualdad de Markov
+
+<l class="prop"> **Desigualda de Markov**</l>
+
+Sea $X$ una v.a. positiva con $E(X)$ finita.
+Entonces 
+
+$$P(X\geq a)\leq \frac{E(X)}{a}\mbox{ para todo }a>0.$$
 
 
-\begin{prop}
-Sea $X$ una v.a. positiva con $E(X)$ finita. Entonces
-$P(X\geq a)\leq \frac{E(X)}{a}$ para todo $a>0$.
-\end{prop}
+**Demostración**:
+
+Si $X$ es continua  y solo toma valores positivos
+
+$$
+\begin{eqnarray*}
+E(X) &=& \int_{-\infty}^{+\infty} x f_{X}(x) dx=  \int_0^{+\infty} x f_{X}(x) dx=  \int_0^{a} x f_{X}(x) dx +\int_{a}^{+\infty} x f_{X}(x) dx \\
+& &\geq   \int_{a}^{+\infty} x
+f_{X}(x) dx \geq a \int_{a}^{+\infty}
+f_{X}(x) dx = a \cdot  P(X\geq a)
+\end{eqnarray*}.
+$$
 
 
+## Desigualdad  de Markov
 
+de donde se sigue que 
 
-\textbf{Demostración: }
-
-Si $X$ es continua  y sólo toma valores positivos\newline
-\begin{equation*}
-\begin{split}
-E(X)=& \int_{-\infty}^{+\infty} x f_{X}(x) dx=  \int_0^{+\infty} x f_{X}(x) dx\\
-= & \displaystyle \int_0^{a} x f_{X}(x)
-dx+\int_{a}^{+\infty} x f_{X}(x) dx \\
-\geq &  \int_{a}^{+\infty} x
-f_{X}(x) dx \geq\displaystyle a \int_{a}^{+\infty}
-f_{X}(x) dx\\
-=& a\cdot  P(X\geq a)
-\end{split}
-\end{equation*}
-
-de donde se sigue que  
 $$P(X\geq a)\leq \frac{E(X)}{a}.$$
 
 
 
+<l class="prop"> **Consecuencia inmediata desigualda de Markov**</l>
 
-\begin{prop}
 Sea $X$ una v.a. con $E(X)$ finita entonces  para todo $a>0$
 
-$$P(|X|\geq a )\leq
-\frac{E(|X|)}{a}$$
-\end{prop}
+$$P(|X|\geq a )\leq \frac{E(|X|)}{a}.$$
+
+## Desigualda de Chebychev
 
 
-\subsubsection{Desigualdad de Chebyshef}
+La desigualdad de Chebychev también se denomina  de Chebyshov y en inglés Chebyshev.
 
 
+<l class="prop"> **Desigualda de Chebychev**</l>
 
-\begin{prop}
-Sea  $X$ una v.a.con $E(X)=\mu$ y $Var(X)=\sigma^2$ 
-entonces para todo $a>0$
+Sea  $X$ una v.a.con $E(X)=\mu$ y $Var(X)=\sigma^2$  entonces para todo $a>0$
 
 $$P(|X-\mu|\geq a)\leq \frac{\sigma^2}{a^2}$$ 
-\end{prop}
 
+## Demostración desigualdad de Chebychev
 
-
-
-
-\textit{Demostración}:
+<div class="dem"> **Demostración**
 
 Apliquemos la consecuencia de la desigualdad de Markov a la v.a.
 no negativa 
@@ -1439,40 +1528,43 @@ no negativa
 $$Y^2=(X-\mu)^2$$
 
 entonces
-\begin{equation*}
-\begin{split}
-P(Y^2\geq a^2)\leq & 
-\frac{E(Y^2)}{a^2}=\frac{E((X-\mu)^2)}{a^2}\\
-= & \frac{Var(X)}{a^2}=\frac{\sigma^2}{a^2}
-\end{split}
-\end{equation*}
 
+$$
+P(Y^2\geq a^2) \leq 
+\frac{E(Y^2)}{a^2}=\frac{E((X-\mu)^2)}{a^2}
+= \frac{Var(X)}{a^2}=\frac{\sigma^2}{a^2}
+.
+$$
 
 
 
 
 Por otra parte
 
-$$P(Y^2\geq a^2)=P(|Y|\geq a)= P(|X-\mu|\geq a)$$
+$$
+P(Y^2\geq a^2)=P(|Y|\geq a)= P(|X-\mu|\geq a).
+$$
 
 hecho que, junto con la desigualdad anterior,
 demuestra el resultado.
 
+</div>
 
 
+## Uso de la desigualdad de Chebychev
 
+<div class="observ"> **Utilidad básica de la desigualda de Chebychev**</div>
 
-
-\textbf{Observación:} Supongamos que $X$ es una v.a. con $Var(X)=0$
+Supongamos que $X$ es una v.a. con $Var(X)=0$
 entonces.
 
 
 Aplicando la desigualdad anterior
 
-$$P(|X-E(X)|\geq a )=0$ para todo $a>0$$ 
+$$P(|X-E(X)|\geq a )=0\mbox{ para todo }a>0$$ 
 lo que implica que
 
-$$P(X=E(X))=1$$
+$$P(X=E(X))=1.$$
 
 Por lo que  probabilidad de que $X$ sea
 constantemente $E(X)$ es 1.
@@ -1482,53 +1574,61 @@ medida de la dispersión de los datos.
 
 
 
-
 ## Ejemplo
 
 Se sabe que el tiempo de respuesta medio y la desviación típica de
 un sistema multiusuario  son 15 y 3 u.t.
 respectivamente. Entonces:
 
-$$P(|X-15|\geq 5)\leq \frac9{25}=0.36.$
+$$
+P(|X-15|\geq 5)\leq \frac9{25}=0.36.
+$$
 
 Si substituimos $a$ por $a\cdot \sigma$ en la
-desigualdad de Chebyshef. 
+desigualdad de Chebychev. 
 
 
 
 
 Nos queda:
 
-$$P(|X-\mu|\geq a \sigma)\leq
-\frac{\sigma^2}{(a\sigma)^2}=\frac1{a^2}.$$
+$$
+P(|X-\mu|\geq a \sigma)\leq
+\frac{\sigma^2}{(a\sigma)^2}=\frac1{a^2}.
+$$
 
-Que es otra manera de expresar la desigualdad de Chebyshef.
-
-La desigualdad de Chebyshef también se puede escribir de al menos dos maneras más:
-
-$$P(\mu-a\leq X\leq \mu+a)\geq 1-\frac{\sigma^2}{a^2}$$
-
-$$P(\mu-a\cdot \sigma\leq X\leq \mu+ a \cdot \sigma)$$
-%
+Que es otra manera de expresar la desigualdad de Chebychev.
 
 
-\subsubsection{La varianza como medida de dispersión}
+## Más formas de la desgualdad de Chebychev
+
+La desigualdad de Chebychev también se puede escribir de al menos dos maneras más:
+
+$$
+P(\mu-a\leq X\leq \mu+a)\geq 1-\frac{\sigma^2}{a^2}
+$$
+
+
+y tomado como $a=k\cdot \sigma$
+
+$$
+P(\mu-k\cdot \sigma\leq X\leq \mu+ k \cdot \sigma)\geq 1-\frac1{k^2}
+$$
+
+
+## La varianza como medida de dispersión
 
 Tomando la segunda expresión que hemos visto para la desigualdad de
-Chebyshef para distintos valores de $a>0$ tenemos la siguiente tabla.
-\begin{center}
-\begin{tabular}{l|l}
-a & $P(|X-E(X)|\geq a \sigma)$\\
-\hline
-1 & $\leq 1$ \\
-2 & $\leq 0.25$ \\
-3 & $\leq 0.111$ \\
-4 & $\leq 0.0025$
-\end{tabular}
-\end{center}
+Chebychev para distintos valores de $a>0$ tenemos la siguiente tabla.
 
-
-
+<center>
+| k | $P(|X-E(X)|\geq k  \cdot \sigma)$|
+|---|---|
+| 1 | $\leq 1$ |
+| 2 | $\leq 0.25$ |
+| 3 | $\leq 0.111$ |
+| 4 | $\leq 0.0025$ |
+</center>
 
 ## Interpretación de la desigualdad
 
