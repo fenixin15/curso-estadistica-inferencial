@@ -104,7 +104,7 @@ Estudiando  esta distribución muestral, podremos estimar propiedades de $X$ a p
 $$
 \overline{X}:=\frac{X_1+\cdots+X_n}{n},
 $$
-la media muestral.
+el estadístico media muestral.
 
 * $x_1,\ldots,x_n$ una realización de esta  m.a.s. y 
 $$
@@ -137,8 +137,9 @@ $$
 $$
 
 <div class="prop">
-En estas condiciones,
+Proposición
 </div>
+En estas condiciones,
 $$
 E(\overline{X})=\mu_X,\quad \sigma_{\overline{X}}=\frac{\sigma_X}{\sqrt{n}}
 $$
@@ -148,6 +149,10 @@ donde $\sigma_{\overline{X}}$ es el **error estándar** de $\overline{X}$.
 
 ## Propiedades de la media muestral
 
+<div class="prop">
+Proposición
+</div>
+
 * Es un estimador puntual de $\mu_X$
 
 * $E(\overline{X})=\mu_X$: el valor esperado de $\overline{X}$ es $\mu_X$.
@@ -156,20 +161,19 @@ donde $\sigma_{\overline{X}}$ es el **error estándar** de $\overline{X}$.
 
 * $\sigma_{\overline{X}}= \sigma_X/\sqrt{n}$: la variabilidad de los resultados de $\overline{X}$ tiende a 0  a medida que tomamos muestras más grandes.
 
-## Media muestral. Ejemplo de la tabla de datos `iris`
-<div class="example">
-**Ejemplo**
+## Media muestral. Ejemplo del `iris`
+<div class="exercise">
+**Ejercicio**
 
-Consideremos la tabla de datos `iris` (ver tema de Muestreo). 
+Consideremos la tabla de datos `iris` (que ya vimos en el tema de *Muestreo*). 
 Vamos a comprobar las propiedades anteriores sobre la variable **longitud del pétalo** (`Petal.Length`).
 
-Generaremos 10000 muestras de tamaño 40 con reposición de las longitudes del pétalo.
-A continuación hallaremos los valores medios de cada muestra.
-
-Consideraremos la media y la desviación típica de dichos valores medios y los compararemos con los valores exactos dados por las propiedades de la media muestral. 
+1. Generaremos 10000 muestras de tamaño 40 con reposición de las longitudes del pétalo.
+2. A continuación hallaremos los valores medios de cada muestra.
+3. Consideraremos la media y la desviación típica de dichos valores medios y los compararemos con los valores exactos dados por las propiedades de la media muestral. 
 </div>
 
-## Media muestral. Ejemplo de la tabla de datos `iris`
+## Media muestral. Ejemplo del `iris`
 <div class="example-sol">
 Para generar los valores medios de las longitudes del pétalo de las 10000 muestras usaremos la función `replicate` de `R`. Fijaos en su sintaxis:
 
@@ -178,12 +182,20 @@ Para generar los valores medios de las longitudes del pétalo de las 10000 muest
 ```{r}
 set.seed(1001)
 valores.medios.long.pétalo=replicate(10000,mean(sample(iris$Petal.Length,40,
-                                                       replace =TRUE)))
+                                                      replace =TRUE)))
+
 ```
+
+Los valores medios de las 10 primeras muestras anteriores serían
+
+```{r, echo=FALSE}
+head(valores.medios.long.pétalo, 10)
+```
+
 </div>
 
 
-## Media muestral. Ejemplo de la tabla de datos `iris`
+## Media muestral. Ejemplo del `iris`
 <div class="example-sol">
 El valor medio de los valores medios de las muestras anteriores vale:
 ```{r}
@@ -198,7 +210,7 @@ Fijaos que los dos valores están muy próximos.
 </div>
 
 
-## Media muestral. Ejemplo de la tabla de datos `iris`
+## Media muestral. Ejemplo del `iris`
 <div class="example-sol">
 La desviación típica de los valores medios de las muestras vale:
 ```{r}
@@ -217,8 +229,8 @@ Fijaos también en que los dos valores están muy próximos.
 
 ## Combinación lineal de distribuciones normales
 
-<l class="prop">Combinación lineal de distribuciones normales es normal</l>:
-Si $Y_1,\ldots,Y_n$ son v.a.\ normales independientes, cada $Y_i\sim N(\mu_i,\sigma_i)$, y $a_1,\ldots,a_n,b\in \mathbb{R}$ entonces
+<l class="prop">Proposición</l>
+La combinación lineal de distribuciones normales es normal. Es decir, si $Y_1,\ldots,Y_n$ son v.a.\ normales independientes, cada $Y_i\sim N(\mu_i,\sigma_i)$, y $a_1,\ldots,a_n,b\in \mathbb{R}$ entonces
 $$
 Y=a_1Y_1+\cdots+a_nY_n+b
 $$
@@ -230,7 +242,10 @@ es una v.a.\ $N(\mu,\sigma)$ con $\mu$ y $\sigma$ las que correspondan:
 
 ## Distribución de la media muestral
 
-<l class="prop">Distribución de la media muestral en el caso en que la población $X$ sea normal </l>:
+Veamos cómo se distribuye la media muestral en el caso en que la población $X$ sea normal.
+
+<l class="prop">Proposición</l>
+
 Sea $X_1,\ldots, X_n$ una m.a.s. de una v.a. $X$ de esperanza $\mu_X$ y desviación típica $\sigma_X$.
 
 Si $X$ es $N(\mu_X,\sigma_X)$, entonces
@@ -290,8 +305,8 @@ legend("topright",legend=c("densidad","normal"),
 </div>
 
 ## Ejemplo
-<div class="example">
-**Ejemplo**
+<div class="exercise">
+**Ejercicio**
 
 El tamaño en megabytes (MB)  de un  tipo de imágenes comprimidas tiene  un  valor medio de $115$ MB, con una desviación típica de $25$. Tomamos  una m.a.s. de $100$ imágenes de este tipo.
 
@@ -347,6 +362,8 @@ Notemos que $\widehat{p}_X$ es un caso particular de $\overline{X}$, por lo que 
 
 ## Proporción muestral. Propiedades
 
+<l class="prop">Proposición</l>
+
 * Valor esperado de la proporción muestral: 
 $$E(\widehat{p}_X)=p_X$$
 
@@ -366,12 +383,14 @@ $$
 \frac{\widehat{p}_X-p_X}{\sqrt{\frac{{p}_X(1-{p}_X)}{n}}}\approx N(0,1)
 $$
 
-## Proporción muestral. Ejemplo tabla de datos `iris`
-<div class="example">
-**Ejemplo**
+## Proporción muestral. Ejemplo del `iris`
+<div class="exercise">
+**Ejercicio**
 
-Dada una muestra de 60 flores de la tabla de datos `iris` vamos a estimar la proporción de flores de la especie `setosa`.
-También estimaremos la desviación estándar de dicha proporción.
+Dada una muestra de 60 flores de la tabla de datos `iris`, 
+
+1. Estimar la proporción de flores de la especie `setosa`.
+2. Estimar también la desviación estándar de dicha proporción.
 </div>
 
 <div class="example-sol">
@@ -384,7 +403,7 @@ muestra.flores = iris[flores.elegidas,]
 
 </div>
 
-## Proporción muestral. Ejemplo tabla de datos `iris`
+## Proporción muestral. Ejemplo del `iris`
 <div class="example-sol">
 A continuación miramos cuántas flores de la muestra son de la especie `setosa`:
 ```{r}
@@ -395,18 +414,18 @@ Tenemos entonces `r table(muestra.flores$Species=="setosa")[2]` flores de la esp
 </div>
 
 
-## Proporción muestral. Ejemplo tabla de datos `iris`
+## Proporción muestral. Ejemplo del `iris`
 <div class="example-sol">
 La estimación de la proporción de flores de especie `setosa` será:
 ```{r}
-(prop.setosa = table(muestra.flores$Species=="setosa")[2]/60)
+(prop.setosa = table(muestra.flores$Species=="setosa")[2]/length(muestra.flores$Species))
 ```
 valor que no está muy lejos del valor poblacional de la proporción $p_{setosa}$ que es $p_{setosa}=\frac{50}{150}=`r round(1/3,4)`$.
 
 Para estimar la desviación estándar de la proporción muestral de flores de tamaño 60 de la especie `setosa`, repetiremos el experimento anterior 10000 veces y hallaremos la desviación estándar de las proporciones obtenidas. Al final, compararemos dicho valor con el valor exacto dado por la propiedad correspondiente.
 </div>
 
-## Proporción muestral. Ejemplo tabla de datos `iris`
+## Proporción muestral. Ejemplo del `iris`
 <div class="example-sol">
 Para generar las proporciones de las 10000 muestras usaremos la función `replicate` de `R`:
 ```{r}
@@ -421,7 +440,7 @@ sd(props.muestrales)
 valor muy próximo al valor real que vale: $\displaystyle \sigma_{\widehat{p}_X}=\sqrt{\frac{p_X(1-p_X)}{n}}= \sqrt{\frac{\frac{50}{150}\cdot \left(1-\frac{50}{150}\right)}{60}}=`r round(sqrt((1/3)*(2/3)/60),4)`$.
 </div>
 
-## Proporción muestral. Ejemplo tabla de datos `iris`
+## Proporción muestral. Ejemplo del `iris`
 <div class="example-sol">
 En el gráfico siguiente podemos observar el histograma de las proporciones muestrales de las 10000 muestras junto con la distribución normal correspondiente:
 ```{r echo=FALSE, fig.align='center'}
@@ -458,11 +477,13 @@ S^2_{X}=\frac{\sum\limits_{i=1}^n (X_{i}-\overline{X})^2}{n}=\frac{(n-1)}{n}\wid
 $$
 
 ## Varianza muestral y desviación típica muestral. Propiedades
-* $\displaystyle S^2_X=\frac{\sum\limits_{i=1}^n (X_{i}-\overline{X})^2}{n}=\left(\frac{\sum\limits_{i=1}^n
-X_{i}^2}{n}-\overline{X}^2\right)$.
+<l class="prop">Propiedades</l>
+$$\displaystyle S^2_X=\frac{\sum\limits_{i=1}^n (X_{i}-\overline{X})^2}{n}=\left(\frac{\sum\limits_{i=1}^n
+X_{i}^2}{n}-\overline{X}^2\right)$$
 
-* $\displaystyle \widetilde{S}_{X}^2=\frac{n}{n-1}\left(\frac{\sum\limits_{i=1}^n
-X_{i}^2}{n}-\overline{X}^2\right)$.
+
+$$\displaystyle \widetilde{S}_{X}^2=\frac{n}{n-1}\left(\frac{\sum\limits_{i=1}^n
+X_{i}^2}{n}-\overline{X}^2\right)$$
 
 
 ## Varianza muestral y desviación típica muestral. Propiedades
@@ -475,6 +496,9 @@ $$
 tiene distribución $\chi_{n-1}^2$.
 
 ## La distribución $\chi_{n-1}^2$
+
+<l class="prop">Distribución $\chi_n^2$ </l>
+
 La distribución $\chi_n^2$ ($\chi$: en catalán, **khi**; en castellano, **ji**; en inglés, **chi**), donde $n$  es un parámetro llamado  **grados de libertad**:
 
 es la de 
@@ -483,14 +507,16 @@ X=Z_{1}^{2}+Z_{2}^{2}+\cdots +Z_{n}^{2}
 $$ 
 donde  $Z_{1},Z_{2},\ldots, Z_{n}$ son v.a. independientes  $N(0,1)$.
 
+## La distribución $\chi_{n-1}^2$. Propiedades
 
-Su función de densidad es:
+<l class="prop">Propiedades $\chi_n^2$ </l>
+
+* Su función de densidad es:
 $$
 f_{\chi_n^2}(x)={\frac{1}{2^{n/2} \Gamma (n/2)}} x^{(n/2)-1} e^{-x/2},\quad\mbox{ si $x\geq 0$}
 $$
 donde $\Gamma(x)=\int_{0}^{\infty} t^{x-1}e^{-t}\, dt$, si $x> 0$.
 
-## La distribución $\chi_{n-1}^2$. Propiedades
 * Si $X_{\chi_n^2}$ es una v.a.\ con distribución  $\chi_n^2$,
 $$E\left(X_{\chi_n^2}\right)=n,\quad Var\left(X_{\chi_n^2}\right)=2 n$$
 
@@ -517,8 +543,8 @@ legend("topright",legend=c("n=1","n=2","n=3","n=4","n=5","n=10"),
 
 
 ## La distribución $\chi_{n-1}^2$. Ejemplo
-<div class="example">
-**Ejemplo**
+<div class="exercise">
+**Ejercicio**
 
 Supongamos que  el  aumento  diario del la ocupación de una granja de  discos duros medido  en Gigas sigue una distribución normal con desviación típica $1.7$. Se toma una muestras de 12 discos. Supongamos que esta  muestra es pequeña respecto del total de la población de la granja de discos.
 
@@ -555,7 +581,7 @@ $$
 
 ¿Cuándo un estimador es bueno?
 
-
+<l class="definition">Estimadores insesgados</l>
 Un estimador puntual $\widehat{\theta}$ de un parámetro  poblacional
 $\theta$ es  **insesgado, no sesgado o sin sesgo** cuando su valor esperado es precisamente el valor del parámetro:
 $$
@@ -564,10 +590,14 @@ $$
 Entonces se dice que el estimador puntual es **no sesgado**.
 
 
-El  **sesgo** de $\widehat{\theta}$ es $E(\widehat{\theta})-\theta$.
+El  **sesgo** de $\widehat{\theta}$ es la diferencia 
+$$E(\widehat{\theta})-\theta$$
 
 
 ## Estimadores insesgados. Ejemplos
+
+<l class="prop">Proposición</l>
+
 
 * $\overline{X}$ es estimador no sesgado de $\mu_X$: $E(\overline{X})=\mu_X$.
 
@@ -586,7 +616,7 @@ $$
 
 ## Estimadores eficientes
 
-¿Cuando un estimador  un estimador es **bueno**?
+¿Cuando un estimador es **bueno**?
 
 Cuando es no segado y tiene poca variabilidad  (así es más probable que aplicado a una m.a.s. dé un valor más cercano al valor esperado)
 
@@ -596,11 +626,10 @@ $$\sigma_{\widehat{\theta}}=\sqrt{Var(\widehat{\theta})}$$
 
 ## Estimadores eficientes
 
-Dados dos estimadores $\widehat{\theta}_1$, $\widehat{\theta}_2$ no sesgados (o con sesgo  que tiende a $0$) del mismo parámetro  $\theta$, diremos que 
-<div class="center">
-$\widehat{\theta}_1$ es **más eficiente** que $\widehat{\theta}_2$
-</div>
-cuando $$\sigma_{\widehat{\theta}_1}< \sigma_{\widehat{\theta}_2},$$  es decir, cuando $$Var(\widehat{\theta}_1)< Var(\widehat{\theta}_2).$$
+<l class="definition">Eficiencia de un estimador</l>
+Dados dos estimadores $\widehat{\theta}_1$, $\widehat{\theta}_2$ no sesgados (o con sesgo  que tiende a $0$) del mismo parámetro  $\theta$, diremos que $\widehat{\theta}_1$ es **más eficiente** que $\widehat{\theta}_2$ cuando
+
+$$\sigma_{\widehat{\theta}_1}< \sigma_{\widehat{\theta}_2},$$  es decir, cuando $$Var(\widehat{\theta}_1)< Var(\widehat{\theta}_2).$$
 
 ## Estimadores eficientes. Ejemplo
 
@@ -621,11 +650,13 @@ Por  lo tanto, $Me$ es un estimador no sesgado de $\mu_X$, pero menos eficiente 
 
 ## Estimadores eficientes
 
-* Si la población es normal, la **media muestral** es el estimador no sesgado más eficiente de la **media poblacional**.
+<l class="prop">Proposición</l>
 
-* Si la población es Bernoulli, la **proporción muestral** es el estimador no sesgado más eficiente de la **proporción poblacional**.
+* Si la población es normal, la **media muestral** $\bar X$ es el estimador no sesgado más eficiente de la **media poblacional** $\mu_X$.
 
-* Si la población es normal, la **varianza muestral** es el estimador no sesgado  más eficiente de la **varianza poblacional**.
+* Si la población es Bernoulli, la **proporción muestral** $\hat p_X$ es el estimador no sesgado más eficiente de la **proporción poblacional** $p_X$.
+
+* Si la población es normal, la **varianza muestral** $\tilde S^2_X$ es el estimador no sesgado  más eficiente de la **varianza poblacional** $\sigma_x^2$.
  
  
 ## Estimadores eficientes. ¿$S_X^2$ o $\widetilde{S}_X^2$?
@@ -633,7 +664,7 @@ Por  lo tanto, $Me$ es un estimador no sesgado de $\mu_X$, pero menos eficiente 
 Como hemos visto, si la población es normal, la varianza muestral es el estimador
 no sesgado  más eficiente de la varianza poblacional
 
-El estimador ``varianza''
+El estimador *varianza*
 $$
 S_X^2=\frac{(n-1)}{n} \widetilde{S}_X^2
 $$   
@@ -648,7 +679,7 @@ Tenemos una población numerada $1,2,\ldots,N$
 Tomamos  una m.a.s. $x_1,\ldots,x_n$; sea $m=\max\{x_1,\ldots,x_n\}$.
 
 <l class="prop"> Teorema. </l>
-El estimador no segado más eficiente de $N$ es
+El estimador no segado más eficiente del tamaño de la población $N$ es
 $$
 \widehat{N}=m+\frac{m-n}{n}.
 $$
@@ -704,7 +735,7 @@ Dada la función de verosimilitud $L(\theta|x_1,\ldots,x_n)$ de la muestra, indi
 de $L(\theta|x_1,\ldots,x_n)$. Será una función de $x_1,\ldots,x_n$.
 
 <l class="definition">Estimador máximo verosímil.</l>
-Un estimador $\hat{\theta}$ de un parámetro  $\theta$ es **máximo verosímil** **MV** cuando, para cada m.a.s, la probabilidad de observarlo es máxima cuando el parámetro toma el valor del estimador aplicado a la muestra,  es decir, si la función de verosimilitud
+Un estimador $\hat{\theta}$ de un parámetro  $\theta$ es **máximo verosímil** (**MV**) cuando, para cada m.a.s, la probabilidad de observarlo es máxima, cuando el parámetro toma el valor del estimador aplicado a la muestra,  es decir, si la función de verosimilitud
 $$L(\theta|x_1,x_2,\ldots,x_n)= P(x_1,x_2,\ldots,x_n|\theta)$$ alcanza su máximo.
 
 ## Estimadores máximo verosímiles. Ejemplo
@@ -715,14 +746,20 @@ Para cada m.a.s. $x_1,\ldots,x_n$ de $X$, sean $\widehat{p}_x$  su  proporción 
 <l class="prop"> Teorema.</l>
 El valor de $p$ para el que $P(x_1,\ldots,x_n\mid p)$ es máximo es $\widehat{p}_x$.
 
-Dicho en otras palabras, la proporción muestral es un estimador MV de $p$. Veámoslo. 
+Dicho en otras palabras, la proporción muestral es un estimador MV de $p$. 
+
+<div class="exercise">
+**Ejercicio**
+
+Demostrar el teorema anterior.
+</div>
 
 ## Estimadores máximo verosímiles. Ejemplo
 En general, al ser $\ln$  una función creciente, en lugar de maximizar $L(\theta|x_1,\ldots,x_n)$, maximizamos
 $$
 \ln(L(\theta|x_1,\ldots,x_n))
 $$
-que suele ser más simple (productos $\to$ sumas).
+que suele ser más simple (ya que transforma los productos en sumas, y es más fácil derivar estas últimas).
 
 ## Estimadores máximo verosímiles. Ejemplo
 Sea $X_{1},\ldots X_{n}$ una m.a.s. de una v.a. Bernoulli $X$ de parámetro  $p$ (desconocido). Denotemos $q=1-p$
@@ -792,6 +829,9 @@ El resultado queda demostrado. $L(\widehat{p}_X|x_1,\ldots,x_n)\geq L(p|x_1,\ldo
 
 
 ## Algunos estimadores **MV**
+
+<l class="prop"> Proposición </l>
+
 * $\widehat{p}_x$ es el estimador MV del parámetro  $p$ de una v.a. Bernoulli.
 
 * $\overline{X}$  es el estimador MV del parámetro  $\theta$ de una v.a. Poisson.
@@ -811,12 +851,13 @@ Ahora volvemos a capturar $n$, de los que $k$ están marcados. A partir de estos
 
 Supongamos  que $N$ y $K$ no han cambiado de la primera a la segunda captura.
 
-$X=$``Un individuo esté marcado'' es $Be(p)$ con $p=\dfrac{K}{N}$.
+La variable aleatoria $X=$ *Un individuo esté marcado* es $Be(p)$ con $p=\dfrac{K}{N}$.
 
-$X_1,\ldots,X_n$ la muestra capturada la segunda vez: $\widehat{p}_X=\frac{k}{n}$.
+Si $X_1,\ldots,X_n$ es la muestra capturada la segunda vez, entonces $\widehat{p}_X=\frac{k}{n}$.
 
 ## Estimadores máximo verosímiles. Ejemplo: captura-recaptura
-$\widehat{p}_X$ es un estimador máximo verosímil $p$. Por tanto, estimamos que
+
+$\widehat{p}_X$ es un estimador máximo verosímil $p$. Por tanto, estimamos que: 
 $$
 \dfrac{K}{N}=\dfrac{k}{n}\Rightarrow N=\frac{n\cdot K}{k}
 $$
@@ -825,11 +866,11 @@ Por lo tanto, el estimador
 $$
 \widehat{N}=\frac{n\cdot K}{k}
 $$
- maximiza  la probabilidad  de la observación ``$k$ marcados de $n$ capturados'', por lo que $\hat{N}$ es el **estimador máximo verosímil** de $N$.
+ maximiza  la probabilidad  de la observación *$k$ marcados de $n$ capturados*, por lo que $\hat{N}$ es el **estimador máximo verosímil** de $N$.
 
 ## Estimadores máximo verosímiles. Ejemplo: captura-recaptura
-<div class="example">
-**Ejemplo**
+<div class="exercise">
+**Ejercicio**
 
 Supongamos que hemos marcado 15 peces del lago, y que en una captura, de 10 peces, hay  4 marcados. ¿Cuántos peces estimamos  que contiene el lago?
 </div>

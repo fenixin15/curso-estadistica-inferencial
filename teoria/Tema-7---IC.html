@@ -3232,11 +3232,11 @@ font-size: 0.5em
 
 </article></slide><slide class=""><hgroup><h2>Definición de intervalo de confianza</h2></hgroup><article  id="definicion-de-intervalo-de-confianza">
 
-<p><l class="definition">Intervalo de confianza. </l> Dado un parámetro \(\theta\), el intervalo \(]A,B[\) es un intervalo de confianza del \((1-\alpha)\cdot 100\)% para al parámetro \(\theta\) cuando \[
+<p><l class="definition">Intervalo de confianza. </l> Dado un parámetro \(\theta\), el intervalo \((A,B)\) es un intervalo de confianza del \((1-\alpha)\cdot 100\)% para al parámetro \(\theta\) cuando \[
 P(A&lt;\theta&lt;B)=1-\alpha.
-\] El valor \((1-\alpha)\cdot 100\)% (o contiene solo el \(1-\alpha\)) recibe el nombre de nivel de confianza.</p>
+\] El valor \((1-\alpha)\cdot 100\)% (o contiene solo el \(1-\alpha\)) recibe el nombre de <strong>nivel de confianza</strong>.</p>
 
-<p>El valor \(\alpha\) recibe el nombre de nivel de significación.</p>
+<p>El valor \(\alpha\) recibe el nombre de <strong>nivel de significación</strong>.</p>
 
 </article></slide><slide class=""><hgroup><h2>Definición de intervalo de confianza</h2></hgroup><article  id="definicion-de-intervalo-de-confianza-1">
 
@@ -3247,7 +3247,7 @@ P(\theta&lt;A)=P(\theta&gt;B)=\frac{\alpha}{2}
 <div class="center">
 <p><img src="data:image/png;base64,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" width="450px" /></p></div>
 
-<p>Por ejemplo, para buscar un intervalo de confianza \(]A,B[\) del \(95\)%, buscaremos \(A,B\) de manera que \[
+<p>Por ejemplo, para buscar un intervalo de confianza \((A,B)\) del \(95\)%, buscaremos valores \(A,B\) de manera que \[
 P(\theta&lt;A)=0.025\quad\mbox{ y }\quad P(\theta&gt;B)=0.025.
 \]</p>
 
@@ -3259,7 +3259,7 @@ P(\theta&lt;A)=0.025\quad\mbox{ y }\quad P(\theta&gt;B)=0.025.
 
 <p>Sea \(X_1,\ldots,X_n\) una m.a.s. de \(X\), con media muestral \(\overline{X}\)</p>
 
-<p>Queremos determinar un intervalo de confianza para a \(\mu\) con un cierto nivel de confianza (digamos, 97.5%, \(\alpha =0.025\)): un intervalo \(]A,B[\) tal que \[
+<p>Queremos determinar un intervalo de confianza para a \(\mu\) con un cierto nivel de confianza (digamos, 97.5%, \(\alpha =0.025\)): un intervalo \((A,B)\) tal que \[
 P(A&lt;\mu&lt;B)=1-\alpha = 0.975
 \]</p>
 
@@ -3293,7 +3293,7 @@ P\left(\overline{X} -2.2414 \dfrac{\sigma}{\sqrt{n}}&lt; \mu&lt; \overline{X}+
 
 </article></slide><slide class=""><hgroup><h2>Intervalos de confianza para el parámetro \(\mu\) de una población normal con \(\sigma\) conocida</h2></hgroup><article  id="intervalos-de-confianza-para-el-parametro-mu-de-una-poblacion-normal-con-sigma-conocida-3">
 
-<p>Por lo tanto, la probabilidad que la media \(\mu\) de \(X\) se encuentre dentro del intervalo \[
+<p>Por lo tanto, la probabilidad que la media poblacional \(\mu\) de \(X\) se encuentre dentro del intervalo \[
 \left(\overline{X} -2.2414 \frac{\sigma}{\sqrt{n}},
 \overline{X}+ 2.2414\frac{\sigma}{\sqrt{n}}
 \right)
@@ -3307,7 +3307,7 @@ P\left(\overline{X} -2.2414 \dfrac{\sigma}{\sqrt{n}}&lt; \mu&lt; \overline{X}+
 
 <p>Para una muestra concreta: la probabilidad de que, si una media \(\mu\) poblacional ha producido esta muestra, entonces esté en este intervalo concreto, es del 97.5%.</p>
 
-<p>En ocasiones lo entenderemos como: &ldquo;La probabilidad de que \(\mu\) esté en este intervalo es del 97.5%&rdquo;</p>
+<p>En ocasiones lo entenderemos como: <em>La probabilidad de que \(\mu\) esté en este intervalo es del 97.5%.</em></p>
 
 <p>Pero la frase anterior es mentira (<em>es un abuso de lenguaje</em>): La \(\mu\) concreta es un valor fijo, por lo tanto que pertenezca o no a este intervalo concreto tiene probabilidad 1 (si pertenece) y 0 (si no pertenece).</p>
 
@@ -3360,7 +3360,7 @@ P\left(\overline{X} -2.2414 \dfrac{\sigma}{\sqrt{n}}&lt; \mu&lt; \overline{X}+
 </article></slide><slide class=""><hgroup><h2>Simulación de intervalos de confianza</h2></hgroup><article  id="simulacion-de-intervalos-de-confianza">
 
 <div class="example">
-<p><strong>Simulación</strong></p>
+<p><strong>Ejemplo</strong></p>
 
 <p>A continuación vamos a simular el funcionamiento de un intervalo de confianza para una distribución normal.</p></div>
 
@@ -3419,8 +3419,8 @@ El resultado se muestra en la figura siguiente:
 
 </article></slide><slide class=""><hgroup><h2>Intervalos de confianza para el parámetro \(\mu\) de una población normal con \(\sigma\) conocida. Ejemplo</h2></hgroup><article  id="intervalos-de-confianza-para-el-parametro-mu-de-una-poblacion-normal-con-sigma-conocida.-ejemplo">
 
-<div class="example">
-<p><strong>Ejemplo</strong></p>
+<div class="exercise">
+<p><strong>Ejercicio</strong></p>
 
 <p>Tomamos una m.a.s. de tamaño \(n=16\) de una v.a. normal con \(\sigma=4\) y \(\mu\) desconocida. La media de la m.a.s. es \(\overline{x}=20\).</p>
 
@@ -3431,7 +3431,7 @@ El resultado se muestra en la figura siguiente:
 \left(\overline{x}-z_{1-\frac{\alpha}{2}}\cdot\frac{\sigma}{\sqrt{n}},\overline{x}+z_{1-\frac{\alpha}{2}}\cdot\frac{\sigma}{\sqrt{n}}\right)= \left( 20-2.241\cdot \frac{4}{\sqrt{16}} ,
 20+2.241\cdot \frac{4}{\sqrt{16}}
 \right)
-=]17.759,22.241[.
+=(17.759,22.241).
 \]</p>
 
 <p>La probabilidad de que, si una media \(\mu\) poblacional ha producido esta muestra, entonces esté en este intervalo concreto, es del 97.5%.</p></div>
@@ -3471,7 +3471,7 @@ El resultado se muestra en la figura siguiente:
 
 <p>\[
 35.975\pm 1.645\cdot\frac{1.2}{\sqrt{40}}=
-]35.663 , 36.287[.
+(35.663 , 36.287).
 \]</p></div>
 
 </article></slide><slide class=""><hgroup><h2>Intervalos de confianza para el parámetro \(\mu\) de una población normal con \(\sigma\) conocida. Amplitud</h2></hgroup><article  id="intervalos-de-confianza-para-el-parametro-mu-de-una-poblacion-normal-con-sigma-conocida.-amplitud">
@@ -3488,7 +3488,7 @@ z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}.
 
 </article></slide><slide class=""><hgroup><h2>Intervalos de confianza para el parámetro \(\mu\) de una población normal con \(\sigma\) conocida. Amplitud</h2></hgroup><article  id="intervalos-de-confianza-para-el-parametro-mu-de-una-poblacion-normal-con-sigma-conocida.-amplitud-1">
 
-<p>Propiedades:</p>
+<p><l class="prop">Propiedades</l></p>
 
 <ul>
 <li><p>La <strong>amplitud</strong> del intervalo de confianza para el parámetro \(\mu\) de una población normal con \(\sigma\) conocida, \(n\) y \(\alpha\) fijos <strong>crece</strong>, si <strong>\(\sigma\) crece</strong>.</p></li>
@@ -3509,7 +3509,7 @@ n\geq \left( 2 z_{1-\frac{\alpha}{2}}\frac{\sigma}{A_0}\right)^2.
 </article></slide><slide class=""><hgroup><h2>Intervalos de confianza para el parámetro \(\mu\) de una población normal con \(\sigma\) conocida. Ejemplo</h2></hgroup><article  id="intervalos-de-confianza-para-el-parametro-mu-de-una-poblacion-normal-con-sigma-conocida.-ejemplo-3">
 
 <div class="example">
-<p><strong>Ejemplo anterior del sensor</strong></p>
+<p><strong>Ejemplo</strong></p>
 
 <p>Recordemos que las medidas de nuestro sensor de temperatura seguían una distribución normal con varianza poblacional conocida \(\sigma^2=1.44\), \(\sigma=1.2\).</p>
 

@@ -103,9 +103,9 @@ Consideremos el experimento aleatorio que consiste en escoger al  azar un 3-gram
 
 <div class="example-sol">
 
-En este caso, si coonsideramoso la palabra "\_Baleares\_", el espacio muestral del experimento sería:
+En este caso, si consideramos la palabra "\_Baleares\_", el espacio muestral del experimento sería:
 
-$$\Omega=\{\_Ba, Bal, ale, lea, are, res, es\_\}$$
+$$\Omega=\{\_Ba, Bal, ale, lea, ear, are, res, es\_\}$$
 
 
 Algunos sucesos serían: 
@@ -196,7 +196,7 @@ $$(A^c)^c=A$$
 
 $$(A\cup B)^c=A^c\cap B^c$$
 
-| $A\cup B$ | $(A\cup B)^c$
+| $A\cup B$ | $(A\cup B)^c$ |
 |:--:|:--:|
 | ![](Images/proba1dibujos/demorgan6.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan7.jpg){height="200px"} |
 
@@ -204,11 +204,32 @@ $$(A\cup B)^c=A^c\cap B^c$$
 
 <l class="definition">Leyes de De Morgan</l>
 
-$$ \quad (A\cap B)^c=A^c\cup B^c$$
+$$(A\cup B)^c=A^c\cap B^c$$
 
 | $A^c$ | $B^c$ | $A^c\cap B^c$
 |:--:|:--:|:--:|
 | ![](Images/proba1dibujos/demorgan8.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan9.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan10.jpg){height="200px"} |
+
+
+## Propiedades 
+
+<l class="definition">Leyes de De Morgan</l>
+
+$$(A\cap B)^c=A^c\cup B^c$$
+
+| $A\cap B$ | $(A\cap B)^c$ |
+|:--:|:--:|
+| ![](Images/proba1dibujos/demorgan1.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan2.jpg){height="200px"} |
+
+## Propiedades 
+
+<l class="definition">Leyes de De Morgan</l>
+
+$$(A\cap B)^c=A^c\cup B^c$$
+
+| $A^c$ | $B^c$ | $A^c\cup B^c$
+|:--:|:--:|:--:|
+| ![](Images/proba1dibujos/demorgan3.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan5.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan4.jpg){height="200px"} |
 
 ## Definición de probabilidad
 

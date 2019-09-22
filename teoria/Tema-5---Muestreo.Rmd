@@ -348,7 +348,10 @@ head(worldcup)
 
 ## Ejemplo `worldcup` {-}
 <div class="example">
-Supongamos que queremos calcular una muestra de tamaño indeterminado de los jugadores por conglomerados eligiendo como conglomerados los países a los que éstos pertenecen. </div>
+**Ejemplo** 
+
+Supongamos que queremos calcular una muestra de tamaño indeterminado de los jugadores por conglomerados eligiendo como conglomerados los países a los que éstos pertenecen. 
+</div>
 
 
 <div class="example-sol">

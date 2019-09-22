@@ -49,14 +49,13 @@ Determinar un intervalo que podamos afirmar con probabilidad 95% que contiene la
 
 ## Definición de intervalo de confianza
 <l class="definition">Intervalo de confianza. </l>
-Dado un parámetro $\theta$, el intervalo $]A,B[$ es un intervalo de confianza del
-$(1-\alpha)\cdot 100$% para al parámetro $\theta$ cuando
+Dado un parámetro $\theta$, el intervalo $(A,B)$ es un intervalo de confianza del $(1-\alpha)\cdot 100$% para al parámetro $\theta$ cuando
 $$
 P(A<\theta<B)=1-\alpha.
 $$
-El valor $(1-\alpha)\cdot 100$% (o contiene solo el $1-\alpha$) recibe el nombre de nivel de confianza.
+El valor $(1-\alpha)\cdot 100$% (o contiene solo el $1-\alpha$) recibe el nombre de **nivel de confianza**.
 
-El valor $\alpha$ recibe el nombre de nivel de significación.
+El valor $\alpha$ recibe el nombre de **nivel de significación**.
  
 ## Definición de intervalo de confianza
 
@@ -70,7 +69,7 @@ $$
 knitr::include_graphics("Images/interval1.png",dpi=400)
 ```
 </div>
-Por ejemplo, para buscar  un intervalo de confianza  $]A,B[$ del $95$%, buscaremos $A,B$ de manera que 
+Por ejemplo, para buscar  un intervalo de confianza  $(A,B)$ del $95$%, buscaremos valores $A,B$ de manera que 
 $$
 P(\theta<A)=0.025\quad\mbox{ y }\quad P(\theta>B)=0.025.
 $$
@@ -83,7 +82,7 @@ Sea $X$ una v.a. normal con media poblacional $\mu$ desconocida y desviación t�
 
 Sea $X_1,\ldots,X_n$ una m.a.s. de $X$, con media muestral $\overline{X}$
 
-Queremos determinar un intervalo de confianza para a $\mu$ con un cierto nivel de confianza (digamos, 97.5%, $\alpha =0.025$):  un intervalo $]A,B[$ tal que
+Queremos determinar un intervalo de confianza para a $\mu$ con un cierto nivel de confianza (digamos, 97.5%, $\alpha =0.025$):  un intervalo $(A,B)$ tal que
 $$
 P(A<\mu<B)=1-\alpha = 0.975
 $$
@@ -124,8 +123,7 @@ $$
 
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida
-Por  lo tanto, la probabilidad que la media  $\mu$ de $X$ 
-se encuentre dentro del intervalo
+Por  lo tanto, la probabilidad que la media poblacional $\mu$ de $X$ se encuentre dentro del intervalo
 $$
 \left(\overline{X} -`r round(qnorm(1.975/2),4)` \frac{\sigma}{\sqrt{n}},
 \overline{X}+ `r round(qnorm(1.975/2),4)`\frac{\sigma}{\sqrt{n}}
@@ -141,7 +139,7 @@ Como estimador: un 97.5% de las veces  que tomemos una muestra de tamaño $n$ de
 
 Para una muestra concreta: la probabilidad de que, si una media $\mu$ poblacional ha producido esta muestra, entonces esté en este intervalo concreto, es del 97.5%.
 
-En ocasiones lo entenderemos como: "La probabilidad de que $\mu$ esté en este intervalo es del 97.5%"
+En ocasiones lo entenderemos como: *La probabilidad de que $\mu$ esté en este intervalo es del 97.5%.*
 
 Pero la frase anterior es mentira (*es un abuso de lenguaje*): La $\mu$ concreta es un valor fijo, por lo  tanto  que pertenezca o no a este intervalo concreto tiene probabilidad 1 (si pertenece) y 0 (si no pertenece).
 
@@ -182,7 +180,7 @@ La tabla siguiente muestra los cuantiles más usados:
 
 ## Simulación de intervalos de confianza
 <div class="example">
-**Simulación**
+**Ejemplo**
 
 A continuación vamos a simular el funcionamiento de un intervalo de confianza para una distribución normal.
 </div>
@@ -254,8 +252,8 @@ De media, un $\alpha\cdot 100$% de las veces, un intervalo de confianza  del $(1
 Por ejemplo, de media, un 5% de las veces un intervalo de confianza  del 95% no contendrá el valor real del parámetro.
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida. Ejemplo
-<div class="example">
-**Ejemplo**
+<div class="exercise">
+**Ejercicio**
 
 Tomamos una m.a.s. de  tamaño  $n=16$ de una v.a. normal con $\sigma=4$ y $\mu$ desconocida. La media   de la m.a.s. es
 $\overline{x}=20$.
@@ -270,7 +268,7 @@ $$
 \left(\overline{x}-z_{1-\frac{\alpha}{2}}\cdot\frac{\sigma}{\sqrt{n}},\overline{x}+z_{1-\frac{\alpha}{2}}\cdot\frac{\sigma}{\sqrt{n}}\right)= \left( 20-`r round(qnorm(1-0.025/2),3)`\cdot \frac{4}{\sqrt{16}} ,
 20+`r round(qnorm(1-0.025/2),3)`\cdot \frac{4}{\sqrt{16}}
 \right)
-=]`r round(20-qnorm(1-0.025/2)*4/sqrt(16),3)`,`r round(20+qnorm(1-0.025/2)*4/sqrt(16),3)`[.
+=(`r round(20-qnorm(1-0.025/2)*4/sqrt(16),3)`,`r round(20+qnorm(1-0.025/2)*4/sqrt(16),3)`).
 $$
 
 La probabilidad de que, si una media $\mu$ poblacional ha producido esta muestra, entonces esté en este intervalo concreto, es del 97.5%.
@@ -309,7 +307,7 @@ Obtenemos que el intervalo de confianza  del 90% es
 
 $$
 `r mean(temperatura)`\pm `r round(qnorm(0.95),3)`\cdot\frac{`r round(sqrt(1.44),4)`}{\sqrt{40}}=
-]`r round(mean(temperatura)-qnorm(0.95)*sqrt(1.44)/sqrt(40),3)` , `r round(mean(temperatura)+qnorm(0.95)*sqrt(1.44)/sqrt(40),3)`[.
+(`r round(mean(temperatura)-qnorm(0.95)*sqrt(1.44)/sqrt(40),3)` , `r round(mean(temperatura)+qnorm(0.95)*sqrt(1.44)/sqrt(40),3)`).
 $$
 
 </div>
@@ -330,7 +328,8 @@ z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}.
 $$
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida. Amplitud
-Propiedades:
+
+<l class="prop">Propiedades</l>
 
 * La **amplitud** del intervalo de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida, $n$ y $\alpha$ fijos **crece**, si **$\sigma$ crece**.
 
@@ -353,7 +352,7 @@ $$
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ conocida. Ejemplo
 <div class="example">
-**Ejemplo anterior del sensor**
+**Ejemplo**
 
 Recordemos  que las medidas de nuestro sensor  de temperatura seguían una distribución normal con varianza poblacional conocida $\sigma^2=1.44$,  $\sigma=1.2$.
 
