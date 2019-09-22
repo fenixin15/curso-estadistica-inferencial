@@ -1,6 +1,6 @@
 ---
 title: "Tema 1 - Probabilidad"
-author: "Juan Gabriel Gomila, Arnau Mir y Ricardo Alberich"
+author: " Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir"
 date: ''
 output:
   ioslides_presentation:
