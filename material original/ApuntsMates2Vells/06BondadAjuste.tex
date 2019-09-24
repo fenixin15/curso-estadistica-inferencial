@@ -1,0 +1,613 @@
+
+
+
+%\part{Pruebas no paramétricas}
+%\frame{\titlepage}
+
+%\section[Índice]{Distribuciones en las muestras y descripción de datos.}
+\chapter{Pruebas no paramétricas. Bondad ajuste}
+%\frame{\tableofcontents}
+
+%\renewcommand{\thepart}{2} 
+%\part{Pruebas no paramétricas. Bondad de ajuste}
+
+%%%%Aquí esta la seccion de pruebas de bondad de ajuste
+\section{Pruebas de bondad de ajuste}
+
+\begin{frame}
+\frametitle{Introducción}
+\begin{itemize}
+\item A lo largo de este tema se han tratado contrastes estadísticos de hipótesis sencillos para distintos parámetros y en muchos casos se ha supuesto que la población era normal. Consideraremos ahora una prueba para determinar si una población tiene una determinada distribución teórica.
+\item La prueba se basará en la diferencia entre las frecuencias observadas en la muestra y las frecuencias que se obtendrían
+con la distribución hipotética.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+Veamos el ejemplo más sencillo.
+\begin{itemize}
+\item  Queremos saber si un dado está  bien balanceado, es decir si la distribución teórica del dado es $P_{X}(x)=\frac{1}{6}$ para $x=1,2,3,4,5,6$.
+\item Supongamos que lanzamos el dado 120 veces y anotamos cada uno de los resultados. En teoría si el dado no está cargado esperaríamos obtener 20 veces cada resultado.
+\item  Los resultados de la muestra se dan en la siguiente tabla:
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+       \begin{center}
+       \begin{tabular}{|c||cccccc|}\cline{2-7}
+     \multicolumn{1}{c}{} & \multicolumn{6}{|c|}{Valor obtenido en el lanz.}\\
+           \hline
+         Frecuencia   &1 & 2 & 3 & 4 & 5 & 6\\
+           \hline
+          Observada ($o_{i}$) & 20 & 22 & 17 & 18 & 19 & 24\\
+          Esperada  ($e_{i}$) si $H_{0}$ es cierta& 20 & 20 & 20 & 20 & 20 & 20\\
+          % si $H_{0}$ es cierta & &  & & & &\\
+           \hline
+           \end{tabular}
+       \end{center}
+           Tenemos que ``medir'' de alguna manera la ``distancia''
+           entre los resultados observados y los teóricos.
+
+           Como vemos en la tabla tenemos que comparar $k= 6$ valores.
+\end{frame}
+
+\subsection{Un contraste de bondad de ajuste: distribución totalmente conocida}
+
+
+\begin{frame}
+\frametitle{Un contraste de bondad de ajuste: distribución totalmente conocida}
+\begin{itemize}
+\item Supongamos que tenemos $n$ ($n\geq 25$ o $30$) observaciones de las que se calculan sus frecuencias observadas en $k$ \emph{clases} (que debe ser $k\geq 5$).
+\item  Queremos contrastar si los datos siguen una distribución totalmente conocida, es decir conocemos la forma de la distribución de contraste y todos sus parámetros.
+\item  Denotemos por $O_i$ las frecuencias absolutas observadas y por $e_i$ las frecuencias esperadas condicionadas a  que $H_0:$. \item Las frecuencias esperadas son $e_i= n\cdot p_i$ donde $p_i=P(\mbox{Clase }i/H_0)$. Los datos tienen esta distribución. Las hipótesis del contraste son:
+
+           $$\left\{\begin{array}{l}
+           H_{0}: \mbox{La población tiene esta distribución }\\
+           H_{1}: \mbox{La población tiene otra distribución}
+           \end{array}
+           \right.
+           $$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Entonces el estadístico de contraste es:
+ $$\chi_{k-1}^2=\sum_{i=1}^k \frac{\left(o_{i}-e_{i}\right)^2}{e_{i}}$$
+
+\item Este estadśitico tiene aproximadamente una distribución $\chi^2$ con $k-1$ g.l si todas las \textbf{frecuencias  absolutas esperadas superan  5}.
+
+\item En  contrario se pueden reagrupar los  intervalos que no cumplan la condición con sus adyacentes. 
+Reduciéndose los grados de libertad
+\item   La regla de rechazo al nivel de confianza $\alpha$ es:
+
+           Rechazar $H_{0}$ si:
+
+          $$\chi^2_{k-1}>\chi_{k-1,1-\alpha}^2$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo.} 
+¿Podemos afirmar al nivel de significación
+   $\alpha=0.05$ que el dado del ejemplo anterior está bien balanceado (y por lo tanto
+   conocemos su distribución y sus parámetros)
+   a la vista de la muestra?
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}:
+Bajo estas condiciones conocemos completamente la distribución teórica, $k=6$ y las frecuencia absolutas teóricas son superiores a $5$ entonces:
+
+       $\chi^2_{k-1}=\chi^2_{5}=\frac{(20-20)^2}{20}+\frac{(22-20)^2}{20}+
+       \frac{(17-20)^2}{20}+
+  \frac{(18-20)^2}{20}+\frac{(19-20)^2}{20}+\frac{(24-20)^2}{20}=1.7\not>
+       \chi_{5,1-\alpha}^2=\chi_{5,1-0.05}^2=11.071 .$
+
+       \textbf{No podemos rechazar} $H_{0}$ al nivel de significación
+       $\alpha=0.05$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo.}
+Un ecólogo quiere estudiar el aumento de temperatura del agua  a dos kilométros  de los vertidos de agua  autorizados que realiza una planta industrial. El ecólogo afirma que el aumento de tempratura después de los vertidos no sigue una distribución normal. Lo que podría indicar que la empresa vierte en ocasiones agua  demasiado caliente. La empresa afirma que la media del aumento de la tempratura es de 3.5 décimas de grado centígrado y  con una desviación típica  de 0.7 y que sigue una ley normal. El ecólogo toma muestra aleatoria de aumento de las temperaturas obteniéndose los siguientes resultados:
+\end{frame}
+
+\begin{frame}
+\begin{center}
+      \begin{tabular}{|c|c|}
+          \hline
+          Límites de la clase &$o_{i}$
+          \\
+          \hline
+      1.45 - -  1.95 &   2 \\
+      1.95 - -  2.45 &   1 \\
+      2.45 - -  2.95 &   4 \\
+      2.95 - -  3.45 &  15 \\
+      3.45 - -  3.95 &  10 \\
+      3.95 - -  4.45 &   5 \\
+      4.45 - -  4.95 &   3 \\
+      \hline
+          \end{tabular}
+\end{center}
+
+          ¿A la vista de estos datos podemos afirmar que la información sobre la distribución de los datos de aumento de la temperatura  que aporata  la planta industrial es cierta al nivel de significación del 5\%?
+          
+
+   \end{frame}
+
+\begin{frame}
+\frametitle{Solución}:
+El contraste es:
+
+$$\left\{\begin{array}{l}
+H_{0}:\mbox{ La distribución de  duración es normal}\\
+\qquad\qquad\mbox{con }
+\mu=3.5 \mbox{ y }  \sigma=0.7\\
+H_{1}: \mbox{La distribución es  cualquier otra}
+\end{array}
+\right.$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item Vamos ha realizar el contraste de bondad de ajuste, para ello tenemos que calcular las frecuencias esperadas. La muestra es de tamaño $n=40$. 
+\item Sea $X$=el incrrmento de temperatura en una obsrvación pila escogida al azar.
+\item  Entonces:
+$P(1.95\leq X\leq 2.45/H_{0})=P(1.95\leq X\leq 2.45/X \mbox{sigue una distribución normal con}\mu=3.5 \mbox{ y } \sigma=0.7)=$ 
+         
+$P(\frac{1.95-3.5}{0.7}\leq Z<\frac{2.45-3.5}{0.7})=F_{Z}(-1.5)-F_{Z}(-2.21)\approx (1-0.9332)-(1-0.9864)=0.0532.$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item Entonces la frecuencia esperada entre 40 pilas para el intervalo  1.95 - - 2.45 es $e_{1}=(40)\cdot (0.0532)=2.128\approx 2.1$ (nota: en este último cálculo se suele aproximar al primer decimal).
+\item De forma análoga se calculan los demás $e_{i}$ y se obtienen los siguientes resultados:
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+El resto de resultados se resumen en  la tabla siguiente:
+\begin{table}
+\centering
+\begin{tabular}{|c|rr|rr|}
+\hline
+Límites de la clase &\multicolumn{2}{c|}{$o_{i}$} &
+\multicolumn{2}{c|}{$e_{i}$}\\
+\hline
+menor que  1.95 &   2 &      &   0.5 &      \\
+1.95 - -  2.45 &   1 &      &   2.1 &      \\
+2.45 - -  2.95 &   4 &    7 &   5.9 &   8.5\\
+2.95 - -  3.45 &  15 &   15   &  10.3 &  10.3    \\
+3.45 - -  3.95 &  10 &   10   &  10.7 &   10.7   \\
+3.95 - -  4.45 &   5 &      &   7.0 &      \\
+mayor que 4.45 &   3 &    8 &   3.5 &  10.5\\
+\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item Donde se observa que las frecuencia esperadas de los dos primeros intervalos y el del último no superan 5. Así que agrupamos los tres primeros intervalos en uno y  los dos últimos también, de forma que las frecuencias esperadas y observadas quedan
+como en las segundas columnas.
+\item Entonces $k=4$ y el estadístico de contraste es
+          $$\chi_{k-1}^2=\chi_{3}^2=\frac{(7-8.5)^2}{8.5}+\frac{(15-10.3)^2}{10.3}+
+          \frac{(10-10.7)^2}{10.7}+\frac{(8-10.5)^2}{10.5}=3.05$$
+\item Ahora  tenemos que  $\chi_{k-1}^2=3.05\not>\chi^2_{k-1,1-\alpha}=\chi^2_{3,1-0.05}=7.815$ no hay razón para rechazar la hipótesis nula al nivel de significación $\alpha=0.05$.
+\item \textbf{Nota:} Como se observa en la tabla el primer y último intervalo se consideran con toda la cola de
+la probabilidad.
+\end{itemize}
+\end{frame}
+
+\subsection{Un contraste de bondad de ajuste: algún parámetro
+           poblacional desconocido}
+
+\begin{frame}
+ \frametitle{Un contraste de bondad de ajuste: algún parámetro poblacional desconocido}
+\begin{itemize}
+\item  SUpongamos que queremos contrastar si una población tiene una distribución por ejemplo normal,  Poisson.... 
+\item Pero que no conocemos, o podemos determinar, los parámetros de estas distribuciones.
+\item Por ejemplo en la normal no conocemos $\mu$ o $\sigma$ o ambas.
+\item El contraste que tenemos que realizar es similar al anterior pero el número de grados del libertad del estadístico de contraste será $k-m-1$ donde $k$ \underline{es el número de  categorías} y $m$ \underline{es el número de parámetros que se estiman}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo.}
+Durante la segunda guerra mundial se dividió el mapa de Londres en cuadrículas de 0.25 $Km^2$ y se contó el número de bombas caídas en cada cuadrícula durante un bombardeo  alemán. Los resultados fueron:
+\begin{center}
+           \begin{tabular}{|l|rrrrrr|}
+           \hline
+           num. impactos  & 0 & 1 & 2 & 3 & 4 & 5 \\
+           en la cuad.($x_{i}$)& & & & & & \\
+           \hline
+           frecuencia ($o_{i}$) & 229 & 211 & 93 & 35 & 7 & 1 \\
+           \hline
+           \end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+  Si realmente  los bombardeos no seguían un plan prefijado la distribución del número de bombas en cada cuadrícula tendría que ser una $Po(\lambda)$. Contrastar esta hipótesis al nivel de significación $\alpha=0.05$.
+
+\end{frame}
+
+\begin{frame}  
+\textbf{Solución}:
+\begin{itemize}
+\item Sabemos el tipo de distribución pero no conocemos el parámetro $\lambda$ lo tendremos que estimar por
+           $\lambda=\frac{\sum_{i=0}^{5} x_{i } o_{i}}{\sum_{i=0}^5
+           o_{i}}=\frac{535}{576}=0.929$
+
+\item Calculemos las frecuencias esperadas $e_{i}$ cuando la  distribución de $X$=número de bombas por cuadrícula es una $Po(0.929)$, como sabemos que  $$P_{X}(x_{i})=P(X=x_{i})=\frac{{0.929}^{x_{i}}}{x_{i}!} e^{-0.929}=p_{i}$$
+por lo tanto
+\end{itemize}
+\end{frame}
+
+\begin{frame}     
+\begin{center}
+ \begin{tabular}{|l|cccccc|}
+           \hline
+           $x_{i}$ & 0 & 1 & 2 & 3 & 4 & 5$\geq$  \\
+           \hline
+           $p_{i}$&  .395  & .367  & .17 & .053  & 0.012  &
+           0.003 \\
+           \hline
+           $e_{i}=$ & & & & & &  \\
+            $p_{i}\cdot 576$ & 227.5 &  211.4   &  97.9   & 30.5  & 6.9& 1.7\\
+           \hline
+    \end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+Tendremos que agrupar las dos últimas columnas. En resumen:
+
+\begin{center}
+           \begin{tabular}{|c|ccccc|}
+               \hline
+               $x_{i}$ & 0 & 1 & 2 & 3 & 4 $\geq$ \\
+               \hline
+               $o_{i}$ & 229 & 211 & 93 &35 & 8\\
+               \hline
+               $e_{i}$ & 227.5 &  211.4   &  97.9 & 30.5 & 8.6\\ \hline
+               \end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item  Entonces tenemos que el número de clases es $k=5$ y  el número  de parámetros estimados es $m=1$.
+\item  Entonces $\chi^2_{k-m-1}=\chi^2_{3}=  0.961692$ y como $\chi^2_{3,1-0.05}=7.815$ por lo tanto  $0.961692\not>7.815$.
+\item  No podemos rechazar la hipótesis nula con este nivel de significación.
+\item  Por lo tanto podemos afirmar que el bombardeo era aleatorio y que no estaba dirigido a objetivos militares.
+\end{itemize}           
+\end{frame}
+
+\subsection{Prueba de bondad de ajuste de Kolgomorov-Smirnov (K-S)}
+
+\begin{frame}        
+\frametitle{Prueba de bondad de ajuste de Kolgomorov-Smirnov (K-S)}
+ El contrate de Kolgomorov-Smirnov  es conocido  con el acrónimo  K-S.
+ Dada una ley de \textbf{distribución continua} $F$ el test K-S contrata las siguientes hipótesis:
+           
+           $$\left\{ \begin {array}{ll}
+           H_0: \mbox{La distribución de la muestra sigue la ley de distribución } F(x)\\
+           H_1: \mbox{no sigue esa ley de distribución}\end{array}\right.$$
+           
+\end{frame}
+
+\begin{frame}
+\frametitle{Test KS}
+\begin{itemize}
+\item   En principio la ley de distribución $F$ puede ser cualquier \textbf{distribución continua}: normal, exponencial, uniforme, etc.
+\item  Aunque en casos particulares, por ejemplo normalidad existen mejora de este test (por ejemplo para normalidad para algunos tamaños muestrales se debe aplicar el test de Kolgomorov-Smirnov-Lilliefors\footnote{Ver: Daniel Peña,Sánchez Rivera. "\emph{Estadísitica Modelos y métodos. 1 Fundamentos }". Segunda Edición. Ed.  Alianza Universidad Textos. 1991. Pág.369})
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Test K-S}
+\begin{itemize}
+\item Este contraste parte de una muestra aleatoria de un cierta variable $X$: $x_1,x_2,\ldots,x_n$. A la muestra ordenada la denotaremos por $x_{(1)}\leq x_{(2)},\ldots,\leq x_{(n)}$.           
+\item Entonces podemos definir la función de distribución  muestral (empírica) de la variable $X$ para su muestra de tamaño $n$ a la que denotaremos por $F_{n}$.
+\item Donde
+          $$F_n(X)=\left\{\begin{array}{ll}
+ 0 &\mbox{ si } x< x_{(1)}  \\
+  \frac{k}{n}&\mbox{ si }   x_{(k)}\leq  x \leq x_{(k+1)}\\
+1 & \mbox{ si } x    \geq x_{n}  
+\end{array}\right.$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Definimos la máxima discrepancia para cada observación como:
+
+$$D_n(x_h)=\mbox{máx}\{\left| F_{n}(x_{h-1})-F(x_h)\right|, \left| F_{n}(x_{h})-F(x_h)\right|\}$$
+           
+\item Ahora definimos el estadístico $D_n$ como la mayor de las discrepancias:
+          
+$$D_n=\mbox{máx}_{h=1,\ldots, n}D_n(x_h)$$ 
+
+\item La regla de decisión es rechazar $H_0$ al nivel $\alpha$ si 
+
+$$D_n\geq D_{n,\alpha}$$
+
+\item  Donde $D_{n,\alpha}$ es el cuantil de la distribución del test de Kolgomorv- Smirnov que podréis encontrar en las tablas de campus extens.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+Consideremos una serie de tiempos de vida  de un cierto componente electrónico:       
+           $$16,8,9,12,6,11,20,7,2,24$$
+Vamos a contrastar si proviene de una distribución exponencial. Estimaremos primero el parámetro $\lambda$ de la exponencial por la media muestral $\overline{x}=11.5$
+
+$$\left\{\begin{array}{ll}H_0: \mbox{los datos provienen de una } exp(\frac{1}{11.5})\\
+H_1: \mbox{siguen otra distribución}\end{array}\right.
+$$
+\end{frame}
+
+\begin{frame}      
+\frametitle{Ejemplo}
+           La muestra ordenada  y los cálculos necesarios se muestran en la siguiente tabla:
+           
+              %$$16,8,9,12,6,11,20,7,2,24$$
+              
+%               2 & 6 & 7 & 8 & 9 &11 12 16 20 24
+%               [1] 0.1596300 0.4065125 0.4559399 0.5012509 0.5427883 0.6157730 0.6477726
+%  [8] 0.7512494 0.8243269 0.8759359
+
+%%%KStabla
+ 
+\begin{table}
+\centering
+\scalebox{0.70}[0.7]{
+         \begin{tabular}{lllllll}
+h & $x_h$ & $F_n(x_h)$ & $|F(x_h)=1- e ^{-x/11.5}|$& $|F_n(x_{h-1})-F(x_h)| $& $|F_n(x_{h})-F(x_h)| $& $\mbox{máx}$ \\\hline
+           1 & 2  & 0.1 & 0.16 & 0.16 & 0.06 & 0.16\\ 
+           2 & 6  & 0.2 & 0.41 & 0.31 & 0.21 & 0.31\\
+           3 & 7  & 0.3 & 0.46 & 0.26 & 0.16 & 0.26\\
+           4 & 8   & 0.4 & 0.50 & 0.2 & 0.1 & 0.2\\
+           5 & 9  & 0.5  & 0.54 & 0.14 & 0.04 & 0.14\\
+           6 & 11 & 0.6 & 0.62 & 0.12 & 0.02 &0.12\\
+           7 & 12 & 0.7 & 0.65&0.05& 0.15& 0.15\\
+           8 & 16 & 0.8 & 0.75& 0.05& 0.05 & 0.05\\
+           9 & 20 & 0.9 & 0.82&0.02 & 0.08 &  0.08\\
+           10 & 24 & 1 & 0.88& 0.02 & 0.12 & 0.12\\
+           & & & & &  &$ D_n=0.31$\\
+           \end{tabular}
+}
+\end{table}           
+\end{frame}
+
+\begin{frame}[fragile]     
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Consultando la tablas del test K-S se tiene que $D_{10,0.01}=0.490$ y $D_{10}=0.31 \not>  0.490$, el estadístico no está en la región de rechazo y por lo tanto no podemos rechazar que
+estos datos se ajusten a esa exponencial al nivel $\alpha=0.01$. 
+\item El código en \texttt{R} para este ejemplo es:
+
+\begin{Schunk}
+\begin{Sinput}
+> ks.test(c(16, 8, 9, 12, 6, 11, 20, 7, 
++     2, 24), "pexp", 1/11.5)
+\end{Sinput}
+\begin{Soutput}
+	One-sample Kolmogorov-Smirnov test
+
+data:  c(16, 8, 9, 12, 6, 11, 20, 7, 2, 24) 
+D = 0.3065, p-value = 0.2486
+alternative hypothesis: two-sided 
+\end{Soutput}
+\end{Schunk}
+
+\item \textbf{Notemos} que lo que la información que se nos da es el $p$-valor del test.
+\end{itemize}
+\end{frame}
+
+    
+
+%%%%%%%%%%%%%%%%%%aqui
+
+%     
+%            \textbf{Un contraste  de  normalidad}
+
+%      Se puede aplicar el contraste de bondad de ajuste para saber si
+%      una población sigue una distribución normal, considerando en su
+%      caso los aparámetros que estimemos para variar lods grados de
+%      libertad del estadístico de contraste.
+
+%      Existen contrastes más potentes (con menor Error de Tipo II).
+
+%      Uno de ellos está basado en la simetría y el apuntamiento
+%      de la distribución normal.
+
+%      \underline{Coeficiente de asimetría}
+%      Definimos el coeficiente de asimetría de una muestra
+%      $x_{1},\ldots,x_{n}$ como
+
+%      $\mbox{coeficiente de asimetría}=\frac{\frac{\sum_{i=1}^{n}
+%      \left(x_{i}-\overline{X}\right)^3}{n}}{S^3}$
+
+%      Donde el numerador recibe el nombre de momento de orden 3 de la
+%      muestra.
+
+%       Definimos el coeficiente de apuntamiento o curtosis de una muestra
+%      $x_{1},\ldots,x_{n}$ como
+
+%      $\mbox{coeficiente de apuntamiento}=\frac{\frac{\sum_{i=1}^{n}
+%      (x_{i}-\overline{X})^4}{n}}{S^4}$
+
+%      Donde elnumerador recibe el nombre de momento de orden 4 de la
+%      muestra.
+
+%      La curtosis nos da una idea de la masa de probabilidad que tienen
+%      las ``\emph{colas}'' de la distribución.
+
+
+%      Si la distribución es normal estándar entonces el coeficiente de
+%      asimetría poblacional vale 0 y la curtosis 3 ( algunaos auntaores
+%      definen la curtosis como $\frac{\frac{\sum_{i=1}^{n}
+%       (x_{i}-\overline{X})^4}{n}}{S^4}-3$ para que así en el caso
+%       que la distribución sea normal estándar la curtosis definida de
+%       esta forma valdría 0)
+
+%      
+%       \textbf{Estadístico de \emph{Bowman-Seldon}}
+
+%   El estadístico de \emph{Bowman-Seldon} es:
+
+%   $B=n\left(\frac{(\mbox{Coefiente de
+%   asimetría})^2}{6}+\frac{(\mbox{Curtosis}-3)^2}{24}\right)$
+
+%   Que para un tamaño muestral suficientemente grande siqgue
+%   aproximadamente una distribución muestral $\chi^2$ con 2 g.l.
+
+%   Criterio de rechado para  
+%   $\left\{\begin{array}{l}
+%   H_{0}:\mbox{La distribución poblacional es
+%   normal}\\
+%   H_{1}:\mbox{La distribución poblacional no es
+%   normal}\end{array}\right. $
+
+%   es
+
+%   Rechazar $H_{0}$ al nivel de significación $\alpha$ si 
+%   $B>\chi_{2,\alpha}^2$
+
+%       \frametitle{Ejemplo.}
+%       Durante 268 días  escogidos al azar se observaron los beneficios de
+%       un contrato de futuro de cerdos y se observó un coeficiente de
+%       asimetría de $0.04033$ y una curtosis $3.15553$ en la muestra. ?`Es
+%       la distribución de os beneficios normal?
+%       \textbf{Solución}
+%       El valor del estadístico de \emph{Bowman-Shelton} es:
+%       $B=n\left(\frac{(\mbox{0.04033})^2}{6}+
+%       \frac{(\mbox{3.15553}-3)^2}{24}\right)=0.36$
+
+%   Si tomamos un nivel $\alpha=0.1$ tenemos que $\chi_{2,0.1}=4.61$
+%   y como $B=0.36\not>4.16$ no podemos rechazar $H_{0}$ a este nivelk
+%   de significación.
+
+%       
+%    
+
+%    
+%       \textbf{Contraste de independencia en tablas de contingencia}
+
+%       Tenemos una tabla de contingencia que nos da las frecuencias
+%       absolutas conjuntas sobre dos características (v.a.) de una
+%       pobalción. Es muy interesante preguntase por si estas dos
+%       caracter«siticas son independientes estadísticamente o  no lo son.
+%       Esto nos dará información sobre si es interesante o no leer las
+%       frecuencia conjuntas de las variables).
+
+%       Para decidir  sobre la hipótesis de independdencia se define un
+%       estadístico llamado coeficiente de asociación.
+
+%       \textbf{Coeficiente de asociación}
+%       Consideremos dos características $X$ e $Y$ de una pobalción que
+%       pueden tomar los valores $X_{1},\ldots,X_{c}$ y $Y_{1},\ldots,Y_{r}$
+%       La tabla siguiente representa los valores de las frecuencias
+%       absolutas conjuntas obtenidas en una muestra aleatoria de
+%       tanaño $n$
+
+%       \begin{tabular}{c|c|cccccc|c|}
+%   & & \multicolumn{7}{c}{$Y$}\\
+%   \cline{3-8}
+%   & & $Y_{1}$ & $Y_{2}$ &$\ldots$ &$Y_{j}$ & $\ldots$ &
+%   \multicolumn{2}{|c}{$Y_{c}$}&\\
+%   \cline{2-8}
+%   &$X_{1}$ & $n_{11}$&  $n_{12}$ &$\ldots$ & $n_{1j}$ & $\ldots$ &
+%   $n_{1c}$ & $n_{1\cdot}$\\
+%       \cline{2-8}
+%           &$X_{2}$ & $n_{21}$&  $n_{22}$ &$\ldots$ & $n_{2j}$ & $\ldots$ &
+%   $n_{2c}$ & $n_{2\cdot}$\\
+%       \cline{2-8}
+%           &$\ldots$ & $\ldots$ &  $\ldots$  &$\ldots$ & $\ldots$  & $\ldots$ &
+% $\ldots$ & $\ldots$ \\
+%   \cline{2-8}
+%       $X$ &$X_{i}$ & $n_{i1}$&  $n_{i2}$ &$\ldots$ & $n_{ij}$ & $\ldots$ &
+%   $n_{ic}$ & $n_{i\cdot}$\\
+%       \cline{2-8}
+%           &$\ldots$ & $\ldots$ &  $\ldots$  &$\ldots$ & $\ldots $ & $\ldots$ &
+% $\ldots$ & $\ldots$ \\
+% \cline{2-8}
+%           &$X_{r}$ & $n_{r1}$&  $n_{r2}$ &\ldots$ & $n_{rj}$ & $\ldots$ &
+%   $n_{rc}$ & $n_{r\cdot}$\\
+%   \cline{3-8}
+%       \multicolumn{2}{c|}{} & $n_{\dot 1}$&  $n_{\dot 2}$ &$\ldots$ &
+%           $n_{\dot j}$ & $\ldots$ &
+%   $n_{\dot c}$ & $n_{\dot \cdot}$\\
+%   \cline{3-8}
+%   \end{tabular}
+
+%   Entonces se define el coeficiente de asociación (coeficiente de
+%   contingencia) de la tabla de contingencia anterior como:
+
+%   $\chi^2=\sum_{i=1}^{r}\sum_{j=1}^{c}\frac{\left(n_{ij}-
+%   \frac{n_{i\dot}\n_{\dot j}}{n}\right)^2}
+%   {\frac{n_{i\dot}\n_{\dot j}}{n}}$
+
+%   Donde $\frac{n_{i\dot}\n_{\dot j}}{n}$ son las frecuencias absolutas
+%   conjuntas si las var¡ables son independientes ( frecuencias teórias en
+%   caso de independencia).
+
+%   Que tiene  distribución aproximadamente $\chi^2$ con $(c-1) (r -1)$ g.l. si $n$ es
+%   sufienetemente grande y cada frecuencia absoluta conjunta bajo $H_{0}$  es  $\frac{n_{\cdot i}
+%   n_{j\cdot}}{n}$ es mayor que $0.05$ ( el 5\% del tamaño de la muestra).
+
+%    
+
+%    
+%       \frametitle{Ejemplo.}
+%       Una empresa de marketing quiere saber si la distribución del número
+%       de hijos por familia ($Y$) ( divididos en las categorías`` Dos o menos'',
+%       `` Entre tres
+%       y cinco'' , ``Entre seis y ocho'', ``Nueve o más'') es independiente
+%       de las regiones ``Norte'',
+%       ``Centro'' y ``Sur'' de España ($X$). Para ello toma  un muetra de 200
+%       familias de forma que las frecuencias conjuntas obtenidas quedan
+%       resumidas en la siguiente tabla de contingencia:
+
+
+%       \begin{tabular}{c|c|cccc|c|}
+%   & & \multicolumn{4}{c}{$Y$}\\
+%   \cline{2-7}
+%   & & $\leq 2$ & 3 a 5 & 6 a 8 &  \multicolumn{2}{c|}{$\geq 9$} \\
+%   \cline{2-7}
+%       &Norte &  5 (10) & 8 (11) & 15 (19) &  22 (10) & 50 \\
+%       \cline{2-7}
+%   $X$&Centro & 20 (20) &26 (22) &46 (38) & 8 (20) & 100\\
+
+%   \cline{2-9}
+%           &Sur  & 15 (10)&  10 (11) & 15 (19) & 10 (10) & 50 \\
+%   \cline{2-7}
+%           &40& 44 &  76 &
+%           40  & 200 \\
+%   \cline{3-9}
+%   \end{tabular}
+%   
+%    
+
+%   ?`Podemos afirmar al nivel de significión $\alpha=0.05$ que el
+%   número de hijos en las familias es independiente de la zona?
+%    
+%    
+%       \textbf{Solución:}
+%       En caso de independencia la frecuencia absoluta de ``Dos o menos
+%       hijos'' y ``Norte'' ser
+%  
+% 
+% 
+% \renewcommand{\thepart}{2}
+% \part{Inferencia estadística: estimación de parámetros.}

@@ -1,0 +1,193 @@
+\BOOKMARK [1][]{Outline1}{La estad\355stica y el m\351todo cient\355fico. Estad\355stica descriptiva}{}
+\BOOKMARK [2][]{Outline1.1}{Sobre la estad\355stica y el m\351todo cient\355fico}{Outline1}
+\BOOKMARK [3][]{Outline1.1.1.9}{La reproductibilidad en las investigaciones cient\355ficas}{Outline1.1}
+\BOOKMARK [3][]{Outline1.1.2.13}{An\341lisis Exploratorio de Datos}{Outline1.1}
+\BOOKMARK [2][]{Outline1.2}{Los datos}{Outline1}
+\BOOKMARK [3][]{Outline1.2.1.18}{Datos de tipo atributo o cualitativo}{Outline1.2}
+\BOOKMARK [3][]{Outline1.2.2.29}{Datos ordinales}{Outline1.2}
+\BOOKMARK [3][]{Outline1.2.3.39}{Datos cuantitativos}{Outline1.2}
+\BOOKMARK [2][]{Outline1.3}{Datos agrupados}{Outline1}
+\BOOKMARK [3][]{Outline1.3.1.77}{Descripci\363n gr\341fica datos agrupados}{Outline1.3}
+\BOOKMARK [3][]{Outline1.3.2.110}{Cambios de escala y de origen}{Outline1.3}
+\BOOKMARK [2][]{Outline1.4}{M\341s estad\355sticos}{Outline1}
+\BOOKMARK [3][]{Outline1.4.1.116}{Coeficiente de variaci\363n}{Outline1.4}
+\BOOKMARK [3][]{Outline1.4.2.126}{Medidas de simetr\355a}{Outline1.4}
+\BOOKMARK [3][]{Outline1.4.3.133}{Medidas de apuntamiento}{Outline1.4}
+\BOOKMARK [3][]{Outline1.4.4.141}{Cambios de escala y origen}{Outline1.4}
+\BOOKMARK [2][]{Outline1.5}{Variables multidimensionales}{Outline1}
+\BOOKMARK [3][]{Outline1.5.1.148}{Descripci\363n num\351rica: caso bidimensional}{Outline1.5}
+\BOOKMARK [3][]{Outline1.5.2.159}{Distribuciones marginales}{Outline1.5}
+\BOOKMARK [3][]{Outline1.5.3.165}{Distribuciones condicionadas}{Outline1.5}
+\BOOKMARK [3][]{Outline1.5.4.173}{Estad\355sticos descriptivos bidimensionales}{Outline1.5}
+\BOOKMARK [3][]{Outline1.5.5.179}{Independencia e incorrelaci\363n}{Outline1.5}
+\BOOKMARK [2][]{Outline1.6}{Asociaci\363n, concordancia y correlaci\363n}{Outline1}
+\BOOKMARK [3][]{Outline1.6.1.187}{Coeficientes de asociaci\363n}{Outline1.6}
+\BOOKMARK [3][]{Outline1.6.2.196}{Correlaci\363n lineal}{Outline1.6}
+\BOOKMARK [3][]{Outline1.6.3.203}{Correlaci\363n ordinal}{Outline1.6}
+\BOOKMARK [2][]{Outline1.7}{Ap\351ndice estad\355stica descriptiva}{Outline1}
+\BOOKMARK [3][]{Outline1.7.1.212}{Medias arm\363nica y geom\351trica}{Outline1.7}
+\BOOKMARK [3][]{Outline1.7.2.213}{Media general de orden m}{Outline1.7}
+\BOOKMARK [3][]{Outline1.7.3.214}{Moda para datos agrupados}{Outline1.7}
+\BOOKMARK [3][]{Outline1.7.4.218}{Desviaci\363n media}{Outline1.7}
+\BOOKMARK [3][]{Outline1.7.5.219}{Recorrido}{Outline1.7}
+\BOOKMARK [1][]{Outline2}{Modelos de probabibilidad. Variables aleatorias}{}
+\BOOKMARK [2][]{Outline2.8}{Variables aleatorias}{Outline2}
+\BOOKMARK [3][]{Outline2.8.1.225}{Funciones de distribuci\363n}{Outline2.8}
+\BOOKMARK [3][]{Outline2.8.2.230}{Cuantiles}{Outline2.8}
+\BOOKMARK [2][]{Outline2.9}{Variables aleatorias discretas}{Outline2}
+\BOOKMARK [3][]{Outline2.9.1.231}{Funci\363n probabilidad variables discretas}{Outline2.9}
+\BOOKMARK [3][]{Outline2.9.2.233}{Valor esperado y varianza para variables discretas}{Outline2.9}
+\BOOKMARK [2][]{Outline2.10}{Algunas distribuciones de probabilidad discretas}{Outline2}
+\BOOKMARK [3][]{Outline2.10.1.243}{Distribuci\363n Bernouilli}{Outline2.10}
+\BOOKMARK [3][]{Outline2.10.2.244}{Distribuci\363n Binomial}{Outline2.10}
+\BOOKMARK [3][]{Outline2.10.3.254}{Distribuci\363n Geom\351trica}{Outline2.10}
+\BOOKMARK [3][]{Outline2.10.4.263}{Distribuci\363n Binomial negativa}{Outline2.10}
+\BOOKMARK [3][]{Outline2.10.5.266}{Distribuci\363n Poisson}{Outline2.10}
+\BOOKMARK [3][]{Outline2.10.6.275}{Distribuci\363n Hipergeom\351trica}{Outline2.10}
+\BOOKMARK [2][]{Outline2.11}{Variables aleatorias continuas}{Outline2}
+\BOOKMARK [3][]{Outline2.11.1.284}{Variables absolutamente continuas}{Outline2.11}
+\BOOKMARK [3][]{Outline2.11.2.291}{Esperanza y varianza para variables aleatorias continuas}{Outline2.11}
+\BOOKMARK [2][]{Outline2.12}{Algunas modelos de distribuciones continuas}{Outline2}
+\BOOKMARK [3][]{Outline2.12.1.300}{Distribuci\363n uniforme en el intervalo \(a,b\)}{Outline2.12}
+\BOOKMARK [3][]{Outline2.12.2.305}{Distribuci\363n exponencial \(exponencial negativa\)}{Outline2.12}
+\BOOKMARK [3][]{Outline2.12.3.309}{Distibuci\363n normal o gaussiana}{Outline2.12}
+\BOOKMARK [1][]{Outline3}{Experimentos y muestras}{}
+\BOOKMARK [2][]{Outline3.13}{Muestreo Estad\355stico}{Outline3}
+\BOOKMARK [2][]{Outline3.14}{Conceptos b\341sicos}{Outline3}
+\BOOKMARK [3][]{Outline3.14.1.344}{Dise\361o de experimentos, t\351cnicas de muestreo}{Outline3.14}
+\BOOKMARK [3][]{Outline3.14.2.360}{Distribuci\363n de la media muestral}{Outline3.14}
+\BOOKMARK [3][]{Outline3.14.3.372}{Distribuci\363n de una proporci\363n muestral}{Outline3.14}
+\BOOKMARK [3][]{Outline3.14.4.379}{Distribuci\363n muestral de la varianza muestral}{Outline3.14}
+\BOOKMARK [1][]{Outline4}{La l\363gica estad\355stica. El dise\361o de experimentos y el contraste de hip\363tesis}{}
+\BOOKMARK [2][]{Outline4.15}{Introducci\363n}{Outline4}
+\BOOKMARK [2][]{Outline4.16}{Estimadores}{Outline4}
+\BOOKMARK [3][]{Outline4.16.1.393}{Estimadores insesgados}{Outline4.16}
+\BOOKMARK [3][]{Outline4.16.2.401}{M\351todos para calcular estimadores}{Outline4.16}
+\BOOKMARK [3][]{Outline4.16.3.402}{Estimadores m\341ximo veros\355miles}{Outline4.16}
+\BOOKMARK [2][]{Outline4.17}{Estimaci\363n por intervalos}{Outline4}
+\BOOKMARK [3][]{Outline4.17.1.410}{Intervalo de confianza para la media de una poblaci\363n normal: varianza poblacional conocida}{Outline4.17}
+\BOOKMARK [3][]{Outline4.17.2.424}{Intervalo de confianza para la media poblacional: tama\361os muestrales grandes}{Outline4.17}
+\BOOKMARK [3][]{Outline4.17.3.430}{Intervalo de confianza para la media de una poblaci\363n normal: varianza poblacional desconocida}{Outline4.17}
+\BOOKMARK [3][]{Outline4.17.4.434}{Intervalos de confianza para una proporci\363n}{Outline4.17}
+\BOOKMARK [3][]{Outline4.17.5.439}{Intervalo de confianza para la varianza de una poblaci\363n normal}{Outline4.17}
+\BOOKMARK [1][]{Outline5}{Inferencia estad\355stica. Contraste de hip\363tesis.}{}
+\BOOKMARK [2][]{Outline5.18}{Contraste de hip\363tesis}{Outline5}
+\BOOKMARK [3][]{Outline5.18.1.454}{Tipos de hip\363tesis sobre par\341metros}{Outline5.18}
+\BOOKMARK [3][]{Outline5.18.2.456}{Tipos de Error en un contraste}{Outline5.18}
+\BOOKMARK [3][]{Outline5.18.3.460}{Terminolog\355a}{Outline5.18}
+\BOOKMARK [3][]{Outline5.18.4.462}{\277Inocente o culpable?}{Outline5.18}
+\BOOKMARK [2][]{Outline5.19}{Ejemplo de un contraste de hip\363tesis para la media de una distribuci\363n normal: varianza poblacional conocida}{Outline5}
+\BOOKMARK [2][]{Outline5.20}{Terminolog\355a:}{Outline5}
+\BOOKMARK [2][]{Outline5.21}{Ejemplo tabla de un contraste para la media poblacional de una poblaci\363n normal con varianza poblacional conocida}{Outline5}
+\BOOKMARK [2][]{Outline5.22}{Valor cr\355tico o p-valor}{Outline5}
+\BOOKMARK [2][]{Outline5.23}{M\351todo de los seis pasos}{Outline5}
+\BOOKMARK [2][]{Outline5.24}{Reglas de decisi\363n para contraste de la media de una poblaci\363n normal: varianza poblacional conocida}{Outline5}
+\BOOKMARK [2][]{Outline5.25}{Contraste para la media: tama\361os muestrales grandes}{Outline5}
+\BOOKMARK [3][]{Outline5.25.1.483}{Reglas de decisi\363n para el contraste de una media: Tama\361os muestrales grandes}{Outline5.25}
+\BOOKMARK [3][]{Outline5.25.2.484}{Reglas de decisi\363n para el contraste de una media de una distribuci\363n normal: varianza poblacional desconocida}{Outline5.25}
+\BOOKMARK [2][]{Outline5.26}{Contraste para la varianza de una poblaci\363n normal.}{Outline5}
+\BOOKMARK [3][]{Outline5.26.1.492}{Resumen reglas de decisi\363n para el contraste de la varianza de una poblaci\363n normal}{Outline5.26}
+\BOOKMARK [2][]{Outline5.27}{Contrastes para la proporci\363n muestral: muestras grandes}{Outline5}
+\BOOKMARK [3][]{Outline5.27.1.499}{Reglas de decisi\363n para el contraste de una proporci\363n muestral: tama\361o muestral grande}{Outline5.27}
+\BOOKMARK [1][]{Outline6}{Inferencia estad\355stica. Contrastes de dos par\341metros.}{}
+\BOOKMARK [2][]{Outline6.28}{Introducci\363n}{Outline6}
+\BOOKMARK [2][]{Outline6.29}{Contraste de las medias de dos poblaciones normales o tama\361os muestrales grandes}{Outline6}
+\BOOKMARK [3][]{Outline6.29.1.507}{Contrastes de dos par\341metros muestras independientes}{Outline6.29}
+\BOOKMARK [2][]{Outline6.30}{Contraste de dos proporciones muestras independientes}{Outline6}
+\BOOKMARK [2][]{Outline6.31}{Contrastes dos par\341metros muestras emarejadas}{Outline6}
+\BOOKMARK [3][]{Outline6.31.1.528}{Contraste de dos media con muestras emparejadas o dependientes}{Outline6.31}
+\BOOKMARK [3][]{Outline6.31.2.532}{Contraste de dos proporciones muestras emparejadas}{Outline6.31}
+\BOOKMARK [2][]{Outline6.32}{Comparaci\363n de dos varianzas muestras independientes}{Outline6}
+\BOOKMARK [2][]{Outline6.33}{Introducci\363n}{Outline6}
+\BOOKMARK [2][]{Outline6.34}{Clasificaci\363n simple}{Outline6}
+\BOOKMARK [3][]{Outline6.34.1.549}{Modelo}{Outline6.34}
+\BOOKMARK [3][]{Outline6.34.2.555}{Contraste ANOVA}{Outline6.34}
+\BOOKMARK [3][]{Outline6.34.3.560}{Comparaciones}{Outline6.34}
+\BOOKMARK [2][]{Outline6.35}{Efectos aleatorios}{Outline6}
+\BOOKMARK [2][]{Outline6.36}{Bloques completamente aleatorizados}{Outline6}
+\BOOKMARK [3][]{Outline6.36.1.579}{Modelo}{Outline6.36}
+\BOOKMARK [3][]{Outline6.36.2.599}{Estad\355sticos de contraste}{Outline6.36}
+\BOOKMARK [3][]{Outline6.36.3.607}{Construcci\363n de los bloques}{Outline6.36}
+\BOOKMARK [3][]{Outline6.36.4.610}{Comparaciones}{Outline6.36}
+\BOOKMARK [2][]{Outline6.37}{Experimentos factoriales}{Outline6}
+\BOOKMARK [3][]{Outline6.37.1.616}{Modelo}{Outline6.37}
+\BOOKMARK [3][]{Outline6.37.2.637}{Contrastes a realizar}{Outline6.37}
+\BOOKMARK [3][]{Outline6.37.3.644}{Comparaciones}{Outline6.37}
+\BOOKMARK [1][]{Outline7}{Contrastes de modelos}{}
+\BOOKMARK [2][]{Outline7.38}{Pruebas de bondad de ajuste}{Outline7}
+\BOOKMARK [3][]{Outline7.38.1.649}{Un contraste de bondad de ajuste: distribuci\363n totalmente conocida}{Outline7.38}
+\BOOKMARK [3][]{Outline7.38.2.660}{Un contraste de bondad de ajuste: alg\372n par\341metro poblacional desconocido}{Outline7.38}
+\BOOKMARK [3][]{Outline7.38.3.667}{Prueba de bondad de ajuste de Kolgomorov-Smirnov \(K-S\)}{Outline7.38}
+\BOOKMARK [1][]{Outline8}{Dos o m\341s variables}{}
+\BOOKMARK [2][]{Outline8.39}{Vectores Aleatorios.}{Outline8}
+\BOOKMARK [3][]{Outline8.39.1.679}{Vector de valores esperados. Matriz de Covarianza y de Correlaciones.}{Outline8.39}
+\BOOKMARK [3][]{Outline8.39.2.680}{Vector de medias.}{Outline8.39}
+\BOOKMARK [3][]{Outline8.39.3.681}{Covarianzas.}{Outline8.39}
+\BOOKMARK [3][]{Outline8.39.4.683}{Variables tipificadas.}{Outline8.39}
+\BOOKMARK [3][]{Outline8.39.5.685}{Variable tipificada}{Outline8.39}
+\BOOKMARK [3][]{Outline8.39.6.686}{Matriz de covarianzas.}{Outline8.39}
+\BOOKMARK [3][]{Outline8.39.7.687}{Matriz de correlaciones.}{Outline8.39}
+\BOOKMARK [3][]{Outline8.39.8.690}{Expresi\363n matricial de la tipificaci\363n de un vector aleatorio.}{Outline8.39}
+\BOOKMARK [2][]{Outline8.40}{Descripci\363n de datos multivariantes}{Outline8}
+\BOOKMARK [3][]{Outline8.40.1.695}{Datos Multivariantes.}{Outline8.40}
+\BOOKMARK [3][]{Outline8.40.2.698}{Vector de medias, varianzas.}{Outline8.40}
+\BOOKMARK [3][]{Outline8.40.3.703}{Centralizaci\363n de una matriz de datos.}{Outline8.40}
+\BOOKMARK [3][]{Outline8.40.4.704}{C\341lculo matricial del vector de medias.}{Outline8.40}
+\BOOKMARK [3][]{Outline8.40.5.713}{Covarianza.}{Outline8.40}
+\BOOKMARK [3][]{Outline8.40.6.714}{Matriz de Covarianzas.}{Outline8.40}
+\BOOKMARK [3][]{Outline8.40.7.715}{Expresi\363n matricial de la matriz de covarianzas.}{Outline8.40}
+\BOOKMARK [3][]{Outline8.40.8.731}{Expresi\363n matricial de la matriz de correlaciones.}{Outline8.40}
+\BOOKMARK [3][]{Outline8.40.9.734}{Otros tipos de correlaciones.}{Outline8.40}
+\BOOKMARK [1][]{Outline9}{M\351todos de ajuste de datos a modelos. Regresi\363n lineal}{}
+\BOOKMARK [2][]{Outline9.41}{Introducci\363n}{Outline9}
+\BOOKMARK [2][]{Outline9.42}{El modelo}{Outline9}
+\BOOKMARK [2][]{Outline9.43}{M\355nimos cuadrados}{Outline9}
+\BOOKMARK [3][]{Outline9.43.1.742}{C\341lculo de los coeficientes}{Outline9.43}
+\BOOKMARK [3][]{Outline9.43.2.744}{Ecuaciones normales}{Outline9.43}
+\BOOKMARK [3][]{Outline9.43.3.746}{Momentos de primer y segundo orden.}{Outline9.43}
+\BOOKMARK [3][]{Outline9.43.4.749}{Coeficientes en funci\363n de los momentos}{Outline9.43}
+\BOOKMARK [2][]{Outline9.44}{Propiedades de los estimadores}{Outline9}
+\BOOKMARK [2][]{Outline9.45}{Consideraciones sobre el modelo}{Outline9}
+\BOOKMARK [2][]{Outline9.46}{Sumas de cuadrados}{Outline9}
+\BOOKMARK [3][]{Outline9.46.1.755}{Relaci\363n entre las sumas de cuadrados}{Outline9.46}
+\BOOKMARK [2][]{Outline9.47}{El coeficiente de determinaci\363n R2 y la estimaci\363n de la varianza.}{Outline9}
+\BOOKMARK [2][]{Outline9.48}{Intervalos de confianza}{Outline9}
+\BOOKMARK [2][]{Outline9.49}{ANOVA}{Outline9}
+\BOOKMARK [2][]{Outline9.50}{Introducci\363n}{Outline9}
+\BOOKMARK [2][]{Outline9.51}{M\355nimos cuadrados}{Outline9}
+\BOOKMARK [2][]{Outline9.52}{Propiedades}{Outline9}
+\BOOKMARK [2][]{Outline9.53}{Sumas de cuadrados}{Outline9}
+\BOOKMARK [2][]{Outline9.54}{Coeficiente de determinaci\363n}{Outline9}
+\BOOKMARK [2][]{Outline9.55}{Consideraciones sobre el modelo}{Outline9}
+\BOOKMARK [2][]{Outline9.56}{ANOVA}{Outline9}
+\BOOKMARK [2][]{Outline9.57}{Intervalos de confianza}{Outline9}
+\BOOKMARK [2][]{Outline9.58}{Selecci\363n del modelo. Colinealidad}{Outline9}
+\BOOKMARK [1][]{Outline10}{M\351todos de reducci\363n o selecci\363n de los factores}{}
+\BOOKMARK [2][]{Outline10.59}{Introducci\363n}{Outline10}
+\BOOKMARK [2][]{Outline10.60}{B\372squeda de la mejor proyecci\363n}{Outline10}
+\BOOKMARK [3][]{Outline10.60.1.807}{Proyecci\363n de las filas}{Outline10.60}
+\BOOKMARK [3][]{Outline10.60.2.819}{Proyecci\363n de las columnas}{Outline10.60}
+\BOOKMARK [3][]{Outline10.60.3.826}{An\341lisis conjunto}{Outline10.60}
+\BOOKMARK [2][]{Outline10.61}{Introducci\363n}{Outline10}
+\BOOKMARK [2][]{Outline10.62}{Obtenci\363n de la matriz de datos}{Outline10}
+\BOOKMARK [2][]{Outline10.63}{Propiedades de la matriz obtenida Y}{Outline10}
+\BOOKMARK [2][]{Outline10.64}{Matrices compatibles con m\351tricas eucl\355deas.}{Outline10}
+\BOOKMARK [2][]{Outline10.65}{Caso de matrices no compatibles con m\351tricas eucl\355deas}{Outline10}
+\BOOKMARK [2][]{Outline10.66}{Relaci\363n entre las coordenadas principales y las componentes principales}{Outline10}
+\BOOKMARK [2][]{Outline10.67}{Introducci\363n}{Outline10}
+\BOOKMARK [2][]{Outline10.68}{B\372squeda de la mejor proyecci\363n}{Outline10}
+\BOOKMARK [3][]{Outline10.68.1.863}{Proyecci\363n de las filas}{Outline10.68}
+\BOOKMARK [3][]{Outline10.68.2.875}{Proyecci\363n de las columnas}{Outline10.68}
+\BOOKMARK [3][]{Outline10.68.3.882}{An\341lisis conjunto}{Outline10.68}
+\BOOKMARK [1][]{Outline11}{Clasificaci\363n}{}
+\BOOKMARK [2][]{Outline11.69}{Introducci\363n}{Outline11}
+\BOOKMARK [2][]{Outline11.70}{Algoritmo de las k-medias}{Outline11}
+\BOOKMARK [2][]{Outline11.71}{Algoritmo de las k-medias}{Outline11}
+\BOOKMARK [3][]{Outline11.71.1.903}{Propiedades del algoritmo de k-means}{Outline11.71}
+\BOOKMARK [3][]{Outline11.71.2.904}{Elecci\363n del n\372mero de grupos}{Outline11.71}
+\BOOKMARK [2][]{Outline11.72}{M\351todos jer\341rquicos}{Outline11}
+\BOOKMARK [3][]{Outline11.72.1.907}{Matriz de distancias}{Outline11.72}
+\BOOKMARK [3][]{Outline11.72.2.908}{Datos binarios}{Outline11.72}
+\BOOKMARK [3][]{Outline11.72.3.914}{Datos continuos}{Outline11.72}
+\BOOKMARK [3][]{Outline11.72.4.921}{Algoritmos jer\341rquicos de cl\372ster}{Outline11.72}
+\BOOKMARK [1][]{Outline12}{Bibliograf\355a}{}

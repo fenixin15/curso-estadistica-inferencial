@@ -1,0 +1,22 @@
+\frametitle {Ejemplo}
+\begin{itemize}
+\item Consultando la tablas del test K-S se tiene que $D_{10,0.01}=0.490$ y $D_{10}=0.31 \not>  0.490$, el estadístico no está en la región de rechazo y por lo tanto no podemos rechazar que
+estos datos se ajusten a esa exponencial al nivel $\alpha=0.01$.
+\item El código en \texttt{R} para este ejemplo es:
+
+\begin{Schunk}
+\begin{Sinput}
+> ks.test(c(16, 8, 9, 12, 6, 11, 20, 7,
++     2, 24), "pexp", 1/11.5)
+\end{Sinput}
+\begin{Soutput}
+One-sample Kolmogorov-Smirnov test
+
+data:  c(16, 8, 9, 12, 6, 11, 20, 7, 2, 24)
+D = 0.3065, p-value = 0.2486
+alternative hypothesis: two-sided
+\end{Soutput}
+\end{Schunk}
+
+\item \textbf{Notemos} que lo que la información que se nos da es el $p$-valor del test.
+\end{itemize}

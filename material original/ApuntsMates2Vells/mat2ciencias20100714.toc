@@ -1,0 +1,203 @@
+\beamer@endinputifotherversion {3.07pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Sobre la estad\IeC {\'\i }stica y el m\IeC {\'e}todo cient\IeC {\'\i }fico}{3}{1}{1}
+\beamer@subsectionintoc {1}{1}{La reproductibilidad en las investigaciones cient\IeC {\'\i }ficas}{9}{1}{1}
+\beamer@subsectionintoc {1}{2}{An\IeC {\'a}lisis Exploratorio de Datos}{13}{1}{1}
+\beamer@sectionintoc {2}{Los datos}{16}{1}{2}
+\beamer@subsectionintoc {2}{1}{Datos de tipo atributo o cualitativo}{18}{1}{2}
+\beamer@subsectionintoc {2}{2}{Datos ordinales}{29}{1}{2}
+\beamer@subsectionintoc {2}{3}{Datos cuantitativos}{39}{1}{2}
+\beamer@sectionintoc {3}{Datos agrupados}{63}{1}{3}
+\beamer@subsectionintoc {3}{1}{Descripci\IeC {\'o}n gr\IeC {\'a}fica datos agrupados}{77}{1}{3}
+\beamer@subsectionintoc {3}{2}{Cambios de escala y de origen}{110}{1}{3}
+\beamer@sectionintoc {4}{M\IeC {\'a}s estad\IeC {\'\i }sticos}{116}{1}{4}
+\beamer@subsectionintoc {4}{1}{Coeficiente de variaci\IeC {\'o}n}{116}{1}{4}
+\beamer@subsectionintoc {4}{2}{Medidas de simetr\IeC {\'\i }a}{126}{1}{4}
+\beamer@subsectionintoc {4}{3}{Medidas de apuntamiento}{133}{1}{4}
+\beamer@subsectionintoc {4}{4}{Cambios de escala y origen}{141}{1}{4}
+\beamer@sectionintoc {5}{Variables multidimensionales}{145}{1}{5}
+\beamer@subsectionintoc {5}{1}{Descripci\IeC {\'o}n num\IeC {\'e}rica: caso bidimensional}{148}{1}{5}
+\beamer@subsectionintoc {5}{2}{Distribuciones marginales}{159}{1}{5}
+\beamer@subsectionintoc {5}{3}{Distribuciones condicionadas}{165}{1}{5}
+\beamer@subsectionintoc {5}{4}{Estad\IeC {\'\i }sticos descriptivos bidimensionales}{173}{1}{5}
+\beamer@subsectionintoc {5}{5}{Independencia e incorrelaci\IeC {\'o}n}{179}{1}{5}
+\beamer@sectionintoc {6}{Asociaci\IeC {\'o}n, concordancia y correlaci\IeC {\'o}n}{186}{1}{6}
+\beamer@subsectionintoc {6}{1}{Coeficientes de asociaci\IeC {\'o}n}{187}{1}{6}
+\beamer@subsectionintoc {6}{2}{Correlaci\IeC {\'o}n lineal}{196}{1}{6}
+\beamer@subsectionintoc {6}{3}{Correlaci\IeC {\'o}n ordinal}{203}{1}{6}
+\beamer@sectionintoc {7}{Ap\IeC {\'e}ndice estad\IeC {\'\i }stica descriptiva}{212}{1}{7}
+\beamer@subsectionintoc {7}{1}{Medias arm\IeC {\'o}nica y geom\IeC {\'e}trica}{212}{1}{7}
+\beamer@subsectionintoc {7}{2}{Media general de orden m}{213}{1}{7}
+\beamer@subsectionintoc {7}{3}{Moda para datos agrupados}{214}{1}{7}
+\beamer@subsectionintoc {7}{4}{Desviaci\IeC {\'o}n media}{218}{1}{7}
+\beamer@subsectionintoc {7}{5}{Recorrido}{219}{1}{7}
+\beamer@sectionintoc {8}{Variables aleatorias}{222}{2}{8}
+\beamer@subsectionintoc {8}{1}{Funciones de distribuci\IeC {\'o}n}{225}{2}{8}
+\beamer@subsectionintoc {8}{2}{Cuantiles}{230}{2}{8}
+\beamer@sectionintoc {9}{Variables aleatorias discretas}{231}{2}{9}
+\beamer@subsectionintoc {9}{1}{Funci\IeC {\'o}n probabilidad variables discretas}{231}{2}{9}
+\beamer@subsectionintoc {9}{2}{Valor esperado y varianza para variables discretas}{233}{2}{9}
+\beamer@sectionintoc {10}{Algunas distribuciones de probabilidad discretas}{243}{2}{10}
+\beamer@subsectionintoc {10}{1}{Distribuci\IeC {\'o}n Bernouilli}{243}{2}{10}
+\beamer@subsectionintoc {10}{2}{Distribuci\IeC {\'o}n Binomial}{244}{2}{10}
+\beamer@subsectionintoc {10}{3}{Distribuci\IeC {\'o}n Geom\IeC {\'e}trica}{254}{2}{10}
+\beamer@subsectionintoc {10}{4}{Distribuci\IeC {\'o}n Binomial negativa}{263}{2}{10}
+\beamer@subsectionintoc {10}{5}{Distribuci\IeC {\'o}n Poisson}{266}{2}{10}
+\beamer@subsubsectionintoc {2}{10}{5}{1}{274}{10}{Aproximaci\IeC {\'o}n binomial por Poisson}
+\beamer@subsectionintoc {10}{6}{Distribuci\IeC {\'o}n Hipergeom\IeC {\'e}trica}{275}{2}{10}
+\beamer@sectionintoc {11}{Variables aleatorias continuas}{281}{2}{11}
+\beamer@subsectionintoc {11}{1}{Variables absolutamente continuas}{284}{2}{11}
+\beamer@subsectionintoc {11}{2}{Esperanza y varianza para variables aleatorias continuas}{291}{2}{11}
+\beamer@sectionintoc {12}{Algunas modelos de distribuciones continuas}{299}{2}{12}
+\beamer@subsectionintoc {12}{1}{Distribuci\IeC {\'o}n uniforme en el intervalo (a,b)}{300}{2}{12}
+\beamer@subsubsectionintoc {2}{12}{1}{1}{302}{12}{Esperanza y varianza para $U(a,b)$}
+\beamer@subsubsectionintoc {2}{12}{1}{2}{304}{12}{Resumen v.a con distribuci\IeC {\'o}n uniforme, $U(a,b)$}
+\beamer@subsectionintoc {12}{2}{Distribuci\IeC {\'o}n exponencial (exponencial negativa)}{305}{2}{12}
+\beamer@subsubsectionintoc {2}{12}{2}{1}{308}{12}{Resumen v.a con distribuci\IeC {\'o}n exponencial, $Exp(\lambda )$}
+\beamer@subsectionintoc {12}{3}{Distibuci\IeC {\'o}n normal o gaussiana}{309}{2}{12}
+\beamer@subsubsectionintoc {2}{12}{3}{1}{313}{12}{Comportamiento de la curva normal}
+\beamer@subsubsectionintoc {2}{12}{3}{2}{317}{12}{Estandarizaci\IeC {\'o}n de la variable normal}
+\beamer@subsubsectionintoc {2}{12}{3}{3}{320}{12}{Estandarizaci\IeC {\'o}n de la variable normal}
+\beamer@subsubsectionintoc {2}{12}{3}{4}{322}{12}{Uso de tablas para el c\IeC {\'a}lculo de la funci\IeC {\'o}n de distribuci\IeC {\'o}n normal.}
+\beamer@sectionintoc {13}{Muestreo Estad\IeC {\'\i }stico}{338}{3}{13}
+\beamer@sectionintoc {14}{Conceptos b\IeC {\'a}sicos}{340}{3}{14}
+\beamer@subsubsectionintoc {3}{14}{0}{5}{343}{14}{Pasos en un estudio inferencial}
+\beamer@subsectionintoc {14}{1}{Dise\IeC {\~n}o de experimentos, t\IeC {\'e}cnicas de muestreo}{344}{3}{14}
+\beamer@subsubsectionintoc {3}{14}{1}{1}{351}{14}{Muestreo aleatorio simple}
+\beamer@subsubsectionintoc {3}{14}{1}{2}{353}{14}{Estad\IeC {\'\i }sticos y distribuciones muestrales}
+\beamer@subsubsectionintoc {3}{14}{1}{3}{354}{14}{Distribuci\IeC {\'o}n muestral de un estad\IeC {\'\i }stico}
+\beamer@subsectionintoc {14}{2}{Distribuci\IeC {\'o}n de la media muestral}{360}{3}{14}
+\beamer@subsectionintoc {14}{3}{Distribuci\IeC {\'o}n de una proporci\IeC {\'o}n muestral}{372}{3}{14}
+\beamer@subsubsectionintoc {3}{14}{3}{1}{375}{14}{Distribuci\IeC {\'o}n en el muestreo de $\mathbf {\mathaccentV {hat}05E{p}_{X}}$}
+\beamer@subsectionintoc {14}{4}{Distribuci\IeC {\'o}n muestral de la varianza muestral}{379}{3}{14}
+\beamer@subsubsectionintoc {3}{14}{4}{1}{381}{14}{Distribuci\IeC {\'o}n en el muestreo de la varianza muestral}
+\beamer@sectionintoc {15}{Introducci\IeC {\'o}n}{386}{4}{15}
+\beamer@sectionintoc {16}{Estimadores}{389}{4}{16}
+\beamer@subsectionintoc {16}{1}{Estimadores insesgados}{393}{4}{15}
+\beamer@subsectionintoc {16}{2}{M\IeC {\'e}todos para calcular estimadores}{401}{4}{15}
+\beamer@subsectionintoc {16}{3}{Estimadores m\IeC {\'a}ximo veros\IeC {\'\i }miles}{402}{4}{15}
+\beamer@sectionintoc {17}{Estimaci\IeC {\'o}n por intervalos}{409}{4}{16}
+\beamer@subsectionintoc {17}{1}{Intervalo de confianza para la media de una poblaci\IeC {\'o}n normal: varianza poblacional conocida}{410}{4}{16}
+\beamer@subsubsectionintoc {4}{17}{1}{1}{417}{16}{Resumen: Intervalo de confianza para $\mathbf {\mu }$}
+\beamer@subsubsectionintoc {4}{17}{1}{2}{422}{16}{Amplitud del intervalo de confianza}
+\beamer@subsectionintoc {17}{2}{Intervalo de confianza para la media poblacional: tama\IeC {\~n}os muestrales grandes}{424}{4}{16}
+\beamer@subsubsectionintoc {4}{17}{2}{1}{427}{16}{Distribuci\IeC {\'o}n $t$ de Student}
+\beamer@subsectionintoc {17}{3}{Intervalo de confianza para la media de una poblaci\IeC {\'o}n normal: varianza poblacional desconocida}{430}{4}{16}
+\beamer@subsectionintoc {17}{4}{Intervalos de confianza para una proporci\IeC {\'o}n}{434}{4}{16}
+\beamer@subsubsectionintoc {4}{17}{4}{1}{436}{16}{Intervalos de confianza para la proporci\IeC {\'o}n poblacional: (muestras grandes)}
+\beamer@subsectionintoc {17}{5}{Intervalo de confianza para la varianza de una poblaci\IeC {\'o}n normal}{439}{4}{16}
+\beamer@subsubsectionintoc {4}{17}{5}{1}{443}{16}{Resumen intervalo de confianza para la varianza de una poblaci\IeC {\'o}n normal}
+\beamer@sectionintoc {18}{Contraste de hip\IeC {\'o}tesis}{448}{5}{17}
+\beamer@subsectionintoc {18}{1}{Tipos de hip\IeC {\'o}tesis sobre par\IeC {\'a}metros}{454}{5}{17}
+\beamer@subsectionintoc {18}{2}{Tipos de Error en un contraste}{456}{5}{17}
+\beamer@subsectionintoc {18}{3}{Terminolog\IeC {\'\i }a}{460}{5}{17}
+\beamer@subsectionintoc {18}{4}{\IeC {\textquestiondown }Inocente o culpable?}{462}{5}{17}
+\beamer@sectionintoc {19}{Ejemplo de un contraste de hip\IeC {\'o}tesis para la media de una distribuci\IeC {\'o}n normal: varianza poblacional conocida}{463}{5}{18}
+\beamer@sectionintoc {20}{Terminolog\IeC {\'\i }a:}{466}{5}{19}
+\beamer@sectionintoc {21}{Ejemplo tabla de un contraste para la media poblacional de una poblaci\IeC {\'o}n normal con varianza poblacional conocida}{467}{5}{19}
+\beamer@sectionintoc {22}{Valor cr\IeC {\'\i }tico o $p$-valor}{468}{5}{19}
+\beamer@sectionintoc {23}{M\IeC {\'e}todo de los seis pasos}{469}{5}{20}
+\beamer@sectionintoc {24}{Reglas de decisi\IeC {\'o}n para contraste de la media de una poblaci\IeC {\'o}n normal: varianza poblacional conocida}{476}{5}{21}
+\beamer@sectionintoc {25}{Contraste para la media: tama\IeC {\~n}os muestrales grandes}{478}{5}{22}
+\beamer@subsectionintoc {25}{1}{Reglas de decisi\IeC {\'o}n para el contraste de una media: Tama\IeC {\~n}os muestrales grandes}{483}{5}{21}
+\beamer@subsectionintoc {25}{2}{Reglas de decisi\IeC {\'o}n para el contraste de una media de una distribuci\IeC {\'o}n normal: varianza poblacional desconocida}{484}{5}{21}
+\beamer@sectionintoc {26}{Contraste para la varianza de una poblaci\IeC {\'o}n normal.}{491}{5}{22}
+\beamer@subsectionintoc {26}{1}{Resumen reglas de decisi\IeC {\'o}n para el contraste de la varianza de una poblaci\IeC {\'o}n normal}{492}{5}{22}
+\beamer@sectionintoc {27}{Contrastes para la proporci\IeC {\'o}n muestral: muestras grandes}{497}{5}{23}
+\beamer@subsectionintoc {27}{1}{Reglas de decisi\IeC {\'o}n para el contraste de una proporci\IeC {\'o}n muestral: tama\IeC {\~n}o muestral grande}{499}{5}{23}
+\beamer@sectionintoc {28}{Introducci\IeC {\'o}n}{505}{6}{24}
+\beamer@sectionintoc {29}{Contraste de las medias de dos poblaciones normales o tama\IeC {\~n}os muestrales grandes}{506}{6}{25}
+\beamer@subsectionintoc {29}{1}{Contrastes de dos par\IeC {\'a}metros muestras independientes}{507}{6}{24}
+\beamer@sectionintoc {30}{Contraste de dos proporciones muestras independientes}{522}{6}{25}
+\beamer@sectionintoc {31}{Contrastes dos par\IeC {\'a}metros muestras emarejadas}{526}{6}{26}
+\beamer@subsectionintoc {31}{1}{Contraste de dos media con muestras emparejadas o dependientes}{528}{6}{26}
+\beamer@subsectionintoc {31}{2}{Contraste de dos proporciones muestras emparejadas}{532}{6}{26}
+\beamer@sectionintoc {32}{Comparaci\IeC {\'o}n de dos varianzas muestras independientes}{534}{6}{27}
+\beamer@sectionintoc {33}{Introducci\IeC {\'o}n}{536}{6}{28}
+\beamer@sectionintoc {34}{Clasificaci\IeC {\'o}n simple}{539}{6}{29}
+\beamer@subsectionintoc {34}{1}{Modelo}{549}{6}{29}
+\beamer@subsectionintoc {34}{2}{Contraste ANOVA}{555}{6}{29}
+\beamer@subsectionintoc {34}{3}{Comparaciones}{560}{6}{29}
+\beamer@sectionintoc {35}{Efectos aleatorios}{575}{6}{30}
+\beamer@sectionintoc {36}{Bloques completamente aleatorizados}{577}{6}{31}
+\beamer@subsectionintoc {36}{1}{Modelo}{579}{6}{31}
+\beamer@subsectionintoc {36}{2}{Estad\IeC {\'\i }sticos de contraste}{599}{6}{31}
+\beamer@subsectionintoc {36}{3}{Construcci\IeC {\'o}n de los bloques}{607}{6}{31}
+\beamer@subsectionintoc {36}{4}{Comparaciones}{610}{6}{31}
+\beamer@sectionintoc {37}{Experimentos factoriales}{613}{6}{32}
+\beamer@subsectionintoc {37}{1}{Modelo}{616}{6}{32}
+\beamer@subsectionintoc {37}{2}{Contrastes a realizar}{637}{6}{32}
+\beamer@subsectionintoc {37}{3}{Comparaciones}{644}{6}{32}
+\beamer@sectionintoc {38}{Pruebas de bondad de ajuste}{645}{7}{33}
+\beamer@subsectionintoc {38}{1}{Un contraste de bondad de ajuste: distribuci\IeC {\'o}n totalmente conocida}{649}{7}{33}
+\beamer@subsectionintoc {38}{2}{Un contraste de bondad de ajuste: alg\IeC {\'u}n par\IeC {\'a}metro poblacional desconocido}{660}{7}{33}
+\beamer@subsectionintoc {38}{3}{Prueba de bondad de ajuste de Kolgomorov-Smirnov (K-S)}{667}{7}{33}
+\beamer@sectionintoc {39}{Vectores Aleatorios.}{676}{8}{34}
+\beamer@subsectionintoc {39}{1}{Vector de valores esperados. Matriz de Covarianza y de Correlaciones.}{679}{8}{34}
+\beamer@subsectionintoc {39}{2}{Vector de medias.}{680}{8}{34}
+\beamer@subsectionintoc {39}{3}{Covarianzas.}{681}{8}{34}
+\beamer@subsectionintoc {39}{4}{Variables tipificadas.}{683}{8}{34}
+\beamer@subsectionintoc {39}{5}{Variable tipificada}{685}{8}{34}
+\beamer@subsectionintoc {39}{6}{Matriz de covarianzas.}{686}{8}{34}
+\beamer@subsectionintoc {39}{7}{Matriz de correlaciones.}{687}{8}{34}
+\beamer@subsectionintoc {39}{8}{Expresi\IeC {\'o}n matricial de la tipificaci\IeC {\'o}n de un vector aleatorio.}{690}{8}{34}
+\beamer@sectionintoc {40}{Descripci\IeC {\'o}n de datos multivariantes}{693}{8}{35}
+\beamer@subsectionintoc {40}{1}{Datos Multivariantes.}{695}{8}{35}
+\beamer@subsectionintoc {40}{2}{Vector de medias, varianzas.}{698}{8}{35}
+\beamer@subsectionintoc {40}{3}{Centralizaci\IeC {\'o}n de una matriz de datos.}{703}{8}{35}
+\beamer@subsectionintoc {40}{4}{C\IeC {\'a}lculo matricial del vector de medias.}{704}{8}{35}
+\beamer@subsectionintoc {40}{5}{Covarianza.}{713}{8}{35}
+\beamer@subsectionintoc {40}{6}{Matriz de Covarianzas.}{714}{8}{35}
+\beamer@subsectionintoc {40}{7}{Expresi\IeC {\'o}n matricial de la matriz de covarianzas.}{715}{8}{35}
+\beamer@subsectionintoc {40}{8}{Expresi\IeC {\'o}n matricial de la matriz de correlaciones.}{731}{8}{35}
+\beamer@subsectionintoc {40}{9}{Otros tipos de correlaciones.}{734}{8}{35}
+\beamer@sectionintoc {41}{Introducci\IeC {\'o}n}{735}{9}{36}
+\beamer@sectionintoc {42}{El modelo}{739}{9}{37}
+\beamer@sectionintoc {43}{M\IeC {\'\i }nimos cuadrados}{740}{9}{38}
+\beamer@subsectionintoc {43}{1}{C\IeC {\'a}lculo de los coeficientes}{742}{9}{38}
+\beamer@subsectionintoc {43}{2}{Ecuaciones normales}{744}{9}{38}
+\beamer@subsectionintoc {43}{3}{Momentos de primer y segundo orden.}{746}{9}{38}
+\beamer@subsectionintoc {43}{4}{Coeficientes en funci\IeC {\'o}n de los momentos}{749}{9}{38}
+\beamer@sectionintoc {44}{Propiedades de los estimadores}{750}{9}{39}
+\beamer@sectionintoc {45}{Consideraciones sobre el modelo}{752}{9}{40}
+\beamer@sectionintoc {46}{Sumas de cuadrados}{754}{9}{41}
+\beamer@subsectionintoc {46}{1}{Relaci\IeC {\'o}n entre las sumas de cuadrados}{755}{9}{41}
+\beamer@sectionintoc {47}{El coeficiente de determinaci\IeC {\'o}n $R^2$ y la estimaci\IeC {\'o}n de la varianza.}{757}{9}{42}
+\beamer@sectionintoc {48}{Intervalos de confianza}{759}{9}{43}
+\beamer@sectionintoc {49}{ANOVA}{762}{9}{44}
+\beamer@sectionintoc {50}{Introducci\IeC {\'o}n}{766}{9}{45}
+\beamer@sectionintoc {51}{M\IeC {\'\i }nimos cuadrados}{772}{9}{46}
+\beamer@sectionintoc {52}{Propiedades}{780}{9}{47}
+\beamer@sectionintoc {53}{Sumas de cuadrados}{783}{9}{48}
+\beamer@sectionintoc {54}{Coeficiente de determinaci\IeC {\'o}n}{785}{9}{49}
+\beamer@sectionintoc {55}{Consideraciones sobre el modelo}{787}{9}{50}
+\beamer@sectionintoc {56}{ANOVA}{789}{9}{51}
+\beamer@sectionintoc {57}{Intervalos de confianza}{793}{9}{52}
+\beamer@sectionintoc {58}{Selecci\IeC {\'o}n del modelo. Colinealidad}{799}{9}{53}
+\beamer@sectionintoc {59}{Introducci\IeC {\'o}n}{801}{10}{54}
+\beamer@sectionintoc {60}{B\IeC {\'u}squeda de la mejor proyecci\IeC {\'o}n}{804}{10}{55}
+\beamer@subsectionintoc {60}{1}{Proyecci\IeC {\'o}n de las filas}{807}{10}{55}
+\beamer@subsectionintoc {60}{2}{Proyecci\IeC {\'o}n de las columnas}{819}{10}{55}
+\beamer@subsectionintoc {60}{3}{An\IeC {\'a}lisis conjunto}{826}{10}{55}
+\beamer@sectionintoc {61}{Introducci\IeC {\'o}n}{833}{10}{56}
+\beamer@sectionintoc {62}{Obtenci\IeC {\'o}n de la matriz de datos}{836}{10}{57}
+\beamer@sectionintoc {63}{Propiedades de la matriz obtenida $\mathbf {Y}$}{839}{10}{58}
+\beamer@sectionintoc {64}{Matrices compatibles con m\IeC {\'e}tricas eucl\IeC {\'\i }deas.}{846}{10}{59}
+\beamer@sectionintoc {65}{Caso de matrices no compatibles con m\IeC {\'e}tricas eucl\IeC {\'\i }deas}{847}{10}{60}
+\beamer@sectionintoc {66}{Relaci\IeC {\'o}n entre las coordenadas principales y las componentes principales}{853}{10}{61}
+\beamer@sectionintoc {67}{Introducci\IeC {\'o}n}{856}{10}{62}
+\beamer@sectionintoc {68}{B\IeC {\'u}squeda de la mejor proyecci\IeC {\'o}n}{860}{10}{63}
+\beamer@subsectionintoc {68}{1}{Proyecci\IeC {\'o}n de las filas}{863}{10}{63}
+\beamer@subsectionintoc {68}{2}{Proyecci\IeC {\'o}n de las columnas}{875}{10}{63}
+\beamer@subsectionintoc {68}{3}{An\IeC {\'a}lisis conjunto}{882}{10}{63}
+\beamer@sectionintoc {69}{Introducci\IeC {\'o}n}{889}{11}{64}
+\beamer@sectionintoc {70}{Algoritmo de las $k$-medias}{891}{11}{65}
+\beamer@sectionintoc {71}{Algoritmo de las $k$-medias}{892}{11}{66}
+\beamer@subsectionintoc {71}{1}{Propiedades del algoritmo de $k$-means}{903}{11}{66}
+\beamer@subsectionintoc {71}{2}{Elecci\IeC {\'o}n del n\IeC {\'u}mero de grupos}{904}{11}{66}
+\beamer@sectionintoc {72}{M\IeC {\'e}todos jer\IeC {\'a}rquicos}{906}{11}{67}
+\beamer@subsectionintoc {72}{1}{Matriz de distancias}{907}{11}{67}
+\beamer@subsectionintoc {72}{2}{Datos binarios}{908}{11}{67}
+\beamer@subsectionintoc {72}{3}{Datos continuos}{914}{11}{67}
+\beamer@subsectionintoc {72}{4}{Algoritmos jer\IeC {\'a}rquicos de cl\IeC {\'u}ster}{921}{11}{67}
+\beamer@subsubsectionintoc {11}{72}{4}{1}{922}{67}{Algoritmos jer\IeC {\'a}rquicos. T\IeC {\'e}cnicas aglomerativas.}
