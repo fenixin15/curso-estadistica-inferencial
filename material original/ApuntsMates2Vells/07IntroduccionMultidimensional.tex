@@ -1,0 +1,1215 @@
+
+
+
+%\part{Fundamentos Estadísticos.}
+%\frame{\partpage}
+\chapter{Fundamentos Estadísticos.}
+
+\begin{frame}
+\begin{itemize}
+\item En esta parte  veremos las definiciones y fundamentos básicos de las variables aleatorias vectoriales. 
+\item El objetivo es conocer estas construcciones y distinguirlas de las de las muestras de datos multivariantes.
+\item Recordar que son los modelos probabilísticos los que nos permiten contrastar hipótesis.
+\end{itemize}
+\end{frame}
+
+
+\section{Vectores Aleatorios.}
+\begin{frame}
+
+
+\frametitle{Variable aleatoria multidimensional.}
+
+\begin{itemize}
+\item Una v.a. multidimensional o vector aleatorio es un vector compuesto por $p$ v.a.
+
+$$\mathbf{X}=\begin{pmatrix}X_1\\ X_2\\ \vdots\\ X_p\end{pmatrix}$$
+
+\item Cada v.a. $X_i$ puede ser discreta, continua o de otros tipos. Esto  da lugar  a una gran diversidad de vectores aleatorios.
+
+\item Diferenciemos entre un vector aleatorio multidimensional y una muestra de una vector aleatorio multidimensional.
+
+\item El vector aleatorio corresponde a un modelo teórico mientras que la muestra de ese vector corresponde a una recolección de datos del mismo medidos sobre distinto individuos.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+Estas mediciones pueden corresponder a dos grandes grupos:
+
+\begin{itemize}
+\item Provienen de un \underline{experimento diseñado}  y reproducible para estudiar su comportamiento. Este experimento debe tener en cuenta la representatividad de la muestra, su tamaño y los métodos estadísticos que se utilizarán para inferir las conclusiones deseadas.
+\item Proviene de \underline{datos recopilados} (si se quiere de forma estadística pero en su sentido etimológico): bases de datos de proteínas, datos estadísticos de Institutos Oficiales (INE, Eurostat, IBAE). O bien de diferentes procedencias.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+La diferencia es clara.
+
+\begin{itemize}
+\item  En un estudio inferencial, del que se desee extraer conclusiones estadísticas digamos \textsl{profesionales o científicas}, debemos contar con muestras aleatorias que respalden  los resultados del experimento.
+\item  Nos estamos refiriendo a resultados publicados en revistas científicas, o  de la industria farmacéutica , encuestas profesionales de cualquier índole (políticas/opinión, sociológicas, sanitarias, ecológicas, de estudio de mercados etc.). 
+\item Además el experimento debe ser reproducible.
+\end{itemize}
+\end{frame}
+\subsection{Vector de valores esperados. Matriz de Covarianza y de Correlaciones.}
+
+\begin{frame}
+\frametitle{Vector de valores esperados. Matriz de Covarianza y de Correlaciones.}
+
+\begin{itemize}
+\item Al igual que en el caso unidimensional, los vectores aleatorios tienen función de probabilidad o de densidad, función de distribución, medias, varianzas y otros momentos asociados...
+\item En el caso de los vectores aleatorios, estas cantidades se convierten en vectores y en matrices que también medirán, por ejemplo, sus valores esperados y la variación conjunta de las variables.
+\end{itemize}
+\end{frame}
+% \begin{frame}
+
+% \textbf{Definición} Una variable aleatoria $p$-dimensional, o vector aleatorio multidimensional es un vector de $p$ componentes
+
+% $$\vec{X}=(X_1,X_2,\ldots,X_p).$$
+
+% en el que cada componente $X_i$ es una variable aleatoria. 
+
+% \begin{itemize}
+% \item Estas pueden ser discretas continuas o de otros tipos lo que da lugar a una gran variedad de tipos de vectores aleatorios.
+
+% \item Al igual que en el caso unidimensional los vectores aleatorios tienen función de probabilidad o de densidad, función de distribución, medias, varianzas y otros momentos asociados...
+% \end{itemize}
+% Veamos algunas de estas características.
+% \end{frame}
+
+
+ \subsection{Vector de medias.}
+\begin{frame}
+\frametitle{Vector de medias.}
+
+De la misma forma que en el caso unidimensional un vector aleatorio $\vect{X}$ posee un valor esperado que en este caso es el vector de valores esperados o medias formado por los valores esperados de cada una de las componentes. Se representa como 
+
+
+$$E(\vect{X})=\begin{pmatrix}E(X_1)\\ E(X_2)\\ \vdots\\ E(X_p)\end{pmatrix}=
+\begin{pmatrix} \mu_1\\ \mu_2\\ \vdots\\ \mu_p\end{pmatrix}=\vect{\mu}.$$
+\end{frame}
+
+\subsection{Covarianzas.}
+\begin{frame}
+\frametitle{Covarianzas.}
+\begin{itemize}
+\item Dadas dos variables aleatorias, de las que se conoce su distribución conjunta, se define su covarianza como 
+
+$$Cov(X_1,X_2)=E((X_1-\mu_1) ( X_2-\mu_2))$$
+
+\item  Que también se puede calcular con la siguiente identidad
+
+$$Cov(X_1,X_2)=E(X_1 X_2) -\mu_1 \mu_2.$$
+
+\item La covarianza puede tomar cualquier valor real y mide el grado de dependencia lineal entre las variables (es decir si existen $\alpha$ y $\beta$ reales tales que $X_2=\alpha X_1+\beta$). 
+%La unidades de la covarianza son difíciles de comparar, sobre todo si los pares de variables se miden con magnitudes diferentes.
+ 
+ \item  La covarianza de una variable consigo misma es su varianza
+
+$$Cov(X_1,X_1)=var(X_1)=E((X_1-\mu_1)^2)=E(X_1^2)-\mu_1^2.$$
+\end{itemize}
+\end{frame}
+\begin{frame}
+
+Así como para simplificar la notación se suele llamar $\mu$ a valor esperado de una variable, se suele utilizar $\sigma$ para las covarianzas. Así pondremos
+
+$$Cov(X_i,X_j)=\sigma_{i j};\quad Cov(X_i,X_i)=\sigma_{ii}=var(X_i)=\sigma_i^2.$$
+
+Notemos que las unidades de la varianza son unidades cuadradas. La raíz cuadrada de la varianza  es $\sigma_i$, recibe el nombre de desviación típica o estándar de $X_i$ y recupera las unidades de la variable.
+\end{frame}
+\subsection{Variables tipificadas.}
+\begin{frame}
+\frametitle{Variable tipificada.}
+
+\textbf{Propiedad}
+Sean $a$ y $b$ dos números reales y $X_i$ una variable aleatoria. 
+ 
+
+\begin{itemize}
+\item Entonces podemos construir $X_i+b$ que es otra variable aleatoria. Se suele decir que esta variable es un cambio de origen de la variable $X_i$ pues desplaza todos los valores de $X_i$ una cantidad $b$.
+\item También podemos construir la v.a. $a X_i$. Se suele decir que esta variable es un cambio de escala de la variable $X_i$ pues agranda si $a>1$ o encoge si $0<a<1$; mientras que para valores negativos sucede un efecto parecido pero además cambia su signo.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\textbf{Propiedades}
+
+\begin{itemize}
+\item $E(a X_i +b)=a E(X_i)+b$. La esperanza es un operador lineal.
+\item $var(a X_i +b)=a^2 var(X_i)$. La varianza no varía con cambios de origen y queda multiplicada por el cuadrado del  factor de cambio de escala.
+\end{itemize}
+
+\end{frame}
+\subsection{Variable tipificada}
+\begin{frame}
+\frametitle{Variable tipificada}
+
+\begin{itemize}
+\item La trasformación de una variable del tipo $Z_i=\frac{X_i-\mu_i}{\sigma_i}$ recibe en nombre de variable típica, tipificada o estándar de  $X_i$.
+\item Se suele llamar tipificar la variable  al proceso de calcular su variable típica.
+\item Utilizando las propiedades de los valores esperados y las varianzas se obtiene que (ejercicio) $E(Z_i)=0$ y $var(Z_i)=1$. O sea, cuando tipificamos una variable obtenemos otra variable que siempre tiene media cero y varianza uno. 
+Este proceso es útil  a la hora de comparar distribuciones de variables y en el caso multidimensional se utiliza para disminuir el efecto del tamaño y de las unidades en que estén medidas las variables.
+\end{itemize}
+
+
+\end{frame}
+\subsection{Matriz de covarianzas.}
+\begin{frame}
+\frametitle{Matriz de covarianzas.}
+
+De la misma forma que en el caso unidimensional, un vector aleatorio $\vect{X}$ posee  una medida de su dispersión respecto al valor medio; es la llamada matriz de covarianzas.
+
+
+$Cov(\vect{X})=\begin{pmatrix} \sigma_{1 1} & \sigma_{1 2} & \ldots & \sigma_{1 p}\\
+\sigma_{2 1} & \sigma_{2 2} & \ldots & \sigma_{2 p}\\
+\vdots & \vdots &  & \vdots\\
+\sigma_{p 1} & \sigma_{p 2} & \ldots & \sigma_{p p}\\
+ \end{pmatrix}=E((\vect{X}-\vect{\mu}).(\vect{X}-\vect{\mu})^\top )=\vect{\Sigma}.$
+
+ O lo que es lo mismo
+ 
+$$Cov(\vect{X})=E(\vect{X}\vect{X}^\top )-\vect{\mu}\vect{\mu}^\top .$$
+
+La matriz de covarianzas se suele representar por $\vect{\Sigma}.$
+
+\end{frame}
+
+
+\subsection{Matriz de correlaciones.}
+\begin{frame}
+\frametitle{Matriz de Correlaciones.}
+%\textbf{Matriz de correlaciones}
+
+Como las covarianzas son difíciles de comparar, se utiliza el llamado coeficiente de correlación lineal de Pearson que  es una medida adimensional de la variación lineal entre dos variables.
+
+
+Definimos la correlación de las variables $X_i$ y $X_j$ como
+$$Cor(X_i,X_j)=\rho_{i j}=\frac{\sigma_{i j}}{\sigma_{i} \sigma_{j}}.$$
+
+
+\textbf{Nota:} Es evidente que la correlación de una variable con sí misma es uno; $\rho_{i i}=1$ (ejercicio).
+
+Y podemos construir la matriz de correlaciones
+
+$$Cor(\vect{X})=\begin{pmatrix} 1 & \rho_{1 2} & \ldots & \rho_{1 p}\\
+\rho_{2 1} & 1 & \ldots & \rho_{2 p}\\
+\vdots & \vdots &  & \vdots\\
+\rho_{p 1} & \rho_{p 2} & \ldots & 1\\
+ \end{pmatrix}.$$
+
+\end{frame}
+
+
+\begin{frame}
+\textbf{Propiedades}
+
+\begin{itemize}
+\item $-1\leq \rho_{i j}\leq 1$
+\item  $\rho_{i j}= \rho_{j i}$; $\rho_{ii}=1$. 
+\item Salvo en el signo, $\rho_{i j}$ es invariante a cambios de origen y escala.
+\item Si $\rho_{i j}=\pm 1$, las variables tienen una relación lineal perfecta. Es decir, existen $\alpha$ y $\beta$ tal que $X_i=\alpha X_j+\beta$. La pendiente $\alpha$ tiene el mismo signo que la correlación.
+\item  Si la correlación es cero se dice que las variables son incorreladas (notemos que la correlación es cero sii la covarianza es cero).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\textbf{Propiedad} La matriz de correlaciones de un vector aleatorio es igual a la matriz de covarianzas del vector aleatorio cuyas componentes son  sus variables tipificadas. Es decir 
+
+Sea $\vect{X}=\begin{pmatrix}X_1\\ X_2 \\\vdots \\ X_p\end{pmatrix}$ 
+ y sea 
+$\vect{Z}=\begin{pmatrix}Z_1\\ Z_2 \\ \vdots \\ Z_p\end{pmatrix}$
+
+donde $$Z_i=\frac{X_i-\mu_i}{\sigma_i}\mbox{ para } i=1,\ldots,p.$$
+
+Entonces $Cor(\vect{X})=Cov(\vect{Z})$
+
+\textbf{Nota:} Evidentemente (ejercicio) $Cov(\vect{Z})=Cor(\vect{Z})$.
+\end{frame}
+\subsection{Expresión matricial de la tipificación de un vector aleatorio.}
+\begin{frame}
+\frametitle[Exp. mat. tip. vect.a.]{Expresión matricial de la tipificación de un vector aleatorio.}
+La operación consistente en dado un vector aleatorio obtener el vector formado  por sus componentes tipificadas admite una forma matricial que recuerda a la tipificación de una variable.
+
+Sea  $\vect{X}=\begin{pmatrix}X_1\\ X_2 \\\vdots \\ X_p\end{pmatrix}$, sea $\vect{\mu}$ su vector de medias y $$\vect{A}=\begin{pmatrix}\sigma_{1}^{-1} & 0 \ldots &0\\
+0 & \sigma_{2}^{-1} \ldots &0\\
+\vdots & \vdots &\vdots\\
+0 & 0 & \ldots &\sigma_{p}^{-1}
+\end{pmatrix}$$
+
+la matriz que tiene en su diagonal el inverso de las desviaciones típicas y el resto de valores iguales a cero.
+\end{frame}
+
+Entonces 
+$$\vect{Z}=\vect{A}\cdot (\vect{X}-\vect{\mu}).$$
+
+Comprobarlo como ejercicio el efecto de esta transformación para $p=3$.
+
+\begin{itemize}
+\item 
+La expresión anterior es un caso particular de tranformación lineal multivariante.
+\item Una transformación lineal general se obtiene tomando cualquier otra matriz $\vect{A}$ y sustituyendo por  un vector constante cualqueira el vector de medias. Incluso podemos variar las dimensiones de estas matrices.
+\end{itemize}
+
+
+
+
+\begin{frame}
+\begin{itemize}
+\item Como hemos visto, la matriz de correlaciones es una matriz de covarianzas de un cierto vector aleatorio.
+\item   De este hecho se sigue que las propiedades que verifican las matrices de covarianzas las deben de cumplir las de correlaciones. En particular, la siguiente propiedad.
+\end{itemize}
+
+\textbf{Propiedad}
+Las matrices de covarianzas son semidefinidas positivas.
+
+De esta propiedad se desprende que son simétricas (ejercicio) y que tienen todos sus valores propios no negativos.
+
+%De hecho estas matrices cumple alguna otra propiedad pero  para nuestros propósitos esta es suficiente.
+\end{frame}
+\section{Descripción de datos multivariantes}
+ \begin{frame}
+ \frametitle{¿Por qué hemos tenido que aprender las nociones de la sección anterior?}
+ \begin{itemize}
+\item Pues el motivo es que tenemos que distinguir entre muestras y variables. Este concepto es tan importante que es el fundamento de la estadística.
+ 
+\item Cualquier estudio científico pasa por crear un modelo, una teoría, un paradigma, que no sea contradictorio en sí mismo.
+
+%\item Para que una teoría sea científica debe de existir un experimento con el que podamos demostrar que es falsa (falsacionismo Popper).
+\end{itemize}
+
+%\textbf{Ejercicio} Dar ejemplos de teorías, conjeturas populares etc.. que no sean falsables.
+
+\end{frame}
+\begin{frame}
+
+\begin{itemize}
+\item El estudio estadístico se realiza de la forma siguiente:  
+
+\begin{itemize}
+\item Uno plantea una teoría y la modela estadísticamente mediante por ejemplo vectores aleatorios.
+\item Luego se  diseña un experimento en condiciones adecuadas y para que la teoría no sea falsa, los datos no deben contradecir la teoría. 
+\end{itemize}
+
+\item La estadística siempre nos dirá cuan probables son los resultados obtenidos suponiendo que la teoría es cierta. 
+
+\item Así que la estadística se usa para cuantificar la veracidad de una teoría. Demostrar que algo  es cierto mediante muestras y métodos estadísticos es algo más complicado.
+ 
+\end{itemize}
+ \end{frame}
+ 
+ \subsection{Datos Multivariantes.}
+\begin{frame}
+\frametitle{Datos Multivariantes.}
+
+Supondremos  que hemos observado, recopilado, obtenido etc... $p$ variables  (si no se dice lo contrario numéricas) en un conjunto de $n$ individuos u objetos. Es decir, tenemos $n$ observaciones de $p$ variables.
+
+Claramente se pueden expresar esta observaciones de forma matricial.
+
+$$\vect{X}=\begin{pmatrix}
+x_{1 1} & x_{1 2} &\ldots & x_{1 p}\\
+x_{2 1} & x_{2 2} &\ldots & x_{2 p}\\
+\vdots & \vdots   &       &\vdots\\ 
+x_{n 1} & x_{n 2} &\ldots & x_{n p}
+\end{pmatrix}=\begin{pmatrix}{\vect{x^1}}^\top\\ {\vect{x^2}}^\top\\\vdots \\ {\vect{x^n}}^\top\end{pmatrix}$$
+  \end{frame}
+
+
+\begin{frame}
+
+Donde utilizamos las siguientes notaciones
+ 
+\begin{itemize}
+\item Denotamos por $${\vect{x}^i}^\top =\begin{pmatrix} x_{i 1} \\ x_{i 2}\\ \ldots \\ x_{i p} \end{pmatrix}^\top =(x_{i 1},x_{i 2},\ldots, x_{i p})$$
+
+ Es decir, ${\vect{x}^i}^\top $ son los vectores filas compuestos por las observaciones de las $p$ variables sobre el $i$-ésimo individuo.
+ 
+ \item Denotamos por
+ $$\vect{x}_j=\begin{pmatrix}x_{1 j} \\ x_{2 j}\\ \vdots \\ x_{n j} \end{pmatrix}$$
+\end{itemize}
+\end{frame}
+ 
+\begin{frame}
+\begin{itemize}
+\item Es decir $\vect{x}_j$ son los vectores columna compuestos por las $n$ observaciones de la  $j$-ésima variable.
+
+\item  Así podemos expresar la matriz de datos como
+ 
+ $\vect{X}=(\vect{x}_1,\vect{x}_2,\ldots,\vect{x}_p)$
+ 
+\item Por último denotamos por $\vect{X}=(X_1,X_2,\ldots, X_p)$ el vector aleatorio cuyas componentes son las variables aleatorias observadas.
+\end{itemize}
+\end{frame}
+
+\subsection{Vector de medias, varianzas.}
+
+
+\begin{frame}
+\frametitle{Vector de medias, varianzas.}
+\begin{itemize}
+\item Con estas notaciones  podemos recuperar algunas definiciones ya conocidas de los estadísticos más usuales de una muestra.
+\item La media aritmética que es un estimador del valor esperado de cada variable.
+\item La varianza y la desviación típica muestral estiman los parámetros poblacionales del mismo nombre.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\textbf{Media de una variable}
+
+$\overline{{x}}_j=\frac{1}{n}\sum\limits_{i=1}^n x_{i j}$ es la media aritmética de la variable $j$-ésima en esta muestra.
+Así el vector de medias aritméticas al que denotaremos por
+
+$$\overline{\vect{x}}=\begin{pmatrix}\overline{{x}}_1 \\\overline{{x}}_2\\\vdots\\ \overline{{x}}_p\end{pmatrix}$$
+
+es un estimador de $E(\vect{X})=\vect{\mu}$.
+
+\textbf{Desviación de una observación respecto a la media}
+
+$$d_{i j}=x_{i j}-\overline{{x}}_{j}$$
+
+\end{frame}
+\begin{frame}
+\textbf{Varianza muestral}
+ 
+La varianza muestral es el estadístico que estima la varianza $\sigma_j^2$ de la variable $X_j$.
+ 
+Tiene dos versiones
+\begin{itemize}
+\item La varianza muestral MLE, acrónimo del inglés \textsl{maximum likelihood estimator} o estimador máximo verosímil:
+
+$$s_j^2=\frac{1}{n}\
+\sum_{i=1}^n {d_{i j}}^2=\frac{1}{n}\sum_{i=1}^n {(x_{i j}-\overline{{x}}_{j})^2}=\frac{1}{n}
+\sum_{i=1}^n{x_{i j}^2}-\overline{{x}}_{j}^2.$$
+
+
+\end{itemize}
+\end{frame}
+\begin{frame}
+
+\begin{itemize}
+\item El estimador insesgado de la varianza. Los estimadores insesgados son aquellos cuyo valor esperado es el verdadero valor del parámetro.
+
+$$
+\begin{array}{rl}
+\tilde{s}_j^2= & \frac{1}{n-1}
+\sum_{i=1}^n{d_{i j}}^2 =\frac{1}{n-1}\sum_{i=1}^n{(x_{i j}-\overline{{x}}_{j})^2}\\ = & \frac{1}{n-1}
+\sum_{i=1}^n{x_{i j}^2}-\frac{n}{n-1}\overline{{x}}_{j}^2.
+\end{array}$$
+
+\item  La relación que existen entre ambas formulas de la varianza muestral es la siguiente:
+
+$$\frac{n}{n-1}s_j^2=\tilde{s}_j^2$$
+\textbf{Nota:} Algunos autores utilizan el nombre de cuasivarianza para denominar a $\tilde{s}_j^2$. Para valores muestrales grandes las diferencias  entre ambos estimadores de la varianza se hacen pequeñas.
+Los paquetes estadísticos suelen calcular por defecto la  cuasivarianza.
+\end{itemize}
+
+\end{frame}
+\begin{frame}
+
+
+
+\textbf{Desviación típica muestral}
+
+Es la raíz cuadrada positiva de la varianza (de la que estemos utilizando)
+
+\textbf{Coeficiente de variación }
+
+Es  una medida de la variación muestral estandarizada (es mejor utilizar la solamente para variables positivas)
+$$cv_j=\frac{s_j}{\overline{x}_j}$$
+
+\textbf{Coeficiente de asimetría, coeficiente de apuntamiento}
+Otros coeficientes que veremos en prácticas.
+
+
+
+
+
+\end{frame}
+\subsection{Centralización de una matriz de datos.}
+\begin{frame}
+\textbf{Centralización de una matriz de datos.}
+\begin{itemize}
+\item Al igual que el caso univariante, centrar una variable es transformarla en otra de media $0$. Para ello bastará restar a sus observaciones la media.
+
+\item En el caso de observaciones multivariantes, tendremos que realizar esta operación en todas las columnas de datos:
+
+$$\overline{\vect{x}}=
+\frac{1}{n} \sum_{i=1}^n \vect{x}^i =\frac{1}{n} \sum_{i=1}^n \begin{pmatrix}x_{i 1}\\ x_{i 2}\\\vdots\\ x_{i p}    \end{pmatrix}= \frac{1}{n}  \begin{pmatrix} \sum_{i=1}^n x_{i 1}\\ \sum_{i=1}^n x_{i 2}\\\vdots\\ 
+\sum_{i=1}^n x_{i p}\end{pmatrix}= \begin{pmatrix} \overline{x}_{1}\\ \overline{x}_{2}\\\vdots\\ \overline{x}_{p}    \end{pmatrix}$$
+\end{itemize}
+\end{frame}
+\subsection{Cálculo matricial del vector de medias.}
+\begin{frame}
+\frametitle[Cál. mat. ect. medias]{Cálculo matricial del vector de medias.}
+\begin{itemize}
+\item Esta igualdad admite calculo matricial . Sea $\vect{1}_n$ un vector columna de $n$ filas todas iguales a $1$
+\end{itemize}
+\textbf{Ejemplo}
+El efecto que produce la multiplicación de una matriz $3\times 4 $ por el vector $\vect{1}_4$ queda muy claro con el siguiente ejemplo
+$$\begin{pmatrix}
+2 & 2 & 2 & 2\\
+3 & 3 & 3 & 3 \\
+1 & 2 & 3 & 4   
+\end{pmatrix}\cdot \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1   \end{pmatrix}=
+\begin{pmatrix} 8 \\ 12 \\ 10   \end{pmatrix}.$$
+
+
+\end{frame}
+
+\begin{frame}
+Entonces
+
+$$\frac{1}{n} \vect{X}^\top \vect{1}_n= \frac{1}{n}
+\begin{pmatrix} x_{11} & x_{2 1}&\ldots & x_{n 1}\\
+\vdots& \vdots &  & \vdots\\
+x_{1 p} & x_{2 p}&\ldots & x_{n p}    \end{pmatrix} 
+\begin{pmatrix} 1 \\ 1 \\ \vdots \\ 1   \end{pmatrix}$$
+$$
+=\frac{1}{n}
+\begin{pmatrix} 
+x_{11} + x_{2 1}+\ldots x_{n 1}\\
+ \vdots \\
+ x_{1 p} + x_{2 p}+\ldots x_{n p}    \end{pmatrix}$$
+ $$=\begin{pmatrix} \overline{x}_{1}\\
+ \vdots\\ \overline{x}_{p}    
+\end{pmatrix}=
+\overline{\vect{x}}$$
+ 
+\end{frame}
+
+\begin{frame}
+\textbf{Propiedad} $$\overline{\vect{x}}=\frac{1}{n} \vect{X}^\top \mathbf{1}_n$$
+
+\textbf{Matriz de datos centrados}
+
+Dada una matriz de datos $\vect{X}$ llamaremos matriz de datos centrados y la denotaremos por $\tilde{\vect{X}}$ a la matriz de datos resultante de restar a cada columna de $\vect{X}$ su media aritmética.
+
+
+$$\tilde{\vect{X}}=
+\begin{pmatrix}
+x_{1 1}- \overline{x}_1& x_{1 2}- \overline{x}_2 &\ldots & x_{1 p}- \overline{x}_p\\
+x_{2 1} - \overline{x}_1& x_{2 2}- \overline{x}_2 &\ldots & x_{2 p}- \overline{x}_p\\
+\vdots & \vdots   &       &\vdots\\ 
+x_{n 1} - \overline{x}_1& x_{n 2}- \overline{x}_2 &\ldots & x_{n p}- \overline{x}_p
+\end{pmatrix}$$
+
+El resultado es una matriz de datos donde todas las variables tienen media aritmética cero.
+
+
+Veamos que la operación de centrado tiene una expresión matricial:
+
+
+\end{frame}
+
+\begin{frame}
+
+\textbf{Notación:} Llamamos matriz centralizadora  de orden $n$  a:
+
+ $\vect{H}_n=I_n-\frac{1}{n} \vect{1}_n\cdot \vect{1}_n^\top $
+
+Es decir 
+$\vect{H}_n=\begin{pmatrix}1 & 0 & \ldots & 0\\
+0 & 1 & \ldots & 0\\
+\vdots & \vdots &  & \vdots\\
+0 & 0 & \ldots & 1\\
+\end{pmatrix}-\frac{1}{n} \begin{pmatrix}1 \\ 1\\ \vdots \\ 1\end{pmatrix}\cdot (1,1,\ldots,1)$
+
+$
+=\begin{pmatrix}1 & 0 & \ldots & 0\\
+0 & 1 & \ldots & 0\\
+\vdots & \vdots &  & \vdots\\
+0 & 0 & \ldots & 1\\
+\end{pmatrix}-\frac{1}{n} 
+\begin{pmatrix}1 & 1& \ldots & 1\\
+1 & 1 & \ldots & 1\\
+\vdots & \vdots &  & \vdots\\
+1 & 1 & \ldots & 1\\
+\end{pmatrix}$
+
+$=\begin{pmatrix}1-\frac{1}{n} & -\frac{1}{n}& \ldots & -\frac{1}{n}\\
+-\frac{1}{n} & 1-\frac{1}{n}& \ldots & -\frac{1}{n}\\
+\vdots & \vdots &  & \vdots\\
+-\frac{1}{n} & -\frac{1}{n} & \ldots & 1-\frac{1}{n}\\
+\end{pmatrix}$
+\end{frame}
+
+\begin{frame}
+\textbf{Propiedad}
+\begin{itemize}
+\item $\tilde{\vect{X}}=\vect{H}_n\cdot \vect{X}$, que nos da una expresión matricial del centrado.
+\item La matriz $\vect{H}_n$ cumple que $\vect{H}_n\cdot \vect{H}_n = \vect{H}_n$.  Es lo que se llama una matriz idempotente (comprobadlo como ejercicio).
+\item  Además $\vect{H}_n$ es simétrica, tiene rango $n-1$ y $\vect{H}_n \cdot \vect{1}_n=0$ (ejercicio).
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Tipificación Tabla de datos}
+\begin{itemize}
+\item Dado un conjunto de datos, llamaremos datos tipificados  a los datos resultantes de restar a cada valor la media de la variable o columna que corresponde y dividir el resultado por su desviación típica. 
+\item De esta forma obtenemos datos tipificados que tienen media artimética $0$ y varianza~$1$.
+\item La tipificación se puede realizar de forma tradicional, o bien matricialmente. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\textbf{Propiedad}
+Sea $\vect{Z}$ la matriz de datos resultante de tipificar la matriz de datos $\vect{X}$. Sea 
+$
+\vect{D}^{-\frac{1}{2}}=
+\begin{pmatrix} 
+\frac{1}{s_1} & 0 & \ldots & 0\\
+ 0 & \frac{1}{s_2}  & \ldots & 0\\
+ \vdots & \vdots & & \vdots\\
+ 0 & 0 & \ldots  & \frac{1}{s_p}
+\end{pmatrix}
+$
+la matriz que contiene en la diagonal la inversa de las desviaciones típicas. Entonces:
+
+$$\vect{Z}=\vect{H}_n\cdot \vect{X}\cdot \vect{D}^{-1/2}=\tilde{\vect{X}}\cdot \vect{D}^{-1/2}.$$
+
+\end{frame}
+
+\begin{frame}
+\textbf{Ejemplo} 
+Sea $\vect{X}=\begin{pmatrix}
+1&-1&3\\
+1&0&3\\
+2&3&0\\
+3&0&1
+\end{pmatrix}$
+una matriz de datos con $p=3$ variables y $n=4$ observaciones.
+
+Calculemos la matriz de datos tipificado $\vect{Z}$.
+
+La matriz de la inversa de las desviaciones típicas es (ejercicio):
+
+$\vect{D}^{-1/2}=
+\begin{pmatrix}
+\frac{1}{\sqrt{\frac{11}{16}}} & 0                  & 0 \\
+0                             & \frac{1}{\sqrt{\frac{9}{4}}}& 0\\
+0                             & 0 &\frac{1}{\sqrt{\frac{27}{16}}}  
+\end{pmatrix}.$
+
+Entonces 
+
+\end{frame}
+\begin{frame}
+
+$\vect{Z}= \vect{H}_4\cdot \vect{X} \cdot  \vect{D}^{-1/2}= \left(
+\begin{array}{llll}
+ \frac{3}{4} & -\frac{1}{4} & -\frac{1}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & \frac{3}{4} & -\frac{1}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & -\frac{1}{4} & \frac{3}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & -\frac{1}{4} & -\frac{1}{4} &
+   \frac{3}{4}
+\end{array}
+\right) \cdot 
+\begin{pmatrix}
+1&-1&3\\
+1&0&3\\
+2&3&0\\
+3&0&1
+\end{pmatrix}
+\cdot \begin{pmatrix}\frac{1}{\sqrt{\frac{11}{16}}} & 0 & 0 \\
+0 & \frac{1}{\sqrt{\frac{9}{4}}}& 0\\
+0 &  0 &\frac{1}{\sqrt{\frac{27}{16}}}
+\end{pmatrix}=
+\left(
+\begin{array}{lll}
+ -{3}/{\sqrt{11}} & -1 & {5}/({3 \sqrt{3}}) \\
+ -{3}/{\sqrt{11}} & -{1}/{3} & {5}/({3 \sqrt{3}}) \\
+ {1}/{\sqrt{11}} & {5}/{3} & -{7}/({3 \sqrt{3}}) \\
+ {5}/{\sqrt{11}} & -{1}/{3} & -{1}/{\sqrt{3}}
+\end{array}
+\right)
+$
+
+
+
+\end{frame}
+\subsection{Covarianza.}
+\begin{frame}
+\frametitle{Covarianza.}
+
+
+\begin{itemize}
+\item Se define la covarianza muestral de las variables $\vect{x}_i$ y $\vect{x}_j$ como
+$$s_{i j}=\frac{1}{n} \sum_{k =1}^n(x_{k i}-\overline{x}_i)(x_{k j}-\overline{x}_j)= 
+\frac{1}{n} \sum_{k =1}^n x_{k i} x_{k j} - \overline{x}_i \overline{x}_j.$$
+
+\item La expresión anterior es un estimador máximo verosímil de $\sigma_{i j}$. También se tiene un estimador insesgado que consiste en dividir por $n-1$ en lugar de $n$: $\tilde{s}_{ij} =\frac{n}{n-1} s_{ij}$.
+
+\item La covarianza muestral estima la relación lineal entre las variables. 
+\item Puede tomar cualquier valor. Si es cero se dice que las muestras son incorreladas.
+\item $s_{i j}= s_{j i}$.
+\item $s_{i i}=s_{i}^2$.
+\end{itemize}
+
+\end{frame}
+
+\subsection{Matriz de Covarianzas.}
+
+\begin{frame}
+\frametitle{Matriz de covarianzas.}
+
+Dada una tabla de datos llamaremos matriz de covarianzas (o de varianzas-covarianzas) a  la matriz
+
+$$
+\vect{S}=(s_{i j})_{i,j=1,\ldots,p}=
+\begin{pmatrix}  
+ s_{1 1} & s_{1 2} & \ldots & s_{1 p}\\
+ s_{2 1} & s_{2 2} & \ldots & s_{2 p}\\
+  \vdots & \vdots  &        & \vdots\\
+ s_{p 1} & s_{p 2} & \ldots & s_{p p}
+\end{pmatrix}
+$$
+
+\begin{itemize}
+\item La matriz de covarianzas muestral representa la variabilidad conjunta de los datos multidimensionales.
+\item La matriz de covarianzas es simétrica.
+\item $tr(\vect{S})=\sum_{i=1}^p s_i^2\geq 0$.
+\item Las matrices de covarianzas son definidas positivas. 
+\item Tienen todos los valores propios no negativos y por lo tanto $\det(\vect{S})\geq 0$.
+\end{itemize}
+
+\end{frame}
+
+\subsection{Expresión matricial de la matriz de covarianzas.}
+\begin{frame}
+\frametitle{Expresión matricial de $S$.}
+
+
+$$\vect{S}=\frac{1}{n} \tilde{\vect{X}}^\top\cdot \tilde{\vect{X}}= \frac{1}{n} \vect{X}^\top\cdot \vect{H}_n\cdot \vect{X}.$$
+
+$$\vect{S}=\frac{1}{n} 
+\begin{pmatrix}
+x_{1 1}- \overline{x}_1& x_{1 2}- \overline{x}_2 &\ldots & x_{1 p}- \overline{x}_p\\
+x_{2 1} - \overline{x}_1& x_{2 2}- \overline{x}_2 &\ldots & x_{2 p}- \overline{x}_p\\
+\vdots & \vdots   &       &\vdots\\ 
+x_{n 1} - \overline{x}_1& x_{n 2}- \overline{x}_2 &\ldots & x_{n p}- \overline{x}_p
+\end{pmatrix}^\top\cdot $$
+$$\begin{pmatrix}
+x_{1 1}- \overline{x}_1& x_{1 2}- \overline{x}_2 &\ldots & x_{1 p}- \overline{x}_p\\
+x_{2 1} - \overline{x}_1& x_{2 2}- \overline{x}_2 &\ldots & x_{2 p}- \overline{x}_p\\
+\vdots & \vdots   &       &\vdots\\ 
+x_{n 1} - \overline{x}_1& x_{n 2}- \overline{x}_2 &\ldots & x_{n p}- \overline{x}_p
+\end{pmatrix}$$
+
+\end{frame}
+
+\begin{frame}
+
+
+
+$$\vect{S}=\frac{1}{n} 
+\begin{pmatrix}
+x_{1 1} & x_{1 2} &\ldots & x_{1 p}\\
+x_{2 1} & x_{2 2} &\ldots & x_{2 p}\\
+\vdots & \vdots   &       &\vdots\\ 
+x_{n 1} & x_{n 2} &\ldots & x_{n p}
+\end{pmatrix}^\top \cdot 
+$$
+
+$$
+\begin{pmatrix}
+1-\frac{1}{n} & -\frac{1}{n}& \ldots & -\frac{1}{n}\\
+-\frac{1}{n} & 1-\frac{1}{n}& \ldots & -\frac{1}{n}\\
+\vdots & \vdots &  & \vdots\\
+-\frac{1}{n} & -\frac{1}{n} & \ldots & 1-\frac{1}{n}\\
+\end{pmatrix}
+\cdot
+$$
+
+$$\begin{pmatrix}
+x_{1 1} & x_{1 2} &\ldots & x_{1 p}\\
+x_{2 1} & x_{2 2} &\ldots & x_{2 p}\\
+\vdots & \vdots   &       &\vdots\\ 
+x_{n 1} & x_{n 2} &\ldots & x_{n p}
+\end{pmatrix}.$$
+
+\end{frame}
+
+\begin{frame}
+\textbf{Ejemplo.}
+Sea $\vect{X}=\begin{pmatrix}
+1&-1&3\\
+1&0&3\\
+2&3&0\\
+3&0&1
+\end{pmatrix}$
+una matriz de datos con $p=3$ variables y $n=4$ observaciones.
+De la forma tradicional  se ponen los datos en una tabla de la siguiente forma:
+
+\begin{center}
+\begin{tabular}{|r||r|r|r|r|r|r|r|r|r|}
+\hline
+$i$&$x_1$&$x_2$&$x_3$&$x_1^2$&$x_2^2$&$x_3^2$&$x_1x_2$&$x_1x_3$&$x_2x_3$
+\\\hline\hline
+1&1&-1&3&1&1&9&-1&3&-3\\
+2&1&0&3&1&0&9&0&3&0\\
+3&2&3&0&4&9&0&6&0&0\\
+4&3&0&1&9&0&1&0&3&0\\\hline
+$\Sigma$&7&2&7&15&10&19&5&9&-3\\\hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+Así tenemos que 
+
+\begin{itemize}
+\item $\overline{x}_1= \frac{7}{4}$, $\overline{x}_2= \frac{2}{4}$ y $\overline{x}_3= \frac{7}{4}$
+
+\item $s_1^2=\frac{1}{4}\sum_{i=1}^4 x_{i 1}^2-\overline{x}_1^2=\frac{15}{4} -\left( \frac{7}{4}\right)^2=\frac{11}{16}$
+
+\item  
+$s_2^2=\frac{1}{4}\sum_{i=1}^4 x_{i 2}^2-\overline{x}_2^2=\frac{10}{4} -\left( \frac{2}{4}\right)^2=\frac{9}{4}$
+
+\item $s_3^2=\frac{1}{4}\sum_{i=1}^4 x_{i 3}^2-\overline{x}_3^2=\frac{19}{4} -\left( \frac{7}{4}\right)^2=\frac{27}{16}$
+
+\item  $s_{1 2}=\frac{1}{4}\sum_{i=1}^n x_{i 1} x_{i 2} -\overline{x}_1 \overline{x}_2=  \frac{5}{4}-\frac{7}{4} \frac{2}{4}=\frac{3}{8}$
+\item $s_{1 3}=\frac{1}{4}\sum_{i=1}^n x_{i 1} x_{i 3} -\overline{x}_1 \overline{x}_3=  \frac{9}{4}-\frac{7}{4} \frac{7}{4}=-\frac{13}{16}$
+\item $s_{2 3}=\frac{1}{4}\sum_{i=1}^n x_{i 2} x_{i 3} -\overline{x}_2 \overline{x}_3=  \frac{-3}{4}-\frac{2}{4} \frac{7}{4}=-\frac{13}{8}$
+\end{itemize}
+
+Luego la matriz de covarianzas es 
+
+$$\vect{S}= \begin{pmatrix}
+ {11}/{16} & {3}/{8}& -{13}/{16} \\
+{3}/{8} & {9}/{4}  & -{13}/{8}\\
+   -{13}/{16} & -{13}/{8}&  {27}/{16}
+ \end{pmatrix}$$
+
+\end{frame}
+
+\begin{frame}
+Hagamos los cálculos de forma matricial
+
+En este caso la matriz $\vect{H}_4=\left(
+\begin{array}{llll}
+ \frac{3}{4} & -\frac{1}{4} & -\frac{1}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & \frac{3}{4} & -\frac{1}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & -\frac{1}{4} & \frac{3}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & -\frac{1}{4} & -\frac{1}{4} &
+   \frac{3}{4}
+\end{array}
+\right)$
+
+ 
+Entonces 
+
+$\vect{S}=\frac{1}{4} \vect{X}^\top\cdot \vect{H}_4\cdot \vect{X}=\frac{1}{4}$
+
+$\left(
+\begin{array}{llll}
+ 1 & 1 & 2 & 3 \\
+ -1 & 0 & 3 & 0 \\
+ 3 & 3 & 0 & 1
+\end{array}
+\right)\cdot 
+\left(
+\begin{array}{llll}
+ \frac{3}{4} & -\frac{1}{4} & -\frac{1}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & \frac{3}{4} & -\frac{1}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & -\frac{1}{4} & \frac{3}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & -\frac{1}{4} & -\frac{1}{4} &
+   \frac{3}{4}
+\end{array}
+\right)
+\cdot 
+\left(
+\begin{array}{lll}
+ 1 & -1 & 3 \\
+ 1 & 0 & 3 \\
+ 2 & 3 & 0 \\
+ 3 & 0 & 1
+\end{array}
+\right)=
+\frac{1}{4}\left(
+\begin{array}{llll}
+ 1 & 1 & 2 & 3 \\
+ -1 & 0 & 3 & 0 \\
+ 3 & 3 & 0 & 1
+\end{array}
+\right)\cdot 
+\left(
+\begin{array}{lll}
+ -\frac{3}{4} & -\frac{3}{2} & \frac{5}{4} \\
+ -\frac{3}{4} & -\frac{1}{2} & \frac{5}{4} \\
+ \frac{1}{4} & \frac{5}{2} & -\frac{7}{4} \\
+ \frac{5}{4} & -\frac{1}{2} & -\frac{3}{4}
+\end{array}
+\right)=
+$
+
+
+\end{frame}
+
+\begin{frame}
+$=\frac{1}{4} \left(
+\begin{array}{lll}
+ \frac{11}{4} & \frac{3}{2} & -\frac{13}{4} \\
+ \frac{3}{2} & 9 & -\frac{13}{2} \\
+ -\frac{13}{4} & -\frac{13}{2} & \frac{27}{4}
+\end{array}
+\right)
+=\left(
+\begin{array}{lll}
+ \frac{11}{16} & \frac{3}{8} & -\frac{13}{16} \\
+ \frac{3}{8} & \frac{9}{4} & -\frac{13}{8} \\
+ -\frac{13}{16} & -\frac{13}{8} & \frac{27}{16}
+\end{array}
+\right)=\vect{S}$
+\end{frame}
+
+\begin{frame}
+
+También podemos calcular de forma matricial de $\overline{\vect{x}}$:
+
+$\overline{\vect{x}}=\frac{1}{4} \vect{X}^\top \vect{1}_4=
+\frac{1}{4} 
+\left(
+\begin{array}{llll}
+1&1&2&3\\
+-1&0&3&0\\
+3&3&0&1\\ 
+\end{array}
+\right)
+\cdot \begin{pmatrix} 1 \\ 1 \\ 1\\ 1\end{pmatrix}=
+\frac{1}{4} \begin{pmatrix} 7 \\ 2\\ 7\end{pmatrix}
+= \begin{pmatrix} \frac{7}{4} \\ \frac{2}{4}\\  \frac{7}{4}\end{pmatrix}$
+
+
+
+\textbf{Ejercicio} Se deja como ejercicio el cálculo de la matriz centrada $\tilde{\vect{X}}$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Variables redundantes}
+% \textbf{Propiedad}
+% \begin{itemize}
+% \item La matriz de covarianzas $S$ es semidefinida positiva.
+% \item En consecuencia $tr(S)\geq 0$
+% \item $\det(S)\geq 0$.
+% \item Todos los valores propios son no negativos.
+% \end{itemize}
+
+
+Decimos que  en una tabla de datos hay variables redundantes cuando una o más variables aportan la misma información
+que otra. 
+
+La redundancia de variables se puede manifestar por ejemplo si una variable $\vect{x}_i$ cumple que es combinación lineal de otras variables $\vect{x}_{i_1},\ldots ,\vect{x}_{i_k}$:
+
+$$x_i=a_1 \vect{x}_{i_1}+\cdots+ a_k \vect{x}_{i_k}+b.$$
+
+
+La matriz de covarianzas es muy útil para descubrir las variables redundantes de tipo lineal. Lo veremos en la siguiente propiedad.
+\end{frame}
+
+\begin{frame}
+\textbf{Propiedad}
+
+Sea $\vect{S}$ un matriz de covarianzas de dimensión $p$.
+
+\begin{itemize}
+\item El número de variables redundantes es igual al número de valores propios de $\vect{S}$ iguales a cero.
+\item Si $\det(\vect{S})=0$, entonces existe al menos una variable redundante.
+\item Si $rg(\vect{S})=k$, entonces existen $p-k$ variables redundantes.
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}
+\textbf{Ejemplo}
+\vskip 0.5cm
+\begin{tabular}{|r||r|r|r|}
+\hline
+$i$&$x_1$&$x_2$&$x_3$
+\\\hline\hline
+1 & 1 & 0 & -1 \\
+2 & 1 & 2 & 1 \\
+3 & 1 & 1 & 0 \\
+4 &0 & 3 & 0\\ \hline
+\end{tabular}
+
+Entonces 
+$\vect{X}=\left(
+\begin{array}{lll}
+ 1 & 0 & -1 \\
+ 1 & 2 & 1 \\
+ 1 & 1 & 0 \\
+ 0 & 3 & 0
+\end{array}
+\right)$
+
+Calculemos $\overline{\vect{x}}$  en primer lugar.
+
+$\overline{\vect{x}}=\frac{1}{4}\cdot \vect{X}^\top\cdot \vect{1}_4=
+\frac{1}{4}
+\left(
+\begin{array}{llll}
+ 1 & 1 & 1 & 0 \\
+ 0 & 2 & 1 & 3 \\
+ -1 & 1 & 0 & 0
+\end{array}
+\right)
+\cdot
+\left(
+\begin{array}{l}
+ 1 \\
+ 1 \\
+ 1 \\
+ 1
+\end{array}
+\right)=
+\left(
+\begin{array}{l}
+ \frac{3}{4} \\
+ \frac{3}{2} \\
+ 0
+\end{array}
+\right)$
+\end{frame}
+
+\begin{frame}
+Ahora podemos restar manualmente las medias a $\vect{X}$ para obtener $\tilde{\vect{X}}$. (ejercicio)
+
+O podemos calcular matricialmente:
+
+$\tilde{\vect{X}}= \vect{H}_4\cdot \vect{X}= 
+\left(
+\begin{array}{llll}
+ \frac{3}{4} & -\frac{1}{4} & -\frac{1}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & \frac{3}{4} & -\frac{1}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & -\frac{1}{4} & \frac{3}{4} &
+   -\frac{1}{4} \\
+ -\frac{1}{4} & -\frac{1}{4} & -\frac{1}{4} &
+   \frac{3}{4}
+\end{array}
+\right)
+\cdot 
+\left(
+\begin{array}{lll}
+ 1 & 0 & -1 \\
+ 1 & 2 & 1 \\
+ 1 & 1 & 0 \\
+ 0 & 3 & 0
+\end{array}
+\right)=\left(
+\begin{array}{lll}
+ \frac{1}{4} & -\frac{3}{2} & -1 \\
+ \frac{1}{4} & \frac{1}{2} & 1 \\
+ \frac{1}{4} & -\frac{1}{2} & 0 \\
+ -\frac{3}{4} & \frac{3}{2} & 0
+\end{array}
+\right)$
+\end{frame}
+
+\begin{frame}
+
+Ahora $\vect{S}=\frac{1}{4}\tilde{\vect{X}}^\top\cdot \tilde{\vect{X}}=
+\frac{1}{4}     
+\left(
+\begin{array}{llll}
+ \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & -\frac{3}{4} \\
+ -\frac{3}{2} & \frac{1}{2} & -\frac{1}{2} & \frac{3}{2} \\
+ -1 & 1 & 0 & 0
+\end{array}
+\right)
+\cdot
+\left(
+\begin{array}{lll}
+ \frac{1}{4} & -\frac{3}{2} & -1 \\
+ \frac{1}{4} & \frac{1}{2} & 1 \\
+ \frac{1}{4} & -\frac{1}{2} & 0 \\
+ -\frac{3}{4} & \frac{3}{2} & 0
+\end{array}
+\right)=\left(
+\begin{array}{lll}
+ \frac{3}{16} & -\frac{3}{8} & 0 \\
+ -\frac{3}{8} & \frac{5}{4} & \frac{1}{2} \\
+ 0 & \frac{1}{2} & \frac{1}{2}
+\end{array}
+\right)
+$
+
+Si calculamos $\det(\vect{S})=0$ (ejercicio). Luego existe al menos una variable redundante.
+\end{frame}
+
+\begin{frame}
+Veamos si hay más. Calculemos los valores propios.
+
+El polinomio característico de $\vect{S}$ es
+$p_{\vect{S}}=\begin{vmatrix}\frac{3}{16}-\lambda & -\frac{3}{8} & 0 \\
+ -\frac{3}{8} & \frac{5}{4}-\lambda & \frac{1}{2} \\
+ 0 & \frac{1}{2} & \frac{1}{2}-\lambda\end{vmatrix}=-\lambda^3+\frac{31 \lambda^2}{16}-\frac{9 \lambda}{16}$
+ 
+ Que sólo tiene una solución nula. Por lo tanto sólo hay una variable redundante.
+ 
+ ¿A alguien se le ocurre una relación lineal entres las variables?
+
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item La dificultad de la interpretación de la matriz de covarianzas como medida de variabilidad radica en que son muchas cantidades. 
+\item Desafortunadamente no hay una  sola cantidad que mida la variabilidad multivariante de forma sobresaliente. Veamos dos
+
+\item \textbf{Varianza total}
+
+$T=tr(\vect{S})=\sum_{i=1}^p s_i^2=\sum_{i=1}^n\lambda_i$. La varianza media será $\frac{T}{p}$.
+
+\item \textbf{Varianza Generalizada}
+
+$$\det(\vect{S})=\lambda_1\cdot\cdots \cdot\lambda_p.$$
+La desviación típica generalizada será $\sqrt{\det(\vect{S})}$ que  cuando el conjunto de datos se representa en $\mathbb{R}^p$ es el área, volumen o hipervolumen del conjunto de datos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Correlación lineal de Pearson.}
+
+Se define la correlación lineal de Pearson de las muestras de  las variables $\vect{x}_i$ y $\vect{x}_j$ como 
+
+$$r_{i j}=\frac{s_{i j}}{s_i s_j}$$
+
+La correlación $r_{i j}$ estima el parámetro poblacional $\rho_{i j}=Cor(X_i,X_j)$.
+
+
+\textbf{Propiedades}
+\begin{itemize}
+\item $-1\leq r_{i j}\leq 1.$
+\item $r_{i i}=1$.
+\item La correlación tiene el mismo signo que la covarianza.
+\item $r_{i j}=\pm 1$ si y sólo sí existe una relación lineal perfecta entre las variables $\vect{x}_i$ i $\vect{x}_j$. O sea, existen valores $a$ y $b$ tal que $\vect{x}_j= a \vect{x}_i +b$. La pendiente de la recta $a$ tiene el mismo signo que la correlación entre las variables.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Matriz de correlaciones}
+
+Llamaremos matriz de correlaciones de la tabla de datos $\vect{X}$ a 
+
+$\vect{R}=(r_{i j})_{i,j=1,\ldots,p}=
+\begin{pmatrix}
+1 & r_{1 2} & \ldots & r_{1 p}\\
+r_{2 1} & 1 & \ldots & r_{2 p}\\
+\vdots & \vdots & & \vdots\\
+r_{p 1} & r_{p 2} & \ldots & 1
+\end{pmatrix}$
+ 
+\textbf{Propiedades}
+\begin{itemize}
+\item La matriz $\vect{R}$ es semidefinida positiva.
+\item Si todas las variables son incorreladas entonces $\vect{R}=I_p$ y $\det(\vect{R})=1$.
+\item  Respecto a las variables redundantes, $\vect{R}$ cumple las mismas propiedades que la matriz de covarianzas. Por ejemplo si $\det(\vect{R})=0$, hay al menos una variable redundante.
+\item $\det(\vect{R})\leq 1$.
+\end{itemize}
+
+\end{frame}
+
+\subsection{Expresión matricial de la matriz de correlaciones.}
+
+\begin{frame}
+
+\frametitle{Expresión matricial de la matriz de correlaciones.}
+
+
+Sea $\vect{D}^{\frac{1}{2}}
+=
+\begin{pmatrix}
+ s_1 & 0 & \ldots & 0\\
+0 & s_2  & \ldots & 0\\
+\vdots & \vdots & & \vdots\\
+0 & 0 & \ldots  & s_p  
+\end{pmatrix}
+$
+
+Entonces su inversa es 
+$
+\vect{D}^{-\frac{1}{2}}=
+\begin{pmatrix} 
+\frac{1}{s_1} & 0 & \ldots & 0\\
+ 0 & \frac{1}{s_2}  & \ldots & 0\\
+ \vdots & \vdots & & \vdots\\
+ 0 & 0 & \ldots  & \frac{1}{s_p}
+\end{pmatrix}
+$
+
+
+\end{frame}
+\begin{frame}
+
+\textbf{Propiedades}
+
+\begin{itemize}
+\item Expresión matricial de la matriz de correlaciones $\vect{R}= \vect{D}^{-\frac{1}{2}}\cdot\vect{S}\cdot \vect{D}^{-\frac{1}{2}}$.
+\item Usando la expresión anterior, podemos escribir la matriz de covarianzas como $\vect{S}= \vect{D}^{\frac{1}{2}}\cdot\vect{R}\cdot \vect{D}^{\frac{1}{2}}$
+ \item La matriz de covarianzas de los datos tipificados es la matriz de correlaciones de $\vect{X}$. O sea, si
+$\vect{Z}$ es la matriz de datos tipificados de $\vect{X}$ entonces
+
+ $$S_{\vect{Z}}=\vect{R}_{\vect{X}}$$
+ \item Esta última propiedad confirma que la matriz de correlaciones es también de covarianzas y cumple sus propiedades.
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\textbf{Ejercicio}
+
+
+Consideremos la siguiente matriz de datos 
+$\vect{X}=\left(
+\begin{array}{lll}
+ 1 & 0 & -1 \\
+ 1 & 2 & 1 \\
+ 1 & 1 & 0 \\
+ 0 & 3 & 0
+\end{array}
+\right)$
+\begin{enumerate}[a)]
+\item  Calcular la matriz de correlaciones.
+\item  Obtener la tabla de datos tipificados $\vect{Z}$. 
+\item  Calcular la matriz de covarianzas de los datos tipificados y comprobar que es igual a la matriz de correlaciones de $\vect{X}$.
+\item  Sin hacer cálculos, determinar la matriz de correlaciones de $\vect{Z}$.
+\end{enumerate}
+\end{frame}
+\subsection{Otros tipos de correlaciones.}
+\begin{frame}
+\frametitle{Otros tipos de correlaciones.}
+ \begin{itemize}
+\item \textbf{Correlaciones parciales.}
+Hasta ahora hemos visto la relación lineal enter cada par de variables. Pero en un estudio conjunto nos podría interesar  la relación lineal de dos variables eliminando el efecto de las demás, este concepto recibe el nombre de correlación parcial.
+\item \textbf{Correlaciones ordinales.}
+Otros tipos de correlaciones son las llamadas correlaciones ordinales. Lo que se busca es si existe correlación entre dos tipos de ordenaciones. Las más conocidas con la correlación ordinal de Spearman y la de Kendall.
+\end{itemize}
+
+
+%\textbf{Ejemplo}
+
+\end{frame}
+
+

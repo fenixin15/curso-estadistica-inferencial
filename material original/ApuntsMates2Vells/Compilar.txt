@@ -1,0 +1,2 @@
+R --no-save < Rmadre.R
+pdflatex mat2ciencias20100714.tex
