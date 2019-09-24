@@ -1,56 +1,6 @@
 %\documentclass[12pt,t]{beamer}
 % \documentclass[t]{beamer}
-\documentclass[handout]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
-  \else
-    \Gin@nat@width
-  \fi
-}
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-\let\hlipl\hlkwb
-
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
+\documentclass[handout]{beamer}
 \usepackage{pgfpages}
 \usepackage{pgffor}
 \pgfpagesuselayout{4 on 1}[a4paper,landscape]
@@ -167,8 +117,12 @@ n\to\infty}}}
 \title[\red{Matemáticas III GINF}]{}
 \author[]{R. Alberich}
 \date{}
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+
+
+\usepackage{Sweave}
 \begin{document}
+\input{Distribuciones_Notables-concordance}
 \beamertemplatedotitem
 
 \lstset{backgroundcolor=\color{green!50}}
@@ -284,49 +238,45 @@ $Var(X)=$ & $p\cdot q$\\
 
 Veamos los cálculos básicos $Ber(p=0.25)$
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{pbinom}\hlstd{(}\hlnum{0}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{1}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.75
-\end{verbatim}
-\begin{alltt}
-\hlkwd{pbinom}\hlstd{(}\hlnum{1}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{1}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 1
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> pbinom(0,size=1,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.75
+\end{Soutput}
+\begin{Sinput}
+> pbinom(1,size=1,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 1
+\end{Soutput}
+\end{Schunk}
 
 \end{frame}
 
 \begin{frame}[fragile]
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{1}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.75
-\end{verbatim}
-\begin{alltt}
-\hlkwd{dbinom}\hlstd{(}\hlnum{1}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{1}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.25
-\end{verbatim}
-\begin{alltt}
-\hlkwd{rbinom}\hlstd{(}\hlkwc{n}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{size} \hlstd{=} \hlnum{1}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-##  [1] 0 0 1 1 0 1 1 1 0 1 0 0 0 0 0 0 0 1 0 0
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> dbinom(0,size=1,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.75
+\end{Soutput}
+\begin{Sinput}
+> dbinom(1,size=1,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.25
+\end{Soutput}
+\begin{Sinput}
+> rbinom(n=20,size = 1,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+ [1] 1 0 0 0 1 0 0 0 0 1 0 0 1 0 0 1 0 0 0 0
+\end{Soutput}
+\end{Schunk}
 
 \end{frame}
 
@@ -337,40 +287,28 @@ Veamos los cálculos básicos $Ber(p=0.25)$
 
 El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ber(0.25)$
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{plot}\hlstd{(}\hlkwc{x}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{),}\hlkwc{y}\hlstd{=}\hlkwd{dbinom}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{),}\hlkwc{size}\hlstd{=}\hlnum{1}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{),}
-    \hlkwc{ylim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{),}\hlkwc{xlim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{1}\hlstd{,}\hlnum{2}\hlstd{),}\hlkwc{xlab}\hlstd{=}\hlstr{"x"}\hlstd{,}
-    \hlkwc{main}\hlstd{=}\hlstr{"Función de probabilidad\textbackslash{}n Ber(p=0.25)"}\hlstd{)}
-\hlkwd{curve}\hlstd{(}\hlkwd{pbinom}\hlstd{(x,}\hlkwc{size}\hlstd{=}\hlnum{1}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{),}
-    \hlkwc{xlim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{1}\hlstd{,}\hlnum{2}\hlstd{),}\hlkwc{col}\hlstd{=}\hlstr{"blue"}\hlstd{,}
-    \hlkwc{main}\hlstd{=}\hlstr{"Función de distribución\textbackslash{}n Ber(p=0.25)"}\hlstd{)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=0.25),
++     ylim=c(0,1),xlim=c(-1,2),xlab="x",
++     main="Función de probabilidad\n Ber(p=0.25)")
+> curve(pbinom(x,size=1,prob=0.25),
++     xlim=c(-1,2),col="blue",
++     main="Función de distribución\n Ber(p=0.25)")
+\end{Sinput}
+\end{Schunk}
 
 \end{frame}
 
 
 \begin{frame}[fragile]
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=0.8\textwidth]{figure/unnamed-chunk-2-1} 
-
-\end{knitrout}
 
 \end{frame}
 
 
 \begin{frame}[fragile]
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=0.8\textwidth]{figure/unnamed-chunk-3-1} 
-
-\end{knitrout}
 
 \end{frame}
 
@@ -452,50 +390,46 @@ $Var(X)=$ & $n\cdot p \cdot (1-p)$\\
 \frametitle{Cálculos con R}
 Veamos los cálculos básicos $B(n=10,p=0.25)$
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{pbinom}\hlstd{(}\hlnum{0}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{10}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.05631351
-\end{verbatim}
-\begin{alltt}
-\hlkwd{pbinom}\hlstd{(}\hlnum{1}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{10}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.2440252
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> pbinom(0,size=10,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.05631351
+\end{Soutput}
+\begin{Sinput}
+> pbinom(1,size=10,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.2440252
+\end{Soutput}
+\end{Schunk}
 
 \end{frame}
 
 \begin{frame}[fragile]
 Funciones de R para la binomial 
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{dbinom}\hlstd{(}\hlnum{0}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{10}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.05631351
-\end{verbatim}
-\begin{alltt}
-\hlkwd{dbinom}\hlstd{(}\hlnum{1}\hlstd{,}\hlkwc{size}\hlstd{=}\hlnum{10}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.1877117
-\end{verbatim}
-\begin{alltt}
-\hlkwd{rbinom}\hlstd{(}\hlkwc{n}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{size} \hlstd{=} \hlnum{10}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-##  [1] 4 0 3 3 0 2 4 3 2 2 1 2 4 2 1 3 4 3 0 2
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> dbinom(0,size=10,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.05631351
+\end{Soutput}
+\begin{Sinput}
+> dbinom(1,size=10,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.1877117
+\end{Soutput}
+\begin{Sinput}
+> rbinom(n=20,size = 10,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+ [1] 3 2 3 4 2 2 1 3 2 4 2 4 4 1 2 3 3 3 3 2
+\end{Soutput}
+\end{Schunk}
 
 \end{frame}
 
@@ -506,40 +440,28 @@ Funciones de R para la binomial
 
 El siguiente código dibuja las función de probabilidad y la de distribución de una  $B(n=10,p=0.25)$
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{plot}\hlstd{(}\hlkwc{x}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{10}\hlstd{),}\hlkwc{y}\hlstd{=}\hlkwd{dbinom}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{0}\hlopt{:}\hlnum{10}\hlstd{),}\hlkwc{size}\hlstd{=}\hlnum{10}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{),}
-  \hlkwc{ylim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{),}\hlkwc{xlim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{1}\hlstd{,}\hlnum{11}\hlstd{),}\hlkwc{xlab}\hlstd{=}\hlstr{"x"}\hlstd{,}
-  \hlkwc{main}\hlstd{=}\hlstr{"Función de probabilidad\textbackslash{}n B(n=10,p=0.25)"}\hlstd{)}
-\hlkwd{curve}\hlstd{(}\hlkwd{pbinom}\hlstd{(x,}\hlkwc{size}\hlstd{=}\hlnum{10}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{),}
-  \hlkwc{xlim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{1}\hlstd{,}\hlnum{10}\hlstd{),}\hlkwc{col}\hlstd{=}\hlstr{"blue"}\hlstd{,}
-  \hlkwc{main}\hlstd{=}\hlstr{"Función de distribución\textbackslash{}n B(n=10,p=0.25)"}\hlstd{)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> plot(x=c(0,10),y=dbinom(c(0:10),size=10,prob=0.25),
++   ylim=c(0,1),xlim=c(-1,11),xlab="x",
++   main="Función de probabilidad\n B(n=10,p=0.25)")
+> curve(pbinom(x,size=10,prob=0.25),
++   xlim=c(-1,10),col="blue",
++   main="Función de distribución\n B(n=10,p=0.25)")
+\end{Sinput}
+\end{Schunk}
 
 \end{frame}
 
 
 \begin{frame}[fragile]
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=0.8\textwidth]{figure/unnamed-chunk-5-1} 
-
-\end{knitrout}
 
 \end{frame}
 
 
 \begin{frame}[fragile]
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=0.8\textwidth]{figure/unnamed-chunk-6-1} 
-
-\end{knitrout}
 
 \end{frame}
 
@@ -718,28 +640,26 @@ $Var(X)=$ & $\frac{1-p}{p^2}$\\
 \frametitle{Cálculos con R}
 Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ emnpezando en $0$
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{dgeom}\hlstd{(}\hlnum{0}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.25
-\end{verbatim}
-\begin{alltt}
-\hlkwd{pgeom}\hlstd{(}\hlnum{0}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.25
-\end{verbatim}
-\begin{alltt}
-\hlkwd{dgeom}\hlstd{(}\hlnum{1}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.1875
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> dgeom(0,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.25
+\end{Soutput}
+\begin{Sinput}
+> pgeom(0,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.25
+\end{Soutput}
+\begin{Sinput}
+> dgeom(1,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.1875
+\end{Soutput}
+\end{Schunk}
 
 \end{frame}
 
@@ -747,22 +667,20 @@ Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.
 \frametitle{Cálculos con R}
 Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ empezando en $0$
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{pgeom}\hlstd{(}\hlnum{1}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-## [1] 0.4375
-\end{verbatim}
-\begin{alltt}
-\hlkwd{rgeom}\hlstd{(}\hlkwc{n}\hlstd{=}\hlnum{20}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-##  [1] 10  1  2  0  4  0  2  3  1  2  0  0  5  5 10  0  2  3  4  3
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> pgeom(1,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.4375
+\end{Soutput}
+\begin{Sinput}
+> rgeom(n=20,prob=0.25)
+\end{Sinput}
+\begin{Soutput}
+ [1]  3  2  5  1  1  1  0  0  0  1  1 12  4  0  8  2  3  3  4  2
+\end{Soutput}
+\end{Schunk}
 
 \end{frame}
 
@@ -770,40 +688,28 @@ Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.
 
 El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ge(p=0.25)$
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{plot}\hlstd{(}\hlkwc{x}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{10}\hlstd{),}\hlkwc{y}\hlstd{=}\hlkwd{dgeom}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{0}\hlopt{:}\hlnum{10}\hlstd{),}\hlkwc{size}\hlstd{=}\hlnum{10}\hlstd{,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{),}
-  \hlkwc{ylim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{1}\hlstd{),}\hlkwc{xlim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{1}\hlstd{,}\hlnum{11}\hlstd{),}\hlkwc{xlab}\hlstd{=}\hlstr{"x"}\hlstd{,}
-  \hlkwc{main}\hlstd{=}\hlstr{"Función de probabilidad\textbackslash{}n Ge(p=0.25)"}\hlstd{)}
-\hlkwd{curve}\hlstd{(}\hlkwd{pgeom}\hlstd{(x,}\hlkwc{prob}\hlstd{=}\hlnum{0.25}\hlstd{),}
-  \hlkwc{xlim}\hlstd{=}\hlkwd{c}\hlstd{(}\hlopt{-}\hlnum{1}\hlstd{,}\hlnum{10}\hlstd{),}\hlkwc{col}\hlstd{=}\hlstr{"blue"}\hlstd{,}
-  \hlkwc{main}\hlstd{=}\hlstr{"Función de distribución\textbackslash{}n Ge(p=0.25)"}\hlstd{)}
-\end{alltt}
-\end{kframe}
-\end{knitrout}
+\begin{Schunk}
+\begin{Sinput}
+> plot(x=c(0,10),y=dgeom(c(0:10),size=10,prob=0.25),
++   ylim=c(0,1),xlim=c(-1,11),xlab="x",
++   main="Función de probabilidad\n Ge(p=0.25)")
+> curve(pgeom(x,prob=0.25),
++   xlim=c(-1,10),col="blue",
++   main="Función de distribución\n Ge(p=0.25)")
+\end{Sinput}
+\end{Schunk}
 
 \end{frame}
 
 
 \begin{frame}[fragile]
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=0.8\textwidth]{figure/unnamed-chunk-8-1} 
-
-\end{knitrout}
 
 \end{frame}
 
 
 \begin{frame}[fragile]
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=0.8\textwidth]{figure/unnamed-chunk-9-1} 
-
-\end{knitrout}
 
 \end{frame}
 

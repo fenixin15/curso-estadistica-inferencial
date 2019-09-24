@@ -1,0 +1,243 @@
+\documentclass[10pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,accents,enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}        
+\usepackage[spanish]{babel}
+\decimalpoint
+\advance\hoffset by -0.9in
+\advance\textwidth by 1.8in
+\advance\voffset by -1in
+\advance\textheight by 2in
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+
+\newcommand{\novapart}{\noindent\hrulefill}
+\newcommand{\VV}{\textbf{\Large \checkmark}}
+\newcommand{\coment}[1]{\noindent{\footnotesize\textbf{Comentario}: #1\par}}
+\newcommand{\sol}[1]{{\footnotesize #1\par}}
+
+\renewcommand{\VV}{}
+\renewcommand{\sol}[1]{}
+\renewcommand{\coment}[1]{}
+
+
+\pagestyle{empty}
+
+\usepackage{Sweave}
+\begin{document}
+\input{Control2MATIII_prueba_ejemplo-knitr-concordance}
+%\SweaveOpts{concordance=TRUE}
+%1
+\noindent\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \vspace*{-2ex}
+
+
+
+
+\begin{center}
+\textsc{Matemáticas III. GMAT 11-junio RECUPERACIÓN 2017-2018.  Control2. Cuestiones.}\\[1ex]%1
+\end{center}
+
+% {\footnotesize\it
+% \noindent \textbf{Puntuación de las preguntas}:  Sobre 2 puntos repartidos por igual entre las diferentes preguntas
+% \setcounter{problemes}{0}
+% }
+
+
+\probl (\textbf{0.5 puntos})
+Calcular la correlación de $x=(2,1,0,-1,-2)$ y $y=(0,1,4,6,8)$
+\vspace{4cm}
+
+\probl (\textbf{0.5 puntos})En una regresión lineal por mínimos cuadrados de una variable
+$y$  respecto de una variable $x$, hemos empleado las observaciones $(x,y)$
+de 100 individuos. Para estas observaciones, $SSE=0.5$ y $SST=1000$. Sin calcular la recta de regresión, ¿podéis calcular qué vale $R^2$? ¿En caso afirmativo, cuál es su valor? ¿En caso negativo, por qué no podéis?
+\vspace{4cm}
+
+\probl  (\textbf{0.5 puntos.})   Para comprobar la relación entre  las notas por islas de Baleares se toman 3 muestras de 50 individuos de cada una de las islas y sus notas numéricas  en las Pruebas de Bachillerato para el Acceso a la Universidad ¿Qué tipo de contraste podemos aplicar y por qué?
+
+
+\vspace{4cm} 
+ 
+\probl  (\textbf{0.5 puntos.}) Supogamos que un ANOVA de un factor efectos fijos de 9 niveles  ha resultado que teníamos que rechazar la igualdad de las medias, con un nivel de significación de 0.1. Entonces hemos decidido aplicar el test de comparaciones de parejas de Bonferroni a todas las parejas de niveles del factor. 
+Según la regla de Bonferroni, ¿con qué nivel de significación tenemos que realizar cada uno de los tests para que  el nivel de significación global siga siendo de 0.1?
+
+
+
+
+\vspace{3cm} 
+ 
+\begin{center}
+\textsc{Matemáticas III. GMAT. Control 2 11 junio 2017-2018. Ejercicios.}
+\end{center}
+
+
+
+\setcounter{problemes}{0}
+\probl El \verb+data frame+ \verb+datos_vuelos+ contiene información del retraso en minutos de vuelos de varias compañías aéreas diferentes.
+
+
+
+\begin{Schunk}
+\begin{Sinput}
+> head(datos_vuelos)
+\end{Sinput}
+\begin{Soutput}
+    retraso compania
+1  8.308064       C1
+2  3.800487       C1
+3  9.742283       C1
+4 11.083525       C1
+5 16.941135       C1
+6  8.941155       C1
+\end{Soutput}
+\begin{Sinput}
+> str(datos_vuelos)
+\end{Sinput}
+\begin{Soutput}
+'data.frame':	250 obs. of  2 variables:
+ $ retraso : num  8.31 3.8 9.74 11.08 16.94 ...
+ $ compania: Factor w/ 5 levels "C1","C2","C3",..: 1 1 1 1 1 1 1 1 1 1 ...
+\end{Soutput}
+\begin{Sinput}
+> anova_sol=aov(retraso~compania,data=datos_vuelos)
+> summary(anova_sol)
+\end{Sinput}
+\begin{Soutput}
+             Df Sum Sq Mean Sq F value Pr(>F)    
+compania      4  25174    6293   375.5 <2e-16 ***
+Residuals   245   4106      17                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+\end{Soutput}
+\begin{Sinput}
+> pairwise.t.test(datos_vuelos$retraso,datos_vuelos$compania,"none")
+\end{Sinput}
+\begin{Soutput}
+	Pairwise comparisons using t tests with pooled SD 
+
+data:  datos_vuelos$retraso and datos_vuelos$compania 
+
+   C1     C2     C3   C4  
+C2 0.32   -      -    -   
+C3 <2e-16 <2e-16 -    -   
+C4 <2e-16 <2e-16 0.52 -   
+C5 <2e-16 <2e-16 0.59 0.91
+
+P value adjustment method: none 
+\end{Soutput}
+\begin{Sinput}
+> library(agricolae)
+> duncan.test(anova_sol,"compania",group=TRUE)$groups
+\end{Sinput}
+\begin{Soutput}
+     retraso groups
+C4 30.766867      a
+C5 30.671788      a
+C3 30.235084      a
+C2 10.490940      b
+C1  9.678596      b
+\end{Soutput}
+\begin{Sinput}
+> duncan.test(anova_sol,"compania",group=FALSE)$comparison
+\end{Sinput}
+\begin{Soutput}
+          difference pvalue signif.        LCL         UCL
+C1 - C2  -0.81234391 0.3221          -2.425113   0.8004253
+C1 - C3 -20.55648850 0.0000     *** -22.254224 -18.8587532
+C1 - C4 -21.08827137 0.0000     *** -22.884526 -19.2920168
+C1 - C5 -20.99319169 0.0000     *** -22.747649 -19.2387340
+C2 - C3 -19.74414459 0.0000     *** -21.356914 -18.1313754
+C2 - C4 -20.27592746 0.0000     *** -22.030385 -18.5214698
+C2 - C5 -20.18084778 0.0000     *** -21.878583 -18.4831125
+C3 - C4  -0.53178287 0.5449          -2.229518   1.1659524
+C3 - C5  -0.43670319 0.5943          -2.049472   1.1760660
+C4 - C5   0.09507968 0.9077          -1.517690   1.7078489
+\end{Soutput}
+\begin{Sinput}
+> library(car)
+> leveneTest(datos_vuelos$retraso,datos_vuelos$compania)
+\end{Sinput}
+\begin{Soutput}
+Levene's Test for Homogeneity of Variance (center = median)
+       Df F value Pr(>F)
+group   4  0.3552 0.8403
+      245               
+\end{Soutput}
+\begin{Sinput}
+> bartlett.test(datos_vuelos$retraso,datos_vuelos$compania)
+\end{Sinput}
+\begin{Soutput}
+	Bartlett test of homogeneity of variances
+
+data:  datos_vuelos$retraso and datos_vuelos$compania
+Bartlett's K-squared = 0.38658, df = 4, p-value = 0.9836
+\end{Soutput}
+\begin{Sinput}
+> library(nortest)
+> sapply(levels(datos_vuelos$compania),FUN=function(x){
++   lillie.test(datos_vuelos[datos_vuelos$compania==x,"retraso"])}
++   )
+\end{Sinput}
+\begin{Soutput}
+          C1                                                   
+statistic 0.09160773                                           
+p.value   0.3683079                                            
+method    "Lilliefors (Kolmogorov-Smirnov) normality test"     
+data.name "datos_vuelos[datos_vuelos$compania == x, "retraso"]"
+          C2                                                   
+statistic 0.07794665                                           
+p.value   0.6287935                                            
+method    "Lilliefors (Kolmogorov-Smirnov) normality test"     
+data.name "datos_vuelos[datos_vuelos$compania == x, "retraso"]"
+          C3                                                   
+statistic 0.09137701                                           
+p.value   0.3722495                                            
+method    "Lilliefors (Kolmogorov-Smirnov) normality test"     
+data.name "datos_vuelos[datos_vuelos$compania == x, "retraso"]"
+          C4                                                   
+statistic 0.08060674                                           
+p.value   0.5754615                                            
+method    "Lilliefors (Kolmogorov-Smirnov) normality test"     
+data.name "datos_vuelos[datos_vuelos$compania == x, "retraso"]"
+          C5                                                   
+statistic 0.05257725                                           
+p.value   0.9799692                                            
+method    "Lilliefors (Kolmogorov-Smirnov) normality test"     
+data.name "datos_vuelos[datos_vuelos$compania == x, "retraso"]"
+\end{Soutput}
+\begin{Sinput}
+> boxplot(datos_vuelos$retraso~datos_vuelos$compania,
++         main="Diagramas de caja de ___________________")
+\end{Sinput}
+\end{Schunk}
+
+
+Contestad a las siguientes cuestiones justificando que parte del código utilizáis
+
+\punt  Interpretar y poner un título adecuado al diagrama de cajas ¿Qué nos dice el diagrama sobre la igualdad de medias del retraso? (\textbf{ 0.5 puntos})
+
+\punt  Escribid hipótesis del contraste de ANOVA y discutid si se cumplen las condiciones necesarias para realizarlo. (\textbf{ 0.5 puntos})
+
+\punt  Escribid la tabla (estándar, la de los apuntes) del ANOVA con toda la información de qué es y cómo se calcula cada valor. Concluid en base a ello el resultado del ANOVA (\textbf{ 0.5 puntos})
+
+\punt  Sea cual sea el resultado del ANOVA, realizad el ajuste por Bonferroni para $\alpha = 0.1$ y discutid los resultados obtenidos a partir la salida del  código. (\textbf{ 0.5 puntos})
+
+\punt Discutid el resultado de la salida del código del test de Duncan. (\textbf{ 0.5 puntos})
+
+
+\newpage
+
+\probl  Para estudiar si hay evidencia de que el retraso de un vuelo en la salida aumenta el retraso de su llegada se toma una muestra aleatoria simple de 100 vuelos y se anota para cada vuelo si tuvo retraso en la salida y en la llegada (en minutos).
+La tabla siguiente resume los resultados:
+

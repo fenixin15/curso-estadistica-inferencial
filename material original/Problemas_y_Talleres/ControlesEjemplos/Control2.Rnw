@@ -1,0 +1,1193 @@
+\documentclass[10pt,spanish,es-nodecimaldot]{article}
+\usepackage{babel}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,enumerate,multirow,adjustbox}
+\usepackage{multirow}
+%\usepackage{accents}
+\usepackage[utf8]{inputenc} 
+\decimalpoint
+
+
+
+
+\advance\hoffset by -0.9in \advance\textwidth by 1.8in
+\advance\voffset by -1.4in \advance\textheight by 2.8in \parskip= 1 ex
+\parindent = 10pt \baselineskip= 13pt
+
+\pagestyle{empty}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+\newif\ifsol
+\soltrue
+%\solfalse
+
+
+%\usepackage{Sweave}
+\newenvironment{solucion}{\textbf{Solución:}\sf}{\rm}
+\begin{document}
+
+
+\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \medskip
+\setcounter{problemes}{0}
+
+\begin{center}
+\textsc{\textbf{Matemáticas III. Algunos problemas}}\\[1ex]%1
+\end{center}
+% {\footnotesize Tenéis que contestar en esta hoja. Todas las cuestiones valen \textbf{0.5 puntos}.}
+
+<<echo=FALSE,results='hide'>>=
+library(knitr)
+options(digits=4)
+@
+
+\probl Légolas, el elfo del Bosque Sombrío afirma que es capaz de matar a 86 orcos con su arco y un carcaj\footnote{Bolsa cilíndrica en la que los arqueros llevan sus saetas o flechas.} lleno de 100 flechas, mientras que Gimli, el enano de las Montañas Azules afirma que con 15 hachazos derriba a 11 orcos. En la batalla del abismo de Helm, cuenta la leyenda que Légolas gastó 4 carcajs de flechas completos y Gimli blandió su hacha 435 veces y el enano afirmó ``Te he vencido Elfo, en proporción he matado más orcos que tu''. ¿Cuál es la probabilidad que dicha afirmación fuera cierta\footnote{Pista: considerar, si es necesario, que  los disparos de flechas y los hachazos son una muestra aleatoria simple y que hay independencia entre los derribos de Légolas y Gimli.}
+? (\textbf{1.5 puntos})
+
+
+\ifsol
+\textbf{Solución:}
+
+
+
+Tenemos que la proporción poblacional de orcos que mata Légolas  por cada flecha  es $p_L=\frac{86}{100}$ mientras que la proporción que mata Gimli con cada hachazo es $p_G= \frac{11}{15}$. 
+Si consideramos una muestra aleatoria simple las flechas disparadas de tamaño $n_L=400$ y los hachazos $n_G=435$
+
+Así que la proporción muestral de derribos de orcos con las flechas de Légolas, al ser la muestra suficientemente grande, podemos afirmar que sigue una ley 
+
+$$\hat{p}_L\approx N\left(\frac{86}{100},\sqrt{\frac{\frac{86}{100}\cdot\left(1-\frac{86}{100}\right)}{400}}
+=\sqrt{\frac{301}{1000000}}=\Sexpr{sqrt(301/1000000)}\right)$$
+
+de forma similar la proporción de derribos de Gimli  sigue, aproximadamente, la ley
+
+$$\hat{p}_G\approx N\left(\frac{11}{15},\sqrt{\frac{\frac{11}{15}\cdot\left(1-\frac{11}{15}\right)}{435}}
+=\sqrt{\frac{44}{97875}}=\Sexpr{sqrt(44/97875)}\right)$$.
+
+
+Entonces podemos considerar las distribuciones de las variables aleatorias $\hat{p}_L$ y $\hat{p}_G$ son normales independientes y por lo tanto sabemos que  
+
+$$\hat{p}_L-\hat{p}_G\approx N\left(\frac{86}{100}-\frac{11}{15},\sqrt{\frac{\frac{86}{100}\cdot\left(1-\frac{86}{100}\right)}{400}+\frac{\frac{11}{15}\cdot\left(1-\frac{11}{15}\right)}{435}}\right),$$
+
+en definitiva podemos suponer que $\hat{p}_L-\hat{p}_G$ sigue una ley de distribución 
+
+$$N\left(\frac{86}{100}-\frac{11}{15}=\Sexpr{86/100-11/15},\sqrt{\frac{301}{1000000}+ \frac{44}{97875}}=\Sexpr{sqrt(301/1000000+44/97875)}\right),$$
+
+
+Ahora la probabilidad de que la proporción de derribos de Légolas supere a la de Gimli en esta muestra es ($Z$ es la normal estándar y aproximamos por la tabla  de esta distribución)
+
+$$P(\hat{p}_L-\hat{p}_G>0)=P\left(Z>\frac{0-\Sexpr{86/100-11/15}}{\Sexpr{sqrt(301/1000000+44/97875)}}\right)=P\left(Z>\Sexpr{(0-(86/100-11/15))/sqrt(301/1000000+44/97875)}\right)=1-P\left(Z\leq\Sexpr{(0-(86/100-11/15))/sqrt(301/1000000+44/97875)}\right)\approx 1-0=1.$$
+
+
+En resumen la afirmación de Gimli es altamente improbable, ganó Légolas  con una  probabilidad muy cerca de 1.
+
+Los cálculos con \texttt{R} nos darán un valor más exacto
+
+<<prob5conR>>=
+dL=86
+nL=100
+dG=11
+nG=15
+NL=400
+NG=435
+pL=dL/nL
+pG=dG/nG
+VarpL=pL*(1-pL)/NL
+VarpG=pG*(1-pG)/NG
+sdpL=sqrt(VarpL)
+sdpG=sqrt(VarpG)
+c(pL,pG,VarpL,VarpG,sdpL,sdpG)
+#Ahora la distribución de la difeerencia pDif=pL-pG
+pDif=pL-pG
+VarDif=VarpL+VarpG
+sdDif=sqrt(VarDif)
+c(pDif,VarDif,sdDif)
+1-pnorm(0,pDif,sdDif)
+z=(0-pDif)/sdDif
+z
+1-pnorm(z)
+@
+\fi
+
+
+
+\probl Aragorn, que también estaba en la batalla del abismo de Helm mató a 30 orcos en total, los pesos de  los cuales, guardados en \texttt{x},  analizamos con \texttt{R}:
+
+
+
+<<simulacion,results='hide',echo=FALSE>>=
+set.seed(2017)# por reproducibilidad
+x=rnorm(30,mean=80,sd=10)
+mean(x)
+var(x)
+sd(x)
+@
+
+<<codigo>>=
+length(x)
+sum(x)
+sum(x^2)
+@
+
+Supongamos normalidad en la distribución de los pesos y que no sabemos ninguna cosa más. Responder a las siguientes cuestiones con un nivel de confianza del 97\%.
+
+\begin{enumerate}[a)]
+\item Calcular e interpretar un intervalo de confianza bilateral para $\mu$. Justificar la elección del intervalo de confianza elegido. (\textbf{1 punto})
+\item Calcular e interpretar un intervalo de confianza  bilateral para $\sigma$. Justificar la elección del intervalo de confianza elegido.(\textbf{1 punto})
+\end{enumerate}
+
+\ifsol
+\textbf{Solución:}
+Cálculos con \texttt{R}
+
+<< decimals=4>>=
+n=30
+sumax=2399.204
+sumx2=195079
+mediax=sumax/n
+varx=sumx2/n-mediax^2
+stilde2=n/(n-1)*varx
+stilde=sqrt(stilde2)
+mediax
+stilde2
+stilde
+print(c(mediax,stilde2,stilde),digits=4)
+alpha=1-0.97
+t=qt(1-alpha/2,n-1)
+ICmu=mediax+c(-t*stilde/sqrt(n),t*stilde/sqrt(n))
+ICmu
+ICsigma2=(n-1)*stilde2/c(qchisq(1-alpha/2,n-1),qchisq(alpha/2,n-1))
+ICsigma2
+ICsigma=sqrt(ICsigma2)
+ICsigma
+#Notad que  estos valores son con los cuantiles más precisos y discreparan 
+#de las aproximaciones que hagamos con las tablas.
+@
+
+
+
+Consideremos los pesos de los  orcos fallecidos $n=30$ como una muestra aleatoria simple del peso de los orcos.
+
+
+Sea $X$ la variable aleatoria que nos da el peso de un orco elegido con equiprobablemente. Así que tenemos que $x_i$ desde $i =1,2\ldots,30$  son los valores de la muestra de pesos.
+
+Con el código de \texttt{R} sabemos que $\sum_{i=1}^{30} x_i=2399.204$ y que $\sum_{i=1}^{30} x^2_i=195079$. Ahora podemos calcular la media
+
+$$\overline{x}=\frac{\sum_{i=1}^{30} x_i}{30}=\frac{2399.204}{30}=\Sexpr{2399.204/30}$$
+
+mientras que  la varianza y la desviación típica muestral son 
+
+$$\tilde{s}^2=\frac{n}{n-1}\left(\frac{\sum_{i=1}^{30} x^2_i}{30}-\overline{x}^2\right)=
+\frac{30}{29}\left(\frac{195079}{30}-\Sexpr{(2399.204/30)^2}\right)=
+\Sexpr{(30/29)*(195079/30-(2399.204/30)^2)},\quad \tilde{s}=+\sqrt{\tilde{s}^2}=
+\Sexpr{sqrt((30/29)*(195079/30-(2399.204/30)^2))}$$
+
+
+Como la distribución es normal y  de varianza desconocida sabemos que los intervalos bilaterales de confianza al nivel $1-\alpha$ para $\mu$ y $sigma^2$ son, en este orden:
+
+
+$$\left]\overline{x}-t_{n-1,1-\frac{\alpha}{2}}\cdot \frac{\tilde{s}}{\sqrt{n}},\overline{x}+t_{n-1,1-\frac{\alpha}{2}}\cdot \frac{\tilde{s}}{\sqrt{n}}\right[,\mbox{ y } \left]\frac{(n-1)\cdot \tilde{s}^2}{\chi^2_{n-1,1-\frac{\alpha}{2}}},\frac{(n-1)\cdot \tilde{s}^2}{\chi^2_{n-1,\frac{\alpha}{2}}}\right[$$
+
+Ahora consultando las tablas de las distribuciones $t$ de Student estándar y  $\chi^2$ tenemos que \footnote{Notad que vamos a aproximar los valores de los cuantiles,así que discreparan de los resultados más precisos que obtenemos con \texttt{R}.}
+
+$t_{n-1,1-\frac{\alpha}{2}}=t_{29,0.985}\approx t_{29,0.99}=2.462021$, $\chi^2_{n-1,1-\frac{\alpha}{2}}=
+\chi^2_{29,0.985}\approx\chi^2_{29,0.99}=49.588$ y
+$\chi^2_{29,0.015}\approx\chi^2_{29,0.01}=14.256.$
+
+
+Así el intervalo de confianza para la media de los pesos de los orcos al nivel 98.5\% es 
+
+$$\left]\Sexpr{mediax}-2.462021\frac{\Sexpr{stilde}}{\sqrt{\Sexpr{n}}},\Sexpr{mediax}+2.462021\frac{\Sexpr{stilde}}{\sqrt{\Sexpr{n}}}\right[=
+\left]\Sexpr{mediax-2.462021*stilde/sqrt(n)},\Sexpr{mediax+2.462021*stilde/sqrt(n)}\right[.$$
+
+así que el verdadero valor de la media  estará en un intervalo de este tipo el 98.5\% de las veces que tomemos una muestra bajo estas mismas condiciones.
+
+El intervalo de confianza para la varianza de los pesos de los orcos al nivel 98.5\% es 
+
+$$\left]\frac{(\Sexpr{n}-1)\cdot \Sexpr{stilde2}}{49.588},
+\frac{(\Sexpr{n}-1)\cdot \Sexpr{stilde2}}{14.256}\right[=
+\left]\Sexpr{(n-1)*stilde2/49.588},
+\Sexpr{(n-1)*stilde2/14.256}.\right[
+$$
+
+y para la desviación típica el intervalo es 
+
+$$\left]\sqrt{\Sexpr{(n-1)*stilde2/49.588}},
+\sqrt{\Sexpr{(n-1)*stilde2/14.256}}\right[= \left]\Sexpr{sqrt((n-1)*stilde2/49.588)},
+\Sexpr{sqrt((n-1)*stilde2/14.256)}.\right[$$
+
+Así que el 98.5\% de las veces que tomemos una muestra en estas condiciones el verdadero valor del parámetro $\sigma$ se encontrará  dentro de un  intervalo de este tipo.
+
+\fi
+
+\probl En la última actualización de Pokemon Go, los desarrolladores han introducido un Dratini Rosa que solo podía 
+capturarse el Día de la Comunidad Pokemon (el 24 de Febrero). La empresa desarrolladora afirma que su peso promedio
+se distribuye aproximadamente de forma normal con una desviación estándar $\sigma=45$ gramos. Se toma una muestra
+aleatoria de $n=100$ Dratinis capturados por los estudiantes de la UIB y se calcula el peso de cada uno de ellos.
+    
+<<chunk1,echo=FALSE,results=hide>>=
+set.seed(2018)
+mu=790
+sigma=45
+muestra=rnorm(100,mu,sigma)
+@
+   
+<<chunk2>>=
+head(muestra)
+table(muestra>800)
+c(length(muestra),sum(muestra),sum(muestra^2))
+@
+   
+Cuando sea útil utilizad el código anterior para responder a las siguientes preguntas:
+
+<<codesol,echo=FALSE,results=hide>>=
+n=length(muestra)
+media=mean(muestra)
+stilde=sd(muestra)
+phat=prop.table(table(muestra>800))[[2]]
+phat
+z975=qnorm(0.975)
+z975
+t975=qt(0.975,n-1)
+t975
+chi975=qchisq(0.975,n-1)
+chi975
+chi025=qchisq(0.025,n-1)
+chi025
+@
+
+
+
+\punt Calcular un intervalo de confianza  del 95\% para  varianza poblacional.(\textbf{0.75 punto.})
+
+\punt Calcular un intervalo de confianza del 95\% para  la proporción poblacional $p$ de Dratinis con peso superior a $800$gramos.(\textbf{1 punto.})
+
+\punt ¿Qué tamaño mínimo debe tener la muestra  para, sea cual sea el valor de $p$, obtener intervalo de confianza del 95\%
+para la proporción poblacional de Dratinis con peso superior a de 800 gramos con un error del 1\%? (\textbf{0.75 punto.})
+
+
+\ifsol
+
+<<intervalos>>=
+round(c((n-1)*stilde^2/chi975,(n-1)*stilde^2/chi025),5)
+round(c(phat-z975*sqrt(phat*(1-phat)/n),phat+z975*sqrt(phat*(1-phat)/n)),5)
+round(c(phat-t975*sqrt(phat*(1-phat)/n),phat+t975*sqrt(phat*(1-phat)/n)),5)
+ceiling((z975/(2*0.01))^2)
+@
+
+\fi
+
+Un ejemplo \Sexpr{2^5}
+
+
+
+\probl \textbf{(0.75 puntos)} Hemos analizado el precio de venta (\textbf{Price}) de las casas de una urbanización de Marratxí en función de varias variables: \textbf{Size}, metros cuadrados en unidades de mil; \textbf{Bath}, número de baños de la casa, \textbf{Bed}, número de dormitorios, \textbf{Year}, año de construcción de la vivienda, \textbf{Age}, diferencia respecto de la media de años desde la última reforma de las viviendas circundantes y \textbf{Garage}, número de plazas de garaje de la casa.
+
+<<datosMultiple,echo=FALSE,results='hide'>>=
+
+d <- read.table('homes76.dat',header=TRUE,sep='\t',stringsAsFactor=FALSE)
+
+colnames(d) <- c('id', 'Price', 'Size', 'Lot', 'Bath', 'Bed', 'BathBed', 'Year', 'Age',
+   'Agesq', 'Garage', 'Status', 'Active', 'Elem', 'Edison Elementary',
+   'Harris Elementary', 'Adams Elementary', 'Crest Elementary', 'Parker Elementary')
+
+# perform some elemenatry data treatment
+d$Lot <- as.factor(d$Lot)
+# define columns we will be working with
+yColumn <- 'Price'
+vars <- c("Size", "Bath", "Bed", "Year", "Age", "Garage")
+d = d[,c(vars,yColumn)]
+
+# look at the data
+print(dim(d))
+print(head(d))
+@
+
+<<>>=
+str(d)
+@
+ Para comprobar qué datos influyen en el precio de venta de la casa, se lleva a cabo la regresión múltiple siguiente:
+<<>>=
+# guess at reproducting original analysis
+modelOrig <- lm(Price ~ Size + I(Bath*Bed) + Year + I(Garage^2),data=d)
+summary(modelOrig)
+@
+Se pide:
+\begin{enumerate}[a)]
+\item Indicar cuáles son las variables independientes del modelo de regresión lineal múltiple propuesto
+\item El coeficiente de \textbf{Year} en la función de regresión lineal por mínimos cuadrados de \textbf{Price} en función de las variables citadas.
+\item Los valores de los coeficientes $R^2$ y $R^2_{adj}$.
+\item Una estimación de la desviación típica común de los errores.
+% \item Un interval de confiança al 95\% per al coeficient de \textbf{Age}. Com ajuda vos donam
+% <<>>=
+% pt(q = 1-0.95, df = 75)
+% pt(q = 1-0.975, df = 75)
+% pt(q = 0.95, df = 75)
+% pt(q = 0.975, df = 75)
+% @
+
+\item El $p$-valor del ANOVA para saber si podemos rechazar que todos los coeficientes de les variables son 0.
+\end{enumerate}
+
+\ifsol
+\textbf{Solución:}
+
+\begin{enumerate}[a)]
+\item La superficie de la casa, el producto del número de baños por el número de habitaciones,
+el año de construcción de la casa así como el cuadrado del número de plazas de garaje 
+\item $-0.140$
+\item $R^2= 0.147$ y $R^2_{adj}=0.0994$.
+\item $57.3$
+\item $0.0216$
+\end{enumerate}
+\sl
+
+\rm
+\else
+%\vspace*{1.5cm}
+
+\fi
+
+\probl \textbf{(0.25 puntos)} Consideremos el siguiente dendograma: 
+
+<<echo=FALSE,results='hide'>>=
+
+altures = c(175,158, 168, 168, 174, 185)
+
+pesos = c(75, 50, 60, 46, 65, 74)
+
+noms = c("M.P.", "M.S.", "J.C.", "J.S.", "X.G.", "T.T.")
+
+df = data.frame(altures, pesos)
+
+rownames(df) = noms
+
+dist = dist(df, method = "euclidean")
+#dist
+clust = hclust(dist, method = "single")
+plot(clust, labels = noms, main="Dendograma de Mat. III")
+@
+
+¿Qué clusters se  forman al cortar este dendrograma a altura $12$?
+
+\ifsol
+\sl
+\textbf{Solución:}
+<<>>=
+cutree(clust, h = 12)
+@
+\rm
+\fi
+
+ 
+
+\probl \textbf{2 puntos.}
+Considera la siguiente tabla que contiene los porcentajes de efectos secundarios de dos medicamentos para tratar la acidez estomacal. El medicamento A fue aplicado a una muestra de 465 pacientes y el medicamento B a otra muestra diferente de tamaño 295 pacientes.  
+
+
+\begin{center}
+\begin{tabular}{ccc}
+\hline 
+\textbf{Efecto secundario} & \textbf{Medicamento A} & \textbf{Medicamento B}\\ 
+\hline 
+\textbf{Dolor de cabeza} & 2.4\% & 3.6\% \\ 
+\textbf{Diarrea} & 2.9\% & 3.5\% \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+
+\begin{enumerate}[a)]
+ 
+\item Calcula e interpreta un intervalo de confianza, al 96\% de confianza, para la proporción de pacientes que presentaron dolor de cabeza como efecto secundario al tomar el medicamento A. Justifica la fórmula que vas a utilizar. \textbf{(1 punto)}
+
+\ifsol
+
+
+
+
+Sea $p$ la proporción poblacional de individuos que presentaron dolor de cabeza, luego de tomar el medicamento A. El estimador puntual de $p$ es $\hat{p}=0.024$.
+
+Como $n=465$ es grande y $n\cdot \hat{p}=465 \cdot 0.024 > 10$,  podemos utilizar la fórmula de Laplace para el intervalo de confianza.  Esta es:
+$$  \left ] \hat{p}_X - z_{1-\frac{\alpha}{2}}\sqrt{\frac{\hat{p}_X \cdot (1-\hat{p}_X)}{n}} , \hspace{0.5cm}  \hat{p}_X + z_{1-\frac{\alpha}{2}}\sqrt{\frac{\hat{p}_X \cdot (1-\hat{p}_X)}{n}} \right [ $$
+La confianza del intervalo debe ser 96\% por lo que:  $z_{1-\frac{\alpha}{2}}= z_{0.98}= 2.05$. Entonces, el intervalo sería:
+$$ \left ] 0.024 - 2.05 \sqrt{\frac{0.024 \cdot 0.976}{465}} , \hspace{0.2cm}  0.024 + 2.05 \sqrt{\frac{0.024 \cdot 0.976}{465}} \right [ = \left ] 0.024 - 0.014, \hspace{0.2cm} 0.024 +0.014 \right [ = ]0.0095,\hspace{0.1cm} 0.0385[$$
+El intervalo indica que en un 96\% de las veces que tomemos una  muestra de tamaño 465 el porcentaje de pacientes que presentarán dolor de cabeza como efecto secundario del nuevo medicamento, estará entre el 0.95\% y  3.85\%.
+
+\else
+\fi
+
+
+\item Realiza un contraste de hipótesis para determinar si existe evidencia para afirmar que hay diferencias entre las proporciones de pacientes que sufren dolor de cabeza luego de tomar el medicamento A y el B. Resuelve e interpreta el contraste utilizando el p-valor. \textbf{(1 punto)}
+
+\ifsol
+
+
+
+Denotemos por  $p_1$ a la proporción poblacional de pacientes que tomaron el medicamento A y presentaron dolor de cabeza como efecto secundario. Sea $p_2$ la proporción poblacional de pacientes que tomaron el medicamento B y presentaron dolor de cabeza como efecto secundario.
+
+Vamos a contrastar las hipótesis:
+
+$$
+\left\{\begin{array}{l}
+H_0:p_1 = p_2\\
+H_1:p_1 \neq p_2
+\end{array}\right.
+$$
+
+Como $n_1=465$,  y $n_2=295$ son grandes y las muestras son independientes, utilizamos el caso XIX de la tabla de contrastes de dos muestras. Así que, el estadístico del contraste es:
+$$Z=\frac{\hat{p}_1-\hat{p}_2}{\sqrt{\hat{p}\cdot \hat{q}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}} \sim N(0,1)$$
+donde:
+\begin{itemize}
+\item $\hat{p}=\frac{n_1\cdot \hat{p}_1 + n_2\cdot \hat{p}_2}{n_1+n_2}=\frac{465 \cdot 0.024 + 295 \cdot 0.036}{465+295}=0.0287$
+\item $\hat{q}=1-\hat{p}=1-0.0287=0.9713$
+\end{itemize}
+
+De acuerdo a lo anterior, $Z=\frac{0.024-0.036}{\sqrt{0.0287\cdot 0.9713 \left( \frac{1}{465}+\frac{1}{295}\right)}}=-0.965$. 
+
+Entonces, el $p$-valor sería:
+$p-valor= 2\cdot P(Z \geq |-0.965|)= 2\cdot[1-P(Z < 0.97)]= 2\cdot 0.166=0.332$
+
+Como el $p$-valor es grande, no podemos rechazar la hipótesis nula. Concluimos que no podemos afirmar que las proporciones de pacientes que sufren dolor de cabeza con el medicamento A y con el B son diferentes.
+
+\else
+\fi
+
+\end{enumerate}
+
+
+
+\probl 
+Se desea saber si el contenido de algodón de una fibra sintética influye en la fortaleza de la misma. Se recogen los siguientes datos y se realiza un ANOVA.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+\multicolumn{5}{|c|}{Porcentaje de algodón} \\ 
+\hline 
+15\% & 20\% & 25\% & 30\% & 35\% \\ 
+\hline 
+7 & 12 & 14 & 19 & 7 \\ 
+ 
+7 & 17 & 18 & 25 & 10 \\ 
+
+15 & 12 & 18 & 22 & 11 \\ 
+ 
+11 & 18 & 19 & 19 & 15 \\ 
+ 
+9 & 18 & 19 & 23 & 11 \\ 
+\hline 
+\end{tabular} 
+
+\end{center}
+
+
+\begin{enumerate}[a)]
+ 
+\item Escribe la hipótesis nula y la hipótesis alternativa del contraste que vamos a realizar. \textbf{(0.5 puntos)}
+
+
+\item Completa los valores que faltan en la tabla ANOVA, justificadamente.  Responde si, a un nivel de significación $\alpha=0.06$, podemos rechazar la hipótesis nula. ¿Qué significa la conclusión a la que has llegado? \textbf{(1 punto)}
+
+<<ANOVA>>=
+fuerza=c(7,7,15,11,9,12,17,12,18,18,14,18,18,19,19,19,25,22,19,23,7,10,11,15,11)
+algodon=c(rep("15%",5),rep("20%",5),rep("25%",5),rep("30%",5),rep("35%",5))
+datos=data.frame(fuerza,algodon)
+str(datos)
+summary(aov(fuerza~algodon,data=datos))
+@
+
+
+
+\item Hemos ejecutado las siguientes instrucciones en R:
+
+<<>>=
+pairwise.t.test(datos$fuerza,datos$algodon,p.adjust.method="none")
+@
+
+Utiliza el método de Bonferroni para responder: ¿qué pares de porcentajes de algodón producen fibras sintéticas con diferente fuerza? Justifica tu respuesta. \textbf{(0.5 puntos)}
+
+\end{enumerate}
+
+\ifsol
+
+\textbf{Solución}
+Sean $\mu_{15\%}$, $\mu_{20\%}$,$\mu_{25\%}$,$\mu_{30\%}$ y $\mu_{35\%}$ las fortalezas medias de las fibras de algodón construidas con el porcentaje de algodón indicado en el subíndice.
+
+Las hipótesis a contrastar son:
+
+$$
+\left\{
+  \begin{array}{l}
+    H_0: \mu_{15\%}=\mu_{20\%}=\mu_{25\%}=\mu_{30\%}=\mu_{35\%} \\
+    H_1: \mbox{Existe al menos una par de medias diferentes}
+  \end{array}
+\right.
+$$
+\textbf{Solución}
+Se ha obtenido un $p$-valor menor que el nivel de significación establecido ($\alpha=0.06$), entonces podemos rechazar $H_0$, es decir, la fortaleza medias de las fibras sintéticas no son todas iguales para los diferentes porcentajes de algodón.
+
+
+\textbf{Solución}
+
+Se han realizado $c={5 \choose 2} =10$ comparaciones, por lo tanto, el nuevo nivel de significación, según Bonferroni, sería: $\frac{\alpha}{c}=\frac{0.06}{10}=0.006$.
+
+Entonces, aquellos $p$-valores de comparaciones de medias que son menores a este nuevo nivel de significación indicaran que el par de medias que se está comparando son diferentes. Específicamente: 
+\begin{itemize}
+\item $\mu_{15\%} \neq \mu_{20\%}$, $\mu_{15\%} \neq \mu_{25\%}$, $\mu_{15\%} \neq \mu_{30\%}$ pero $\mu_{15\%} = \mu_{35\%}$.
+
+\item $\mu_{20\%} = \mu_{25\%}$, $\mu_{20\%} \neq \mu_{30\%}$, $\mu_{20\%} = \mu_{35\%}$.
+
+\item $\mu_{25\%} = \mu_{30\%}$, pero $\mu_{25\%} \neq \mu_{35\%}$.
+
+\item $\mu_{30\%} \neq \mu_{35\%}$.
+
+\end{itemize}
+
+\fi
+
+
+
+\probl \textbf{a) 1.0 punto, b) 0.5 puntos, c) 0.5 puntos)}   Consideremos la nota de matemática discreta y  de estadística de los 6 estudiantes siguientes: 
+
+
+<<dataregreamano,echo=FALSE,results='hide'>>=
+x=c(2,5,9,4,4,2)
+y=c(5, 6 ,7,5,3,4)
+n=length(x)
+n
+mx=mean(x)
+mx
+my=mean(y)
+my
+s2x=sum(x^2)/n-mx^2
+s2x
+sxy=sum(x*y)/n-mx*my
+sxy
+b1=sxy/s2x
+b1
+b0=my-b1*mx
+b0
+ei=y-(b1*x+b0)
+ei
+S2=sum(ei^2)/(n-2)
+S2
+confint(lm(y~x))
+q=qt(0.975,n-2)
+b1
+b0+c(-q*sqrt(S2)/(sqrt(s2x)*sqrt(n)),q*sqrt(S2)/(sqrt(s2x)*sqrt(n)))
+@
+
+
+
+
+
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+Discreta & 5 & 6 & 7&5&3&4 \\\hline
+Estadística & 2&5&9&4&4&2
+\end{tabular}
+\end{center}
+\begin{enumerate}[a)]
+\item Calculad la recta de regresión de la nota de discreta sobre la nota de estadística.
+
+\item Calculad e interpretad el coeficiente de determinación.
+
+\item Calculad un intervalo de confianza del 95\% para la estimación de la pendiente  de la recta de regresión obtenida ($b_1$).
+\end{enumerate}
+
+
+\ifsol
+\sl
+\textbf{Solución:}
+
+Con \texttt{R}:
+
+<<regresion>>=
+notas=data.frame(Discreta=c(5,6,7,5,3,4),Estadística=c(2,5,9,4,4,2))
+sol_reg=lm(Discreta~Estadística,data=notas)
+summary(sol_reg)
+confint(sol_reg)
+@
+
+
+
+<<tablareg,results="asis">>=
+y=notas$Estadística
+x=notas$Discreta
+taula=data.frame(y,x,y2=y^2,x2=x^2,xy=x*y)
+library(xtable)
+n=dim(taula)[1]
+taula_aux=taula
+taula_aux[7,]=  colSums(taula)
+taula_out=xtable(taula_aux)
+ 
+print(taula_out,type="latex",hline.after=c(-1,0,n)
+      ,include.rownames=FALSE)
+@
+
+
+<<>>=
+n=6
+sumas=colSums(taula)
+mediax=sumas[2]/n
+mediax
+mediay=sumas[1]/n
+mediay
+s2x=sumas[4]/n-(mediax)^2
+s2x
+sxy=sumas[5]/n-mediax*mediay
+sxy
+b1=sxy/s2x
+b0=mediay-b1*mediax
+round(b1,4)
+round(b0,4)
+s2y=sumas[3]/n-(mediay)^2
+s2y
+taula$ycap=b0+b1*taula$x
+taula$ycap
+s2ycap=sum(taula$ycap^2)/n-mediay^2
+s2ycap
+R2=s2ycap/s2y
+R2
+errors=taula$y-taula$ycap
+errors 
+SSE=sum(errors^2)
+SSE
+  S2=SSE/(n-2)
+S=sqrt(S2)
+S
+b0+c(-qt(1-0.05/2,n-2)*S*sqrt(s2x+mediax^2)/(sqrt(s2x)*sqrt(n)),
+     qt(1-0.05/2,n-2)*S*sqrt(s2x+mediax^2)/(sqrt(s2x)*sqrt(n)))
+
+@
+
+
+\rm
+\fi
+
+\probl  \textbf{(0.5 punts)} 
+En un ANOVA de un factor de 12 nivells, quantes comparacions de mitjanes dues a dues heu de fer si emprau el mètode de Bonferroni? I si emprau el mètode de Holm?
+
+
+\ifsol
+\textbf{Solución:}
+
+\sl
+
+$$\frac{12!}{2! \cdot 10!}=\frac{12\cdot 11}{2}=66.$$
+\else
+%\vspace*{1cm}
+
+\fi
+
+
+\probl \textbf{(1.0 punt)} Hem analitzat el preu de venda (\textbf{Price}) de les cases d'una urbanització de Palma en funció del: \textbf{Size}, nombre de metres quadrats en unitats de miler; \textbf{Bath}, nombre de banys, \textbf{Bed}, nombre de dormitoris, \textbf{Year}, any de construcció de la casa, \textbf{Age}, diferència respecte de la mitjana d'anys respecte a la darrera reforma de les cases circumdants i \textbf{Garage}, nombre de places de garatge de la casa.
+
+
+<<datosMultiple,echo=FALSE,results='hide'>>=
+
+d <- read.table('homes76.dat.txt',header=TRUE,sep='\t',stringsAsFactor=FALSE)
+
+colnames(d) <- c('id', 'Price', 'Size', 'Lot', 'Bath', 'Bed', 'BathBed', 'Year', 'Age',
+   'Agesq', 'Garage', 'Status', 'Active', 'Elem', 'Edison Elementary',
+   'Harris Elementary', 'Adams Elementary', 'Crest Elementary', 'Parker Elementary')
+
+# perform some elemenatry data treatment
+d$Lot <- as.factor(d$Lot)
+# define columns we will be working with
+yColumn <- 'Price'
+vars <- c("Size", "Bath", "Bed", "Year", "Age", "Garage")
+d = d[,c(vars,yColumn)]
+
+# look at the data
+print(dim(d))
+print(head(d))
+@
+
+<<>>=
+str(d)
+@
+ Per veure quines d'aquestes dades influeixen en el preu de venda de la casa, duim a terme la regressió múltiple següent:
+<<>>=
+# guess at reproducting original analysis
+modelOrig <- lm(Price ~ Size + I(Bath*Bed) + Age + I(Age*Age) + Garage,data=d)
+summary(modelOrig)
+@
+Vos demanam:
+\begin{enumerate}[a)]
+\item Indica quines són les variables independents del model de regressió lineal múltiple
+\item El coeficient de \textbf{Size} a la funció de regressió lineal per mínims quadrats de \textbf{Price} en funció de les variables citades.
+\item Els valors de $R^2$ i $R^2_{adj}$.
+\item Una estimació de la desviació típica comuna dels errors.
+% \item Un interval de confiança al 95\% per al coeficient de \textbf{Age}. Com ajuda vos donam
+% <<>>=
+% pt(q = 1-0.95, df = 75)
+% pt(q = 1-0.975, df = 75)
+% pt(q = 0.95, df = 75)
+% pt(q = 0.975, df = 75)
+% @
+
+\item El p-valor de l’ANOVA per saber si podem rebutjar que tots els coeficients de les variables són 0.
+\end{enumerate}
+
+\ifsol
+\textbf{Solución:}
+
+\begin{enumerate}[a)]
+\item La superfície de la casa, el producte del nombre de banys per nombre d'habitacions, els anys desde la darrera reforma, el seu quadrat i el nombre de places de garatge. 
+\item 40.5921
+\item $R^2=0.2741$ i $R^2_{adj}=0.2223$.
+\item 53.21
+\item 0.000354
+\end{enumerate}
+\sl
+
+\rm
+\else
+%\vspace*{1.5cm}
+
+\fi
+
+
+
+
+ 
+\probl \textbf{(0.5 punts)}  Si volem fer un \textsl{clustering}, quines diferències trobam entre emprar el mètode de  $k$-\textsl{means} i el mètode dels \textsl{clustering} jeràrquics?
+
+
+
+\ifsol
+\textbf{Solución:}
+\sl
+En que $k$-means fixa el nombre de  clusters a priori mentre que els jeràrquics no ho fa.
+\rm
+\else
+%\vspace*{1.5cm}
+
+\fi
+
+
+
+
+
+
+\probl \textbf{(0.5 punts)}  Calculau la correlació entre els vectors de dades $x = (1, 3, 4, 4)$, $y = (2, 4, 12, 6)$.
+
+
+
+
+\ifsol
+\textbf{Solución:}
+\sl
+<<>>=
+x = c(1, 3, 4, 4)
+y = c(2, 4, 12, 6)
+xm = mean(x)
+xm
+ym = mean(y)
+ym
+varx = sum((x-xm)^2)/4
+varx
+vary = sum((y-ym)^2)/4
+vary
+covxy=sum((x-xm)*(y-ym))/4
+covxy
+covxy/sqrt(varx*vary)
+
+cor(x,y)
+@
+
+\rm
+\else
+%\vspace*{3.5cm}
+
+\fi
+\newpage
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%1
+\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \medskip
+\setcounter{problemes}{0}
+
+\begin{center}
+\textsc{Matemáticas II. Control II. Ejercicios.}\\[1ex]%1
+\end{center}
+
+{\footnotesize \noindent (Tenéis que empezar a contestar en esta hoja, que 
+tenéis que entregar; no entregarla supone un 0 de esta parte.)
+}
+
+\probl \textbf{(2 punts)} El  profe de Mates III es troba reformant el bany, per la qual cosa comença a donar cops de martell a les 400 rajoles antigues perquè caiguin de la paret. Cada vegada que pega a una rajola, apunta quants de cops de martell addicionals li han fet  per tirarla i obté el següent resultat:
+
+
+
+\begin{center}
+\begin{tabular}{c|ccccc}
+Martellades & 0-1 & 2-3 & 4-5 & 6-7&8 o més\\\hline
+Rajoles tirades & 90 & 158  & 105 & 37 & 10
+\end{tabular}
+\end{center}
+
+Com a bon estadistic que és, té la sospita que la forma en la que cauen les rajoles de la pareix segueix una distribució de Poisson. 
+\begin{enumerate}[a)]
+\item Estimau el paràmetre $\lambda$ emprant les marques de classe adeqüades. Pel darrer interval, preneu com a marca de classe el 8.
+\item Realitzau una bondat d'adjust per comprovar si la seva sospita té o no fonament estadístic. Heu de justificar quin test emprau per fer la vostra comprovació.
+\end{enumerate}
+\ifsol
+\sl
+\textbf{Solución:}
+\textbf{1)}
+<<bondat ajust>>=
+#Generación de la distribución
+dp=dpois(c(1:9),4)+abs(rnorm(9,mean = 0, sd = 0.003))
+s=sum(dp)
+all=c(dp,1-s)
+total = round(400*all,0)
+total = total + c(rep(c(3,-3),4),0,0)
+total[10]=400-sum(total[1:9])
+total
+
+#Resolución del ejercicio
+
+xi = c(0.5, 2.5, 4.5, 6.5, 8)
+oi=c(90, 158, 105, 37, 10)
+n = sum(oi)
+sum(xi*oi)
+lambda = sum(xi*oi)/n
+lambda
+
+c(dpois(c(0:7), lambda = lambda), 1-sum(dpois(c(0:7), lambda = lambda)))
+pi=c(sum(dpois(c(0,1), lambda = lambda)),
+     sum(dpois(c(2,3), lambda = lambda)),
+     sum(dpois(c(4,5), lambda = lambda)),
+     sum(dpois(c(6,7), lambda = lambda)))
+pi = c(pi, 1-sum(pi))
+pi
+ei = n*pi
+ei#tots majors que 5
+
+x0 = sum((oi-ei)^2/ei)
+x0
+
+pval = 1-pchisq(x0,length(xi)-1-1)
+pval
+
+
+chi=chisq.test(oi, p=pi)
+chi$statistic #estadístico de contraste
+chi$parameter #grados de libertad
+
+1-pchisq( chi$statistic,  chi$parameter-1)
+@
+
+
+
+
+
+
+
+\rm
+\fi
+
+
+\probl \textbf{1) 1.0 punts, 2) 0.5 punts, 3) 0.5 punts)} 
+Hem pres una mostra de quatre estudiants de Matemàtiques, quatre de Telemàtica i quatre d'Informàtica i hem mirat quina nota de Matemàtica Discreta varen obtenir a final del primer quatrimestre. La nota respectiva de cada estudiant es pot observar en la taula següent:
+
+
+
+% latex table generated in R 3.2.2 by xtable 1.8-2 package
+% Sun Jun 12 20:02:44 2016
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrr}
+  \hline
+ & Matemàtiques &  Telemàtica &  Informàtica \\ 
+  \hline
+  1 & 7.5 & 7 & 9.5 \\ 
+   2 & 8.5 & 6 & 4 \\ 
+  3 & 5.5 & 4.5 & 5  \\ 
+   4 & 9 & 5 & 2  \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\ifsol
+<<resueltoanova>>=
+
+notes = c(7.5, 8.5, 5.5, 9, 7,6,4.5,5,9.5,4,5,2)
+carreres=factor(x=rep(1:3,each=4),labels=c("Matemàtiques", "Telemàtica", "Informàtica"))
+discreta=data.frame(notes,carreres)
+discreta
+
+summary(aov(notes~carreres))
+@
+\rm
+\fi
+
+<<datosANOVA2>>=
+notes = c(7.5, 8.5, 5.5, 9, 7,6,4.5,5,9.5,4,5,2)
+carreres=factor(x=rep(1:3,each=4),labels=c("Matemàtiques", "Telemàtica", "Informàtica"))
+discreta=data.frame(notes,carreres)
+head(discreta)
+
+aggregate(notes~carreres,data=discreta,sum)
+
+aggregate(notes~carreres,data=discreta,mean)
+
+sum(discreta$notes)
+
+mean(discreta$notes)
+
+sum(discreta$notes^2)
+
+
+bartlett.test(discreta$notes~discreta$carreres)
+
+pairwise.t.test(discreta$notes,discreta$carreres,p.adjust.method="bonferroni")
+
+pairwise.t.test(discreta$notes,discreta$carreres,p.adjust.method="holm")
+
+pairwise.t.test(discreta$notes,discreta$carreres,p.adjust.method="none")
+
+@
+
+Emprant el codi anterior i alguns càlculs addicionals que us faran falta, contestau a les següents preguntes:
+
+
+\punt Suposant que es compleixen les condicions necessàries, realitzar una ANOVA de comparació de mitjanes de los notes de discreta entre els tres estudis. Indicau quin és l'ANOVA que duis a terme.
+
+\punt Tant si s'accepta com si es refuta l'ANOVA, emprau el codi anterior per dur a terme una comparació per parelles.
+
+\punt En el codi anterior hi ha un test para comprovar la homogeneïtat de las variàncies. Quin és i què decideix?
+
+
+
+
+
+\ifsol
+\sl
+\textbf{Solució:}
+
+
+\textbf{1)}
+
+Amb les notacions habituals i assignant a cada carrera el seu número, obtenim que:
+
+$T_{1 \bullet}=30.5$, $T_{2 \bullet}=22.5$, $T_{3 \bullet}=20.5$, $T_{\bullet \bullet}= 73.5$, $T_{\bullet \bullet}^{(2)}=505.25$, $N=12$ y $n_1=n_2=n_3=4$.
+
+Així doncs
+
+$SS_{Total}= T_{\bullet \bullet}^{(2)}- \frac{T_{\bullet \bullet}^2}{N}=
+505.25-\frac{73.5^2}{12}=\Sexpr{round(505.25-73.5^2/12,2)}$
+
+$SS_{Tr}= \sum_{i=1}^3 \frac{T_{i\bullet}^2}{n_i}- \frac{T_{\bullet \bullet}^2}{N}=
+\frac{30.5^2}{4}+\frac{22.5^2}{4}+\frac{20.5^2}{4}-\frac{73.5^2}{12}=\Sexpr{round(30.5^2/4+22.5^2/4+20.5^2/4-73.5^2/12,2)}$
+
+
+$SS_E=SS_{Total}-SS_{Tr}=\Sexpr{round(505.25-73.5^2/12,2)-(round(30.5^2/4+22.5^2/4+20.5^2/4-73.5^2/12,2))}$
+
+<<datos,echo=FALSE,results='hide'>>=
+SST=55.06
+SSTr=14
+SSE=41.06
+k=3
+N=12
+MSTr=SSTr/(k-1)
+MSE=SSE/(N-k)
+F=round(MSTr/MSE,2)
+@
+
+Taula de l'ANOVA
+
+
+\begin{tabular}{lllllp{3cm}}
+\hline
+Origen  & Graus & Suma de &  Quadrats & Estadístic & $p$-valor\\
+Variació & llibertat & quadrats & mitjans & contrast &  \\
+\hline
+  Estudis &  $k-1=2$ & $SS_{Tr}=\Sexpr{SSTr}$  & $MS_{Tr}=\frac{SS_{Tr}}{k-1}=\Sexpr{MSTr}$ & $F=\frac{MS_{Tr}}{MS_E}=\Sexpr{F}$ &  $P(F_{2,12}\geq \Sexpr{F})\leq P(F_{2,12}\geq 1.33)=1-0.7=0.3$
+\\
+Residus & $N-k=12$ & $SS_E=\Sexpr{SSE}$ & $MS_E=\frac{SS_{E}}{N-k}=\Sexpr{MSE}$ &  &
+\\\hline
+\end{tabular}
+
+\textbf{2)} Els test de Bonferroni i de Holm ens tornen uns p-valors molt superiors a 0.05, per tant acceptam que tots els estudis tenen una nota mitjana de discreta similar. 
+
+\textbf{3)} El test d'homogeneïtat és el de Bartlett i s'utilitza para provar si $k$ mostres provenen de poblacions amb la mateixa variància. A les variàncies iguals a través de les mostres se les anomena homocedàstiques o homogeneitat de variàncies.
+
+
+\rm
+\fi
+
+
+
+
+
+\probl \textbf{1) 1.0 punts, 2) 0.5 punts, 3) 0.5 punts)}   Considerem la nota de matemàtica discreta i d'estadística dels 6 estudiants següents: 
+
+
+<<dataregreamano,echo=FALSE,results='hide'>>=
+x=c(5 , 6 ,7,5,3,4)
+y=c( 2,5,9,4,4,2)
+n=length(x)
+n
+mx=mean(x)
+mx
+my=mean(y)
+my
+s2x=sum(x^2)/n-mx^2
+s2x
+sxy=sum(x*y)/n-mx*my
+sxy
+b1=sxy/s2x
+b1
+b0=my-b1*mx
+b0
+ei=y-(b1*x+b0)
+ei
+S2=sum(ei^2)/(n-2)
+S2
+confint(lm(y~x))
+q=qt(0.975,n-2)
+b1
+b0+c(-q*sqrt(S2)/(sqrt(s2x)*sqrt(n)),q*sqrt(S2)/(sqrt(s2x)*sqrt(n)))
+@
+
+
+
+
+
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+Discreta & 5 & 6 & 7&5&3&4 \\\hline
+Estadística & 2&5&9&4&4&2
+\end{tabular}
+\end{center}
+
+\punt Calcular la recta de regressió d'estadística sobre discreta.
+
+\punt Calcular i interpretau el coeficient de determinació.
+
+\punt Calcular un interval de confianza del 95\% per l'estimació del tall amb l'eix $OY$ de la recta de regressión obtinguda ($b_0$).
+
+
+
+\ifsol
+\sl
+\textbf{Solución:}
+
+Con \texttt{R}:
+
+<<regresion>>=
+notas=data.frame(Discreta=c(5,6,7,5,3,4),Estadística=c(2,5,9,4,4,2))
+sol_reg=lm(Estadística~Discreta,data=notas)
+summary(sol_reg)
+confint(sol_reg)
+@
+
+
+
+<<tablareg,results="asis">>=
+y=notas$Estadística
+x=notas$Discreta
+taula=data.frame(y,x,y2=y^2,x2=x^2,xy=x*y)
+taula
+library(xtable)
+n=dim(taula)[1]
+taula_aux=taula
+taula_aux[7,]=  colSums(taula)
+taula_out=xtable(taula_aux)
+ 
+print(taula_out,type="latex",hline.after=c(-1,0,n-1,n)
+      ,include.rownames=FALSE)
+@
+
+
+<<>>=
+n=6
+sumas=colSums(taula)
+mediax=sumas[2]/n
+mediax
+mediay=sumas[1]/n
+mediay
+s2x=sumas[4]/n-(mediax)^2
+s2x
+sxy=sumas[5]/n-mediax*mediay
+sxy
+b1=sxy/s2x
+b0=mediay-b1*mediax
+round(b1,4)
+round(b0,4)
+s2y=sumas[3]/n-(mediay)^2
+s2y
+taula$ycap=b0+b1*taula$x
+taula$ycap
+s2ycap=sum(taula$ycap^2)/n-mediay^2
+s2ycap
+R2=s2ycap/s2y
+R2
+errors=taula$y-taula$ycap
+errors 
+SSE=sum(errors^2)
+SSE
+  S2=SSE/(n-2)
+S=sqrt(S2)
+S
+b0+c(-qt(1-0.05/2,n-2)*S*sqrt(s2x+mediax^2)/(sqrt(s2x)*sqrt(n)),
+     qt(1-0.05/2,n-2)*S*sqrt(s2x+mediax^2)/(sqrt(s2x)*sqrt(n)))
+
+@
+
+
+\rm
+\fi
+
+
+\probl \textbf{(1.5 punts)}  Considerem la matriu de distàncies entre els 6 estudiants de primer de matemàtiques següents : 
+
+<<echo=FALSE,results='hide'>>=
+
+altures = c(175,158, 168, 168, 174, 185)
+
+pesos = c(75, 50, 60, 46, 65, 74)
+
+noms = c("M.P.", "M.S.", "J.C.", "J.S.", "X.G.", "T.T.")
+
+df = data.frame(altures, pesos)
+
+rownames(df) = noms
+@
+
+
+<<>>=
+
+dist = dist(df, method = "euclidean")
+dist
+
+@
+
+Realitzau un clustering jeràrquic aglomeratiu emprant el mètode de l’enllaç simple. Dibuixau el dendrograma. Quins clusters es formen si es talla a l'alçada 12?
+\ifsol
+\sl
+\textbf{Solució:}
+<<>>=
+
+clust = hclust(dist, method = "single")
+
+plot(clust, labels = noms, main="Dendograma de Mates III")
+
+cutree(clust, h = 12)
+
+@
+\rm
+\fi
+\end{document}
+
+
