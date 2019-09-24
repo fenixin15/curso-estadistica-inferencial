@@ -1,10 +1,15 @@
 * Tema 0: Prerequisitos del curso: Ricardo
-* Tema 1: Probabilidad: Ricardo
-* Tema 2: Variables aleatorias: Ricardo
-* Tema 3: Distribuciones notables: Ricardo
-* Tema 4: Distribuciones conjuntas de variables aleatorias
-* Tema 5: Esperanzas y Momentos
-* Tema 6: Funciones de variables aleatorias, convergencia y Teorema Central del Límite
+  * Básico conjuntos
+  * Combinatoria
+* Tema 1: Probabilidad: Ricardo (OK)
+* Tema 2: Variables aleatorias: Ricardo (OK)
+* Tema 3: Esperanzas y Momentos (Sesgo y Curtosis)
+  * https://en.wikipedia.org/wiki/Kurtosis
+  * https://en.wikipedia.org/wiki/Skewness 
+* Tema 4: Distribuciones notables: Ricardo (en curso)
+  * https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson.html#scipy.stats.poisson 
+* Tema 5: Distribuciones conjuntas de variables aleatorias: Arnau
+* Tema 6: Convergencia y Teorema Central del Límite
 ------------------------------------------------------------------------------------------
 * Tema 7: Muestreo: Arnau
 * Tema 8: Estimación puntual: Arnau

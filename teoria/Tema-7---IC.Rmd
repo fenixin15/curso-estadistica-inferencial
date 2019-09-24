@@ -406,7 +406,7 @@ donde $\Gamma(x)=\int_{0}^{\infty} t^{x-1}e^{-t}\, dt$ si $x> 0$.
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ desconocida. Distribución $t$ de Student
 
-Propiedades:
+<l class="prop">Propiedades</l>
 
 * $E(t_{\nu})=0$  si $\nu>1$ y $Var(t_{\nu})=\dfrac{\nu}{\nu-2}$ si $\nu>2$.
 * Su  función de distribución es simétrica respecto de $E(t_{\nu})=0$ (como la de una $N(0,1)$):
@@ -415,11 +415,9 @@ P(t_{\nu}\leq -x)=P(t_{\nu}\geq x)=1-P(t_{\nu}\leq x).
 $$
 * Si $\nu$ es grande, su distribución es aproximadamente la de $N(0,1)$ (pero con más varianza: un poco más aplastada)
 
-## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ desconocida. Distribución $t$ de Student
+##  Distribución $t$ de Student
 
 Gráficas de las densidades de diferentes distribuciones $t$ de Student junto con la densidad de la $N(0,1)$:
-
-## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ desconocida. Distribución $t$ de Student
 
 <div class="center">
 ```{r, echo=FALSE,fig=TRUE}
@@ -491,11 +489,14 @@ Dicho intervalo será el siguiente:
 $$
 \left(\overline{x}-t_{23,0.95} \frac{\widetilde{s}}{\sqrt{n}},
 \overline{x}+t_{23,0.95} \frac{\widetilde{s}}{\sqrt{n}}\right) =
-\left(518-`r round(qt(0.95,23),3)` \frac{40}{\sqrt{24}},
-518 + `r round(qt(0.95,23),3)` \frac{40}{\sqrt{24}}\right) = 
-\left( `r round(518-qt(0.95,23)*40/sqrt(24),3)`, `r round(518+qt(0.95,23)*40/sqrt(24),3)`\right).
+\left(518.000-`r round(qt(0.95,23),3)` \frac{40.000}{\sqrt{24}},
+518.000 + `r round(qt(0.95,23),3)` \frac{40.000}{\sqrt{24}}\right) = 
 $$
-Observamos que no contiene a 500 (¡pero se equivoca a favor del consumidor!)
+
+$$
+\left( `r round(518000-qt(0.95,23)*40000/sqrt(24),3)`, `r round(518000+qt(0.95,23)*40000/sqrt(24),3)`\right).
+$$
+Observamos que no contiene a 500.000 (¡pero se equivoca a favor del consumidor!)
 </div>
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población normal con $\sigma$ desconocida. Ejemplo
@@ -552,8 +553,8 @@ $$
 
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población cualquiera con $\sigma$ desconocida y tamaño muestral grande. Ejemplo
-<div class="example">
-**Ejemplo**
+<div class="exercise">
+**Ejercicio**
 
 Se ha tomado una muestra del tiempo de visualización de vídeo semanal en horas de  1000  usuarios de un canal de videos por internet. Se ha obtenido  una media   muestral de 9.5 horas/semana con una desviació típica muestral de 0.5 horas/semana. 
 
@@ -564,8 +565,7 @@ Calculad un intervalo de confianza  del 95% para la media poblacional del númer
 
 <div class="example-sol">
 Como $n=1000$ es grande, podemos utilizar la expresión siguiente para hallar el intervalo de confianza:
-$\left(\overline{x}-z_{1-\frac{\alpha}{2}}\frac{\widetilde{s}}{\sqrt{n}},
-    \overline{x}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{s}}{\sqrt{n}}\right)$,
+$$\left(\overline{x}-z_{1-\frac{\alpha}{2}}\frac{\widetilde{s}}{\sqrt{n}}, \overline{x}+z_{1-\frac{\alpha}{2}}\frac{\widetilde{s}}{\sqrt{n}}\right),$$
 donde $\overline{x}=9.5,\ \widetilde{s}=0.5,\
 \alpha=0.05,\  z_{1-\frac{\alpha}{2}}=`r round(qnorm(0.975),3)`.$
 El intervalo de confianza será, pues:
@@ -620,10 +620,10 @@ $$
 
 
 ## Intervalos de confianza para el parámetro $\mu$ de una población cualquiera con $\sigma$ desconocida y tamaño muestral grande. Amplitud. Ejemplo
-<div class="example">
-**Ejemplo**
+<div class="exercise">
+**Ejercicio**
 
-Queremos  estimar la estatura media de los  estudiantes de la UIB. Queremos obtener un intervalo de confianza  del 99% con  una precisión máxima de 1 cm. En una muestra piloto de 25 estudiantes,  obtuvimos que $\overline{x} = 170\mbox{ cm}, \widetilde{s}=10\mbox{ cm}$.
+Queremos estimar la estatura media de los  estudiantes de la UIB. Queremos obtener un intervalo de confianza  del 99% con  una precisión máxima de 1 cm. En una muestra piloto de 25 estudiantes,  obtuvimos que $$\overline{x} = 170\mbox{ cm}, \widetilde{s}=10\mbox{ cm}.$$
 
 ¿Basándonos en estos  datos, cuál es el tamaño necesario  de la muestra para poder alcanzar nuestro objetivo?
 </div>
@@ -644,6 +644,7 @@ s.piloto = 10
 
 ## Intervalo de confianza para el parámetro $\mu$ de una población normal basado en la t de Student en `R`
 
+Si queremos, podemos estudiar estos conceptos directamente utilizando la función `t.test` de `R`:
 ```{r, eval=FALSE}
 t.test(X,conf.level=...)$conf.int
 ```
@@ -719,7 +720,7 @@ Para hallar 200 muestras, usaremos la función `replicate` de `R` que nos permit
 ```{r}
 muestras=replicate(200, sample(valores.población,50,replace=TRUE))
 ```
-De esta forma `muestras` es una matriz de 50 filas y 200 columnas donde cada fila representa una muestra.
+De esta forma `muestras` es una matriz de `r nrow(muestras)` filas y `r ncol(muestras)` columnas donde cada fila representa una muestra.
 
 A continuación, Vamos a aplicar a cada una de estas muestras la función `t.test` para calcular un intervalo de confianza del 95% y luego contaremos los aciertos, es decir, cuántos de ellos contienen la media poblacional.
 
@@ -736,9 +737,11 @@ IC.t= function(X, confianza=0.95){t.test(X, conf.level=confianza)$conf.int}
 
 <div class="example-sol">
 En segundo lugar, calculamos los 200 intervalos de confianza para nuestras 200 muestras usando la función `apply` de `R`:
+
 ```{r}
 ICs= apply(muestras,FUN=IC.t,MARGIN=2)
 ```
+
 En tercer lugar, miramos cuántos de los intervalos anteriores contienen la media poblacional `mu`:
 ```{r}
 Aciertos=length(which((mu>=ICs[1,]) & (mu<=ICs[2,])))
@@ -808,7 +811,7 @@ $$
 
 ## Método "exacto" o de Clopper-Pearson
 
-* Para hallar un intervalo de confianza para la proporción poblacional en `R` según el método de Clopper-Pearson, hay que usar la función `binom.exact` del paquete `epitools`:
+Para hallar un intervalo de confianza para la proporción poblacional en `R` según el método de Clopper-Pearson, hay que usar la función `binom.exact` del paquete `epitools`:
 
 ```{r, eval=FALSE}
 binom.exact(x,n,conf.level)
@@ -880,19 +883,23 @@ $$
 ## Caso del tamaño $n$ de la muestra grande
 
 Por lo tanto
+
 $$
 P\left(-z_{1-\frac{\alpha}{2}}\leq \dfrac{\widehat{p}_{X}-p}
 {\sqrt{\frac{p(1-p)}{n}}}\leq z_{1-\frac{\alpha}{2}}\right)=1-\alpha.
 $$
 
-El problema es que no conocemos $p$, la literatura plantea entre otras soluciones :
+El problema es que no conocemos $p$...
+
+La literatura plantea entre otras soluciones:
 
 * El método de Wilson
 * La solución de Laplace (1812)
 
+
 ## Método de Wilson
 <l class="definition">Definición.</l>
-En estas  condiciones, un intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ I.C. para $p$ es  (donde $\widehat{q}_{X}=1-\widehat{p}_{X}$) es:
+En estas  condiciones, un intervalo  de confianza  del $(1-\alpha)\cdot 100\%$ I.C. para $p$  (donde $\widehat{q}_{X}=1-\widehat{p}_{X}$) es:
 
 
 $$
@@ -924,7 +931,7 @@ Según el método de Wilson, con un 95% de confianza podemos decir que en la tab
 
 ## Fórmula de Laplace.
 
-* Supongamos que la muestra aleatoria simple es considerablemente más grande que la usada en el método de **Wilson** y que, además, la proporción muestral de éxitos $\widehat{p}_{X}$ está alejada de 0 y de 1. 
+Supongamos que la muestra aleatoria simple es considerablemente más grande que la usada en el método de **Wilson** y que, además, la proporción muestral de éxitos $\widehat{p}_{X}$ está alejada de 0 y de 1. 
 
 * O sea, $n\geq 100$ y que $n\widehat{p}_{X}\geq 10$ y $n(1-\widehat{p}_{X})\geq 10$.
 
@@ -1001,6 +1008,12 @@ Vamos a considerar que estamos en el peor de los casos.
 O sea, usando que $\widehat{p}_{X}\in [0,1]$, nos planteamos hallar el máximo de la expresión $\widehat{p}_{X} (1-\widehat{p}_{X})$ que aparece en la fórmula de la amplitud.
 
 El máximo de la función anterior, para $\widehat{p}_{X}\in [0,1]$ se alcanza en $\widehat{p}_{X}=\frac{1}{2}$ y dicho máximo vale $\frac{1}{4}$:
+
+<div class="exercise">
+**Ejercicio**
+
+Demostrar que el máximo de la función $f(p) = p(1-p)$ se alcanza en $p=1/2$ y vale $1/4$.
+</div>
 
 ## Fórmula de Laplace. Amplitud
 
@@ -1090,12 +1103,14 @@ aproximadamente normal.
 
 Se realizan 30 ejecuciones del algoritmo de las que se mide el tiempo
 de ejecución. Los resultados son:
+</div>
+
 ```{r}
 tiempo=c(12, 13, 13, 14, 14, 14, 15, 15, 16, 17,
          17, 18, 18, 19, 19, 25, 25, 26, 27, 30,
          33, 34, 35, 40, 40, 51, 51, 58, 59, 83)
 ```
-
+<div class="example">
 Nos piden calcular un intervalo de confianza para $\sigma^2$ del tiempo de ejecución a un $95\%$ de confianza.
 </div>
 
@@ -1147,7 +1162,7 @@ Por tanto, podemos afirmar con un 95% de confianza que $\sigma\leq 30$.
 
 ## Intervalo de confianza para la varianza de una población normal en `R`
 
-* Para hallar un intervalo de confianza para la varianza poblacional en `R` hay que usar la función `varTest` del paquete `EnvStats`:
+Para hallar un intervalo de confianza para la varianza poblacional en `R` hay que usar la función `varTest` del paquete `EnvStats`:
 ```{r,eval=FALSE}
 varTest(X,conf.level)$conf.int
 ```
@@ -1222,7 +1237,8 @@ X=replicate(1000, var(sample(iris[flores.elegidas,]$Petal.Length,replace=TRUE)))
 <div class="example-sol">
 A continuación hallamos el intervalo de confianza al 95% ($1-\alpha=0.95$) calculando los cuantiles del método: (cuantiles de orden $\frac{\alpha}{2}=`r (1-0.95)/2`$ y $1-\frac{\alpha}{2}=`r (1+0.95)/2`$)
 ```{r}
-IC.boot=c(quantile(X,0.025),quantile(X,0.975))
+alpha = 0.05
+IC.boot=c(quantile(X,alpha/2),quantile(X,1-alpha/2))
 round(IC.boot,2)
 ```
 
@@ -1247,16 +1263,17 @@ donde:
   
 ## Bootstrap: método de los percentiles en `R`. Ejemplo
   
-<div class="example-sol">
+<div class="example">
 **Ejemplo anterior**
 
-Vamos a aplicar la función `boot` al ejemplo anterior definiendo primero el estadístico a usar que sería la varianza en nuestro caso:
+Vamos a aplicar la función `boot` al ejemplo anterior definiendo primero el estadístico a usar que sería la varianza en nuestro caso.
+</div>
+
 ```{r}
 library(boot)
 var.boot=function(X,índices){var(X[índices])}
 simulación=boot(iris[flores.elegidas,]$Petal.Length,var.boot,1000)
 ```
-</div>
 
 ## Ejemplo
   
@@ -1275,7 +1292,13 @@ Obtenemos cuatro intervalos de confianza para $\sigma^2$, calculados con cuatro 
 
 El intervalo `Percentile` es el calculado con el método de los percentiles que hemos explicado antes, y se obtiene con el sufijo `$percent[4:5]`.
 
-Vemos que los valores son parecidos a los obtenidos en la simulación "hecha a mano".
+Vemos que los valores son parecidos a los obtenidos en la simulación *hecha a mano*.
+</div>
+
+<div class="exercise">
+**Ejercicio**
+
+Mirando la documentación e investigando un poco, elaborad un pequeño resumen de cómo se obtienen y qué significan cada uno de los otros tres intervalos de confianza de la función `boot.ci`.
 </div>
 
 ## Guía rápida
