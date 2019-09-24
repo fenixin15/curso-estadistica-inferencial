@@ -285,7 +285,7 @@ $$\Omega=\{\mbox{A,B,AB,O}\}$$
 **Suceso:** $\{\mbox{O}\}^c=\{\mbox{A,B,AB}\}$
 
 $$P(\{\mbox{O}\}^c)\!=\!P(\{\mbox{A,B,AB}\})\!=\!
-P(\mbox{A})+P (\mbox{B})+P(\mbox{AB})\!=\!0.55$$
+P(\mbox{A})+P (\mbox{B})+P(\mbox{AB})\!=\!0.57$$
 </div>
 
 ## Propiedades
