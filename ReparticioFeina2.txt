@@ -3,18 +3,18 @@
   * Combinatoria
 * Tema 1: Probabilidad: Ricardo (OK)
 * Tema 2: Variables aleatorias: Ricardo (OK)
-* Tema 3: Esperanzas y Momentos (Sesgo y Curtosis)
+* Tema 3: Momentos (incl. Sesgo y Curtosis): Arnau
   * https://en.wikipedia.org/wiki/Kurtosis
   * https://en.wikipedia.org/wiki/Skewness 
 * Tema 4: Distribuciones notables: Ricardo (en curso)
   * https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson.html#scipy.stats.poisson 
 * Tema 5: Distribuciones conjuntas de variables aleatorias: Arnau
-* Tema 6: Convergencia y Teorema Central del Límite
-------------------------------------------------------------------------------------------
-* Tema 7: Muestreo: Arnau
-* Tema 8: Estimación puntual: Arnau
-* Tema 9: Intervalos de confianza: Arnau
-* Tema 10: Contrastes de hipótesis paramétricos: Arnau
+* Tema 6: Convergencia y Teorema Central del Límite: Ricardo
+----------------------------------------------------------------
+* Tema 7: Muestreo: Arnau (OK)
+* Tema 8: Estimación puntual: Arnau (OK)
+* Tema 9: Intervalos de confianza: Arnau (OK)
+* Tema 10: Contrastes de hipótesis paramétricos: Arnau (OK)
 * Tema 11: Bondad de ajuste: Arnau
 * Tema 12: Contrastes de independencia y homogeneidad: Arnau.
 * Tema 13: Estadística multidimensional: Ricardo
