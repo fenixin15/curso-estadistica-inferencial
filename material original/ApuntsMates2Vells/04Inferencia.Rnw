@@ -1,0 +1,2449 @@
+\SweaveOpts{prefix.string=./dibujos/04/} 
+%\part{Inferencia estadística}
+%\frame{\titlepage}
+
+%\section[Índice]{Distribuciones en las muestras y descripción de datos.}
+\chapter{Inferencia estadística: estimación de parámetros y contraste de hipótesis.}
+%\frame{\tableofcontents}
+
+%\renewcommand{\thepart}{2}
+%\part{Inferencia estadística. Estimación de parámetros.}
+
+\section{Introducción}
+
+\begin{frame}
+\frametitle{Muestra aleatoria simple}
+\begin{itemize}
+\item  Supongamos que tenemos una población cuyo característica a estudiar de la misma viene dada por la variable aleatoria~$X$.
+ 
+\item Diremos muestra aleatoria simple de tamaño~$n$ de la población anterior~$X$ a un conjunto de $n$ variables aleatorias $X_1,\ldots,X_n$
+independientes e idénticamente distribuidas todas con la misma distribución que la variable~$X$.
+
+\item En la práctica, lo que tendremos serán unos valores determinados de la muestra, que llamaremos $x_1,\ldots,x_n$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Parámetro}
+\begin{itemize}
+\item  La distribución de la variable aleatoria~$X$ objeto de nuestro estudio puede depender de un parámetro~$\theta$ o de varios.
+
+\item Por ejemplo, si $X$ es binomial, los parámetros serán $n$ y $p$; si $X$ es Poisson, el parámetro será~$\lambda$; si $X$ es geométrica, el
+parámetro será~$p$ y si $X$ es normal los parámetros serán $\mu$ y $\sigma$.
+
+\item El objetivo de la estadística inferencial es obtener información de dichos parámetros, en general desconocidos de la variable~$X$.
+
+\item Dicha información se puede obtener de tres formas: 
+\begin{description}
+ \item[estimación puntual] Hallamos un valor aproximado del parámetro.
+\item[estimación por intervalo] Hallamos un intervalo donde el parámetro tiene un probabilidad ``alta'' de estar dentro de dicho intervalo.
+\item[contraste de hipótesis] Establecemos dos hipótesis para testear valores concretos del parámetro.
+\end{description}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\section{Estimadores}
+\frametitle{Estadístico}
+\begin{itemize}
+\item Sean $X_1,\ldots,X_n$ $n$ v.a. iid que forman una m.a.s.
+  de una población. 
+%Un \textbf{estadístico} es una función de una de una
+%  muestra.
+\item Un  \textbf{estadístico} es una variable aleatoria que es función de la muestra.
+\item  Un \textbf{estimador puntual} de un parámetro $\theta$ es un estadístico que da
+ como resultado un único valor del que se espera que se aproxime a $\theta$.
+\item  Una \textbf{realización del estimador} $T(x_{1},\ldots,x_{n})=\hat{\theta }$
+ en una muestra se llama \textbf{ estimación puntual de parámetro}.
+\end{itemize}
+\end{frame}
+
+\begin{frame} 
+ \frametitle{Estimadores básicos}
+Consideremos una m.a.s. $X_{1},\ldots,X_{n}$ y una realización de la misma
+     $x_{1},\ldots,x_{n}$. Los principales estimadores de los
+     parámetros poblacionales que hemos visto son:
+
+     \begin{table}
+\centering
+     \begin{tabular}{l|ll}
+     \hline
+     Parámetro & & \\
+    Poblacional & Estimador($\theta$) & Estimación($\hat{\theta}$)\\
+    &  &  \\
+     \hline
+    $\mu_{X}$ & $\displaystyle \overline{X}=\frac{\sum_{i=1}^n X_{i}}{n}$ &  $\displaystyle\overline{x}=\frac{\sum_{i=1}^n x_{i}}{n}$ \\
+    $\sigma_{X}$ & $\displaystyle\tilde{S}_{X}=\frac{\sum_{i=1}^n
+    (X_{i}-\overline{X})^2}{n-1}$ &
+    $\displaystyle\tilde{s}_{X}=\frac{\sum_{i=1}^n
+    (x_{i}-\overline{x})^2}{n-1}$\\
+    $p$ & $\displaystyle\hat{p}_{X}=\frac{\sum_{1}^n X_i}{n}$ & $\displaystyle\frac{\sum_{1}^n x_i}{n}$ \\
+    \hline
+    \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Ejemplo} 
+Consideremos una m.a.s.
+     $X_{1},X_{2},X_{3},X_{4},X_{5}$ del lanzamiento de un dado ($n=5$).
+
+     Una realización de esta muestra es
+     $x_{1}=2,x_{2}=3,x_{3}=3,x_{4}=5,x_{5}=6$.
+
+
+     Sabemos que si el dado es perfecto, $\mu=3.5$.
+     El estadístico de esta muestra es
+
+
+    $$\overline{X}=\frac{X_{1}+X_{2}+X_{3}+X_{4}+X_{5}}{5}$$
+
+     y una estimación es
+
+    $$\overline{x}=\frac{x_{1}+x_{2}+x_{3}+x_{4}+x_{5}}{5}=
+     \frac{2+3+3+5+6}{5}=\frac{19}{5}=3.8.$$
+\end{frame}
+
+\begin{frame}
+ \frametitle{Ejemplo} 
+    Supongamos que queremos estimar  la proporción de veces que sale 3 cuyo valor teórico vale $p_{3}=
+     \frac{1}{6}$.
+
+     El estadístico en este caso es
+     $$\hat{p}_{3}=\frac{\mbox{frec. de 3 en la muestra}}{5}$$
+     y, usando la muestra anterior, su valor será $\frac{2}{5}$.
+
+\end{frame}
+
+\begin{frame}
+     \subsection{Estimadores insesgados}
+\begin{itemize}
+\item ¿Qué estimador es mejor?
+\item Para decidirlo definiremos diversas propiedades de los estimadores.
+\item      La más inmediata es pedirles que su valor esperado sea el valor del parámetro que estima.
+\item Dado $\hat{\theta}$ un estimador de un parámetro poblacional
+     $\theta$. Diremos que $\hat{\theta}$ es \textbf{ insesgado} si
+     $E(\hat{\theta})=\theta$.
+\item   Es este caso la estimación puntual se dice que es insesgada.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Ejemplo}
+En el ejemplo del dado  y para cualquier muestra de tamaño  $n$, 
+
+$$X_{1},\ldots,X_{n}.$$
+
+Se tiene que :
+         $$E(\overline{X})=\mu_{X}$$
+ por lo tanto $\overline{X}$ es un estimador insesgado de $\mu_{X}$.
+ 
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Algunos estimadores insesgados notables}
+Dada una m.a.s. la media, varianza (sólo en el caso de normalidad) y proporción muestrales son estimadores insesgados de
+sus correspondientes parámetros poblacionales. Es decir:
+
+\begin{itemize}
+\item $E(\overline{X})=\mu$.
+\item $E(\hat{p})=p$.
+\item $E(\tilde{s}^2)=\sigma^2.$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{El sesgo de un estimador}
+Sea $\hat{\theta}$ un estimador puntual de un parámetro
+poblacional $\theta$, llamaremos \textbf{sesgo} de $\hat{\theta}$ a:
+
+$$Sesgo(\hat{\theta})=E(\hat{\theta})-\theta$$
+
+\textbf{Observación} Diremos que  un estimador es insesgado si y sólo si tiene sesgo cero.
+\end{frame}
+
+\begin{frame}
+\frametitle{La varianza y el  error estándar de un estimador}
+
+\begin{itemize}
+    \item Una propiedad buena para un estimador es
+    la  carencia de sesgo.
+\item  Pero podría suceder que tuviera una gran
+    variabilidad.
+\item  Entonces, aunque su valor central sea el verdadero valor del parámetro
+    que se estima, una realización del  estadístico  podría estar lejos del
+    verdadero valor del parámetro.
+\item  Parece pues interesante emplear aquellos estimadores
+    que tengan varianza más pequeña.
+\item A la desviación típica, es decir la raíz cuadrada de la varianza, de un estimador la denominaremos \textbf{error estándar}
+del mismo.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Eficiencia de un  estimador}
+
+\begin{itemize}
+\item Sean $\hat{\theta}_{1}$ y $\hat{\theta}_{2}$ dos estimadores de un parámetro poblacional
+$\theta$ obtenidos de la misma muestra.
+\item  Diremos que $\hat{\theta}_{1}$ es más eficiente que $\hat{\theta}_{2}$
+    si $Var(\hat{\theta}_{1})< Var(\hat{\theta}_{2})$.
+\item O lo que es lo mismo si el error estándar de   $\hat{\theta}_{1}$ es más pequeño que el error estándar de $\hat{\theta}_{2}$; $$\sqrt{Var(\hat{\theta}_{1})}< \sqrt{Var(\hat{\theta}_{2})}.$$
+\end{itemize}
+
+%      Definimos la eficiencia relativa de $\hat{\theta}_{2}$
+%     respecto de
+%     $\hat{\theta}_{1}$ como
+% 
+%     $Eff.rel=\frac{Var(\hat{\theta}_{2})}{Var(\hat{\theta}_{1})}$
+%     de forma que si $Eff.rel<1$ entonces
+%     $\hat{\theta}_{1}$ es más eficiente que $\hat{\theta}_{2}$
+% 
+\end{frame}
+
+\begin{frame}
+\textbf{Ejemplo:}
+
+\begin{itemize}
+\item     Sea $x_{(1)},\ldots,x_{(n)}$ la realización ordenada de menor a mayor
+     de una muestra de tamaño $n$. 
+\item Se define la mediana muestral como
+
+     $Me=Q_{0.5}=\left\{\begin{array}{ll}
+     x_{\left(\frac{n+1}{2}\right)} & \mbox{ si  } n  \mbox{  es impar }\\
+      \frac{x_{\left(\frac{n}{2}\right)}+ x_{\left(\frac{n}{2}+1\right)}}{2} & \mbox{ si } n  \mbox{
+      es par }\\
+     \end{array}\right.$
+\item Como vimos  la mediana es también un valor de
+     tendencia central, pero ¿es un buen estimador de $\mu$?
+\item Se puede demostrar que cuando la población tiene distribución normal
+     con media $\mu$ y varianza $\sigma_{X}^2$ entonces
+     $E(Me)=\mu$ y $Var(Me)=\frac{\pi}{2}
+     \frac{\sigma_{X}^2}{n}\approx \frac{1.57 \sigma_{X}^2}{n}$
+\item Se deduce que si la muestra es de una población normal, $\overline{X}$
+      es más eficiente  (un 57\%  de menos de varianza) que la mediana.
+\end{itemize}  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Estimador más eficiente}
+
+      Diremos que un estimador insesgado $\hat{\theta}$
+      del parámetro $\theta$ es el \textbf{estimador más eficiente} si no
+      existe ningún otro estimador insesgado que tenga menor varianza
+      que él (también se le denomina estimador insesgado de varianza
+      mínima).
+
+\textbf{Algunos estimadores más eficientes}
+% \footnote{ Más concretamente estos estimadores son del tipo UMVUE del
+%       acrónimo inglés ``Uniformly Minimum Variance Unbiased Estimator": Estimadores
+%       insesgados uniformemente de mínima varianza".}
+      \begin{itemize}
+       \item Si la población es normal la media muestral es el
+       estimador insesgado más eficiente de la media poblacional.
+       \item Si la población es normal la varianza muestral es el
+       estimador insesgado  más eficiente de la varianza poblacional.
+       \item Si la población es binomial la proporción muestral es el
+       estimador insesgado más eficiente de la proporción poblacional.
+      \end{itemize}
+  
+\end{frame}
+
+
+
+
+\subsection{Métodos para calcular estimadores}
+
+\begin{frame}
+\frametitle{Métodos para calcular estimadores. (\textbf{Opcional})}
+
+Existen muchos métodos para el encontrar  estimadores:
+
+\begin{itemize}
+\item Método de los momentos. Momento central de orden $r$
+
+$m_{r}=\frac{\sum_{i=1}^{n} (X_{i}-\overline{X})^r}{n}$
+
+\item El de menor error cuadrático medio
+
+$E((\hat{\theta}-\theta)^2)$
+
+\item  Convergencia en probabilidad
+
+$P(|\hat{\theta}_{n}-\theta|<\epsilon)\to 1$
+
+\item Estimadores máximo verosímiles.
+\item Otras técnicas, estimación robusta, remuestreo....
+\end{itemize}
+
+\end{frame}
+
+\subsection{Estimadores máximo verosímiles}
+\begin{frame}
+\frametitle{ Función de verosimilitud}
+\begin{itemize}
+\item Sea $X$ una v.a. tal que su distribución (densidad o función de probabilidad) depende de un
+parámetro desconocido $\lambda$.
+\item En el caso discreto $P_X(x;\lambda)$ y en el continuo
+$f_X(x;\lambda)$).
+\item  Sea $X_{1},\ldots X_{n}$ una m.a.s. de $X$ (es decir son $n$ v.a. iid
+como $X$).
+\item Sean $x_1,x_2,\ldots,x_n$ una realización de la muestra.
+\item  Entonces la función de verosimilitud de la muestra es:
+
+\begin{enumerate}[a)]
+\item En el caso discreto $L(\lambda)=P_X(x_1;\lambda)\cdots P_X(x_n;\lambda)$
+\item En el caso continuo $L(\lambda)=f_X(x_1;\lambda)\cdots f_X(x_n;\lambda)$
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Estimador máximo verosímil}
+
+\begin{itemize} 
+\item Dada una función de verosimilitud $L(\lambda)$ de una muestra. 
+\item Sea $\hat{\lambda}=g(x_1,\ldots,x_n)$ el punto donde se alcanza en máximo de $L(\lambda)$ para
+la realización de la muestra $x_1,\ldots,x_n$.
+\item Es decir $L(\hat{\lambda})=\mbox{máx}_{\lambda} L(\lambda)$.
+\item El valor $\hat{\lambda}$ recibe el nombre de estimador máximo verosímil.
+\item Es decir \textbf{el estimador máximo verosímil es aquel valor del parámetro que maximiza la probabilidad (densidad)
+de la muestra}.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El logaritmo de la función de verosimilitud}
+\begin{itemize}
+\item En ocasiones  es conveniente trabajar con el logaritmo de la función de verosimilitud.
+\item Ya que, al ser la función logaritmo creciente, el máximo de $\log(L(\lambda))$ y $L(\lambda)$ es el mismo y este último
+suele ser más fácil de calcular.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Sea $X_{1},\ldots X_{n}$ una muestra con observaciones
+independientes, de una población Bernouilli.
+\item  Por ejemplo se analiza el genoma a 100 personas para saber si tienen una forma de un determinado alelo de un gen.
+\item  Se anota un 1 si tienen ese alelo  y cero en
+cualquier otro caso.
+%\item  Sea $\hat{\theta}=T(X_{1},\ldots,X_{n})$ un estimador cualquiera. 
+\item  Sea $p$ la proporción poblacional de personas tienen ese alelo.
+\item  Entonces
+$$P(X_{i}=1)=p\mbox{ y }P(X_{i}=0)=1-p=q,$$
+
+o lo que es lo mismo
+
+ $$P(X=x_{i})=p^{x_{i}} q^{1-x_{i}}\mbox{ si } x_{i}=0,1$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Como las observaciones son independientes. la función de verosimilitud es:
+
+\begin{eqnarray*}
+L(p)&=&P_{X_{1},\ldots,X_{n}}(x_{1},\ldots,x_{n})=
+     P(X_{1}=x_{1},\ldots,X_{n}=x_{n})\\
+ & =& 
+P(X_{1}=x_{1})\cdots P(X_{n}=x_{n})= p^{x_{1}}q^{1-x_{1}}\cdots p^{x_{n}}q^{1-x_{n}}
+\\
+& =& p^{\sum_{i=1}^n x_{i}} q^{\sum_{i=1}^n (1-x_{i})}\\
+&=& p^{\sum_{i=1}^n x_{i}} q^{n-\sum_{i=1}^n x_{i}}
+\end{eqnarray*}
+
+\item Entonces el valor de $p$ que hace máxima esta probabilidad es el más verosímil o el de
+máxima verosimilitud de esta muestra.
+\item El problema se reduce  a estudiar qué valor de $p$ maximiza
+
+$$p^{\sum_{i=1}^n x_{i}} q^{n-\sum_{i=1}^n x_{i}}=p^{\sum_{i=1}^n x_{i}}
+(1-p)^{n-\sum_{i=1}^n x_{i}}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Tomando logaritmos ...
+$$\log\left(p^{\sum_{i=1}^n x_{i}} (1-p)^{n-\sum_{i=1}^n x_{i}}\right)=\left(\sum_{i=1}^n x_{i}\right)
+\log p + \left(n -\sum_{i=1}^n x_{i}\right) \log(1-p)$$
+\item Derivando respecto de $p$
+
+$$\left(\sum_{i=1}^n x_{i}\right) \frac{1}{p} - \left(n -\sum_{i=1}^n x_{i}\right)\frac{1}{1-p}=0$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Despejando
+
+$$(1-p)\sum_{i=1}^n x_{i} -p \left(n-\sum_{i=1}^n x_{i}\right)=0$$
+
+\item Por lo tanto $$\hat{p}=\frac{\sum_{i=1}^n x_{i}}{n}$$
+\item Luego el estimador máximo verosímil de $p$ es la proporción muestral $\hat{p}$, que es el que
+maximiza la función de verosimilitud $L(\hat{p})\geq L(p)$.
+\end{itemize}
+
+% 
+% De modo similar se puede definir los estimadores máximo verosímiles cuando el n\'umero de
+% parámetros no conocidos de la distribución son más de uno.
+
+\end{frame}
+\section{Estimación por intervalos}
+
+
+\begin{frame}
+\frametitle{Estimación por intervalos}
+\begin{itemize}
+\item   Una estimación por intervalos de un parámetro poblacional es una
+  regla para determinar un rango o un intervalo donde, con cierta
+  probabilidad, se encuentre el verdadero valor del parámetro.
+\item   La estimación correspondiente se llama estimación por intervalo. 
+\item Más formalmente, sea $\theta$ un parámetro, el intervalo $\left(A,B\right)$ es un intervalo de confianza del
+$(1-\alpha)\dot 100\% $ para el parámetro $\theta$ si $$P(A<\theta<B)=1-\alpha.$$
+\item El valor $1-\alpha$ recibe el nombre de \textbf{nivel de confianza}
+\item El valor  $0<\alpha<1$ es la ``\emph{cola}'' de
+probabilidad sobrante que normalmente se reparte por igual ($\alpha/2$) a cada lado del
+intervalo.
+\item  Es  frecuente que el nivel de confianza se den en tanto por ciento.
+\end{itemize}
+\end{frame}
+   \subsection{Intervalo de confianza para la media de una población
+    normal: varianza poblacional conocida}
+\begin{frame}
+\frametitle{Intervalo de confianza para la media de una población
+    normal: varianza poblacional conocida}
+En lo que sigue expondremos distintas maneras de calcular o aproximar intervalos de confianza
+para distintos parámetros.
+
+ \begin{itemize}
+\item Sea $X_{1},\ldots,X_{n}$ una m.a.s. de una v.a. $X$ con distribución
+    normal y $Var(X)=\sigma^2$ conocida.
+\item  Busquemos un intervalo de confianza al \emph{nivel de confianza} del
+    97.5\% para la media poblacional $\mu$.
+\item  Sabemos que, bajo estas condiciones,  la variable
+ $Z=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}$
+    sigue una distribución normal estándar pues es una trasformación lineal
+     de una combinación lineal de
+    variables normales e independientes..
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+ 
+\frametitle{Ejemplo}
+    Comencemos calculando un intervalo centrado en $0$ para que la variable aleatoria normal estándar $Z$
+    tenga probabilidad $0.975$.
+\begin{itemize}
+\item  $0.975= P(-\delta<Z<\delta)=F_{Z}(\delta)-F_{Z}(-\delta)=
+   2 F_{Z}(\delta)-1$
+\item    Entonces
+
+  $F_{Z}(\delta)=\frac{1.975}{2}=0.9875$
+\item  Consultando las tablas de la distribución normal estándar,
+$F_{Z}(2.24)=0.9875$ y por lo tanto $\delta=2.24$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+ 
+\frametitle{Ejemplo}
+\begin{itemize}
+\item  Luego $P(-2.24<Z<2.24)=0.975$
+\item En resumen, hemos obtenido lo siguiente
+    $$0.975=P\left(-2.24<\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}<2.24\right)=$$
+\item  Por lo tanto 
+$$P\left(\overline{X} -2.24 \frac{\sigma}{\sqrt{n}}< \mu< \overline{X}+
+    2.24\frac{\sigma}{\sqrt{n}}\right)=0.975$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Hemos encontrado un intervalo de confianza para $\mu$.
+\item La probabilidad de que $\mu$ se encuentre en el intervalo
+
+    $$\left(\overline{X} -2.24 \frac{\sigma}{\sqrt{n}},
+    \overline{X}+
+    2.24\frac{\sigma}{\sqrt{n}}\right)$$
+
+    es $0.975$.
+\item Luego es un intervalo de confianza con nivel de confianza 97.5\%
+\item Es decir en 97.5 de cada 100 ocasiones, en que tomemos una muestra de tamaño $n$ y bajo estas condiciones, el verdadero 
+valor de $\mu$ se encontrará en ese intervalo.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo}
+\begin{itemize}
+\item Supongamos que tenemos una muestra con $n=16$ de una v.a. normal de forma que $\overline{x}=20$ y cuya desviación
+    típica poblacional conocida vale $\sigma=4$.
+ \item    Entonces un intervalo de confianza al 97.5\% para $\mu$
+    es:
+
+    $$\left( 20-\frac{2.24\cdot 4}{\sqrt{16}} ,
+    20+\frac{2.24\cdot 4}{\sqrt{16}}\right)$$
+\item La probabilidad con que el verdadero valor del parámetro $\mu$ se
+    encuentra en el intervalo $\left( 17.76,22.24\right)$ es $0.975$.
+\item     O lo que es lo mismo  $P(17.76<\mu<22.24)=0.975$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+    \frametitle{Interpretación del intervalo de confianza} 
+\begin{itemize}
+\item En el 97.5\%
+    de la muestras de tamaño 16 el verdadero valor del parámetro
+    $\mu$ se encontrará dentro del intervalo correspondiente.
+\end{itemize}   
+ \end{frame}
+
+\begin{frame}
+\frametitle{Fórmula general}
+\begin{itemize}
+\item En general si tenemos una m.a.s. $X_{1},\ldots,X_{n}$ de una población normal (representado
+por la v.a. $X$) con distribución normal de media $\mu$ y varianza conocida $\sigma^2$,
+\item el intervalo de confianza para $\mu$ al nivel de confianza $(1-\alpha)\cdot 100\%$ es
+\begin{eqnarray*}
+1-\alpha&=&P(z_{\alpha/2}<Z<z_{1-\alpha/2})\\
+&=& P\left(z_{\alpha/2}<\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}<z_{1-\alpha/2}\right)\\
+& =& P\left(z_{\alpha/2}\frac{\sigma}{\sqrt{n}}<\overline{X}-\mu<z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\right)\\
+&=&
+P\left(\overline{X}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}<\mu<\overline{X}+z_{1-\alpha/2}\frac{\sigma}
+{\sqrt{n}}\right)
+\end{eqnarray*}
+\end{itemize}
+\end{frame}
+
+  \subsubsection{Resumen: Intervalo de confianza para $\mathbf{\mu}$}
+  
+\begin{frame}
+    \frametitle{Resumen: Intervalo de confianza para $\mathbf{\mu}$:
+    $\mathbf{\sigma^2}$ conocida.}
+Condiciones:
+    \begin{enumerate}[a)]
+    \item Población Normal con media $\mu$ y varianza $\sigma^2$ conocida
+    \item Muestra aleatoria de tamaño $n$
+    \end{enumerate}
+    Entonces el intervalo de confianza del $100(1-\alpha)\%$ para $\mu$
+    es:
+
+    $$\left( \overline{X}+z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}},
+    \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}\right)$$
+\begin{itemize}
+\item Donde  $z_{\frac{\alpha}{2}}$ es el cuantil $\frac{\alpha}{2}$, es decir
+    $P(Z\leq z_{\frac{\alpha}{2}})=\frac{\alpha}{2}$, cuando $Z$ tiene
+    distribución normal estándar.
+\item $z_{1-\frac{\alpha}{2}}$
+    es el cuantil $1-\frac{\alpha}{2}$, es decir
+    $P(Z\leq z_{1-\frac{\alpha}{2}})=1-\frac{\alpha}{2}$, cuando $Z$ tiene
+    distribución normal estándar.
+\item  Notemos que
+    $z_{\frac{\alpha}{2}}=-z_{1-\frac{\alpha}{2}}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \textbf{Ejemplo}
+Tenemos un aparato para medir volúmenes de líquido. Para saber si está bien calibrado se toman 10 muestras consistentes en 
+ rellenar un recipiente, especialmente calibrado, de un litro. Se comprueban las mediciones obteniéndose los resultados de la siguiente tabla:
+\begin{center}
+    \begin{tabular}{c|c|c}
+        \hline
+        Volumen en litros &  Frec. Absoluta & Volumen $\times$ Frec. Absoluta\\
+        \hline
+        1.000 & 1 & 1.000\\
+        1.002 & 2 & 2.004\\
+        1.004 & 1 & 1.004\\
+        1.006 & 2 & 2.012\\
+        1.008 & 1 & 1.008\\
+        1.010 & 2 & 2.020\\
+        1.012 & 1 & 1.012\\
+       \hline\hline
+       Total & 10 & 10.06
+        \end{tabular}
+        \end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+        Supongamos que el volumen de líquido sigue una distribución normal con
+        varianza poblacional conocida $\sigma^2=4$. Calcular un intervalo de confianza al 90\% para
+        la media del volumen.
+
+    \textbf{Solución:}
+    Tenemos las siguientes condiciones:
+
+     \begin{itemize}
+    \item Población de volúmenes normal varianza $\sigma^2=4$ conocida.
+    \item Muestra aleatoria de tamaño $n=10$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item  Podemos  aplicar la formula anterior,  para $1-\alpha=0.9$.
+\item  Entonces se tiene que $\alpha=0.1$, $\frac{\alpha}{2}= 0.05$ y  $1-\frac{\alpha}{2}=0.95$.
+\item Calculamos la media aritmética de las observaciones $\overline{x}=\frac{10.06}{10}=1.006,$
+\item Entonces el intervalo es
+$$\left(1.006+z_{0.05}\frac{2}{\sqrt{10}},1.006+z_{1-0.05}\frac{2}{\sqrt{10}}\right).$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Consultando las tablas de la normal $P(Z\leq 1.65)=0.9505\approx0.95$ entonces  $z_{0.95}=1.65$, y $z_{0.05}=-1.65$
+\item Sustituyendo obtenemos que
+\begin{eqnarray*}
+    z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}=1.65 \frac{2}{\sqrt{10}}&=& 1.0435\\
+   z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}=-1.65 \frac{2}{\sqrt{10}}&=&- 1.0435\\
+\end{eqnarray*}
+\item Por lo que  el intervalo de confianza del 90\% para la media del volumen es:
+$\left(1.006- 1.0435,1.006+ 1.0435\right)=\left(-0.0375 , 2.0495\right)$
+\item Lo que quiere decir que en el 90\% de la ocasiones en que tomemos una muestra de tamaño
+$10$ el volumen medio estará comprendido entre $-0.0375$ y $2.0495$. 
+\item Como se ve en este caso hay un abuso de la suposición de normalidad en la distribución del volumen ya que el extremo de la
+izquierda es negativo.
+\end{itemize}
+\end{frame}
+
+
+    \subsubsection{Amplitud del intervalo de confianza}
+    
+\begin{frame}
+
+    \frametitle{Amplitud del intervalo de confianza}
+    \begin{itemize}
+\item Como de todos es conocido la amplitud (longitud) de un intervalo
+    es la diferencia entre sus extremos superior e inferior.
+\item  En el ejemplo anterior la amplitud $A$ es
+
+    $A=\overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}-
+ \left(\overline{X}+z_{\frac{\alpha}{2}}
+ \frac{\sigma}{\sqrt{n}}\right)=
+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}=2
+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}$
+\item 
+El \emph{error} máximo, al nivel $(1-\alpha)$, que cometemos al estimar $\mu$ por
+$\overline{X}$ será la mitad de la amplitud del  intervalo de confianza $
+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}$
+\item 
+Si queremos calcular el tamaño $n$ de la muestra para asegurarnos que el intervalo de
+confianza para $\mu$ al nivel $(1-\alpha)$ tiene amplitud prefijada $A$ (o un error
+$\frac{A}{2}$)  se puede despejar así:
+
+$n=\left(  2 z_{1-\frac{\alpha}{2}}\frac{\sigma}{A} \right)^2$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \textbf{Observaciones:}
+
+    \begin{itemize}
+    \item El intervalo está centrado en $\overline{X}$.
+    \item  Para $n$ y $1-\alpha$ fijos, si la varianza poblacional aumenta entonces $A$
+    aumenta.
+    \item Para una varianza poblacional conocida y $1-\alpha$ fijos,  si $n$ aumenta entonces
+      $A$ disminuye.
+      \item Para una varianza poblacional conocida y $n$ fijos,  si
+      $1-\alpha$ aumenta entonces $A$ aumenta.
+    \end{itemize}
+\end{frame}
+\subsection{Intervalo de confianza para la media
+        poblacional: tamaños muestrales grandes}
+
+\begin{frame}
+        \frametitle{Intervalo de confianza para la media poblacional: tamaños muestrales grandes}
+
+     Condiciones:
+
+    \begin{itemize}
+    \item Población con media $\mu$ y varianza $\sigma^2$ conocida
+    o  si no se estima por $\tilde{S}^2$
+    \item Muestra aleatoria de tamaño $n$ grande (criterio $n\geq 30$)
+    \end{itemize}
+
+    Entonces el intervalo de confianza del $100(1-\alpha)\%$ para $\mu$
+    es:
+
+    $$\left( \overline{X}+z_{\frac{\alpha}{2}}\frac{\tilde{S}}{\sqrt{n}},
+    \overline{X}+z_{1-\frac{\alpha}{2}}\frac{\tilde{S}}{\sqrt{n}}\right)$$
+
+    En caso de que $\sigma$ sea conocida pondremos $\sigma$ en lugar de $\tilde{S}$
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo:}
+\begin{itemize}
+\item Se tomó una muestra de 147 expertos en informes de impacto ambiental y se les pidió que calificasen en una escala de 1 (totalmente en desacuerdo) a 10 (totalmente de acuerdo) la siguiente afirmación: ``A veces utilizo técnicas de investigación que garantizan la obtención de los resultados que mi cliente o jefe desea''.
+\item La calificación media de la muestra fue $6.06$ y la desviación típica muestral fue 1.43. Se pide calcular un intervalo de confianza al 90\% para la media de las puntuaciones.
+\end{itemize}    
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución:}
+\begin{itemize}
+\item  El enunciado no nos asegura que la población sea normal pero como el tamaño de la población es grande podemos aplicar el resultado anterior.
+\item Tenemos $n=147$, $\tilde{S}=1.43$, $1-\alpha=0.9$ entonces $\frac{\alpha}{2}=0.05$ y por lo tanto $z_{1-0.05}\approx 1.65$
+\item El intervalo para la media poblacional de las puntuaciones  al nivel de confianza del 90\% es
+$$\left(6.06-1.65 \frac{1.43}{\sqrt{147}},6.06+1.65\frac{1.43}{\sqrt{147}}\right)=\left(5.8654, 6.2546\right)$$
+\end{itemize}
+\end{frame}
+
+\subsubsection{Distribución $t$ de Student}
+
+\begin{frame}
+\frametitle{Distribución $t$ de Student}
+\begin{itemize}
+\item Si queremos calcular  un intervalo de confianza para $\mu$ en una población  normal con varianza poblacional  desconocida
+necesitamos una nueva  distribución: la $t$ de Student.
+\item  Dada una muestra de $n$ observaciones con media muestral $\overline{X}$ y
+       desviación típica muestral $\tilde{S}_{X}$ procedente de una población
+       normal con media $\mu$  la variable aleatoria:
+
+       $$t=\frac{\overline{X}-\mu}{\frac{\tilde{S}_{X}}{\sqrt{n}}}$$
+
+       sigue una distribución $t$ de Student con $n-1$ grados de libertad.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+       \frametitle{Propiedad}
+\begin{itemize}
+\item La distribución $t$ de Student es similar a la normal si el número de grados de libertad es grande.  Su función de densidad
+es simétrica respecto al origen como la de la normal estándar.
+\item  Es decir si $t_{\nu}$ es una v.a. que sigue la distribución $t$ de Student con $\nu$ g.l. entonces:
+
+       $$P(t_{\nu}\leq -t)=1-P(t_{\nu}\leq t)$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Notación}
+\begin{itemize}
+\item  Sea $t_{\nu}$  una v.a. que sigue una distribución  $t$ de Student con $\nu$ g.l. Denotaremos por $t_{\nu,\alpha}$ al
+valor para el que se verifica que:
+
+          $$P(t_{\nu}\leq t_{\nu,\alpha})=\alpha.$$
+\item Luego $t_{\nu,\alpha}$ es el $\alpha$ cuantil de una $t$ de
+         Student con $\nu$ g.l. y  $t_{\nu,\alpha}=-t_{\nu,1-\alpha}.$
+\end{itemize}
+\end{frame}
+ \subsection{Intervalo de confianza para la media de una población normal:
+        varianza poblacional desconocida}
+
+\begin{frame}
+   \frametitle{Intervalo de confianza para la media de una población normal:
+        varianza poblacional desconocida}
+Condiciones:
+\begin{itemize}
+\item Muestra aleatoria de $n$ observaciones independientes.
+\item Población normal varianza desconocida
+\end{itemize}
+        Entonces si $\overline{X}$ y $\tilde{S}_{X}$ son respectivamente la media y
+        la desviación típica muestrales un intervalo de confianza al nivel
+        $(1-\alpha)100\%$ para la media de la población $\mu$ es:
+
+$$\left( \overline{X}+t_{n-1,\frac{\alpha}{2}} \frac{\tilde{S}_{X}}{\sqrt{n}},
+\overline{X}+t_{n-1,1-\frac{\alpha}{2}}\frac{\tilde{S}_{X}}{\sqrt{n}} \right)$$
+
+Siendo $t_{n-1,\frac{\alpha}{2}}$ y $t_{n-1,\frac{\alpha}{2}}$ los cuantiles de una v.a.
+$t_{n-1}$ con distribución t de Student con n-1 g.l., respectivamente.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejercicio}
+Demostrar que la probabilidad con  que $\mu$ se encuentra en el intervalo anterior es $1-\alpha$.
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Ejemplo:}
+La empresa rayosX-print  ofrece una impresora de altísima calidad para la impresión de radiografías. En su publicidad afirma que sus
+\emph{cartuchos}  imprimirán  un promedio de 500 radiografías*; donde el asterisco remite a una nota a
+pie de página donde afirma que: `` \texttt{Datos técnicos: Muestra mensual de tamaño $n=25$
+población supuesta normal nivel de confianza del 90\%}''.
+
+Una organización de radiólogos desea comprobar estas afirmaciones y toma también una muestra al azar de tamaño $n=25$ obteniendo
+como media $\overline{x}=518$ páginas y una desviación estándar $\tilde{S}_{X}=40$.  Verificar si con esta muestra la media
+poblacional que afirma el fabricante cae dentro del intervalo de confianza del 90\%.
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\textbf{Solución:} El problema se reduce a  calcular, bajo las condiciones que afirma el
+fabricante el intervalo de confianza para $\mu$ con $\alpha=0.1$.
+
+Mirando en las tablas de la t de Student para $n-1=24$ g.l. tenemos que
+$t_{n-1},1-\frac{\alpha}{2}=t_{24,1-0.05}=1.71$
+
+
+El intervalo para la media al $90\%$ es
+
+$$\left(518-1.71\frac{40}{\sqrt{25}}   , 518+1.71\frac{40}{\sqrt{25}}\right)=
+\left(504.32,531.68\right).$$
+
+Es este caso la afirmación del fabricante  queda contradicha por la muestra pues $500$ cae
+fuera del intervalo. En cualquier caso se equivoca a favor del consumidor.
+\end{frame}
+
+
+\subsection{Intervalos de confianza para una proporción}
+\begin{frame}
+
+\frametitle{Intervalos de confianza para una proporción: Ejemplo}
+El procedimiento  es similar al caso de las medias. Comencemos con un ejemplo.
+
+\begin{itemize}
+\item En una muestra aleatoria  de 500 familias con niños en edad escolar se encontró que 340 introducen fruta de forma diaria en la dieta de sus hijos. 
+\item Encontrar un intervalo de confianza del 95\% para la proporción  actual de familias de esta ciudad con niños en edad escolar que incorporan fruta fresca de forma diaria en la dieta de sus hijos.
+\item Tenemos una población binomial donde los éxitos son las familias que aportan fruta de forma diaria a la dieta de sus hijos. \item Sea $X$ el número de familias con hijos en edad escolar que aportan diariamente fruta a su dieta en una muestra aleatoria de
+tamaño $n$.
+
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Ejemplo}
+
+\begin{itemize}
+\item  Entonces $X$ sigue una distribución binomial con $n$ repeticiones y
+probabilidad de éxito $p$ (proporción poblacional de familias  que aportan fruta a la dieta).
+\item Si llamamos $\hat{p}_{X}=\frac{X}{n}$ a la proporción muestral, sabemos que
+$Z=\frac{\hat{p}_{X}-p}{\sqrt{\frac{p(1-p)}{n}}}$ sigue aproximadamente una distribución
+normal estándar.
+\item Pero como es evidente no conocemos $p$ así que no tenemos más remedio que  aproximar el
+denominador
+$$\sqrt{\frac{p(1-p)}{n}}\approx \sqrt{\frac{\hat{p}_{X}(1-\hat{p}_{X})}{n}}$$
+\item 
+Si la muestra es grande $Z=\frac{\hat{p}_{X}-p}
+{\sqrt{\frac{\hat{p}_{X}(1-\hat{p}_{X})}{n}}}$ seguirá siendo aproximadamente normal
+estándar.
+\end{itemize}
+\end{frame}
+
+
+\subsubsection{Intervalos de confianza para la proporción
+poblacional: (muestras grandes)}
+\begin{frame}
+\frametitle{Intervalos de confianza para la proporción
+poblacional: (muestras grandes)}
+
+Condiciones:
+
+\begin{itemize}
+\item Una muestra aleatoria de tamaño $n$ grande.
+\item Población Bernouilli con proporción de éxitos $p$ (desconocida).
+\end{itemize}
+
+Bajo estas condiciones y si $\hat{p}_{X}$ es la proporción de éxitos en la muestra, un
+intervalo de confianza del parámetro~$p$ al nivel $(1-\alpha)100\%$ de confianza es
+
+
+$$\left(\hat{p}_{X}+z_{\frac{\alpha}{2}}\sqrt{\frac{\hat{p}_{X} (1-\hat{p}_{X})}{n}},
+\hat{p}_{X}+z_{1-\frac{\alpha}{2}}\sqrt{\frac{\hat{p}_{X} (1-\hat{p}_{X})}{n}}\right)$$
+
+
+Criterio: los intervalos de confianza anteriores son fiables si $n\geq 40.$
+\end{frame}
+
+\begin{frame}
+\frametitle{Observaciones}
+\begin{itemize}
+\item El intervalo de confianza anterior está centrado en la proporción muestral.
+\item Cuando $n$ crece se reduce la amplitud del intervalo de confianza.
+\item La amplitud del intervalo de confianza es
+$A=2 z_{1-\frac{\alpha}{2}} \sqrt{\frac{\hat{p}_{X} (1-\hat{p}_{X})}{n}}$
+\item  De la fórmula anterior no podemos determinar el tamaño de la muestral sin conocer $\hat{p}_{X}$ así que nos podremos en el caso peor:
+
+El máximo  de
+$\sqrt{\frac{\hat{p}_{X} (1-\hat{p}_{X})}{n}}$
+ se alcanza en $\hat{p}_{X}=0.5$  y en este caso vale
+$\sqrt{\frac{0.5(1-0.5)}{n}}.$
+
+\item Por lo tanto en el peor de los casos,
+$n=\frac{0.25 z_{1-\frac{\alpha}{2}}^2}{(A/2)^2}$ vale como mínimo dicho valor para que la amplitud del correspondiente intervalo
+de confianza sea~$A$ como máximo.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Observación}
+Por esto en las especificaciones o detalles
+técnicos de las encuestas se suele leer, por ejemplo:
+
+ ``Universo población Balear mayor de
+18 años. Encuesta telefónica, selección aleatoria de tamaño mil, error en las proporciones
+$\pm 3\% $ con una confianza del 95\% \underline{supuesto que} $p=q=\frac{1}{2}$''
+\end{frame}
+\subsection{Intervalo de confianza para la varianza de una
+población normal}
+\begin{frame}
+
+\frametitle{Intervalo de confianza para la varianza de una
+población normal}
+\begin{itemize}
+\item  Recordemos que si tenemos una población normal con varianza $\sigma^2$ y una  muestra aleatoria de  tamaño $n$ de esta
+población con varianza muestral $\tilde{S}_{X}^2$ entonces el estadístico
+
+        $$\chi^2_{n-1}=\frac{(n-1) S_{X}^2}{\sigma^2}$$
+
+         sigue una distribución $\chi^2$ con $n-1$ g.l.
+\item \textbf{Notación}
+         Si $\chi_{\nu}^2$ es una v.a. que tiene distribución $\chi^2$ con
+         $\nu$ g.l.  denotaremos por $\chi_{\nu,\alpha}^2$  al valor que
+         verifica:
+
+         $$P(\chi_{\nu}^2\leq \chi_{\nu,\alpha}^2)=\alpha$$
+
+\item   Es decir el cuantil $\alpha$ de una v.a. con distribución $\chi_{\nu}^2.$  Estos valores están tabulados para distintos g.l. en la tabla de la distribución $\chi^2$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}  
+     \frametitle{Ejemplo}
+\begin{itemize}
+\item Sea $\chi_{10}^2$ una v.a. que tiene distribución $\chi^2$ con $10$ g.l.
+\item Entonces $\chi_{10,0.995}^2=25.19$ y  $\chi_{10,0.005}^2=2.16$, es decir
+$$P(\chi_{10}^2\leq 25.19)=0.995\mbox{ y } P(\chi_{10}^2\leq 2.16)=0.005$$
+\item  Además tendremos que
+\begin{eqnarray*}
+P(2.16\leq \chi_{10}^2\leq 25.19)&=&P(\chi_{10}^2\leq25.19)-P(\chi_{10}^2\leq 2.16)\\
+&=&0.995-0.005=0.99
+\end{eqnarray*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+     \frametitle{En general}
+\begin{itemize}
+\item En general dado $\alpha$ entre $0$ y $1$, tendremos que
+ $$1-\alpha=P(\chi_{\nu,\frac{\alpha}{2}}^2\leq \chi_{\nu}^2\leq
+    \chi_{\nu,1-\frac{\alpha}{2}}^2).$$
+\item  Si tenemos una muestra de tamaño $n$ de una población normal con desviación típica muestral $\tilde{S}_{X}^2$, dado un nivel de confianza $1-\alpha$ tendremos que $\chi_{n-1}^2=\frac{(n-1)\tilde{S}_{X}^2}{\sigma^2}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{En general}
+\begin{itemize}
+\item Entonces:
+\begin{eqnarray*}
+1-\alpha&=&P\left(\chi_{n-1,\frac{\alpha}{2}}^2\leq \chi_{n-1}^2\leq \chi_{n-1,1-\frac{\alpha}{2}}^2\right)\\
+&=& P\left(\chi_{n-1,\frac{\alpha}{2}}^2\leq \frac{(n-1)  S_{X}^2}{\sigma^2}\leq
+    \chi_{n-1,1-\frac{\alpha}{2}}^2\right)\\
+&=& P\left(\frac{(n-1)
+\tilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2}\leq\sigma^2\leq\frac{(n-1)\tilde{S}_{X}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}\right)
+\end{eqnarray*}
+\item Luego, bajo estas condiciones, un intervalo de confianza para la varianza poblacional del $(1-\alpha) 100\%$ es
+ $$\left(  \frac{(n-1)\tilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2},\frac{(n-1)\tilde{S}_{X}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}\right).$$
+\end{itemize}
+\end{frame}
+
+\subsubsection{Resumen intervalo de confianza para la varianza de una población normal}
+
+\begin{frame}
+\frametitle{Intervalo de confianza para la varianza de una población normal}
+Condiciones
+\begin{itemize}
+\item Población normal
+\item Muestra aleatoria de tamaño $n$ con varianza muestral $S_{X}^2$
+\end{itemize}
+
+Entonces un intervalo de confianza del $(1-\alpha)100\%$ es
+
+$$\left(  \frac{(n-1)\tilde{S}_{X}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2},
+\frac{(n-1)\tilde{S}_{X}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}\right).$$
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Donde $\chi_{n-1,\frac{\alpha}{2}}^2$ es el valor que verifica
+$$P(\chi_{n-1}^2<\chi_{n-1,\frac{\alpha}{2}}^2)=\frac{\alpha}{2}.$$
+
+\item Mientras que $\chi_{n-1,1-\frac{\alpha}{2}}^2$ es el valor tal que
+
+       $$P(\chi_{n-1}^2\leq\chi_{n-1,1-\frac{\alpha}{2}}^2)=1-\frac{\alpha}{2}.$$
+
+\item  Donde $\chi_{n-1}^2$ es  una v.a. que sigue una distribución $\chi^2$ con $n-1$ g.l.
+
+\item \textbf{Observación:} El intervalo de confianza para $\sigma^2$ no está centrado en~$\tilde{S}_{X}^2$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+ 
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Un índice de calidad de un reactivo químico es el tiempo que tarda en actuar.
+\item El estándar  es que el tiempo no debe ser superior a los 30 segundos.
+\item Se supone que la distribución del tiempo de actuación del reactivo es aproximadamente normal. Se realizan
+   30  pruebas, que forman una muestra aleatoria, en las que se mide el tiempo de actuación del reactivo.
+\item  Los tiempos fueron:
+
+12, 13, 13, 14, 14, 14, 15, 15, 16, 17, 17, 18, 18, 19, 19, 25, 25, 26, 27, 30, 33, 34, 35,
+40, 40, 51, 51, 58, 59, 83.
+\item Se pide calcular un intervalo de confianza para la varianza  al nivel $95\%$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}
+
+\begin{itemize}
+\item  Sea $X$ el tiempo de reacción. Haciendo los cálculos tenemos que
+(redondeando al segundo decimal):
+
+<<echo=F>>=
+reactivo <- c(12, 13, 13, 14, 14, 14, 15, 15, 16, 17, 17, 18, 18, 19, 19, 25, 25, 26, 27, 30, 33, 34, 35,
+40, 40, 51, 51, 58, 59, 83)
+@
+
+$\overline{X}= \Sexpr{round(mean(reactivo),2)}$ y $\tilde{s}_{X}=\Sexpr{round(sd(reactivo),2)}.$
+\item 
+Como $1-\alpha=0.95$ tenemos que  $\frac{\alpha}{2}=0.025$, entonces mirando en las tablas
+de la $\chi^2$ (y redondeando también al segundo decimal)
+
+$$\chi_{n-1,1-\frac{\alpha}{2}}^2= \chi_{29,0.975}^2=\Sexpr{round(qchisq(0.975,29),2)} \mbox{ y }
+\chi^2_{n-1,\frac{\alpha}{2}}= \chi_{29,0.025}^2=\Sexpr{round(qchisq(0.025,29),2)}.$$
+\item 
+Por lo tanto un intervalo de confianza del 95\% para $\sigma^2$ es
+
+$$\left(\frac{(30-1)\cdot 17.37^2}{45.72},\frac{(30-1)\cdot 17.37^2}{16.05}\right)=
+\left(\Sexpr{round(29*(sd(reactivo))^2/qchisq(0.975,29),2)},\Sexpr{round(29*sd(reactivo)^2/qchisq(0.025,29),2)}\right)$$
+\item 
+Es decir $P(\Sexpr{round(29*(sd(reactivo))^2/qchisq(0.975,29),2)}\leq \sigma^2\leq
+\Sexpr{round(29*(sd(reactivo))^2/qchisq(0.025,29),2)})=0.95.$
+\end{itemize}
+\end{frame}
+
+
+\part{Inferencia estadística. Contraste de hipótesis.}
+
+\frame{\partpage}
+
+\section{Contraste de hipótesis}
+\begin{frame}
+
+\frametitle{Introducción}
+\begin{itemize}
+\item Hemos visto como puede estimarse un parámetro  a partir de los datos contenidos en una muestra.
+     Puede encontrarse una  estimación puntual o bien una estimación por intervalo.
+\item  Sin embargo muchos problemas en biología, bioquímica, .... o en cualquier ciencia o en  economía o en la administración, requieren tomar una \emph{decisión} es decir se
+     debe aceptar o rechazar  alguna afirmación sobre, por ejemplo,
+     sobre el valor de un parámetro.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Introducción}
+ \begin{itemize}
+\item  Esta afirmación recibe el nombre de \emph{hipótesis} y el método estadístico de toma de decisión sobre la  hipótesis recibe el nombre de prueba (o contraste) de hipótesis.
+\item  Éste es uno de los aspectos más útiles de la inferencia estadística puesto que muchos problemas de toma de decisiones pueden plantearse en términos de contraste de hipótesis.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Ejemplo.}
+    \begin{enumerate}[a)]
+  \item Los responsables sanitarios del gobierno han determinado que el número de bacterias por centímetro cúbico de agua debe ser inferior o igual a 70  donde $70$ es el máximo nivel aceptable para las aguas en las que se practica la recogida de almejas. La decisión se podría basar en varias muestras de agua.
+  \item Un  hospital recibe una partida de productos farmacéuticos. El encargado
+    tiene orden de aceptar los envíos que contengan menos de un 5\% de
+    unidades defectuosas. La decisión del encargado se podría basar en una
+    muestra aleatoria de la partida.
+\item El promedio de proteínas en sangre en un adulto sano es de 7.25 gr/dL. En un análisis de sangre el técnico debe decir si la media del paciente es igual o distinta de ese valor.
+ \item Una fábrica de abonos con nitratos afirma que su uso producirá un aumento de masa (medida en Kg. de materia seca)  por hectárea y año. Los agricultores quieren tener garantías de que esto es cierto.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Hipótesis estadística}
+\begin{itemize}
+\item Una hipótesis estadística es una afirmación que se realiza sobre los parámetros o las distribuciones de una o más poblaciones
+\item Las hipótesis estadística se contrastan una contra otra. Habitualmente las
+denominaremos  \textbf{Hipótesis nula} $H_{0}$  e  \textbf{hipótesis alternativa}
+$H_{1}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Un fabricante de sobrasada asegura en su etiqueta que sus piezas pesan 200 gr.
+\item  Un fabricante de la competencia sospecha que el peso es inferior al que figura en la
+etiqueta para ello toma una muestra aleatoria de sobrasadas y las pesa.
+\item Sea $\mu$ el contenido medio en gramos de la población de sobrasadas.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item  El contraste de interés para desde el punto de vista económico del fabricante es:
+$$\left\{\begin{array}{ll} H_{0}:\mu=200\\ H_{1}:\mu>200
+\end{array}\right.$$
+No le interesa regalar gramos de sobrasada...
+\item Al consumidor  sólo le interesa contrastar
+$$\left\{\begin{array}{ll} H_{0}:\mu=200\\ H_{1}:\mu<200
+\end{array}\right.,$$
+pues sólo quiere decidir si el peso es inferior al declarado.
+\item Pero si es el encargado del control de la producción le interesará contrastar
+$$\left\{\begin{array}{ll} H_{0}:\mu=200\\ H_{1}:\mu\not=200
+\end{array}\right.$$
+Pues no debe engañar al consumidor pero tampoco quiere darle más peso gratis.
+\end{itemize}
+\end{frame}
+
+\subsection{Tipos de hipótesis sobre parámetros}
+
+\begin{frame}
+\frametitle{Tipos de hipótesis sobre parámetros}
+\begin{itemize}
+\item $H: \theta=\theta_{0}$ \textbf{hipótesis simple} (en caso contrario compuesta).
+\item $H: \theta>\theta_{0}$ o  $H: \theta<\theta_{0}$ \textbf{hipótesis unilateral}.
+\item $H: \theta\not=\theta_{0}$ \textbf{hipótesis bilateral}.
+\end{itemize}
+
+    Resumiendo: Un contraste de hipótesis consiste en plantear una
+    \textbf{hipótesis nula} y una \textbf{alternativa}.
+
+    $$\left\{\begin{array}{ll}
+H_{0}:\mbox{hipótesis nula}\\ H_{1}:\mbox{hipótesis alternativa}
+\end{array}\right.$$
+
+y generar un \textbf{regla de decisión} para \textbf{aceptar} la hipótesis nula o \textbf{rechazarla} en favor de la
+alternativa a partir de la información contenida en una muestra.
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Ejemplo.}
+Supongamos que queremos decidir si una moneda está bien balanceada. Para ello lanzamos la
+moneda 100 veces obteniéndose $X$ caras.
+
+Sea $p$ la probabilidad de cara en esta moneda, queremos contrastar:
+
+
+$$\left\{\begin{array}{ll} H_{0}:p=0.5\\ H_{1}:p\not=0.5
+\end{array}\right.$$
+
+Una regla podría ser aceptar $H_{0}$ contra $H_{1}$ si $X$ no es muy distinto de 50 por
+ejemplo si $48\leq X\leq 52$.
+
+En lo que sigue definiremos los elementos necesarios para estudiar qué reglas (regiones)
+de rechazo son las más adecuadas para distintos tipos de contrastes.
+\end{frame}
+
+ \subsection{Tipos de Error en un contraste}
+\begin{frame}
+
+ \frametitle{Tipos de Error en un contraste}
+Cuando realizamos un contraste de hipótesis pueden darse las situaciones que detallamos en la tabla siguiente:
+\begin{center}
+    \begin{tabular}{c|c|c}
+    Decisión  & \multicolumn{2}{c}{Estados de la naturaleza} \\
+    \hline\hline
+     & $H_{0}$ cierta & $H_{0}$ falsa\\
+     \hline
+    Aceptar $H_{0}$ & Dec. correcta  &  Error tipo II \\
+    & Prob=$1-\alpha$ & Prob=$\beta$\\
+    \hline
+    Rechazar $H_{0}$ & Error tipo I  & Dec. correcta \\
+    &Prob=$\alpha$ & Prob =$1-\beta$\\
+\hline
+    \end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Probabilidades de los Errores de Tipo I y II}
+\begin{itemize}
+\item La probabilidad de Error Tipo I es
+$P(\mbox{Error Tipo I})=P(\mbox{Rechazar } H_{0}/H_{0} \mbox{ cierta})=\alpha$ y recibe el nombre de \textbf{nivel de significación} del contraste.
+\item La probabilidad de Error Tipo II es
+$P(\mbox{Error Tipo II})=P(\mbox{Aceptar } H_{0}/H_{0} \mbox{ falsa})=\beta$ el valor $1-\beta$ recibe el nombre de \textbf{potencia} del contraste.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Notación}
+\begin{itemize}
+\item En ocasiones daremos los niveles de significación y  la potencia en tantos por cien, así
+un nivel de significación del 5\% implica que $\alpha=0.05$
+\item Lo ideal es encontrar aquella regla de rechazo de $H_{0}$ que tenga menor probabilidad de Error Tipo I $\alpha$.
+\item Pero que también tenga menor probabilidad de Error Tipo II $\beta$ o lo que es lo mismo mayor potencia $1-\beta$.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Lo que sucede es que si modificamos la regla de rechazo para que disminuya $\alpha$ entonces aumentamos $\beta$.
+\item Buscaremos  reglas de decisión que para un $\alpha$ fijo nos den un $\beta$ lo más pequeño posible.
+\item Lo que se hace normalmente es fijar $\alpha$ y esto  nos da la región crítica y luego, si es posible, controlar el tamaño de la muestra $n$ para
+ obtener la mayor potencia y por lo tanto el menor Error de Tipo II
+al menor coste.
+\item  Para bajar el Error de Tipo II se aumenta el tamaño de la muestra. Excede el tiempo de este curso el cálculo del tamaño de la muestra para fijar el valor del Error de tipo II. Consultad la bibliografía.
+\item En resumen: Si el investigador fija un nivel de significación y un tamaño $n$, obtiene una regla de
+    decisión que fija un Error de Tipo II.
+\end{itemize}
+\end{frame}
+
+\subsection{Terminología}
+\begin{frame}
+\frametitle{Terminología}
+ Resumamos los conceptos vistos hasta
+ahora:
+\begin{itemize}
+\item \underline{Hipótesis nula $H_{0}$}: Es la hipótesis que se desea aceptar si no hay prueba
+de que es falsa.
+
+\item \underline{Hipótesis Alternativa $H_{1}$}: Es la hipótesis frente a la que se contrasta
+la hipótesis nula y que se acepta si se rechaza la nula.
+
+\item \underline{Hipótesis simple:} Es la que especifica un sólo valor para el parámetro a
+contrastar.
+
+\item \underline{Hipótesis compuesta}:  Es la que especifica un rango de valores para el
+parámetro a contrastar.
+
+\item \underline{Alternativa unilateral}: Es una $H_{1}$ compuesta formada por un semi intervalo
+es decir $\theta>\theta_{0}$ o $\theta<\theta_{0}$.
+
+\underline{Alternativa bilateral}:   Es aquella $H_{1}$ compuesta que es el
+complementario de una $H_{0}$ simple.
+
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminología}
+\begin{itemize}
+\item \underline{Decisión de un contraste de hipótesis}: puede ser aceptar o rechazar la
+hipótesis nula lo que se hace en función de una regla de decisión que recoge la
+información de una muestra.
+\item \underline{Error de Tipo I:} Se comete cuando se rechaza $H_{0}$ siendo cierta. Su
+probabilidad se denota por $\alpha$.
+
+\underline{Error Tipo II: }Se comete cuando se acepta una $H_{0}$ falsa. Su probabilidad
+se denota por $\beta$.
+
+\item \underline{Nivel de significación $\alpha$}: Es la probabilidad de cometer un
+ Error Tipo~I, es decir, 
+  $\alpha=P(\mbox{Error Tipo I})=P(\mbox{Rechazar } H_{0}/H_{0}
+\mbox{ cierta})$
+
+\item \underline{Potencia de un contraste}: Es la probabilidad de rechazar una hipótesis nula que
+es falsa. Entonces la potencia es 
+$P(\mbox{Rechazar } H_{0}/ H_{0}\mbox{ es falsa})=
+1-P(\mbox{Aceptar } H_{0}/ H_{0}\mbox{ es falsa})= 1-P(\mbox{Error Tipo II})=1-\beta$
+\end{itemize}
+\end{frame}
+
+\subsection{¿Inocente o culpable?}
+
+
+\begin{frame}
+\frametitle{¿Inocente o culpable?}
+\begin{itemize}
+\item La decisión de aceptar o rechazar una hipótesis nula se asemeja al concepto de declarar a un acusado en juicio inocente o culpable.
+\item  El acusado es la hipótesis nula $H_{0}$.
+\item  Las pruebas son los elementos de la muestra.
+\item  Si el jurado no encuentra suficientes las
+   pruebas tiene que declarar inocente al acusado (Aceptar $H_{0}$).
+\item Sólo en el caso en que las pruebas sean lo suficientemente
+   incriminatorias condenará al culpable y se aceptará la hipótesis
+   alternativa.
+\item  El jurado siempre corre el riesgo de declarar culpable a un
+   inocente cometiendo un Error de Tipo I,
+\item O de  declarar inocente a un culpable cometiendo un Error de Tipo II.
+\item  Desde este punto de vista es más conveniente controlar el Error de
+   Tipo I pues es mejor declarar inocente a un culpable que culpable
+   a un inocente.
+\end{itemize}
+\end{frame}
+
+% \begin{frame}
+% 
+%    \textbf{Ejercicio}
+%    Construir de forma similar al ejemplo anterior una similitud entre
+%    las pruebas de hipótesis y un combate de boxeo por un título
+%    mundial entre un aspirante y el actual poseedor del título.
+%     En caso de empate a puntos  el título queda en
+%    poder del campeón.
+% \end{frame}
+
+    \section{Ejemplo de un  contraste de hipótesis para la media  de una
+    distribución normal: varianza poblacional conocida}
+\begin{frame}
+    \frametitle{Ejemplo de un  contraste de hipótesis para la media  de una
+    distribución normal: varianza poblacional conocida}
+
+\begin{itemize}
+\item En lo que sigue, comenzando por esta sección, daremos distintos contrastes de hipótesis para la media de una población.
+\item Para contrastar las hipótesis dispondremos de una m.a.s. de $n$ observaciones $X_{1},\ldots,X_{n}$. En este caso procedentes de una distribución normal con media $\mu$ y varianza $\sigma^2$.
+\item Supondremos que la varianza es conocida.
+\item Consideremos el contraste:
+    $$\left\{\begin{array}{l}
+H_{0}:\mu=\mu_{0}\\ H_{1}:\mu>\mu_{0}
+\end{array}
+    \right.$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item La regla de rechazo se basará en observar si la media aritmética $\overline{X}$ es suficientemente mayor que valor $\mu_{0}$. Si es así rechazaremos la hipótesis nula.
+\item Como sabemos que bajo estas condiciones y si $H_{0}$ (es decir
+    $\mu=\mu_{0}$) es cierta
+    $$Z=\frac{\overline{X}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}$$
+    sigue una distribución normal estándar.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item  Rechazar $H_{0}$ si $\overline{X}$ es muy alta es equivalente
+    a obtener un valor alto del \underline{estadístico de contraste}
+
+    $$Z=\frac{\overline{X}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}.$$
+\item Entonces  la regla consiste en rechazar $H_{0}$ si $Z$ es mayor que un
+    cierto umbral.
+\item Sabemos que $\alpha=P(\mbox{Rechazar} H_{0}/ H_{0} \mbox{ cierta})=P(Z>\mbox{umbral}/\mu=\mu_{0})= P(Z>z_{1-\alpha})$
+    cuando $Z$ es una normal estándar.
+\item Luego para que el nivel de significación del contraste sea $\alpha$ la regla de rechazo viene dada por la \underline{región crítica}
+     $$Z=\frac{\overline{X}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}>z_{1-\alpha}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\section{Terminología:} 
+\begin{itemize}
+\item \underline{Estadístico de contraste}: es el
+que nos permite definir una regla de rechazo de $H_{0}$. 
+\item \underline{Región crítica o región
+de rechazo}:
+es aquel rango de valores tales que si el estadístico de contraste
+está entre ellos se rechaza $H_{0}$.
+\item \underline{Región de aceptación}: Es el complementario de la región
+  crítica.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \section{Ejemplo tabla de un contraste para la media poblacional de una población
+    normal con varianza poblacional conocida}
+
+    Condiciones:
+    \begin{itemize}
+    \item Población normal de media $\mu$ y varianza $\sigma^2$
+    conocida
+    \end{itemize}
+
+    Un contraste al nivel de significación $\alpha$ para las
+    hipótesis:
+
+   $$\left\{\begin{array}{l}
+    H_{0}:\mu=\mu_{0}\\
+    H_{1}:\mu>\mu_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+    $$Z=
+    \frac{\overline{x}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}>z_{1-\alpha}.$$
+\end{frame}
+
+\section{Valor crítico o $p$-valor}
+
+\begin{frame}
+\frametitle{Valor crítico o $p$-valor.}
+%    \frametitle{$p$-valor}
+\begin{itemize}
+\item Llamaremos valor crítico o  $p$-valor ($p$-\textsl{value}) al error tipo~I máximo que cometeríamos con el valor obtenido del estadístico de
+contraste.
+
+\item Al realizar el contraste, si establecemos un valor de significación~$\alpha$ menor que el $p$-valor, aceptaríamos la hipótesi nula~$H_0$ y en
+caso de que sea mayor que el $p$-valor, la rechazaríamos.
+\item 
+Por ejemplo si el $p$ -valor es $0.05$, significaría que el error tipo~I valdría como máximo $0.05$ para poder aceptar la hipótesis nula.
+
+\item 
+Por tanto, $p$-valores grandes significa que tenemos mucho margen para aceptar la hipótesis nula y de aquí que se ``sospeche'' que ésta és cierta.
+
+\item Por tant, si el $p$-valor es grande (mayor que $0.1$) aceptaremos la hipótesis nula y en caso contrario, la rechazaremos.
+
+\item $p$-valores entre $0.05$ y $0.1$ representan valores moderadamente grandes y que requieren estudios posteriores de cara a tomar una decisión.
+\end{itemize}
+\end{frame}
+
+
+    \section{Método de los seis pasos}
+\begin{frame}
+    \frametitle{El Método de los seis pasos}
+%   Para clarificar ideas seguiremos seis pasos para resolver los
+%   contrastes de hipótesis sobre un parámetro $\theta$
+%   que veremos en este tema:
+
+  \begin{enumerate}[1)]
+      \item Establecer la hipótesis nula $H_{0}$, por ejemplo
+      $\theta=\theta_{0}$
+      \item Establecer la hipótesis alternativa $H_{1}$ que podrá ser
+      $\theta>\theta_{0}$,  $\theta<\theta_{0}$ o
+      $\theta\not=\theta_{0}$.
+      \item Seleccionar un nivel de significación $\alpha$
+      \item Seleccionar el estadístico apropiado para la prueba y
+      establecer la región crítica o región de rechazo. Si la
+      decisión se basa en un $p$-valor, como veremos, no es necesario
+      calcular la región crítica.
+      \item Calcular el valor del estadístico de contraste a partir
+      de los datos muestrales.
+      \item Decidir:  rechazar $H_{0}$ si el valor del estadístico de
+      contraste cae dentro de la región crítica o si el $p$-valor es
+      menor o igual que el nivel de significación prefijado $\alpha$;
+      en caso contrario no rechazar $H_{0}$.
+      \end{enumerate}
+\end{frame}
+
+\begin{frame}
+
+    \frametitle{Ejemplo.}
+\begin{itemize}
+\item Una muestra aleatoria de 100 muertes registradas en un cierto país durante 1998 dio una vida promedio de 71.8 años.
+\item  Suponiendo que la desviación típica poblacional es de 8.9 años, decidir si la
+    vida promedio es, hoy en día, mayor que 70 años.
+\item  Utilizad un nivel de significación ($\alpha$) del 0.05 y suponer que la duración de la vida se
+    distribuye aproximadamente normal.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+     \frametitle{Solución:}
+  Sigamos los seis pasos:
+ \begin{itemize}
+\item[1)] $H_{0}:\mu=70$ años.($\mu_{0}=70$)  
+\item[2)] $H_{1}:\mu>70$ años.  
+\item[3)] $\alpha=0.05$  
+\item[4)] Bajo estas condiciones, población normal, $\sigma^2=8.9^2$ conocida
+ y una muestra de tamaño $n=100$ la región crítica para estas
+ hipótesis es:
+
+ $$Z=\frac{\overline{x}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}>z_{1-0.05}=1.64$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item[5)] Cálculo del estadístico de contraste:
+ $\overline{x}=71.8$ años, $\sigma=8.9$ años. Entonces el estadístico
+ de contraste es:
+
+ $$Z=\frac{71.8-70}{\frac{8.9}{\sqrt{100}}}=2.02$$
+
+\item[6)] Decisión: Como $Z=2.02>1.64$ resulta que el valor del estadístico
+ de contraste cae dentro de la región crítica, luego  a partir de esta
+ muestra no podemos
+ aceptar ($H_{0}$) que la vida promedio es de 70 años contra que es
+ mayor de 70 años ($H_{1}$) al nivel de significación $\alpha=0.05$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+En el ejemplo anterior calcular el $p$-valor e interpretarlo.
+\begin{itemize}
+\item  Para calcular el $p$ valor tenemos que buscar aquel nivel de
+significación $\alpha$ más pequeño para el que se rechaza la
+hipótesis nula.
+\item Para ello igualamos el valor del estadístico de contraste $Z=2.02$
+al umbral de la región de rechazo, es decir:
+
+    $$2.02=z_{1-\alpha}$$
+
+\item Consultando las tablas de la  distribución normal estándar obtenemos que
+    $1-\alpha=0.9783$ luego $\alpha=0.0217$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Interpretación del $p$-valor}   
+ La interpretación de este valor es la siguiente:
+  \begin{itemize}
+\item Rechazaremos ($H_{0}$) que la vida promedio es de 70 años contra que es
+ mayor de 70 años ($H_{1}$) para todos los niveles de  significación
+ $\alpha>0.0217$.
+\item  Es decir la evidencia es más grande que el nivel de significación
+ del ejemplo anterior.
+\item Y por lo tanto  como el $p$-valor es $0.0217$ no podemos aceptar $H_0$  para el nivel de significación $\alpha=0.05$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+Si en el  contraste anterior utilizamos las hipótesis:
+
+   $$\left\{\begin{array}{l}
+    H_{0}:\mu\leq\mu_{0}\\
+    H_{1}:\mu>\mu_{0}
+    \end{array}\right.$$
+
+    Todavía tendríamos más evidencia para rechazar la hipótesis nula.
+
+    Entonces la región de contraste es la misma que en el caso
+    $H_{0}:\mu=\mu_{0}$
+\end{frame}
+
+    \section{Reglas de decisión para contraste de la media de una población normal: varianza
+    poblacional conocida}
+
+\begin{frame}
+\frametitle{Reglas de decisión para contraste de la media de una población normal: varianza
+    poblacional conocida}
+    Condiciones:
+    \begin{itemize}
+    \item Una muestra aleatoria simple de una población normal de media $\mu$ y
+    varianza $\sigma^2$ conocida.
+    \end{itemize}
+
+
+    Un contraste al nivel de significación $\alpha$ para las
+    hipótesis:
+\begin{itemize}
+\item  $$\left\{\begin{array}{l}
+    H_{0}:\mu=\mu_{0} \quad (\mbox{ o } H_{0}:\mu\leq \mu_{0})\\
+    H_{1}:\mu>\mu_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+    $$Z=
+    \frac{\overline{x}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}>z_{1-\alpha}.$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+ \item  $$\left\{\begin{array}{l}
+    H_{0}:\mu=\mu_{0} \quad (\mbox{ o } H_{0}:\mu\geq \mu_{0})\\
+    H_{1}:\mu<\mu_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+    $$Z=
+    \frac{\overline{x}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}<z_{\alpha}.$$
+
+\item  $$\left\{\begin{array}{l}
+    H_{0}:\mu=\mu_{0} \\
+    H_{1}:\mu\not=\mu_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+
+    $$Z=
+    \frac{\overline{x}-\mu_{0}}
+    {\frac{\sigma}{\sqrt{n}}}>z_{1-\frac{\alpha}{2}}\mbox{ o }  Z=
+    \frac{\overline{x}-\mu_{0}}
+    {\frac{\sigma}{\sqrt{n}}}<z_{\frac{\alpha}{2}}.$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\section{Contraste para la media: tamaños muestrales grandes}
+
+\begin{itemize}
+\item Si no conocemos la distribución de la población o bien no es normal pero tenemos un tamaño muestral grande, podemos prescindir de la condición de normalidad de la población y aplicar las mismas reglas de rechazo para la hipótesis nula que en el caso anterior.
+\item  Además si $\sigma^2$ es desconocida se puede sustituir por la desviación típica muestral $\tilde{S}^2$. Criterio: si $n\geq 30$ podemos aplicar esta aproximación.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo.}
+\begin{itemize}
+\item  Una organización ecologista afirma que el peso de medio de los individuos adultos de una especie marina ha disminuido drásticamente.
+\item  Se sabe por los datos históricos que el peso  medio poblacional es $\mu$ es $460$ gr.
+\item  Una muestra aleatoria de 36  individuos de esta especie tiene una media muestral de $420$ gr.y una desviación típica muestral de $0.303$.
+\item  ¿Podemos afirmar, con un nivel de significación del $5$\% y con estos datos que  el peso medio es inferior a $460$ gr.?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\textbf{Solución}
+
+\begin{itemize}
+\item Nadie nos asegura que la población es normal.
+\item Resulta que $\sigma$ es desconocida.
+\item Pero como $n=36$ podemos utilizar las regiones de rechazo anteriores sustituyendo $\sigma$ por $\tilde{s}$.
+\end{itemize}
+Sigamos los seis pasos:
+\end{frame}
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item[1)] $H_{0}:\mu=460$ gr. ($\mu_{0}=460$)  
+\item[2)] $H_{1}:\mu<460$ gr.  
+\item[3)] $\alpha=0.05$  
+\item[4)] Bajo estas condiciones, como $n\geq 30$, $\sigma$ es desconocida pero la aproximamos por $\sigma\approx \tilde{s}=11.9$.
+ Entonces la región crítica para estas hipótesis es:
+
+ $$Z=\frac{\overline{x}-\mu_{0}}{\frac{s}{\sqrt{n}}}<z_{0.05}=-1.64$$
+
+ \item[5)] Cálculo del estadístico de contraste:
+ $\overline{x}=420$ , $\tilde{s}=0.303$  entonces:
+
+ $$Z=\frac{420-460}{\frac{0.303}{\sqrt{36}}}=-2.02$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item[6)] Decisión: Como $Z=-2.02<-1.64$ resulta que el valor del estadístico
+ de contraste cae  en la región crítica, luego  a partir de esta
+ muestra rechazamos
+  ($H_{0}$) que el peso medio es de $460$ gr.  contra que es
+ menor de $460$ gr. ($H_{1}$) al nivel de significación $\alpha=0.05$.
+
+\end{itemize} 
+
+\textbf{Conclusión:}  El peso medio  de esta especie este año es significativamente inferior a $460$ gr., por lo que
+ podríamos aceptar los resultados de la asociación  ecologista con esta muestra  y a este nivel de significación.
+\end{frame}
+
+\subsection{Reglas de decisión para el contraste de una media: Tamaños muestrales grandes}
+\begin{frame}
+
+\frametitle{Reglas de decisión para el contraste de una media: Tamaños muestrales grandes}
+
+Son las misma que las del caso de $\sigma$ conocida pero estimando ésta por $\tilde{S}$.
+
+\begin{itemize}
+\item  En el caso que tengamos una población normal, desconozcamos la varianza y no tengamos un tamaño  muestral $n$ grande utilizaremos el estadístico
+
+    $$t_{n-1}= \frac{\overline{X}-\mu_{0}}{\frac{\tilde{S}}{\sqrt{n}}}$$
+
+\item Este estadístico sigue una distribución t de Student con $n-1$ g.l.
+\item Las regiones críticas serán similares a las de muestras grandes pero sustituyendo los
+valores de la normal estándar por los correspondientes valores de la $t_{n-1}$.
+\end{itemize}
+\end{frame}
+
+
+\subsection{Reglas de decisión para el contraste de una media de una distribución normal: varianza poblacional  desconocida}
+
+\begin{frame}
+
+\frametitle{Reglas de decisión para el contraste de una media de una distribución normal: varianza poblacional  desconocida}
+
+Condiciones:
+\begin{itemize}
+        \item  Muestra aleatoria de $n$ observaciones población normal
+        con media $\mu$ y varianza desconocida.
+\end{itemize}
+    Entonces una contraste al nivel de significación $\alpha$ para las
+    hipótesis:
+\begin{itemize}
+\item $$\left\{\begin{array}{l}
+    H_{0}:\mu=\mu_{0} \mbox{ o } H_{0}:\mu\leq \mu_{0}\\
+    H_{1}:\mu>\mu_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+    $$t_{n-1}=
+    \frac{\overline{x}-\mu_{0}}{\frac{\tilde{S}}{\sqrt{n}}}>t_{n-1,1-\alpha}.$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item   $$\left\{\begin{array}{l}
+    H_{0}:\mu=\mu_{0} \mbox{ o } H_{0}:\mu\geq \mu_{0}\\
+    H_{1}:\mu<\mu_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+    $$t_{n-1}=
+    \frac{\overline{x}-\mu_{0}}{\frac{\tilde{S}}{\sqrt{n}}}<t_{n-1,\alpha}.$$
+
+\item $$\left\{\begin{array}{l}
+    H_{0}:\mu=\mu_{0} \\
+    H_{1}:\mu\not=\mu_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si  
+    $$t_{n-1}=
+    \frac{\overline{x}-\mu_{0}}
+    {\frac{\tilde{S}}{\sqrt{n}}}>t_{n-1,1-\frac{\alpha}{2}} \mbox{ o } t_{n-1}=
+    \frac{\overline{x}-\mu_{0}}
+    {\frac{\tilde{S}}{\sqrt{n}}}<t_{n-1,\frac{\alpha}{2}}.$$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ejemplo.}
+\begin{itemize}
+\item Se espera que el nivel de colesterol en plasma de unos enfermos bajo tratamiento se distribuya normalmente con media 220 mg/dL.
+\item  Se toma una muestra de 9  enfermos, obteniéndose los siguientes resultados:
+
+   $$ 203, 229, 215, 220, 223, 233, 208, 228, 209$$
+<<>>=
+options(width=60)
+colesterol <- c(  203, 229, 215, 220, 223, 233, 208, 228, 209)
+@
+
+\item Contrastar la hipótesis de que esta muestra proviene de una población con media 220 mg./dL al nivel de significación del
+$10\%$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Solución}
+        Calculemos los parámetros de la muestra:
+<<colesterol>>=
+media <- round(mean(colesterol),4)
+media
+n <- length(colesterol)
+n
+suma.cuadrados <- sum(colesterol^2)
+suma.cuadrados
+varianza.muestral <-round((n/(n-1))*(suma.cuadrados/n- media^2),4)
+varianza.muestral
+@
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item La media muestral es   
+$\overline{x}=\frac{203+ 229+ 215+ 220+ 223+ 233+ 208+ 228+
+        209}{9}=\Sexpr{media}$.
+\item La varianza muestral es  $\tilde{s}^2= \frac{9}{8}\left(203^2+229^2+\ldots\right. \left. \ldots + (209)^2\right)-\Sexpr{media}^2=\frac{9}{8}\left(\frac{\Sexpr{suma.cuadrados}}{9}-\Sexpr{round(media^2,4)}\right)=\Sexpr{varianza.muestral}$
+
+%       $= \frac{1}{8}\left((203-218.67)^2+ (229-218.67)^2+ (215-218.67)^2+
+%       (220-218.67)^2+ (223-218.67)^2+ (233-218.67)^2+ (208-218.67)^2+
+%       (228-218.67)^2+ (209-218.67)^2\right)=10.52$
+
+\item  La población es normal y como $\sigma$ es desconocida y $n$ pequeño
+ tendremos que utilizar como estadístico de contraste la $t$ de
+ Student.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+ \item[1)] $H_{0}:\mu=220$
+ \item[2)] $H_{1}:\mu\not=220$
+ \item[3)] $\alpha=0.1$; $\frac{\alpha}{2}=0.05$.  
+\item[4)] Bajo estas condiciones, población normal, $\sigma$ desconocida
+ y una muestra de tamaño  $n=9$ pequeño, la región crítica para estas
+ hipótesis es:
+
+
+    $t_{8}>t_{8,1-0.05}=1.86$ o $t_{8}=<t_{8,0.05}=-1.86$
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item[5)] Cálculo del estadístico de contraste:
+ $\overline{x}=218.67$, $\tilde{s}=\sqrt{110.75}=10.52$  entonces:
+ $t_{n-1}=\frac{218.67-220}{\frac{10.52}{\sqrt{9}}}=-0.38$
+\item[6)] Decisión: Como $t_{8}=-0.38\not>1.86$  $t_{8}=-0.38\not<-1.86$
+resulta que el valor del estadístico de contraste cae fuera de la región crítica. 
+Con esta muestra no podemos rechazar ($H_{0}$) que el nivel medio de colestrol en mg./dL  en plasma sea igual a 220 contra que es distinto, con un nivel de significación del $10\%$.
+\end{itemize}
+\end{frame}
+
+    \section{Contraste para la varianza de una población normal.}
+
+\begin{frame}
+    \frametitle{Contraste para la varianza de una población normal.}
+    \begin{itemize}
+\item Basaremos los contrastes para la varianza de una
+    población normal en el estadístico muestral $\tilde{S}^2$.
+\item Más concretamente en el estadístico $\chi_{n-1}^2=\frac{(n-1) \tilde{S}^2}{\sigma^2}$,
+    del que sabemos que sigue una  distribución $\chi^2$ con $n-1$ g.l.
+    si la población es normal.
+\item     Claro que no conocemos el valor de $\sigma^2$ pero bajo la hipótesis
+    nula $H_{0}:\sigma=\sigma_{0}$  tendremos que
+
+    $\chi_{n-1}^2=\frac{(n-1) \tilde{S}^2}{\sigma_{0}^2}$
+    tendrá también una  distribución $\chi^2$ con $n-1$ g.l.
+% \item Rechazaremos $H_{0}$ si $\tilde{S}^2$ es suficientemente distinta de
+%     $\sigma_{0}$ es decir si
+% \begin{itemize} $H_{1}:\sigma>\sigma_{0}$ rechazaremos
+%     $H_{0}$ si $\chi_{n-1}^2$ es pequeño.
+% \item  Si $H_{1}:\sigma<\sigma_{0}$
+%     rechazaremos
+%     $H_{0}$ 
+% \item Si $\chi_{n-1}^2$ es grande y si $H_{1}:\sigma\not= \sigma_{0}$
+%     rechazaremos
+%     $H_{0}$ si $\chi_{n-1}^2$ da valores altos o bajos.
+% \end{itemize}
+
+Las condiciones del test se reumen a continuación:
+\end{itemize}
+\end{frame}
+
+\subsection{Resumen reglas de decisión para el contraste de la varianza de una población normal}
+\begin{frame}
+\frametitle{Resumen reglas de decisión para el contraste de la varianza de una población normal}
+
+    Condiciones\footnote{En realizan los contrates son  $\frac{\sigma}{\sigma_0}=1$ pero para simplificar se ponen como $\sigma=\sigma_0$.}:
+
+    \begin{itemize}
+    \item Muestra aleatoria de $n$ observaciones de una población normal.
+    \end{itemize}
+
+        Entonces una contraste al nivel de significación $\alpha$ para las
+    hipótesis:
+\begin{itemize}
+\item $$\left\{\begin{array}{l}
+    H_{0}:\sigma=\sigma_{0} \mbox{ o } H_{0}:\sigma\leq \sigma_{0}\\
+    H_{1}:\sigma>\sigma_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+    $$\chi_{n-1}^2=\frac{(n-1) \tilde{s}^2}{\sigma_{0}^2}>\chi_{n-1,1-\alpha}^2.$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+ \item $$\left\{\begin{array}{l}
+    H_{0}:\sigma=\sigma_{0} \mbox{ o } H_{0}:\sigma\geq \sigma_{0}\\
+    H_{1}:\sigma<\sigma_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+    $$\chi_{n-1}^2=\frac{(n-1) \tilde{s}^2}{\sigma_{0}^2}<\chi_{n-1,\alpha}^2.$$
+
+\item $$\left\{\begin{array}{l}
+    H_{0}:\sigma=\sigma_{0} \\
+    H_{1}:\sigma\not=\sigma_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si  
+    $$\chi_{n-1}^2=\frac{(n-1)
+    \tilde{s}^2}{\sigma_{0}^2}>\chi_{n-1,1-\frac{\alpha}{2}}^2 \mbox{ o }\chi_{n-1}^2=\frac{(n-1)
+    \tilde{s}^2}{\sigma_{0}^2}<\chi_{n-1,\frac{\alpha}{2}}^2.$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo.}
+\begin{itemize}
+\item Se han medido los siguientes valores en miles de personas para la audiencia de un programa de radio en $n=10$ días:
+    $$521, 742, 593, 635, 788, 717, 606, 639, 666, 624.$$
+\item  Contrastar que la varianza de la audiencia es 6400 al nivel de significación del 5\%,suponiendo que la población sea normal.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item[1)] $H_{0}:\sigma^2=6400.$
+\item[2)] $H_{1}:\sigma^2\not=6400$; ya que no se especifica qué alternativa se pide.
+\item[3)] Nivel de significación $\alpha=0.05$.
+\item[4)] Bajo estas condiciones podemos utilizar como región crítica 
+        $\chi_{9}^2=\frac{(9)
+    \tilde{S}^2}{6400}>\chi_{9,1-0.025}^2=19.02$ o
+        $\chi_{9}^2=\frac{(9)
+    \tilde{S}^2}{6400}<\chi_{9,0.0.25}^2=2.70$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item[5)] $\overline{x}=653.10$ y $\tilde{s}^2= 6111.66$ entonces $\chi_{9}^2=\frac{(9)  6111.66}{6400}=8.59452$
+\item[6)] Como $\chi_{9}^2=8.59452\not>19.02$ y $\chi_{9}^2=8.66514\not<2.70$ resulta que el estadístico de contraste no cae dentro de la región crítica, luego no podemos rechazar $H_{0}$ contra $H_{1}$ al nivel de significación $\alpha=0.05$.
+\end{itemize}
+\end{frame}
+
+\section{Contrastes para la proporción muestral: muestras grandes}
+
+\begin{frame}
+\frametitle{Contrastes para la proporción muestral: muestras grandes}
+\begin{itemize}
+\item Si denotamos por $p$ la proporción poblacional y por $\hat{p}$ la proporción muestral hemos visto que
+      $$Z=\frac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}$$
+sigue, por el T.L.C, aproximadamente una distribución normal.
+\item Como es lógico no conocemos la proporción muestral, pero si suponemos que la muestra es grande podríamos aproximar por
+      $$\sqrt{\frac{p(1-p)}{n}}\approx \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
+\item Entonces $$Z=\frac{\hat{p}-p}{\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Si $H_{0}:p=p_{0}$  escierta tenemos
+      que $\sqrt{\frac{p(1-p)}{n}}=\sqrt{\frac{p_{0}(1-p_{0})}{n}}$:
+
+      $$Z=\frac{\hat{p}-p_0}{\sqrt{\frac{p_{0}(1-p_{0})}{n}}}$$
+
+      sigue teniendo aproximadamente una distribución normal estándar
+      si $n$ es grande.
+\item De forma similar al contraste de la media podemos definir las
+      siguientes regiones críticas al nivel de significación $\alpha$
+      para las distintas hipótesis alternativas.
+\end{itemize}
+\end{frame}
+\subsection{Reglas de decisión para el contraste de una proporción muestral: tamaño muestral
+       grande}
+
+\begin{frame}
+\frametitle{Reglas de decisión para el contraste de una proporción muestral: tamaño muestral grande}
+Condiciones:
+\begin{itemize}
+\item Muestra aleatoria simple de tamaño grande $n$
+\item Procedente de una población con proporción poblacional de la característica de interés $p$, y proporción muestral de la misma $\hat{p}$
+\end{itemize}
+
+     Entonces una contraste al nivel de significación $\alpha$ para las
+    hipótesis:
+\begin{itemize}
+\item $$\left\{\begin{array}{l}
+    H_{0}:p=p_{0} \quad (\mbox{ o } H_{0}:p\leq p_{0})\\
+    H_{1}:p>p_{0}
+    \end{array}\right.$$
+
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+    $$Z=
+    \frac{\hat{p}-p_{0}}{
+    {\sqrt{\frac{p_{0}(1-p_{0})}{n}}}}>z_{1-\alpha}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item $$\left\{\begin{array}{l}
+    H_{0}:p=p_{0} \quad (\mbox{ o } H_{0}:p\geq p_{0})\\
+    H_{1}:p<p_{0}
+    \end{array}\right.$$
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+    $$Z=
+    \frac{\hat{p}-p_{0}}{
+    {\sqrt{\frac{p_{0}(1-p_{0})}{n}}}}<z_{\alpha}.$$
+
+\item $$\left\{\begin{array}{l}
+    H_{0}:p=p_{0} \\
+    H_{1}:p\not=p_{0}
+    \end{array}\right.$$
+
+    Tiene por regla de decisión:
+
+    Rechazar $H_{0}$ si
+
+    $$Z=
+\frac{\hat{p}-p_{0}}{
+    {\sqrt{\frac{p_{0}(1-p_{0})}{n}}}}>z_{1-\frac{\alpha}{2}} \mbox{ o } \frac{\hat{p}-p_{0}}{
+    {\sqrt{\frac{p_{0}(1-p_{0})}{n}}}}<z_{\frac{\alpha}{2}}.$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+       \frametitle{Ejemplo.}
+\begin{itemize}
+\item  Una asociación ganaderos afirma que en las matanzas caseras en Baleares el 70\% de los cerdos han sido analizados de triquinosis.
+\item En una investigación se obtiene en muestra aleatoria de  100 matanzas resultando que en 53 se han realizado estos análisis.
+\item ¿Estaríamos de acuerdo con la afirmación de los ganadero?
+\item Utilizar un nivel de significación $\alpha=0.01$. Calcular el $p$-valor del contraste e interpretarlo.
+\end{itemize}
+\end{frame}
+\begin{frame}       
+\frametitle{Solución}
+       Seguiremos los seis pasos:
+\begin{itemize}
+       \item[1)] $H_{0}:p=0.7$
+       \item[2)] $H_{1}:p\not=0.7$
+       \item[3)] $\alpha=0.01$ luego $\frac{\alpha}{2}=0.005$
+       \item[4)] Región crítica
+
+        $Z=
+\frac{\hat{p}-p_{0}}{
+    {\sqrt{\frac{p_{0}(1-p_{0})}{n}}}}>z_{1-0.005}=2.57$ o
+        $\frac{\hat{p}-p_{0}}{
+    {\sqrt{\frac{p_{0}(1-p_{0})}{n}}}}<z_{0.005}=-2.57$
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item[5)] $\hat{p}=\frac{53}{100}=0.53$
+    $Z=\frac{0.53-0.7}{\sqrt{\frac{0.7\cdot 0.3}{100}}}=-3.7$
+\item[6)] $Z=-3.7\not>2.57$ pero $Z=-3.7<-2.57$ luego el estadístico de contraste está en la región crítica por lo tanto no podemos aceptar la 
+afirmación de la asociación al nivel de significación $\alpha=0.01.$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solución}
+\begin{itemize}
+\item  Calculemos el $p$ valor. Lo haremos por el lado izquierdo que es por donde antes alcanzaremos el valor $Z=-3.7$ como tenemos que  
+$z_{0.0001}=-3.7$ entonces el $p$-valor es $\frac{\alpha}{2}=0.0001$
+\item Por lo tanto el $p$-valor es $\alpha=2\cdot 0.0001=0.0002$.
+\item  Es decir, la afirmación de la asociación dista mucho de ser cierta.
+\end{itemize}
+\end{frame}
+
+\part{Inferencia estadística. Contrastes de dos parámetros.}
+\section{Introducción}
+
+\begin{frame}
+\frametitle{Introducción}
+
+\begin{itemize}
+\item Estudiaremos los principios más básicos del diseño de experimentos.
+\item  Cuando comparamos dos parámetros entre dos poblaciones de individuos los diseños básicos son el de \textbf{muestras independientes} y el de muestras repetidas sobres los mismos individuos o \textbf{muestras emparejadas}.
+\item En algunos de estos casos veremos ambos tipos de contrastes.
+\item Por lo demás los constrastes fiuncionan de forma similar a los de un sólo parámetro.
+\end{itemize}
+\end{frame}
+   
+
+% \frame{\partpage}
+% 
+% \newcommand{\pp}[1]{p\left\{#1\right\}}
+% \newcounter{cas}
+% \newcounter{aux}
+% \renewcommand{\thecas}{\Roman{cas}}
+% \newcommand{\posacas}{\addtocounter{cas}{1}{\bf \thecas}}
+
+\begin{frame}
+\frametitle{Contrastes de dos parámetros muestras independientes}
+\begin{itemize}
+\item Comenzaremos los contrastes de dos parámetros con el caso en que tengamos dos muestras aleatoria de una misma misma variable e independientes entre si.
+\item Que las muestras son independientes quiere decir que la selección de los individuos de cada pobalción a observar es independiente.
+\item Por lo tanto se presume que si hay diferencias entre los parámetros deben deberse a que las poblaciones tienen alguna característica distinta (o factor que los diferencia).
+\end{itemize}
+
+\section{Contraste de las  medias de dos poblaciones normales o tamaños muestrales grandes}
+\end{frame}
+\subsection{Contrastes de dos parámetros muestras independientes}
+\begin{frame}
+\frametitle{Contrastes de dos parámetros muestras independientes}
+\begin{itemize}
+\item Supongamos pues, que tenemos  dos muestras aleatorias independientes de tamaños $n_1$ y $n_2$ y medias $\mu_1$ y $\mu_2$  respectivamente.
+\item Así tendremos una muestra será $x_{1 1}, x_{1 2},\ldots x_{1 n_1}$ y  la otra $x_{2 1}, x_{2 2},\ldots, x_{2 n_2}$.
+Denotaremos por $\overline{X}_1$ y $\overline{X}_2$ son las medias aritméticas de cada muestra.
+\item La hipótesis  nula que se contrasta es: $H_0: \mu_1-\mu_2=0$ aunque se suele escribir como $H_0: \mu_1=\mu_2$. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contrastes de dos parámetros muestras independientes}
+\begin{itemize}
+\item Podemos aplicar este tipo de contrates para poblaciones que tengan distribución normal.
+\item También podemos utilizarlo  cuando  $n_1$ y $n_2$ son suficientemente grandes y podemos aprocimar la distribución de las medias por el Terorema del Límite Central.
+\item El test a aplicar tiene dos casos:
+\begin{itemize}
+\item Que  las varianzas $\sigma^2_1$ y $\sigma^2_2$ respectivamente sean  conocidas. 
+\item O bien que sean desconocidas. En este caso hay dos variantes del test:
+\begin{itemize}
+\item Que aceptemos que las varianzas son iguales
+\item O bien el caso contrario que aceptemos que  las varianzas son  distintas.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contrastes de dos parámetros muestras independientes}
+\begin{itemize}
+\item  La  diferencia entre varianzas desconocidas iguales o distintas radica  en utilizar una fórmula distinta para estimar la varianza muestral.
+\item En el caso en que sean iguales podemos aprovechar las dos muestras para estimar la varianza de la población.
+\item Los estadísticos de contraste, las regiones críticas se encuentra en las tablas de resúmenes de los contrastes.
+\item Estas tablas estan en la carpeta de MAterial Adicional del espacio de la asignatura en Campus Extens o en 
+\href{http://bioinfo.uib.es/~recerca/mates2/ContrasteHipotesis/TablaContrastesdeHipotesis.pdf}{http://bioinfo.uib.es/~recerca/mates2/ContrasteHipotesis/TablaContrastesdeHipotesis.pdf}
+\item En las mismas tablas también podemos encontrar distintos intervalos
+de confianza para estimaciones de una y dos muestras.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Queremos estudiar los tiempos de ejecución de un algoritmo de alineamineto de proteínas.
+\item  Para ello disponemos de dos muestras  independientes de pares de proteínas de tamaños muestrales $n_1=n_2=20$.
+\item Supongamos que los tiempos siguen aproximadamente una distribución normal y que las desviaciones típicas son conocidas $\sigma_1=1$ y $\sigma_2=2$.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Los resultados de la muestra del primer algoritmo sobre la muestra 1 son:
+$10.54,10.73,9.11,8.07,10.56,9.87,9.52,8.34,9.83,8.11,11.14,10.11,$
+$7.6,11.13,10.95,9.48,9.31,11.82,10.93,8.63$
+\item Mientras que los resultados de la muestra del segundo algoritmo para la muestra 2 son:
+
+$11.93,14.24,11.06,11.2,12.31,12.92,13.61,15.03,13.06,11.47,12.8,$
+$14.55,10.46,15.21,12.58,11.76,9.63,10.81,12.54,10.53$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Se tiene que las medias en cada una de las poblaciones son $\overline{x}_1= 9.789$ y $\overline{x}_2=12.385$.
+\item Para la estimación de la varianza muestral, en este caso, se utiliza la fórmula 
+$\tilde{S}=\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}$; con nuestros datos se obtiene que  $\tilde{S}=\sqrt{\frac{1}{20}+\frac{4}{20}}=0.5$.
+\item El estadístico de contraste 
+es $$Z=\frac{\overline{X}_1-\overline{X}_2}{\tilde{S}}.$$
+\item En nuestro caso vale $Z=\frac{9.789-12.385}{0.5}=-5.192$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Si contrastamos contra $H_1: \mu_1\not=\mu_2$ entonces la región crítica del contraste para $\alpha=0.05$ es
+$$Z< z_{\frac{\alpha}{2}} \mbox{ o } Z>z_{1-\frac{\alpha}{2}}$$ 
+\item Para este nivel de significación $z_{1-\frac{\alpha}{2}}=z_{1- 0.025}=z_{0.975}=1.96$ y por lo tanto 
+$ z_{\frac{\alpha}{2}}=z_{0.025}=-1.96$
+\item No podemos aceptar que los tiempos de ejecución tiene medias iguales, contra que las tiene distintas, al nivel de significación $\alpha=0.05$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Ahora podemos calcular un intervalo de confianza del 95\% para la diferencia de medias $\mu_1-\mu_2$.
+\item Consultando las tablas de los resúmenes de los contrastes, tenemos que el intevalo pedido es 
+$$\left(\overline{X}_1 -\overline{X}_2
++z_{\frac{\alpha}{2}}\tilde{S},
+\overline{X}_1 -\overline{X}_2
++z_{1-\frac{\alpha}{2}}\tilde{S}\right)$$
+\item Que en nuestro caso, para $\alpha=0.05$ es 
+
+$\left(9.789-12.385
++z_{0.025}\cdot{0.5},
+9.789-12.385
++z_{0.975}\cdot {0.5}\right)$
+
+$= \left(-2.596-1.96\cdot 0.5,  -2.596+1.96\cdot 0.5\right)$
+\item Por lo tanto un intervalo de confianza al nivel del 95\% para $\mu_1-\mu_2$
+ es 
+ 
+ $$\left(  -3.576 ,  -1.616\right)$$
+ 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item  Notemos que en este caso el cero no se encuentra en el intervalo de confianza.
+\item Por último calculemos el $p$-valor para el contraste bilateral será el valor de $\alpha$ tal que 
+$$z_{\frac{\alpha}{2}}=-5.192 $$ de donde  (utilizando R  pnorm(0.025) o en su caso las tablas) se tiene que 
+
+ $\frac{\alpha}{2}= 1.040235 e-07$ y por lo tanto $\alpha=2.08047 e-07$. Utilizando las tablas hubiéramos concluido que el $p$-valor es prácticamente cero.
+\item Se deja como ejercicio el cálculo de los dos contrastes bilaterales, sus $p$-valores y los intervalos de confianza unilaterales.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo.}
+\begin{itemize}
+\item Con los mismos datos que en el ejemplo anterior pero suponiendo ahora que las varianzas no son conocidas el test cambia.
+\item  En primer lugar tendremos que estimar la varianza de otra forma.
+\item  Lo podemos hacer de dos maneras: suponiendo que las varianzas poblacionales son iguales o que son distintas.
+\item En el primero de los casos se obtiene un estadístico que sigue la distribución $t$ de Student y en el segundo otra vez un estadístico $Z$ con distribución normal.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Necesitamos $\tilde{S}_1$ y $\tilde{S}_2$ las cuasi desviaciones típicas muestrales que valen $1.201323$ y $1.579462$ respectivamente.
+\item Supongamos las varianzas son iguales entonces el estadístico de contraste para la hipótesis nula bilateral es
+$$t=\frac{\overline{X}_1 -\overline{X}_2}{
+\tilde{S}_{1,2}}.$$
+\item Donde la desviación típica muestral se estima por $$\tilde{S}_{1,2}=\sqrt{
+\frac{(n_1-1)\tilde{S}_1^2 +(n_2 -1)\tilde{S}_2^2}{n_1 +n_2
+-2}\cdot\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}.$$ 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item El estadístico $t$ sigue una distribución
+
+$t_{n_1 +n_2
+-2}$, es decir $t$ de Student con $n_1 +n_2 -2$ grados de libertad.
+\item Luego en nuestro caso $\tilde{S}_{1,2}=\sqrt{\frac{(20
+-1)( 1.201323)^2 +(20 -1)(1.579462)^2}{20 + 20 
+-2}\cdot\left(\frac{1}{20}+\frac{1}{20}\right)}= 0.4437272$
+\item Entonces el valor del estadístico de contraste es $t= \frac{9.789-12.385}{0.4437272}=-5.850441$
+\item La región crítica es, rechazar $H_0$ si 
+$$t\leq t_{n_1+n_2-2,\frac{\alpha}{2}}\mbox{ o } t \geq
+t_{n_1+n_2-2,1-\frac{\alpha}{2}}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Para el nivel de significación $\alpha=0.05$ tenemos que $t_{n_1+n_2-2,1-\frac{\alpha}{2}}=t_{38,0.975}$ mirando las tablas de las $t$ de Student aproximamos por $t_{40,0.975}= 2.021075$ que es el valor más cercano ( con R y la instrucción qt(0.975,38) se obtiene  $2.024394$).
+\item Ahora tenemos que $t_{38,0.025}=-t_{38,0.975}$ y lo aproximamos por $-t_{40,0.975}= -2.021075$
+\item Así rechazamos $H_0$ ya que $t=-5.850441< -2.021075\approx t_{38,0.025}$.
+\item Para el cálculo del $p$-valor   igualamos $t_{38,\frac{\alpha}{2}}=t=-5.850441$  con $R$ hacemos 
+$pt(-5.850441,38)$ y se obtiene que  $\frac{\alpha}{2}=4.565589e-07$ luego el $p$-valor es $2\cdot 4.565589e-07=
+9.131178e-07$ que es muy próximo a cero (ejercicio: resolverlo utilizando las tablas de la $t$ de Student).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+\begin{itemize}
+\item Por último el intervalo de confianza para la diferencia de las medias $\mu_1-\mu_2$ es (donde $m=n_2+n_2-2$)
+$$(\overline{X}_1 -\overline{X}_2
++t_{m,\frac{\alpha}{2}} \tilde{S}_{1,2},\overline{X}_1 -\overline{X}_2
++t_{m,1-\frac{\alpha}{2}}
+\tilde{S}_{1,2})$$
+\item Que en nuestro caso es 
+
+$(9.789-12.385-2.021075\cdot  0.4437272,9.789-12.385+2.021075\cdot 
+0.4437272)= ( -3.492806, -1.699194).$
+\item  Se deja como ejercicio el cálculo de los dos contrastes bilaterales, sus $p$-valores y los intervalos de confianza unilaterales.
+\item También se deja como ejercicio el caso en el que las varianzas son distintas.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo}
+
+Como ejercicio resolver  utilizando las tablas de contrastes el  ejercicio anterior en el caso de varianzas desconocidas y distintas.
+!!Ahora!!
+\end{frame}
+
+\section{Contraste de dos proporciones muestras independientes}
+
+
+\begin{frame}
+\frametitle{Contraste de dos proporciones muestras independientes}
+\begin{itemize}
+\item El test de contraste de dos proporciones se enfrenta a la comparación del parámetro $p$ de probabilidad de éxito en dos poblaciones Bernoulli de parámetros $p_1$ y $p_2$, independientes de tamaños $n_1$ y $n_2$.
+\item Este test es parecido al de dos medias y sólo se puede aplicar con tamaños muestrales grandes.
+\item Tendremos dos muestras y sus correspondientes proporciones muestrales $\overline{p}_1$ y $\overline{p}_2$. El estadístico de contraste es 
+$$Z=\frac{\overline{p}_1 -\overline{p}_2}{
+\sqrt{\overline{p}\quad\overline{q}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contraste de dos proporciones muestras independientes}
+\begin{itemize}
+\item Donde $\overline{p}=\frac{n_1 \overline{p}_1 +n_2 \overline{p}_2}{n_1 +n_2}$ y $\overline{q}=1-\overline{p}$
+\item El estadístico $Z$ sigue una ley normal estándar.
+\item La región de rechazo frente a la alternativa bilateral es, rechazar $H_0$ al nivel $\alpha$ si :
+
+$$Z< Z_{\frac{\alpha}{2}}\mbox{ o } Z> Z_{1-\frac{\alpha}{2}}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item El intervalo de confianza para la diferencia de proporciones poblacionales $p_1-p_2$
+al nivel $(1-\alpha)\cdot 100\%$ es
+$$ \left(\overline{p}_1-\overline{p_2}+z_{\frac{\alpha}{2}}\sqrt{\overline{p}\cdot 
+ \overline{q}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)},
+ \overline{p}_1-\overline{p_2}-z_{\frac{\alpha}{2}}\sqrt{\overline{p}\cdot
+ \overline{q}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}\right)
+$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo.}
+\begin{itemize}
+\item Se toman dos muestras de ADN de individuos con al menos tres  generaciones familiares en la isla de Mallorca y otra, en las mismas condiciones, de Menorca.
+\item  Se quiere saber si la proporción de la presencia de un determinado \href{http://es.wikipedia.org/wiki/Alelo}{alelo} en un gen es igual o distinta entre las dos muestras.
+\item  La muestra de Mallorca tiene tamaño $100$ y resultaron 20 individuos con el alelo, mientras que la de Menorca tiene tamaño 50  y resultaron 12 individuos son el alelo.
+\item Como ejercicio contrastar la hipótesis de igualdad de proporciones al nivel de significación $0.05$, calcular el $p$-valor y los intervalos de confianza con el mismo  valor de $\alpha$ (!!ahora¡¡).
+\end{itemize}
+\end{frame}
+
+\section{Contrastes dos parámetros  muestras emarejadas}
+\begin{frame}
+\frametitle{Muestras emparejadas o dependientes}
+\begin{itemize}
+\item Hasta ahora hemos considerado que las muestras de las dos poblaciones de las que teníamos que contrastar su media o su varianza eran elegidas de forma que fueran independientes.
+\item Otra caso distinto es cuando las dos muestras corresponden a los mismos individuos o a individuos emparejados por algún factor  determinante.
+\item  Ejemplos de este factor  son pares de gemelos univitelinos, pares de pteínas a comparar u otros emparejamientos que se puedan considerar aceptables para el diseño del experimento, como coeficiente intelectual, por peso, por edad, por ideología etc....
+\item En estos casos se habla de un diseño de datos dependientes o emparejados. (En inglés:\textsl{paired} y por lo tanto se habla de \textsl{paired test}).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Muestras emparejadas o dependientes}
+\begin{itemize}
+\item En este caso el contraste  más común corresponde a calcular las diferencia de  los valores de  cada una de las muestras para cada individuo y realizar un contraste para averiguar si la media de las diferencias (o proporciones) es cero.
+\item Lo más importante de este caso es aprender que hay diferentes maneras de realizar un diseño experimental para contrastar una hipótesis.
+\item  Este diseño debe haber sido fijado, justificadamente, antes de realizar la experiencia, es decir antes de  la recogida de datos.
+% \item En caso contrario deberíamos realizar sólo un estudio descriptivo.
+% \item Podemos hacer uno inferencial,  pero dejando claro que los datos no son exactamente datos experimentales que respondan a muestras aleatorias.
+% , pues los datos no corresponderían a un diseño experimental del que conozcamos la  prueba de contaste de hipótesis adecuada a %contrastar. 
+% \item Desde este punto de vista es mucho más importante que los datos correspondan a un modelo del cual sepamos contrastar  hipótesis y que estas hipótesis respondan a la  decisión que se desea tomar.
+\item La regiones de rechazo para estos contrastes están en la tabla de contrastes de hipótesis que hemos porporcionado.
+\item  A continuación se presentan dos ejemplos. El primero es un contraste de medias para muestras emparejadas.
+\end{itemize}
+\end{frame}
+\subsection{Contraste de dos media con muestras emparejadas o dependientes}
+\begin{frame}
+\frametitle{Ejemplo: Contraste de dos media muestras dependientes.}
+\begin{itemize}
+\item Disponemos de dos algoritmos para alineamientos de proteínas. Ambos aportan resultados de la misma calidad.
+\item Estamos interesadios en saber cuál de los dos tiene la  media de tiempo de ejecución más pequeña.
+\item Para ello tomamos una muestra de pares de proteínas.
+\item Alineamos cada par de proteínas con cada uno de los algoritmos.
+\item Este es un ejemplo de diseño experimental de muestras emparejadas.
+\item  Es evidente que las muestras no son independientes pues cada tiempo de ejecución corresponden a los mismos pares de proteínas.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejemplo: Comparación medias muestras dependientes}
+Los resultados obtenidos en los tiempos de ejecución de ambos algoritmos son:
+\begin{table}
+\centering
+\scalebox{0.80}[0.8]{ 
+\begin{tabular}{c|cccccccccc}
+ordenador i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+antes &  8.1 & 11.9 &  11.4 & 12.9 &  9.0 &  7.2 &  12.4 &  6.9 &  8.9 &  8.3\\
+\hline
+después & 6.9  &  6.7 &  8.3 &  8.6  &  18.9 &  7.9 &  7.4 &  8.7 &  7.9 &  12.4\\
+\hline
+$d_i=$ antes-después &  1.2  & 5.2  & 3.1  & 4.3 & -9.9 & -0.7 &  5.0 & -1.8 &  1.0 & -4.1
+\end{tabular}}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ejemplo: Comparación medias muestras dependientes}
+\begin{itemize}
+\item Se tiene que $\overline{d}=0.33$ y $\tilde{S}_d=4.72$.
+\item  Contrastar la igualdad de medias con el test que corresponda y que podéis encontrar en las tablas de contraste de hipótesis. Calcular el $p$-valor y un intervalo de confianza del $95\%$ para la diferencia de las dos medias.
+\item
+El estadístico de contraste es $t=\frac{\overline{d}}{\tilde{S}_d/\sqrt{n}}=\frac{0.33}{4.72/\sqrt{10}}=0.22$
+\item Así para la región crítica bilateral el $p$-valor es el $\alpha$ tal que :
+
+$$t_{9,1-\frac{\alpha}{2}}=0.22$$  
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ejemplo: Comparación medias muestras dependientes}
+\begin{itemize}
+\item Consultando las tablas de la istribución $t$ de Student se obtiene que $t_{9,0.5871}\approx  t_{9,0.9}=1.383029$  ( es una aproximación muy mala).
+\item Por lo tanto $1-\frac{\alpha}{2}=0.9$ y $\alpha=0.2$.
+\item  El código \texttt{R} es
+<<>>=
+pt(9,0.22)
+@
+\item El $p$-valor exacto sería la solución de la ecuación $1-\frac{\alpha}{2}=0.7720373$.
+\item Como ejercicio calcular el intervalo de confianza para la diferencia de medias
+\end{itemize}
+\end{frame}
+\subsection{Contraste de dos proporciones muestras emparejadas}
+\begin{frame}
+\frametitle{Ejemplo: Contraste de dos  proporciones muestras emparejadas.}
+\begin{itemize}
+\item Este es un ejemplo de contraste de proporciones en la misma población antes y después ( es lo mismo que el diseño  emprarejado) de un \textsl{evento} (Se deja como ejercicio)
+\item Se toma una muestra de $100$ personas afectadas por migraña.  Se les facilita un fármaco para que alivie los síntomas.
+\item Después de la administración se les pregunta si han notado alivio en el dolor.
+\item Despues de un tiempo se les subministra a los mismos individuos un placebo y se les vueleve a preguntar si han notado o no mejoría.
+\item  Los resultados son:
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+$$
+\begin{tabular}{|c|c|cc|}
+\cline{3-4}
+     \multicolumn{2}{c|}{}& \multicolumn{2}{|c|} {Después}\\\cline{3-4}
+   \multicolumn{2}{c|}{} & Sí & No \\\hline
+Antes & Sí &  300 & 10 \\
+    & No   & 100 & 590 
+\\\hline
+\end{tabular}
+$$
+
+Utilizar el contraste apropiado (mirar tablas de contrastes hipótesis). Calcular el $p$-valor y un intervalo de confianza del $95\%$ para la diferencia de las dos proporciones.
+\end{frame}
+
+\section{Comparación de dos varianzas muestras independientes}
+\begin{frame}
+\frametitle{Comparación de dos varianzas muestras independientes}
+\begin{itemize}
+\item Hemos visto la necesidad de comparar dos varianzas como paso previo a una comparación de medias de muestras independientes, aun que también puede tener sentido en si misma.
+\item 
+El contraste corresponde  con una hipótesis nula $H_0: \frac{\sigma^2_1}{\sigma_2^2}=1$ contra las alternativas unilaterales y bilateral habituales.
+\item  El intervalo de confianza que se  encuentra en las tablas de contrastes es para el cociente, no para la diferencia de varianzas. Así que si  vamos a aceptar la igualdad de varianzas este intervalo debe contener a $1$.
+\item El estadístico de contraste sigue una ley de distribución F de Fisher y tiene por parámetros dos grados de libertad $n$ y $m$.
+Los valores de esta distribución se pueden obtener en \href{tabla de la función de distribución de Fisher}{http://bioinfo.uib.es/~recerca/mates2/tablasDistribuciones/Fisher.pdf} o en la carpeta de material adicional de Campus Extens.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ejemplo.}
+En el ejemplo de los algorítmos para alineamiento de proteínas en el caso de muestras independientes. Se trata de contrastar la diferencia de las medias de los rendimientos en el caso que se determine según sean las varianzas iguales o distintas. Para ello se debe primero contrastar la igualdad de varianzas. Hacerlo ahora como ejercicio.
+\end{frame}

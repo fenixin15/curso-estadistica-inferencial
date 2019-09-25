@@ -1,0 +1,178 @@
+%Ahora está en modo transparencia Beamer
+%Para obtener el pdf en modo ARTICLE comentar las dos lines siguientes y descomentar  las lineasl que van desde
+% PPARA NOTAS DE CLASE ARTICLE a Fin notas clase ARTICLE
+
+\documentclass[handout]{beamer}
+\usepackage{beamerthemeBoadilla}
+
+ 
+
+%%PARA NOTAS DE CLASE ARTICLE
+% \documentclass[12pt]{article}
+%  \usepackage{beamerarticle}
+% \setlength{\textheight}{24cm}
+%  \setlength{\oddsidemargin}{-0.3cm}
+%  \setlength{\evensidemargin}{1cm} \addtolength{\headheight}{\baselineskip}
+% \addtolength{\topmargin}{-3cm}
+% 
+% 
+% \usepackage{booktabs,enumerate,graphics,epstopdf}
+% \usepackage[pdftex,%
+%             colorlinks=true,
+%             linkcolor=cyan,
+%             citecolor=cyan,
+%             bookmarksnumbered=true,
+%            bookmarksopen=false,            %  \setlength{\textwidth}{16.5cm}
+%            pdftitle={Borrador Notas de Clase Matemáticas II},    % title
+%            pdfauthor={Ricardo Alberich, Arnau Mir},     % author
+%             pdfsubject={UIB. 2009-2010 Matemáticas II Grado de Biología y  Bioquímica}
+%             ]{hyperref}
+% 
+%%%Fin notas clase ARTICLE
+
+
+ %%nuestro
+
+\usepackage{latexsym}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage[spanish]{babel}
+\spanishdecimal{.}
+\usepackage{animate}
+
+%\renewcommand{\listfigurename}{Lista de Figuras}
+\renewcommand{\listtablename}{Lista de Tablas}
+%\renewcommand{\bibname}{Bibliografía}
+%\renewcommand{\indexname}{Indice alfabético}
+%\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabla}
+%\renewcommand{\partname}{Parte}
+%\renewcommand{\chaptername}{Capítulo}
+%\renewcommand{\appendixname}{Apéndice}
+%\renewcommand{\abstractname}{Resumen}
+
+%  \newtheorem{definition}{Definici\'on}
+% \newtheorem{theorem}[definition]{Teorema}
+% \newtheorem{proposition}[definition]{Proposici\'on}
+% \newtheorem{corollary}[definition]{Corolario}
+% \newtheorem{lemma}[definition]{Lema}
+% \newtheorem{example}[definition]{Ejemplo}
+% \newtheorem{Rem}[definition]{Nota:}
+%   \newcommand{\va}{variable aleatoria }
+
+
+
+\graphicspath{{./dibujos/}{./dibujos/01/}
+{./dibujos/02/}{./dibujos/03/}{./dibujos/04/}{./dibujos/05/}{./dibujos/06/}{./dibujos/07/}
+{./dibujos/08/}{./dibujos/09/}{./dibujos/10/}{./dibujos/11/}{./dibujos/12/}}
+%\SweaveOpts{prefix.string=./dibujos/} 
+
+
+%%%nuestro
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage[spanish]{babel}
+\spanishdecimal{.}
+\usepackage{animate}
+%\renewcommand{\listfigurename}{Lista de Figuras}
+\renewcommand{\listtablename}{Lista de Tablas}
+%\renewcommand{\bibname}{Bibliografía}
+%\renewcommand{\indexname}{Indice alfabético}
+%\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabla}
+\newcommand\vect[1]{\mathbf{#1}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bZ}{\mathbf{Z}}
+%\renewcommand{\partname}{Parte}
+%\renewcommand{\chaptername}{Capítulo}
+%\renewcommand{\appendixname}{Apéndice}
+%\renewcommand{\abstractname}{Resumen}
+
+%  \newtheorem{definition}{Definici\'on}
+% \newtheorem{theorem}[definition]{Teorema}
+% \newtheorem{proposition}[definition]{Proposici\'on}
+% \newtheorem{corollary}[definition]{Corolario}
+% \newtheorem{lemma}[definition]{Lema}
+% \newtheorem{example}[definition]{Ejemplo}
+% \newtheorem{Rem}[definition]{Nota:}
+%   \newcommand{\va}{variable aleatoria }
+
+
+%%nuestro
+\title{Análisis de Datos: Estadística Descriptiva}
+\author{Ricardo Alberich y Arnau Mir}
+\date{\today}
+\institute[DMI]{Departamento de Matemáticas e \\
+Informàtica\\
+Universitat Illes Balears}
+\usepackage{Sweave}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\MM}{\mathcal{M}}
+%\usepackage{amsmath,amssymb,amsfonts,latexsym,cancel}
+\usepackage{amsfonts,amssymb,amsmath,amsthm, wasysym}
+%\def\mbox{máx}{\mathop{\rm m\acute ax}}
+% 
+% \renewcommand{\mbox{mín}}{\mathop{\rm m\'{\i}n}}
+% 
+% \renewcommand{\mbox{máx}}{\mathop{\rm m\'ax}}
+% 
+% \renewcommand{\mbox{lím}}{\mathop{\rm l\'{\i}m}}
+% 
+
+%\includeonly{01Descriptiva,02VariablesAleatorias,03Muestreo,04Inferencia}
+
+%\includeonly{05Anova,06BondadAjuste,07IntroduccionMultidimensional,08Regresion}
+
+%\includeonly{05Anova}
+
+\begin{document}
+\title{Apuntes de Bioestadística.}
+\author{R. Alberich y A. Mir}
+\frame{\titlepage}
+\frame{\tableofcontents}
+\part{La estadística y el método científico. Estadística descriptiva}
+ \include{01Descriptiva}
+\part{Modelos de probabibilidad. Variables aleatorias}
+ \include{02VariablesAleatorias}
+\part{Experimentos y muestras}
+ \include{03Muestreo}
+\part{La lógica estadística. El diseño de experimentos y el contraste de hipótesis}
+ \include{04Inferencia}
+ \include{05Anova}
+\part{Contrastes de modelos}
+ \include{06BondadAjuste}
+\part{Dos o más variables}
+ \include{07IntroduccionMultidimensional}
+\part{Métodos de ajuste de datos a modelos. Regresión lineal}
+ \include{08Regresion}
+\part{Métodos de reducción  o selección de los factores}
+ \include{09Acp}
+ \include{10EscaladoMultidimensional}
+ \include{11AnalisisCorrespondencias}
+\part{Clasificación} 
+\include{12Clasificacion}
+
+\part{Bibliografía}
+
+\frame{\partpage}
+
+\section{Bibliografía}
+%\nocite{*}
+%\bibliography{biblio}
+%\bibliographystyle{plain}
+
+
+
+
+\end{document}
