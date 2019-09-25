@@ -3206,7 +3206,60 @@ font-size: 0.5em
           </hgroup>
   </slide>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Introducción a las Variables Aleatorias</h2></hgroup><article  id="introduccion-a-las-variables-aleatorias"></article></slide>
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Introducción a las Variables Aleatorias</h2></hgroup><article  id="introduccion-a-las-variables-aleatorias">
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Momentos de variables aleatorias</h2></hgroup><article  id="momentos-de-variables-aleatorias">
+
+</article></slide><slide class=""><hgroup><h2>Momento de orden \(n\) de una variable aleatoria</h2></hgroup><article  id="momento-de-orden-n-de-una-variable-aleatoria">
+
+<p><l class="definition"> Definición. </l> Sea \(X\) una variable aleatoria. Definimos el <strong>momento de orden \(n\)</strong> como \(\mu_n = E\left(X^n\right)\).</p>
+
+<p><l class="observ"> Observación.</l> El momento de orden \(1\) de una variable aleatoria es su valor medio o \(E(X)\).</p>
+
+<p>Los momentos de orden \(n\) caracterizan una variable \(X\). O sea, que si conocemos todos los momentos de orden \(n\), podemos deducir cuál es la distribución de \(X\).</p>
+
+<p>En general, el cálculo de los momentos de orden \(n\) para una variable \(X\) es bastante tedioso.</p>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplo momento de orden \(n\)</h2></hgroup><article  id="ejemplo-momento-de-orden-n">
+
+<div class="example">
+<p><strong>Ejemplo: momento de orden \(n\) de una variable de Bernoulli de parámetro \(p\)</strong></p>
+
+<p>Sea \(X\) una variable de Bernoulli de parámetro \(p\). Recordemos que su funció de probabilidad es: \[
+P_X(0)=q=1-p,\ p_X(1)=p.
+\] Su momento de orden \(n\) será: \[
+\mu_n = E\left(X^n\right)=p\cdot 1^n+(1-p)\cdot 0^n = p.
+\] En este caso, todos los momentos de orden \(n\) valen \(p\).</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplo momento de orden \(n\)</h2></hgroup><article  id="ejemplo-momento-de-orden-n-1">
+
+<div class="example">
+<p><strong>Ejemplo: momento de orden \(n\) de una variable exponencial de parámetro \(\lambda\)</strong></p>
+
+<p>Consideremos ahora una variable \(X\) exponencial de parámetro \(\lambda\).</p>
+
+<p>Recordemos que su función de densidad es: \(f_X(x)=\lambda \mathrm{e}^{-\lambda x},\) para \(x\geq 0\).</p>
+
+<p>Su momento de orden \(n\) será: \[
+\mu_n = E\left(X^n\right)=\int_0^\infty \lambda \mathrm{e}^{-\lambda x} x^n\, dx =\frac{n!}{\lambda^n}.
+\]</p>
+
+<p>La expresión anterior se puede obtener integrando por partes \(n\) veces y resolviendo los límites correspondientes. Dejámos al lector los cálculos correspondientes.</p>
+
+<p>Fijémonos que los momentos de orden \(n\) tienden a infinito a medida que \(n\) crece: \(\lim\limits_{n\to\infty}\mu_n = \lim\limits_{n\to\infty}\frac{n!}{\lambda^n}=\infty\).</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplo momento de orden \(n\)</h2></hgroup><article  id="ejemplo-momento-de-orden-n-2">
+
+<div class="example">
+<p><strong>Ejemplo: momento de orden \(n\) de una variable normal de parámetros \(\mu=0\) y \(\sigma =1\)</strong></p>
+
+<p>Recordemos que su función de densidad es: \(f_X(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}},\) para \(x\in \mathbb{R}\).</p>
+
+<p>Su momento de orden 1 será la esperanza de \(X\): \(\mu_1 = 0\) i su momento de orden 2 será: \(\mu_2 = E\left(X^2\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^2\, dx = 1.\) La integral anterior se resuelve usando técnicas de integrales de dos variables. Dicho valor también se puede obtener usando que su varianza vale 1: \(\mu_2 = \mathrm{Var}(X)+E(X)^2 = \sigma^2 +0^2 = 1.\)</p>
+
+<p>Los momentos de orden impar \(n\) serán cero ya que integramos una función impar: \(\mu_n = E\left(X^n\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^n\, dx = 0.\) O sea, si consideramos \(g(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^n\), se verifica \(g(-x)=-g(x)\), para todo \(x\in\mathbb{R}\).</p>
+
+<p>Si intentamos calcular el momento de orden 4, obtenemos: \(\mu_4 = E\left(X^4\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^4\, dx = 3,\) usando técnicas de integración de dos variables otra vez.</p></div></article></slide>
 
 
   <slide class="backdrop"></slide>
