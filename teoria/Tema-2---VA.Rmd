@@ -17,6 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Introducción a las variables aleatorias
 
 
+
 ## Introducción
 
 * Hasta ahora nuestros sucesos han sido de varios tipos: $\{C,+\}$ en
