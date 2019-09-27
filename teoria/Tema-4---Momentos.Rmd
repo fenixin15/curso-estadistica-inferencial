@@ -14,11 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-
-
-# Introducción a las Variables Aleatorias 
-
-
+\newcommand\momento{m}
+\newcommand{\momentocentral}{\mu}
 
 # Momentos de variables aleatorias
 
@@ -26,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <l class="definition"> Definición. </l> 
 Sea $X$ una variable aleatoria. Definimos el **momento de orden $n$** como 
-$\mu_n = E\left(X^n\right)$.
+$\momento_n = E\left(X^n\right)$.
 
 <l class="observ"> Observación.</l>
 El momento de orden $1$ de una variable aleatoria es su valor medio o $E(X)$.
@@ -46,7 +43,7 @@ P_X(0)=q=1-p,\ p_X(1)=p.
 $$
 Su momento de orden $n$ será:
 $$
-\mu_n = E\left(X^n\right)=p\cdot 1^n+(1-p)\cdot 0^n = p.
+\momento_n = E\left(X^n\right)=p\cdot 1^n+(1-p)\cdot 0^n = p.
 $$
 En este caso, todos los momentos de orden $n$ valen $p$.
 
@@ -63,32 +60,350 @@ Recordemos que su función de densidad es: $f_X(x)=\lambda \mathrm{e}^{-\lambda 
 
 Su momento de orden $n$ será:
 $$
-\mu_n = E\left(X^n\right)=\int_0^\infty \lambda \mathrm{e}^{-\lambda x} x^n\, dx =\frac{n!}{\lambda^n}.
+\momento_n = E\left(X^n\right)=\int_0^\infty \lambda \mathrm{e}^{-\lambda x} x^n\, dx =\frac{n!}{\lambda^n}.
 $$
 
 La expresión anterior se puede obtener integrando por partes $n$ veces y resolviendo los límites correspondientes. Dejámos al lector los cálculos correspondientes.
 
-Fijémonos que los momentos de orden $n$ tienden a infinito a medida que $n$ crece: $\lim\limits_{n\to\infty}\mu_n = \lim\limits_{n\to\infty}\frac{n!}{\lambda^n}=\infty$.
+Fijémonos que los momentos de orden $n$ tienden a infinito a medida que $n$ crece: $\lim\limits_{n\to\infty}\momento_n = \lim\limits_{n\to\infty}\frac{n!}{\lambda^n}=\infty$.
 </div>
 
 ## Ejemplo momento de orden $n$
 <div class="example">
-**Ejemplo: momento de orden $n$ de una variable normal de parámetros $\mu=0$ y $\sigma =1$**
+**Ejemplo: momento de orden $n$ de una variable normal de parámetros $\momento=0$ y $\sigma =1$**
 
 Recordemos que su función de densidad es: $f_X(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}},$ para $x\in \mathbb{R}$.
 
-Su momento de orden 1 será la esperanza de $X$: $\mu_1 = 0$ i su momento de orden 2 será: 
-$\mu_2 = E\left(X^2\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^2\, dx = 1.$
+Su momento de orden 1 será la esperanza de $X$: $\momento_1 = 0$ i su momento de orden 2 será: 
+$\momento_2 = E\left(X^2\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^2\, dx = 1.$
 La integral anterior se resuelve usando técnicas de integrales de dos variables. 
 Dicho valor también se puede obtener usando que su varianza vale 1:
-$\mu_2 = \mathrm{Var}(X)+E(X)^2 = \sigma^2 +0^2 = 1.$
+$\momento_2 = \mathrm{Var}(X)+E(X)^2 = \sigma^2 +0^2 = 1.$
 
 Los momentos de orden impar $n$ serán cero ya que integramos una función impar:
-$\mu_n = E\left(X^n\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^n\, dx = 0.$
+$\momento_n = E\left(X^n\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^n\, dx = 0.$
 O sea, si consideramos $g(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^n$, se verifica $g(-x)=-g(x)$, para todo $x\in\mathbb{R}$.
 
 Si intentamos calcular el momento de orden 4, obtenemos:
-$\mu_4 = E\left(X^4\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^4\, dx = 3,$ usando técnicas de integración de dos variables otra vez.
+$\momento_4 = E\left(X^4\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^4\, dx = 3,$ usando técnicas de integración de dos variables otra vez.
 
 </div>
 
+
+## Momento central de orden $n$ de una variable aleatoria
+<l class="definition"> Definición. </l> 
+Sea $X$ una variable aleatoria. Definimos el **momento central de orden $n$** como 
+$\momentocentral_n = E\left((X-\mu)^n\right)$, donde $\mu =E(X)$ es la media o la esperanza de la variable aleatoria $X$.
+
+<l class="observ"> Observación.</l>
+El momento central de orden $1$ de una variable aleatoria es siempre 0:
+$$
+\momentocentral_1 = E\left((X-\mu)\right)=E(X)-E(\mu)=E(X)-E(X)=0.
+$$
+
+## Momento central de orden $n$ de una variable aleatoria
+
+<l class="observ"> Observación.</l>
+El momento central de orden $2$ de una variable aleatoria es la varianza:
+$$
+\momentocentral_2 = E\left((X-\mu)^2\right):= \mathrm{Var}(X).
+$$
+
+Los momentos centrales de orden $n$ caracterizan también una variable $X$. O sea, que si conocemos todos los momentos centrales de orden $n$, podemos deducir cuál es la distribución de $X$. 
+
+## Momento central de orden $n$ de una variable aleatoria
+
+<l class="prop"> Proposición.</l>
+La relación que hay entre los momentos centrales y los momentos de una variable aleatoria es la siguiente:
+$$
+\momentocentral_n = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \mu^{n-k} \momento_k = \sum_{k=0}^n (-1)^{k} \binom{n}{k} \mu^{k} \momento_{n-k},
+$$
+donde $\mu =E(X)$ recordemos que es la esperanza de la variable aleatoria $X$.
+
+## Momento central de orden $n$ de una variable aleatoria
+
+
+<div class="dem">
+**Demostración**
+
+Recordemos la definición de momento central de orden $n$ y desarrollemos su expresión aplicando el **binomio de Newton**:
+$$
+\momentocentral_n = E\left((X-\mu)^n\right) =E\left(\sum_{k=0}^n (-1)^{n-k} \binom{n}{k} X^k\mu^{n-k}\right).
+$$
+Aplicando la propiedad de la esperanza que la esperanza de la suma es la suma de esperanzas, obtenemos la expresión dada por la proposición:
+$$
+\momentocentral_n =\sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \mu^{n-k} E\left(X^k\right) = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \mu^{n-k} \momento_k.
+$$
+</div>
+
+
+## Ejemplo momento central de orden $n$
+<div class="example">
+**Ejemplo: momento central de orden $n$ de una variable de Bernoulli de parámetro $p$**
+
+Sea $X$ una variable de Bernoulli de parámetro $p$. Recordemos que su funció de probabilidad es:
+$$
+P_X(0)=q=1-p,\ p_X(1)=p.
+$$
+Usando que $E(X)=p$, su momento central de orden $n$ será:
+$$
+\momentocentral_n = E\left((X-p)^n\right)=p\cdot (1-p)^n+(1-p)\cdot (0-p)^n = p(1-p)^n + (1)^n (1-p) p^n.
+$$
+
+<div class="exercise">
+**Ejercicio**
+
+Demostrar que la expresión anterior corresponde a un polinomio de grado $n$.
+</div>
+
+</div>
+
+
+## Ejemplo momento central de orden $n$
+<div class="example">
+**Ejemplo: momento central de orden $n$ de una variable exponencial de parámetro $\lambda$**
+
+Consideremos ahora una variable $X$ exponencial de parámetro $\lambda$.
+
+Recordemos que su función de densidad es: $f_X(x)=\lambda \mathrm{e}^{-\lambda x},$ para $x\geq 0$.
+
+Usando que $E(X)=\frac{1}{\lambda}$, su momento central de orden $n$ será:
+$$
+\momentocentral_n = E\left(\left(X-\frac{1}{\lambda}\right)^n\right)=\int_0^\infty \lambda \mathrm{e}^{-\lambda x} \left(x-\frac{1}{\lambda}\right)^n\, dx =\frac{a_n}{\lambda^n},
+$$
+donde $a_n = n!\sum\limits_{k=0}^n \frac{(-1)^k}{k!}.$
+</div>
+
+## Ejemplo momento central de orden $n$
+<div class="example">
+**Ejemplo: momento central de orden $n$ de una variable exponencial de parámetro $\lambda$**
+
+La expresión anterior fijado $n$ se puede obtener integrando por partes $n$ veces y resolviendo los límites correspondientes. Dejámos al lector los cálculos correspondientes. Sin embargo, la obtención de la fórmula general para $n$ se sale del nivel del curso.
+
+Fijémonos que los momentos centrales de orden $n$ también tienden a infinito a medida que $n$ crece: $\lim\limits_{n\to\infty}\momentocentral_n = \lim\limits_{n\to\infty}\frac{a_n}{\lambda^n}=\infty$: 
+$$
+\lim_{n\to\infty}\momentocentral_n =\lim_{n\to\infty} \frac{n!\sum\limits_{k=0}^n \frac{(-1)^k}{k!}}{\lambda^n}= 
+\lim_{n\to\infty}\sum\limits_{k=0}^n \frac{(-1)^k}{k!}\cdot \lim_{n\to\infty} \frac{n!}{\lambda^n}= \mathrm{e}^{-1}\cdot \infty = \infty.
+$$
+</div>
+
+## Ejemplo momento central de orden $n$
+<div class="example">
+**Ejemplo: momento central de orden $n$ de una variable normal de parámetros $\mu$ y $\sigma$**
+
+Recordemos que su función de densidad es: $f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},$ para $x\in \mathbb{R}$.
+
+Su momento central de orden 2 será la varianza $\sigma^2$: $\momentocentral_2 =\sigma^2.$
+
+Los momentos centrales de orden impar $n$ serán cero ya que integramos una función impar respecto $x=\mu$:
+$\momentocentral_n = E\left((X-\mu)^n\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\cdot (x-\mu)^n\, dx = 0.$
+O sea, si consideramos $g(x)=\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\cdot (x-\mu)^n$, se verifica $g(\mu-x)=-g(\mu +x)$, para todo $x\in\mathbb{R}$.
+
+Si intentamos calcular el momento central de orden 4, obtenemos:
+$\momentocentral_4 = E\left((X-\mu)^4\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\cdot (x-\mu)^4\, dx = 3\sigma^4.$ La integral anterior puede resolverse con el cambio de variable $t=\frac{x-\mu}{\sigma}$ y usando que:  $\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}\cdot x^4\, dx = 3.$
+</div>
+
+# Asimetría de una variable aleatoria
+
+## Definición
+
+Una variable aleatoria tiene **asimetría positiva** si su función de densidad o de probabilidad presenta una cola a la 
+**derecha** y **asimetría negativa**, si su función de densidad o de probabilidad presenta cola a la **izquierda**.
+
+Por ejemplo, en la figura siguiente, vemos la gráfica de la función de probabilidad de una variable aleatoria que presenta **asimetría negativa** a la izquierda y una función de densidad de una variable aleatoria que presenta **asimetría positiva** a la derecha:
+
+## Definición
+
+<div class="center">
+```{r,echo=FALSE,fig=TRUE,warning=FALSE}
+par(mfrow=c(1,2))
+x=seq(from=0,to=21, by=1)
+plot(x,dbinom(x,20,0.9),type="l",ylab="función de probabilidad")
+x=seq(from=0,to=100, by=0.1)
+plot(x,dchisq(x,10),type="l",ylab="función de densidad")
+```
+
+
+</div>
+
+## ¿Cómo calcular la asimetría de una variable aleatoria?
+La asimetría de una variable aleatoria $X$ se calcula a partir de sus momentos centrales de segundo y tercer orden:
+$$
+\gamma_1 = E\left({\left(\frac{X-\mu}{\sigma}\right)}^3\right)=\frac{\momentocentral_3}{\sigma^3},
+$$
+donde $\mu = E(X)$ y $\sigma^2 =\mathrm{Var}(X)$.
+
+Dicho valor se denomina **coeficiente de asimetría de Pearson**.
+
+
+## ¿Cómo calcular la asimetría de una variable aleatoria?
+
+Usando la relación ya vista entre los momentos centrales y los momentos, podemos expresar el **coeficiente de asimetría** en función de los momentos:
+$$
+\gamma_1 = \frac{\momento_3 -3\mu\sigma^2-\mu^3}{\sigma^3}.
+$$
+Dejamos al lector la comprobación de la expresión anterior.
+
+Por tanto, una variable aleatoria $X$ tendrá simetría positiva o a la derecha si $\gamma_1 >0$ y tendrá asimetría negativa o a la izquierda, si $\gamma_1 <0$.
+
+## Ejemplo de cálculo de asimetría
+<div class="example">
+**Ejemplo: cálculo del coeficiente de asimetría para una variable de Bernoulli de parámetro $p$**
+
+Sea $X$ una variable de Bernoulli de parámetro $p$. Usando que $\momento_n =p$, para todo $n$ y que $\momentocentral_2 = \sigma^2 = p-p^2$, el coeficiente de asimetría $\gamma_1$ será:
+$$
+\gamma_1 = \frac{p-3p(p-p^2)-p^3}{\sqrt{(p-p^2)^3}} = \frac{p (1-p) (1-2p)}{{\sqrt{(p-p^2)^3}}}.
+$$
+Por tanto, la variable de Bernoulli de parámetro $p$ tendrá simetria negativa si $p>\frac{1}{2}$ y positiva, si $p<\frac{1}{2}$:
+
+<div class="center">
+```{r,echo=FALSE,warning=FALSE,fig=TRUE,fig.height=4}
+par(mfrow=c(1,2))
+plot(c(-0.1,1.1,-0,1.1),c(-0.1,-0.1,1,1),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+lines(c(0,1),c(0,0))
+text(0,-0.05,0)
+p=0.75
+lines(c(0,0),c(0,1-p))
+text(1,-0.05,1)
+lines(c(1,1),c(0,p))
+text(0.5,0.75,expression(p>frac(1,2)))
+plot(c(-0.1,1.1,-0,1.1),c(-0.1,-0.1,1,1),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+lines(c(0,1),c(0,0))
+text(0,-0.05,0)
+p=0.25
+lines(c(0,0),c(0,1-p))
+text(1,-0.05,1)
+lines(c(1,1),c(0,p))
+text(0.5,0.75,expression(p<frac(1,2)))
+```
+
+</div>
+</div>
+
+## Ejemplo de cálculo de asimetría
+<div class="example">
+**Ejemplo: cálculo del coeficiente de asimetría para una variable exponencial de parámetro $\lambda$**
+
+Sea $X$ una variable exponencial de parámetro $\lambda$. 
+Usando que $\sigma^2=\frac{1}{\lambda^2}$ y $\momentocentral_3 =\frac{a_3}{\lambda^3}=\frac{2}{\lambda^3}$, su coeficiente de asimetría de Pearson será:
+$\gamma_1 = \frac{\frac{2}{\lambda^3}}{\frac{1}{\lambda^3}}=2.$
+
+Entonces presenta asimetría positiva o a la derecha tal como se observa en su función de densidad:
+<div class="center">
+```{r,echo=FALSE,warning=FALSE,fig=TRUE,fig.height=4}
+par(mfrow=c(1,1))
+x=seq(from=0,to=4,by=0.01)
+plot(x,dexp(x,rate=2),type="l",ylab="función de densidad")
+```
+
+</div>
+</div>
+
+## Ejemplo de cálculo de asimetría
+<div class="example">
+**Ejemplo: cálculo del coeficiente de asimetría para una variable normal de parámetros $\mu$ y $\sigma$**
+
+Sea $X$ una variable aleatoria normal de parámetros $\mu$ y $\sigma$. 
+
+Tal como se ha indicado anteriormente, los momentos centrales de orden impar son nulos. 
+
+Por tanto, en este caso $\momentocentral_3=0$ y, por tanto, $\gamma_1=0$. 
+
+Deducimos que la distribución normal es totalmente simétrica.
+
+De hecho, usando que su función de densidad es $f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},$ para $x\in \mathbb{R}$, se puede comprovar que $f_X(\mu-x)=f_X(\mu +x)$, o sea, tiene el eje de simetría $x=\mu$:
+
+
+</div>
+
+## Ejemplo de cálculo de asimetría
+<div class="example">
+**Ejemplo: cálculo del coeficiente de asimetría para una variable normal de parámetros $\mu$ y $\sigma$**
+<div class="center">
+```{r,echo=FALSE,warning=FALSE,fig=TRUE}
+mu=1.5
+sigma=2
+x=seq(from=mu-5,to=mu+5,by=0.01)
+plot(x,dnorm(x,mu,sigma),type="l",ylab="función de densidad")
+text(mu+0.35,0.14,expression(paste("x=",mu)))
+abline(v=mu,col="red")
+```
+
+
+</div>
+
+</div>
+
+# Curtosis o apuntamiento de una variable aleatoria
+
+## Definición
+
+La curtosis de una variable aleatoria $X$ es una medida de cómo son las colas de su función de densidad. 
+
+Dicho en otras palabras, queremos medir de alguna manera la *tendencia* que tiene la variable aleatoria a tener valores atípicos o *outliers*.
+
+La manera estándard de medir la curtosis de una variable aleatoria $X$ es a partir de su **momento central de cuarto orden**:
+$$
+\gamma_2 = E\left(\left(\frac{X-\mu}{\sigma}\right)^4\right) = \frac{\momentocentral_4}{\sigma^4},
+$$
+donde recordemos que $\mu=E(X)$ y $\sigma^2 =\mathrm{Var}(X)$.
+
+A la expresión anterior se le denomina **medida de curtosis de Pearson**.
+
+## Definición
+
+* Diremos que una variable aleatoria no tiene exceso de cursosis o **mesocúrtica** si $\gamma_2 \approx 3$.
+
+* Diremos que una variable aleatoria tiene exceso positivo de cursosis o **leptocúrtica** si $\gamma_2 >3$.
+
+* Diremos que una variable aleatoria tiene exceso negativo de cursosis o **platicúrtica** si $\gamma_2 <3$.
+
+
+## Ejemplo de cálculo de curtosis
+
+<div class="example">
+**Ejemplo: cálculo del coeficiente de curtosis para una variable de Bernoulli de parámetro $p$**
+
+Sea $X$ una variable aleatoria de parámetro $p$.
+
+El momento central de cuarto orden de $X$ será:
+$$
+\momentocentral_4 = p (1-p)^4 +(1-p)p^4 = p (1-p) (3 p^2-3p+1).
+$$
+La medida de curtosis de Pearson será:
+$$
+\gamma_2 = \frac{p (1-p) (3 p^2-3p+1)}{p^2 (1-p)^2} = \frac{3 p^2-3p+1}{p(1-p)}.
+$$
+Se puede comprobar (ejercicio para el lector) que si $p\in \left(\frac{3-\sqrt{3}}{6},\frac{3+\sqrt{3}}{6}\right)\approx (`r round((3-sqrt(3))/6,3)`,`r round((3+sqrt(3))/6,3)`)$, $\gamma_2 <3$ y, por tanto $X$ será platicúrtica y en caso contrario, si $p\in \left(0,\frac{3-\sqrt{3}}{6}\right)\cup \left(\frac{3+\sqrt{3}}{6},1\right)$, $\gamma_2 >3$ y, por tanto, $X$ será leptocúrtica.
+
+
+</div>
+
+
+## Ejemplo de cálculo de curtosis
+<div class="example">
+**Ejemplo: cálculo del coeficiente de curtosis para una variable exponencial de parámetro $\lambda$**
+
+Sea $X$ una variable exponencial de parámetro $\lambda$. 
+Usando que $\sigma^2=\frac{1}{\lambda^2}$ y $\momentocentral_4 =\frac{a_4}{\lambda^3}=\frac{9}{\lambda^4}$, su coeficiente de asimetría de Pearson será:
+$\gamma_2 = \frac{\frac{9}{\lambda^4}}{\frac{1}{\lambda^4}}=9.$
+
+Como $\gamma_2 >3$, se trataría de una distribución leptocúrtica.
+</div>
+
+## Ejemplo de cálculo de curtosis
+<div class="example">
+**Ejemplo: cálculo del coeficiente de curtosis para una variable normal de parámetros $\mu$ y $\sigma$**
+
+Sea $X$ una variable aleatoria normal de parámetros $\mu$ y $\sigma$. 
+
+Tal como se ha indicado anteriormente, el momento central de orden 4 vale: $\momentocentral_4 = 3\sigma^4$.
+
+Su coeficiente de curtosis será:
+$$
+\gamma_2 =\frac{\momentocentral_4}{\sigma^4}=\frac{3\sigma^4}{\sigma^4}=3.
+$$
+Deducimos, por tanto, que toda distribución normal es mesocúrtica o no tiene exceso (ni positivo ni negativo) de curtosis.
+
+
+</div>
