@@ -1,5 +1,5 @@
 ---
-title: "Tema 3 - Momentos de Variables Aleatorias"
+title: "Tema 3 - Variables Aleatorias. Complementos"
 author: "Ricardo Alberich, Juan Gabriel Gomila y  Arnau Mir"
 date: 
 output: 
@@ -16,6 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 \newcommand\momento{m}
 \newcommand{\momentocentral}{\mu}
+\newcommand{\FunGenMom}{m}
+\newcommand{\FunCar}{\phi}
 
 # Momentos de variables aleatorias
 
@@ -421,7 +423,7 @@ de densidad $f_X$ en el caso continuo.
 
 Sea $t\in\mathbb{R}$ un valor real cualquiera. 
 
-Definimos la función generatriz de momentos $\phi_X(t)$ en el valor $t$ como: $\phi_X(t)=E\left(\mathrm{e}^{tX}\right).$
+Definimos la función generatriz de momentos $\FunGenMom_X(t)$ en el valor $t$ como: $\FunGenMom_X(t)=E\left(\mathrm{e}^{tX}\right).$
 
 ## Ejemplo de cálculo de función generatriz de momentos
 <div class="example">
@@ -433,7 +435,7 @@ P_X(0)=q=1-p,\ p_X(1)=p.
 $$
 Su función generatriz de momentos será:
 $$
-\phi_X (t)=E\left(\mathrm{e}^{tX}\right) =p\mathrm{e}^{t\cdot 1}+(1-p)\mathrm{e}^{t\cdot 0}=p\mathrm{e}^t+(1-p)=1+p\left(\mathrm{e}^t -1 \right).
+\FunGenMom_X (t)=E\left(\mathrm{e}^{tX}\right) =p\mathrm{e}^{t\cdot 1}+(1-p)\mathrm{e}^{t\cdot 0}=p\mathrm{e}^t+(1-p)=1+p\left(\mathrm{e}^t -1 \right).
 $$
 </div>
 
@@ -445,11 +447,12 @@ Sea $X$ una variable aleatoria exponencial de parámetro $\lambda$. Recordemos q
 
 Su función generatriz de momentos será:
 $$
-\phi_X (t)=E\left(\mathrm{e}^{tX}\right)=\int_0^\infty \mathrm{e}^{t x}\lambda \mathrm{e}^{-\lambda x}\, dx = \lambda \int_0^\infty\mathrm{e}^{(t-\lambda)x}\, dx = \lambda\left[\frac{\mathrm{e}^{(t-\lambda)x}}{t-\lambda}\right]_{x=0}^{x=\infty} = \frac{\lambda}{\lambda -t},\ \mbox{si } t<\lambda. 
+\FunGenMom_X (t)=E\left(\mathrm{e}^{tX}\right)=\int_0^\infty \mathrm{e}^{t x}\lambda \mathrm{e}^{-\lambda x}\, dx = \lambda \int_0^\infty\mathrm{e}^{(t-\lambda)x}\, dx = \lambda\left[\frac{\mathrm{e}^{(t-\lambda)x}}{t-\lambda}\right]_{x=0}^{x=\infty} = \frac{\lambda}{\lambda -t},\ \mbox{si } t<\lambda. 
 $$
-En este caso vemos que el dominio de la función generatriz de momentos $\phi_X$ es $(-\infty,\lambda)$, ya que si $t\geq \lambda$, la integral anterior no es convergente.
+En este caso vemos que el dominio de la función generatriz de momentos $\FunGenMom_X$ es $(-\infty,\lambda)$, ya que si $t\geq \lambda$, la integral anterior no es convergente.
 
-Fijémonos por lo que vendrá más adelante que, como $\lambda >0$, el valor $0$ pertenece al dominio de $\phi_X$.
+Fijémonos por lo que vendrá más adelante que, como $\lambda >0$, el valor $0$ pertenece al dominio de $\FunGenMom_X$.
+</div>
 
 ## Ejemplo de cálculo de función generatriz de momentos
 <div class="example">
@@ -463,7 +466,7 @@ Su función generatriz de momentos será:
 
 $$
 \begin{array}{rl}
-\phi_X (t) & =E\left(\mathrm{e}^{tX}\right)=\int_{-\infty}^\infty \mathrm{e}^{tx}\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{tx-\frac{(x-\mu)^2}{2\sigma^2}}\, dx \\  & =  \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}\left((x-(\sigma^2 t+\mu))^2-2\sigma^2 t \mu-\sigma^4t^2\right)}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \mathrm{e}^{\frac{1}{2}(2 t \mu +\sigma^2 t^2)}\int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 t+\mu))^2}\, dx\\ &  = \mathrm{e}^{\frac{1}{2}(2 t \mu +\sigma^2 t^2)} \left( \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 t+\mu))^2}\, dx\right) =  \mathrm{e}^{ t \mu +\frac{\sigma^2 t^2}{2}}.
+\FunGenMom_X (t) & =E\left(\mathrm{e}^{tX}\right)=\int_{-\infty}^\infty \mathrm{e}^{tx}\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{tx-\frac{(x-\mu)^2}{2\sigma^2}}\, dx \\  & =  \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}\left((x-(\sigma^2 t+\mu))^2-2\sigma^2 t \mu-\sigma^4t^2\right)}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \mathrm{e}^{\frac{1}{2}(2 t \mu +\sigma^2 t^2)}\int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 t+\mu))^2}\, dx\\ &  = \mathrm{e}^{\frac{1}{2}(2 t \mu +\sigma^2 t^2)} \left( \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 t+\mu))^2}\, dx\right) =  \mathrm{e}^{ t \mu +\frac{\sigma^2 t^2}{2}}.
 \end{array}
 $$
 La integral del último paréntesis se resuelve haciento el cambio de variable $u=x-\sigma^2 t$ y usando que la integral de la función de densidad de $X$ sobre todo $\mathbb{R}$ vale 1.
@@ -473,9 +476,9 @@ La integral del último paréntesis se resuelve haciento el cambio de variable $
 La razón del nombre que lleva la **función generatriz de momentos** es que podemos obtener todos los momentos de la variable a partir de ella:
 
 <l class="prop"> Proposición </l>
-Sean $X$ una variable aleatoria con **función generatriz de momentos** $\phi_X(t)$. Entonces, el momento de orden $n$ de $X$ se puede obtener de la forma siguiente:
+Sean $X$ una variable aleatoria con **función generatriz de momentos** $\FunGenMom_X(t)$. Entonces, el momento de orden $n$ de $X$ se puede obtener de la forma siguiente:
 $$
-\momento_n =E\left(X^n\right)=\frac{d}{d t^n}\phi_X(t)|_{t=0} =\phi_X^{(n)}(0).
+\momento_n =E\left(X^n\right)=\frac{d}{d t^n}\FunGenMom_X(t)|_{t=0} =\FunGenMom_X^{(n)}(0).
 $$
 O sea, el momento de orden $n$ de $X$ es la derivada $n$-ésima de la función generatriz de momentos evaluada en $t=0$.
 
@@ -484,18 +487,18 @@ O sea, el momento de orden $n$ de $X$ es la derivada $n$-ésima de la función g
 <div class="dem">
 **Demostración**
 
-Recordemos la definición de la función generatriz de momentos: $\phi_X(t)=E\left(\mathrm{e}^{tX}\right).$
+Recordemos la definición de la función generatriz de momentos: $\FunGenMom_X(t)=E\left(\mathrm{e}^{tX}\right).$
 
-La idea de la demostración es probar por inducción que $\phi_X^{(n)}(t) =E\left(\mathrm{e}^{tX}\cdot X^n\right)$.
+La idea de la demostración es probar por inducción que $\FunGenMom_X^{(n)}(t) =E\left(\mathrm{e}^{tX}\cdot X^n\right)$.
 
-Veámoslo para $n=1$: $\phi_X'(t)=E\left(\mathrm{e}^{tX}\cdot X\right)$. 
+Veámoslo para $n=1$: $\FunGenMom_X'(t)=E\left(\mathrm{e}^{tX}\cdot X\right)$. 
 
-Seguidamente, apliquemos inducción sobre $n$. Supongamos que $\phi_X^{(n)}(t) =E\left(\mathrm{e}^{tX}\cdot X^n\right)$ y veamos que $\phi_X^{(n+1)}(t) =E\left(\mathrm{e}^{tX}\cdot X^{n+1}\right)$:
-$\phi_X^{(n+1)}(t) =\frac{d}{dt}(\phi_X^{(n)}(t)) =\frac{d}{dt}E\left(\mathrm{e}^{tX}\cdot X^n\right) = E\left(\mathrm{e}^{tX}\cdot X^{n+1}\right),$
+Seguidamente, apliquemos inducción sobre $n$. Supongamos que $\FunGenMom_X^{(n)}(t) =E\left(\mathrm{e}^{tX}\cdot X^n\right)$ y veamos que $\FunGenMom_X^{(n+1)}(t) =E\left(\mathrm{e}^{tX}\cdot X^{n+1}\right)$:
+$\FunGenMom_X^{(n+1)}(t) =\frac{d}{dt}(\FunGenMom_X^{(n)}(t)) =\frac{d}{dt}E\left(\mathrm{e}^{tX}\cdot X^n\right) = E\left(\mathrm{e}^{tX}\cdot X^{n+1}\right),$
 tal como queríamos demostrar.
 
-Ahora si aplicamos la expresión demostrada $\phi_X^{(n)}(t) =E\left(\mathrm{e}^{tX}\cdot X^n\right)$ a $t=0$, obtenemos:
-$\phi_X^{(n)}(0) =E\left(X^n\right)=\momento_n,$
+Ahora si aplicamos la expresión demostrada $\FunGenMom_X^{(n)}(t) =E\left(\mathrm{e}^{tX}\cdot X^n\right)$ a $t=0$, obtenemos:
+$\FunGenMom_X^{(n)}(0) =E\left(X^n\right)=\momento_n,$
 tal como dice la proposición.
 </div>
 
@@ -504,11 +507,11 @@ tal como dice la proposición.
 <div class="example">
 **Ejemplo: aplicación de la proposición en el caso en que $X$ es una variable de Bernoulli de parámetro $p$**
 
-En este caso, recordemos que: $\phi_X (t)=1+p\left(\mathrm{e}^t -1 \right).$
+En este caso, recordemos que: $\FunGenMom_X (t)=1+p\left(\mathrm{e}^t -1 \right).$
 
-Se puede comprobar que $\phi_X^{(n)}(t)=p\mathrm{e}^t$. Por tanto:
+Se puede comprobar que $\FunGenMom_X^{(n)}(t)=p\mathrm{e}^t$. Por tanto:
 $$
-\momento_n = \phi_X^{(n)}(0)=p,
+\momento_n = \FunGenMom_X^{(n)}(0)=p,
 $$
 tal como habíamos calculado anteriormente.
 </div>
@@ -517,14 +520,238 @@ tal como habíamos calculado anteriormente.
 <div class="example">
 **Ejemplo: aplicación de la proposición en el caso en que $X$ es una variable exponencial de parámetro $\lambda$**
 
-En este caso, recordemos que: $\phi_X (t)=\frac{\lambda}{\lambda -t},$ para $t<\lambda$ pero como $\lambda >0$, $t=0$ cumple la expresión anterior.
+En este caso, recordemos que: $\FunGenMom_X (t)=\frac{\lambda}{\lambda -t},$ para $t<\lambda$ pero como $\lambda >0$, $t=0$ cumple la expresión anterior.
 
-Dejamos como ejercicio para el lector comprobar que: $\phi_X^{(n)}(t)=\frac{\lambda n!}{(\lambda-t)^{n+1}}$.
+Dejamos como ejercicio para el lector comprobar que: $\FunGenMom_X^{(n)}(t)=\frac{\lambda n!}{(\lambda-t)^{n+1}}$.
 
 Por tanto: 
 $$
-\momento_n = \phi_X^{(n)}(0) = \frac{\lambda n!}{\lambda^{n+1}}=\frac{n!}{\lambda^n},
+\momento_n = \FunGenMom_X^{(n)}(0) = \frac{\lambda n!}{\lambda^{n+1}}=\frac{n!}{\lambda^n},
 $$
 expresión que ya habíamos obtenido anteriormente.
 
 </div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo: aplicación de la proposición en el caso en que $X$ es una variable normal de parámetros $\mu$ y $\sigma$**
+
+En este caso, recordemos que: $\FunGenMom_X (t)=\mathrm{e}^{ t \mu +\frac{\sigma^2 t^2}{2}}.$
+
+Aplicando la fórmula de los momentos para $n=1$ obtenemos:
+$\FunGenMom'(t)=\mathrm{e}^{ t \mu +\frac{\sigma^2 t^2}{2}} \left(\mu+t\sigma^2\right)$, que en $t=0$ vale:
+$\FunGenMom'(0)=\mu=E(X)$, tal como ya sabemos.
+
+Si la aplicamos para $n=2$, obtenemos:
+$\FunGenMom''(t)=\mathrm{e}^{ t \mu +\frac{\sigma^2 t^2}{2}} \left((\mu+t\sigma^2)^2+ \sigma^2 \right) =\mathrm{e}^{ t \mu +\frac{\sigma^2 t^2}{2}} \left(t^2\sigma^4+\mu^2+\sigma^2+ 2t\mu\sigma^2 \right)$, que en $t=0$ vale:
+$\FunGenMom''(0)=\mu^2+\sigma^2=E\left(X^2\right)$, tal como ya sabemos.
+
+Para $n=3$m obtenemos:
+$\FunGenMom'''(t)=e^{\mu  t+\frac{\sigma ^2 t^2}{2}}\left(\mu +\sigma ^2 t\right)
+\left(\left(\mu +\sigma ^2 t\right)^2+3 \sigma ^2\right)$, que en $t=0$ vale: $\FunGenMom'''(0)=3\sigma^2\mu = E\left(X^3\right)$, valor que correspondería al momento de tercer orden de $X$.
+
+Por último, para $n=4$, obtenemos:
+$\FunGenMom^{(iv)}(t)=e^{\mu  t+\frac{\sigma ^2 t^2}{2}}
+   \left(6 \sigma ^2 \left(\mu
+   +\sigma ^2 t\right)^2+\left(\mu
+   +\sigma ^2 t\right)^4+3 \sigma
+   ^4\right)$, que en $t=0$ vale: $\FunGenMom^{(iv)}(0)=6\sigma^2\mu^2+\mu^4+3\sigma^4=E\left(X^4\right)$, valor que correspondería al momento de cuarto orden de $X$.
+
+
+</div>
+
+## Función característica
+<l class="definition">Definición de función característica: </l>
+Sea $X$ una variable aleatoria $X$ con función de probabilidad $P_X$ en el caso discreto o función
+de densidad $f_X$ en el caso continuo. 
+
+Sea $w\in\mathbb{R}$ un valor real cualquiera. 
+
+Definimos la función característica $\FunCar_X(w)$ en el valor $w$ como: $\FunCar_X(w)=E\left(\mathrm{e}^{\mathrm{i} w X}\right),$  donde $\mathrm{i}$ es el número complejo $\mathrm{i}=\sqrt{-1}$.
+
+## Función característica
+
+<l class="observ">Observación: </l>
+Si $X$ es una variable continua, la **función característica** $\FunCar_X(w)$ puede interpretarse como la **transformada de Fourier** de la **función de densidad** de $X$:
+$\FunCar(w)=\int_{-\infty}^\infty f_X(x)\mathrm{e}^{\mathrm{i}w x}\, dx.$
+
+Por tanto, usando la fórmula de la **antitransformada de Fourier**, podemos escribir la **función de densidad** $f_X(x)$ como función de la **función característica** de $X$, $\FunCar(w)$:
+$f_X(x)=\frac{1}{2\pi}\int_{-\infty}^\infty \FunCar_X(w)\mathrm{e}^{-\mathrm{i}w x}\, dw.$
+
+## Función característica
+
+<l class="observ">Observación: </l>
+En el caso discreto, o sea, Si $X$ es una variable discreta, la **función característica** $\FunCar_X(w)$ se escribe como función de la **función de probabilidad** $P_X(x_k)$ con **Dominio** $D_X=\{x_k,\ k\}$ como:
+$\FunCar(w)=\sum_{k} P_X(x_k)\mathrm{e}^{\mathrm{i}w x_k}.$
+
+En los casos en que los $x_k$ sean enteros, $x_k=k$, que son la mayoría, la ecuación anterior es la **tranformada de Fourier de la secuencia** $P_X(k)$. Dicha función es una *función periódica* en $w$ de periodo $2\pi$ ya que $\mathrm{e}^{\mathrm{i}(w+2\pi)k}=\mathrm{e}^{\mathrm{i}wk}.$
+
+Por tanto, usando la fórmula de **inversión**,  podemos escribir la **función de probabilidad** $P_X(k)$ como función de la función característica de $X$, $\FunCar(w)$:
+$P_X(x)=\frac{1}{2\pi}\int_{0}^{2\pi} \FunCar_X(w)\mathrm{e}^{-\mathrm{i}w k}\, dw.$
+
+## Ejemplo de cálculo de función característica
+<div class="example">
+**Ejemplo: cálculo de la función característica para una variable de Bernoulli de parámetro $p$**
+
+Sea $X$ una variable aleatoria de Bernoulli de parámetro $p$. Recordemos que su función de probabilidad es:
+$$
+P_X(0)=q=1-p,\ p_X(1)=p.
+$$
+Su función característica será:
+$$
+\FunCar_X (w)=E\left(\mathrm{e}^{\mathrm{i}wX}\right) =p\mathrm{e}^{\mathrm{i}w\cdot 1}+(1-p)\mathrm{e}^{\mathrm{i}w\cdot 0}=p\mathrm{e}^{\mathrm{i}w}+(1-p)=1+p\left(\mathrm{e}^{\mathrm{i}w} -1 \right).
+$$
+Comprobemos la fórmula de la inversión:
+$$
+\begin{array}{rl}
+P_X(1) & = \frac{1}{2\pi}\int_0^{2\pi} \left(1+p\left(\mathrm{e}^{\mathrm{i}w} -1 \right)\right) e^{-\mathrm{i}w\cdot 1}\, dw =\frac{1}{2\pi}\left(\int_0^{2\pi} (1-p)e^{-\mathrm{i}w}\, dw + \int_0^{2\pi} p\, dw\right) \\ & = \frac{1}{2\pi}\left( (1-p) \left[\frac{\mathrm{e}^{-\mathrm{i}w}}{-\mathrm{i}}\right]_0^{2\pi} +2\pi p\right)=\frac{1}{2\pi}\left((1-p)\cdot 0 +2\pi p\right)=p, \\
+P_X(0) & = \frac{1}{2\pi}\int_0^{2\pi} \left(1+p\left(\mathrm{e}^{\mathrm{i}w} -1 \right)\right) e^{-\mathrm{i}w\cdot 0}\, dw =\frac{1}{2\pi}\left(\int_0^{2\pi} (1-p) \, dw + \int_0^{2\pi} p \mathrm{e}^{\mathrm{i}w}\, dw\right) \\ & = \frac{1}{2\pi}\left( (1-p)  +p \left[\frac{\mathrm{e}^{\mathrm{i}w}}{\mathrm{i}}\right]_0^{2\pi}\right)=\frac{1}{2\pi}\left((1-p) + p\cdot 0\right)=1-p.
+\end{array}
+$$
+</div>
+
+## Ejemplo de cálculo de función característica
+<div class="example">
+**Ejemplo: cálculo de la función característica para una variable exponencial de parámetro $\lambda$**
+
+Sea $X$ una variable aleatoria exponencial de parámetro $\lambda$. Recordemos que su función de densidad es: $f_X(x)=\lambda \mathrm{e}^{-\lambda x},$ para $x\geq 0$ y $0$, en caso contrario.
+
+Su función característica será:
+$$
+\FunCar_X (w)=E\left(\mathrm{e}^{\mathrm{i}wX}\right)=\int_0^\infty \mathrm{e}^{\mathrm{i}w x}\lambda \mathrm{e}^{-\lambda x}\, dx = \lambda \int_0^\infty\mathrm{e}^{(\mathrm{i}w-\lambda)x}\, dx = \lambda\left[\frac{\mathrm{e}^{(\mathrm{i}w-\lambda)x}}{\mathrm{i}w-\lambda}\right]_{x=0}^{x=\infty} = \frac{\lambda}{\lambda -\mathrm{i} w}. 
+$$
+La expresión anterior es válida para todo $w\in\mathbb{R}$ ya que su valor sería:
+$\FunCar_X (w)=\frac{\lambda}{\lambda -\mathrm{i} w}\cdot \frac{\lambda +\mathrm{i} w}{\lambda +\mathrm{i} w}=\frac{\lambda^2+\mathrm{i}\lambda w}{\lambda^2+w^2}=\frac{\lambda^2}{\lambda^2+w^2}+\mathrm{i}\frac{\lambda w}{\lambda^2+w^2}.$
+En la última expresión hemos separado la parte real de la imaginaria.
+
+Calculemos la función de densidad a partir de la función característica:
+$$
+f_X(x)=\frac{1}{2\pi}\int_{-\infty}^\infty \frac{\lambda}{\lambda -\mathrm{i} w}\mathrm{e}^{-\mathrm{i}wx}\, dw = a\mathrm{e}^{-a x},
+$$
+si $x>0$ y $0$ en caso contrario. El cálculo de la integral anterior debe realizarse usando el *Teorema de los Residuos*,  [Residue theorem](https://en.wikipedia.org/wiki/Residue_theorem) y se sale de los objetivos de este curso.
+</div>
+
+## Ejemplo de cálculo de función característica
+<div class="example">
+**Ejemplo: cálculo de la función característica para una variable normal de parámetros $\mu$ y $\sigma$**
+
+Sea $X$ una variable normal de parámetros $\mu$ y $\sigma$. 
+
+Recordemos que su función de densidad es: $f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},$ para $x\in \mathbb{R}$.
+
+Su función característica será:
+
+$$
+\begin{array}{rl}
+\FunCar_X (w) & =E\left(\mathrm{e}^{\mathrm{i}w X}\right)=\int_{-\infty}^\infty \mathrm{e}^{\mathrm{i}w x}\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{\mathrm{i}wx-\frac{(x-\mu)^2}{2\sigma^2}}\, dx \\  & =  \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}\left((x-(\sigma^2 \mathrm{i}w+\mu))^2-2\sigma^2 \mathrm{i}w \mu+\sigma^4 w^2\right)}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \mathrm{e}^{\frac{1}{2}(2 \mathrm{i}w \mu -\sigma^2 w^2)}\int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 \mathrm{i}w+\mu))^2}\, dx\\ &  = \mathrm{e}^{\frac{1}{2}(2 \mathrm{i}w \mu -\sigma^2 w^2)} \left( \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 \mathrm{i}w+\mu))^2}\, dx\right) =  \mathrm{e}^{ \mathrm{i}w \mu -\frac{\sigma^2 w^2}{2}}.
+\end{array}
+$$
+La integral del último paréntesis se resuelve haciento el cambio de variable $u=x-\sigma^2 \mathrm{i}w$ y usando que la integral de la función de densidad de $X$ sobre todo $\mathbb{R}$ vale 1.
+</div>
+
+
+## Ejemplo de cálculo de función característica
+<div class="example">
+**Ejemplo: cálculo de la función característica para una variable normal de parámetros $\mu$ y $\sigma$**
+
+Calculemos la función de densidad a partir de la función característica:
+$$
+\begin{array}{rl}
+f_X(x) & =\frac{1}{2\pi}\int_{-\infty}^\infty \mathrm{e}^{ \mathrm{i}w \mu -\frac{\sigma^2 w^2}{2}}\mathrm{e}^{-\mathrm{i} w x}\, dw = \frac{1}{2\pi}\int_{-\infty}^\infty \mathrm{e}^{\left(\frac{\mathrm{i}w\sigma}{\sqrt{2}}+\frac{\mu-x}{\sigma\sqrt{2}}\right)^2-\frac{(\mu-x)^2}{2\sigma^2}}\, dw =\frac{1}{2\pi}\mathrm{e}^{-\frac{(\mu-x)^2}{2\sigma^2}}\int_{-\infty}^\infty \mathrm{e}^{\left(\frac{\mathrm{i}w\sigma}{\sqrt{2}}+\frac{\mu-x}{\sigma\sqrt{2}}\right)^2}\, dw \\ & = \frac{1}{2\pi}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\int_{-\infty}^\infty \mathrm{e}^{-\left(\frac{w\sigma}{\sqrt{2}}+\frac{\mu-x}{\mathrm{i}\sigma\sqrt{2}}\right)^2}\, dw \stackrel{\mbox{cambio de variable } u=\frac{w\sigma}{\sqrt{2}}+\frac{\mu-x}{\mathrm{i}\sigma\sqrt{2}}}{=} \frac{1}{2\pi}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\int_{-\infty}^\infty \frac{\sqrt{2}}{\sigma}\mathrm{e}^{-u^2}\, du \\ & \stackrel{\int_{-\infty}^\infty \mathrm{e}^{-u^2}\, du =\sqrt{\pi}}{=} \frac{1}{\sqrt{2}\pi\sigma} \mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}} \sqrt{\pi} = \frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},
+\end{array}
+$$
+función que coincide con la densidad de la distribución $N(\mu,\sigma)$.
+
+</div>
+
+## Relación entre la función característica y los momentos
+La relación entre la **función característica** y los **momentos** es la siguiente:
+
+<l class="prop"> Proposición </l>
+Sean $X$ una variable aleatoria con **función característica** $\FunCar_X(w)$. Entonces, el momento de orden $n$ de $X$ se puede obtener de la forma siguiente:
+$$
+\momento_n =E\left(X^n\right)=\frac{1}{\mathrm{i}^n}\frac{d}{d w^n}\FunCar_X(w)|_{w=0} =\frac{1}{\mathrm{i}^n}\FunCar_X^{(n)}(0).
+$$
+O sea, el momento de orden $n$ de $X$ es la derivada $n$-ésima de la función generatriz de momentos evaluada en $w=0$ dividido por $\mathrm{i}^n$.
+
+
+## Relación entre la función característica y los momentos
+<div class="exercise">
+**Ejercicio**
+
+La demostración se realiza de forma similar a la demostración de la proposición que relaciona la función generatriz de momentos y los momentos. 
+
+Se deja como ejercicio al lector.
+</div>
+
+
+<div class="exercise">
+**Ejercicio**
+
+Realizar los mismos ejemplos que los realizados para la función generatriz de momentos. O sea:
+
+* Si $X$ es una variable de Bernoulli de parámetro $p$, demostrar usando la función característica que para todo $n$, $\momento_n = E\left(X^n\right)=p$.
+
+* Si $X$ es una variable exponencial de parámetro $\lambda$, demostrar usando la función característica que para todo $n$, $\momento_n =  E\left(X^n\right)=\frac{n!}{\lambda^n}$.
+
+* Si $X$ es una variable normal de parámetros $\mu$ y $\sigma$, demostrar usando la función característica que $E(X)=\mu$, $E\left(X^2\right)=\mu^2+\sigma^2$, $E\left(X^3\right)=3\sigma^2\mu$ y $E\left(X^4\right)=6\sigma^2\mu^2+\mu^4+3\sigma^4$.
+
+
+</div>
+
+
+# Fiabilidad
+
+## Introducción
+
+Sea $T\geq 0$ una variable aleatoria que nos da, por ejemplo, el tiempo de vida de cierto componente o dispositivo.
+
+Vamos a definir medidas para estudiar la fiabilidad de este tipo de variables aleatorias.
+
+
+
+<l class="definition">Definición:</l>
+Sea $T\geq 0$ una variable aleatoria. La **fiabilidad** de $T$ en el tiempo $t$ se define como la probabilidad que el sistema, componente o dispositivo funcione en el tiempo $t$: $R(t)=P(T>t)$.
+
+<l class="observ">Observación:</l>
+Dada una variable $T\geq 0$, la relación existente entre la **fiabilidad** $R$ y la **función de distribución** $F_T$ es la siguiente:
+$$
+R(t)=P(T>t)=1-P(T\leq t)=1-F_T (t)
+$$
+
+## Tiempo medio de vida
+
+<l class="observ">Observación:</l>
+Dada una variable $T\geq 0$ continua, el **tiempo medio de vida** de la variable $T$ sería $E(T)$. Entonces, este **tiempo medio de vida** se puede calcular como: 
+$E(T)=\int_0^\infty R(t)\, dt.$
+
+Veámoslo. Para ello basta ver que $E(T)=\int_0^\infty (1-F_T(t))\, dt$, donde $F_T(t)$ es la función de distribución de la variable $T$:
+$$
+\begin{array}{rl}
+E(T) & =\int_{t=0}^{t=\infty} 1-F_T(t)\, dt=\int_{t=0}^{t=\infty}\int_{u=t}^{u=\infty} f_T(u)\,du\,dt \\ & =\int_{u=0}^{u=\infty} f_T(u)\int_{t=0}^{t=u} \, dt\, du =\int_{u=0}^{u=\infty} f_T(u)\cdot u\, du = E(T),
+\end{array}
+$$
+donde $f_T(u)$ seria la función de densidad de la variable $T$ en el valor $u$.
+
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Sea $T$ una variable aleatoria exponencial de parámetro $\lambda$.
+
+La fiabilidad de $T$ sería: $R(t)=P(T>t)=1-F_T(t)=\mathrm{e}^{-\lambda t}$:
+<div class="center">
+```{r,echo=FALSE,fig=TRUE,warning=FALSE}
+x=seq(from=0,to=4, by=0.01)
+lambda=2
+plot(x,1-pexp(x,lambda),type="l",ylab="función de fiabilidad")
+```
+
+
+</div>
+
+# Generación de muestras de variables aleatorias por ordenador
+
+
+# Entropía
