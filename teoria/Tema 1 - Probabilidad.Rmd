@@ -638,7 +638,7 @@ $$
 <div class="example">
 **Ejemplo**
 
-Un dígito de control de error toma  el valor 0  en el 99\% de los casos en que hay un error. Si la probabilidad de error en un mensaje es  del $0.5\%$. ¿Cuál  es la probabilidad de que el mensaje sea erróneo y el código de error tenga valor 0?
+Un dígito de control de error toma  el valor 0  en el 99\% de los casos en que hay un error. Si la probabilidad de error en un mensaje es  del $0.5\%$. \blue{¿cuál  es la probabilidad de que el mensaje sea erróneo y el código de error tenga valor 0?
 </div>
 
 <div class="example-sol">
@@ -653,8 +653,8 @@ $$P(A\cap B)=P(B)\cdot P(A|B)=0.005\cdot 0.99=0.00495$$
 
 ## Ejemplos
 
-<div class="exercise">
-**Ejercicio**
+<div class="example">
+**Ejemplo**
 
 Un 50\% de  correos recibidos en un servidor llevan adjuntos  y un 65\% son  publicidad no deseada (SPAM). Sólo un 15\% de estos correos no llevan adjuntos y no son SPAM. 
 
@@ -862,7 +862,7 @@ En un diagnósticos de una  cierta  condición (por ejemplo, test embarazo, test
 * **Falsos negativos** $T^c\cap M$: El test da negativo, pero la condición sí que se da
 * **Coeficiente de falsos negativos**: $P(T^c|M)$
 
-## Clasificación o Diagnósticos. Ejemplos
+## Clasificación o Diagnósticos
 
 <div class="example">
 **Ejemplo**
@@ -882,7 +882,7 @@ Los datos del problema son:
 * ¿$P(M)$?
 </div>
 
-## Clasificación o Diagnósticos. Ejemplos
+## Ejemplos
 
 <div class="example-sol">
 * $P(T)=0.15$, $P(T^c|M)=0.06$, $P(T|M^c)=0.04$

@@ -14,7 +14,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# Introducción a las variables aleatorias
+
+
+# Introducción a las Variables Aleatorias 
+
 
 
 ## Introducción

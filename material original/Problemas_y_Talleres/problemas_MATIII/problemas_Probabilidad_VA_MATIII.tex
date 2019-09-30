@@ -1,0 +1,929 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+ %\input{8bitdefs}
+% \textwidth 15cm
+% \textheight 22cm
+ \setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{24cm}
+ \setlength{\oddsidemargin}{-0.3cm}
+ \setlength{\evensidemargin}{1cm} \addtolength{\headheight}{\baselineskip}
+\addtolength{\topmargin}{-3cm}
+\newcommand{\RR}{\mbox{I\kern-.2em\hbox{R}}}
+\def\N{I\!\!N}
+\def\R{I\!\!R}
+\def\Z{Z\!\!\!Z}
+\def\Q{O\!\!\!\!Q}
+\def\C{I\!\!\!\!C}
+
+% \def\Q{{\mathchoice {\setbox0=\hbox{$\displaystyle\rm
+% Q$}\hbox{\raise
+% 0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.8\ht0\hss}\box0}}
+% {\setbox0=\hbox{$\textstyle\rm Q$}\hbox{\raise
+% 0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.8\ht0\hss}\box0}}
+% {\setbox0=\hbox{$\scriptstyle\rm Q$}\hbox{\raise
+% 0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.7\ht0\hss}\box0}}
+% {\setbox0=\hbox{$\scriptscriptstyle\rm Q$}\hbox{\raise
+% 0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.7\ht0\hss}\box0}}}}
+
+\begin{document}
+
+%\pagestyle{empty}
+\font\sc=cmcsc10
+\parskip=1ex
+%%\newcount\problemes
+\newcounter{problemes}
+\setcounter{problemes}{0}
+
+%%%\newcount\problemes
+%%%\problemes=0
+
+%%%\newenvironment{prob}{\vskip 0.25cm\addtocounter{problemes}{1}
+%%%\noindent{\textbf{\thebloque.\theproblemes.- }}}
+\newenvironment{prob}{\vskip 0.25cm\addtocounter{problemes}{1}
+\noindent{\textbf{\theproblemes.- }}}
+%\newenvironment{resolucion}{\hfill $\bullet$}
+
+
+\newcommand{\sol}[1]{{\textbf{\footnotetext[\theproblemes]{Sol.: #1} }}}
+
+\newcommand{\probl}{\vskip 0.25cm\addtocounter{problemes}{1}
+\noindent{\textbf{\theproblemes.- }}}
+
+%\newcommand{\sol}[1]{{\textbf{\footnotetext[\the\problemes]{Sol.: #1} }}}
+%%%
+%%%\newcommand{\probl}{\addtocounter{problemes}{1} \vskip 2ex \noindent
+%%%{\bf \the\problemes)}}
+%%%
+%%%\def\probl{\advance\problemes by 1
+%%%\vskip 1mm\noindent{\bf \the\problemes) }}
+%%%\newcounter{pepe}
+
+
+
+%%%%%PROBABILIDAD
+
+%%%\newcount\problemes
+%%%\problemes=0
+
+%\chapter*{\large \textbf{BLOQUE 1 ESTAD?STICA DESCRIPTIVA (resumen)}}
+
+
+
+\begin{centerline}
+{{\bf PROBABILIDAD}}
+\end{centerline}
+
+
+\newcommand{\pr}[1]{P(#1)}
+
+%\newcounter{problema}
+%\newcommand{\prb}{\addtocounter{problema}{1}
+%\noindent\vskip 2mm {\textbf{\theproblemes  }}
+
+
+%\setcounter{problema}{105}
+ %
+ %  %tema 7
+%%%fulla 4
+
+\probl  En una carrera en la que participan diez caballos ¿de
+cuántas maneras diferentes se pueden dar los cuatro primeros
+lugares? \sol{\bf 5040}
+
+\probl  Una empresa de reciente creación encarga a un diseñador gráfico la elaboración
+del su logotipo, indicando que ha de seleccionar exactamente tres colores de una lista de
+seis. ¿Cuántos grupos tienen para elegir el diseñador? \sol{\bf 20}
+
+\probl  ¿Cuántas palabras diferentes, de cuatro letras, se pueden
+formar con la palabra {\bf byte}? \sol{\bf 24}
+
+\probl  ¿De cuantas maneras diferentes se pueden elegir el director y el subdirector de
+un departamento formado por 50 miembros? \sol{\bf 2450}
+
+\probl  Con once empleados ¿cuántos comités de  empresa de cinco
+personas se pueden formar? \sol{\bf  462}
+
+\probl  ¿Cuántas maneras distintas hay de colocar quince libros diferentes en una
+estantería si queremos  que el  de Probabilidades esté el  primero y  el de Estadística
+en el tercero? \sol{\bf 6227020800}
+
+\probl  ¿cuántos caracteres diferentes podemos formar utilizando a lo sumo  a tres
+símbolos  de los utilizados en el alfabeto Morse? \sol{\bf 8+4+2=14}
+
+\probl  Un supermercado  organiza una rifa con un premio de  una botella de cava para
+todas las papeletas que tengan las dos últimas cifras iguales a las correspondientes dos
+últimas cifras del número premiado en el sorteo de Navidad. Supongamos que todos los
+décimos tienen cuatro cifras y que existe un único décimo de cada numeración ¿Cuántas
+botellas repartirá el supermercado? \sol{\bf 100}
+
+\probl  ¿Cuántas  palabras diferentes podemos formar con todas las letras de la palabra
+estadística? \sol{\bf 2494800}
+
+\probl  En una tienda de regalos hay relojes de  arena con cubetas
+de colores, y no hay diferencia alguna entre las  dos cubetas que
+forman cada reloj. Si hay cuatro  colores posibles y el color de
+los dos recipientes puede coincidir ¿cuántos  modelos de reloj de
+arena puede ofrecer el establecimiento? \sol{\bf 6}
+
+\probl  En una partida de parchís gana aquel jugador que consigue alcanzar antes  con sus
+cuatro fichas la llegada. Si hay  cuatro jugadores y la partida continua hasta que todos
+han completado el recorrido ¿cuántos  órdenes de llegadas hay para la dieciséis fichas?
+\sol{\bf 63063000}
+
+\probl  Se han de repartir cinco becas entre diez españoles  y seis extranjeros, de
+manera que se den tres a españoles y dos a extranjeros ¿De Cuántas maneras se puede hacer
+el reparto? \sol{\bf 1800}
+
+\probl  ¿Cuantas  fichas tiene un dominó? \sol{\bf 28}
+
+
+
+
+\probl  Calcular la probabilidad de que al lanzar a la vez $5$
+dados se obtenga:
+\begin{enumerate}[a)]
+\item repóker (5 resultados iguales);
+\item póker (4 resultados iguales);
+\item full (3 resultados iguales y los otros distintos pero iguales entre si);
+\item trío (3  resultados iguales y los otros dos  diferentes);
+\item doble pareja (2 resultados  iguales, otros 2 iguales y diferentes de los anteriores y el restante diferente
+);
+\item pareja (exactamente 2 resultados iguales);
+\item nada (5 resultados distintos).
+\end{enumerate}
+\sol{ a) $\bf 6/6^5$; b) $\bf 150/6^5$;c) $\bf 300/6^5$;  d) $\bf
+1200/6^5$; e) $\bf 1800/6^5$; f) $\bf 3600/6^5$; g) $\bf 720/6^5$}
+
+\probl  Tenemos 12 radios de las   que  5 son defectuosas. Elegimos  3 radios al azar.
+¿Cuál  es la probabilidad de que solo una de las 3 sea defectuosa? \sol{{\bf 21/44}}
+
+\probl  Lanzamos al aire 6 dados.
+\begin{enumerate}[a)]
+\item ¿Cuál es la probabilidad de que todos ellos den resultados distintos?
+\item ¿Cuál es la probabilidad de obtener 3 parejas?
+\end{enumerate}
+\sol{ a)$\mathbf{120/6^5}$; b)  $\mathbf{300/6^5}$ }
+
+\probl  Supongamos que en una empresa de fabricación de componentes electrónicos se sabe
+que en un lote de 550 almacenados el 2\% son   defectuosos ¿Cuál es la probabilidad de
+encontrar 2 de defectuosos si cogemos de forma equiprobable 25? \sol{$\mathbf{0.074}$}
+
+\probl  Si mezclamos   suficientemente una baraja de 52 cartas ¿Cuál es la probabilidad
+de que los 4 ases queden colocados consecutivamente? \sol{{\bf 24/132600}}
+
+\probl  Una forma de incrementar la  fiabilidad de un sistema es la introducción de una
+copia de los componentes en una configuración paralela. Supongamos  que la N.A.S.A.
+quiere un vuelo  con una probabilidad no inferior a $0.99999$ de  que el transbordador
+espacial entre en órbita alrededor de la Tierra con éxito. ¿cuántos   motores se han de
+montar en  paralelo para que se  alcance esta fiabilidad, si se sabe que la probabilidad
+de que cada uno de los motores funcione adecuadamente es $0.95$? Suponer que los motores
+funcionan de manera independiente entre si. \sol{{\bf 4}}
+
+\probl  ¿Cuál es la probabilidad de  que  entre
+ $n$ personas, que no han nacido el 29 de
+febrero,  haya  como a mínimo dos que hayan nacido el mismo día del año? (no
+necesariamente del mismo año). Calcular la probabilidad para los siguientes valores de
+$n: 10, 15, 22, 23, 30, 40, 50, 55$. \sol{$\mathbf 0.12; 0.25; 0.48; 0.51; 0.71; 0.89;
+0.97; 0.99$}
+
+\probl  Cuatro cartas numeradas de $1$ a $4$ están colocadas  boca abajo sobre una  mesa.
+Una persona, supuestamente clarividente, irá adivinando  los valores de las $4$ cartas
+una a una. Si suponemos que es un farsante y que lo que hace  es decir los cuatro números
+al azar ¿Cuál es la probabilidad de   que acierte como mínimo una? (Obviamente, no
+repite ningún número) \sol{\bf 15/24}
+
+\probl  En una lotería hay $500$ billetes y $5$ premios. Si una persona compra $10$
+billetes ¿Cuál es la probabilidad de obtener?:
+\begin{enumerate}[a)]
+\item el primer premio?
+\item como  mínimo un premio?
+\item exactamente un premio?
+\end{enumerate} \sol{{\bf 0.02; 0.096; 0.093}}
+
+\probl  Se elige de forma equiprobable un número del $1$ al
+$6000$. Calcular la probabilidad de que sea múltiplo de $2$ o de
+$3$ o de $4$ o de $5$. \sol{\bf 0.73}
+
+
+\probl  Si elegimos un número de entre los 120 primeros enteros
+  positivos  ¿Cuál es la probabilidad de  que  sea
+múltiplo de $3$, no sea divisible por 5, y sea divisible por 4 o
+por 6? \sol{\bf 2/15}
+
+\probl  Una cuarta parte de la población ha sido  vacunada contra
+una enfermedad contagiosa. Durante una epidemia, se observa que de
+  uno de entre cada cuatro enfermos ha sido vacunado.
+\begin{enumerate}[a)]
+\item ¿Ha tenido alguna eficacia la vacuna?
+\item Por otra parte, se sabe que hay un enfermo  entre cada $12$ personas
+vacunadas ¿Cuál es la probabilidad de que  esté enferma una
+persona que no se ha vacunado?\sol{a) {\bf No}; b) {\bf 11/108}}
+\end{enumerate}
+
+\probl La probabilidad de  que un estudiante  acabe una carrera determinada es $0.4$.
+Dado un grupo de $5$ estudiantes de esta carrera, calcular la probabilidad de que:
+
+\begin{enumerate}[a)]
+\item  ninguno acabe la carrera,
+\item solo uno acabe la carrera,
+\item al menos dos acaben la carrera;
+\item todos la acaben.
+\end{enumerate}
+\sol{\bf a) 0.07776; b) 0.2592; c) 0.66304; d) 0.01024}
+
+\probl  Un  mensaje se ha codificado con un alfabeto de dos símbolos $A$ y $B$ para poder
+transmitirse a través de un canal de comunicación. La codificación es tal que $A$ aparece
+el doble de veces que $B$ en el mensaje codificado. El ruido del canal es tal que cuando
+$A$ se transmite, se recibe  $A$ con una probabilidad de $0.8$ y  $B$ con una
+probabilidad de  $0.2$; cuando se transmite $B$ se recibe  $B$ con una probabilidad de
+$0.7$ y se recibe $A$ con probabilidad $0.3$.
+\begin{enumerate}[a)]
+\item ¿Cuál es la frecuencia relativa de $A$ en el mensaje recibido?
+\item Si última letra del mensaje recibido es una $A$ ¿Cuál es la probabilidad de que
+ se haya enviado una $A$?
+\end{enumerate}\sol{{\bf a) 0.633; b) 0.84}}
+
+\probl  En una ciudad se publican 3 diarios $A$, $B$ y $C$. El $30
+\%$ de la población lee $A$, el $20 \%$ lee $B$ y el $15 \%$ lee
+C; el $12 \%$ lee $A$ y $B$, el $9 \%$ lee $A$ y $C$, y el $6 \%$
+lee $B$ y $C$; finalmente, el $3 \%$ lee $A$, $B$ y $C$.
+Calcular:\
+\begin{enumerate}[a)]
+\item El porcentaje de gente que lee al menos uno de los tres diarios.
+\item El porcentaje de gente que solo lee $A$.
+\item  El porcentaje de gente que lee $B$ o $C$, pero no $A$.
+\item  El porcentaje de gente que lee $A$ o no lee ni $B$ ni $C$.
+\sol{ \bf{ a) 0.41 ; b) 0.12; c) 0.11; d) 0.89}}
+\end{enumerate}
+
+
+ \probl  Supongamos que en un dado la probabilidad de cada una de sus seis
+ caras es proporcional al número inscrito en ella. Calcular la probabilidad
+de obtener un número par. \sol{\bf 4/7}
+
+\probl  En una reunión, $n$ personas ($n \geq 3$) lazan una moneda
+al  aire. Si una de ellas da diferente de todas las otras, su
+propietario paga una ronda ¿Cuál es la probabilidad de que pase
+esto? \sol{$\mathbf{(n \cdot \left( {1 \over 2} \right)^{n-1})}$}
+
+
+
+%%%%fulla 3
+
+
+\probl  Un matrimonio planifica  su descendencia  considerando los
+siguientes esquemas (se supone que tener una varón o una hembra es
+equiprobable):
+\begin{description}
+\item[Esq. A)] Tener $3$ hijos (de cualquier sexo:varón o hembra).
+\item[Esq. B)] Tener varones hasta que nazca la primera hembra, o ya tengan tres
+hijos (lo que pase primero).
+\item[Esq. C)] Tener hijos hasta que tengan una pareja de ambos sexos,
+ o ya tengan tres hijos (lo que pase primero).
+\end{description}
+Sea $B_i$ el suceso  han nacido $i$ varones ($i=1, 2, 3$) y $C$ el suceso tener más varones
+que hembras.
+\begin{enumerate}[1)]
+\item Calcular $p(B_1)$ y $p(C)$ en cada uno de  los tres esquemas.
+\item Calcular $p(B_2)$ y $p(B_3)$ en cada uno de los tres esquemas.
+\item Sea $E$ el suceso que el total de hijos  tenga igual número de
+varones que de hembras. Encontrar $p(E)$ en cada uno de los tres
+esquemas.
+
+\sol{a) $\bf(p(B_1)=3/8,1/4,5/8; p(C)=1/2,1/2,1/4)$; b) $\bf
+(p(B_2)=3/8,1/8,1/8; p(B_3)=1/8,1/8,1/8)$; c)
+$\mathbf{(0,1/4,1/2)}$.}
+\end{enumerate}
+
+\probl  Un comerciante ha de viajar en avión de Bangkok a Bagdad. Preocupado, pide a la
+compañía aérea ¿Cuál es la probabilidad de que haya como mínimo una bomba en el avión y le
+dicen que es de $0.1$. Más preocupado aún pide cuál es la probabilidad de que haya como
+mínimo dos bombas y le dicen que es $0.01$. Más tranquilo, decide llevar una bomba en su
+equipaje. Haciendo las suposiciones adicionales oportunas ¿qué  valoración estadística
+podemos hacer de su decisión? \sol{\bf Decisión absurda por sentido común y
+estadísticamente. }
+
+\probl  Dos sistemas con cuatro componentes independientes con
+fiabilidades respectivas $p_1, p_2, p_3$ y $p_4$ se configuran de
+las dos maneras siguientes: En el sistema $A$, la combinación en
+serie de los componentes $1$  y $2$ se configura en paralelo con la
+combinación en serie de los componentes $3$ y $4$; en el sistema
+$B$, la combinación en paralelo de $1$ y $3$ se configura en serie
+con la combinación en paralelo de $2$ y $4$. Determinar el sistema
+más fiable. \sol{\bf B}
+
+\probl  Si un sistema que consiste en tres componentes independientes con la misma
+fiabilidad ($p_1=p_2=p_3$) tiene una fiabilidad de $0.8$, determinar $p_1$ en los
+siguientes casos:
+
+\begin{enumerate}[a)]
+\item el componente 3 está configurado en serie con la combinación en paralelo
+$1$ y $2$.
+ \item el componente 3 está configurado en paralelo
+con la combinación en serie de $1$ y $2$.
+\end{enumerate}
+ \sol{\bf a) 0.825; b) 0.652}
+%%
+%%\probl  N'\`Oscar diu la veritat nou vegades de cada deu i n'Ivan
+%%set de cada nou. S'extreu a l'atzar una bolla d'una bossa on hi
+%%havia 5 bolles blanques i 20 negres. Tots dos observen el color de
+%%la bolla extreta i llavors diuen de manera independent que la
+%%bolla extreta ?s blanca. Quina ?s la probabilitat que aix\`o sigui
+%%cert? \sol{\bf 0.89}
+
+
+
+%%%%%%%%%%%%%tema 8
+%
+\newpage
+
+%\problemes=0
+\begin{centerline}
+{{\bf VARIABLES ALEATORIAS}}
+\end{centerline}
+
+
+\probl{En los ocho problemas siguientes determinar la función de probabilidad y la de
+distribución de las variables aleatorias que aparezcan}
+\begin{enumerate}[a)]
+\item Consideremos el experimento  consistente en lanzar simultáneamente dos dados; repetimos
+el experimento dos veces. Sea $X$ la variable aleatoria que da  el número de
+lanzamientos en que los dos dados han mostrado un número par. Sea $Y$ la variable aleatoria
+que nos da el número de lanzamientos en que la suma de los dos dados es par.
+
+\item  Supongamos que tenemos almacenadas $10$ piezas, de las que sabemos que hay $8$ del
+tipo I y $2$ del tipo II; se toman dos al azar de forma equiprobable. Sea $X$ la variable
+aleatoria que da el número de piezas de tipo I que hemos cogido.
+
+\item  Supongamos  que un estudiante realiza el tipo de examen siguiente: El profesor le va
+formulando preguntas hasta que el estudiante falla una (no os preguntéis como se evalúa ni
+yo lo sé). La probabilidad  de que el estudiante acierte  una pregunta cualquiera es $0.9$
+(examen fácil). Sea $X$ la variable aleatoria que nos da el número de preguntas formuladas
+por el profesor ¿Cuál es el número más probable de preguntas formuladas?
+
+\item   Consideremos  dos cañones que van disparando alternativamente hacia el mismo
+objetivo. El primer cañón tiene una probabilidad de acertar el objetivo de $0.3$ mientas
+que en el segundo es de $0.7$. El primer cañón comienza la serie de lanzamientos y no se
+detienen hasta que uno de los cañones desintegre el blanco (es suficiente darle una vez).
+Sea $X$ la variable aleatoria que nos da el número de proyectiles lanzados por el primer
+cañón e $Y$ la que nos da los proyectiles lanzados por el segundo cañón.
+
+\item  En la misma situación que en el ítem anterior,
+considerar la variable aleatoria $X$ que da el número de proyectiles lanzados por el primer
+cañón condicionado a que gana  y sea  $Y$ la variable aleatoria que cuenta el número de
+proyectiles lanzados por segundo cañón cuando gana.
+
+\item  Supongamos que se hace una tirada de $100000$ ejemplares de un determinado libro
+. La probabilidad de que una encuadernación sea incorrecta es  $0.0001$ ¿Cuál es la
+probabilidad de que haya $5$ libros de la tirada mal encuadernados?
+
+\item  Dos compañeros de estudios  se encuentran en un conocido bar de copas de Palma
+y deciden jugar a dardos de una manera especial: Lanzarán consecutivamente un dardo cada
+hasta que uno de los dos acierte el triple $10$ (centro de la diana).  El que lanza en
+primer lugar tiene una probabilidad de $0.7$ de acertar  y el que lo hace en segundo lugar
+$0.8$. Sea $X$ la variable aleatoria que da el número total de lanzamientos de dardos
+hechos por los dos compañeros.
+
+\item  Un examen tipo test  consta de $5$ preguntas, cada una  con tres opciones de
+respuesta, solo hay una opción correcta. Un estudiante contesta al azar  a las $5$
+cuestiones. Sea $X$ la variable aleatoria que da el número de puntos obtenidos por el
+alumno.
+\begin{enumerate}[i)]
+\item Si les respuestas erróneas  no restan puntos.
+\item Si cada respuesta errónea resta 1 punto.
+\end{enumerate}
+\end{enumerate}
+
+
+
+\probl  Un coche tiene que  pasar por cuatro semáforos. En cada uno de ellos el coche tiene
+la misma probabilidad de seguir su marcha que de detenerse. Hallar la función de
+distribución del número de semáforos que pasa el coche sin detenerse.
+
+
+\probl Un individuo quiere invertir un capital de medio millón de euros en un negocio que
+tiene una rentabilidad del $50\%$, pero con el riesgo de perder toda la inversión. Su
+asesor financiero le informa que este negocio tiene una probabilidad de ser rentable del
+$0.8$ ¿Cuál es el beneficio esperado? $\mathbf{(100000)}$
+
+\probl Un juego se dice justo si la ganancia esperada de cada jugador es $0$. Dos jugadores
+A y  B tiran un dado por turnos, y gana el primero que obtiene un $5$. Cada jugador apuesta
+una cantidad $ c_j \ (j=1,2),  $  y el total se lo queda el ganador. Si suponemos que
+comienza  a jugar A ¿qué relación tienen que verificar $c_1$ y $c_2$ para que el juego sea
+justo?
+
+
+\probl  (\textbf{Opcional}) \textbf{Problema de la ruina del jugador} Supongamos que jugamos a la ruleta en un casino. Sea $p<1/2$ la probabilidad de que
+salga un número rojo. Supongamos que apostamos a la par (lo que quiere decir, que si
+apostamos $k$ dólares, cuando sale rojo nos dan $k$ dólares más los que hemos entregado al
+apostar y perdemos los $k$ dólares que hemos apostado si no sale rojo). La primera apuesta es de 1 dólar. Si
+ganamos, nos retiramos. Si perdemos, hacemos una segunda apuesta de $2$ dólares. Si
+ganamos, nos retiramos. Si perdemos, apostamos $2^2$ dólares,  y así sucesivamente. La
+$n$-ésima apuesta ser? de $2^{n-1}$ dólares.
+
+\begin{enumerate}[a)]
+\item Probar  que con este sistema es seguro que ganamos 1 dólar.
+\item Calcular el importe esperado de la apuesta ganadora. $\mathbf{(\infty)}$
+\end{enumerate}
+
+
+Supongamos ahora que la casa tiene un límite de $2^L$ dólares (el máximo que está permitido
+apostar), de manera que, si no hemos ganado antes, esa ser? nuestra apuesta final.
+
+\begin{enumerate}[a)]
+\item  ¿Cuál es la ganancia esperado cuando paramos de jugar?
+$\mathbf{(1-(2(1-p))^{L+1})}$
+\item ¿Qué? es mejor un límite alto o bajo?  \textbf{(bajo)}
+\end{enumerate}
+
+\probl Se venden 50000 números de lotería a 10 euros cada uno, para  un sorteo con un
+premio de  300000 euros. ¿Cuál es la ganancia (pérdida) esperada de una persona que compra
+tres billetes? $\mathbf{(-12\quad \textrm{euros})}$
+
+
+\probl (\textbf{Opcional}) Un sistema de transmisión emite los dígitos -1, 0, 1. Cuando se transmite el símbolo
+{\it i}, se recibe el símbolo {\it j} con las probabilidades siguientes: $ \pr{r_1 / t_1} =
+1, \ \pr{r_{-1} / t_{-1}} = 1, \ \pr{r_1 / t_0} = 0.1, \ \pr{r_{-1} / t_0} = 0.1, \ \pr{r_0
+/ t_0} = 0.8. $ Se dice que en este caso se ha producido una distorsión $ \displaystyle
+(i-j)^2. $ ¿Cuál es el valor medio de la distorsión? $\mathbf{(1/15)}$
+
+%%%%va la 13
+\probl (\textbf{Opcional}) Una fuente  binaria emite de manera equiprobable e independiente un bloque  de 3
+dígitos (0 ó 1) cada segundo. De cada bloque se envía a una canal de transmisión un 0 si en
+el bloque hay más ceros que unos y un 1 en caso contrario. El canal transmite el dígito con
+una probabilidad de error $p$. El receptor reconstruye la terna de dígitos repitiendo tres
+veces el dígito que ha recibido ¿Cuál es el número medio de bits erróneos por bloque?
+$\mathbf{(\frac{3}{4}+\frac{3\cdot p}{2})}$ ¿Cuál tendría que ser la probabilidad $p$ para
+que este valor medio no fuera más grande que 1?  $\mathbf{(p \leq 1/6)}$
+
+\probl (\textbf{Opcional})  Dos personas juegan a cara o cruz, y han decidido continuar la partida hasta que se
+obtengan como mínimo $3$ caras  y $3$ cruces. Hallar la probabilidad de que el juego no se
+acabe en $10$ tiradas y el número esperado de tiradas.
+\sol{$\mathbf{\frac{7}{64}=0.109375}$; $\mathbf{E(X)=\frac{63}{8}}$.}
+
+%
+%%%\probl  Calcular la esperanza y la varianza del número de puntos obtenidos en el
+%%%lanzamiento de un dado. \sol{$\mathbf{(7/2,\quad 35/12)}$}
+
+
+
+\probl (\textbf{Opcional}) Es un buen ejercicio calcular la esperanza y la varianza de todas las
+variables que aparecen en el problema 35 (Algunas son difíciles).
+
+%%%%%ggggggggg
+%\headline{\hfill \bf Fulla 6}
+
+% {\bf PROBABILITATS I PROCESSOS ALEATORIS. 2on TELEM\`ATICA}
+% \vskip 1 cm
+%
+% \magnification \magstep 1
+
+\begin{center}
+\textbf{Variables aleatorias continuas}
+\end{center}
+
+\probl  Sea  $X$ una variable aleatoria continua con función de densidad $f(x)$ dada por:
+$$f(x) = \cases{ k \cdot (1+x^2) & si $x \in (0,3)$\cr 0 & si $ x \not \in (0,3)$\cr}$$
+\begin{enumerate}[a)]
+\item Calcular la constante $k$  y la función de distribución de $X$.
+\item Calcular la probabilidad de que $X$ esté comprendida entre $1$ y $2$
+\item Calcular la probabilidad de  que $X $ sea menor que $1.$
+\item Sabiendo que $X$ es mayor que $1$, calcular la probabilidad de
+que sea menor que $2$. \sol{a) $\mathbf{k=1/12}$; b) $\mathbf{5/18}$; c) $\mathbf{1/9}$; e) $\mathbf{5/16}$}
+\end{enumerate}
+
+\probl  La función de densidad de una variable aleatoria continua es: $$f(x) = \cases{ a
+\cdot x^2 + b & si $ x \in (0,3)$\cr 0 & si $ x \not \in (0,3)$\cr}.$$
+
+ Determinar $a$ y $b$, sabiendo que
+$P(1 < X \leq 2) = 2/3$.  \sol{$\mathbf{a=-1/2, b=11/6}$}
+
+\probl  (\textbf{Opcional, es una integral rara.})
+La duración en minutos de unas ciertas comunicaciones telefónicas es una variable aleatoria con función de distribución:
+$$F(x) = \cases{ 0 & si $ x \leq 0$\cr 1-{1 \over 2} e^{-x/3} - {1 \over 2} e^{-R[x/3]} &
+si $ x > 0$\cr}$$ donde $ R[x] $ es la parte entera de $x.$ Calcular la probabilidad de la
+comunicación  dure:
+\begin{enumerate}[a)]
+\item Más de $6$ minutos.
+\item Menos de $4$ minutos.
+\item Exactamente $3$ minutos.
+\item Menos de $9$ minutos, sabiendo que ha durado más de $5$.
+\item Más de $5$ minutos, sabiendo que ha durado menos de $9$.\sol{a)$\mathbf{e^{-2}}$;
+b)$\mathbf{1-{1 \over 2} e^{-4/3} -{1 \over 2} e^{-1}}$  ; c)
+$\mathbf{{1 \over 2}(1-e^{-1})}$ }
+\end{enumerate}
+
+\probl  Sea $X$ una variable aleatoria continua con densidad:
+
+$$f(x) = \cases{1-|x| & si $ |x| \leq 1$\cr 0 & en caso
+contrario\cr}$$
+\begin{enumerate}[a)]
+\item  Encontrar  la función de distribución de $ X.$
+\item Calcular $ \pr{X \geq 0}$  y $\pr{|X| < 1/2}.$  \sol{b) $\mathbf{1/2,
+3/4}$}
+\end{enumerate}
+
+
+
+
+% \headline{\hfill \bf Fulla 7}
+%
+% {\bf PROBABILITATS I PROCESSOS ALEATORIS. 2on TELEM\`ATICA}
+%
+% \vskip 1 cm
+% \magnification \magstep 1
+
+
+\probl  Se llama {\bf distribución triangular} a cualquier distribución continua tal que su densidad es cero salvo en un cierto intervalo  $(a,b), $ en el que su gráfica tiene forma de triángulo isósceles. Hallar la función de densidad y de distribución de una distribución
+triangular.
+
+
+
+%%%%%%%%distribuciones notables
+
+%%%%%%pppppppp
+
+
+\probl Sea $X$ una variable aleatoria  continua con densidad (Laplaciana)
+
+$$f(x) = \frac{1}{2} \cdot e^{-|x|} \mbox{ si } x\in\RR$$
+
+\begin{enumerate}[a)]
+\item Calcular $ \pr{|X|> 2}.$  \sol{$\mathbf{e^{-2}}$}
+\item Calcular $E(X)$ y $Var(X)$. \sol{$E(X)=0$, $Var(X)=2.$}
+\end{enumerate}
+
+\probl  Consideremos $f:{\R}\to {\R}$ dada por
+
+$$f(x) = \cases{ 0 & si $ x \leq 0$\cr a (1+x) & si $ 0 < x \leq
+1$\cr 2/3 & si $ 1 < x \leq 2$\cr 0 & si $ x > 2$\cr}$$
+\begin{enumerate}[a)]
+\item  Determinar el valor de $a$ para que $f$  sea una densidad.
+\item  En este caso, si $X$ es una variable aleatoria continua con densidad $f$, calcular $ \pr{1/2 < X\leq 3/2}$.
+\item Calcular, para el valor de $a$ encontrado $E(X)$ y $Var(X)$.
+\sol{a)$\mathbf{a=2/9}$ ; b) $\mathbf{19/36}$; c) $E(X)=\frac{32}{27}$, $Var(X)=\frac{409}{1458}$.}
+\end{enumerate}
+
+% \nopagenumbers
+%
+% \parindent = 0 pt
+%
+% \headline{\hfill \bf Full 8}
+%
+% {\bf PROBABILITATS I PROCESSOS ALEATORIS. 2on TELEM\`ATICA}
+%
+% \vskip 1 cm
+% \magnification \magstep 1
+
+\newpage
+
+\begin{center}
+\textbf{Transformación de variables aleatorias}
+\end{center}
+
+\probl (\textbf{No es difícil!!!!, haced los casos.})Sea $X$ la variable que nos da la puntuación obtenida al lanzar un dado. Calcular la
+distribución de las variables $Y=X^2$, $Z=X^2-6\cdot X+6$. Calcular las esperanzas y las
+varianzas de las variables $Y$ y $Z$.
+
+\probl (\textbf{Opcional}) Conocida  la función de distribución de una variable aleatoria continua $X$, hallar
+la función de densidad de $\displaystyle Y = X^2$ y de $ Z = e^X.$
+
+\probl  La función de distribución de una variable aleatoria  $X$ es: $$F_{X}(x) = \cases{
+0 & si $ x \leq 0$\cr 1-e^{-x^2} & si $ x
+> 0$\cr}$$ Encontrar la función de densidad de la variable aleatoria
+$Y = \ln(X+1).$
+
+
+\probl (\textbf{Tiene algo de dificultad.}) La función de densidad de una variable aleatoria $X$ es:
+
+$$f_{X}(x) = \cases{ x+1 & si $ x \in (-1,0]$\cr -x+1 & si $ x \in
+(0,1]$\cr 0 & si $x \in (-\infty,-1] \cup (1,\infty)$\cr}$$
+
+Definimos la variable aleatoria $Y=g(X)$,  donde $g$ es la función
+
+$$g(x) = \cases{ 1 & si $ x \in (1/2,\infty)$\cr 0 & si $ x \in
+(-1/2,1/2]$\cr -1 & si $x \in (-\infty,-1/2]$\cr}$$
+
+Determinar la función  de probabilidad y la de distribución de $Y.$ Calcular las
+esperanzas y varianzas de $X$ e $Y$.
+
+
+
+
+\probl (\textbf{Opcional, difícil!!!!!}) El precio por estacionar un vehículo en un aparcamiento es de $75$ céntimos de euro por  la
+primera hora o fracción, y de $60$ ceńtimos más a partir de la segunda hora o fracción. Supongamos
+que el tiempo, en horas, que un vehículo cualquiera permanece en el aparcamiento se
+modeliza según la siguiente función de densidad
+
+$$f_{X}(x) = \cases{e^{-x} & si $ x \geq 0$\cr 0 & si $ x <
+0$\cr}.$$
+
+Calcular  el ingreso medio por vehículo. $\mathbf{(109.919)}$
+
+
+
+
+
+
+
+%%%\probl Calculau l'esperan\c{c}a i la vari\`ancia del nombre de punts
+%%%obtingut en el llan\c{c}ament d'un dau. $\mathbf{(21/6,\quad 35/12)}$
+
+
+
+
+
+\probl Calcular $E(X)$ y $Var(X)$ para una v.a. $X$ que tiene por  función de densidad $f_X$
+dada por:
+$$f_X(x) = \cases{{1\over 2\sqrt{x}} & si $ x \in (0,1)$\cr 0 & si $ x \not \in
+(0,1)$\cr}$$ $\mathbf{(1/3,\quad 4/45)}$
+
+
+\probl Consideremos una variable aleatoria $X$ con función de densidad:
+$$f_X(x) = \cases{1/2 & si $ 0<x<2$\cr 0 & en caso contrario\cr}$$ determinar
+$E(Y)$, donde $Y = \ln( X).$ $\mathbf{(-0.3069)}$
+
+
+\probl Sea $X$ una variable aleatoria con función de densidad:
+
+$$f_{X}(x) = \cases{2 x & si $x \in (0,1)$\cr 0 & si $x \not \in
+(0,1)$\cr}$$
+\begin{enumerate}[a)]
+\item Determinar $E(\sqrt{X})$ a partir de $f_{\sqrt{X}}.$
+$\mathbf{(4/5)}$
+\item Hacer lo mismo a partir de $f_{X}.$
+\end{enumerate}
+
+
+%%%\probl Un sistema de transmissi? emet els d?gits -1, 0, 1. Quan se
+%%%transmet el s?mbol {\it i}, se rep el s?mbol {\it j} amb les
+%%%seg?ents probabilitats: $ \pr{r_1 / t_1} = 1, \ \pr{r_{-1} /
+%%%t_{-1}} = 1, \ \pr{r_1 / t_0} = 0.1, \ \pr{r_{-1} / t_0} = 0.1, \
+%%%\pr{r_0 / t_0} = 0.8.  $ Se diu en aquest cas que s'ha produ?t una
+%%%distorsi? $ \displaystyle (i-j)^2.  $ Quin ?s el valor mitj\`a de la
+%%%distorsi?? $\mathbf{(1/15)}$
+
+%%%%va la 13
+%%%\probl Una font bin\`aria emet de manera equiprobable i
+%%%independentment un bloc de 3 d?gits (0 o 1) cada segon. De cada
+%%%bloc envia a un canal de transmissi? un 0 si al bloc hi ha m?s 0's
+%%%que 1's, i un 1 en cas contrari. El canal transmet el d?git amb
+%%%una probabilitat d'error {\it p}. El receptor reconstrueix la
+%%%terna de d?gits repetint tres vegades el d?git que ha rebut. Quin
+%%%?s el nombre mitj\`a de bits erronis per bloc?
+%%%$\mathbf{(\frac{3}{4}+\frac{3\cdot p}{2})}$ Quina hauria de ser la
+%%%probabilitat {\it p} per tal que aquest valor mitj\`a no fos m?s
+%%%gran que 1? $\mathbf{(p \leq 1/6)}$
+
+
+
+
+\begin{centerline}
+{{\bf DISTRIBUCIONES NOTABLES}}
+\end{centerline}
+ %\textbf{Distribuciones notables}
+
+%  
+% \begin{resolucion}
+%  
+%  Sea $X$ el número de caras esn $n$ lanzamientos indpendientes de una moneda conprobabilidad de cara $p$.
+%  La v.a. sigue una ley $B(n,\frac{1}{2})$. Sabemos que $E(X)=\frac{n}{2}$ y que $Var(X)=\frac{n}{4}$.
+%  La frecuencia realtiva de caras en los $n$ lanzamientos  ser? $\frac{X}{n}$
+% Nos piden que calculemos mediante la desigualdad de Chebychef el menor valor de $n$ tal que:
+
+% $$P(0.45\leq \frac{X}{n}\leq 0.55)>0.9$$
+
+
+% $P(0.45\leq \frac{X}{n}\leq 0.55)= P(n\cdot 0.45\leq X \leq n\cdot 0.55)=
+% P(n\cdot 0.45- \frac{n}{2}\leq X - \frac{n}{2} \leq n\cdot 0.55- \frac{n}{2})= 
+% P(n\cdot 0.45- \frac{n}{2}\leq X - \frac{n}{2} \leq n\cdot 0.55- \frac{n}{2})= $
+%\end{resolucion}
+
+
+%%%
+%%%\end{document}
+%%%% {\bf PROBABILITATS I PROCESSOS ALEATORIS. 2on TELEM\`ATICA}
+%%%\newpage
+%%%%\problemes=0
+%%%\begin{centerline}
+%%%{{\bf MOMENTS D'UNA V.A.}}
+%%%\end{centerline}
+
+
+%%%\probl  Un individu vol invertir un capital de mig mili? de pts.
+%%%en un negoci que t? una rendibilitat del $50\%$, per\`o amb el
+%%%possible risc de perdre tota la inversi?. El seu assessor financer
+%%%l'ha informat que aquest negoci t? una probabilitat 0.8 de ser
+%%%rendible. Quin ?s el benefici esperat? \sol{$\mathbf{(100.000)}$}
+%%%
+%%%\probl  Un joc se diu que ?s just si el guany esperat de cada
+%%%jugador ?s 0. Dos jugadors A i B tiren un dau per torns, i guanya
+%%%el primer que obt? un 5. Cada jugador aposta una quantitat $ c_j \
+%%%(j=1,2),  $ i el total se'l quedar\`a el guanyador. Si suposam que
+%%%comen\c{c}a a jugar A, quina condici? han de verificar $ c_1$ i $c_2 $
+%%%perqu\`e el joc sigui just? \sol{$\mathbf{(6 c_2 = 5 c_1)}$}
+%%%
+%%% \probl   El preu per estacionament en un aparcament ?s
+%%%de 75 pts. per a la primera hora o fracci?, i de 60 pts. a partir
+%%%de la segona hora o fracci?. Suposem que el temps, en hores, que
+%%%un vehicle qualsevol roman a l'aparcament se modelitza segons la
+%%%funci? de densitat
+%%%
+%%%$$f_{X}(x) = \cases{e^{-x} & si $ x \geq 0$\cr 0 & si $ x <
+%%%0$\cr}$$
+%%%
+%%%Calculau l'ingr?s mitj\`a per vehicle. \sol{$\mathbf{(109.8)}$}
+%%%
+%%%\probl   Sigui $ X  $ una variable aleat\`oria amb funci? de
+%%%densitat
+%%%
+%%%$$f(x) = \cases{0 & si $ x \leq 0$\cr 2(1+x)/9 & si $ 0 < x \leq
+%%%1$\cr 2/3 & si $ 1 < x \leq 2$\cr 0 & si $ x > 2$\cr}$$
+%%%
+%%%Calculau $\mathrm{E}(X )$ i  $\mathrm{Var}(X)$.
+%%%\sol{$\mathbf{(32/27,\quad 0.28)}$}
+%%%
+%%%\probl   Suposem que jugam a la ruleta. Sigui $p<1/2$ la
+%%%probabilitat que surti un número vermell. Suposem que apostam a la
+%%%par (vol dir que, si apostam $k$ d\`ol.lars, mos donen $k$ d\`ol.lars
+%%%m?s els que hem apostat si surt vermell i perdem els $k$ d\`ol.lars
+%%%que hem apostat si surt negre). La primera aposta ?s de 1 d\`ol.lar.
+%%%Si guanyam, mos retiram. Si perdem, feim una segona aposta de 2
+%%%d\`ol.lars. Si guanyam, mos retiram. Si perdem, apostam $2^2$
+%%%d\`ol.lars, i aix? successivament. La $n$-\`essima aposta ser\`a de
+%%%$2^{n-1}$ d\`ol.lars.
+%%%
+%%%\begin{enumerate}[a)]
+%%%\item Provau que amb aquest sistema ?s segur que guanyarem 1 d\`ol.lar.
+%%%\item Trobau l'import esperat de l'aposta guanyadora.
+%%%\end{enumerate}
+%%%
+%%%
+%%%Suposem ara que la casa t? un l?mit de $2^L$ d\`ol.lars (el m\`axim
+%%%que permet apostar), de manera que, si no hem guanyat abans,
+%%%aquesta ser\`a la nostra aposta final.
+%%%
+%%%\begin{enumerate}[a)]
+%%%\item  Quin ?s el guany esperat quan mos aturem de jugar?
+%%%
+%%%\item Qu\`e ?s millor un l?mit alt o baix?  \sol{1b)
+%%%$\mathbf{(\infty)}$; 2a)$\mathbf{(1-(2(1-p))^{L+1})}$; 2b)baix }
+%%%\end{enumerate}
+%%%%%%%%va la 11
+%%%
+%%%\probl  El temps de vida, en anys, d'un cert component d'una
+%%%m\`aquina se modelitza mitjan\c{c}ant la seg\"{u}ent funci? de densitat
+%%%
+%%%$$f_{X}(x) = \cases{e^{-x} & si $ x \geq 0$\cr 0 & si $ x <
+%%%0$\cr}$$
+%%%
+%%% Si el cost $ Y  $ de funcionament del component, en milions de
+%%%pts., ?s funci? del temps de vida, $ Y = 2 X^2 + 1,  $ calculau la
+%%%quantitat que espera gastar l'empresa en concepte de manteniment.
+%%%\sol{$\mathbf{(5)}$}
+%%%
+%%%%%%%%%%%\probl  Calculau l'esperan\c{c}a i la vari\`ancia de les variables
+%%%%%%%%%%%aleat\`ories estudiades en el tema 2.
+%%%
+%%%\probl  Una dona a qui robaren la seva bossa va descriure el seu
+%%%assaltant com un homo de 2m 10cm d'alt, amb un capell color
+%%%taronja, camisa vermella, cal\c{c}ons verds i sabates grogues. Al cap
+%%%d'una estona, una persona que responia a aquesta descripci? va
+%%%esser detinguda a uns quants blocs de dist\`ancia, i se la va acusar
+%%%del robatori. Creis que hi ha prou proves perqu\`e sigui declarat
+%%%culpable? Per qu\`e?\sol{No}
+
+\probl   Sea $X$ el número de éxitos en $n$ repeticiones independientes de un experimento
+con probabilidad de éxito $p$.
+\begin{enumerate}[a)]
+\item  Si $k$ es el valor más probable de $X$, probar que
+ $$(n+1)p - 1 \leq k \leq (n+1)p$$
+\item  Si lanzamos $10$ veces un dado bien balanceado, ¿Cuál es el número de veces más probable
+en el que obtendremos un $2$.\sol{b) $\mathbf{(1)}$}
+\end{enumerate}
+
+\probl  Una cadena de producción da salida a $10000$ unidades diarias,  el número medio de
+unidades incorrectas es $200$. Una vez al día, se inspecciona un lote de $100$ unidades.
+Determinar la probabilidad de que el lote contenga más de $3$ unidades incorrectas
+\begin{enumerate}[a)]
+\item Utilizando la distribución binomial.
+\item Utilizando la aproximación de Poisson.
+\sol{a) $\mathbf{(0.1410)}$ ; b)  $\mathbf{(0.1429)}$}
+\end{enumerate}
+
+\probl  En una planta de fabricación de circuitos integrados, la proporción de circuitos
+defectuosos es $p$. Supongamos que la incidencia de circuitos defectuosos es completamente
+aleatoria.
+\begin{enumerate}[a)]
+\item  Determinar la distribución del número $X$ de circuitos
+aceptables producidos antes del primer circuito defectuoso.
+\item  ¿Cuál es la longitud media de una cadena de producción exitosa? si
+$p = 0.05.$\sol{b) $\mathbf{(19)}$}
+\end{enumerate}
+
+\probl Un servidor de mensajería esta en funcionamiento. Los clientes acceden a él de forma
+independiente. La probabilidad de que el servidor caiga cuando accede el cliente es $p$.
+Calcular la distribución de probabilidad del número de clientes a los que se dará servicio
+antes de que el servidor caiga.
+
+\begin{enumerate}[a)]
+\item Calcular el valor esperado y la varianza de esta variable.
+\item  ¿Cuál es la probabilidad de que atienda a más de $1000$ clientes sin que se
+caiga el servidor?
+\end{enumerate}
+\sol{a) $\mathbf{(\frac{q}{p};\, \frac{q}p^2)}$ b) $\mathbf{(q^{1001})}$}
+
+\probl Un sistema informático  dispone de un sistema de seguridad compuesto por tres claves
+de $3$ dígitos (del $0$ al $9$) cada una. Para entrar en el sistema hay que averiguar la
+primera clave, luego la segunda y por último la tercera. Un pirata informático intenta
+entrar ilegalmente en el sistema, para ello va introduciendo al azar distintas claves de
+forma independiente, olvidando las que ha introducido antes. Calcular el valor esperado y
+la varianza del número de intentos antes de romper el sistema.
+
+Comparar el resultado anterior cuando se ataca el sistema de forma similar pero cuando el
+sistema de seguridad solo consta de una clave de $9$ dígitos. ¿Cuál es el sistema más
+seguro, desde el punto de vista del número de intentos necesarios para violarlo?
+
+
+
+
+\probl De un grupo de $10$ personas se eligen $5$ de forma equiprobable y se les pregunta
+si están a favor de una cierta ley. Sea $X$ la variable aleatoria que cuenta el número de
+personas a favor de la ley entre las $5$. Supongamos que hay una persona a favor por cada
+nueve en contra.
+
+\begin{enumerate}[a)]
+\item Calcular la función de probabilidad de $X$.
+\item Calcular la esperanza y la varianza de $X$.
+\item Supongamos ahora que la población es de tamaño $10000$ ¿podemos suponer un modelo
+binomial para $X$?, en este caso ¿varía mucho la esperanza y la varianza con respecto al
+modelo hipergeométrico?
+\end{enumerate}
+
+
+
+
+\probl (\textbf{Pensad bien y os saldrá, es fácil}) Los taxis llegan aleatoriamente (según un proceso Poisson) a la terminal de un
+aeropuerto con un ritmo medio de un taxi cada $3$ minutos. ¿Cuál es la probabilidad de que
+el último pasajero de una cola de $4$ tenga que esperar un taxi más de un cuarto de hora?
+\sol{$\mathbf{(0.265)}$}
+
+
+%%%%%%%%%%va la 12
+
+
+
+\probl  La variable aleatoria $X$ sigue una ley  $\displaystyle N(\mu, \sigma^2). $ Sabemos
+que   $ \mu = 5  \sigma, $ y  que $ \pr{X < 6} = 0.8413.$
+
+\begin{enumerate}[a)]
+\item Determinar la esperanza y la varianza de $X$.
+\item ¿Cuál es la función de distribución de $ Y = 3
+- X^2  $ y su esperanza? \sol{a)$\mathbf{(5,\quad 1)}$ ; b) $\mathbf{E(Y) = -23}$}
+\end{enumerate}
+
+%%%\probl  Sigui $ X  $ una variable aleat\`oria amb funci? de
+%%%densitat:
+%%%
+%%%$$f_{X}(x) = \cases{2x & si $x \in (0,1)$\cr 0 & si $x \not \in
+%%%(0,1)$\cr}$$
+%%%\begin{enumerate}[a)]
+%%%\item Determinau $\mathrm{E}(\sqrt{X})$ a partir de $f_{\sqrt{X}}.$
+%%%\sol{a) $\mathbf{(4/5)}$}
+%%%\item El mateix a partir de $f_{X}.$
+%%%\end{enumerate}
+
+
+
+
+\probl  Consideremos una variable aleatoria $X$ con función de densidad $f_X$ dada por:
+$$f_X(x) = \left\{\begin{array}{ll}
+1/2 & \mbox{si }  0<x<2\\ 0 & \mbox{en otro caso}\end{array}\right.$$
+ determinar
+$\mathrm{E}( Y)$, donde $Y= \ln X.$ \sol{$\mathbf{(-0.3069)}$}
+
+\probl  (\textbf{Opcional}) Sea $X$ una variable aleatoria continua con distribución uniforme sobre el
+intervalo  $(0,1).$
+\begin{enumerate}[a)]
+\item Encontrar las funciones de densidad de las variables aleatorias
+ $Y
+= g(X)$ y $Z = h(X),$ donde $g(x) = 8 x^3$ y $h(x) = (x-1/2)^2.$
+\item  Calcular la esperanza de las variables aleatorias $Y$ y
+$Z$ como esperanzas de v.a. y como esperanzas de funciones de la v.a. $X$. \sol{b)
+$\mathbf{(2,\quad 1/12)}$}
+ \end{enumerate}
+
+
+
+
+
+\probl  El cuantil $0.9$ de una variable aleatoria $X$ es el valor $x_{0.9}$ para el que $
+\displaystyle F_{X}(x_{0.9}) = \pr{X \leq x_{0.9}} = 0.9. $ De manera similar, el percentil
+$0.5$ es el valor $x_{0.5}$ que satisface $ \pr{X \leq x_{0.5}} = 0.5 $ que recibe el nombre
+de  {\bf mediana} (poblacional). Determinar estos dos valores para  una variable aleatoria
+exponencial de valor medio $10$. \sol{$\mathbf{(23.0585,\quad 6.93147)}$}
+
+
+
+\end{document}

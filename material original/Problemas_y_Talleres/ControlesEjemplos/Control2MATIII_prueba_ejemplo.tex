@@ -1,0 +1,161 @@
+\documentclass[10pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,accents,enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}        
+\usepackage[spanish]{babel}
+\decimalpoint
+\advance\hoffset by -0.9in
+\advance\textwidth by 1.8in
+\advance\voffset by -1in
+\advance\textheight by 2in
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+
+\newcommand{\novapart}{\noindent\hrulefill}
+\newcommand{\VV}{\textbf{\Large \checkmark}}
+\newcommand{\coment}[1]{\noindent{\footnotesize\textbf{Comentario}: #1\par}}
+\newcommand{\sol}[1]{{\footnotesize #1\par}}
+
+\renewcommand{\VV}{}
+\renewcommand{\sol}[1]{}
+\renewcommand{\coment}[1]{}
+
+
+\pagestyle{empty}
+
+\usepackage{Sweave}
+\begin{document}
+\input{Control2MATIII_prueba_ejemplo-concordance}
+
+%1
+\noindent\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \vspace*{-2ex}
+
+
+
+
+\begin{center}
+\textsc{Matemáticas III. GMAT 11-junio RECUPERACIÓN 2017-2018.  Control2. Cuestiones.}\\[1ex]%1
+\end{center}
+
+% {\footnotesize\it
+% \noindent \textbf{Puntuación de las preguntas}:  Sobre 2 puntos repartidos por igual entre las diferentes preguntas
+% \setcounter{problemes}{0}
+% }
+
+
+\probl (\textbf{0.5 puntos})
+Calcular la correlación de $x=(2,1,0,-1,-2)$ y $y=(0,1,4,6,8)$
+\vspace{4cm}
+
+% \probl (\textbf{0.5 puntos})En una regresión lineal por mínimos cuadrados de una variable
+% $y$  respecto de una variable $x$, hemos empleado las observaciones $(x,y)$
+% de 100 individuos. Para estas observaciones, $SSE=0.5$ y $SST=1000$.
+%Sin calcular la recta de regresión, ¿podéis calcular qué vale $R^2$? ¿En caso afirmativo, cuál es su valor? ¿En caso negativo, por qué no podéis?
+% \vspace{4cm}
+
+\probl  (\textbf{0.5 puntos.})   Para comprobar la relación entre  las notas por islas de Baleares se toman 3 muestras de 50 individuos de cada una de las islas y sus notas numéricas  en las Pruebas de Bachillerato para el Acceso a la Universidad ¿Qué tipo de contraste podemos aplicar y por qué?
+
+
+
+
+
+\newpage
+ 
+\begin{center}
+\textsc{Matemáticas III. GINF Control parte 2. Ejercicios.}
+\end{center}
+
+
+
+\setcounter{problemes}{0}
+\probl El \verb+data frame+ \verb+datos_vuelos+ contiene información del retraso en minutos de vuelos de varias compañías aéreas diferentes.
+
+
+
+\begin{Schunk}
+\begin{Sinput}
+> head(datos_vuelos)
+\end{Sinput}
+\begin{Soutput}
+    retraso compania
+1  8.308064       C1
+2  3.800487       C1
+3  9.742283       C1
+4 11.083525       C1
+5 16.941135       C1
+6  8.941155       C1
+\end{Soutput}
+\begin{Sinput}
+> str(datos_vuelos)
+\end{Sinput}
+\begin{Soutput}
+'data.frame':	250 obs. of  2 variables:
+ $ retraso : num  8.31 3.8 9.74 11.08 16.94 ...
+ $ compania: Factor w/ 2 levels "C1","C2": 1 1 1 1 1 1 1 1 1 1 ...
+\end{Soutput}
+\begin{Sinput}
+> aggregate(retraso~compania,data=datos_vuelos,FUN=mean)
+\end{Sinput}
+\begin{Soutput}
+  compania  retraso
+1       C1 14.02648
+2       C2 30.71083
+\end{Soutput}
+\begin{Sinput}
+> aggregate(retraso~compania,data=datos_vuelos,FUN=sd) 
+\end{Sinput}
+\begin{Soutput}
+  compania  retraso
+1       C1 8.890039
+2       C2 4.097408
+\end{Soutput}
+\begin{Sinput}
+> var.test(retraso~compania)
+\end{Sinput}
+\begin{Soutput}
+	F test to compare two variances
+
+data:  retraso by compania
+F = 4.7075, num df = 124, denom df = 124, p-value = 2.22e-16
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 3.305244 6.704623
+sample estimates:
+ratio of variances 
+          4.707485 
+\end{Soutput}
+\begin{Sinput}
+> boxplot(datos_vuelos$retraso~datos_vuelos$compania,
++         main="Diagramas de caja de los retraso por compañía")
+\end{Sinput}
+\end{Schunk}
+
+
+Contestad a las siguientes cuestiones justificando que parte del código utilizáis
+
+\punt  Interpretar y poner un título adecuado al diagrama de cajas ¿Qué nos dice el diagrama sobre la igualdad de medias del retraso? (\textbf{ 0.5 puntos})
+
+\punt  Escribid hipótesis del contraste de medias y discutid si se cumplen las condiciones necesarias para realizarlo. (\textbf{ 0.5 puntos})
+
+\punt Realizar un conraste de igualdad de medias entre las dos compañías$\alpha = 0.1$ y discutid los resultados obtenidos a partir la salida del  código. (\textbf{ 0.5 puntos})
+
+
+
+
+\newpage
+
+\probl  Para estudiar si hay evidencia de que el retraso de un vuelo en la salida aumenta el retraso de su llegada se toma una muestra aleatoria simple de 100 vuelos y se anota para cada vuelo si tuvo retraso en la salida y en la llegada (en minutos).
+La tabla siguiente resume los resultados:
+

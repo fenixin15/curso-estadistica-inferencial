@@ -1,0 +1,306 @@
+\documentclass[10pt,spanish,es-nodecimaldot]{article}
+\usepackage{babel}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,enumerate,multirow,adjustbox}
+\usepackage{multirow}
+%\usepackage{accents}
+\usepackage[utf8]{inputenc} 
+\decimalpoint
+
+
+
+
+\advance\hoffset by -0.9in \advance\textwidth by 1.8in
+\advance\voffset by -1.4in \advance\textheight by 2.8in \parskip= 1 ex
+\parindent = 10pt \baselineskip= 13pt
+
+\pagestyle{empty}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+\newif\ifsol
+\solfalse
+%\solfalse
+
+
+
+\newenvironment{solucion}{\textbf{Solución:}\sf}{\rm}
+\usepackage{Sweave}
+\begin{document}
+\input{Ejemplos_resueltos_bondad_de_ajuste-concordance}
+
+
+
+\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \medskip
+\setcounter{problemes}{0}
+
+\begin{center}
+\textsc{\textbf{Matemáticas III. Entrega de Pascua. Cuestiones Grado Matemáticas UIB 16-17}}\\[1ex]%1
+\end{center}
+%{\footnotesize Tenéis que contestar en esta hoja. Todas las cuestiones valen \textbf{0.5 puntos}.}
+
+
+
+
+
+\probl  Una compañía de gas afirma, bas-andose en experiencias anteriores, que normalment, al final del invierno el 80\%
+de las facturas han sido ya cobradas, un 10\% se cobrará con pago aplazado un mes, 6\% se cobrará a  2 meses y un 4\% se cobrará a más de  dos meses. Al final del invierno actual, la compañía seleccionada una muestra aleatoria de 400 facturas, resultando que 287 de estas facturas cobradas, 49 a cobrar en un mes, 30 a cobrar en dosmeses y 34 a cobrar en un periodo  superior a dos meses.  ¿Podemos concluir, a raíz de los resultados, que la experiencia de ãnos anteriores se ha vuelto a repetir este invierno?
+
+
+\begin{Schunk}
+\begin{Sinput}
+> oi=c(287,49,30,34)
+> pi=c(0.8,0.1,0.06,0.04)
+> sum(pi)
+\end{Sinput}
+\begin{Soutput}
+[1] 1
+\end{Soutput}
+\begin{Sinput}
+> #PONER EL PARAMETRO p= para bondad de ajuste , ensaco contrario hace un test de independencia
+> chisq.test(oi,p=pi)
+\end{Sinput}
+\begin{Soutput}
+	Chi-squared test for given probabilities
+
+data:  oi
+X-squared = 27.178, df = 3, p-value = 5.402e-06
+\end{Soutput}
+\end{Schunk}
+
+
+\begin{Schunk}
+\begin{Sinput}
+> ei=pi*sum(oi)
+> sum((oi-ei)^2/ei)
+\end{Sinput}
+\begin{Soutput}
+[1] 27.17813
+\end{Soutput}
+\begin{Sinput}
+> 1-pchisq(27.18,3)
+\end{Sinput}
+\begin{Soutput}
+[1] 5.397347e-06
+\end{Soutput}
+\end{Schunk}
+
+Todo da lo mismo
+
+
+\begin{tabular}{l||llll} 
+& Cobradas & un mes & dos meses & más de 2 meses \\
+\hline
+Prob bajo $H_0$ $p_i$ &0.8  &0.1 & 0.06 & 0.04\\
+Prob bajo $H_0$ $p_i$ &0.8  &0.1 & 0.06 & 0.04\\
+Prob bajo $H_0$ $p_i$ &0.8  &0.1 & 0.06 & 0.04\\
+Prob bajo $H_0$ $p_i$ &0.8  &0.1 & 0.06 & 0.04\\
+}
+
+
+
+
+\probl
+
+\begin{Schunk}
+\begin{Sinput}
+> knitr::opts_chunk$set(echo = TRUE)
+\end{Sinput}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{Sinput}
+> x=c(0.60,-1.42,1.05,-0.14,0.57,0.11,-0.59,1.11,-1.55,-1.41)
+> x=sort(x)
+> x
+\end{Sinput}
+\begin{Soutput}
+ [1] -1.55 -1.42 -1.41 -0.59 -0.14  0.11  0.57  0.60  1.05  1.11
+\end{Soutput}
+\begin{Sinput}
+> Fn=1:10/10
+> Fx=(x+2)/4
+> Fx
+\end{Sinput}
+\begin{Soutput}
+ [1] 0.1125 0.1450 0.1475 0.3525 0.4650 0.5275 0.6425 0.6500 0.7625 0.7775
+\end{Soutput}
+\begin{Sinput}
+> #punif(x,-2,2)
+> df_ks=data.frame(i=1:10,x,Fn,Fx)
+> df_ks$F1=abs(Fx-(0:9)/10)
+> df_ks$F2=abs(Fx-(1:10)/10)
+> df_ks$pmax=pmax(df_ks$F1,df_ks$F2)
+> df_ks$pmax
+\end{Sinput}
+\begin{Soutput}
+ [1] 0.1125 0.0550 0.1525 0.0525 0.0650 0.0725 0.0575 0.1500 0.1375 0.2225
+\end{Soutput}
+\begin{Sinput}
+> D10=max(df_ks$pmax)
+> D10
+\end{Sinput}
+\begin{Soutput}
+[1] 0.2225
+\end{Soutput}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{Sinput}
+> knitr::kable(df_ks)
+\end{Sinput}
+\begin{Soutput}
+|  i|     x|  Fn|     Fx|     F1|     F2|   pmax|
+|--:|-----:|---:|------:|------:|------:|------:|
+|  1| -1.55| 0.1| 0.1125| 0.1125| 0.0125| 0.1125|
+|  2| -1.42| 0.2| 0.1450| 0.0450| 0.0550| 0.0550|
+|  3| -1.41| 0.3| 0.1475| 0.0525| 0.1525| 0.1525|
+|  4| -0.59| 0.4| 0.3525| 0.0525| 0.0475| 0.0525|
+|  5| -0.14| 0.5| 0.4650| 0.0650| 0.0350| 0.0650|
+|  6|  0.11| 0.6| 0.5275| 0.0275| 0.0725| 0.0725|
+|  7|  0.57| 0.7| 0.6425| 0.0425| 0.0575| 0.0575|
+|  8|  0.60| 0.8| 0.6500| 0.0500| 0.1500| 0.1500|
+|  9|  1.05| 0.9| 0.7625| 0.0375| 0.1375| 0.1375|
+| 10|  1.11| 1.0| 0.7775| 0.1225| 0.2225| 0.2225|
+\end{Soutput}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{Sinput}
+> ks.test(x,"punif",-2,2)
+\end{Sinput}
+\begin{Soutput}
+	One-sample Kolmogorov-Smirnov test
+
+data:  x
+D = 0.2225, p-value = 0.629
+alternative hypothesis: two-sided
+\end{Soutput}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{Sinput}
+> x=c(0:4)
+> oi=c(10,26,35,25,5)
+> pi=1.88^x/factorial(x)*exp(-1.88)
+> ppois(x,1.88)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.1525901 0.4394595 0.7091167 0.8781019 0.9575250
+\end{Soutput}
+\begin{Sinput}
+> sum(pi)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.957525
+\end{Soutput}
+\begin{Sinput}
+> pi[5]=1-sum(pi[1:4])
+> sum(pi)
+\end{Sinput}
+\begin{Soutput}
+[1] 1
+\end{Soutput}
+\begin{Sinput}
+> pi
+\end{Sinput}
+\begin{Soutput}
+[1] 0.1525901 0.2868694 0.2696572 0.1689852 0.1218981
+\end{Soutput}
+\begin{Sinput}
+> ei=round(100*pi,2)
+> ei
+\end{Sinput}
+\begin{Soutput}
+[1] 15.26 28.69 26.97 16.90 12.19
+\end{Soutput}
+\begin{Sinput}
+> (oi-ei)^2
+\end{Sinput}
+\begin{Soutput}
+[1] 27.6676  7.2361 64.4809 65.6100 51.6961
+\end{Soutput}
+\begin{Sinput}
+> num_1=(oi-ei)^2
+> num_2=(oi-ei)^2/ei
+> sum(round((oi-ei)^2/ei,4))
+\end{Sinput}
+\begin{Soutput}
+[1] 12.5792
+\end{Soutput}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{Sinput}
+> df_chi2test=data.frame(x,oi,pi,ei,num_1=num_1,num_2=num_2)
+> knitr::kable(df_chi2test)
+\end{Sinput}
+\begin{Soutput}
+|  x| oi|        pi|    ei|   num_1|     num_2|
+|--:|--:|---------:|-----:|-------:|---------:|
+|  0| 10| 0.1525901| 15.26| 27.6676| 1.8130799|
+|  1| 26| 0.2868694| 28.69|  7.2361| 0.2522168|
+|  2| 35| 0.2696572| 26.97| 64.4809| 2.3908380|
+|  3| 25| 0.1689852| 16.90| 65.6100| 3.8822485|
+|  4|  5| 0.1218981| 12.19| 51.6961| 4.2408614|
+\end{Soutput}
+\begin{Sinput}
+> chi2=sum(df_chi2test$num_2)
+> chi2
+\end{Sinput}
+\begin{Soutput}
+[1] 12.57924
+\end{Soutput}
+\end{Schunk}
+
+El número de clases es $k=5$ y  hemos estimado un paramétro la media de la Poisson. La muestra es grade y todas las frecuencias esperadas $e_i$ son mayores de 5 el estadístico de contraste sigue una ley $\chi^2_{k-1-1}=\chi^2_{3}.$  por lo tanto el p.valor del contraste es $P(\chi^2_3> 12.5792445984489)=1- P(\chi^2_3\leq 12.5792445984489)=1-pchisq(12.57924,3)=0.00564078914788602.$
+
+
+
+
+problema 28 
+
+\begin{Schunk}
+\begin{Sinput}
+> errores=c(5,3,2,1)/100
+> errores
+\end{Sinput}
+\begin{Soutput}
+[1] 0.05 0.03 0.02 0.01
+\end{Soutput}
+\begin{Sinput}
+> amplitudes=2*errores
+> nivel_confiaza=c(0.95,0.99)
+> n95=ceiling(qnorm(1-0.05/2)^2/amplitudes)
+> n95
+\end{Sinput}
+\begin{Soutput}
+[1]  39  65  97 193
+\end{Soutput}
+\begin{Sinput}
+> n99=ceiling(qnorm(1-0.01/2)^2/amplitudes)
+> n99
+\end{Sinput}
+\begin{Soutput}
+[1]  67 111 166 332
+\end{Soutput}
+\begin{Sinput}
+> df=data.frame(n95,n99,amplitudes,errores)
+> knitr::kable(df)
+\end{Sinput}
+\begin{Soutput}
+| n95| n99| amplitudes| errores|
+|---:|---:|----------:|-------:|
+|  39|  67|       0.10|    0.05|
+|  65| 111|       0.06|    0.03|
+|  97| 166|       0.04|    0.02|
+| 193| 332|       0.02|    0.01|
+\end{Soutput}
+\end{Schunk}
+
+
+EL error en la estimació de la porporción es de $\pm 5\%$  con una probabilidad del 95\% para una muetras de tamaño $n=39$  supuesto que $p=q=0.5$
+
+

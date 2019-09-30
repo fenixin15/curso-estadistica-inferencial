@@ -1,0 +1,1 @@
+prob13<- data.frame(cbind("Precio"=c(225,250,300,200),"Porvalorde"=c(38250,47500,49500,42000),"Unidades"=c(174,186,192,214)))
