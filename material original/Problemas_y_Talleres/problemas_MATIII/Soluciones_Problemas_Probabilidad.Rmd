@@ -1,0 +1,186 @@
+---
+title: "Soluciones Problemas de Probabilidad"
+author: "Ricardo Alberich"
+date: "21 de febrero de 2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Soluciones problemas de probabilidad
+
+
+## Problema 1
+
+$$10\cdot 9\cdot 8 \cdot 7=`r prod(10:7)`.$$
+
+
+```{r}
+prod(10:(10-3))
+```
+## Problema 2
+```{r}
+choose(6,3)
+```
+## Problema 3
+$$4!=4\cdot 3\cdot 2 \cdot 1=`r factorial(4)`.$$
+
+```{r}
+factorial(4)
+```
+
+
+## Problema 4
+Primera manera:
+
+$$50\cdot 49= 50*49`.$$
+
+Segunda manera:
+ $2\cdot \binom{50}{2}$
+
+
+```{r}
+50*49
+2*choose(50,2)
+```
+
+
+## Problema 5
+ $\binom{11}{5}$
+
+```{r}
+choose(11,5)
+```
+
+
+## Problema 6
+$$13!=`r factorial(13)`.$$
+
+```{r}
+factorial(13)
+```
+
+
+## Problema 7
+
+$2^1+2^2+3^2=`r sum(2^(1:3))`.$
+
+```{r}
+2^(1:3)
+sum(2^(1:3))
+```
+
+
+## Problema 8
+
+$$10\cdot 10=`r 10*9`$$
+
+```{r}
+10*10
+```
+
+## Problema 9
+
+La palabra "estadística" (consideraremos la i y la í como la misma letra) tiene
+
+
+```{r}
+nchar("estadistica")
+```
+La frecuencia de sus letras es 
+
+```{r}
+#Extraemos las letras
+strsplit("estadistica",split="")
+#Las ponemos en un array
+unlist(strsplit("estadistica",split=""))
+#Las contamos
+table(unlist(strsplit("estadistica",split="")))
+```
+
+
+$\frac{11!}{2!\cdot 1!\cdot 1!\cdot 1!\cdot 2!\cdot 2!\cdot 2!}=\frac{11!}{2!\cdot 2!\cdot 2!\cdot 2!}=
+`r as.integer(factorial(11)/(2^4),10)`.$
+
+
+
+```{r}
+factorial(11)/(2^4)
+```
+
+## Problema 10
+
+$\binom{4}{2}=`r choose(4,2)`.$
+
+
+```{r}
+factorial(4)/(factorial(2)*factorial(2))
+```
+
+
+## Problema 11
+
+$$\binom{11}{4, 4, 4, 4}=
+`r as.integer(factorial(16)/(factorial(4)^4))`.$$
+
+
+
+```{r}
+factorial(16)/(factorial(4)^4)
+```
+
+## Problema 12
+
+$$\binom{10}{3}\cdot\binom{6}{2}=
+`r choose(10,3)*choose(6,2)`.$$
+
+```{r}
+choose(10,3)*choose(6,2)
+```
+
+## Problema 13
+
+
+$$\binom{7}{2}+7=
+`r choose(10,3)*choose(6,2)`.$$
+
+```{r}
+choose(7,2)+7
+```
+
+
+## Problema 14
+Los dados tienen 6 figuras distintas en sus caras
+
+* Repóker : $6$ casos.
+* Póker: Hay 6 tipos de póker y varía la figura distinta que los acompaña  que se puede colocar en cualquiera de los 5 dados $6*5*5=`r 6*5^2`$.
+* full: Hay $6\cdot 5$ tipos de full 6 casos para el trío y 5 para la pareja que lo acompaña. Y ahora hay que repartir (repetir) estas dos figuras 3 y 2 veces respectivamente así que hay $\binom{5}{3,2}$. En total hay $6\cdot 5\cdot \binom{5}{3,2}=6\cdot 5\cdot \frac{5!}{3!\cdot 2!}=6\cdot 5 \cdot \frac{5\cdot 4}{2}=300.$ 
+* Trio: Hay $6\cdot \binom{5}{2}$ tipos de tríos y por cada uno de ellos $\binom{5}{3, 1, 1}$ maneras de repartilos en los 5 dados. En total hay 
+$6\cdot\binom{5}{2}\cdot \binom{5}{3, 1, 1}=6\cdot 10\cdot 20=1200.$
+* Doble pareja: Hay $\binom{6}{2}\cdot 3$ tipos de dobles parejas y  $\binom{5}{2,2,1}$ maneras de colocarlos en los 5 dados. En total hay 
+$\binom{6}{2}\cdot 4\cdot \binom{5}{2,2,1}=15\cdot 4\cdot 30=`r 15*4*30`.$
+
+* Pareja: Hay $\binom{6}{1}\cdot \binom{5}{3}$ tipos de pareja y  $\binom{5}{2,1,1,1}$ maneras de colocarlos en los 5 dados. En total hay 
+$\binom{6}{1}\cdot \binom{5}{3} \binom{5}{2,1,1,1}=6\cdot 10\cdot 60=`r 6*10*60`.$
+
+* Nada o figuras: Hay $\binom{6}{5}$ tipos de sacar figuras y  $\binom{5}{1,1,1,1,1}$ (o $5!$) maneras de colocarlos en los 5 dados. En total hay 
+$\binom{6}{5}\cdot\binom{5}{1,1,1,1}=6\cdot 120=`r 6*120`.$
+
+
+
+Hay $6^5$ jugadas posibles.
+
+```{r}
+casos_favorables=c(6,150,300,1200,1800,3600,720)
+names(casos_favorables)=c("Repóker","Póker","Full","Trío","Dobles Parejas","Pareja","Color")
+casos_favorables
+casos_posibles=6^5
+casos_posibles
+sum(casos_favorables)
+probabilidades=casos_favorables/casos_posibles
+probabilidades
+sum(probabilidades)
+```

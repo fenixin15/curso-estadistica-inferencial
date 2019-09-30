@@ -3,11 +3,11 @@
   * Combinatoria
 * Tema 1: Probabilidad: Ricardo (OK)
 * Tema 2: Variables aleatorias: Ricardo (OK)
-* Tema 3: Distribuciones notables: Ricardo (en curso)
-  * https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson.html#scipy.stats.poisson 
-* Tema 4: Momentos (incl. Sesgo y Curtosis): Arnau
+* Tema 3: Momentos (incl. Sesgo y Curtosis): Arnau
   * https://en.wikipedia.org/wiki/Kurtosis
   * https://en.wikipedia.org/wiki/Skewness 
+* Tema 4: Distribuciones notables: Ricardo (en curso)
+  * https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson.html#scipy.stats.poisson 
 * Tema 5: Distribuciones conjuntas de variables aleatorias: Arnau
 * Tema 6: Convergencia y Teorema Central del Límite: Ricardo
 ----------------------------------------------------------------

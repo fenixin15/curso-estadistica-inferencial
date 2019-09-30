@@ -1,0 +1,54 @@
+---
+title: "Ejemplo coordenadaos log y semi-log"
+output: html_notebook
+---
+
+
+
+```{r}
+x=1:10
+ylineal= 2+3*x
+yexp= 3*1.3^x
+ypot= 2*x^1.4
+plot(x,ypot,col="red")
+points(x,ylineal,col="blue")
+points(x,yexp,col="green")
+
+
+plot(log10(x),log10(ypot),col="red")
+
+
+points(x,log(yexp),col="green")
+
+
+```
+
+
+
+```{r}
+lm(ylineal~x)
+
+
+
+modelo_pot=lm(log10(ypot)~log10(x))
+modelo_pot$coefficients
+10^modelo_pot$coefficients[1]
+modelo_pot$coefficients
+
+
+modelo_exp=lm(log10(yexp)~x)
+10^modelo_exp$coefficients
+
+
+```
+
+```{r}
+exponencial=function(x,alpha=1,beta=2){ alpha*beta^x}
+exponencial(0)
+exponencial(1,10,3)
+
+curve(3*1.3^x,xlim=c(0,100))
+curve(exponencial(x,3,1.3),xlim=c(0,100))
+
+```
+

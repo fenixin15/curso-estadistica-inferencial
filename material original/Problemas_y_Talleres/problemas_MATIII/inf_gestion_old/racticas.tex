@@ -1,0 +1,3184 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage[T1]{fontenc}
+ %\input{8bitdefs}
+% \textwidth 15cm
+% \textheight 22cm
+ \setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{24cm}
+ \setlength{\oddsidemargin}{-0.3cm}
+ \setlength{\evensidemargin}{1cm} \addtolength{\headheight}{\baselineskip}
+\addtolength{\topmargin}{-3cm}
+\newcommand{\RR}{\mbox{I\kern-.2em\hbox{R}}}
+\def\N{I\!\!N}
+\def\R{I\!\!R}
+\def\Z{Z\!\!\!Z}
+\def\Q{O\!\!\!\!Q}
+\def\C{I\!\!\!\!C}
+
+% \def\Q{{\mathchoice {\setbox0=\hbox{$\displaystyle\rm
+% Q$}\hbox{\raise
+% 0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.8\ht0\hss}\box0}}
+% {\setbox0=\hbox{$\textstyle\rm Q$}\hbox{\raise
+% 0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.8\ht0\hss}\box0}}
+% {\setbox0=\hbox{$\scriptstyle\rm Q$}\hbox{\raise
+% 0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.7\ht0\hss}\box0}}
+% {\setbox0=\hbox{$\scriptscriptstyle\rm Q$}\hbox{\raise
+% 0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.7\ht0\hss}\box0}}}}
+
+\begin{document}
+
+%\pagestyle{empty}
+\font\sc=cmcsc10
+\parskip=1ex
+%%\newcount\problemes
+\newcounter{problemes}
+\setcounter{problemes}{0}
+
+%%%\newcount\problemes
+%%%\problemes=0
+
+%%%\newenvironment{prob}{\vskip 0.25cm\addtocounter{problemes}{1}
+%%%\noindent{\textbf{\thebloque.\theproblemes.- }}}
+\newenvironment{prob}{\vskip 0.25cm\addtocounter{problemes}{1}
+\noindent{\textbf{\theproblemes.- }}}
+%\newenvironment{resolucion}{\hfill $\bullet$}
+
+
+\newcommand{\sol}[1]{{\textbf{\footnotetext[\theproblemes]{Sol.: #1} }}}
+
+\newcommand{\probl}{\vskip 0.25cm\addtocounter{problemes}{1}
+\noindent{\textbf{\theproblemes.- }}}
+
+%\newcommand{\sol}[1]{{\textbf{\footnotetext[\the\problemes]{Sol.: #1} }}}
+%%%
+%%%\newcommand{\probl}{\addtocounter{problemes}{1} \vskip 2ex \noindent
+%%%{\bf \the\problemes)}}
+%%%
+%%%\def\probl{\advance\problemes by 1
+%%%\vskip 1mm\noindent{\bf \the\problemes) }}
+%%%\newcounter{pepe}
+
+
+
+%%%%%PROBABILIDAD
+\newpage
+\vskip 0.5cm
+%%%\newcount\problemes
+%%%\problemes=0
+
+%\chapter*{\large \textbf{BLOQUE 1 ESTADÍSTICA DESCRIPTIVA (resumen)}}
+\begin{centerline}
+{{\bf ESTAD\'ISTICA DESCRIPTIVA UNIVARIANTE}}
+\end{centerline}
+
+
+\begin{prob}
+Una cadena de franquicias de restaurantes de 1991 a 1995 tuvo 4, 8, 16, 26 y 82
+restaurantes  respectivamente. Un modelo estadístico estima que el número de
+restaurantes entre 1991 y 1997 es 4, 8, 16, 33, 140, 280, y 586. Representar los datos en
+un diagrama de barras combinado.
+\end{prob}
+
+
+\begin{prob}
+Determinar la media (aritmética) la mediana y la moda del siguiente conjunto de datos:
+\begin{center}
+\begin{tabular}{rrrrrrrrrr}
+3,&5,&7,&8,&8,&8,&10,&11,&12,&12\\ 13,&14,&14,&15,&16,&18,&19,&21,&23,&25
+\end{tabular}
+\end{center}
+\end{prob}
+
+\begin{prob}
+Estimar la media la mediana y la moda de los siguientes datos continuos agrupados en
+intervalos:
+
+\begin{center}
+\begin{tabular}{l|c}
+Intervalo de clase & Frecuencia\\ \hline de 0 a 9 & 50 \\ de 10 a 19 & 150\\ de 20 a 29 &
+100\\ de 30 a 40 & 50\\ \hline
+\end{tabular}
+\end{center}
+\end{prob}
+
+\begin{prob}
+\'Idem que en el anterior para la tabla:
+
+
+\begin{center}
+\begin{tabular}{l|c}
+Intervalo de clase & Frecuencia\\ \hline $\left[ -0.5,9.5 \right)$ & 50 \\ $\left[
+9.5,19.5 \right)$ & 150\\ $\left[ 19.5,29.5 \right)$ & 100\\ $\left[ 29.5,40.5 \right)$ &
+50\\ \hline
+\end{tabular}
+\end{center}
+\end{prob}
+
+
+\begin{prob}
+?`Son diferentes los resultados de los dos ejercicios anteriores, por qué?
+\end{prob}
+
+
+\begin{prob}
+Discutir el significado de las distintas medidas de centralización en cada uno de los
+casos siguientes:
+\begin{enumerate}[a)]
+\item Datos sobre el número de empleados anuales de una
+compañía fundada en $1920$.
+\item Datos de localidades preferidas por las grandes empresas para
+celebrar sus reuniones anuales.
+\item Datos sobre el coste medio de una pensión de jubilación.
+\item Datos de una muestra de $100$ batidoras domésticas de una
+población de $10000$ batidoras.
+\end{enumerate}
+\end{prob}
+
+\begin{prob}
+Una editorial tiene $4000$ títulos en catálogo. Podemos clasificar los distintos libros
+en novelas, biografías  y otros tipos de libros de venta más preferente en librerías. De
+los siguientes datos de número de copias vendidas, estimar las ventas medias por título.
+
+\begin{center}
+\begin{tabular}{l|c}
+{\parbox{2cm} {Intervalo de unidades vendidas}} & Frecuencia \\ \hline 0-999 & 500 \\
+1000-4999 & 800 \\ 5000-24999 & 700 \\ 25000- 49999 & 1500 \\ 50000 o más & 500\\
+\hline
+\end{tabular}
+\end{center}
+\end{prob}
+
+\begin{prob}
+Con los datos del ejercicio anterior. Si el título de mayores ventas
+ vendió 1000000 de copias en el año en que se recogieron los
+datos ?`cuál es la desviación estándar estimada para las ventas por título?
+\end{prob}
+
+
+\begin{prob}A 50 aspirantes a un determinado puesto de trabajo se
+les sometió a una prueba. Las puntuaciones obtenidas fueron:
+\begin{center}
+\begin{tabular}{cccccccccc}
+4 & 4 & 2 & 10 & 1 & 9 & 5 & 3 & 4 & 5 \\ 6 & 6 & 7 & 6 & 8 & 7 & 6 & 8 & 7 & 6 \\ 5 & 4
+& 4 & 4 & 5 & 6 & 6 & 7 & 5 & 6 \\ 6 & 7 & 5 & 6 & 6 & 7 & 5 & 6 & 4 & 3 \\ 2 & 6 & 6 & 7
+& 7 & 8 & 8 & 9 & 8 & 7
+\end{tabular}
+\end{center}
+\begin{enumerate}[a)]
+\item {Construir la tabla de frecuencias y la representación
+gráfica correspondiente.}
+\item {Encontrar la puntuación que seleccione al 20\% de los
+mejores candidatos.}
+\end{enumerate}
+\end{prob}
+\begin{prob}En la población de estudiantes de la facultad, se
+seleccionó  una muestra de 20 alumnos y se obtuvieron  las siguientes tallas en cm.:
+$$
+\begin{tabular}{ll}
+&162,168,174,168,166,170,168,166,170,172,\\ & 188,182,178,180,176, 168,164, 166,164,172
+\end{tabular}
+$$
+
+Se pide:
+\begin{enumerate}[a)]
+\item{Descripción numérica y representación gráfica.}
+\item {Media aritmética, mediana y moda.}
+\end{enumerate}
+\end{prob}
+\begin{prob}Agrupando los datos del ejercicio anterior en intervalos
+de amplitud 10 cm., se pide:
+\begin{enumerate}[a)]
+\item {Descripción numérica y representación gráfica.}
+\item {Media aritmética, mediana  y moda.}
+\item {Analizar los cálculos hechos y los errores de agregación
+comparándolos con el ejercicio anterior.}
+\end{enumerate}
+\end{prob}
+
+\begin{prob}Las tres factorías de una industria han producido en
+el último año el siguiente  numero de motocicletas por trimestre:
+
+$$
+\vbox{\halign{\offinterlineskip\strut\hskip0.25cm # \hskip0.25cm& \hskip0.25cm\hfill #
+\hskip0.25cm&\hskip0.25cm\hfill # \hskip0.25cm& \hskip0.25cm\hfill # \hskip0.25cm\cr &
+factoría 1 & factoría 2 & factoría 3 \cr $1^{\underline{o}}$. trimestre & 600 & 650  &
+550  \cr $2^{\underline{o}}$. trimestre & 750 & 1200 & 900 \cr $3^{\underline{o}}$.
+trimestre & 850 &1250 & 1050 \cr $4^{\underline{o}}$. trimestre & 400 & 800 & 650 \cr }}
+$$
+
+Obtener:
+\begin{enumerate}[a)]
+\item{Producción media trimestral de cada factoría y de toda la
+industria.}
+\item{Producción media diaria de cada factoría y de toda la
+industria teniendo  en cuenta que durante el primer trimestre hubieron  68 días
+laborables, el segundo, 78, el tercero, 54 y el cuarto, 74.}
+\end{enumerate}
+\end{prob}
+
+\begin{prob}Una empresa ha pagado por un cierto articulo: 225, 250,
+300 y 200 pts. de precio. Determinar el precio medio  en las siguientes hipótesis:
+\begin{enumerate}[a)]
+\item {Compraba por valor de 38250, 47500, 49500 y 42000 pts.
+respectivamente.}
+\item {Compraba cada vez un mismo importe global.}
+\item {Compraba 174, 186, 192 y 214 unidades respectivamente.}
+\end{enumerate}
+\end{prob}
+
+\begin{prob}Sobre una muestra de 56 tiendas distintas, se obtuvieron
+los siguientes precios de venta de un determinado articulo:
+
+$$
+\vbox{\halign{\offinterlineskip\strut\hskip0.25cm # \hskip0.25cm& \hskip0.25cm #
+\hskip0.25cm&\hskip0.25cm # \hskip0.25cm& \hskip0.25cm # \hskip0.25cm&\hskip0.25cm #
+\hskip0.25cm& \hskip0.25cm # \hskip0.25cm&\hskip0.25cm # \hskip0.25cm\cr
+ 3260 & 3510 & 3410 & 3180 & 3300 & 3540 & 3320 \cr
+3450 & 3840 & 3760 & 3340 & 3260 & 3720 & 3430 \cr 3320 & 3460 & 3600 & 3700 & 3670 &
+3610 & 3910 \cr 3610 & 3610 & 3620 & 3150 & 3520 & 3430 & 3330 \cr 3370 & 3620 & 3750 &
+3220 & 3400 & 3520 & 3360 \cr 3300 & 3340 & 3410 & 3600 & 3320 & 3670 & 3420 \cr 3320 &
+3290 & 3550 & 3750 & 3710 & 3530 & 3500 \cr 3290 & 3410 & 3100 & 3860 & 3560 & 3440 &
+3620 \cr }}
+$$
+Se pide:
+\begin{enumerate}[a)]
+\item {Agrupar la información en seis intervalos de igual
+amplitud y hacer la representación gráfica correspondiente}
+\item {Media aritmética y desviación típica}
+\item {Desviación media respecto de la media aritmética y la
+mediana.}
+\end{enumerate}
+\end{prob}
+
+\begin{prob} La siguiente  distribución corresponde al capital
+pagado por las 420 empresas de la construcción con domicilio fiscal en una región
+determinada:
+$$\vbox{\halign{\offinterlineskip\strut\hskip0.25cm \hfill #
+\hskip0.25cm& \hskip0.25cm \hfill # \hskip0.25cm\cr
+ Capital (millones de pts.) & Número de empresas\cr
+ menos de 5 &12\cr
+ de 5 a 13 &66\cr
+ de 13 a 20 &212\cr
+ de 20 a 30 &84\cr
+ de 30 a 50 &30\cr
+ de 50 a 100 &14\cr
+ más de 100 &2\cr}}
+$$
+\begin{enumerate}[a)]
+\item{Haciendo  servir como  marcas de clase del primer y
+último intervalo 4 y 165 respectivamente, encontrar la media aritmética y la desviación
+típica}
+\item {Calcular la moda y la mediana}
+\item {Estudiar gráficamente su simetría}
+\end{enumerate}
+\end{prob}
+
+\begin{prob}La distribución de los ingresos en España en el
+inicio y final del segundo plan de desarrollo (1967-70) era:
+$$\vbox{\halign{\offinterlineskip\strut\hskip0.25cm \hfill #
+\hskip0.25cm& \hskip0.25cm \hfill # \hskip0.25cm&\hskip0.25cm \hfill # \hskip0.25cm\cr
+ Ingresos medios( en miles de pts)& \%  Hogares 1967& \% Hogares
+1970\cr hasta a 60 & 20.02 & 13.87\cr de 60 a 120 & 49.46 & 39.20\cr de 120 a 180 & 17.27
+& 24.31\cr de 180 a 240 & 6.48 & 11.44\cr de 240 a 500 & 5.14 & 8.54\cr de 500 a 1000 &
+1.46 & 1.42\cr de 1000 a 2000 & 0.88 & 0.80\cr de 2000 a 5000 & 0.21 & 0.30\cr
+ más de 5000 & 0.08 & 0.12\cr
+}}$$
+
+Utilizando el  $Q_{1}$ (percentil 25) y $Q_{3}$ (percentil 75) como umbrales de pobreza y
+riqueza entre los  que se encuentra la clase media de la población y usarlo en la
+clasificación siguiente:
+$$
+\vbox{\halign{\strut\offinterlineskip\strut #&\hskip1cm#&#&#\cr \vbox{\halign{\strut #\cr
+Intervalo \cr al que \cr pertenecen\cr}}& clase&&\cr \noalign{\hrule} hasta
+$Q_{1}$\hfill & baja&&\cr \vbox{\halign{\strut \offinterlineskip#\cr de $Q_{1}$ a $M_{e}$
+(Media)\hfill \cr de  $M_{e}$  a $Q_{3}$\hfill\cr}}&
+$
+%\left.
+\vbox{\halign{\strut \offinterlineskip#\cr media baja\hfill\cr
+ media alta\hfill\cr}}
+%\right\}
+$&&\cr
+ más de $Q_{3}$\hfill & alta\hfill&&\cr}}
+$$
+Discutir la veracidad de los siguientes conclusiones relativas al segundo plan de
+desarrollo:
+\begin{enumerate}[a)]
+\item {La diferencia entre les clase baja y alta aumentó.}
+\item  {El recorrido entre las clases media baja  y media  alta
+también aumentó, siendo  menor el incremento en el primer caso que en el segundo.}
+\end{enumerate}
+\end{prob}
+
+
+\begin{prob}La siguiente tabla muestra la distribución de les
+cargas máximas que soportan los hilos producidos en una cierta fábrica:
+$$\vbox{\halign{\offinterlineskip\strut
+\vrule \hfill#\hfill\vrule&\hfill#\hfill\vrule \cr \noalign{\hrule} Carga
+máxima(Tm)&Número de hilos\cr \noalign{\hrule} 9.25-9.75&2\cr 9.75-10.25&5\cr
+10.25-10.75&12\cr 10.75-11.25&17\cr 11.25-11.75&14\cr 11.75-12.25&6\cr 12.25-12.75&3\cr
+12.75-13.25&1\cr \noalign{\hrule} }}$$ Encontrar la media y la varianza. Dar un intervalo
+donde estén  al menos el 90\% de los datos. \
+\end{prob}
+
+\begin{prob}Las calificaciones finales  de 20
+estudiantes de estadística son:
+$$
+\begin{array}{ll}&59,
+60, 62, 68, 68, 71, 73, 73, 75, 75,\\ & 76, 79, 82, 84, 85, 88, 88, 90, 93, 93.
+\end{array}
+$$
+Hacer la distribución de frecuencias, y los histogramas de frecuencias relativas y
+relativas acumuladas en tantos por cien.
+\end{prob}
+
+
+\begin{prob}
+La siguiente tabla muestra los precios por persona y noche en hoteles
+ y pensiones del área metropolitana de una ciudad española en pts:
+
+
+\begin{tabular}{ccccccccccccc}
+6500 & 3800 & 5450 & 2795 & 2500 & 3200 & 8400 & 4700 & 4500 & 3295 \\ 7000 & 3700 & 6400
+& 2600 & 4000 & 4500 & 3400 & 4700 & 6100 & 6600 \\ 4300 & 4600 & 6200 & 5600 & 4700 &
+5200 & 2800 & 2800 & 2600 & 3200 \\ 9400 & 4000 & 5700 & 3600 & 3000 & 5400 & 6000 & 2395
+& 2395 & 2395 \\ 2395 & 2525 & 5000 & 6500 & 3495 & 6000 & 3200 & 3200 & 2600 & 2500 \\
+3300 & 10000
+\end{tabular}
+
+
+\begin{enumerate}[a)]
+\item Realizar el diagrama de árbol y hojas
+(\textit{stem-and-leaf}) de los datos anteriores (con profundidad), en cientos de pesetas
+(despreciando decimales).
+\item Calcular la distribución de frecuencias (agrupando de forma
+oportuna) de los precios.
+\item Dibujar el histograma de frecuencias absolutas y absolutas
+acumuladas y sus polígonos asociados.
+\item Dibujar el histograma de frecuencias relativas  y relativas
+acumuladas y sus polígonos asociados.
+\item Dibujar el diagrama de caja asociado a los datos.
+\item Dibujar el diagrama de tarta de los precios.
+\item Comentar todos los gráficos.
+\end{enumerate}
+\end{prob}
+
+
+\begin{prob}Supongamos que seis vendedores necesitan vender un total
+de 50 aspiradoras en un mes. El señor A vende 7 durante los primeros 4 días; el señor B
+vede 10 durante los siguientes  5 días; el señor C vende 12 durante los siguientes 5
+días; el señor D vende  10 durante los siguientes  4 días; el señor E vende 6 durante los
+siguientes  3 días y el señor F vende 5 durante los siguientes  3 días. Encontrar el
+promedio de aspiradoras vendidas por día.
+\end{prob}
+
+\begin{prob}Consideremos la siguiente variable discreta que nos da el
+numero de veces que la gente se examina para  aprobar el examen de conducir. Los
+resultados, dada  una muestra de 30 aspirantes, son:
+
+$$
+\vbox{\halign{\offinterlineskip\strut\hskip0.05cm #\hskip0.05cm& \hskip0.05cm
+#\hskip0.05cm&\hskip0.05cm #\hskip0.05cm& \hskip0.05cm #\hskip0.05cm&\hskip0.05cm
+#\hskip0.05cm& \hskip0.05cm #\hskip0.05cm&\hskip0.05cm #\hskip0.05cm& \hskip0.05cm
+#\hskip0.05cm&\hskip0.05cm #\hskip0.05cm& \hskip0.05cm #\hskip0.05cm\cr 4, & 3, & 1, & 1,
+& 1, & 1, & 2, & 2, & 2, & 3, \cr  2, & 1, & 2, & 2, & 1, & 2, & 1, & 1, & 1, & 2, \cr 2,
+& 3, & 1, & 3, & 3, & 3, & 2, & 1, & 4, & 1, \cr}}
+$$
+Encontrar $\overline{X}$ y $s_X^2$.
+\end{prob}
+
+\begin{prob}
+Los pesos en Kg. de 120  langostas compradas en una pescadería fueron:
+
+\begin{tabular}{ccccccccccc}
+  0.66  & 0.47  & 0.58 & 0.68   & 0.56   & 0.52   & 0.54   & 0.59   &
+0.56   &
+  0.72   & 0.63\\
+  0.59  & 0.56  & 0.56 & 0.49   & 0.63   & 0.53   & 0.56   & 0.55   &
+0.50   &
+  0.75   & 0.56 \\
+  0.59  & 0.66  & 0.61 & 0.56   & 0.52   & 0.48   & 0.56   & 0.68   &
+0.77   &
+  0.59   & 0.53 \\
+  0.56  & 0.65  & 0.51 & 0.59   & 0.49   & 0.62   & 0.54   & 0.56   &
+0.56   &
+  0.61   & 0.50 \\
+  0.61  & 0.45  & 0.65 & 0.55   & 0.54   & 0.61   & 0.64   & 0.56   &
+0.71   &
+  0.59   & 0.56 \\
+  0.59  & 0.64  & 0.49 & 0.56   & 0.48   & 0.64   & 0.56   & 0.62   &
+0.54   &
+  0.53   & 0.55 \\
+  0.56  & 0.63  & 0.56 & 0.52   & 0.66   & 0.68   & 0.62   & 0.56   &
+0.59   &
+  0.54   & 0.50 \\
+  0.56  & 0.62  & 0.49 & 0.56   & 0.64   & 0.60   & 0.53   & 0.55   &
+0.64   &
+  0.59   & 0.60 \\
+  0.52  & 0.56  & 0.66 & 0.54   & 0.68   & 0.59   & 0.56   & 0.48   &
+0.54   &
+  0.56   & 0.67 \\
+  0.63  & 0.46  & 0.48 & 0.68   & 0.61   & 0.56   & 0.54   & 0.49   &
+0.65   &
+  0.56   & 0.61 \\
+  0.45  & 0.73  & 0.60 & 0.68   & 0.65   & 0.56   & 0.54   & 0.55   &
+0.60   & 0.60
+\end{tabular}
+
+\begin{enumerate}[a)]
+\item Realizar el diagrama de tallo y hojas
+(\textit{stem-and-leaf}) de los datos anteriores (con profundidad), gramos.
+\item Calcular la distribución de frecuencias (agrupando de forma
+oportuna) de los pesos.
+\item Dibujar el histograma de frecuencias absolutas y absolutas
+acumuladas y sus polígonos asociados.
+\item Dibujar el histograma de frecuencias relativas  y relativas
+acumuladas y sus polígonos asociados.
+\item Dibujar el diagrama de caja asociado a los datos.
+\item Dibujar el diagrama de tarta de los precios.
+\item Comentar todos los gráficos.
+\end{enumerate}
+\end{prob}
+
+
+\begin{prob}
+Los siguientes pesos en Kg. corresponden a langostas  compradas en la misma
+pescadería pero en un mes distinto:
+
+\begin{tabular}{cccccccccccc}
+  & 0.76   & 0.81   & 0.72   & 0.80   & 0.57   & 0.52   & 0.67   &
+    0.59   & 0.67   & 0.85   & 1.10 \\
+  & 0.60   & 0.82   & 1.19   & 0.61   & 0.77   & 0.83   & 1.15   &
+    0.56   & 0.75   & 0.96   & 0.57 \\
+  & 0.95   & 0.81   & 0.97   & 0.64   & 0.62   & 0.86   & 0.70   &
+    0.79   & 1.00   & 0.70   & 1.06 \\
+  & 0.79   & 0.67   & 0.95   & 0.81   & 0.53   & 0.92   & 0.73   &
+    0.64   & 0.65   & 0.71   & 0.68 \\
+  & 0.92   & 0.56   & 0.76   & 1.04   & 0.61   & 0.62   & 0.93   &
+    0.81   & 0.87   & 0.76   & 0.77 \\
+  & 0.75   & 0.89   & 0.53   & 0.82   & 0.95   & 0.88   & 0.65   &
+    0.85   & 0.76   & 0.85   & 0.64 \\
+  & 0.84   & 0.74   & 0.76   & 0.90   & 0.96   & 0.94   & 1.10   &
+    0.69   & 0.62   & 0.58   & 0.52 \\
+  & 0.57   & 0.88   & 0.69   & 0.79   & 0.66   & 0.92   & 0.93   &
+    0.74   & 1.17   & 0.67   & 0.61 \\
+  & 0.81   & 0.87   & 1.15   & 0.66   & 0.87   & 0.87   & 0.68   &
+    0.49   & 0.89   & 1.21   & 0.92 \\
+  & 0.72   & 0.48   & 1.03   & 1.05   & 0.70   & 0.58   & 0.70   &
+    1.04   & 0.76   & 0.65   & 0.68 \\
+  & 0.52   & 0.79 &   1.03   & 0.77   & 0.99   & 1.24   & 0.59   &
+    0.91   & 0.66   & 0.71
+\end{tabular}
+
+  Realizar un  estudio comparativo de los dos grupos de langostas
+  mediante gráficas.
+\end{prob}
+
+\begin{centerline}
+{{\bf ESTAD\'ISTICA DESCRIPTIVA BIVARIANTE}}
+\end{centerline}
+
+
+\begin{prob}
+{Las puntuaciones obtenidas por 26 concursantes  a un puesto  de trabajo en las pruebas
+de procesador de textos (PT) y  hoja de cálculo (C) han sido, en este orden:
+
+$$
+\begin{array}{l}
+(1,2)\ (1,3)\  (2,1)\  (2,3)\ (2,2)\  (2,1)\  (1,2)\  (2,1)\
+(1,3)\  (3,2)\  (2,2)\  (2,3)\  (1,3)\
+\\  (3,1)\
+(3,2)\  (1,1)\  (3,2)\  (2,1) \  (3,3)\  (1,1)\  (2,1)\  (1,3)\
+(1,2)\ (2,2)\  (2,1)\  (1,3)
+\end{array}
+$$
+Calcular la tabla de contingencia $n_{i,j}$.}
+\end{prob}
+
+\begin{prob}
+{Un servicio regular de transportes a larga distancia dispone  del
+siguiente modelo relativo a las variables:
+$$
+\begin{array}{l}
+X=\mbox{retraso en horas sobre la hora de llegada prevista,}\\ Y=\mbox{velocidad modal en
+el recorrido.}
+\end{array}
+$$
+$$\vbox{\halign{\offinterlineskip\strut\vrule\ $#$ &\vrule
+\ $#$ &\vrule\ $#$ &\vrule\  $#$
+\vrule\cr\noalign{\hrule}X\backslash Y & 40-50 & 50-60 &
+60-80\cr\noalign{\hrule}0-1&0&0&0,32\cr\noalign{\hrule}
+1-2&0&0,13&0,08\cr\noalign{\hrule}2-3&0,16&0,10&0\cr\noalign{\hrule}
+3-4&0,15&0,06&0\cr\noalign{\hrule}}}$$ Estudiar la independencia
+entre $X$ e $Y$ calcular el coeficiente de contingencias de
+Pearson $C_P$.}
+\end{prob}
+
+\begin{prob}
+{En un proceso de manufacturación de un artículo de vestir se han controlado dos
+características: tiempo empleado y perfeccionamiento en el acabado, teniendo la siguiente
+distribución de frecuencias conjunta sobre una muestra de 120 unidades:
+$$\vbox{\halign{\offinterlineskip\strut\vrule\ $#$ &\vrule
+\ $#$ &\vrule\ $#$ &\vrule\ $#$ &\vrule\  $#$ \vrule \cr\noalign{\hrule}\hbox{Errors
+encontrados}\backslash\hbox{minutos
+empleados}&3&4&5&6\cr\noalign{\hrule}0&2&5&10&12\cr\noalign{\hrule}
+1&6&10&28&8\cr\noalign{\hrule}2&15&12&6&6\cr\noalign{\hrule}}}$$ Se pide:
+\begin{itemize}
+\item[a)] {Distribuciones marginales.}
+\item[b)] {Media aritmética, moda y desviación típica de las distribuciones
+marginales.}
+\end{itemize}
+}
+\end{prob}
+
+
+\begin{prob}
+{Las 130 agencias de una entidad bancaria presentaban, en el
+ejercicio 1984, las observaciones siguientes:
+$$
+\begin{array}{l}
+X=\mbox{tipo de cuenta (corriente, a plazo fijo,...)/total de cuentas,}\\ Y=\mbox{saldo
+medio de las cuentas a 31-XII (en cientos de euros.).}
+\end{array}
+$$
+$$\vbox{\halign{\offinterlineskip\strut\vrule\ $#$ &\vrule
+\ $#$ &\vrule\ $#$ &\vrule\  $#$
+\vrule\cr\noalign{\hrule}Y\backslash X & \hbox{menos de
+0,1}&\hbox{de 0,1 a 0,3}& \hbox{más de
+0,3}\cr\noalign{\hrule}\hbox{menos de
+20}&48&0&0\cr\noalign{\hrule}\hbox{de 20 a
+50}&21&11&0\cr\noalign{\hrule}\hbox{de 50 a
+100}&14&8&2\cr\noalign{\hrule}\hbox{de 100 a
+250}&7&5&1\cr\noalign{\hrule}\hbox{más de
+250}&6&6&1\cr\noalign{\hrule}}}$$
+ Se pide:
+\begin{itemize}
+\item[a)] {Distribuciones marginales.}
+\item[b)] {Mediana de $Y$ y tercer cuartil de $X$.}
+\item[c)] {Distribución de las agencies según $Y$,cuando el ratio
+$X$ esta entre $0,1$ y $0,3$.}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{De una muestra de 24 puestos de venta en un mercado de provisiones se  recogió
+información sobre $X:$ número de balanzas e $Y:$ número de dependientes.
+$$\vbox{\halign{\offinterlineskip\strut\vrule\ $#$ &\vrule
+\ $#$ &\vrule\ $#$ &\vrule\ $#$ &\vrule\  $#$
+\vrule\cr\noalign{\hrule}X\backslash Y &
+1&2&3&4\cr\noalign{\hrule}1&1&2&0&0\cr\noalign{\hrule}
+2&1&2&3&1\cr\noalign{\hrule}3&0&1&2&6\cr\noalign{\hrule}
+4&0&0&2&3\cr\noalign{\hrule}}}$$ Calcular la covarianza entre
+estas dos características.}
+\end{prob}
+
+\begin{prob}
+{La siguiente distribución corresponde a los controls a los  que han sido sometidas 42
+piezas por dos secciones del equipo de control de calidad:
+$$\vbox{\halign{\offinterlineskip\strut\vrule\ $#$ &\vrule
+\ $#$ &\vrule\ $#$ &\vrule\ $#$ &\vrule\  $#$
+\vrule\cr\noalign{\hrule} \hbox{Controles sección 2}\backslash
+\hbox{Controles sección 1} &
+0&1&2&3\cr\noalign{\hrule}0&0&3&6&6\cr\noalign{\hrule}
+1&2&4&3&4\cr\noalign{\hrule}2&6&2&0&0\cr\noalign{\hrule}
+3&3&2&1&0\cr\noalign{\hrule}}}$$
+
+Se pide:
+\begin{itemize}
+\item[a)] {Distribución de los controles efectuados por la sección 2,
+media, moda y mediana.}
+\item[b)] {Coeficiente de correlación lineal entre estas
+variables.}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{Las seis cooperativas agrarias de una comarca presentaban las
+siguientes cifras correspondientes a las variables:
+$$
+\begin{array}{l}
+X=\mbox{stock medio diario en naves de almacenamiento (miles de euros.)}\\ Y= \mbox{cifra
+comercializada diariamente (en miles de euros.)}\\ Z=\mbox{empleados fijos en
+plantilla.}\\ V=  \mbox{empleados eventuales.}
+\end{array}
+$$
+$$\vbox{\halign{\offinterlineskip\strut\vrule\ $#$ &\vrule
+\ $#$ &\vrule\ $#$ &\vrule\ $#$ &\vrule\  $#$ \vrule\cr\noalign{\hrule}
+\hbox{Cooperativa}&X&Y&Z&V\cr\noalign{\hrule}A&26&146&6&8 \cr\noalign{\hrule}
+B&33&167&8&6\cr\noalign{\hrule}C&12&92&6&8\cr\noalign{\hrule}
+D&18&125&8&6\cr\noalign{\hrule}E&18&118&10&4
+\cr\noalign{\hrule}F&25&132&10&4\cr\noalign{\hrule}}}$$ Calcular el coeficiente de
+correlación lineal entre las variables $(X,Y)$, $(Y,Z)$ y $(Z,V)$.}
+\end{prob}
+
+\begin{prob}
+{Se pidió a dos usuarios de detergentes que clasificaran 6
+detergentes de acuerdo con sus preferencias. Los resultados
+fueron:
+$$\vbox{\halign{\offinterlineskip\strut\vrule\ $#$ &\vrule
+\ $#$ &\vrule\ $#$ \vrule\cr\noalign{\hrule}
+\hbox{Detergente}&\hbox{Usu. A}&\hbox{Usu. B}\cr\noalign{\hrule}
+A&2&3\cr\noalign{\hrule}B&4&2\cr\noalign{\hrule}
+C&5&4\cr\noalign{\hrule}D&1&1\cr\noalign{\hrule}
+E&6&6\cr\noalign{\hrule}F&3&5\cr\noalign{\hrule}}}$$ Calcular el
+coeficiente de correlación de Spearman, e interpretar el
+resultado.}
+\end{prob}
+
+\begin{prob}
+{Los siguientes datos corresponden a las calificaciones otorgadas
+a 18 empleados después de unos cursillos de especialización
+realizados por una agencia de ventas:
+$$\vbox{\halign{\offinterlineskip\strut\vrule\ # &\vrule\ $#$
+&\vrule\ $#$ &\vrule\ $#$ &\vrule\ $#$ &\vrule\ $#$ &\vrule\ $#$
+ &\vrule\ $#$ &\vrule\ $#$ &\vrule\ $#$ &\vrule\ $#$ &\vrule\ $#$
+ &\vrule\ $#$ &\vrule\ $#$ &\vrule\ $#$ &\vrule\ $#$ &\vrule\ $#$
+ &\vrule\ $#$ &\vrule\ $#$ \vrule\cr\noalign{\hrule}
+empleado&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16&17&18
+\cr\noalign{\hrule}\noalign{\hrule}persuasión&0&0&1&2&1&2&0&1&2&1&1&1&2&1&0&1&1&0
+\cr\noalign{\hrule}retentiva&1&0&1&0&1&0&2&1&0&1&2&1&1&2&0&1&1&2
+\cr\noalign{\hrule}prudencia&1&1&1&2&2&1&0&1&2&0&1&1&0&0&0&1&1&2
+\cr\noalign{\hrule}}}$$ Se pide:
+\begin{itemize}
+\item[a)] {Distribución de las puntuaciones de retentiva y prudencia.}
+\item[b)] {Distribución de las puntuaciones en persuasión y prudencia
+para aquellos que no han obtenido un cero en retentiva.}
+\item[c)] {Distribución de las puntuaciones en persuasión  de aquellos
+que han sacado  un 1 en las pruebas de retentiva y prudencia.}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{Una cartera de valores puede estar compuesta por dos tipos d e acciones con una
+rentabilidad dada por la siguiente distribución conjunta, según una escala subjetiva que
+les concedemos ``a priori'':
+$$\vbox{\halign{\offinterlineskip\strut\vrule\ $#$ &\vrule
+\ $#$ &\vrule\ $#$ \vrule\cr\noalign{\hrule} \hbox{Rentabilidad
+$X_2$}\backslash\hbox{Rentabilidad $X_1$}&\hbox{De 5 a
+10}&\hbox{De 10 a 15}\cr\noalign{\hrule} \hbox{De 0 a
+5}&0,06&0,02\cr\noalign{\hrule}\hbox{De 5 a
+10}&0,14&0,38\cr\noalign{\hrule} \hbox{De 10 a
+15}&0,30&0,10\cr\noalign{\hrule}}}$$ Se pide:
+\begin{itemize}
+\item[a)] {?`Cuál  de las dos acciones presenta mayor rentabilidad
+media esperada?}
+\item[b)] {?`Cuál de las dos acciones presenta menos varianza en su
+rentabilidad?}
+\item[c)] {Calcular la covarianza entre las rentabilidades.}
+\end{itemize}
+}
+\end{prob}
+
+
+\newpage
+
+
+
+\begin{centerline}
+{{\bf PROBABILIDAD}}
+\end{centerline}
+
+
+\newcommand{\pr}[1]{P(#1)}
+
+%\newcounter{problema}
+%\newcommand{\prb}{\addtocounter{problema}{1}
+%\noindent\vskip 2mm {\textbf{\theproblemes  }}
+
+
+%\setcounter{problema}{105}
+ %
+ %  %tema 7
+%%%fulla 4
+
+\probl  En una carrera en la que participan diez caballos ?`de
+cuántas maneras diferentes se pueden dar los cuatro primeros
+lugares? \sol{\bf 5040}
+
+\probl  Una empresa de reciente creación encarga a un diseñador gráfico la elaboración
+del su logotipo, indicando que ha de seleccionar exactamente tres colores de una lista de
+seis. ?`Cuántos grupos tienen para elegir el diseñador? \sol{\bf 20}
+
+\probl  ?`Cuántas palabras diferentes, de cuatro letras, se pueden
+formar con la palabra {\bf byte}? \sol{\bf 24}
+
+\probl  ?`De cuantas maneras diferentes se pueden elegir el director y el subdirector de
+un departamento formado por 50 miembros? \sol{\bf 2450}
+
+\probl  Con once empleados ?`cuántos comités de  empresa de cinco
+personas se pueden formar? \sol{\bf  462}
+
+\probl  ?`Cuántas maneras distintas hay de colocar quince libros diferentes en una
+estantería si queremos  que el  de Probabilidades esté el  primero y  el de Estadística
+en el tercero? \sol{\bf 6227020800}
+
+\probl  ?`Cuántos caracteres diferentes podemos formar utilizando a lo sumo  a tres
+símbolos  de los utilizados en el alfabeto Morse? \sol{\bf 14}
+
+\probl  Un supermercado  organiza una rifa con un premio de  una botella de cava para
+todas las papeletas que tengan las dos últimas cifras iguales a las correspondientes dos
+últimas cifras del número premiado en el sorteo de Navidad. Supongamos que todos los
+décimos tienen cuatro cifras y que existe un único décimo de cada numeración ?`Cuántas
+botellas repartirá el supermercado? \sol{\bf 100}
+
+\probl  ?`Cuántas  palabras diferentes podemos formar con todas las letras de la palabra
+estadística? \sol{\bf 2494800}
+
+\probl  En una tienda de regalos hay relojes de  arena con cubetas
+de colores, y no hay diferencia alguna entre las  dos cubetas que
+forman cada reloj. Si hay cuatro  colores posibles y el color de
+los dos recipientes puede coincidir ?`cuántos  modelos de reloj de
+arena puede ofrecer el establecimiento? \sol{\bf 10}
+
+\probl  En una partida de parchís gana aquel jugador que consigue alcanzar antes  con sus
+cuatro fichas la llegada. Si hay  cuatro jugadores y la partida continua hasta que todos
+han completado el recorrido?`cuántos   órdenes de llegadas hay para la dieciséis fichas?
+\sol{\bf 63063000}
+
+\probl  Se han de repartir cinco becas entre diez españoles  y seis extranjeros, de
+manera que se den tres a españoles y dos a extranjeros ?`De cuántas maneras se puede hacer
+el reparto? \sol{\bf 1800}
+
+\probl  ?`Cuantas  fichas tiene un dominó? \sol{\bf 28}
+
+
+
+
+\probl  Calcular la probabilidad de que al lanzar a la vez $5$
+dados se obtenga:
+\begin{enumerate}[a)]
+\item repóker (5 resultados iguales);
+\item póker (4 resultados iguales);
+\item full (3 resultados iguales y los otros distintos pero iguales entre si);
+\item trio (3  resultados iguales y los otros dos  diferentes);
+\item doble pareja (2 resultados  iguales, otros 2 iguales y diferentes de los anteriores y el restante diferente
+);
+\item pareja (exactamente 2 resultados iguales);
+\item nada (5 resultados distintos).
+\end{enumerate}
+\sol{ a) $\bf 6/6^5$; b) $\bf 150/6^5$;c) $\bf 300/6^5$;  d) $\bf
+1200/6^5$; e) $\bf 1800/6^5$; f) $\bf 3600/6^5$; g) $\bf 720/6^5$}
+
+\probl  Tenemos 12 radios de las   que  5 son defectuosas. Elegimos  3 radios al azar.
+?`Cuál  es la probabilidad de que sólo una de las 3 sea defectuosa? \sol{{\bf 21/44}}
+
+\probl  Lanzamos al aire 6 dados.
+\begin{enumerate}[a)]
+\item ?`Cuál es la probabilidad de que todos ellos den resultados distintos?
+\item ?`Cuál es la probabilidad de obtener 3 parejas?
+\end{enumerate}
+\sol{ a)$\mathbf{120/6^5}$; b)  $\mathbf{300/6^5}$ }
+
+\probl  Supongamos que en una empresa de fabricación de componentes electrónicos se sabe
+que en un lote de 550 almacenados el 2\% son   defectuosos ?`Cuál es la probabilidad de
+encontrar 2 de defectuosos si cogemos de forma equiprobable 25? \sol{$\mathbf{0.074}$}
+
+\probl  Si mezclamos   suficientemente una baraja de 52 cartas ?`cuál es la probabilidad
+de que los 4 ases queden colocados consecutivamente? \sol{{\bf 24/132600}}
+
+\probl  Una forma de incrementar la  fiabilidad de un sistema es la introducción de una
+copia de los componentes en una configuración paralela. Supongamos  que la N:A.S.A.
+quiere un vuelo  con una probabilidad no inferior a $0.99999$ de  que el transbordador
+espacial entre en órbita alrededor de la Tierra con éxito. ?`Cuántos   motores se han de
+montar en  paralelo para que se  alcance esta fiabilidad, si se sabe que la probabilidad
+de que cada uno de los motores funcione adecuadamente es $0.95$? Suponer que los motores
+funcionan de manera independiente entre si. \sol{{\bf 4}}
+
+\probl  ?`Cuál es la probabilidad de  que  entre
+ $n$ personas, que no han nacido el 29 de
+febrero,  haya  como a mínimo dos que hayan nacido el mismo día del año? (no
+necesariamente del mismo año). Calcular la probabilidad para los siguientes valores de
+$n: 10, 15, 22, 23, 30, 40, 50, 55$. \sol{$\mathbf 0.12; 0.25; 0.48; 0.51; 0.71; 0.89;
+0.97; 0.99$}
+
+\probl  Cuatro cartas numeradas de $1$ a $4$ están colocadas  boca abajo sobre una  mesa.
+Una persona, supuestamente clarividente, irá adivinando  los valores de las $4$ cartas
+una a una. Si suponemos que es un farsante y que lo que hace  es decir los cuatro números
+al azar ?`cuál es la probabilidad de   que acierte como mínimo una ? (Obviamente, no
+repite ningún número) \sol{\bf 15/24}
+
+\probl  En una lotería hay $500$ billetes y $5$ premios. Si una persona compra $10$
+billetes ?`cuál es la probabilidad de obtener?:
+\begin{enumerate}[a)]
+\item el primer premio?
+\item como  mínimo un premio?
+\item exactamente un premio?
+\end{enumerate} \sol{{\bf 0.02; 0.096; 0.093}}
+
+\probl  Se elige de forma equiprobable un número del $1$ al
+$6000$. Calcular la probabilidad de que sea múltiplo de $2$ o de
+$3$ o de $4$ o de $5$. \sol{\bf 0.73}
+
+
+\probl  Si elegimos un número de entre los 120 primeros enteros
+  positivos  ?`cuál es la probabilidad de  que  sea
+múltiplo de $3$, no sea divisible por 5, y sea divisible por 4 o
+por 6? \sol{\bf 2/15}
+
+\probl  Una cuarta parte de la población ha sido  vacunada contra
+una enfermedad contagiosa. Durante una epidemia, se observa que de
+  uno de entre cada cuatro enfermos ha sido vacunado.
+\begin{enumerate}[a)]
+\item ?`Ha tenido alguna eficacia la vacuna?
+\item Por otra parte, se sabe que hay un enfermo  entre cada $12$ personas
+vacunadas ?`Cuál es la probabilidad de que  esté enferma una
+persona que no se ha vacunado?\sol{a) {\bf Sí}; b) {\bf 1/9}}
+\end{enumerate}
+
+\probl La probabilidad de  que un estudiante  acabe una carrera determinada es $0.4$.
+Dado un grupo de $5$ estudiantes de esta carrera, calcular la probabilidad de que:
+
+\begin{enumerate}[a)]
+\item  ninguno acabe la carrera,
+\item sólo uno acabe la carrera,
+\item al menos dos acaben la carrera;
+\item todos la acaben.
+\end{enumerate}
+\sol{\bf a) 0.07776; b) 0.2592; c) 0.66304; d) 0.01024}
+
+\probl  Un  mensaje se ha codificado con un alfabeto de dos símbolos $A$ y $B$ para poder
+transmitirse a través de un canal de comunicación. La codificación es tal que $A$ aparece
+el doble de veces que $B$ en el mensaje codificado. El ruido del canal es tal que cuando
+$A$ se transmite, se recibe  $A$ con una probabilidad de $0.8$ y  $B$ con una
+probabilidad de  $0.2$; cuando se transmite $B$ se recibe  $B$ con una probabilidad de
+$0.7$ y se recibe $A$ con probabilidad $0.3$.
+\begin{enumerate}[a)]
+\item ?`Cuál es la frecuencia relativa de $A$ en el mensaje recibido?
+\item Si última letra del mensaje recibido es una $A$ ?`cuál es la probabilidad de que
+ se haya enviado una $A$?
+\end{enumerate}\sol{{\bf a) 0.633; b) 0.84}}
+
+\probl  En una ciudad se publican 3 diarios $A$, $B$ y $C$. El $30
+\%$ de la población lee $A$, el $20 \%$ lee $B$ y el $15 \%$ lee
+C; el $12 \%$ lee $A$ y $B$, el $9 \%$ lee $A$ y $C$, y el $6 \%$
+lee $B$ y $C$; finalmente, el $3 \%$ lee $A$, $B$ y $C$.
+Calcular:\
+\begin{enumerate}[a)]
+\item El porcentaje de gente que lee al menos uno de los tres diarios.
+\item El porcentaje de gente que sólo lee $A$.
+\item  El porcentaje de gente que lee $B$ o $C$, pero no $A$.
+\item  El porcentaje de gente que lee $A$ o no lee ni $B$ ni $C$.
+\sol{ \bf{ a) 0.41 ; b) 0.12; c) 0.11; d) 0.89}}
+\end{enumerate}
+
+
+ \probl  Supongamos que en un dado la probabilidad de cada una de sus seis
+ caras es proporcional al número inscrito en ella. Calcular la probabilidad
+de obtener un número par. \sol{\bf 4/7}
+
+\probl  En una reunión, $n$ personas ($n \geq 3$) lazan una moneda
+al  aire. Si una de ellas da diferente de todas las otras, su
+propietario paga una ronda ?`Cuál es la probabilidad de que pase
+esto? \sol{$\mathbf{(n \cdot \left( {1 \over 2} \right)^{n-1})}$}
+
+
+
+%%%%fulla 3
+
+
+\probl  Un matrimonio planifica  su descendencia  considerando los
+siguientes esquemas (se supone que tener una varón o una hembra es
+equiprobable):
+\begin{description}
+\item[Esq. A)] Tener $3$ varones.
+\item[Esq. B)] Tener varones hasta que nazca la primera hembra, o ya tengan tres
+niños (lo que pase primero).
+\item[Esq. C)] Tener niños hasta que tengan una pareja de ambos sexos,
+ o ya tengan tres niños (lo que pase primero).
+\end{description}
+Sea $B_i$ el suceso  han nacido $i$ niños ($i=1, 2, 3$) y $C$ el suceso tener más varones
+que hembras.
+\begin{enumerate}[1)]
+\item Calcular $p(B_1)$ y $p(C)$ en cada uno de  los tres esquemas.
+\item Calcular $p(B_2)$ y $p(B_3)$ en cada uno de los tres esquemas.
+\item Sea $E$ el suceso que la familia completa tenga igual número de
+varones que de hembras. Encontrar $p(E)$ en cada uno de los tres
+esquemas.
+
+\sol{a) $\bf(p(B_1)=3/8,1/4,5/8; p(C)=1/2,1/2,1/4)$; b) $\bf
+(p(B_2)=3/8,1/8,1/8; p(B_3)=1/8,1/8,1/8)$; c)
+$\mathbf{(0,1/4,1/2)}$.}
+\end{enumerate}
+
+\probl  Un comerciante ha de viajar en avión de Bangkok a Bagdad. Preocupado, pide a la
+compañía aérea cuál es la probabilidad de que haya como mínimo una bomba en el avión y le
+dicen que es de $0.1$. Más preocupado aún pide cuál es la probabilidad de que haya como
+mínimo dos bombas y le dicen que es $0.01$. Más tranquilo, decide llevar una bomba en su
+equipaje. Haciendo las suposiciones adicionales oportunas ?`qué  valoración estadística
+podemos hacer de su decisión? \sol{\bf Decisión absurda por sentido común y
+estadísticamente. }
+
+\probl  Dos sistemas con cuatro componentes independientes con
+fiabilidades respectivas $p_1, p_2, p_3$ y $p_4$ se configuran de
+las dos maneras siguientes: En el sistema $A$, la combinación en
+serie de los components $1$  y $2$ se configura en paralelo con la
+combinación en serie de los componentes $3$ y $4$; en el sistema
+$B$, la combinación en paralelo de $1$ y $3$ se configura en serie
+con la combinación en paralelo de $2$ y $4$. Determinar el sistema
+más fiable. \sol{\bf B}
+
+\probl  Si un sistema que consiste en tres components independientes con la misma
+fiabilidad ($p_1=p_2=p_3$) tiene una fiabilidad de $0.8$, determinar $p_1$ en los
+siguientes casos:
+
+\begin{enumerate}[a)]
+\item el componente 3 está configurado en serie con la combinación en paralelo
+$1$ y $2$.
+ \item el componente 3 está configurado en paralelo
+con la combinación en serie de $1$ y $2$.
+\end{enumerate}
+ \sol{\bf a) 0.825; b)
+0.652}
+%%
+%%\probl  N'\`Oscar diu la veritat nou vegades de cada deu i n'Ivan
+%%set de cada nou. S'extreu a l'atzar una bolla d'una bossa on hi
+%%havia 5 bolles blanques i 20 negres. Tots dos observen el color de
+%%la bolla extreta i llavors diuen de manera independent que la
+%%bolla extreta és blanca. Quina és la probabilitat que aix\`o sigui
+%%cert? \sol{\bf 0.89}
+
+
+
+%%%%%%%%%%%%%tema 8
+%
+\newpage
+
+%\problemes=0
+\begin{centerline}
+{{\bf VARIABLES ALEATORIAS}}
+\end{centerline}
+
+
+\probl{En los ocho problemas siguientes determinar la función de probabilidad y la de
+distribución de las variables aleatorias que aparezcan}
+\begin{enumerate}[a)]
+\item Consideremos el experimento  consistente en lanzar simultáneamente dos dados; repetimos
+el ex\-pe\-ri\-mento dos veces. Sea $X$ la variable aleatoria que da  el número de
+lanzamientos en que los dos dados han mostrado un número par. Sea $Y$ la variable aleatoria
+que nos da el número de lanzamientos en que la suma de los dos dados es par.
+
+\item  Supongamos que tenemos almacenadas $10$ piezas, de las que sabemos que hay $8$ del
+tipo I y $2$ del tipo II; se toman dos al azar de forma equiprobable. Sea $X$ la variable
+aleatoria que da el número de piezas de tipo I que hemos cogido.
+
+\item  Supongamos  que un estudiante realiza el tipo de examen siguiente: El profesor le va
+formulando preguntas hasta que el estudiante falla una (no os preguntéis como se evalúa ni
+yo lo sé). La probabilidad  de que el estudiante acierte  una pregunta cualquiera es $0.9$
+(examen fácil). Sea $X$ la variable aleatoria que nos da el número de preguntas formuladas
+por el profesor ?`Cuál es el número más probable de preguntas formuladas?
+
+\item   Consideremos  dos cañones que van disparando alternativamente hacia el mismo
+objetivo. El primer cañón tiene una probabilidad de acertar el objetivo de $0.3$ mientas
+que en el segundo es de $0.7$. El primer cañón comienza la serie de lanzamientos y no se
+detienen hasta que uno de los cañones desintegre el blanco (es suficiente darle una vez).
+Sea $X$ la variable aleatoria que nos da el número de proyectiles lanzados por el primer
+cañón e $Y$ la que nos da los proyectiles lanzados por el segundo cañón.
+
+\item  En la misma situación que en el ítem anterior,
+considerar la variable aleatoria $X$ que da el número de proyectiles lanzados por el primer
+cañón condicionado a que gana  y sea  $Y$ la variable aleatoria que cuenta el número de
+proyectiles lanzados por segundo cañón cuando gana.
+
+\item  Supongamos que se hace una tirada de $100000$ ejemplares de un determinado libro
+. La probabilidad de que una encuadernación sea incorrecta es  $0.0001$ ?`Cuál es la
+probabilidad de que haya $5$ libros de la tirada mal encuadernados?
+
+\item  Dos compañeros de estudios  se encuentran en un conocido bar de copas de Palma
+y deciden jugar a dardos de una manera especial: Lanzarán consecutivamente un dardo cada
+hasta que uno de los dos acierte el triple $10$ (centro de la diana).  El que lanza en
+primer lugar tiene una probabilidad de $0.7$de acertar  y el que lo hace en segundo lugar
+$0.8$. Sea $X$ la variable aleatoria que da el número total de lanzamientos de dardos
+hechos por los dos compañeros.
+
+\item  Un examen tipo test  consta de $5$ preguntas, cada una  con tres opciones de
+respuesta, sólo hay una opción correcta. Un estudiante contesta al azar  a las $5$
+cuestiones. Sea $X$ la variable aleatoria que da el número de puntos obtenidos por el
+alumno.
+\begin{enumerate}[i)]
+\item Si les respuestas erróneas  no restan puntos.
+\item Si cada respuesta errónea resta 1 punto.
+\end{enumerate}
+\end{enumerate}
+
+
+
+\probl  Un coche tiene que  pasar por cuatro semáforos. En cada uno de ellos el coche tiene
+la misma probabilidad de seguir su marcha que de detenerse. Hallar la función de
+distribución del número de semáforos que pasa el coche sin detenerse.
+
+
+\probl Un individuo quiere invertir un capital de medio millón de euros en un negocio que
+tiene una rentabilidad del $50\%$, pero con el riesgo de perder toda la inversión. Su
+asesor financiero le informa que este negocio tiene una probabilidad de ser rentable del
+$0.8$ ?`Cuál es el beneficio esperado? $\mathbf{(100000)}$
+
+\probl Un juego se dice justo si la ganancia esperada de cada jugador es $0$. Dos jugadores
+A y  B tiran un dado por turnos, y gana el primero que obtiene un $5$. Cada jugador apuesta
+una cantidad $ c_j \ (j=1,2),  $  y el total se lo queda el ganador. Si suponemos que
+comienza  a jugar A ?`qué relación tienen que verificar $c_1$ y $c_2$ para que el juego sea
+justo?
+
+
+\probl  Supongamos que jugamos a la ruleta en un casino. Sea $p<1/2$ la probabilidad de que
+salga un número rojo. Supongamos que apostamos a la par (lo que quiere decir, que si
+apostamos $k$ dólares, cuando sale rojo nos dan $k$ dólares más los que hemos entregado al
+apostar y perdemos los
+ $k$ dólares que hemos apostado si no sale rojo). La primera apuesta es de 1 dólar. Si
+ganamos, nos retiramos. Si perdemos, hacemos una segunda apuesta de $2$ dólares. Si
+ganamos, nos retiramos. Si perdemos, apostamos $2^2$ dólares,  y así sucesivamente. La
+$n$-ésima apuesta será de $2^{n-1}$ dólares.
+
+\begin{enumerate}[a)]
+\item Probar  que con este sistema es seguro que ganamos 1 dólar.
+\item Calcular el importe esperado de la apuesta ganadora. $\mathbf{(\infty)}$
+\end{enumerate}
+
+
+Supongamos ahora que la casa tiene un límite de $2^L$ dólares (el máximo que está permitido
+apostar), de manera que, si no hemos ganado antes, esa será nuestra apuesta final.
+
+\begin{enumerate}[a)]
+\item  ?`Cuál es la ganancia esperado cuando paramos de jugar?
+$\mathbf{(1-(2(1-p))^{L+1})}$
+\item ?`Qué es mejor un límite alto o bajo?  \textbf{(bajo)}
+\end{enumerate}
+
+\probl Se venden 5000 billetes de lotería a 100 pts. cada uno, para  un sorteo con un
+premio de  300000 pts. ?`Cuál es la ganancia (pérdida) esperada de una persona que compra
+tres billetes? $\mathbf{(-120\quad \textrm{pts})}$
+
+
+\probl Un sistema de transmisión emite los dígitos -1, 0, 1. Cuando se transmite el símbolo
+{\it i}, se recibe el símbolo {\it j} con las probabilidades siguientes: $ \pr{r_1 / t_1} =
+1, \ \pr{r_{-1} / t_{-1}} = 1, \ \pr{r_1 / t_0} = 0.1, \ \pr{r_{-1} / t_0} = 0.1, \ \pr{r_0
+/ t_0} = 0.8. $ Se dice que en este caso se ha producido una distorsión $ \displaystyle
+(i-j)^2. $ ?`Cuál es el valor medio de la distorsión? $\mathbf{(1/15)}$
+
+%%%%va la 13
+\probl Una fuente  binaria emite de manera equiprobable e independiente un bloque  de 3
+dígitos (0 ó 1) cada segundo. De cada bloque se envía a una canal de transmisión un 0 si en
+el bloque hay más ceros que unos y un 1 en caso contrario. El canal transmite el dígito con
+una probabilidad de error $p$. El receptor reconstruye la terna de dígitos repitiendo tres
+veces el dígito que ha recibido ?`Cuál es el número medio de bits erróneos por bloque?
+$\mathbf{(\frac{3}{4}+\frac{3\cdot p}{2})}$ ?`Cuál tendría que ser la probabilidad $p$ para
+que este valor medio no fuera más grande que 1?  $\mathbf{(p \leq 1/6)}$
+
+\probl  Dos personas juegan a cara o cruz, y han decidido continuar la partida hasta que se
+obtengan como mínimo $3$ caras  y $3$ cruces. Hallar la probabilidad de que el juego no se
+acabe en $10$ tiradas y el número esperado de tiradas.
+\sol{$\mathbf{\frac{7}{64}=0.109375}$; $\mathbf{E(X)=\frac{63}{8}}$.}
+
+%%%\probl  Calcular la esperanza y la varianza del número de puntos obtenidos en el
+%%%lanzamiento de un dado. \sol{$\mathbf{(7/2,\quad 35/12)}$}
+
+
+
+\probl (Opcional) Es un buen ejercicio calcular la esperanza y la varianza de todas las
+variables que aparecen en el problema  68.
+
+%%%%%ggggggggg
+%\headline{\hfill \bf Fulla 6}
+
+% {\bf PROBABILITATS I PROCESSOS ALEATORIS. 2on TELEM\`ATICA}
+% \vskip 1 cm
+%
+% \magnification \magstep 1
+
+\begin{center}
+\textbf{Variables aleatorias continuas}
+\end{center}
+
+\probl  Sea  $X$ una variable aleatoria continua con función de densidad $f(x)$ dada por:
+$$f(x) = \cases{ k \cdot (1+x^2) & si $x \in (0,3)$\cr 0 & si $ x \not \in (0,3)$\cr}$$
+\begin{enumerate}[a)]
+\item Calcular la constante $k$  y la función de distribución de $X$.
+\item Calcular la probabilidad de que $X$ esté comprendida entre $1$ y $2$
+\item Calcular la probabilidad de  que $X $ sea menor que $1.$
+\item Sabiendo que $X$ es mayor que $1$, calcular la probabilidad de
+que sea menor que $2$. \sol{a)$\mathbf{k=1/12}$; b) $\mathbf{5/18}$; c)$\mathbf{1/9}$; e)
+$\mathbf{5/16}$}
+\end{enumerate}
+
+\probl  La función de densidad de una variable aleatoria continua es: $$f(x) = \cases{ a
+\cdot x^2 + b & si $ x \in (0,3)$\cr 0 & si $ x \not \in (0,3)$\cr}$$.
+
+ Determinar $ a$ y $b$ , sabiendo que
+$P(1 < X \leq 2) = 2/3$.  \sol{$\mathbf{a=-1/2, b=11/6}$}
+
+\probl  La duración en minutos de unas ciertas comunicaciones telefónicas es una variable
+aleatoria con función de distribución:
+$$F(x) = \cases{ 0 & si $ x \leq 0$\cr 1-{1 \over 2} e^{-x/3} - {1 \over 2} e^{-R[x/3]} &
+si $ x > 0$\cr}$$ donde $ R[x] $ es la parte entera de $x.$ Calcular la probabilidad de la
+comunicación  dure:
+\begin{enumerate}[a)]
+\item Más de $6$ minutos.
+\item Menos de $4$ minutos.
+\item Exactamente $3$ minutos.
+\item Menos de $9$ minutos, sabiendo que ha durado más de $5$.
+\item Más de $5$ minutos, sabiendo que ha durado menos de $9$.\sol{a)$\mathbf{e^{-2}}$;
+b)$\mathbf{1-{1 \over 2} e^{-4/3} -{1 \over 2} e^{-1}}$  ; c)
+$\mathbf{{1 \over 2}(1-e^{-1})}$ }
+\end{enumerate}
+
+ \probl  Sea $X$ una variable aleatoria
+ continua con densidad:
+
+$$f(x) = \cases{1-|x| & si $ |x| \leq 1$\cr 0 & en caso
+contrario\cr}$$
+\begin{enumerate}[a)]
+\item  Encontrar  la función de distribución de $ X.$
+\item Calcular $ \pr{X \geq 0}$  y $\pr{|X| < 1/2}.$  \sol{b) $\mathbf{1/2,
+3/4}$}
+\end{enumerate}
+
+
+
+
+% \headline{\hfill \bf Fulla 7}
+%
+% {\bf PROBABILITATS I PROCESSOS ALEATORIS. 2on TELEM\`ATICA}
+%
+% \vskip 1 cm
+% \magnification \magstep 1
+
+
+\probl  Se llama {\bf distribución triangular} a cualquier distribución continua tal que su
+densidad es cero salvo en un cierto intervalo  $ (a,b), $ en el que su gráfica tiene forma
+de triángulo isósceles. Hallar la función de densidad y de distribución de una distribución
+triangular.
+
+
+
+%%%%%%%%distribuciones notables
+
+%%%%%%pppppppp
+
+
+\probl  Sea $X$ una variable aleatoria  continua con densidad (Laplaciana)
+
+$$f(x) = {1 \over 2}  e^{- |x|} \mbox{ si } x\in\RR$$
+
+\begin{enumerate}[a)]
+\item Calcular $ \pr{|X| > 2}.$  \sol{$\mathbf{e^{-2}}$}
+\item Calcular $E(X)$ y $Var(X)$. \sol{$E(X)=0$, $Var(X)=2.$}
+\end{enumerate}
+
+\probl  Consideremos $ f:{\R}\to {\R}  $ dada por
+
+$$f(x) = \cases{ 0 & si $ x \leq 0$\cr a (1+x) & si $ 0 < x \leq
+1$\cr 2/3 & si $ 1 < x \leq 2$\cr 0 & si $ x > 2$\cr}$$
+\begin{enumerate}[a)]
+\item  Determinar el valor de $a$ para que $f$  sea una densidad.
+\item  En este caso, si $X$ es una variable aleatoria
+ continua con densidad $f$, calcular $ \pr{1/2 < X\leq 3/2}$.
+ \item Calcular, para el valor de $a$ encontrado $E(X)$ y $Var(X)$.
+ \sol{a)$\mathbf{a=2/9}$ ; b) $\mathbf{19/36}$; c) $E(X)=\frac{32}{27}$,
+    $Var(X)=\frac{409}{1458}$.}
+\end{enumerate}
+
+% \nopagenumbers
+%
+% \parindent = 0 pt
+%
+% \headline{\hfill \bf Full 8}
+%
+% {\bf PROBABILITATS I PROCESSOS ALEATORIS. 2on TELEM\`ATICA}
+%
+% \vskip 1 cm
+% \magnification \magstep 1
+
+\newpage
+
+\begin{center}
+\textbf{Transformación de variables aleatorias}
+\end{center}
+
+\probl Sea $X$ la variable que nos da la puntuación obtenida al lanzar un dado. Calcular la
+distribución de las variables $Y=X^2$, $Z=X^2-6x+6$. Calcular las esperanzas y las
+varianzas de las variables $Y$ y $Z$.
+
+\probl  Conocida  la función de distribución de una variable aleatoria continua $X$, hallar
+la función de densidad de $\displaystyle Y = X^2$ y de $ Z = e^X.$
+
+\probl  La función de distribución de una variable aleatoria  $X$ es: $$F_{X}(x) = \cases{
+0 & si $ x \leq 0$\cr 1-e^{-x^2} & si $ x
+> 0$\cr}$$ Encontrar la función de densidad de la variable aleatoria
+$Y = \ln (X+1).$
+
+
+\probl  La función de densidad de una variable aleatoria $X$ es:
+
+$$f_{X}(x) = \cases{ x+1 & si $ x \in (-1,0]$\cr -x+1 & si $ x \in
+(0,1]$\cr 0 & si $x \in (-\infty,-1] \cup (1,\infty)$\cr}$$
+
+Definimos la variable aleatoria $Y=g(X)$,  donde $g$ es la función
+
+$$g(x) = \cases{ 1 & si $ x \in (1/2,\infty)$\cr 0 & si $ x \in
+(-1/2,1/2]$\cr -1 & si $x \in (-\infty,-1/2]$\cr}$$
+
+Determinar la función de masa de probabilidad y la de distribución de $Y.$ Calcular las
+esperanzas y varianzas de $X$ e $Y$.
+
+
+
+
+\probl  El precio por estacionar un vehículo en un aparcamiento es de $75$ pts. por  la
+primera hora o fracción, y de $60$ pts. a partir de la segunda hora o fracción. Supongamos
+que el tiempo, en horas, que un vehículo cualquiera permanece en el aparcamiento se
+modeliza según la siguiente función de densidad
+
+$$f_{X}(x) = \cases{e^{-x} & si $ x \geq 0$\cr 0 & si $ x <
+0$\cr}.$$
+
+Calcular  el ingreso medio por vehículo. $\mathbf{(109.919)}$
+
+
+
+
+
+
+
+%%%\probl Calculau l'esperan\c{c}a i la vari\`ancia del nombre de punts
+%%%obtingut en el llan\c{c}ament d'un dau. $\mathbf{(21/6,\quad 35/12)}$
+
+
+
+
+
+\probl Calcular $E(X)$ y $Var(X)$ para una v.a. $X$ que tiene por  funció de densidad $f_X$
+dada por:
+$$f_X(x) = \cases{{1\over 2\sqrt{x}} & si $ x \in (0,1)$\cr 0 & si $ x \not \in
+(0,1)$\cr}$$ $\mathbf{(1/3,\quad 4/45)}$
+
+
+\probl Consideremos una variable aleatoria $X$ con función de densidad:
+$$f_X(x) = \cases{1/2 & si $ 0<x<2$\cr 0 & en caso contrario\cr}$$ determinar
+$E(Y)$, donde $Y = \ln( X).$ $\mathbf{(-0.3069)}$
+
+
+\probl Sea $X$ una variable aleatoria con función de densidad:
+
+$$f_{X}(x) = \cases{2 x & si $x \in (0,1)$\cr 0 & si $x \not \in
+(0,1)$\cr}$$
+\begin{enumerate}[a)]
+\item Determinar $E(\sqrt{X})$ a partir de $f_{\sqrt{X}}.$
+$\mathbf{(4/5)}$
+\item Hacer lo mismo a partir de $f_{X}.$
+\end{enumerate}
+
+
+%%%\probl Un sistema de transmissió emet els dígits -1, 0, 1. Quan se
+%%%transmet el símbol {\it i}, se rep el símbol {\it j} amb les
+%%%segŸents probabilitats: $ \pr{r_1 / t_1} = 1, \ \pr{r_{-1} /
+%%%t_{-1}} = 1, \ \pr{r_1 / t_0} = 0.1, \ \pr{r_{-1} / t_0} = 0.1, \
+%%%\pr{r_0 / t_0} = 0.8.  $ Se diu en aquest cas que s'ha produ•t una
+%%%distorsió $ \displaystyle (i-j)^2.  $ Quin és el valor mitj\`a de la
+%%%distorsió? $\mathbf{(1/15)}$
+
+%%%%va la 13
+%%%\probl Una font bin\`aria emet de manera equiprobable i
+%%%independentment un bloc de 3 dígits (0 o 1) cada segon. De cada
+%%%bloc envia a un canal de transmissió un 0 si al bloc hi ha més 0's
+%%%que 1's, i un 1 en cas contrari. El canal transmet el dígit amb
+%%%una probabilitat d'error {\it p}. El receptor reconstrueix la
+%%%terna de dígits repetint tres vegades el dígit que ha rebut. Quin
+%%%és el nombre mitj\`a de bits erronis per bloc?
+%%%$\mathbf{(\frac{3}{4}+\frac{3\cdot p}{2})}$ Quina hauria de ser la
+%%%probabilitat {\it p} per tal que aquest valor mitj\`a no fos més
+%%%gran que 1? $\mathbf{(p \leq 1/6)}$
+
+
+\begin{center}
+ \textbf{Desigualdad Chebychef}
+\end{center}
+
+
+
+
+\probl Sea $X$ una variable aleatoria que toma los valores $-k,0,k$ con probabilidades
+$\frac{1}{8}, \frac{3}{4}$ y $\frac{1}{8}$ respectivamente.
+
+\begin{enumerate}[a)]
+\item Calcular $ \pr{| X - \mu | \geq 2 \sigma} \ (\mu =
+E(X), \sigma^2 =Var(X)).$ $\mathbf{(1/4)}$
+\item Obtener una cota superior de la probabilidad
+anterior utilizando la desigualdad de Chebychef. $\mathbf{(1/4)}$
+\end{enumerate}
+
+\probl Sea $X$ una variable aleatoria con función de densidad
+
+$$f(x) = \cases{ 1 - |x| & si $ |x| < 1$\cr 0 & si $ |x| \geq
+1$\cr}$$
+\begin{enumerate}[a)]
+\item Calcular $ \pr{| X | \geq k}, \ \  $ donde $ 0 < k < 1.$
+$\mathbf{((1-k)^2)}$
+\item  Obtener una cota superior de la probabilidad anterior utilizando
+la desigualdad de Chebychef. $\mathbf{(\frac{1}{6k^2})}$
+\item  Comparar los dos resultados anteriores
+para $ k = 0.1, 0.2, \ldots , 0.9$
+\end{enumerate}
+
+
+
+
+
+%%%%%% va la 14
+\probl El número de periódicos vendidos en un kiosko es una variable aleatoria de media
+$200$ y desviación típica $10$. ?`Cuántos ejemplares diarios tiene que encargar el dueño del
+kiosko para tener una seguridad de que el menos el $99$\% de los días no se quedará sin
+existencias? $\mathbf{(300)}$
+
+\probl El número de días al año que un trabajador de un pequeño comercio está de baja por
+enfermedad es  una variable aleatoria de media $10$ y  desviación típica $2$. Si cada uno
+de estos días la empresa pierde $10000$ pts., determinar los límites inferior y superior de
+las pérdidas anuales por trabajador con un grado de fiabilidad no inferior a $95$\%.
+$\mathbf{(10.560)}$ y $\mathbf{(189.440)}$ pts.
+
+\probl El ayuntamiento de una ciudad ha decido establecer una zona de aparcamiento
+limitado, en la que aparcan $500$ vehículos  diarios por termino medio. Si al menos el
+$99$\% de los días el número de coches que utilizan esta servicio está entre $175$ y $525$,
+estimar la desviación típica de la variable aleatoria que da el número  de vehículos
+diarios que ocupan plazas de estacionamiento limitado. $\mathbf{(2.5)}$
+
+\probl Probar  que $E((X-C)^2)$ toma el valor mínimo respecto de un valor real $C$ para
+ $C = \mathrm{E}(X).$ ?`Cuál es el valor del mínimo?
+
+
+
+\probl  El número medio de personas que van a un local es $1000$, con una desviación típica
+de $20$ ?`Cuál es el número de sillas necesarias para que sea seguro, con una probabilidad
+no inferior a $0.75$ , que todos los asistentes podrán sentarse? \sol{$\mathbf{(1040)}$}
+
+%%%\probl D'una urna formada per 3 bolles blanques i 2 negres
+%%%s'extreuen tres bolles sense devolució. Obteniu:
+%%%
+%%%\begin{enumerate}[a)]
+%%%\item La funció característica de la variable aleat\`oria que dóna el
+%%%nombre de bolles negres extretes fins a obtenir la primera bolla
+%%%blanca.
+%%%\item L'esperan\c{c}a i la vari\`ancia de la variable aleat\`oria anterior.
+%%%$\mathbf{(1/2,\quad 9/20)}$
+%%% \end{enumerate}
+%%%
+%%%\probl Sigui $ X  $ una variable aleat\`oria amb densitat
+%%%
+%%%$$f(x) = \cases{1 & si $ 0 < x < 1$\cr 0 & si $ x \not \in
+%%%(0,1)$\cr}$$
+%%%
+%%%\begin{enumerate}[a)]
+%%%\item Calculau la seva funció característica.
+%%%\item  Obteniu $\mathrm{E}(X)$ a partir de $\phi_{X}.$ $\mathbf{(1/2)}$
+%%% \end{enumerate}
+%%%
+%%%\probl Sigui $X$ una variable aleat\`oria amb densitat
+%%%
+%%%$$f(x) = \cases{2x & si $ 0 < x < 1$\cr 0 & si $ x \not \in
+%%%(0,1)$\cr}$$
+%%%
+%%%Determinau $ \Phi_{X}.$
+%%%
+%%%\probl Sigui $X$ una v.a. amb densitat $f_{X}(x)=p a e^{-a
+%%%x}+(1-p) b e^{-b x}$ si $x\geq 0$ i zero en qualsevol altre cas on
+%%%$0<p<1$ trobau $\Phi_{X}$.
+%%%
+%%%\probl Una v.a. $X$  té distribució gamma amb par\`ametres
+%%%$\alpha>0,\lambda>0$ si la seva funció de densitat es
+%%%
+%%%$f_{X}(x)=\left\{\begin{array}{ll}\frac{\lambda (\lambda
+%%%x)^{\alpha-1} e^{-\lambda x}}{\Gamma(\alpha)} & \mbox{ si } x>0\\
+%%%0 & \mbox{en qu alsevol altre cas}\end{array}\right.$
+%%%
+%%%On $\Gamma(\alpha)=\int_{0}^{+\infty} x^{\alpha-1} e^x dx$  (amb
+%%%$\alpha>0$. La funció gamma verifica les seg\"{u}ents propietats: a)
+%%%$\Gamma(\frac{1}{2}=\sqrt{\pi}$; b)
+%%%$\Gamma(\alpha+1)=\alpha\Gamma(\alpha)$ si $\alpha>0$; c)
+%%%$\Gamma(n+1)=n!$ si $n\in \Z^{+}$
+%%%
+%%%  si $\alpha=m\in\Z^{+}$ la distribució gamma es diu distribució
+%%%$m$-Erlang.
+%%%
+%%%\begin{enumerate}[a)]
+%%%    \item Trobau la transformada de Laplace de la distribució gamma.
+%%%\item Trobau la esperan\c{c}a  i la varian\c a de la distribució gamma.
+%%%\end{enumerate}
+\newpage
+
+\begin{centerline}
+{{\bf DISTRIBUCIONES NOTABLES}}
+\end{centerline}
+ %\textbf{Distribuciones notables}
+
+ \begin{prob} Usar la desigualdad de Chebychef para estimar el número de veces
+ que se tiene que lanzar al aire una moneda bien balanceada si queremos tener un probabilidad
+ de al menos  $0.9$ de que la frecuencia relativa de caras esté comprendida entre $0.45$ y $0.55$
+ $\mathbf{(1000)}$
+ \end{prob}
+%  
+% \begin{resolucion}
+%  
+%  Sea $X$ el número de caras esn $n$ lanzamientos indpendientes de una moneda conprobabilidad de cara $p$.
+%  La v.a. sigue una ley $B(n,\frac{1}{2})$. Sabemos que $E(X)=\frac{n}{2}$ y que $Var(X)=\frac{n}{4}$.
+%  La frecuencia realtiva de caras en los $n$ lanzamientos  será $\frac{X}{n}$
+% Nos piden que calculemos mediante la desigualdad de Chebychef el menor valor de $n$ tal que:
+
+% $$P(0.45\leq \frac{X}{n}\leq 0.55)>0.9$$
+
+
+% $P(0.45\leq \frac{X}{n}\leq 0.55)= P(n\cdot 0.45\leq X \leq n\cdot 0.55)=
+% P(n\cdot 0.45- \frac{n}{2}\leq X - \frac{n}{2} \leq n\cdot 0.55- \frac{n}{2})= 
+% P(n\cdot 0.45- \frac{n}{2}\leq X - \frac{n}{2} \leq n\cdot 0.55- \frac{n}{2})= $
+%\end{resolucion}
+
+
+%%%
+%%%\end{document}
+%%%% {\bf PROBABILITATS I PROCESSOS ALEATORIS. 2on TELEM\`ATICA}
+%%%\newpage
+%%%%\problemes=0
+%%%\begin{centerline}
+%%%{{\bf MOMENTS D'UNA V.A.}}
+%%%\end{centerline}
+
+
+%%%\probl  Un individu vol invertir un capital de mig milió de pts.
+%%%en un negoci que té una rendibilitat del $50\%$, per\`o amb el
+%%%possible risc de perdre tota la inversió. El seu assessor financer
+%%%l'ha informat que aquest negoci té una probabilitat 0.8 de ser
+%%%rendible. Quin és el benefici esperat? \sol{$\mathbf{(100.000)}$}
+%%%
+%%%\probl  Un joc se diu que és just si el guany esperat de cada
+%%%jugador és 0. Dos jugadors A i B tiren un dau per torns, i guanya
+%%%el primer que obté un 5. Cada jugador aposta una quantitat $ c_j \
+%%%(j=1,2),  $ i el total se'l quedar\`a el guanyador. Si suposam que
+%%%comen\c{c}a a jugar A, quina condició han de verificar $ c_1$ i $c_2 $
+%%%perqu\`e el joc sigui just? \sol{$\mathbf{(6 c_2 = 5 c_1)}$}
+%%%
+%%% \probl   El preu per estacionament en un aparcament és
+%%%de 75 pts. per a la primera hora o fracció, i de 60 pts. a partir
+%%%de la segona hora o fracció. Suposem que el temps, en hores, que
+%%%un vehicle qualsevol roman a l'aparcament se modelitza segons la
+%%%funció de densitat
+%%%
+%%%$$f_{X}(x) = \cases{e^{-x} & si $ x \geq 0$\cr 0 & si $ x <
+%%%0$\cr}$$
+%%%
+%%%Calculau l'ingrés mitj\`a per vehicle. \sol{$\mathbf{(109.8)}$}
+%%%
+%%%\probl   Sigui $ X  $ una variable aleat\`oria amb funció de
+%%%densitat
+%%%
+%%%$$f(x) = \cases{0 & si $ x \leq 0$\cr 2(1+x)/9 & si $ 0 < x \leq
+%%%1$\cr 2/3 & si $ 1 < x \leq 2$\cr 0 & si $ x > 2$\cr}$$
+%%%
+%%%Calculau $\mathrm{E}(X )$ i  $\mathrm{Var}(X)$.
+%%%\sol{$\mathbf{(32/27,\quad 0.28)}$}
+%%%
+%%%\probl   Suposem que jugam a la ruleta. Sigui $p<1/2$ la
+%%%probabilitat que surti un número vermell. Suposem que apostam a la
+%%%par (vol dir que, si apostam $k$ d\`ol.lars, mos donen $k$ d\`ol.lars
+%%%més els que hem apostat si surt vermell i perdem els $k$ d\`ol.lars
+%%%que hem apostat si surt negre). La primera aposta és de 1 d\`ol.lar.
+%%%Si guanyam, mos retiram. Si perdem, feim una segona aposta de 2
+%%%d\`ol.lars. Si guanyam, mos retiram. Si perdem, apostam $2^2$
+%%%d\`ol.lars, i així successivament. La $n$-\`essima aposta ser\`a de
+%%%$2^{n-1}$ d\`ol.lars.
+%%%
+%%%\begin{enumerate}[a)]
+%%%\item Provau que amb aquest sistema és segur que guanyarem 1 d\`ol.lar.
+%%%\item Trobau l'import esperat de l'aposta guanyadora.
+%%%\end{enumerate}
+%%%
+%%%
+%%%Suposem ara que la casa té un límit de $2^L$ d\`ol.lars (el m\`axim
+%%%que permet apostar), de manera que, si no hem guanyat abans,
+%%%aquesta ser\`a la nostra aposta final.
+%%%
+%%%\begin{enumerate}[a)]
+%%%\item  Quin és el guany esperat quan mos aturem de jugar?
+%%%
+%%%\item Qu\`e és millor un límit alt o baix?  \sol{1b)
+%%%$\mathbf{(\infty)}$; 2a)$\mathbf{(1-(2(1-p))^{L+1})}$; 2b)baix }
+%%%\end{enumerate}
+%%%%%%%%va la 11
+%%%
+%%%\probl  El temps de vida, en anys, d'un cert component d'una
+%%%m\`aquina se modelitza mitjan\c{c}ant la seg\"{u}ent funció de densitat
+%%%
+%%%$$f_{X}(x) = \cases{e^{-x} & si $ x \geq 0$\cr 0 & si $ x <
+%%%0$\cr}$$
+%%%
+%%% Si el cost $ Y  $ de funcionament del component, en milions de
+%%%pts., és funció del temps de vida, $ Y = 2 X^2 + 1,  $ calculau la
+%%%quantitat que espera gastar l'empresa en concepte de manteniment.
+%%%\sol{$\mathbf{(5)}$}
+%%%
+%%%%%%%%%%%\probl  Calculau l'esperan\c{c}a i la vari\`ancia de les variables
+%%%%%%%%%%%aleat\`ories estudiades en el tema 2.
+%%%
+%%%\probl  Una dona a qui robaren la seva bossa va descriure el seu
+%%%assaltant com un homo de 2m 10cm d'alt, amb un capell color
+%%%taronja, camisa vermella, cal\c{c}ons verds i sabates grogues. Al cap
+%%%d'una estona, una persona que responia a aquesta descripció va
+%%%esser detinguda a uns quants blocs de dist\`ancia, i se la va acusar
+%%%del robatori. Creis que hi ha prou proves perqu\`e sigui declarat
+%%%culpable? Per qu\`e?\sol{No}
+
+\probl   Sea $X$ el número de éxitos en $n$ repeticiones independientes de un experimento
+con probabilidad de éxito $p$.
+\begin{enumerate}[a)]
+\item  Si $k$ es el valor más probable de $X$, probar que
+ $$(n+1)p - 1 \leq k \leq (n+1)p$$
+\item  Si lanzamos $10$ veces un dado bien balanceado, ?`cuál es el número de veces más probable
+en el que obtendremos un $2$.\sol{b) $\mathbf{(1)}$}
+\end{enumerate}
+
+\probl  Una cadena de producción da salida a $10000$ unidades diarias,  el número medio de
+unidades incorrectas es $200$. Una vez al día, se inspecciona un lote de $100$ unidades.
+Determinar la probabilidad de que el lote contenga más de $3$ unidades incorrectas
+\begin{enumerate}[a)]
+\item Utilizando la distribución binomial.
+\item Utilizando la aproximación de Poisson.
+\sol{a) $\mathbf{(0.1410)}$ ; b)  $\mathbf{(0.1429)}$}
+\end{enumerate}
+
+\probl  En una planta de fabricación de circuitos integrados, la proporción de circuitos
+defectuosos es $p$. Supongamos que la incidencia de circuitos defectuosos es completamente
+aleatoria.
+\begin{enumerate}[a)]
+\item  Determinar la distribución del número $X$ de circuitos
+aceptables producidos antes del primer circuito defectuoso.
+\item  ?`Cuál es la longitud media de una cadena de producción exitosa? si
+$p = 0.05.$\sol{b) $\mathbf{(19)}$}
+\end{enumerate}
+
+\probl Un servidor de mensajería esta en funcionamiento. Los clientes acceden a él de forma
+independiente. La probabilidad de que el servidor caiga cuando accede el cliente es $p$.
+Calcular la distribución de probabilidad del número de clientes a los que se dará servicio
+antes de que el servidor caiga.
+
+\begin{enumerate}[a)]
+\item Calcular el valor esperado y la varianza de esta variable.
+\item  ?`Cuál es la probabilidad de que se de servicio a más de $1000$ clientes sin que se
+caiga el servidor?
+\end{enumerate}
+\sol{a) $\mathbf{(\frac{q}{p};\, \frac{q}p^2)}$ b) $\mathbf{(q^{1001})}$}
+
+\probl Un sistema informático  dispone de un sistema de seguridad compuesto por tres claves
+de $3$ dígitos (del $0$ al $9$) cada una. Para entrar en el sistema hay que averiguar la
+primera clave, luego la segunda y por último la tercera. Un pirata informático intenta
+entrar ilegalmente en el sistema, para ello va introduciendo al azar distintas claves de
+forma independiente, olvidando las que ha introducido antes. Calcular el valor esperado y
+la varianza del número de intentos antes de romper el sistema.
+
+Comparar el resultado anterior cuando se ataca el sistema de forma similar pero cuando el
+sistema de seguridad sólo consta de una clave de $9$ dígitos. ?`Cuál es el sistema más
+seguro, desde el punto de vista del número de intentos necesarios para violarlo?
+
+
+
+
+\probl De un grupo de $10$ personas se eligen $5$ de forma equiprobable y se les pregunta
+si están a favor de una cierta ley. Sea $X$ la variable aleatoria que cuenta el número de
+personas a favor de la ley entre las $5$. Supongamos que hay una persona a favor por cada
+nueve en contra.
+
+\begin{enumerate}[a)]
+\item Calcular la función de probabilidad de $X$.
+\item Calcular la esperanza y la varianza de $X$.
+\item Supongamos ahora que la población es de tamaño $10000$ ?`podemos suponer un modelo
+binomial para $X$?, en este caso ?`varía mucho la esperanza y la varianza con respecto al
+modelo hipergeométrico?
+\end{enumerate}
+
+
+
+
+\probl  Los taxis llegan aleatoriamente (según un proceso Poisson) a la terminal de un
+aeropuerto con un ritmo medio de un taxi cada $3$ minutos. ?`Cuál es la probabilidad de que
+el último pasajero de una cola de $4$ tenga que esperar un taxi más de un cuarto de hora?
+\sol{$\mathbf{(0.265)}$}
+
+
+%%%%%%%%%%va la 12
+
+
+
+\probl  La variable aleatoria $X$ sigue una ley  $\displaystyle N(\mu, \sigma^2). $ Sabemos
+que   $ \mu = 5  \sigma,
+ $ y  que $ \pr{X < 6} = 0.8413.$
+
+\begin{enumerate}[a)]
+\item Determinar la esperanza y la varianza de $X$.
+\item ?`Cuál es la función de distribución de $ Y = 3
+- X^2  $ y su esperanza? \sol{a)$\mathbf{(5,\quad 1)}$ ; b) $\mathbf{E(Y) = -23}$}
+\end{enumerate}
+
+%%%\probl  Sigui $ X  $ una variable aleat\`oria amb funció de
+%%%densitat:
+%%%
+%%%$$f_{X}(x) = \cases{2x & si $x \in (0,1)$\cr 0 & si $x \not \in
+%%%(0,1)$\cr}$$
+%%%\begin{enumerate}[a)]
+%%%\item Determinau $\mathrm{E}(\sqrt{X})$ a partir de $f_{\sqrt{X}}.$
+%%%\sol{a) $\mathbf{(4/5)}$}
+%%%\item El mateix a partir de $f_{X}.$
+%%%\end{enumerate}
+
+
+
+
+\probl  Consideremos una variable aleatoria $X$ con función de densidad $f_X$ dada por:
+$$f_X(x) = \left\{\begin{array}{ll}
+1/2 & \mbox{si }  0<x<2\\ 0 & \mbox{en otro caso}\end{array}\right.$$
+ determinar
+$\mathrm{E}( Y)$, donde $Y= \ln X.$ \sol{$\mathbf{(-0.3069)}$}
+
+\probl  Sea $X$ una variable aleatoria continua con distribución uniforme sobre el
+intervalo  $(0,1).$
+\begin{enumerate}[a)]
+\item Encontrar las funciones de densidad de las variables aleatorias
+ $Y
+= g(X)$ y $Z = h(X),$ donde $g(x) = 8 x^3$ y $h(x) = (x-1/2)^2.$
+\item  Calcular la esperanza de las variables aleatorias $Y$ y
+$Z$ como esperanzas de v.a. y como esperanzas de funciones de la v.a. $X$. \sol{b)
+$\mathbf{(2,\quad 1/12)}$}
+ \end{enumerate}
+
+
+
+
+
+\probl  El percentil $90$ de una variable aleatoria $X$ es el valor $x_{90}$ para el que $
+\displaystyle F_{X}(x_{90}) = \pr{X \leq x_{90}} = 0.9. $ De manera similar, el percentil
+$50$ es el valor $x_{50}$ que satisface $ \pr{X \leq x_{50}} = 0.5 $ que recibe el nombre
+de  {\bf mediana} (poblacional). Determinar estos dos valores para  una variable aleatoria
+exponencial de valor medio $10$. \sol{$\mathbf{(23.0585,\quad 6.93147)}$}
+
+\probl  Usar la desigualdad de Chebyshef para estimar el número de veces que hay  que
+lanzar una moneda, no trucada, al aire si queremos tener una probabilidad de al menos
+ el $90$\% de que la frecuencia de caras este comprendida entre $0.45$ y $0.55$.
+\sol{$\mathbf{(1000)}$}
+
+\probl  Una centralita recibe llamadas telefónicas con un ritmo medio de $\mu$ llamadas por
+minuto. Calcular la probabilidad de que el intervalo entre dos llamadas consecutivas supere
+al intervalo  medio en más de dos desviaciones típicas, comparar este resultado con la cota
+superior dada por la desigualdad de Chebyshef \sol{$\mathbf{0.05,\quad 0.25}$}.
+
+
+
+
+\newpage
+
+\begin{centerline}
+{{\bf Variables aleatorias vectoriales}}
+\end{centerline}
+
+\begin{prob}
+Los estudiantes de una universidad se clasifican de acuerdo a sus años en la universidad
+($X$) y el número de visitas a un museo el último año($Y=0$ si no  hizo ninguna visita
+$Y=1$ si hizo una visita, $Y=2$ si hizo más de una visita). En la tabla siguiente aparecen
+la probabilidades conjuntas que se estimaron para estas dos variables:
+
+    $$\begin{tabular}{c|cccc}
+        \hline\\
+        Núm. de Visitas (Y) & &Núm. de años (X) & & \\
+        \hline
+          & 1& 2 & 3  & 4 \\
+         \hline\\
+         0 & 0.07 & 0.05 & 0.03 & 0.02\\
+         1 & 0.13 & 0.11 & 0.17 & 0.15\\
+         2 & 0.04 & 0.04 & 0.09 & 0.10\\
+         \hline
+        \end{tabular}
+        $$
+        \begin{enumerate}[a)]
+            \item Hallar la probabilidad de que un estudiante elegido
+            aleatoriamente no haya visitado ningún museo el último año.
+            \item Hallar las medias de las variables aleatoria $X$ e $Y$.
+            \item Hallar e interpretar la covarianza y la correlación
+            entre las variables aleatorias $X$ e $Y$.
+            \end{enumerate}
+        \sol{a) 0.17; b) $E(X)= 2.59$, $E(Y)=1,10$; c) $Cov(X,Y)=0.191$,
+        $r_{XY}$=0.259291}
+        \end{prob}
+
+\begin{prob}
+    Un vendedor de libros  de texto realiza llamadas  a los despachos de
+    lo profesores, y tiene la impresión que éstos suelen ausentarse
+    más de los despachos los viernes  que cualquier otro día
+    laborable. Un repaso a las llamadas, de las cuales un quinto se
+    realizan los viernes, indica que  para el 16\% de las llamadas
+    realizadas en viernes, el profesor no estaba en su despacho, mientras
+    que esto ocurre sólo  para el 12\% de llamadas que se realizan en
+    cualquier otro día laborable. Definamos las variables aleatorias
+    siguientes:
+    $$X=\left\{\begin{array}{ll}
+    1 & \mbox{si la llamada es realizada el viernes}\\
+    0 & \mbox{en cualquier otro caso}
+    \end{array}\right.
+    $$
+    $$Y=\left\{\begin{array}{ll}
+    1 & \mbox{si  el profesor está en el despacho}\\
+    0 & \mbox{en cualquier otro caso}
+    \end{array}\right.
+    $$
+    \begin{enumerate}[a)]
+    \item Hallar la función de probabilidad conjunta de $X$ e $Y$.
+    \item Hallar la función de probabilidad condicional de $Y$, dado
+    que $X=0$.
+    \item Hallar las funciones de probabilidad marginal de $X$ e $Y$.
+    \item Hallar e interpretar la covarianza de $X$ e $Y$.
+    \end{enumerate}
+    \sol{\begin{tabular}{l|ll|l|}
+     & & $X$ & \\
+    \hline
+    $Y$ & 0 & 1 & $P_{Y}(y)$\\
+    \hline
+    0 & 0.096 & 0.032 & 0.128\\
+    1 & 0.704 & 0.168&  0.872\\
+    \hline
+    $P_{X}(x)$ & 0.8 & 0.2 & 1
+    \end{tabular};
+    b) \begin{tabular}{l|ll}
+    $Y$ & 0 & 1 \\
+    \hline
+     $P_{Y/X}(y|0)$&0.12& 0.88
+    \end{tabular}
+    c) $Cov(X,Y)=-0.0064$}
+    \end{prob}
+
+
+    \begin{prob} Se lanzan al aire dos dados de diferente color, uno es blanco y el otro rojo.
+     Sea $X$ la variable aleatoria "número de puntos obtenidos con el dado blanco, e $Y$
+     la variable aleatoria "número más grande de puntos obtenido entre los dos dados".
+\begin{enumerate}[a)]
+\item Determinar la función de probabilidad conjunta.
+\item Obtener las funciones de probabilidad marginales.
+\item ?`Son independientes? (\textbf{No})
+\end{enumerate}
+
+\end{prob}
+
+
+  \begin{prob}  Si $X_1 \mbox{ y } X_2 $ son dos  variables aleatorias con distribución Poisson,
+   independientes y con medias respectivas $\alpha \mbox{ y } \beta$, probar que $Y = X_1 +
+X_2 $ también una variable aleatoria Poisson (con media $\> \alpha + \beta$).
+
+\end{prob}
+
+    \begin{prob}
+Las variables aleatorias continuas $X$ e $Y$ tienen por función de densidad
+
+$$
+f(x,y)=\left\{\begin{array}{ll} k(3x^2+2y) & \mbox{si } 0\leq x \leq 1 \mbox{ y }  0\leq y
+\leq 1\\ 0 & \mbox{en cualquier otro caso}
+\end{array}\right.
+$$
+Se pide:
+\begin{enumerate}[a)]
+    \item El valor de la constante $k$.
+    \item Las funciones de densidad marginales.
+    \item Las probabilidades $P(X\leq 0.5)$ y $P(Y\leq 0.3)$
+    \item Las medias y las varianzas  de $X$ y de $Y$.
+    \item La covarianza de $X$ e $Y$.
+    \item La matriz de varianzas-covarianzas y la de correlaciones.
+    \end{enumerate}
+    \sol{a) $k=\frac{1}{2}$;
+     b) $f_{X}(x)=\left\{\begin{array}{ll}
+    \frac{1}{2} (3x^2+1) & \mbox{si } 0\leq x\leq 1\\
+    0 & \mbox{en el resto de casos}\end{array}\right.$;
+    $f_{Y}(y)=\left\{\begin{array}{ll}
+    \frac{1}{2} (1+2y) & \mbox{si } 0\leq y\leq 1\\
+    0 & \mbox{en el resto de casos}\end{array}\right.$;
+    c) $P(X\leq 0.5)=0.312$ y $P(Y\leq 0.3)=0.195$;
+    d) $E(X)=\frac{5}{8}$; $E(Y)=\frac{7}{12}$; $Var(X)=\frac{73}{960}$;
+    $Var(Y)=\frac{11}{144}$.
+    e) $Cov(X,Y)=\frac{-1}{96}$; f)$\left(\begin{array}{rr}
+     \frac{73}{960} & \frac{-1}{96}\\
+      \frac{-1}{96} & \frac{11}{144}\end{array}\right)$}
+\end{prob}
+
+
+\begin{prob}
+    Los gastos $X$  e ingresos $Y$ de una familia se consideran como una
+    variable bidimensional con función de densidad dada por:
+
+
+$$
+f(x,y)=\left\{\begin{array}{ll} k (x+y)  & \mbox{si } 0\leq x \leq 100 \mbox{ y }  0\leq y
+\leq 100\\ 0 & \mbox{en cualquier otro caso}
+\end{array}\right.
+$$
+Se pide:
+\begin{enumerate}[a)]
+    \item El valor de la constante $k$ para que $f(x,y)$ sea densidad.
+    \item La probabilidad $P(0\leq X\leq 60, 0\leq Y\leq 50)$
+    \item Las funciones de densidad marginales.
+    \item Los gastos e ingresos medios.
+    \item La covarianza de $X$ e $Y$.
+    \item La matriz de varianzas-covarianzas.
+    \item La densidad (condicionada) de los gastos
+    de las familias con ingresos $Y=50$. La esperanza de los gastos
+    condicionados a que los ingresos valen $Y=50$.
+    \end{enumerate}
+    \sol{a) $k=\frac{1}{100^3}$; b) 0.165;
+    c) $f_{X}(x)=\left\{\begin{array}{ll}
+    \frac{x+50}{100^2} & \mbox{ si } 0<x<100\\
+    0 & \mbox{ en el resto de casos}
+    \end{array}\right.$, la de $Y$ es similar;
+    d)$E(X)=E(Y)=\frac{175}{3}$;
+    e) $Cov(X,Y)=\frac{-625}{9}$;
+    f) $\left(\begin{array}{cc}
+      \frac{6875}{9} & \frac{-625}{9}\\
+      \frac{-625}{9} &  \frac{6875}{9} \end{array}\right)$;
+    g) $f_{X/Y}(x|50)=
+    \left\{ \begin{array}{ll}
+\frac{1}{100^2} (x+50) & \mbox{si } 0\leq x \leq 100 \\ 0 & \mbox{en cualquier otro caso}
+\end{array}\right.$;
+ $E(X/Y=50)=\frac{175}{3}$}
+
+\end{prob}
+
+
+\begin{prob}
+ Dos amigos desayunan cada mañana en una cafetería entre la 8 y las 8:30 de la mañana. La
+distribución  conjunta de sus tiempos de llegada es uniforme en dicho intervalo, es decir
+(y para simplificar tomando el tiempo en minutos):
+$$f(x,y)=\left\{\begin{array}{ll}
+k  & \mbox{ si } 0\leq x \leq 30 \mbox{ y } 0\leq y \leq 30\\ 0 & \mbox{ en el resto de
+casos}
+\end{array}\right. .$$
+Si los amigos esperan un máximo de 10 minutos, calcular la probabilidad de que se
+encuentren (sugerencia: resolverlo gráficamente). Calcular las distribuciones marginales.
+\sol{(Para la solución completa véase Daniel Peña ``\textit{Estadística Modelos y Métodos.
+Vol 1. 2 Ed pág.160})  \  $\frac{5}{9}$; las marginales son uniformes en el intervalo
+$(0,30)$ }
+
+\end{prob}
+
+% \begin{prob}
+% (*)En el problema anterior calcular la función de
+% distribución conjunta, las densidades y distribuciones marginales.
+% \end{prob}
+
+\begin{prob}
+La variable $X$ representa la proporción de errores tipo A en ciertos documentos y la
+variable $Y$ la proporción de errores de tipo B. Se verifica que $X+Y\leq 1$ ( es decir
+puede haber más tipos de errores posibles) y la densidad conjunta de ambas variables es
+$$f(x,y)=\left\{\begin{array}{ll}
+k  & \mbox{ si } 0\leq x \leq 1\mbox{; } 0\leq y\leq 1\mbox{ y } x+y\leq 1\\ 0 & \mbox{ en
+el resto de casos}
+\end{array}\right. .$$
+\begin{enumerate}[a)]
+\item Calcular el valor de la constante $k$.
+\item Calcular la densidad condicional de $X$ a $Y=y_{0}$  con
+$0<y_{0}<1$.
+\item Calcular la esperanza de la variable condicionada del
+apartado anterior.
+\item Calcular el vector de medias y  la matriz de correlaciones de $(X,Y)$
+\end{enumerate}
+\sol{a) $k=2$; b) Dado $0<y_{0}<1$ la densidad condicional de $X$ a $Y=y_{0}$ es
+$f_{X|Y}(x|y_{0})= \left\{\begin{array}{ll} \frac{1}{(1-y)} & \mbox{si } 0<x<1 \mbox{y }
+x<1-y_{0}\\ 0 & \mbox{en el resto de casos}
+\end{array}\right.$; c) $\frac{1}{3}$}
+\end{prob}
+
+% \begin{prob} En un proceso administrativo ciertos documentos se
+% clasifican como: sin errores ($A_{1}$), con errores leves ($A_{2}$) y
+% con errores graves ($A_{3}$). Se ha estimado que $p(A_{1})=0.7$,
+% $P(A_{2})=0.2$ y $P(A_{3})=0.1$. Utilizando la distribución
+% multinomial responder a las siguientes preguntas:
+% \begin{enumerate}[a)]
+% \item Si se toman al azar 3 documentos, calcular la probabilidad de que
+% haya sólo uno de la clase $A_{3}$.
+% \item En una muestra de 7 documentos se obtienen 5 sin errores.
+% ?`Cuál es la probabilidad de que en dicha muestra haya 1 documento
+% con errores graves?
+% \end{enumerate}
+% \sol{pág 172 Peña}
+% \end{prob}
+
+% teorema central del límite
+% \begin{prob}
+%   En el comienzo del invierno, la propietaria de un piso estima la
+%   probabilidad de que su factura de calefacción  para todo el invierno
+%   sea inferior a $38000$ ptas. es $0.4$. Además estima que la
+%   probabilidad de que la factura sea inferior a $46.000$ ptas. es $0.6$.
+%   \begin{enumerate}[a)]
+%       \item ?`Cuál es la probabilidad de que la factura esté entre
+%       $38000$ y $46000$ pesetas?
+%       \item Sin conocer más información  ?`qué puede decirse sobre
+%       la probabilidad de que la factura sea inferior a $40000$ pesetas?
+%       \end{enumerate}
+%       \sol{a) $0.2; b)
+%   \end{prob}
+
+\begin{prob}  La función de densidad conjunta de dos variables aleatorias  continuas
+es:
+$$f (x,y) = \cases{k(x+xy) & si $\> (x,y) \in (0,1)^2$\cr 0 & en otro caso\cr}$$
+
+\begin{enumerate}[a)]
+\item Determinar $\> k.$ ($\mathbf{4/3}$)
+\item Encontrar las funciones de densidad marginales.
+\item ?`Son independientes? (\textbf{ Sí})
+\end{enumerate}
+\end{prob}
+
+\begin{prob} Las variables aleatorias $X_1 \mbox{ y  } X_2$ son independientes y ambas tienen la misma densidad
+$$f(x) = \cases{1 & si $0 \leq x \leq 1$\cr 0 & en caso  contrario\cr}$$
+\begin{enumerate}[a)]
+\item Determinar la densidad de $Y = X_1 + X_2.$
+\item Determinar la densidad de $Z = X_1 - X_2.$
+\item Calcular la esperanza y varianza de $Y$ y de $Z$.
+\end{enumerate}
+
+\end{prob}
+
+
+\begin{prob} Un proveedor de servicios informáticos tiene  una cantidad $X$ de cientos de unidades
+de un cierto producto al principio de cada mes. Durante el mes se venden $Y$ cientos de
+unidades del producto. Supongamos que  $X$
+ e $Y$ tienen una densidad conjunta dada por
+
+$$f(x,y) = \cases{2/9 & si $\> 0 < y < x < 3$\cr 0 & en caso
+contrario\cr}$$
+\begin{enumerate}[a)]
+\item Comprobar que {\it f} es una densidad.
+\item Determinar $F_{X,Y}.$
+\item Calcular la probabilidad de que al final de mes se hayan vendido como mínimo la mitad de las unidades
+que había inicialmente. ($\mathbf{1/2}$)
+\item Si se han vendido 100 unidades, ?`cuál es la probabilidad de que hubieran, como mínimo 200
+a principio de mes? ($\mathbf{1/2}$)
+\end{enumerate}
+\end{prob}
+
+\begin{prob} Sean $X$ e $Y$ dos variables aleatorias conjuntamente absolutamente continuas.
+Supongamos que
+
+$$ f_{X}(x) = \cases{4x^3 & si $\> 0 < x < 1$\cr 0 & en caso
+contrario\cr}$$
+
+y que
+
+$$ f_{Y}(y|x) = \cases{{2y \over x^2} & si $\> 0 < y < x$\cr 0 &
+en caso contrario\cr}$$
+\begin{enumerate}[a)]
+\item  Determinar $f_{X,Y}$.
+\item Obtener la distribución de $Y.$
+\item  Calcular $f_{X}(x|y).$
+\end{enumerate}
+
+\end{prob}
+
+
+\begin{prob}  Sea $W = X + Y + Z$, donde  $X$, $Y$ y $Z$ son variables aleatorias con media
+0 y varianza 1,
+\begin{enumerate}[a)]
+\item Sabiendo que  $ Cov(X,Y) = 1/4, Cov(X,Z) = 0, Cov(Y,Z) = -1/4.$
+calcular la esperanza y la varianza de $W$. (Sol.:$\mathbf{0; 3}$)
+\item Sabiendo  que $X, Y$ y $Z$
+son incorreladas calcular la esperanza y la varianza de $W$. (Sol.:$\mathbf{0; 3}$)
+\item Calcular la esperanza y la varianza de $W$ si  $ Cov(X,Y) = 1/4, Cov(X,Z) = 1/4,
+ Cov(Y,Z) = 1/4.$ (Sol.:$\mathbf{0; 15/4 }$)
+\item Sabiendo  que $X, Y$ y $Z$.
+\end{enumerate}
+\end{prob}
+
+\begin{centerline}
+{{\bf Teorema del Límite Central}}
+\end{centerline}
+
+
+\begin{prob}% teorema central del límite
+En cierta fabricación mecánica el 96\% de las piezas resultan con longitudes admisibles
+(dentro de las toleradas), un 3\% defectuosas cortas y un 1\% defectuosas largas. Calcular
+la probabilidad de:
+
+\begin{enumerate}[a)]
+\item En un lote de 250 piezas sean admisibles 242 o más
+\item En un lote de 500 sean cortas 10 o menos.
+\item En 1000 piezas haya entre 6 y 12 largas.
+\end{enumerate}
+%%\sol{Aproximando  por el T.C.L. a) 0.9131; b) 0.119; c) 0.7088}
+\end{prob}
+
+\begin{prob} Una organización de investigación de mercados ha
+encontrado que el 40\% de los clientes de un supermercado no quieren contestar cuando son
+encuestados. Si se pregunta a 1000 clientes, ?`cuál es la probabilidad de que menos de 500
+de ellos se nieguen a contestar? \sol{Aproximando por el T.C.L. prácticamente es 1}
+
+\end{prob}
+
+\begin{prob}
+Un servicio de grúa de auxilio en carretera recibe diariamente una media de 70 llamadas.
+Para un día cualquiera, ?`cuál es la probabilidad de que se reciban menos de 50 llamadas?
+\sol{Aproximadamente 0.3897}
+\end{prob}
+
+
+\begin{prob}   Supongamos que  el 10\% de los votantes están,
+ de un determinado cuerpo electoral, están a favor de una cierta legislación. Se hace  una
+encuesta entre la población y se obtiene una frecuencia relativa $f_n(A)$ que estima la
+proporción poblacional anterior. Determinar, aplicando la desigualdad de Cheb., cuántos
+votantes se tendrían que encuestar para que  la probabilidad de que $f_n(A)$ difiera de $
+0.1$ menos de $0.02$ sea al menos de $0.95$ (Sol.:$\mathbf{4500}$).?`Qué podemos decir si no
+conocemos el valor de la proporción? (Sol.:$\mathbf{12500}$) Repetir el ejercicio pero
+aplicando el T.L.C. (Sol.:$\mathbf{865}$ si sabemos que  $\mathbf{p=0.1}$ y $\mathbf{2401}$
+en otro caso)
+\end{prob}
+
+\begin{prob}  Se lanza al aire una dado regular $100$ veces. Aplicar la desigualdad de Cheb.
+para obtener una cota de la probabilidad de  que el número total de puntos obtenidos esté
+entre $300$ y $400$. (Sol.:$\mathbf{0.883}$). ?`Cuál es la probabilidad que se obtiene
+aplicando el T.L.C? (Sol.:$\mathbf{0.9964}$)
+\end{prob}
+
+\begin{prob} Se sabe que, en una población, la altura de los individuos machos adultos es
+ una variable aleatoria $X$ con media $\mu_x = 170$ cm y desviación típica
+ $\sigma_x = 7 $ cm. Se toma una muestra aleatoria  de 140 individuos.
+  Calcular la probabilidad de que la media muestral
+$\overline{x}$ difiera de $\mu_x$ en menos de $1$ cm. (Sol.:$\mathbf{0.909}$)
+\end{prob}
+\begin{prob}  ?`Cuántas veces hemos de lanzar un dado bien balanceado para tener como mínimo un  $95$\% de  certeza de que la frecuencia
+ relativa del salir ``6'' diste menos de $0.01$ de la
+probabilidad teórica $1/6$? (Sol.:$\mathbf{5336}$)
+\end{prob}
+\begin{prob}
+Se lanza al aire una moneda sin sesgo $n$ veces. Estimar el valor de  $n$ de manera que la
+frecuencia relativa del número de caras difiera de $1/2$ en menos de $0.01$ con
+probabilidad $0.95$. (Sol.:$\mathbf{9604}$)
+\end{prob}
+
+\begin{prob} El número de mensajes llegan a un multiplexor es una variable aleatoria que
+sigue una ley  Poisson con una  media de $10$ mensajes por segundo. Estimar la probabilidad
+de  que lleguen más de $650$ mensajes en un minuto. (Ind.: Utilizar el teorema del límite
+central) (Sol.:$\mathbf{0.0207}$)
+\end{prob}
+
+
+
+
+%%%\probl  D'una urna formada per 3 bolles blanques i 2 negres
+%%%s'extreuen tres bolles sense devolució. Obteniu:
+%%%
+%%%\begin{enumerate}[a)]
+%%%\item La funció característica de la variable aleat\`oria que dóna el
+%%%nombre de bolles negres extretes fins a obtenir la primera bolla
+%%%blanca.
+%%%\item L'esperan\c{c}a i la vari\`ancia de la variable aleat\`oria anterior.
+%%%\sol{b) $\mathbf{(1/2,\quad 9/20)}$}
+%%% \end{enumerate}
+%%%
+%%%\probl  Sigui $ X  $ una variable aleat\`oria amb densitat
+%%%
+%%%$$f(x) = \cases{1 & si $ 0 < x < 1$\cr 0 & si $ x \not \in
+%%%(0,1)$\cr}$$
+%%%
+%%%\begin{enumerate}[a)]
+%%%\item Calculau la seva funció característica.
+%%%\item  Obteniu $\mathrm{E}(X)$ a partir de $\phi_{X}.$
+%%%\sol{$\mathbf{(1/2)}$}
+%%% \end{enumerate}
+%%%
+%%%\probl  Sigui $ X  $ una variable aleat\`oria amb densitat
+%%%
+%%%$$f(x) = \cases{2x & si $ 0 < x < 1$\cr 0 & si $ x \not \in
+%%%(0,1)$\cr}$$
+%%%
+%%%Determinau $ \phi_{X}.$
+%%%
+%%%\probl  Trobau la funció característica de una v.a. Laplaciana.
+%%%Trobau la mitjana i la variancia utilitzant al funció
+%%%característica.
+%%%
+%%%\probl Idem que l'anterior per una v.a. normal de praamtres $\mu$
+%%%i $\sigma^2$.
+%%%
+%%%\probl Trobau la funció característica de una v.a. amb distribució
+%%%de Cauchy. Demostrau que no existeix la seva espera\c{c}a ni la seva
+%%%variancia.
+%%%
+%%%\probl Calculau la funció gernadora de probailitats  d'una v.a.
+%%%Geom\`etrica. Calculeu la seva espranza i la seva variancia
+%%%utilitzant la funció generadora de probabilitats.
+%%%
+%%%\probl Idem que l'anterior per una v.a. binomial.
+%%%
+%%%\probl Idem que l'anterior per una v.a. Poisson.
+%%%
+%%%\probl Trobau $P(X=r)$ per a una v.a. binomial negativa amb
+%%%probabilitat de exit $p$ y nombre de exits $r$, sabent que la seva
+%%%funció generadora de probabilitats es
+%%%$G_X(z)=\left(\frac{pz}{1-qz}\right)^r$
+%%%
+%%%\probl Trobau el moment d'ordre $n$  de una v.a.  amb distribució
+%%%Gamma utilizant la seva transformada de Laplace.
+
+
+%%%%%%%%\probl La transformada de Laplace d'una certa v.a. es
+%%%%%%%%
+%%%%%%%%$$X^{*}(z)=\left(\frac{a}{s+a}\right)\left(\frac{b}{s+b}\right)$$
+%%%%%%%%
+%%%%%%%%
+%%%%%%%%Trobau la seva funció de densitat. (Indicació:
+
+%\end{document}%%%%%primera entrega
+
+\newpage
+
+\textbf{Muestreo. Distribuciones muestrales}
+
+\begin{prob}
+    El precio medio del $m^2$ en  la venta de casas nuevas durante el último año
+    en una determinada ciudad  fue de 115000 pts. La desviación
+    típica de la población fue de 25000 pts. Se toma una muestra
+    aleatoria de 100 casas nuevas de esta ciudad.
+    \begin{enumerate}[a)]
+        \item ?`Cuál es la probabilidad de que la media muestral de los
+        precios de venta sea menor que 110000 pts?
+        \item ?`Cuál es la probabilidad de que la media muestral de los
+        precios de venta esté entre 113000 pts. y 117000 pts.??
+        \item?`Cuál es la probabilidad de que la media muestral de los
+        precios de venta esté entre 114000 pts. y 116000 pts.?
+        \item Sin hacer cálculos, razonar en cuál de los siguientes rangos
+        resulta más probable que se encuentre la media muestral de los
+        precios de venta:\break
+        \begin{center}
+        \begin{tabular}{ll}
+        113000 pts-&115000 pts\\
+        114000 pts-&116000 pts\\
+        115000 pts-&117000 pts\\
+        116000 pts-&118000 pts
+            \end{tabular}
+
+            \end{center}
+        \end{enumerate}
+    \sol{a) 0.0228; b) 0.5762; c) 0.3108: d) el intervalo  114000 pts-116000 pts}
+    \end{prob}
+    \begin{prob}
+        Se ha tomado una muestra de 16 directores de oficina  de
+        corporaciones de una gran ciudad, con el fin de estimar el tiempo
+        medio que emplean en desplazarse para ir a su trabajo. Supongamos
+        que la distribución de dichos tiempos en la población sigue una
+        normal con media 87 minutos y desviación típica  22.
+        \begin{enumerate}[a)]
+\item ?`Cuál es el error estándar de la media muestral de los
+tiempos de desplazamiento?
+\item ?`Cuál es la probabilidad de que la media muestral sea
+inferior a 100 minutos?
+\item ?`Cuál es la probabilidad de que la media muestral sea
+superior  a 80 minutos?
+\item ?`Cuál es la probabilidad de que la media muestral esté entre
+85 y 95 minutos?
+\item Supongamos que se toma una segunda muestra de quince directores,
+independiente de la anterior. Sin hacer los cálculos, razonar si la probabilidades
+calculadas en los apartados b), c) y d)  serán mayores, menores o iguales para esta segunda
+muestra. Utilizar gráficos para ilustrar las respuestas.
+        \end{enumerate}
+        \sol{a) 5.5 ; b) 0.9909; c) 0.8980; d) 0.5671; e) es menor en los
+        tres casos.}
+    \end{prob}
+
+\begin{prob}
+    Una compañía produce cereales para el desayuno. La media del
+    peso que contienen las cajas de estos cereales es de doscientos
+    gramos y su desviación típica de seis gramos. La distribución de
+    los pesos de la población es normal. Se eligen cuatro cajas, que
+    pueden considerarse como una muestra aleatoria del total de la
+    producción.
+    \begin{enumerate}[a)]
+        \item ?`Cuál es el error estándar de la media muestral del peso de
+        las cuatro cajas?
+        \item ?`Cuál es la probabilidad de que la media del peso de esas cuatro cajas
+        sea inferior  que 197 gramos?
+        \item ?`Cuál es la probabilidad , en media, el peso de estas
+        cuatro cajas esté entre 105 y 195 gramos?
+        \item ?`Cuál es la probabilidad de que la suma del peso de estas
+        cuatro cajas sea menor de 800 gr.?
+        \item Se eligen al azar dos de estas cuatro cajas ?`Cuál es la
+        probabilidad de que, en media, el contenido de estas dos cajas
+        pese entre 195 y 200 gramos?
+        \end{enumerate}
+        \sol{a) 3; b) 0.1587; c) 0.0475; d) 0.5; e) 0.3810}
+    \end{prob}
+
+    \begin{prob} La tasa de rentabilidad de ciertos tipos de acciones
+        sigue una distribución con desviación típica 3.8. Se extrae una
+        muestra de tales acciones con el fin de estimar el precio medio.
+        \begin{enumerate}[a)]
+        \item ?`Qué tamaño ha de tener la muestra para asegurarnos que la
+        probabilidad de que la media muestral difiera de la media
+        poblacional en una cantidad superior a 1 sea menor que 0.1?
+        \item Sin realizar los cálculos razonar si será preciso  un tamaño
+        muestral mayor o menor que el requerido  en el apartado a) para
+        garantizar que la probabilidad de que la media muestral difiera
+        de la media poblacional en más de 1 sea inferior a 0.05.
+        \item Sin realizar los cálculos razonar si será preciso  un tamaño
+        muestral mayor o menor que el requerido  en el apartado a) para
+        garantizar que la probabilidad de que la media muestral difiera
+        de la media poblacional en más de 1.5 sea inferior a 0.1.
+        \end{enumerate}
+        \sol{a) $n\geq 40$; b) mayor; c) menor}
+    \end{prob}
+
+    \begin{prob}
+        De acuerdo con los datos del ministerio de Economía y Hacienda, el
+        15\% de las declaraciones del IRPF del último año darán lugar a
+        una devolución. Se toma una muestra aleatoria de 10 declaraciones.
+        \begin{enumerate}[a)]
+        \item ?`Cuál es la media de la distribución en el muestreo de la
+        proporción muestral de declaraciones que darán lugar a una
+        devolución?
+        \item ?`Cuál es la varianza de la proporción muestral?
+        \item ?`Cuál es el error estándar de la proporción muestral?
+        \item ?`Cuál es la probabilidad de que la proporción muestral sea
+        mayor que 0.8?
+        \end{enumerate}
+        \sol{a) 0.15; b) 0.01275; c) 0.1129; d) casi nula.}
+        \end{prob}
+
+        %PPPPPPPPPPPPP
+
+        \begin{prob}
+    El dueño de una portal de ventas de discos por internet ha comprobado que el 20\% de los
+    clientes que acceden a su portal realizan una compra. Cierta mañana
+    entraron en el portal 180 personas, que pueden ser consideradas como
+    una muestra aleatoria de todos sus clientes.
+        \begin{enumerate}[a)]
+        \item ?`Cuál será la media de la proporción muestral de clientes
+        que realizaron alguna compra?
+        \item ?`Cuál es la varianza de la proporción muestral?
+        \item ?`Cuál es el error estándar de la proporción muestral?
+        \item ?`Cuál es la probabilidad de que la proporción muestral sea
+        mayor que 0.15?
+        \end{enumerate}
+    \sol{a) 0.2; b) $\approx 0.0009$; c) $0.03$; d) 0.9525}
+\end{prob}
+
+                \begin{prob}
+    El administrador de una gran cadena de hospitales opina que, de
+    entre todos sus pacientes, el 30\% generará facturas que se pagarán
+    con más de dos meses de retraso. Se toma una muestra aleatoria de 200
+    pacientes.
+        \begin{enumerate}[a)]
+        \item ?`Cuál es el error estándar de la proporción muestral de
+        pacientes con facturas cuyo pago se retrasará dos meses?
+        \item ?`Cuál es la probabilidad de que la proporción muestral sea
+        inferior a   0.25?
+        \item  ?`Cuál es la probabilidad de que la proporción muestral sea
+        mayor que 0.33?
+        \item  ?`Cuál es la probabilidad de que la proporción muestral esté
+        entre 0.27 y 0.33?
+        \item Sin realizar los cálculos, razonar en cuál de los siguientes
+        intervalos es más probable que se encuentre la proporción
+        muestral: 0.29-0.31; 0.30-0.32; 0.31-0.33; 0.32-0.34.
+        \item Supongamos que se toma al azar una muestra de 500 pacientes.
+        Sin realizar los cálculos razonar si las probabilidades de los
+        apartados b), c)  y d) resultarán en este caso mayores, menores o iguales
+        que las calculadas para la muestra anterior.
+        \end{enumerate}
+        \sol{a) 0.0324; b) 0.0618; c) 0.1762; d) 0.6476; e) 0.29-0.31;  f)
+        menor, menor, mayor}
+        \end{prob}
+
+\begin{prob}
+    Se toma una muestra aleatoria de 100 votantes con el fin
+    de estimar la proporción de los mismos que están a favor de
+    un aumento en los impuestos sobre la gasolina para contar
+    así con un ingreso adicional para reparaciones de las
+    autopistas.  ?`Cuál es el mayor valor que puede tomar el
+    error estándar de la proporción muestral de esta medida?
+    \sol{0.05}
+    \end{prob}
+
+\begin{prob}
+    Continuando en la situación del problema anterior, se decide que
+    una muestra de 100 votantes es muy pequeña para obtener una
+    estimación de la proporción poblacional que resulte
+    suficientemente creíble. Se decide exigir que la probabilidad de
+    que la proporción muestral difiera de la proporción poblacional
+    (cualquiera que sea su valor) en más de 0.03 no debe ser superior
+    a 0.05. ?`Qué tamaño ha de tener la muestra para poder garantizar
+    que se cumple este requisito?
+    \sol{$n\geq 267$}
+    \end{prob}
+
+    \begin{prob}
+Una compañía quiere estimar la proporción de personas que son posibles compradores de
+máquinas de afeitar eléctricas que ven retransmisiones partidos de La Liga de Campeones. Se
+toma una muestra de 120 individuos que se identificaron como posibles compradores de
+afeitadoras eléctricas. Supongamos que la proporción de posibles compradores de afeitadoras
+eléctricas  en la población que ven estas retransmisiones es 0.25.
+\begin{enumerate}[a)]
+    \item 0.10 es la probabilidad de que la proporción muestral
+    exceda a la proporción poblacional ?`en qué valor?
+        \item 0.05 es la probabilidad de que la proporción muestral
+    esté por debajo de la proporción poblacional ?`en qué cantidad?
+        \item 0.30 es la probabilidad de que la proporción muestral
+    difiera de la proporción poblacional ?`en menos de qué cantidad?
+    \end{enumerate}
+    \sol{a)  0.0506; b) 0.0648; c) 0.0154}
+    \end{prob}
+    \begin{prob}
+        Supongamos que el 50\% de los españoles adultos opina que es
+        necesaria una revisión del sistema nacional público de hospitales.
+        ?`Cuál es la probabilidad de que más del 56\% de los componentes
+        de una muestra de 150 españoles adultos tenga esa opinión?
+            \sol{ 0.0708}
+        \end{prob}
+
+        \begin{prob} Las rentabilidades mensuales de cierto tipo de
+        acciones son independientes unas de otras, y siguen una
+        distribución normal con desviación típica 1,7. Se toma una
+        muestra de 12 meses.
+        \begin{enumerate}[a)]
+            \item Hallar la probabilidad de que la desviación típica muestral
+            sea menor que 2.5.
+            \item Hallar la probabilidad de que la desviación típica
+            muestral sea mayor que 1.
+            \end{enumerate}
+            \sol{a) 0.8; b) 0.975}
+            \end{prob}
+
+        \begin{prob} El número de horas que dedican a ver la televisión
+        los estudiantes en la semana anterior a los exámenes finales
+        sigue una distribución normal con una desviación típica de 4.5
+        horas. Se toma una muestra aleatoria de 30 estudiantes.
+
+        \begin{enumerate}[a)]
+            \item La probabilidad  de que la desviación típica muestral sea
+            mayor que 3.5 horas, ?`es mayor que 0.95?
+            \item La probabilidad de que la desviación típica muestral sea
+            menor que seis horas, ?`es mayor que 0.95?
+            \end{enumerate}
+            \sol{ a) Sí; b) Sí }
+            \end{prob}
+                \begin{prob} Se extrae una muestra aleatoria de 15 economistas
+                    y se les pregunta acerca de su predicción sobre la tasa de
+                    inflación para el próximo año. Supongamos que las predicciones
+                    para la población completa de economistas sigue una
+                    distribución normal con una desviación típica de 1.8.
+                \begin{enumerate}[a)]
+            \item 0.01 es la probabilidad de que la desviación típica sea
+            mayor que ?`qué número?
+            \item 0.025 es la probabilidad de que la desviación típica sea
+            menor que ?`qué número?
+            \item Encontrar una par de números, a y b, tales que la
+            probabilidad de que la desviación típica muestral se encuentre
+            entre ellos sea 0.9.
+            \end{enumerate}
+            \sol{a) 2.5969; b) 1.1415; c) 1.2331; 2.3410}
+            \end{prob}
+
+
+\newpage
+\textbf{Estimación puntual}
+
+\begin{prob}
+    Se toma una muestra de ocho lotes de un producto químico para
+    comprobar la concentración de impurezas. Los niveles porcentuales
+    de impurezas encontrados en la muestra fueron
+    $$3.2 \ 4.3 \ 2.1 \ 2.8\ 3.2 \ 3.6\ 4.0\ 3.8$$
+    \begin{enumerate}[a)]
+        \item Hallar la media y la varianza muestrales.
+        Hallar la proporción muestral de lotes con nivel
+        porcentual de impurezas mayor que 3.75\%.
+        \item ?`Para qué parámetros poblacionales  se han hallado en la
+        parte  a) estimadores por procedimientos insesgados?
+        \end{enumerate}
+        \sol{a) $\overline{X}=3.375$; $S_{X}^2=0.4993$; $\hat{p}=
+        0.3557$; b) para todos.}
+\end{prob}
+% \begin{prob}
+%   Una muestra de diez economistas hicieron las siguientes predicciones
+%   para el crecimiento del producto interior bruto el próximo año.
+%
+%
+%   \begin{tabular}{lllll}
+%       2.2 & 2.82& 2.02 & 2.52& 2.42\\
+%       2.62 & 2.52& 2.42 & 2.72& 2.6
+%       \end{tabular}
+%   \end{prob}
+
+\begin{prob}
+        Sea $\hat{\theta}_{1}$ un estimador insesgado de $\theta_{1}$, y
+        $\hat{\theta}_{2}$ un estimador insesgado de $\theta_{2}$.
+        \begin{enumerate}[a)]
+            \item Probar que $(\hat{\theta}_{1}+\hat{\theta}_{2})$ es un
+            estimador insesgado de $(\theta_{1}+\theta_{2})$.
+            \item  Probar que $(\hat{\theta}_{1}-\hat{\theta}_{2})$ es un
+            estimador insesgado de $(\theta_{1}-\theta_{2})$.
+            \end{enumerate}
+        \end{prob}
+
+\begin{prob}
+    Sea $X_{1}$ y $X_{2}$ una muestra aleatoria de dos observaciones
+    independientes de
+    una población con media $\mu$ y varianza $\sigma^2$. Considerar los
+    siguientes tres estimadores puntuales de $\mu$:
+    $$\begin{array}{l}
+    \overline{X}=\frac{1}{2} X_{1}+\frac{1}{2} X_{2}\\
+    \hat{\mu}^{(1)}=\frac{1}{4}X_{1}+\frac{3}{4} X_{2}\\
+    \hat{\mu}^{(2)}=\frac{1}{3}X_{1}+\frac{2}{3} X_{2}
+\end{array}
+    $$
+        \begin{enumerate}[a)]
+        \item Probar que los tres estimadores son insesgados.
+        \item ?`Cuál de los tres estimadores es más eficiente?
+        \item Hallar la eficiencia relativa de $\overline{X}$ con respecto
+        a los otros estimadores.
+        \end{enumerate}
+        \sol{ b) $\overline{X}$; c) $\frac{Var(\overline{X})}{Var(\hat{\mu}^{(1)})}=0.8$;
+          $\frac{Var(\overline{X})}{Var(\hat{\mu}^{(2)})}=0.9$}
+    \end{prob}
+
+    \begin{prob}
+        A una clase de estadística asisten estudiantes de Informática de Gestión y de
+        Sistemas. En una muestra de
+         diez estudiantes de Gestión  se observaron las
+         siguientes calificaciones en el examen final
+         $$62 \ 57 \ 85 \ 59\ 64\ 63\ 71\ 58\ 77\ 72$$
+         En una muestra independiente de ocho estudiantes de Sistemas se
+         observaron las siguientes calificaciones en el mismo examen
+         $$73 \ 79 \ 85 \ 73\ 62\ 51\ 60\ 57$$
+         \begin{enumerate}[a)]
+             \item Utilizar un método de estimación insesgado para
+             obtener una estimación puntual de la diferencia de las
+             calificaciones medias entre los estudiantes de Gestión y
+             los de Sistemas. (Indicación: Utilizar el problema 151)
+             \item Utilizar un método de estimación insesgado para obtener una
+             estimación puntual de la diferencia entre la proporción poblacional de
+             estudiantes que obtuvieron una calificación  mayor que 70 en el
+             grupo de estudiantes de Gestión y el grupo de Sistemas.
+               (Indicación: Utilizar el problema 151)
+             \end{enumerate}
+             \sol{a) 0.2444; b)$-\frac{1}{10}$}
+        \end{prob}
+    \begin{prob}
+Se toma una muestra aleatoria $X_{1},X_{2},\ldots,X_{n}$  de una población con media $\mu$
+y varianza $\sigma^2$. Se considera el siguiente estimador de $\mu$ :
+$$\hat{\mu}=\frac{2}{n(n+1)}(X_{1}+2X_{2}+3X_{3}+\ldots+nX_{n})$$
+\begin{enumerate}[a)]
+    \item Probar que $\hat{\mu}$ es un estimador insesgado de $\mu$.
+    \item Hallar la eficiencia relativa de $\hat{\mu}$  respecto a
+    $\overline{X}$, la media muestral.
+    \end{enumerate}
+    \sol{ b) $Var(\hat{\mu})=\left(\frac{2}{n(n+1)}\right)^2 \frac{n (n+1) (2n+1)}{6}
+    \sigma^2$; $Eff.rel=\frac{Var(\hat{\mu})}{Var(\overline{X})}=\frac{2\,\left( 1 + 2\,n \right) }
+  {3\,\left( 1 + n \right)}.$ }
+        \end{prob}
+
+\begin{prob}
+\begin{enumerate}[a)]
+\item (Examen junio 2003) Calcular el estimador máximo verosímil (MLE\footnote{Del inglés
+ ``Maximun Likelihood  Estimator''}) para el parámetro $\lambda$ de una población que
+sigue una ley $Exp(\lambda)$ para una muestra aleatoria simple de tamaño $n$.
+\item (Examen septiembre 2004) Calcular el MLE para el parámetro $\lambda$ de una población
+que sigue una ley $Po(\lambda)$ para una muestra aleatoria simple de tamaño $n$.
+\item  Calcular el MLE para el parámetro $\mu$ de una población
+que sigue una ley $N(\mu,\sigma^2)$ para una muestra aleatoria simple de tamaño $n$.
+\item  Calcular el MLE para el parámetro $\sigma^2$ de una población
+que sigue una ley $N(\mu,\sigma^2)$ para una muestra aleatoria simple de tamaño $n$.
+\item Estudiar si los estimadores MLE de los apartados anteriores son insesgados.
+\end{enumerate}
+\end{prob}
+
+
+
+
+\textbf{Estimación por intervalos}
+
+\begin{prob}
+De una población de barras de hierro se extrae una muestra de $64$ barras y  se calcula la
+resistencia a la rotura por tracción se obtiene que $\overline{X}=1012\ Kg/cm^{2}$. Se sabe
+por experiencia que en este tipo de barras $\sigma=25$. Calcular un intervalo de confianza
+para $\mu$ al nivel 0.95. \sol{$\left(1005.88 , 1018.13\right)$}
+\end{prob}
+
+\begin{prob}
+Para investigar el C.I. medio de una cierta población de estudiantes, se realiza un test a
+$400$ estudiantes. La media y la desviación típica  muestrales obtenidas son
+$\overline{x}=86$ y $\tilde{s}_{X}=10.2$. Calcular un intervalo para $\mu$ con un nivel de
+significación del 98\%. \sol{$\left(84.8117, 87.1883\right)$}
+\end{prob}
+
+\begin{prob}
+Para investigar un nuevo tipo de combustible para cohetes espaciales, se disparan cuatro
+unidades y se miden las velocidades iniciales. Los resultados obtenidos, expresados en
+Km/h, son :19600, 20300, 20500, 19800. Calcular un intervalo para la velocidad media $\mu$
+con un nivel de confianza del 95\%, suponiendo que las velocidades son normales.
+\sol{$\left(19381.7, 20718.3\right)$} 20718.3
+\end{prob}
+
+\begin{prob}
+Un fabricante de cronómetros quiere calcular un intervalo de estimación de la desviación
+típica del tiempo marcado en $100$ horas por todos los cronómetros  de un cierto modelo.
+Para ello pone en marcha $10$ cronómetros del modelo durante $100$ horas y encuentra que
+$\tilde{s}_{X}=50$ segundos. Encontrar un intervalo para el parámetro $\sigma^2$ con
+$\alpha=0.01$, suponiendo que la población del tiempo marcado por los cronómetros es
+normal. \sol{$\left(953.834,12968.3\right)$}
+\end{prob}
+
+% \begin{prob}
+% El mismo fabricante del problema anterior quiere comparar ahora las
+% varianzas de dos modelos de cronómetros (modelo 1 y modelo 2)
+% tomando dos muestras con los siguientes resultados: $n_{1}=10$,
+% $\tilde{S}_{1}=50$ $n_{2}=16$ y $\tilde{S}_{2}=45$. Utilizar
+% $\alpha=0.01$
+% \sol{$[0.52,2.72]$}
+% \end{prob}
+
+\begin{prob}
+Un auditor informático quiere investigar la proporción de rutinas de un programa que
+presentan una determinada irregularidad. Para ello observa $120$ rutinas, resultando que
+$30$ de ellas presentan alguna irregularidad. Con estos datos buscar unos límites de
+confianza para la proporción $p$ de rutinas de la población que presentan esa irregularidad
+con probabilidad del 95\%.
+
+\sol{$\left(0.1725,0.3275\right)$}
+\end{prob}
+
+% \begin{prob} En una ciudad A de 400 propietarios de coches 125 tienen
+% una marca $X$; y en otra población B, de 600 propietarios, 180
+% tienen la marca $X$. Calcular un intervalo de confianza del 95\% para
+% la diferencia de proporciones entre la ciudad A y la B.
+% \sol{ $\left(-0.111,0.136\right)$}
+% \end{prob}
+%
+%
+%%%%%%%%%%%%%%%
+\begin{prob}(Examen septiembre 2003) Una infección por un virus puede haber perjudicado a muchos ordenadores con
+ \emph{Windwos}. Desde el
+ Centro de Alerta Temprana (CAT) se quiere calcular la
+ proporción de ordenadores infectados. El jefe del centro  os pide que calculéis
+ el tamaño de una muestra para que el intervalo de confianza de la proporción muestral de
+ ordenadores infectados tenga amplitud de a lo sumo $0.01$ con una probabilidad del 90\%.
+  \end{prob}
+
+\begin{prob}(Examen junio 2003) Se han medido los siguientes valores (en miles de personas) para la audiencia de un
+programa de televisión en distintos días (supuestos igualmente distribuidos e
+independientes):
+
+$$521, 742, 593, 635, 788, 717, 606, 639, 666, 624.$$
+
+Construir un intervalo de confianza del $90$\%, para la audiencia poblacional media y otro
+para la varianza poblacional, bajo la hipótesis de que la población de audiencias sigue una
+ley normal.
+
+Nota Suma de las audiencias=$6531$, Suma de los cuadrados de las audiencias=$4320401$.
+\end{prob}
+
+\begin{prob}
+Supongamos que la empresa para la que trabajamos está en un proyecto de investigación,
+financiado con fondos de la Comunidad Europea, que pretende extender una nueva aplicación
+de las TIC. Una de las tareas del proyecto es realizar una encuesta de opinión sobre el
+grado de aceptación que tendría esta nueva tecnología en el mercado europeo. De entre todas
+las universidades y empresas participantes en el proyecto, es a tu empresa a la que le toca
+hacer el protocolo de la encuesta, llevarla a cabo y redactar esta parte del informe final.
+Como eres el último que llegó a la empresa y el resto de miembros del equipo no se acuerda
+de la estadística que vio en la carrera, te toca a ti cargar con la responsabilidad. Claro
+que el coste de la encuesta depende del número $n$ de entrevistas que se realicen y el
+error de las proporciones de las contestaciones disminuye cuando $n$ aumenta. Como no sabes
+cuánto dinero está dispuesto a gastar tu jefe, tabula los tamaños muestrales para los
+errores $\pm 5\%, \pm 3\%, \pm 2\%,\pm 1\%$, y para niveles de confianza $0.95$ y $0.99$,
+suponiendo el peor caso. Añade un comentario para que el equipo de dirección del proyecto,
+en el que hay componentes ignorantes en  materia de encuestas, vea como quedarían redactado
+los datos técnicos de la encuesta, y pueda decidir  el tamaño muestral leyendo tu informe.
+\end{prob}
+
+\begin{prob}
+El número de reservas semanales de billetes de cierto vuelo de una compañía aérea sigue una
+distribución aproximadamente normal. Se toma un muestra aleatoria de $81$ observaciones de
+números de reservas de este vuelo: el número medio de reservas muestral resulta ser $112$,
+mientras que la desviación típica muestral es  $36$. Además de estos $81$ vuelos, $30$
+llegaron a su destino con un retraso de más de $15$ minutos.
+\begin{enumerate}[a)]
+    \item Calcular un intervalo de confianza del $95\%$ para el número medio
+    poblacional de reservas en este vuelo.
+    \item Calcular un intervalo de confianza de $95\%$ para la varianza
+    poblacional de las reservas.
+    \item Calcular un intervalo de confianza del $95\%$ para la proporción
+    poblacional de vuelos que llegan con un retraso de más de $15$ minutos.
+     \item Calcular el tamaño muestral que asegura un intervalo de
+     confianza de amplitud $0.1$ para la proporción de vuelos que llegan
+     con un retraso de más de $15$ minutos al nivel de confianza $95\%$.
+\end{enumerate}
+\sol{a) $\left(104.16,119.84)\right)$; b) $\left(972.343,1814.08)\right)$; c)
+$\left(0.265,0.475)\right)$; d) $n=385$}
+\end{prob}
+
+\begin{prob}
+    Una empresa cervecera sabe que las cantidades de cerveza que contienen
+sus latas sigue una distribución normal con desviación típica poblacional $0.03$ litros.
+\begin{enumerate}[a)]
+    \item Se extrae una muestra aleatoria de $25$ latas y, a partir de la
+    misma, un experto en estadística construye un  intervalo de confianza
+    para la media poblacional del contenido en litros de las latas que
+    discurre entre $0.32$ y $0.34$ ?`Cuál es el nivel de confianza de este
+    intervalo?
+    \item Un gerente de esta empresa exige un intervalo de confianza del
+    $99\%$  que tenga una amplitud máxima de $0.03$ litros a cada lado de la
+    media  muestral ?`Cuántas observaciones son necesarias, como mínimo,
+    para alcanzar este objetivo?
+\end{enumerate}
+\sol{a) $90.3\%$; b) $n=7$}
+\end{prob}
+\newpage
+
+
+
+
+\textbf{Contraste de hipótesis}
+
+\begin{prob}%10.1 pag 185 J.Amon
+Siendo $\overline{x}=63.5$ la media de una muestra aleatoria simple de tamaño 36 extraída
+de una población normal con $\sigma^2=144$, poner
+ a prueba, con un nivel de significación $\alpha=0.05$, la hipótesis
+ nula $\mu=60$ y decir si se rechaza en favor de la alternativa
+ $\mu<60$. Calcular el $p$-valor.
+\end{prob}
+
+\begin{prob}%10.2 pag 185 J.Amon
+Siendo $\overline{x}=72.5$ la media de una muestra aleatoria simple de tamaño 100 extraída
+de una población normal con $\sigma^2=900$, poner
+ a prueba, con un nivel de significación $\alpha=0.10$, la hipótesis
+ nula $\mu=77$ y decir si se rechaza en favor de las hipótesis
+ alternativas
+ $\mu\not= 70$, $ \mu>70$, $\mu<70$. Calcular el $p$-valor en cada caso.
+\end{prob}
+
+
+\begin{prob}%10.9 pag 185 J.Amon
+    En un contraste bilateral, con $\alpha=0.01$, ?`para qué valores
+    de $\overline{X}$ rechazaríamos  la hipótesis nula $H_{0}:\mu=70$, a
+    partir de una muestra aleatoria simple de tamaño 64 extraída de una
+    población normal con $\sigma^2=256$?
+\end{prob}
+
+\begin{prob}%11.1 pag 324 J.Amon
+    El salario anual medio de 1600 personas, elegidas aleatoria e
+    independientemente de cierta población de economistas con $\sigma=20000$ euros, ha
+    valido 45000 euros  ?`Es compatible  con este resultado la hipótesis
+    nula, $H_{0}:\mu=43500$, suponiendo $\alpha=.01$? ?`Cuál es el intervalo
+    de confianza para $\mu$? Calcular el $p$-valor.
+\end{prob}
+
+\begin{prob}%11.2 pag 324 J.Amon
+    Con los datos del ejercicio anterior , ?`son compatibles con el
+    resultado obtenido los siguientes contrastes?:
+    \begin{enumerate}[a)]
+        \item $\left\{\begin{array}{ll} H_{0}:\mu=44000\\
+        H_{1}:\mu>44000\end{array}\right.$
+        \item $\left\{\begin{array}{ll} H_{0}:\mu=46250\\
+        H_{1}:\mu>46250\end{array}\right.$
+        \end{enumerate}
+\end{prob}
+
+\begin{prob}%11.6 pag 324 J.Amon
+El peso medio de los paquetes de café puestos a la venta por la casa comercial CAFEINASA es
+supuestamente de 1 Kg. Para comprobar esta suposición, elegimos una muestra aleatoria
+simple de 100 paquetes y encontramos que su peso  medio es de 0.978 Kg. y su desviación
+típica $s=0.10$ kg. Siendo $\alpha=0.05$ ?`es compatible este resultado con la hipótesis
+nula $H_{0}:\mu=1$ frente a $H_{1}:\mu\not=1$? ?`Lo es frente a $H_{1}:\mu>1$? Calcular el $p$-valor.
+\end{prob}
+
+\begin{prob}
+El fabricante de la marca de tornillos FDE afirma que el diámetro medio de sus tornillos
+vale 20 mm. Para comprobar dicha afirmación, extraemos aleatoria e independientemente 16
+tornillos , y vemos que la media de sus diámetros  es 22 mm. y la desviación típica 4 mm.
+?`Podemos aceptar la pretensión del fabricante, suponiendo $\alpha=0.05$ y siendo el
+contraste bilateral? Calcular el $p$-valor.
+\end{prob}
+
+\begin{prob}
+    Para evitar basarse en su intuición los jefes de admisión de
+    personal de las grandes empresas discriminan mediante un test
+    diseñado por un gabinete de psicólogos, supuestamente especializado
+    en selección de personal, a los aspirantes a trabajar en la empresa.
+    La varianza del test de selección solía venir siendo $100$.
+    Aplicando un nuevo test a una muestra aleatoria simple de tamaño
+    $n=31$, se obtiene que $S=129$. Suponiendo que la población se
+    distribuye normalmente, ?`es compatible la hipótesis nula
+    $H_{0}:\sigma^2=100$, frente a la alternativa $H_{1}:\sigma^2>100$,
+    con $\alpha=0.01$? Calcular el $p$-valor.
+\end{prob}
+
+\begin{prob}
+    Una máquina produce cierto tipo de piezas mecánicas. El tiempo en
+    producirlas se distribuye normalmente con varianza desconocida
+    $\sigma^2$. Elegida una muestra aleatoria simple de 21 de dichas
+    piezas ($x_{1},\ldots,x_{21}$), se obtiene que $\overline{x}=30$ y
+    $\sum_{i=1}^{21}x_{i}^2=19100.$ Comprobar si es compatible la
+    hipótesis nula $H_{0}:\sigma^2=22$ frente $H_{1}:\sigma^2\not=22$,
+    con $\alpha=0.1$, y construir un intervalo de confianza del
+    $(1-\alpha)100\%$ para el verdadero valor de $\sigma^2$. Calcular el $p$-valor.
+\end{prob}
+
+\begin{prob}
+A partir de las puntuaciones 15, 22, 20, 21, 19 ,23, construir el intervalo de confianza de
+$\sigma^2$ y decir si es compatible con estos resultado la hipótesis $H_{0}:\sigma=2$,
+siendo $\alpha=0.01$ contra una $H_1$ bilateral. Decir si se utiliza alguna hipótesis adicional. Calcular el $p$-valor.
+\end{prob}
+
+\begin{prob}
+    Sabiendo que con $\hat{p}=0.52$ ha sido rechazada $H_{0}:p=0.50$, al
+    nivel de significación $\alpha=0.05$, ?`cuál ha tenido que ser el
+    tamaño mínimo de la muestra mediante la cual fue rechazada
+    $H_{0}$
+
+    \begin{enumerate}[a)]
+        \item frente a $H_{1}:p\not=0.5$?
+    \item frente a $H_{1}:p>0.5$?
+    \end{enumerate}
+
+    \begin{prob}
+        Lanzamos una moneda al aire 10 veces consecutivas . ?`Con qué número
+        de caras rechazaremos la hipótesis nula de que la moneda está bien
+        balanceada, siendo $\alpha=0.05$?
+        \end{prob}
+\end{prob}
+
+
+
+\begin{prob}% mío
+Un fabricante de productos farmacéuticos tiene que mantener un estándar de impurezas en el
+proceso de producción de sus píldoras. Hasta ahora el número medio poblacional de impurezas
+es correcto pero está preocupado porque las impurezas en algunas de las partidas se salen
+del rango admitido de forma que provocan devoluciones y posibles reclamaciones por daños a
+la salud. El gabinete de control de calidad afirma que si la distribución de las impurezas
+es normal y que si el proceso de producción mantiene  una varianza inferior a 1 no tendría
+que existir ningún problema pues las píldoras tendrían una concentración aceptable.
+Preocupado por esta tema la dirección encarga una prueba externa en la que se toma una
+muestra aleatoria de 100 de las partidas obteniéndose $S^2=1.1$. ?`Puede aceptar el director
+de la prueba externa que el proceso de producción cumple la recomendación del gabinete de
+control?
+\end{prob}
+
+
+\begin{prob}
+Un IAP está preocupado por su estándar de calidad y quiere compararlo con el medio europeo.
+El estándar medio europeo dice que una empresa de este sector tiene una calidad aceptable
+si tiene un número de quejas que no excede del 3\%.
+
+Se sabe que la varianza de las quejas es $0.16$. Examinando $64$ clientes escogidos al azar
+se encuentra con que el porcentaje de quejas es del $3.07\%$. Calcular el $p$-valor.
+
+\begin{enumerate}[a)]
+    \item Contrastar al nivel de significación del 5\%, la hipótesis nula
+    de que la media poblacional del porcentaje de quejas es del 3\%
+    frente a la alternativa de que es superior al 3\%.
+    \item Hallar el $p$-valor del contraste.
+    \item Supongamos que la hipótesis alternativa fuese bilateral en
+    lugar de unilateral( con hipótesis nula $H_{0}:\mu=3$). Deducir, sin
+    hacer ningún cálculo, si el $p$-valor del contraste sería mayor,
+    menor o igual que el del apartado anterior. Construir un gráfico
+    para ilustrar el razonamiento.
+    \item En el contexto de este problema, explicar por qué una hipótesis
+    alternativa unilateral es más apropiada que una bilateral.
+\end{enumerate}
+\end{prob}
+
+\begin{prob}
+     A partir de una muestra aleatoria se contrasta:
+
+     $\left\{\begin{array}{l}
+     H_{0}:\mu=\mu_{0}\\
+     H_{1}:\mu>\mu_{0}\end{array}\right.$
+
+     y se acepta la hipótesis nula al nivel de significación del 5\%.
+
+     \begin{enumerate}[a)]
+         \item ?`Implica esto necesariamente que $\mu_{0}$ está contenido
+         en el intervalo de confianza del 95\% para $\mu$?
+         \item Si la media muestral observada es mayor que $\mu_{0}$,
+         ?`implica necesariamente que $\mu_{0}$ está contenido en el
+         intervalo de confianza  del 90\% para $\mu$?
+\end{enumerate}
+\end{prob}
+
+\begin{prob}
+Una compañía que se dedica a la venta de franquicias afirma que, por término medio, los
+delegados obtienen un redimiendo del 10\% en sus inversiones iniciales. Una muestra
+aleatoria de diez de estas franquicias presentaron los siguientes rendimientos el primer
+año de operación:
+
+6.1, 9.2, 11.5, 8.6, 12.1, 3.9 , 8.4, 10.1, 9.4, 8.9
+
+Asumiendo que los rendimientos poblacionales tienen distribución normal, contrastar la
+afirmación de la compañía.
+\end{prob}
+
+
+\begin{prob}
+Una distribuidora de bebidas refrescantes afirma que una buena fotografía de tamaño real de
+un conocido actor, incrementará las ventas de un producto en los supermercados en una media
+de $50$ cajas semanales. Para una muestra de $20$ supermercados, el incremento medio fue de
+$41.3$ cajas con una desviación típica de $12.2$ cajas. Contrastar al nivel de
+significación $\alpha=0.05$, la hipótesis nula de que la media poblacional del incremento
+en las ventas es al menos $50$ cajas, indicando cualquier supuesto que se haga. Calcular el
+$p$-valor del contraste e interpretarlo.
+\end{prob}
+
+
+
+\newpage
+
+
+
+\textbf{Problemas de bondad de ajuste}
+\begin{prob}
+Una compañía de gas afirma, basándose en experiencias anteriores, que normalmente, al final
+del invierno, el 80\% de las facturas han sido ya cobradas, un 10\% se cobrará con pago
+aplazado a un mes, un 6\% se cobrará a 2 meses y un 4\% se cobrará a más de dos meses. Al
+final del invierno actual, la compañía selecciona una muestra aleatoria de $400$ facturas,
+resultando que 287 de estas facturas cobradas, 49 a cobrar en un mes, $30$ a cobrar en dos
+meses y $34$ a cobrar en un periodo superior a dos meses. ?`Podemos concluir, a raíz de los
+resultados, que la experiencia de años anteriores se ha vuelto a repetir este invierno?
+\end{prob}
+
+\begin{prob}
+El Rector de una Universidad opina que el $60\%$ de los estudiantes consideran los cursos
+que realizan como muy útiles, el $20\%$ como algo útiles y el $20\%$ como nada útiles. Se
+toma una muestra aleatoria de $100$ estudiantes, y se les pregunta sobre la utilidad de los
+cursos. Resultando que $68$ estudiantes consideran que los cursos son muy útiles, $18$
+consideran que son poco útiles y $14$ consideran que no son nada útiles. Contrastar la
+hipótesis nula de que los resultados obtenidos se corresponden con la opinión personal del
+Rector.
+\end{prob}
+
+\begin{prob}
+Considerense los fondos de inversión ordenados en función de su rendimiento en el periodo
+1995-99. Se realizó un seguimiento del rendimiento en los cinco años posteriores de una
+muestra aleatoria de 65 fondos entre el $25\%$ más rentable del periodo 1995-99. En este
+segundo periodo se observó que $11$ de los fondos de la muestra se hallan entre el $25\%$
+más rentable en este segundo periodo, $17$ en el segundo $25\%$, $18$ en el tercer 25\% y
+$19$ en el $25\%$ menos rentable. Contrastar la hipótesis de que un fondo de inversión
+escogido azar del $25\%$ más rentable en 1995-99 tenga la misma probabilidad de hallarse en
+cualquiera de las cuatro categorías de rendimiento en el periodo 2000-2004.
+\end{prob}
+
+\begin{prob}
+    A una muestra aleatoria de $502$ consumidores se les preguntó la
+    importancia que se le daba al precio a la hora de elegir un
+    ordenador. Se les pidió que valoraran entre: ``ninguna
+    importancia'', ``alguna importancia'' y ``principal importancia''. El
+    número respectivo de respuestas en cada tipo fueron 169, 136 y 197.
+    Contrastar la hipótesis nula de que la probabilidad de que un
+    consumidor elegido al azar conteste cualquiera de las tres
+    respuestas es la misma.
+    \end{prob}
+
+
+\begin{prob}
+Durante cien semanas se ha venido observando el número de veces a la semana que se ha fuera
+de servicio  un servidor de una pequeña empresa de informática, presentándose los
+resultados de la siguiente tabla:
+
+\begin{tabular}{|l|cccccc|}
+    \hline
+    Núm. Fuera Servicio & 0 & 1 & 2 & 3 & 4 & 5 o más\\
+    \hline
+    Núm. Semanas & 10 & 24 & 32 & 23 & 6 & 5\\
+    \hline
+\end{tabular}
+
+El número medio de veces que quedo fuera de servicio por semana durante este periodo fue de
+$2.1$. Contrastar la hipótesis nula de que la distribución de averías es una Poisson.
+    \end{prob}
+
+
+    \begin{prob}
+        A lo largo de $100$ minutos, llegaron a una web de un periódico $100$
+        internautas. La siguiente tabla muestra la frecuencia de llegadas a
+        lo largo de ese intervalo de tiempo.
+
+        \begin{tabular}{|l|ccccc|}
+    \hline
+    Núm. llegadas/min. & 0 & 1 & 2 & 3 & 4 o más\\
+    \hline
+    Frec. Observada & 10 & 26& 35 & 24 & 5 \\
+    \hline
+\end{tabular}
+
+        Contrastar la hipótesis nula de
+        que la distribución es Poisson.
+        \end{prob}
+
+
+
+
+\textbf{KS test.}
+
+\begin {prob} Se quiere saber si el tiempo entre accesos, en una determinada franja horaria, a  una cierta página web sigue una ley exponencial. Se dispone de la siguiente muestra de 25 intervalos entre tiempos de acceso:
+
+$140.7,13.7,67.6,7.8,49.3,128.5,59.6,234,171.1,205.8,99.3,199.8,100.8,13.5,12,33.9,$
+$44.1,12.3,56.4,9.4,112.1,8.2,110.5,79,55.4$
+
+Resolver manualmente o utilizando R las siguientes cuestiones.
+
+\begin{enumerate}[a)]
+\item  Contrastar la hipótesis de que la distribución  sigue una ley exponencial de parámetro $\lambda=100$, al nivel $\alpha=0.05$.
+\item  Contrastar la hipótesis de que la distribución  sigue una ley Poisson de parámetro $\lambda=105$, al nivel $\alpha=0.05$.
+\item  Contrastar la hipótesis de que la distribución  sigue una ley Poisson de parámetro $\lambda=110$, al nivel $\alpha=0.05$.
+\item  Contrastar la hipótesis de que la distribución  sigue una ley Poisson, estimando el parámetro parámetro  partir de la muestra, al nivel $\alpha=0.05$.
+\end{enumerate}
+\end{prob}
+
+\begin{prob}
+Resolver las mismas cuestiones que en el problema anterior para la muestra (decir si se viola algunas de las condiciones del test KS, pero resolver igualmente el ejercicio):
+
+$$69.9,  31.5, 130.2,  80.5, 236.1, 151.2,  74.8,  13.8,  54.5, 147.6$$
+
+En esta ocasión realizar los cálculos manualmente.
+
+\end{prob}
+
+\begin{prob}
+ Nos hemos bajado un generador de números aleatorios normales de internet. Queremos contrastar si funciona correctamente. Para ello generamos una muestra de 10 números aleatorios de una normal estándar:
+
+$$ -1.18, -0.77, -0.59, -0.27, -0.12,  0.27,  0.29,  0.40,  1.27,  1.60
+$$
+
+\begin{enumerate}[a)]
+\item Contrastar si provienen de una normal estándar al nivel de significación $\alpha=0.05$ mediante el test KS. Decir si ha violado alguna de las suposiciones de este test.
+\item Contrastar la hipótesis de normalidad contra una distribución normal de media y varianza la estimadas a partir de la muestra.
+\end{enumerate}
+
+\end{prob}
+
+\begin{prob} Con la muestra:
+
+$$0.60, -1.42,  1.05, -0.14,  0.57,  0.11, -0.59, 1.11, -1.55, -1.41
+$$
+
+Contrastar con un test KS si los datos provienen de una distribución uniforme en el intervalo $(-2,2)$ al nivel $\alpha=0.05$
+\end{prob}
+
+
+
+
+%    \begin{prob}
+%
+%   El estadístico de \emph{Bowman-Seldon} es:
+%
+%   $B=n\left(\frac{(\mbox{Coefiente de
+%   asimetría})^2}{6}+\frac{(\mbox{Curtosis}-3)^2}{24}\right)$
+%
+%   Que para un tamaño muestral suficientemente grande sigue
+%   aproximadamente una distribución muestral $\chi^2$ con 2 g.l.
+%
+%   Criterio de rechado para \newline
+%   $\left\{\begin{array}{l}
+%   H_{0}:\mbox{La distribución poblacional es
+%   normal}\\
+%   H_{1}:\mbox{La distribución poblacional no es
+%   normal}\end{array}\right. $
+%
+%   es
+%
+%   Rechazar $H_{0}$ al nivel de significación $\alpha$ si\newline
+%   $B>\chi_{2,\alpha}^2$
+%
+%     Resolver, utilizando el estadístico de \emph{Bowman-Seldon} el
+%     siguiente problema.
+%
+%       Durante 268 días  escogidos al azar se observaron los beneficios de
+%       un contrato de futuro de cerdos y se observó un coeficiente de
+%       asimetría de $0.04033$ y una curtosis $3.15553$ en la muestra. ?`Es
+%       la distribución de os beneficios normal?
+% %         \textbf{Solución}
+% %         El
+% %         valor del estadístico de \emph{Bowman-Shelton} es:\newline
+% %         $B=n\left(\frac{(\mbox{0.04033})^2}{6}+
+% %         \frac{(\mbox{3.15553}-3)^2}{24}\right)=0.36$
+% %
+% %     Si tomamos un nivel $\alpha=0.1$ tenemos que $\chi_{2,0.1}=4.61$
+% %     y como $B=0.36\not>4.16$ no podemos rechazar $H_{0}$ a este nivelk
+% %     de significación.
+% %
+% %         \end{example}
+
+\newpage
+
+\textbf{Contrastes de dos parámetros.}
+
+\textbf{Comparación de medias.}
+
+Los siguientes problemas tratan de contrastes de parámetros entre dos muestras. Para cada uno de los enunciados contratar contra las  hipótesis unilaterales y bilaterales. Calcular también el intervalo de confianza para la diferencia o el cociente de los parámetros. Tomar finalmente la decisión más correcta. Calcular todos los test e intervalos de confianza para $\alpha=0.05$. Calcular el $p$-valor en cada caso. 
+
+\begin{prob}
+Para comparar la producción  media de dos procedimientos de fabricación de cierto elemento
+se toman dos muestras, una con los elementos fabricados durante 25 días con el primer
+método y otra con los producidos durante 16 días con el segundo método. Por experiencia se
+sabe que la varianza del primer procedimiento es $\sigma_{1}^2=12$ y al del segundo
+$\sigma_{2}^2=10$. De las muestras obtenemos que $\overline{X}_{1}=136$ para el primer
+procedimiento y $\overline{X}_{2}=128$ para el segundo. 
+% Si $\mu_{1}$ y $\mu_{2}$ son los
+% valores esperados para cada uno de los procedimientos, calcular un intervalo de confianza
+% para $\mu_{1}-\mu_{2}$ al nivel 99\%. \sol{$\left(5.2989,10.7011\right)$}
+\end{prob}
+
+\begin{prob}
+Estamos interesados en comparar la vida media, expresada en horas de dos tipos de
+componentes electrónicos. Para ello se toma una muestra de cada tipo y se obtiene:
+
+$$
+\begin{tabular}{|c|c|c|c|}
+\hline Tipo & tamaño & $\overline{X}$ & $S$\\ \hline \hline 1 & 50 & 1260 & 20\\ \hline 2 &
+100 & 1240 & 18\\ \hline
+\end{tabular}
+$$
+
+% Calcular un intervalo de confianza para $\mu_{1}-\mu_{2}$ ($\mu_{1}$ esperanza del primer
+% grupo y $\mu_{2}$ esperanza del segundo grupo) al nivel 98\% 
+Suponer si es necesario las
+poblaciones aproximadamente normales. % \sol{$\left(12.19,27.81\right)$}
+\end{prob}
+
+\begin{prob}
+Para reducir la concentración de ácido úrico en la sangre se prueban dos drogas. La primera
+se aplica a un grupo de 8 pacientes y la segunda a un grupo de 10. Las disminuciones
+observadas en las concentraciones de ácido úrico de los distintos pacientes expresadas en
+tantos por cien de concentración después de aplicado el tratamiento son:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+droga 1 & 20 & 12 & 16 & 18 & 13 & 22 & 15 & 20\\ \hline droga 2 & 17 & 14 & 12 & 10 & 15 &
+13 & 9 & 19 & 20 & 11
+\end{tabular}
+\end{center}
+
+% Calcular un intervalo de confianza para la diferencia de medias entre la primera droga y la
+% segunda al nivel del 99\%.
+ Suponer que las reducciones de ácido úrico siguen una
+distribución normal son independientes y de igual varianza. 
+Ídem pero suponiendo que las varianza son distintas.%\sol{$\left(-2.09,8.09\right)$}
+\end{prob}
+
+\begin{prob}
+Para comparar la dureza media de dos tipos de aleaciones (tipo 1 y tipo 2) se hacen 5
+pruebas de dureza  con la de tipo 1 y 7 con la de tipo 2. Obteniéndose los resultados
+siguientes:
+$$\overline{X}_{1}=18.2,\quad S_{1}=0.2 \mbox{ y}$$
+
+$$\overline{X}_{2}=17.8;\quad S_{2}=0.5$$
+
+Suponer que la población de las durezas es normal y que las desviaciones típicas no son
+iguales. Hacer lo mismo  si las varianzas son distintas.
+% , buscar un intervalo de confianza para $\mu_{1}-\mu_{2}$ con  probabilidad $0.95$
+% \sol{$\left(0.314,0.486\right)$}
+\end{prob}
+\newpage
+
+\begin{prob} Se encuestó a dos muestras independientes de  internautas, una en Menorca y otra en Mallorca, sobre si utilizaban  telefonía por intenet. La encuesta de Menorca tuvo un tamaño $n_1=500$  y 
+$100$ usuarios mientras que  en Mallorca se encuestarron a $n_2=750$ y se obtuvo un resultado de $138$ usuarios.
+\end{prob}
+
+\begin{prob}
+Se pregunta a un grupo de 100 personas elegido al azar asiste a una conferencia sobre tecnologías de la comunicación. Antes de la conferencia se les pregunta si consideran a internet peligrosa, después de la conferencia se les vuelve a preguntar cual es su opinión. Los resultados fueron los siguientes:
+
+$$
+\begin{tabular}{|c|c|cc|}
+\cline{3-4}
+     \multicolumn{2}{c|}{}& \multicolumn{2}{|c|} {Después}\\\cline{3-4}
+   \multicolumn{2}{c|}{} & Sí es peligrosa & No es peligrosa \\\hline
+Antes & Sí es peligrosa&  50 &  30 \\
+    & No es peligrosa  &  5 & 15 
+\\\hline
+\end{tabular}
+$$
+
+
+
+
+% \hline
+% & Antes & Después \\\hline
+% Sí es Peligrosa &  80 & 70\\
+% No es Peligrosa  & 20 & 30 
+% \\\hline
+% \end{tabular}
+
+\end{prob}
+
+
+\begin{prob}  Tenemos $10$ ordenadores, deseamos optimizar su funcionamiento. Con este fin  se piensa en ampliar su memoria. Se les pasa una prueba de rendimiento antes  y después de  ampliar la memoria. Los resultados fueron:
+
+\scriptsize{
+\begin{tabular}{|c|llllllllll|}
+\hline
+ &\multicolumn{10}{|c|}{Ordenador} \\\hline
+Muestra\slash Tiempo & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\\hline
+Antes ampliación & 98.70 & 100.48 & 103.75 & 114.41 & 97.82&
+91.13 & 85.42 & 96.8 & 107.76 & 112.94\\
+\hline
+Después ampliación & 99.51 & 114.44 & 108.74 & 97.92 & 103.54&
+104.75 & 109.69 & 90.8 & 110.04 & 110.09\\
+
+\hline
+\end{tabular}
+}
+\end{prob}
+
+
+\begin{prob} Las siguientes muestras provienen de dos poblaciones independientes y supuestamente normales.  Se desea comparar la igualdan de sus medias, pero antes debemos contrastar si podemos o no aceptar que sus varianza son iguales o distintas. Se pide hacer el contraste de las medias en el caso en que se se decida aceptar varianzas iguales o distintas al nivel de significación $\alpha=0.05$.
+
+
+
+
+
+Contrastar tambien la hipótesis de igualdad de medias en el otro caso ( es decir si se decide varianzas ditintas contrastar para iguales y viceversa).
+
+
+\end{prob}
+
+
+% 98.7 & 100.48 & 103.75 & 114.41 & 97.82
+% 91.13 & 85.42 & 96.8 & 107.76 & 112.94
+% 99.51 & 114.44 & 108.74 & 97.92 & 103.54
+% 104.75 & 109.69 & 90.8 & 110.04 & 110.09
+
+%%%%%%%%\footnote{Además tenéis que hacer los problemas de las páginas 250 a 252 y 259 y 260 del
+%%%%%%%%Newbold.}
+
+
+
+% \begin{prob}
+%
+%   Los candidatos para un puesto de trabajo en una gran empresa deben
+% superar un examen de aptitud escrito y realizar una entrevista con el
+% director de personal. Después de la entrevista, el director otorga a
+% cada candidato una puntuación entre 0 y 10. Para comprobar la
+% consistencia de los criterios de los distintos directores, se extrae
+% una muestra de 10 pares de candidatos. La formación de las parejas se
+% organiza de forma que en cada una de ellas los dos candidatos han
+% obtenido una puntuación idéntica en el examen escrito.
+% Posteriormente, la entrevista a cada uno de los candidatos de cada
+% par es realizada por cada uno de los dos directores de personal,
+%  Sr. José y Sra. Isabel. Las puntuaciones obtenidas fueron las
+%  siguientes:
+%
+%
+%  \begin{tabular}{l|cccccccccc}
+%    Sr.. José & 80 & 65 & 87 & 64 & 73 & 78 & 83 & 91 & 84 & 83\\
+%    \hline
+%    Sra.. Isabel & 74 & 63 & 91 & 65 & 64 & 71 & 69 & 90 & 79 & 87
+%    \end{tabular}.
+%
+%    \begin{enumerate}[a)]
+%   \item  Especificando las hipótesis necesarias calcular un intervalo
+%   de confianza del 95\% para la diferencia entre las dos puntuaciones
+%   medias poblacionales obtenidas (para fijar ideas hacer Sr.. José - Sra.
+%   Isabel).
+% \item Sin realizar los cálculos, determinar si un intervalo de
+% confianza al 99\% para la diferencia de las medias poblacionales
+% tendría mayor, menor o la misma amplitud que en el apartado a).
+% \end{enumerate}
+%   \end{prob}
+
+
+    \newpage
+
+\end{document}
