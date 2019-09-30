@@ -587,7 +587,7 @@ $\FunCar(w)=\sum_{k} P_X(x_k)\mathrm{e}^{\mathrm{i}w x_k}.$
 En los casos en que los $x_k$ sean enteros, $x_k=k$, que son la mayoría, la ecuación anterior es la **tranformada de Fourier de la secuencia** $P_X(k)$. Dicha función es una *función periódica* en $w$ de periodo $2\pi$ ya que $\mathrm{e}^{\mathrm{i}(w+2\pi)k}=\mathrm{e}^{\mathrm{i}wk}.$
 
 Por tanto, usando la fórmula de **inversión**,  podemos escribir la **función de probabilidad** $P_X(k)$ como función de la función característica de $X$, $\FunCar(w)$:
-$P_X(x)=\frac{1}{2\pi}\int_{0}^{2\pi} \FunCar_X(w)\mathrm{e}^{-\mathrm{i}w k}\, dw.$
+$P_X(k)=\frac{1}{2\pi}\int_{0}^{2\pi} \FunCar_X(w)\mathrm{e}^{-\mathrm{i}w k}\, dw.$
 
 ## Ejemplo de cálculo de función característica
 <div class="example">
@@ -753,5 +753,246 @@ plot(x,1-pexp(x,lambda),type="l",ylab="función de fiabilidad")
 
 # Generación de muestras de variables aleatorias por ordenador
 
+## Introducción 
+
+La simulación por **computadora** de cualquier fenómeno aleatorio implica la **generación de variables aleatorias** con distribuciones prefijadas de antemano. 
+
+Por ejemplo, la simulación de un sistema de colas implica generar el tiempo entre las llegadas de los clientes, así como los tiempos de servicio de cada cliente.
+
+Fijémonos que fijar la variable aleatoria $X$ es equivalente a fijar la **función de distribución $F_X(x)$** o la **función de densidad $f_X(x)$** en el caso continuo o la **función de probabilidad $P_X(x)$** en el caso discreto.
+
+Todos los métodos que vamos a describir presuponen que podemos generar **números aleatorios** que se distribuyen **uniformemente** entre 0 y 1. En `R` se puede hacer usando la función `runif(n)`, donde `n` es la cantidad de números aleatorios entre 0 y 1 a generar.
+
+
+## Método de transformación
+
+El **método de transformación** se basa en el resultado siguiente:
+
+<l class="prop">Proposición: </l>
+Sea $X$ una variable aleatoria con función de distribución $F_X(x)$. Supongamos que $F_X(x)$ es estrictamente creciente o que existe $F_X^{-1}(y)$, para todo $y\in [0,1]$. Sea $Y$ la variable aleatoria definida como: $Y=F_X(X)$. Entonces la distribución de $Y$ es uniforme en el intervalo $[0,1]$.
+
+<div class="dem">
+**Demostración:**
+
+Claramente, por propia definición de $Y$, tenemos que el dominio de $Y$ es $[0,1]$ ya que el conjunto recorrido de la función de distribución de cualquier variable es el intervalo $[0,1]$. 
+
+Para ver que la distribución de $Y$ es $U[0,1]$ basta comprobar que $F_Y(y)=y$, para todo $y\in [0,1]$:
+$$
+\begin{array}{rl}
+F_Y(y) & =P(Y\leq y)=P(F_X(X)\leq y)\stackrel{\mbox{usando que $F_X$ es estrictamente creciente}}{=} P(X\leq F_X^{-1}(y)) \\ & =F_X(F_X^{-1}(y))=y.
+\end{array}
+$$
+</div>
+
+## Método de transformación
+
+Usando la proposición anterior, dada una variable $X$, como la distribución de la variable aleatoria $Y=F_X(X)$ es $U[0,1]$, si hacemos $X=F_X^{-1}(Y)$, tendremos que si sabemos generar una muestra de $Y$, aplicándole a la muestra la función $F_X^{-1}$ tendremos generada una muestra de $X$.
+
+
+## Ejemplo
+<div class="example">
+**Ejemplo: generar una muestra de una variable exponencial de parámetro $\lambda$**
+
+Recordemos que si $X$ es exponencial de parámetro $\lambda$, su función de distribución es: $F_X(x)=1-\mathrm{e}^{-\lambda x}$.
+
+Hallemos a continuación $F_X^{-1}$:
+$$
+y=1-\mathrm{e}^{-\lambda x},\ \Leftrightarrow 1-y=\mathrm{e}^{-\lambda x},\ \Leftrightarrow \ln(1-y)=-\lambda x,\ \Leftrightarrow x=-\frac{1}{\lambda}\ln(1-y).
+$$
+Por tanto, $F_X^{-1}(y)=-\frac{1}{\lambda}\ln(1-y)$.
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo: generar una muestra de una variable exponencial de parámetro $\lambda$**
+
+Generemos una muestra con `R` de 25 valores de una variable exponencial de parámetro $\lambda=2$ usando el método anterior:
+```{r}
+n=25
+lambda=2
+muestra.y = runif(n)
+muestra.x = -(1/lambda)*log(1-muestra.y)
+muestra.x
+```
+
+
+
+</div>
+
+
+## Ejemplo
+<div class="example">
+**Ejemplo: generar una muestra de una variable exponencial de parámetro $\lambda$**
+
+Vamos a testear si nuestro método funciona. 
+
+Para ello generaremos una muestra de 500 valores usando el método de transformación y dibujaremos su **histograma de frecuencias relativas**.
+
+Seguidamente dibujaremos la **función de densidad de la variable exponencial de parámetro $\lambda$** y compararemos los resultados:
+```{r,eval=FALSE}
+n=500
+lambda=2
+muestra.y = runif(n)
+muestra.x = -(1/lambda)*log(1-muestra.y)
+hist(muestra.x,freq=FALSE)
+x2=seq(from=0,to=2.5,by=0.01)
+lines(x2,dexp(x2,lambda),col="red")
+```
+
+
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo: generar una muestra de una variable exponencial de parámetro $\lambda$**
+```{r,echo=FALSE}
+n=500
+lambda=2
+set.seed(2019)
+muestra.y = runif(n)
+muestra.x = -(1/lambda)*log(1-muestra.y)
+hist(muestra.x,freq=FALSE)
+x2=seq(from=0,to=2.5,by=0.01)
+lines(x2,dexp(x2,lambda),col="red")
+```
+
+
+
+</div>
+
+## Método de rechazo
+
+Sea $X$ una variable aleatoria continua tal que su función de densidad verifica:
+
+* Existen valores $a$ y $b$ tal que $f_X(x)= 0$ si $x\not\in [a,b]$.
+* Existen valores $c$ y $d$ tal que $f_X(x)\in [c,d]$, si $x\in [a,b]$.
+
+En resumen, los puntos $(x,f(x))$ pertenecen al rectángulo $[a,b]\times [c,d]$ y en caso contrario $f_X(x)=0$.
+
+En el gráfico siguiente, $a=0$, $b=2$, $c=0$ y $d=1$.
+
+
+## Método de rechazo
+
+<div class="center">
+
+
+```{r,echo=FALSE}
+xmin=0
+xmax=2
+ymin=0
+ymax=2
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=2
+quantsy=2
+f = function(x){ifelse(x>=0 & x<=1,x,ifelse(x>=1&x<=2,2-x,0))}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(xmin,xmin),c(ymin,ymax))
+lines(c(xmin,xmax),c(ymin,ymin))
+text(xmax-3*tolx,-4*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(ymin-0.5*toly,ymin+0.5*toly))
+  text(xmin+((xmax-xmin)/quantsx)*i,ymin-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+for (i in 0:(quantsy)){
+  lines(c(xmin-tolx,xmin+tolx),rep(ymin+((ymax-ymin)/quantsy)*i,2))
+  text(xmin-3*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)}
+x2=seq(from=xmin,to=xmax,by=0.01)
+lines(x2,f(x2),col="red")
+lines(c(0,2),c(1,1),col="blue")
+lines(c(2,2),c(0,1),col="blue")
+text(0.35,0.5,expression(f[X](x)))
+```
+</div>
+
+
+## Método de rechazo
+
+Para generar una **muestra aleatoria** de la variable $X$, hacemos lo siguiente:
+
+1) generamos un valor aleatorio $x$ entre $a$ y $b$.
+
+2) generamos un valor aleatorio $y$ entre $c$ y $d$.
+
+3) si $y\leq f_X(x)$, aceptamos $x$ como valor de la muestra. En caso contrario, volvemos a empezar en 1.
+
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+El gráfico de la figura anterior corresponde a la función de densidad siguiente:
+$$
+f_X(x)=\begin{cases}
+x, & \mbox{ si }0\leq x\leq 1,\\
+2-x, & \mbox{ si }1\leq x\leq 2,\\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+</div>
+
+## Ejemplo
+<div class="example">
+
+Vamos a generar una muestra de $25$ valores usando el **método del rechazo**:
+```{r}
+a=0; b=2; c=0; d=1; n=25; i=1;
+f = function(x){ifelse(x>=0 & x<=1,x,ifelse(x>=1&x<=2,2-x,0))}
+muestra=c()
+while(i <=n){
+  x=runif(1,a,b)
+  y=runif(1,c,d)
+  if(y <= f(x)){muestra=c(muestra,x); i=i+1}
+}
+muestra
+```
+</div>
+
+## Ejemplo
+<div class="example">
+Como hicimos con el ejemplo del **método de transformación**, vamos a generar una muestra de 500 valores de la variable $X$, vamos a dibujar el **histograma de frecuencias relativas** junto con la función de densidad para ver si ésta se aproxima a dicho histograma:
+```{r,eval=FALSE}
+a=0; b=2; c=0; d=1; n=500; i=1;
+f = function(x){ifelse(x>=0 & x<=1,x,ifelse(x>=1&x<=2,2-x,0))}
+muestra=c()
+while(i <=n){
+  x=runif(1,a,b)
+  y=runif(1,c,d)
+  if(y <= f(x)){muestra=c(muestra,x); i=i+1}
+}
+hist(muestra,freq=FALSE)
+x2=seq(from=0,to=2,by=0.01)
+lines(x2,f(x2),col="red")
+```
+
+</div>
+
+
+## Ejemplo
+<div class="example">
+```{r,echo=FALSE}
+a=0; b=2; c=0; d=1; n=500; i=1;
+f = function(x){ifelse(x>=0 & x<=1,x,ifelse(x>=1&x<=2,2-x,0))}
+muestra=c()
+while(i <=n){
+  x=runif(1,a,b)
+  y=runif(1,c,d)
+  if(y <= f(x)){muestra=c(muestra,x); i=i+1}
+}
+hist(muestra,freq=FALSE,ylab="frecuencias relativas")
+x2=seq(from=0,to=2,by=0.01)
+lines(x2,f(x2),col="red")
+```
+
+</div>
 
 # Entropía
+
+## Introducción
+
+La **entropía** es una medida de la **incertidumbre** en un experimento aleatorio. 
+
+Veremos cómo la **entropía** cuantifica la **incertidumbre** por la cantidad de **información** requerida para especificar el resultado de un experimento aleatorio. 
