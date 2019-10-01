@@ -835,7 +835,7 @@ n=500
 lambda=2
 muestra.y = runif(n)
 muestra.x = -(1/lambda)*log(1-muestra.y)
-hist(muestra.x,freq=FALSE)
+hist(muestra.x,freq=FALSE,main="Histograma de la muestra")
 x2=seq(from=0,to=2.5,by=0.01)
 lines(x2,dexp(x2,lambda),col="red")
 ```
@@ -852,7 +852,7 @@ lambda=2
 set.seed(2019)
 muestra.y = runif(n)
 muestra.x = -(1/lambda)*log(1-muestra.y)
-hist(muestra.x,freq=FALSE)
+hist(muestra.x,freq=FALSE,main="Histograma de la muestra")
 x2=seq(from=0,to=2.5,by=0.01)
 lines(x2,dexp(x2,lambda),col="red")
 ```
@@ -964,7 +964,7 @@ while(i <=n){
   y=runif(1,c,d)
   if(y <= f(x)){muestra=c(muestra,x); i=i+1}
 }
-hist(muestra,freq=FALSE)
+hist(muestra,freq=FALSE,main="Histograma de la muestra")
 x2=seq(from=0,to=2,by=0.01)
 lines(x2,f(x2),col="red")
 ```
@@ -983,7 +983,7 @@ while(i <=n){
   y=runif(1,c,d)
   if(y <= f(x)){muestra=c(muestra,x); i=i+1}
 }
-hist(muestra,freq=FALSE,ylab="frecuencias relativas")
+hist(muestra,freq=FALSE,ylab="frecuencias relativas",main="Histograma de la muestra")
 x2=seq(from=0,to=2,by=0.01)
 lines(x2,f(x2),col="red")
 ```
