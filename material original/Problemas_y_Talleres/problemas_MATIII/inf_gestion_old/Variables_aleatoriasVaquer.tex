@@ -1,0 +1,414 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=2cm,top=3cm,right=2cm,bottom=2.5cm]{geometry}
+\usepackage[spanish]{babel} % Corta palabras en español
+\usepackage[latin1]{inputenc} % Escribir con acentos, ~n, ...
+\usepackage{eurosym} % símbolo del euro 
+\usepackage{enumerate}  % Usar Listas de Items
+\usepackage[usenames]{color} %Paquete para colores
+\usepackage{graphicx}
+%\usepackage{epsfig}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt} %Eliminar sangrías de los párrafos
+%\pagestyle{headings}
+\fancyhead[R]{UIB}
+\fancyfoot[R]{Pag. \thepage}
+
+\begin{document}
+
+%\markright{\textcolor{blue}{Tema 3 - Ejercicios de Variables Aleatorias}}
+
+\begin{center} \textcolor{red}{\textbf{Variables aleatorias continuas}}\\ \end{center}
+
+\textcolor{blue}{\textbf{78)} Sea $X$ una variable aleatoria con función de densidad :
+$$f(x) = \cases{k\cdot (1+x^2) &si $x\in (0,3)$ \cr 0& si $x\notin (0,3)$}$$
+\begin{enumerate}[a)]
+\item Calcular la constante $k$ y la función de distribución de $X$.
+\item Calcular la probabilidad de que $X$ esté comprendida entre 1 y 2
+\item Calcular la probabilidad de que $X$ sea menor que 1
+\item Sabiendo que X es mayor que 1, calcular la probabilidad de que sea menor que 2
+\end{enumerate}}
+\textcolor{red}{\textbf{Solución a)}}\\
+
+\textit{La función es positiva, continua y derivable}\\
+\begin{displaymath}
+1=\int_{-\infty}^{+\infty} f(x)dx\Rightarrow \int_{0}^{3}k(1+x^2)dx=k\left[ x+\frac{x^3}{3}\right]_{0}^3
+=k\cdot 12 \Rightarrow k=\frac{1}{12}
+\end{displaymath}
+\textit{Función de distribución :} 
+\begin{displaymath}
+ F(x)=\int_{-\infty}^{x}f(t)dt= \cases{0 &si $x\leq 0$ \cr \frac{1}{12}\left[ x+\frac{x^3}{3}\right] & si $0<x<3$  \cr 1 &si $x\geq 3$}
+\end{displaymath}
+\textcolor{red}{\textbf{Solución b)}} \\
+\begin{displaymath}
+P(1<X\leq 2)=\int_{1}^{2}\frac{1}{12}(1+x^2)dx=\frac{1}{12}\left[ x+\frac{x^3}{3}\right] _{1}^2=
+\frac{1}{12}\left[ \left( 2+\frac{8}{3}\right) -\left( 1+\frac{1}{3}\right) \right] =\frac{5}{18}%
+\footnote{Regla de Barrow (Integral definida) : $\int_{a}^{b}f(x)dx=F(x)\Big|_{a}^b=F(b)-F(a) $ siendo $F(x)$ la primitiva de la integral}
+\end{displaymath}
+\textcolor{red}{\textbf{Solución c)}}\\
+\textit{Como la función es continua, por definición $P(X\leq x)=P(X<x)=F_{X}(x)$ por tanto tienen la misma probabilidad}\\
+\begin{displaymath}P(X<1)=F(1)=\frac{1}{12}\left( 1+\frac{1}{3}\right) =\frac{1}{9}\end{displaymath}
+\textcolor{red}{\textbf{Solución d)}}  \\
+\textit{Se trata de una probabilidad condicionada =}$P(X<2 / X>1)=\frac{P(1<X<2)}{P(X>1)}=\frac{5/18}{8/9}=\frac{5}{16}$
+Donde $P(X>1)=1-P(X\geq 1)=1-P(X<1)=1-\frac{1}{9}=\frac{8}{9}$.
+
+También se puede calcular de forma directa:
+\begin{displaymath}
+P(X>1)=\int_{1}^{3}\frac{1}{12}(1+x^2)dx=\frac{1}{12}\left[ x+\frac{x^3}{3}\right] _{1}^3=\frac{8}{9} 
+\end{displaymath}
+\pagebreak
+
+\textcolor{blue}{\textbf{79)} La función de densidad de una variable aleatoria continua es :
+$$f(x) = \cases{ax^2+b &si $x\in (0,3) $ \cr 0 & si $x\notin (0,3)$}$$\\
+Determinar $a$ y $b$, sabiendo que $P(1<X\leq 2)=2/3 $}\\
+
+\textcolor{red}{\textbf{Solución)}}  \\
+\begin{displaymath}
+1=\int_{-\infty}^{+\infty} f_{x}dx= \int_{0}^{3}(ax^2+b)dx=\left[ \frac{ax^3}{3}+bx\right] _{0}^3=
+                                  \left[ \left( \frac{27a}{3}+3b\right) -\left( \frac{a(0^3)}{3}+b\cdot 0\right) \right] \Rightarrow 9a+3b=1
+\end{displaymath}
+
+\textit{Se necesita otra ecuación para poder resolver el sistema de ecuaciones despejando a y b, para ello sabemos que} $P(1<x\leq 2)=2/3 $\\
+\begin{displaymath} 
+\frac{2}{3}=\int_{1}^{2}(ax^2+b)dx=\left[ \frac{ax^3}{3}+bx\right] _{1}^2=
+\left[ \left( \frac{8a}{3}+2b\right) -\left( \frac{a}{3}+b\right) \right] \Rightarrow 7a+3b=2
+\end{displaymath} 
+Se resuelve el sistema de ecuaciones, dando como resultado : $a=-\frac{1}{2}$, $b=\frac{11}{6}$
+\pagebreak
+
+\textcolor{blue}{\textbf{80) La duración en minutos de unas ciertas comunicaciones telefónicas 
+es una variable aleatoria con función de distribución:}\\
+$$F(x) = \cases{0 &si $x\leq 0$ \cr 1-\frac{1}{2}e^{-x/3}-\frac{1}{2}e^{-R[x/3]}& si $x>0$}$$\\
+donde $R[x]$ es la parte entera de $x$. Calcular la probabilidad de que la comunicación dure:
+\begin{enumerate}[a)]
+\item Más de 6 minutos
+\item Menos de 4 minutos
+\item Exáctamente 3 minutos
+\item Menos de 9 minutos, sabiendo que ha durado más de 5
+\item Más de 5 minutos, sabiendo que ha durado menos de 9
+\end{enumerate}}
+\textit{Se trata de una variable aleatoria que no es discreta ni continua. La función de distribución tiene un salto en cada múltiplo positivo de 3
+. Ya que en estos puntos al coincidir la parte entera con la parte no entera siempre vale 1 con lo que da un salto, siendo estríctamente
+creciente en el intervalo entre salto y salto. En los demás puntos la función es contínua.}\\
+\textcolor{red}{\textbf{Solución a)}}  \\
+\begin{displaymath}
+P(X>6)=1-P(X\leq 6)=1-F_{X}(6)=1-\left( 1- \frac{1}{2}e^{-6/3}-\frac{1}{2}e^{-R[6/3]}\right)  =
+1-\left( 1- \frac{1}{2}e^{-2}-\frac{1}{2}e^{-2}\right) = e^{-2}.
+\end{displaymath}
+\textcolor{red}{\textbf{Solución b)}}  \\
+
+$P(X<4)=P(X\leq 4)-P(X=4)=F(4)$ Ya que como en $X=4$ la función de distribución es contínua  en $4$ se tiene que $P(X=4)=0$\\
+$=1-\frac{1}{2}e^{-4/3}-\frac{1}{2}e^{-1} $ (La parte entera de $4/3$ es $1$) \\
+\medskip\\
+\textcolor{red}{\textbf{Solución c)}}  \\
+\textit{En $x=3$ la función de distribucióno no es contínua, el $\lim_{x \to 3^-}$ la parte entera de $e^{-R[3/3]}$ es menor que 1 por tanto es 0.}
+$P(X=3)=P(X\leq 3)-P(X<3)=F(3)-\lim_{x \to 3^-}$ En $x=3$ la función no es contínua\\
+\begin{displaymath}
+=1-\frac{1}{2}e^{-3/3}-\frac{1}{2}e^{-R[-3/3]}-\lim_{x \to 3^-}\left( 1-\frac{1}{2}e^{-3/3}-\frac{1}{2}e^0 \right) 
+=\frac{1}{2}-\frac{1}{2e}
+\end{displaymath}
+\textcolor{red}{\textbf{Solución d)}}  \\
+\begin{displaymath}P(X<9/X>5)=\frac{P({X<9}\cap {X>5})}{P(X>5)}=\frac{P(5<X<9)}{P(X>5)}\end{displaymath}
+\begin{displaymath}P(5<X<9)=\lim_{x \to 9^-}F(x)-F(5)=1-\frac{1}{2}e^{-5/3}-\frac{1}{2}e^{-1}-
+\left( 1-\frac{1}{2}e^{-3}-\frac{1}{2}e^{-2}\right) = -\frac{1}{2}e^{-3}-\frac{1}{2}e^{-2}+\frac{1}{2}e^{5/3}+\frac{1}{2}e^{-1}
+\end{displaymath}
+\begin{displaymath}P(X>5)=1-P(X\leq 5)=1-F(5)=1-\left( 1-\frac{1}{2}e^{-5/3}-\frac{1}{2}e^{-1}\right) =
+\frac{1}{2}e^{-5/3}+\frac{1}{2}e^{-1}
+\end{displaymath}
+\textcolor{red}{\textbf{Solución e)}}  \\
+\begin{displaymath}P(X>5/X<9)=\frac{P(5<X<9)}{P(X<9)}\Rightarrow 
+P(X<9)=P(X\leq 9)-P(X=9)=1-\frac{1}{2}e^{-3}-\frac{1}{2}e^{-2}
+\end{displaymath}
+\pagebreak
+
+\textcolor{blue}{\textbf{81)} Sea X una variable aleatoria con densidad :
+$$f(x) = \cases{1-|x| &si $|x| \leq 1$ \cr 0&en caso contrario}$$
+\begin{enumerate}[a)]
+\item Encontrar la función de distribución de X
+\item Calcular $P(X\geq0)$  y  $P(|X|<1/2)$
+\end{enumerate}}
+\textcolor{red}{\textbf{a) Solución 1 : Mediante Cálculo de área $a=\frac{bxa}{2}$}.} \\
+\medskip \\
+La función valor absoluto es :
+$$|x| = \cases{+x &si $x \geq 0$ \cr -x &si $x\leq 0$ }$$ \\
+La función quedará definida por trozos de la siguiente manera :
+$$f(x) = \cases{1-x &si $0 \leq x\leq 1  $ \cr 1+x &si $-1\leq x\leq 0 $ }$$ 
+Además como és simétrica su media es el valor central \\
+\medskip \\
+\textcolor{Red}{Area Trozo $-1\leq x\leq 0 $} \\
+$F_{X}(x)=\frac{(x-(-1)(1+x)}{2}=\frac{(x+1)(x+1)}{2}=\frac{(x+1)^{2}}{2}$ \\ \medskip \\
+El otro trozo, al ser simétrico = $1-F_{X}(x)$, o sea el complementario \\
+\medskip \\
+$F_{X}(x)=1-\frac{(1-x)(1-x)}{2}=1-\frac{(1-x)^2}{2}$ \\
+$$F_{X}(x) = \cases{0 &si $x \leq -1$ \cr \frac{(x+1)^2}{2} &si $-1\leq x\leq 0 $ \cr 
+                      1-\frac{(1-x)^2}{2} &si $0\leq x\leq 1$ \cr 1 &si $1<x$}$$ 
+\textcolor{red}{\textbf{a) Solución 2 : Integrando cada trozo}} \\
+\begin{displaymath}F_{X}(x)=P(X \leq x)=\int_{-\infty}^{x} f_{t}dt= \int_{-1}^{x} (1+t)dt=t+\frac{t^2}{2}\Bigg |_{-1}^x=x+\frac{x^2}{2}-(-1+\frac{1}{2})
+\end{displaymath}
+\begin{displaymath}
+=\frac{(x+1)^2}{2} F_{X}(x)=P(X \leq x)= \int_{-1}^{x} f_{t}dt= \int_{-1}^{0} (1+t)dt+\int_{0}^{x} (1-t)dt=1-\frac{(1-x)^2}{2}
+\end{displaymath}
+\textcolor{red}{\textbf{b) Solución 1 :}} $P(|X|\leq\frac{1}{2})=P(\frac{1}{2}<X<-\frac{1}{2})=F_{X}(\frac{1}{2})-F_{X}(-\frac{1}{2})=  $ \\
+Sustituyendo en la función de distribución : $1-\frac{(1-1/2)^2}{2}-\frac{((-1/2)+1)^2}{2}=1-\frac{1}{8}-\frac{1}{8}=\frac{3}{4}  $ \\
+\medskip \\
+\textcolor{red}{\textbf{b) Solución 2 : Por Simetría}} $P(|x|<\frac{1}{2}) =1-2\frac{(-1/2-(-1))1/2)}{2}=1-\frac{1}{4}=\frac{3}{4} $\\
+Integrando los trozos sale igual : \begin{displaymath}\int_{-1/2}^{1/2} f_{x}dx= \int_{-1/2}^{0} (1+x)dx+\int_{0}^{1/2} (1-x)dx= [x+\frac{x^2}{2}]_{-1/2}^0 + [x-\frac{x^2}{2}]_{0}^{1/2}=\frac{3}{4} 
+\end{displaymath}
+\pagebreak 
+
+\textcolor{blue}{\textbf{84) Consideremos $f:\Re \rightarrow \Re$ dada por}
+$$f(x) = \cases{0 &si $x\leq 0 $ \cr a(1+x) &si $0<x\leq 1 $ \cr 2/3 &si $1<x\leq 2 $ \cr 0 &si $x>2 $}$$
+\begin{enumerate}[a)]
+\item Determinar el valor de a para que f sea una densidad
+\item En este caso si X es una variable aleatoria continua con densidad f, calcular $P(1/2<X\leq 3/2)$
+\item Calcular, para el valor de \textit{a} encontrado $E(X)$ y $Var(X)$.
+\end{enumerate}}
+\textcolor{red}{\textbf{a) Solución 1 : Mediante la gráfica}}  \\
+\begin{displaymath}\frac{}{}\frac{}{} \frac{2}{3}+\frac{a}{2}+a=1 \Longrightarrow (\frac{1}{2}+1)a=1-\frac{2}{3}\Longrightarrow a=\frac{2}{9}\end{displaymath}
+\textcolor{red}{\textbf{a) Solución 2 : Integrando cada trozo}}  \\
+\begin{displaymath} 1=\int_{-\infty}^{+\infty} f_{x}dx  = \int_{0}^{1} a(1+x)dx+\int_{1}^{2} (2/3)dx= 
+a(x+\frac{x^2}{2})\Big |_{0}^1+\frac{2}{3}x|_{1}^2= 
+a(1+\frac{1}{2})-0+(\frac{2}{3})2-(\frac{2}{3})1\Longrightarrow a=\frac{2}{9}
+\end{displaymath}
+\textcolor{red}{\textbf{b)  Solución : Integrando la función de densidad}}
+\begin{displaymath} P(1/2<X\leq 3/2)=\int_{1/2}^{3/2} f_{x}dx  = \int_{1/2}^{1} \frac{2}{9}(1+x)dx+\int_{1}^{3/2} (2/3)dx= 
+\frac{2}{9}(x+\frac{x^2}{2})|_{1/2}^1+\frac{2}{3}(\frac{3}{2}-1)=\frac{19}{36}
+\end{displaymath}
+\textcolor{red}{\textbf{c)  Solución :}}
+\begin{displaymath} E(X)=\int_{0}^{1} x\frac{2}{9}(1+x)dx+\int_{1}^{2} x\frac{2}{3}dx=\frac{2}{9}\Bigg(\frac{x^3}{3}+\frac{x^2}{2}\Bigg)\Bigg|_{0}^1+\frac{2}{3}\Bigg(\frac{4}{2}-\frac{1}{2}\Bigg)=\frac{2}{9}\Bigg(\frac{1}{3}+\frac{1}{2}\Bigg)+\frac{2}{3}\frac{3}{2}=\frac{32}{27}
+\end{displaymath}
+\begin{displaymath} E(X^2)=\int_{0}^{1} x^2\frac{2}{9}(1+x)dx+\int_{1}^{2} x^2\frac{2}{3}dx=\frac{2}{9}\Bigg(\frac{x^3}{3}+\frac{x^4}{4}\Bigg)\Bigg|_{0}^1+\frac{2}{3}\Bigg(\frac{x^3}{3}\Bigg)\Bigg|_{1}^2
+=\frac{2}{9}\Bigg(\frac{1}{3}+\frac{1}{4}\Bigg)+\frac{2}{3}\Bigg(\frac{8}{3}-\frac{1}{3}\Bigg)=\frac{91}{54}
+\end{displaymath}
+\begin{displaymath}
+Var(X)=E(X^2)-\Big(E(X)\Big)^2=\frac{91}{54}-\Bigg(\frac{32}{27}\Bigg)^2=\frac{409}{1458}
+\end{displaymath}
+\pagebreak
+
+\begin{center} \textcolor{red}{\textbf{Transformación de variables aleatorias}}\\ \end{center}
+
+\textcolor{blue}{\textbf{85) Sea X la variable que nos da la puntuación obtenida al lanzar un dado. Calcular la distribución de las variables
+                $Y=X^2$, $Z=X^2-6x+6 $. Calcular las esperanzas y las varianzas de las variables Y y Z.}}\\
+\textcolor{red}{\textbf{a) Solución $ Y=X^2$}}  \\
+\begin{displaymath} P(Y=k)=P(X^2=k)\end{displaymath}
+Con esta transformación Y toma los valores : ${\left\lbrace 1^2,2^2,3^2,4^2,5^2,6^2\right\rbrace }={\left\lbrace 1,4,9,16,25,36\right\rbrace }$\\
+\medskip
+\begin{displaymath}E(Y)=\sum_{x=0}^{6}x\cdot P(x)=1\cdot \frac{1}{6}+4\cdot \frac{1}{6}+9\cdot \frac{1}{6}+25\cdot
+ \frac{1}{6}+36\cdot \frac{1}{6}=\frac{75}{6}
+\end{displaymath}
+\begin{displaymath}E(Y^2)=\sum_{x=0}^{6}x^2\cdot P(x)=1^2\cdot\frac{1}{6}+4^2\cdot\frac{1}{6}
++9^2\cdot\frac{1}{6}+25^2\cdot\frac{1}{6}+36^2\cdot\frac{1}{6}=\frac{2019}{6}
+\end{displaymath}
+\begin{displaymath}Var(Y)=E(Y^2)-(E(Y))^2=\frac{2019}{6}-\left( \frac{75}{6}\right)^2=180.25\end{displaymath}
+\textcolor{red}{\textbf{b) Solución $ Z=x^2-6x+6$}}  \\
+Con esta transformación Z toma los valores : ${\left\lbrace f(1),f(2),f(3),f(4),f(5),f(6) \right\rbrace }={\left\lbrace 1,-2,-3,-2,1,6\right\rbrace }$\\
+\medskip
+Hay valores que se repiten (1 y -2), por tanto las probabilidades son :\\
+$P(Z=1)=P(x^2-6x+6)=1=P(\left\lbrace Z=1\right\rbrace \cup \left\lbrace Z=5\right\rbrace )=\frac{2}{6} $\\
+$P(Z=-2)=P(x^2-6x+6)=-2=P(\left\lbrace Z=2\right\rbrace \cup \left\lbrace Z=4\right\rbrace )=\frac{2}{6} $\\
+$P(Z=-3)=P(x^2-6x+6)=-3=P(Z=5)=\frac{1}{6} $\\
+$P(Z=6)=P(x^2-6x+6)=1=P(Z=6)=\frac{1}{6} $\\
+\begin{displaymath}E(Z)=\sum_{x=0}^{4}z\cdot P(z)=1\cdot\frac{2}{6}+(-2)\cdot\frac{2}{6}+(-3)\cdot
+\frac{1}{6}+6\cdot\frac{1}{6}=-\frac{2}{3}
+\end{displaymath}
+\begin{displaymath}E(Z^2)=\sum_{x=0}^{4}z\cdot P(z)=1^2\cdot\frac{2}{6}+(-2)^2\cdot
+\frac{2}{6}+(-3)^2\cdot\frac{1}{6}+6^2\cdot\frac{1}{6}=\frac{55}{6}
+\end{displaymath}
+\begin{displaymath}Var(Z)=E(Y^2)-(E(Y))^2=\frac{2019}{6}-\left( \frac{75}{6}\right)^2=180.25\end{displaymath}
+\pagebreak
+
+\textcolor{blue}{\textbf{86) Conocida la función de distribución de una variable aleatoria continua X, 
+hallar la función de densidad de $Y=X^2$ y de $Z=e^x$}} \\
+\medskip \\
+\textcolor{red}{\textbf{Solución : $Y=X^2$ }}  \\
+La función es contínua , $D_{Y}=(0,+\infty)$ , $y>0$
+\begin{displaymath}F_{Y}(y)=P(Y\leq y)=P(X^2\leq y)=P(-\sqrt{y}\leq x \leq \sqrt{y})=F_{X}(\sqrt{y})-F_{X}(-\sqrt{y})\end{displaymath}
+$$F_{Y}(y) = \cases{F_{X}(\sqrt{y})-F_{X}(-\sqrt{y}) &si $y \leq 0$ \cr 0 &en caso contrario  }$$ \\
+Función de densidad : Derivar la función de distribución (Regla de la Cadena : $f(x)$·$f '(x)$
+$$f_{Y}(y)=F_{Y} '(y)= \cases{f_{X}(\sqrt{y})\Big(\frac{1}{2\sqrt{y}}\Big)-F_{X}(-\sqrt{y})\Big(-\frac{1}{2\sqrt{y}}\Big) &si $y>0$ \cr 0 &en caso contrario  }$$ \\
+\textcolor{red}{\textbf{Solución : $Z=e^x$ }}  \\
+\begin{displaymath}F_{Z}(z)=P(Z\leq z)=P(e^x\leq z)=P(x\leq ln(z))=F_{X}(ln(z))\end{displaymath}
+$$F_{Z}(z) = \cases{F_{X}(ln z) &si $z<0$ \cr 0 &si  $ z>0$}$$ \\
+Función de densidad : Derivar la función de distribución (Regla de la Cadena : $f(x)$·$f '(x)$)
+$$f_{Z}(z)=F_{Z} '(z)= \cases{f_{X}(lnz) \Big(\frac{1}{z}\Big) &si $z<0$ \cr 0 &si $ z>0$ }$$ \\
+\pagebreak
+
+\textcolor{blue}{\textbf{87) La función de distribución de una variable aleatoria X es: } \\
+$$F_{X}(x) = \cases{0 &si $x\leq 0$ \cr 1-e^(-x^2) &si  $ x>0$}$$ \\
+Encontrar la función de densidad de la variable aleatoria $Y=ln(X+1) $} \\
+\medskip
+\textcolor{red}{\textbf{Solución : }}  \\
+La función es contínua , $D_{X}=(0,+\infty)$ , $D_{Y}=(0,+\infty)$, $y>0$, $Y=ln(x+1)$
+\begin{displaymath}F_{Y}(y)=P(Y\leq y)=P(ln(x+1)\leq y)=P(x+1\leq e^y)=P(x\leq e^y -1)= \end{displaymath}
+$$F_{X}(e^y -1) = \cases{0 &si $e^y -1< 0$ \cr 1-e^{-(e^y -1)^2}  &si  $ e^y - 1>0$} \Longrightarrow 
+F_{X}(e^y -1) = \cases{0 &si $y<0$ \cr 1-e^{-(e^y -1)^2} &si  $y>0$}$$\\
+Función de densidad : Derivar la función de distribución (Regla de la Cadena : $f(x)$·$f '(x)$)
+$$f_{X}(x)=F_{X} '(x)= \cases{0  &si $y>0$ \cr -e^{-(e^y -1)^2} (-2(e^y -1)e^y)   &si $ y<0$ }$$ \\
+\pagebreak
+
+\textcolor{blue}{\textbf{88) La función de densidad de una variable aleatoria X es: } \\
+$$f_{X}(x) = \cases{x+1 &si $x \in (-1,0]$ \cr -x+1 &si  $ x\in (0,1]$ \cr 0 &si $ x\in (-\infty,-1]\cup (1,\infty)$}$$ \\
+Definimos la variable aleatoria $Y=g(X),$ donde g es la función\\
+$$g(x) = \cases{1 &si $x \in (1/2,\infty)$ \cr 0 &si  $ x\in (-1/2,1/2]$ \cr -1 &si $ x\in (-\infty,-1/2]$ }$$ \\
+Determinar la función de masa de probabilidad y la de distribución de Y. Calcular las esperanzas y varianzas de X e Y}\\
+\medskip
+\textcolor{red}{\textbf{Solución : }}  \\
+Se trata de una transformación para pasar de continua a discreta , $D_{X}=(-1,1)$ , $D_{Y}=(-1,0,1)$, $Y=h(X)$\\
+$P_{Y}(y)=P(Y=y)$
+Como que $f(x)$ es una distribución triangular se puede calcular el área del triángulo\\
+\begin{itemize}
+\item $P(Y=-1)=P(g(X))=-1)=P(X<-1/2)=\frac{(-\frac{1}{2}-(-1))\frac{1}{2}}{2}=\frac{1}{8} $
+\item $P(Y=1)=P(g(X))=1)=P(X>1/2)=\frac{1}{8} $ (Por Simetría)
+\item $P(Y=0)=1-\Big(\frac{1}{8}+\frac{1}{8}\Big)=\frac{3}{4}$
+\end{itemize}
+Función de Probabilidad de Y : $P(y) = \cases{1/8 &si $y=-1$ \cr 3/4 &si  $y=0$ \cr 1/8 &si $y=1$ }$ \\
+Función de Distribución de Y (Acumulada) : $F_{Y}(y) = \cases{0 &si $y<-1$ \cr 1/8 &si  $-1\leq y<0$ \cr 7/8 &si $0\leq y<1$ \cr 1 &si $1\leq y$}$\\
+\textit{Nota : Al ser una distribución simétrica sus Esperanzas valen 0}
+\begin{displaymath} E(X)=\int_{-\infty}^{+\infty} f_{x}dx=\int_{-1}^{0} x(x+1)dx+\int_{0}^{1} x(-x+1)dx=0 \end{displaymath}
+\begin{displaymath} E(X)=\sum_{x=1}^3 xP(x)= \frac{1}{8}(-1)+\frac{3}{4}(0)+\frac{1}{8}(1)=0\end{displaymath}
+\pagebreak
+
+\textcolor{blue}{\textbf{89) El precio por estacionar un vehículo en un aparcamiento es de 75 pts. por la primera hora o fracción, y de 60 pts.
+                a partir de la segunda hora o fracción. Supongamos que el tiempo, en horas, que un vehículo cualquiera permanece
+                en el aparcamiento se modeliza según la siguiente función de densidad :} \\
+$$f_{X}(x) = \cases{e^{-x} &si $x\geq 0$ \cr 0 &si  $ x<0$}$$ \\
+Calcular el ingreso medio por vehículo}\\
+\medskip
+\textcolor{red}{\textbf{Solución : }}  \\
+Sea la variable aleatoria $Y$=Ingreso medio por vehículo, $X$=Tiempo en horas\\
+Analizado cada caso tenemos que : Si el tiempo es 1 hora o menos : $(0<x<1)=coste=75+60$·$0$\\
+Si está entre 1 hora y dos horas : $(1<x<2)=coste=75+60$·$1$, etc...\\
+Se define la transformación : $Y=h(X)=$ $75+k$·$60$ si $k\leq x<k+1$ para $k=0,1,2,\ldots $\\
+\medskip 
+Se pide el Valor Esperado de $Y=E(Y)$\\
+\begin{displaymath} E(Y)=\int_{-\infty}^{+\infty} f_{Y}(y)dy= \end{displaymath}
+\begin{displaymath} E(Y)=E(h(X))=\int_{-\infty}^{+\infty} h(X)\cdot f_{X}(x)dx=\int_{0}^{+\infty} h(X)\cdot e^{-x}dx \end{displaymath}
+\begin{displaymath} \int_{0}^{1} 75\cdot e^{-x} dx+\int_{1}^{2} (75+60)\cdot 
+e^{-x}dx+\cdots +\int_{k}^{k+1} (75+k60)\cdot e^{-x}dx\end{displaymath}
+\begin{displaymath} =\sum_{k=0}^{+\infty}\int_{k}^{k+1} (75+k60)\cdot e^{-x} dx=\Big[-e^{-x}\Big]_{k}^{k+1}
+=-e^{-(k+1)}+e^{-k}=-e^{-k-1}+e^{-k}
+\end{displaymath}
+\begin{displaymath} =\sum_{k=0}^{+\infty} (75+k60)(-e^{-k-1})+\sum_{k=0}^{+\infty}(75+k60)(e^{-k}) 
+(\footnote{Regla de la cadena : $(e^{f(x)}) '=e^{f(x)}\cdot f '(x)\Rightarrow (e^{\lambda x}) '=\lambda e^{\lambda x} $    })
+\end{displaymath}
+Descomponemos en varias partes la suma : Sea $\sum_{k=0}^{+\infty} -e^{-k+1}+e^{-k} =$
+\begin{displaymath}
+(1-e)\sum_{k=0}^{+\infty}\left( \frac{1}{e}\right) ^{k}=(1-e)\frac{1}{1-e^{-1}}=\frac{1-e}{1-e^{-1}}
+\end{displaymath}
+La otra suma : Sea $\sum_{k=1}^{+\infty} (1-e)\cdot k\cdot e^{-k}= $\footnote{El sumatorio empieza en 1 ya que en 0 vale 0}
+\begin{displaymath}
+(1-e)\sum_{k=0}^{+\infty}k\cdot e^{-k} =\footnote{Se multiplica por $\frac{1}{e} $ }
+\frac{1}{e}(1-e)\sum_{k=0}^{+\infty}k\cdot \left( \frac{1}{e}\right) ^{k-1}=\frac{1-e}{e}\frac{1}{\left( 1-e^{-1}\right) ^{2}}
+\footnote{$\sum_{k=1}^{+\infty}k\cdot x^{k-1}=\left( \frac{1}{1-x}\right) =\frac{1}{(1-x)^{2}}$}
+\end{displaymath}
+Por tanto $E(Y)=75\frac{1-e}{1-e^{-1}}+60\frac{1-e}{e}\frac{1}{\left( 1-e^{-1}\right) ^{2}} $
+\pagebreak
+
+\textcolor{blue}{\textbf{90) Calcular E(X) y Var(X) para una v.a. X que tiene por función de densidad:}\\
+$$f_{X}(x) = \cases{\frac{1}{2\sqrt{x}} &si $x\in (0,1)$ \cr 0 &si  $x\notin (0,1)$}$$ }\\
+\medskip
+\textcolor{red}{\textbf{Solución : }}  \\
+\begin{displaymath}
+E(X)=\int_{-\infty}^{+\infty}x\cdot f(x)dx=\int_{0}^{1}x\frac{1}{2\sqrt{x}}dx=\frac{1}{2}\int_{0}^{1}\frac{x}{x^{1/2}}=
+\frac{1}{2}\int_{0}^{1}x^{1-1/2}=\frac{1}{2}\left[ \frac{2x^{3/2}}{3}\right] _{0}^{1}=\frac{1}{3}
+\end{displaymath}
+\begin{displaymath}
+E(X^{2})=\int_{-\infty}^{+\infty}x^2\cdot f(x)dx=\int_{0}^{1}x^2\frac{1}{2\sqrt{x}}dx=\frac{1}{2}\int_{0}^{1}\frac{x^2}{x^{1/2}}=
+\frac{1}{2}\int_{0}^{1}x^{2-1/2}=\frac{1}{2}\left[ \frac{2x^{5/2}}{5}\right] _{0}^{1}=\frac{1}{5}
+\end{displaymath}
+\begin{displaymath}
+Var(X)=E(X^2)-\left( E(X)\right)^2=\frac{1}{5}-\frac{1}{9}=\frac{4}{45}
+\end{displaymath}
+\pagebreak
+
+\textcolor{blue}{\textbf{91) Consideremos una variable aleatoria X con función de densidad}\\
+$$f_{X}(x) = \cases{\frac{1}{2} &si $0<x<2 $ \cr 0 &en caso contrario }$$ \\
+Determinar $E(Y)$, donde $Y=ln(X)$}\\
+\medskip
+\textcolor{red}{\textbf{Solución : }}  \\
+\textit{Primero mediante la fórmula de transformación de v.a. hallamos la función de densidad}
+\begin{itemize}
+\item $Y=ln(X)$
+\item $h^{-1}(Y)=e^{y} $
+\item $h '(Y)=\frac{1}{x} $
+\end{itemize}
+$f_{Y}(y)=\frac{f_{X}(e^y)}{\Big |\frac{1}{x}\Big |}=\frac{\frac{1}{2}}{\frac{1}{e^y}}=\frac{e^y}{2}$\\
+Función de densidad : $$f_{Y}(y) = \cases{\frac{e^y}{2} &si $-\infty <y <ln 2 $ \cr 0 &en caso contrario }$$ \\
+\begin{displaymath}
+E(Y)= \int_{-\infty}^{ln(2)}y\cdot\frac{e^y}{2}dy=\frac{1}{2}\int_{-\infty}^{ln(2)}y\cdot e^{y}dy=
+\end{displaymath}
+Integramos por partes : $$\cases{u=y & $du=dy $ \cr dv=e^y dy & $v=e^y $ }$$ \\
+\begin{displaymath}
+\frac{1}{2}\left [ y\cdot e^y\Big | _{-\infty}^{ln 2} - \int_{-\infty}^{ln(2)}e^ydy \right]=
+\frac{1}{2}\left( ln2\cdot e^{ln2} - \lim_{y \to -\infty} y\cdot e^y- e^y\Big | _{-\infty}^{ln2}\right ) =
+ \frac{1}{2}\left( 2\cdot ln2-\left( 2-\lim_{y \to -\infty}e^y \right) \right)  = 
+\end{displaymath}
+$= \frac{1}{2}(2\cdot ln2-2)=ln2-1 $
+\pagebreak
+
+\begin{center} \textcolor{red}{\textbf{Desigualdad de Chebychef}}\\ \end{center}
+
+\textcolor{blue}{\textbf{93) Sea $X$ una variable aleatoria que toma los valores $-k,0,k$ con probabilidades 
+                $\frac{1}{8},\frac{3}{4}$ y $\frac{1}{8} $ respectivamente.}
+\begin{enumerate}[a)]
+\item Calcular $P(|X-\mu|\geq 2\sigma )$ $(\mu=E(X),\sigma^2=Var(X)) $
+\item Obtener una cota superios de la probabilidad anterior utilizando la Desigualdad de Chebychef.
+\end{enumerate}} 
+\textcolor{red}{\textbf{Solución}}  \\
+\begin{itemize}
+\item $E(X)=\sum_{x=1}^{3}xP(x)=-k\cdot\frac{1}{8}+0\cdot\frac{3}{4}+k\cdot\frac{1}{8}=0$
+\item $E(X^2)=\sum_{x=1}^{3}x^2\cdot P(x)=-k^2\cdot\frac{1}{8}+0^2\cdot\frac{3}{4}+k^2\cdot\frac{1}{8}=\frac{k^2}{4} $
+\item $Var(X)=E(X^2)-(E(X))^2=\frac{k^2}{4}$
+\item Por tanto $\mu=0,\sigma^2=\frac{k^2}{4},\sigma=\sqrt{\frac{k^2}{4}}=\frac{k}{2}$
+\end{itemize}
+Sustituimos los valores en la fórmula : $P\left( |X-0|\geq 2\cdot\frac{k}{2}\right) =P(|X|\geq k) $\\
+\pagebreak
+
+\textcolor{blue}{\textbf{95) El número de periódicos vendidos en un kiosko es una variable aleatoria de media 200 y
+                desviación típica 10. ¿Cuántos ejemplares diarios tiene que encargar el dueño del kiosko
+                para tener la seguridad de que al menos el 99\% de los días no se quedará sin existencias?}}\\
+\textcolor{red}{\textbf{Solución a)}}
+\begin{itemize}
+\item $X$=Nº de periòdicos vendidos
+\item $\mu_{X}=200 $
+\item $\sigma_{X}=10$
+\item $a$=Cantidad de periódicos que aseguran el 99\% de los días no se quedarán sin existencias
+\end{itemize}
+Aplicamos la desigualdad de Chebychef : $P(|X-\mu|\geq a)\leq \frac{\sigma^2}{a^2} $\\
+
+\textit{Interpretando el enunciado, se dice que el número de periódicos vendidos $(X)$ tiene que ser menor o igual
+al nº de periódicos que tiene que encargar el vendedor para no quedarse sin existencias $(a)$, Y esto
+corresponde a la siguiente desigualdad :} $P(X\leq a)=0.99$\\
+
+\textit{En la Desigualdad de Chebyshef la igualdad está al revés, para aplicar la anterior aplicamos el complementario
+en toda la desigualdad, quedando de esta manera :} $P(|X-\mu_{X}|\leq k)\geq 1-\frac{\sigma^2}{k^2}=0.99 $. 
+$k$ es el valor que desconocemos.
+\begin{displaymath} P(\mu_{X}-k\leq X\leq \mu_{X}+k) \geq 1-\frac{\sigma^2}{k^2}) \end{displaymath}
+\begin{displaymath}1-\frac{10^2}{k^2}=0.99\Rightarrow k^2=10000 \Rightarrow k=100 \end{displaymath}
+$$a=\mu_{X}+k=200+100=300$$
+\pagebreak
+
+\textcolor{blue}{\textbf{96) El número de días al año que un trabajador de un pequeño comercio está de baja por
+                enfermedad es una variable aleatoria de media 10 y desviación típica 2. Si cada uno de estos
+                días la empresa pierde 10000 pts. determinar los límites inferior y superior de las pérdidas
+                anuales por trabajador con un grado de fiabilidad no inferior a 95\%}}\\
+\textcolor{red}{\textbf{Solución)}}
+\begin{itemize}
+\item $X$=Nº de días de baja del trabajador
+\item $\mu_{X}=10 $
+\item $\sigma_{X}=2$
+\end{itemize}
+\textit{Aplicando la Desigualdad de Chebyshef : $P(|X-\mu_{X}|\geq a)\leq \frac{\sigma^2}{a^2}=0.95 $.}\\
+
+\textit{Aplicamos el complementario a la Desigualdad : $P(\mu_{X}-k\leq X\leq \mu_{X}+k) \geq 1-\frac{\sigma^2}{k^2})$}\\
+\begin{displaymath}1-\frac{2^2}{k^2}=0.95\Rightarrow k^2=\sqrt{\frac{4}{0.05}} \Rightarrow k=\sqrt{80} \end{displaymath}
+\textit{Los límites estarán entre  $10000(10-\sqrt{80})\leq coste \leq 10000(10+\sqrt{80}) $}
+\pagebreak
+
+
+%\begin{figure}[h]
+%\epsfig{file=prueba.eps}
+%\includegraphics[width=5cm, bb=0 0 596 842]{prueba.eps}
+%\end{figure}
+
+
+\end{document}

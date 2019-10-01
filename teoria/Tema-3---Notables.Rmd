@@ -1,6 +1,6 @@
 ---
-title: "Tema 3 - Distribuciones notables"
-author: "Juan Gabriel Gomila, Arnau Mir y Ricardo Alberich"
+title: "Tema 3 - Distribuciones Notables"
+author: "Ricardo Alberich, Juan Gabriel Gomila y  Arnau Mir"
 date: 
 output: 
   ioslides_presentation:
@@ -13,26 +13,988 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-<div class="exercise">
+# Distribuciones Notables. 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Introducción
 
+* En este tema estudiaremos diversos tipos de experimentos que son muy frecuentes y algunas de las variables aleatorias asociadas a ellos. 
+
+* Estas variables reciben distintos nombres
+que aplicaremos sin distinción al tipo de población del experimento a la variable o a su
+función de probabilidad, densidad o distribución.
+
+* Empezaremos con las variables aleatorias discretas que se presentan con frecuencia ya que están relacionadas con situaciones muy comunes como el número de caras en varios lanzamiento de
+una moneda, el número de veces que una maquina funciona hasta que se estropea, el numero de
+clientes en una cola,...
+
+
+# Distribuciones Discretas. 
+
+## Distribución Bernoulli
+
+* Consideremos un experimento con dos resultados posibles éxito (E) y
+fracaso (F). El espacio de sucesos será.
+* Supongamos  que  $P(E)=p$ y entonces $P(F)=1-p=q$ con $0<p<1$.
+* Consideremos la  aplicación 
+$$X:\Omega=\{E,F\}\to \mathbb{R}$$
+definida por
+$$X(E)=1\mbox{, }X(F)=0$$
+
+
+## Distribución Bernoulli
+* Su  función de probabilidad es
+$$
+P_{X}(x)=
+\left\{
+\begin{array}{ll} q & \mbox{si } x=0\\
+p & \mbox{si } x=1\\
+0 & \mbox{en cualquier otro caso}
+\end{array}
+\right.
+$$
+
+
+
+## Distribución Bernoulli
+
+
+* Bajo estas condiciones diremos que $X$ sigue una distribución de
+probabilidad  Bernoulli de parámetro $p$ y lo denotaremos por
+$$X\equiv Ber(p)\mbox{ o también } X\equiv B(1,p).$$
+* A los experimentos de este tipo (éxito/fracaso)
+    se les denomina experimentos Bernoulli.
+
+## Resumen v.a con distribución Bernoulli, $Ber(p)$
+
+
+| Bernoulli |$Ber(p)$|
+|-----------:|--------|
+|$D_X=$ | $\{0,1\}$| 
+|$P_X(x)=P(X=x)=$ |  $\left\{\begin{array}{ll} q & \mbox{si } x=0\\ p & \mbox{si } x=1\\0 & \mbox{en otro caso}\end{array}\right.$ |
+|$F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\q & \mbox{ si } 0\leq x<1\\1 & \mbox{ si } 1\leq x \end{array}\right.$|
+|$E(X)=p$ | $Var(X)=p\cdot q$|
+
+
+
+## Veamos los cálculos básicos $Ber(p=0.25)$
+
+
+```{r binomialfunciones}
+dbinom(0,size=1,prob=0.25)
+dbinom(1,size=1,prob=0.25)
+rbinom(n=20,size = 1,prob=0.25)
+```
+
+
+
+
+
+## Gráficos de las funciones de distribución de una  $Ber(0.25)$
+
+
+El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ber(0.25)$
+
+```{r eval=FALSE}
+plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=0.25),
+    ylim=c(0,1),xlim=c(-1,2),xlab="x",
+    main="Función de probabilidad\n Ber(p=0.25)")
+curve(pbinom(x,size=1,prob=0.25),
+    xlim=c(-1,2),col="blue",
+    main="Función de distribución\n Ber(p=0.25)")
+```
+
+
+## Gráficos de las funciones de distribución de una  $Ber(0.25)$
+
+```{r fig.align='center',echo=FALSE}
+par(mfrow=c(1,2))
+plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=0.25),
+     ylim=c(0,1),xlim=c(-1,2),xlab="x",
+     main="Función de probabilidad\n Ber(p=0.25)")
+curve(pbinom(x,size=1,prob=0.25),
+      xlim=c(-1,2),col="blue",
+      main="Función de distribución\n Ber(p=0.25)")
+par(mfrow=c(1,1))
+```
+
+
+
+# Distribución Binomial
+
+
+## Distribución Binomial
+
+Si repetimos $n$ veces de forma independiente un experimento Bernoulli de parámetro $p$.
+
+El espacio muestral $\Omega$ estará formado por cadenas de $E$'s y $F$'s de longitud $n$
+Consideremos la v.a.
+
+$$X(\overbrace{EFFF\ldots EEF}^{n})=\mbox{número de éxitos en la cadena}.$$
+
+Entonces
+
+ $$P_{X}(x)=\left\{
+ \begin{array}{ll}
+ \left(\begin{array}{ll} n\\
+    x\end{array}\right) p^x (1-p)^{n-x} &\mbox{ si } x=0,1,\ldots,n\\
+    0  & \mbox{ en otro caso}
+  \end{array}\right..$$
+
+##  Distribución Binomial
+
+En las anteriores circunstancias diremos que la v.a. sigue una *ley de probabilidad binomial con parámetros* $n$ y $p$ y lo denotaremos así 
+    
+$$X\equiv B(n,p).$$ 
+    
+Obviamente se tiene que una bernoulli es una binomial con $n=1$
+
+$$B(1,p)=Ber(p).$$
+
+
+
+
+## Observaciones sobre la distribución binomial
+
+* La probabilidad de fracaso la denotaremos con  $q=1-p$, sin ningún aviso adicional.
+* Su función de distribución no tienen una formula general, por ello esta tabulada.
+* En el material de la asignatura disponéis de unas tablas de esta distribución
+para distintos valores de $n$ y $p$. 
+* Cualquier paquete estadístico, hoja de cálculo dispone de
+funciones para el cálculo de estas probabilidades, así que el uso de las tablas queda *totalmente anticuado*. 
+
+
+
+
+
+## Resumen v.a con distribución binomial $B(n,p)$
+
+**Binomial**| $B(n,p)$
+-------------:|:--------
+$D_X=$ |  $\{0,1,\ldots n\}$ 
+$P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}{n\choose x}\cdot  p^x\cdot  (1-p)^{n-x} & \mbox{ si } x=0,1,\ldots,n\\0  & \mbox{ en otro caso.}\end{array}\right.$
+$F_X(x)=P(X\leq X)=$ | no tiene utilizar tablas o funciones de R o python
+$E(X)=$ |  $n\cdot p$
+$Var(X)=$ | $n\cdot p \cdot (1-p)$
+
+## Cálculos con R
+Veamos los cálculos básicos con funciones de R para la binomial  $B(n=10,p=0.25)$.
+
+Función de probabilidad
+
+
+
+```{r binomialfuncionesA}
+pbinom(0,size=10,prob=0.25)
+pbinom(1,size=10,prob=0.25)
+```
+
+
+## Cálculos con R
+Veamos los cálculos básicos con funciones de R para la binomial  $B(n=10,p=0.25)$.
+
+Función de distribución
+
+```{r binomialfunciones2A}
+dbinom(0,size=10,prob=0.25)
+dbinom(1,size=10,prob=0.25)
+rbinom(n=20,size = 10,prob=0.25)
+```
+
+
+
+
+## Gráficos de la distribución binomial
+
+El siguiente código dibuja las función de probabilidad y la de distribución de una  $B(n=10,p=0.25)$
+
+```{r fig.align='center',echo=FALSE}
+par(mfrow=c(1,2))
+plot(x=c(0:10),y=dbinom(c(0:10),size=10,prob=0.25),
+  ylim=c(0,1),xlim=c(-1,11),xlab="x",
+  main="Función de probabilidad\n B(n=10,p=0.25)")
+curve(pbinom(x,size=10,prob=0.25),
+  xlim=c(-1,11),col="blue",
+  main="Función de distribución\n B(n=10,p=0.25)")
+par(mfrow=c(1,1))
+```
+
+
+
+
+
+
+
+
+
+# Distribución Geométrica
+
+
+## Distribución Geométrica
+
+
+* Repitamos un experimento Bernoulli, de parámetro p, de forma independiente hasta obtener el primer éxito.
+* Sea $X$ la v.a. que cuenta el número de fracasos antes del primer éxito. Por ejemplo  que  hayamos tenido  $x$ fracasos  será una cadena de $x$ fracasos culminada con un éxito. Más concretamente 
+
+$$P(\overbrace{FFF\ldots F}^{x}E)=P(F)^{x}\cdot P(E)=(1-p)^{x}\cdot p=q^{x}\cdot p.$$
+
+
+## Distribución Geométrica
+
+Su función de probabilidad es 
+
+$$
+P_X(x)=P(X=x)=\left\{\begin{array}{ll}
+(1-p)^{x}\cdot p & \mbox{ si } x=0,1,2,\ldots\\
+0 &\mbox{ en otro caso}
+\end{array}\right..
+$$
+
+
+
+
+* De una v.a. como esta diremos que sigue una
+distribución geométrica de parámetro $p$..
+* La  denotaremos por $Ge(p)$. 
+* Su dominio es  $D_X=\{0,1,2,\ldots\}$.
+
+## Propiedad de la falta de memoria
+
+<l class="prop"> Propiedad de la falta  de memoria </l>
+
+Sea $X$ una v.a. discreta con dominio $D_X=\{0,1,2,\ldots\}$  y con $P(X=1)=p$.
+
+Entonces $X$ sigue una ley $Ge(p)$ si y sólo si  
+$$P(X\geq k+j\big| X> j)=P(X\geq k)$$
+para todo $k,j=1,2,3\ldots$.
+
+
+## Falta de memoria
+
+Interpretación 
+
+$$
+P(X\geq k+j|X> j)=\frac{P(\{X\geq k+j\}\cap \{X>j\})}{
+P(\{X\geq j\})}=P(X\geq k)
+$$   
+
+la igualdad antenrios significa  que aunque *ya llevemos más de* $j$ fracasos la probabilidad de *que necesitemos al menos* $k$ intentos más no disminuye; es la misma  que si empezáramos de nuevo el experimento. 
+
+
+A este efecto se le suele referenciar con la frase  *el experimento carece de memoria* o es un *experimento sin memoria*.
+
+
+## Falta de memoria
+
+Un ejemplo muy sencillo nos aclarará el alcance de esta propiedad
+
+<l class="example"> **Ejemplo**: Llavero </l>
+Tenemos un llavero con 10 llaves,  solo una de ellas abre una puerta. Cada vez que probamos una llave y falla olvidamos que llave hemos probado. ¿Cuál es la probabilidad de que  si ya lo hemos intentado  5 veces necesitemos más de 4 intentos adicionales  para abrir la puerta?
+
+$k=4,j=5$, aplicando la propiedad de la carencia de memoria
+
+$$.
+P(X>= 4+5/X>5)=P(X\geq 4)
+$$
+
+Es decir después de 5 fracasos no estamos más cerca de abrir la puerta, ya que  por la porpiedad de la  falta de  memoria  es como si empezásemos  de nuevo a abrir la puerta.
+
+
+## La variable geométrica que cuenta el número de intentos  para obtener el primer éxito.
+
+* Supongamos que sólo estamos interesados en el número de intentos para obtener el
+primer éxito. 
+* Si definimos $Y$= número de  intentos para obtener el  primer éxito. Entonces $Y=X+1$  donde $X\equiv Ge(p)$.
+* Su dominio es valores en $\{1,2,\ldots\}$ 
+* $E(Y)=E(X+1)=E(X)+1=\frac{1-p}{p}+1=\frac1{p}$.
+* $Var(Y)=Var(X+1)=Var(X)=\frac{1-p}{p^2}$.
+
+
+## Resumen  $Ge(p)$ empezando en 0
+
+$Y=$ | número de fracasos  para conseguir el primer éxito
+|------|-----|
+|*Geométrica* |  que empieza en $0$|
+|$D_X=$ | $\{0,1,\ldots n\}$ | 
+$P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{x}\cdot p & \mbox{ si } x=0,1,\ldots,n\\0  & \mbox{ en otro caso.}\end{array}\right.$
+|$F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\
+  1- (1-p)^{k+1} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=1,2,\ldots\end{array}
+    \right.\end{array}\right.$ |
+|$E(X)=\frac{1-p}{p}$ | $Var(X)=\frac{q}{p^2}$|
+
+
+
+## Resumen $Ge(p)$ comenzando en $1$.
+
+$X=$ |número de INTENTOS  para OBTENER el primer éxito
+------|-----
+|*Geométrica*|$Ge(p)$, $q=1-p$.|
+|$D_X=$ |  $\{1,\ldots n\}$ | 
+|$P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{x-1}\cdot p & \mbox{ si } x=1,\ldots,n\\  0  & \mbox{ en otro caso.}\end{array}\right.$|
+|$F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<1\\ 1- q^{k} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=1,2,\ldots\end{array}    \right.\end{array}\right.$ |
+|$E(X)=\frac1{p}$ |$Var(X)=\frac{1-p}{p^2}$|
+
+
+## Cálculos con R
+
+Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ empezando en $0$
+
+```{r binomialfuncionesA011111}
+dgeom(0,prob=0.25)
+pgeom(0,prob=0.25)
+dgeom(1,prob=0.25)
+```
+
+
+## Cálculos con R
+Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ empezando en $0$
+
+```{r binomialfuncionesA0}
+pgeom(1,prob=0.25)
+rgeom(n=20,prob=0.25)
+```
+
+
+
+## Gráficos $Ge(p=0.25)$.
+
+El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ge(p=0.25)$
+
+```{r eval=FALSE}
+par(mfrow=c(1,2))
+plot(x=c(0:10),y=dgeom(c(0:10),prob=0.25),
+  ylim=c(0,1),xlim=c(-1,11),xlab="x",
+  main="Función de probabilidad\n Ge(p=0.25)")
+curve(pgeom(x,prob=0.25),
+  xlim=c(-1,10),col="blue",
+  main="Función de distribución\n Ge(p=0.25)")
+par(mfrow=c(1,1))
+```
+
+
+##  Los gráficos
+
+
+```{r graficos22, fig.align='center',echo=FALSE}
+par(mfrow=c(1,2))
+plot(x=c(0:10),y=dgeom(c(0:10),prob=0.25),
+  ylim=c(0,1),xlim=c(-1,11),xlab="x",
+  main="Función de probabilidad\n Ge(p=0.25)")
+curve(pgeom(x,prob=0.25),
+  xlim=c(-1,10),col="blue",
+  main="Función de distribución\n Ge(p=0.25)")
+par(mfrow=c(1,1))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Distribución binomial negativa
+
+* Repetimos el experimento hasta obtener el $r$-ésimo éxito. 
+* Sea $X$ la v.a que cuenta el número de repeticiones del experimento hasta el r-ésimo
+éxito. 
+* Su función de probabilidad es
+
+$$
+P_{X}(x)=P(X=x)=\left\{\begin{array}{ll}
+     {{x-1}\choose{r-1}} (q)^{x-r}p^r & \mbox{si } x=r,r+1,\ldots\\
+     0 & \mbox{en otro caso}\end{array}\right.
+$$
+     
+
+## Distribución binomial negativa
+
+* Una v.a. con este tipo de distribución recibe el nombre de *binomial negativa* y la denotaremos por $BN(p,r)$. Notemos que $BN(p,1)=Ge(p)$.
+
+Nota: Dados dos enteros positivos $n$ y $k$ se  define en numero binomial negativo como 
+
+$$\binom{-n}{k}=\frac{(-n)(-n-1)\cdots (-n-k+1)}{k!}.$$
+
+
+
+
+Se cumple que  
+
+$$
+(t+1)^{-n}=\sum_{k=0}^{+\infty}\left(\begin{array}{c} -n
+\\ r\end{array}\right) t^{k}
+$$
+
+<!-- 
+
+
+## Distribución binomial negativa NO ACABADO
+
+Además 
+
+$$
+\left(\begin{array}{c} x-1
+\\ r-1\end{array}\right)\left(\begin{array}{c} -n
+\\ r\end{array}\right)
+$$
+
+-->
+
+
+## Resumen Binomial Negativa $BN(r,p)$
+
+$X=$ |número de intentos para conseguir el $r$-ésimo éxito
+
+*Binomial negativa* $BN(r,p)$ | $r$ éxitos, probabilidad de éxito $p$, $q=1-p$
+--------------|------------
+$D_X=$ | $\{r,1,2,3\ldots\}$  
+$P_X(x)=P(X=x)=$ | $\left\{
+\begin{array}{cc}
+\left(
+\begin{array}{c}
+x-1\\ r-1
+\end{array}
+\right)\cdot
+q^{x-r}\cdot p^r & \mbox{si }  x=r,r+1,\ldots \\
+0 & \mbox{en otro caso.}
+\end{array}
+\right.$
+|$F_X(x)=P(X\leq X)=$ | no tiene fórmula (utilizar tablas o función de R.)
+$E(X)=\frac{r}{p}$|$Var(X)=\frac{r\cdot q}{p^2}$ 
+
+# Distribución Poisson
+
+## Distribución Poisson
+
+* Diremos que una v.a. discreta $X$ con $X(\Omega)=\mathbf{N}$ tiene distribución de Poisson con parámetro $\lambda>0$, y lo denotaremos
+por $Po(\lambda)$ si su función de probabilidad es:
+
+$$P_{X}(x)=P(X=x)=
+\left\{\begin{array}{ll}
+\frac{\lambda^x}{x!} e^{-\lambda}& \mbox{ si } x=0,1,\ldots\\
+0 & \mbox{en otro caso}\end{array}\right..$$
+
+
+
+## Distribución Poisson
+
+* Recordemos que el desarrollo en serie  Taylor de la exponencial es $$e^{\lambda}=\sum_{x=0}^{+\infty} \frac{\lambda^x}{x!}.$$
+
+Teniendo en cuenta esto es  fácil comprobar que  todos los valores de la función de probabilidad suman 1.
+
+## La distribución Poisson como "límite" de una binomial.
+
+* La distribución Poisson aparece en el conteo de determinados  eventos que se
+producen en un intervalo de tiempo o en el espacio.
+* Supongamos que nuestra variable de interés es  $X$= número de eventos en el intervalo de tiempo $(0,t]$ 
+* por ejemplo el número de llamadas a un *call center* y que sabemos que se cumplen las siguientes condiciones:
+
+## La distribución Poisson como "límite" de una binomial.
+
+
+
+
+1. El número promedio de eventos en el intervalo $(0,t]$ es
+$\lambda>0$.
+2. Es posible dividir el intervalo de tiempo en un
+gran número de subintervalos (denotemos por $n$ al número de intervalos) de forma que:
+    + La probabilidad de que se produzcan dos o más eventos en un subintervalo es despreciable.
+    + El número de ocurrencias de eventos en un intervalo  es independiente del número de ocurrencias en otro intervalo.
+    + La probabilidad de que un evento ocurra en un subintervalo es $p=\frac{\lambda}{n}$·
+
+## La distribución Poisson como "límite" de una binomial.
+
+* Bajo estas condiciones podemos considerar que el número de eventos en el intervalo $(0,t]$ será el número de "éxitos" en $n$ repeticiones independientes de un proceso Bernoulli de parámetro $p$
+*  Entonces si $n\to\infty$ y $p\cdot n$ se mantiene igual a $\lambda$ resulta que la función de probabilidad de $X$ se puede poner como
+
+$$f_{X}(k)=\lim_{n\to\infty}\left(\begin{array}{c} n\\ k\end{array}\right)
+p^k q^{n-k}= \frac{\lambda^k}{k!} e^{-\lambda}
+$$
+
+
+## Procesos de Poisson
+
+
+<l class="prop"> Procesos de Poisson </l>
+
+Consideremos  un experimento *Poisson*  con $\lambda$ igual
+al promedio de eventos en una unidad de tiempo (u.t.).
+
+Si $t$ es una cantidad de tiempo en u.t., la v.a.
+$X_{t}$=numero de eventos en el intervalo $(0,t]$
+es una $Po(\lambda\cdot t)$.
+
+El conjunto de variables $\{X_t\}_{t>0}$ recibe el nombre de **proceso de Poisson**.
+
+
+
+## Resumen distribución  Poisson  $Po(\lambda)$
+
+$X$ Poisson |  $\lambda$.}
+-------|-------
+$D_X=$|  $\{0,1,\ldots n\}$ 
+$P_X(x)=P(X=x)=$ | $\left\{\begin{array}{ll}  \frac{\lambda^x}{x!}\exp{-\lambda} & \mbox{ si } x=0,1,\ldots,n\\ 0  & \mbox{ en otro caso.}\end{array}\right.$
+$F_X(x)=P(X\leq X)=$ |  Función de R o tabulada  
+$E(X)=\lambda$ | $Var(X)=\lambda$
+
+## Aproximación de la distribución binomial por la Poisson
+
+Bajo el punto de vista anterior y si $p$ es pequeño y $n$
+suficientemente grande (existen distintos criterios por ejemplo $n>20$ ó $30$ y  $p\leq 0.1$)
+podemos aproximar una $B(n,p)$ por una $Po(n\cdot p)$
+
+# Distribución hipergeométrica
+
+
+## Modelo de la distribución hipergeométrica
+
+Es la que modeliza, por ejemplo, el número de bolas blancas extraídas de una urnasin reposición.
+
+Sean $n$,$m$ y $k$tres número esnteros positvos y tales  que $k<m+n$.
+
+Sea una urna que contiene $m+n$ bolas de las que
+$m$ son blancas y las restantes $n$ no.
+
+El número total de bolas es $m+n$. Extraemos $k$ bolas de la urna sin reemplazarlas.
+
+## Modelo de la distribución hipergeométrica
+
+
+Sea $X$ la v.a. que cuenta el número de bolas blancas extraídas.
+Entonces
+
+$$
+P_{X}(x)=\left\{
+\begin{array}{ll}
+\frac{\binom{m}{x}\cdot \binom{n}{k-x}}{\binom{m+n}{k}} & \mbox{ si }
+\max\{0,k-n\}\leq x \leq \min\{m,k\} \mbox { para  } x\in \mathbf{N}\\
+0  & \mbox{en otro caso}\end{array}\right.
+$$
+
+
+## Distribución hipergeométrica
+
+Una v.a. hipergeométrica con los  parámetros anteriores la
+denotaremos por $H(m,n,k)$.
+
+<div class="obsv"> 
+En ocasiones se parametriza una v.a. hipergeométrica mediante $N=m+n$ número total de bolas, 
+$k$=número de extracciones y $p=$ probabilidad de una bola blanca. Así podemos poner $H(N,n,p)$ donde $p=\frac{m}{N}$.
 </div>
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
-```
 
-## Including Plots
+## Resumen  hipergeométrica  $H(m,n,k)$.
 
-You can also embed plots, for example:
+$X=$ | número de bolas blancas  en $k$ extracciones  sin reposición de una urna con $m$ bolas blancas y $n$ negras.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+$D_X$=| $\begin{array}{l}D_X=\\ \{x\in\mathbf{N}\mid  \max\{0,n-N_2\}\leq x\\ x \leq \min\{n,N_1\}\}\end{array}$
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+$P_X(x)=P(X=x)=$ | $\begin{array}{l}F_X(x)=\\ P(X\leq X)=\end{array}$ 
+
+$E(X)= $  | $Var(X)$ 
+$\left\{\begin{array}{ll}
+     \frac{{{N_1}\choose{x}}{{N_2}\choose{n-x}}}{{{N}\choose{n}}} & \mbox{ si }
+   x\in D_X
+      \\ 0  & \mbox{en otro caso}\end{array}\right.$|\begin{tabular}{c}No tiene\\ expresión.\end{tabular} |
+$\frac{n N_1}{N}$ | $n\frac{N_1}{N}\left(1-\frac{N_1}{N}\right) \frac{N-n}{N-1}$
+
+
+
+
+# Distribuciones Continuas. 
+
+## Introducción. 
+   
+Al igual que en el caso discretos veremos distintos tipos de v.a. continuas que son
+utilizadas de forma muy frecuente.
+
+Una v.a. continua $X$ diremos que tiene una distribución uniforme sobre el intervalo real
+$(a,b)$ ,$(a<b)$, si su función de densidad es 
+$$f_X(x)=\left\{\begin{array}{ll}
+\frac1{b-a} & \mbox{si } a<x<b\\ 0  & \mbox{en cualquier otro caso}
+\end{array}
+\right. $$ 
+
+Como ejercicio comprobar que el área comprendida entre $f_X$ y la horizontal
+vale 1.
+
+## Función de distibución uniforme.
+
+Entonces su función de distribución es
+
+$$F_X(x)=\left\{\begin{array}{ll} 0  & \mbox{si } x\leq a\\
+\frac{x-a}{b-a} & \mbox{si } a<x<b\\ 1  & \mbox{si } b\leq x
+\end{array}
+\right. $$
+
+
+## Función de distibución uniforme:  cálculo.
+
+Efectivamente:
+
+* Si $x\leq a$ entonces $F_X(x)=\displaystyle\int_{-\infty}^{x} f(t)\cdot dt= \displaystyle\int_{-\infty}^{x} 0\cdot dt= \left[1\right]_{-\infty}^{x}=1-1=0$
+* Si $a<x<b$ entonces 
+
+\begin{eqnarray*}
+F_X(x)&=&\int_{-\infty}^{x} f(t)\cdot dt= \int_{-\infty}^{a} 0\cdot dt+\int_{-\infty}^{x} \frac1{b-a} \cdot dt=\\
+& & 1\mid_{-\infty}^{x}+\frac{t}{b-a}\mid_{a}^{x}=(1-1) +\frac{x}{b-a}-\frac{t}{b-a}=\frac{x-a}{b-a}.
+\end{eqnarray*}
+
+
+* Por último si $x\geq b$ entonces $F_X(x)\int_{-\infty}^{x} f(t) dt=1$ (ejercicio).
+
+
+Si $X$ es una v.a. uniforme en el intervalo $(a,b)$ escribiremos $X\equiv U(a,b)$.
+
+
+## Esperanza y varianza  para una v.a. $X\equiv U(a,b)$}
+
+$E(X)=\int_{-\infty}^{+\infty} x f_X(x) dx=\int_{-\infty}^{+\infty} x \frac1{b-a} dx =
+\frac{x^2}{2(b-a)}\mid _{a}^{b}=\frac{b+a}2$
+
+$E(X^2)=\int_{-\infty}^{+\infty} x^2 f_X(x) dx=\int_{-\infty}^{+\infty} x^2 \frac1{b-a}
+dx =\frac{x^3}{3(b-a)}\mid_{a}^{b} =\frac{b^3-a^3}{3(b-a)}=\frac{b^2+ab+a^2}3$
+
+$Var(X)=E(X^2)-(E(X))^2=\frac{b^2+ab+a^2}3-(\frac{b+a}2)^2=\frac{(b-a)^2}{12}$
+
+
+## Gráficas de la densidad y  distribución de una uniforme
+
+
+
+
+\begin{figure}[h]
+\begin{center}
+\begin{tabular}{cc}       \includegraphics[scale=0.75]{densidaduniforme12}
+&
+
+       \includegraphics[scale=0.75]{distribucionuniforme12}\\ a) & b) \end{tabular}
+\end{center}
+       \caption{ Gráficas de la función de densidad (a)  y de la función de distribución (b) de una v.a. $U(-1,2)$.}
+        \end{figure}%%%%%%%%  Sea $X$ una v.a. continua diremos que tiene distribución
+%%%%%%%%          uniforme en el intervalo $(a,b)$ si su función de distribución
+%%%%%%%%          es
+%%%%%%%%          $$F_{X}(x)=\left\{\begin{array}{ll} 0 & \mbox{ si } x\leq a\\
+%%%%%%%%          \frac{x-a}{b-a} & \mbox{ si } a\leq x\leq\\
+%%%%%%%%          1 & \mbox{ si } b\leq x\end{array}\right.$$
+%%%%%%%%
+%%%%%%%%          $F$ es absolutamente continua y tiene por densidad:
+%%%%%%%%         $$f_{X}(x)=\left\{\begin{array}{ll} \frac1{b-a} & \mbox{ si }
+%%%%%%%%         a<x<b\\
+%%%%%%%%         0 & \mbox{en el resto de casos}\end{array}\right.$$
+
+
+
+
+
+
+## Cambio lineal v.a. uniforme.
+
+
+Si $X$ sigue una distribución $U(a,b)$ entonces  $Z=\frac{x-a}{b-a}$ sigue una distribución $U(0,1)$.
+
+En general si $d$ y $e$ son dos constantes reales  $T=d\cdot X+e$ sigue una ley $U(d\cdot a +e,d\cdot b +e)$  si $d>0$, cuando $d$ sea negativo $T$ sigue una ley 
+$U(d\cdot b +e,d\cdot a +e)$. Las demostración se dejan como ejercicios.
+
+
+
+
+
+
+## Resumen v.a con distribución uniforme, $U(a,b)$
+
+Dostribución uniforme | $U(a,b)$
+----:|:-----
+Dominio | $D_X=(a,b)$
+$f_{X}(x)$ |$\left\{\begin{array}{ll}\frac1{b-a} & \mbox{si } a<x<b\\ 0  & \mbox{en cualquier otro caso}\end{array} \right.$
+$F_X(x)=P(X\leq X)=$ |  $\left\{\begin{array}{ll} 0 & \mbox{ si } x\leq a\\\frac{x-a}{b-a} & \mbox{ si } a\leq x\leq\\1 & \mbox{ si } b\leq x\end{array}\right.$
+ $E(X)=$ |$\frac{a+b}2$
+ $Var(X)=$| $\frac{(b-a)^2}{12}$
+
+
+
+## SIGUEEEEE
+Songamos que tenemos un proceso Poisson con parámetr
+$\lambda$ en una unidad de tiempo.
+
+         Sea $t$ una cantidad de tiempo en u.t. entonces $N_{t}=$ número de
+         eventos en el intervalo de tiempo $(0,t]$
+         es una $Po(\lambda\cdot t)$. Consideremos la v.a.
+         $T=$tiempo transcurrido entre dos eventos Poisson consecutivos.
+
+         Sea $t>0$, entonces
+         $$P(T>t)=P(\mbox{Cero eventos en el
+         intervalo}(0,t])
+         =P(N_{t}=0)=
+         \frac{(\lambda t)^0}{0!} e^{-\lambda
+         t}=e^{-\lambda t}.$$
+
+
+
+
+
+         Tomando complementarios, la función de distribución de $T$ será
+
+         $$F_{T}(t)=P(T\leq t)=\left\{\begin{array}{ll} 0 &\mbox{ si } t\leq 0\\
+          1-P(T>t)=1-e^{-\lambda t}& \mbox{ si } t>0\end{array}\right.$$
+
+         Entonces
+
+         $$f_{T}(t)=\left\{\begin{array}{ll}
+         \lambda e^{-\lambda t} & \mbox{ si }  t>0\\
+         0 & \mbox{ si } t\leq 0
+         \end{array}\right.$$
+
+         La exponencial se denota por $Exp(\lambda)$
+
+
+
+
+\subsubsection{Propiedad de la falta de memoria}
+
+          Sea $X$  una v.a. $Exp(\lambda)$ entonces
+
+          $$P(X>s+t/X>s)=P(X>t)\mbox{  para todo } s,t\in \mathbb{R}$$
+
+          Toda v.a. absolutamente continua, que tome valores positivos
+          y que verifique la propiedad de la falta de memoria es una v.a.
+          exponencial.
+
+
+
+
+
+
+\subsubsection{Resumen v.a con distribución exponencial, $Exp(\lambda)$}
+
+Sea $X\equiv Exp(\lambda).$
+
+\scriptsize
+\begin{tabular}{|c|c|c|c|c|}
+\hline \begin{tabular}{c} Valores\\ admisibles.\end{tabular} & $f_{X}(x)$ & $F_X(x)=P(X\leq
+X)=$ &
+ $E(X)$ & $Var(X)$\\\hline & & & &\\
+ $D_X=(0,+\infty)$ & $\left\{\begin{array}{ll}
+         \lambda e^{-\lambda x} & \mbox{ si }  x>0\\
+         0 & \mbox{ si } x\leq 0
+         \end{array}\right.$ &  $F_{X}(x)=P(X\leq x)=\left\{\begin{array}{ll} 0 &\mbox{si } x\leq 0\\
+          1-e^{-\lambda x}& \mbox{si } x>0\end{array}\right.
+$ & $\frac1{\lambda}$ & $\frac1{\lambda^2}$ \\& & & &\\ \hline
+\end{tabular}
+
+\normalsize
+
+
+
+
+
+
+
+          
+
+
+          Diremos que una v.a. $X$ sigue una ley normal de parámetros
+          $\mu$ y $\sigma^2$ y lo denotaremos por $N(\mu,\sigma^2)$
+          si tiene por función de densidad
+
+          $$f_{X}(x)=\frac1{\sqrt{2\pi}\sigma}
+          e^{\frac{-(x-\mu)^2}{2\sigma^2}}\mbox{ para todo }x\in \mathbb{R}$$
+
+          La gráfica de esta función es la conocida campana de Gauss.
+
+          La v.a. normal con $\mu=0$ y $\sigma=1$ recibe el nombre de
+          normal estándar y se suele denotar por la letra $Z$.
+
+
+%%%%%%%%          \textbf{Propiedad} Sea $X$ una v.a. $N(\mu,\sigma^2)$ y sea
+%%%%%%%%          $f_{X}$ su función de densidad. Entonces:
+%%%%%%%%          \vskip -1cm
+%%%%%%%%          \begin{enumerate}[a)]
+%%%%%%%%          * Evidentemente $f_{X}$ verifica todas las pro\-pie\-da\-des de las
+%%%%%%%%          funciones de densidad.
+%%%%%%%%          * $f_{X}(\mu-x)=f_{X}(\mu+x)$ es simétrica respecto de la recta
+%%%%%%%%          $x=\mu$
+%%%%%%%%          * $f_{X}$ alcanza el máximo en $x=\mu$
+%%%%%%%%         * Si $F_{X}$ la función de distribución de $X$ entonces
+%%%%%%%%         $F_{X}(\mu+x)=1-F_{X}(\mu-x)$. En par\-ti\-cu\-lar si $Z$ es una
+%%%%%%%%         $N(0,1)$ entonces $F_{Z}(-x)=1-F_{Z}(x)$
+%%%%%%%%         * $Z=\frac{X-\mu}{\sigma}$ es una v.a. $N(0,1)$ y
+%%%%%%%%              $X=\sigma Z+\mu$ es una $N(\mu,\sigma^2)$ donde $Z$ es la
+%%%%%%%%              normal estándar.
+%%%%%%%%
+%%%%%%%%          \end{enumerate}
+%%%%%%%%
+
+
+
+%%%%%%%%
+%%%%%%%%
+%%%%%%%% Diremos que una v.a. continua $X$ tiene
+%%%%%%%%distribución normal con parámetros $\mu$ y  $\sigma^2$ a una variable aleatoria que tenga
+%%%%%%%%por función de densidad :
+%%%%%%%%$$f(x)={1\over{\sqrt{2\pi}\sigma}} {e\vphantom{A}}^{\left(-{1\over
+%%%%%%%%2}{\left({x-\mu}\over{\sigma}\right)}^2\right)}$$
+
+
+
+
+
+
+\begin{figure}[h]
+\begin{center}
+\begin{tabular}{cc}
+ \includegraphics[scale=0.75]{densidadgaussiana}
+&
+\includegraphics[scale=0.75]{distribuciongaussiana}\\ a) & b) \end{tabular}
+\end{center}
+       \caption{Gráficas de la función de densidad (a)  y de la  función de distribución (b) de una v.a. $N(0,1)$.}
+        \end{figure}
+
+
+%%%%%%%%\begin{figure}
+%%%%%%%%\begin{center}
+%%%%%%%%\includegraphics{normal.eps}
+%%%%%%%%\end{center}
+%%%%%%%%\caption{Curva de Gauss con $\mu=0$ y $\sigma=1$ }
+%%%%%%%%\end{figure}
+
+
+
+
+
+
+Su función de distribución es, como sabemos :
+$$F(x)=\int_{-\infty}^{x} {1\over{\sqrt{2\pi}\sigma}}
+{e\vphantom{A}}^{-{1\over 2}{\left({t-\mu}\over{\sigma}\right)}^2} dt$$
+
+Que no tiene ninguna expresión algebraica "decente". Es por esta razón, y  por comodidad,
+que esta función está tabulada.
+
+
+
+Cuando una variable tiene distribución normal con parámetros $\mu,\sigma$ la denotamos por
+$X\equiv N(\mu,\sigma^2)$
+
+
+
+
+
+\subsubsection{Resumen v.a con distribución normal, $N(\mu,\sigma^2)$}
+
+\scriptsize
+\begin{tabular}{|c|c|c|c|c|}
+\hline \begin{tabular}{c} Valores\\ admisibles.\end{tabular} & $f_{X}(x)$ & $F_X(x)=P(X\leq
+X)=$ &
+ $E(X)$ & $Var(X)$\\\hline & & & &\\
+ $D_X=\mathbb{R}$ & $=\frac1{\sqrt{2\pi}\sigma}
+          e^{\frac{-(x-\mu)^2}{2\sigma^2}}\mbox{ para todo }x\in \mathbb{R}$ & Tabulada la
+          $N(0,1)$ & $\mu$ & $\sigma^2$ \\& & & &\\ \hline
+\end{tabular}
+\normalsize
+
+
+
+
+
+
+\subsubsection{Propiedades de la distribución normal.} La función de densidad de la
+distribución normal tiene las siguientes propiedades:
+\begin{enumerate}[a)]
+* $f$ es continua
+* $\int_{-\infty}^{+\infty} {1\over{\sqrt{2\pi}\sigma}} {e\vphantom{A}}^{-{1\over
+2}{\left({x-\mu}\over{\sigma}\right)}^2} dx =1$ ( propiedad de todas las densidades).
+* $f(\mu+x)=f(\mu-x)$ y $F(x+\mu)=1-F(\mu-x)$ para todo $x\in \cal{R}$
+* $\lim\limits_{x\to+\infty}f(x)=\lim\limits_{x\to-\infty}f(x)=0$
+es decir tiene asíntota horizontal a derecha e izquierda.
+* $f$ es estrictamente creciente si $x<\mu$ y decreciente si $x>\mu$.
+* Alcanza el máximo en $x=\mu$ y en este punto vale $f(\mu)=\frac1{\sqrt{2\pi}\sigma}$
+* Tiene dos puntos de inflexión en $x=\mu+\sigma$ y en $x=\mu-\sigma$.
+\end{enumerate}
+
+
+
+
+
+## Transformaciones lineales de variables aleatorias normales
+
+
+<l class="prop"> Propiedad: transformación lineal la distribución  normal </l>
+
+Sea $X\equiv N(\mu,\sigma^2)$  entonces la variable $Y=a X+b$ con
+$a\not=0,b\in\cal{R}$ tiene distribución $N(a\mu+b, a^2 \sigma^2)$
+
+En particular si  $X\equiv N(\mu,\sigma^2)$, tomando $a=\frac1{\sigma}$ y $b=
+\frac{-\mu}{\sigma}$ la v.a. 
+
+$$Z={{X-\mu}\over {\sigma}}$$
+se distribuye $N(0,1)$.
+
+
+
+Esta propiedad es muy importante, ya que utilizándola sólo necesitaremos tabular la
+$N(0,1)$. A la función de distribución de una $Z\equiv N(0,1)$ la llamaremos $F_Z$  y a una
+normal $N(0,1)$  se le denomina normal estándar. Por lo tanto si
+$F_X(x)=F_Z(\frac{x-\mu}{\sigma})$.
+
+## Cálculos con la distribución normal
+
+<l class="example"> Cálculos con la distribución  normal </l>
+
+Dada  $Z\equiv N((0,1)$ entonces $F_{Z}(x)=1-F_{Z}(-x)$.
+
+<div class="example-sol">
+
+* Dado $\delta>0$, $P(-\delta\leq Z \leq
+\delta)=F_{Z}(\delta)-F_{Z}(-\delta)=F_Z(3)-(1-F_Z(\delta))=2 F_Z(\delta)-1$
+* $P(-4\leq Z \leq 4)=F_{Z}(4)-F_{Z}(-4)=2 F_Z(4)-1$
+* $P(-2\leq Z \leq 2)=F_{Z}(2)-F_{Z}(-2)=2 F_Z(2)-1$
+* $P(Z\leq -2)=F_Z(-2)=1-F_Z(2)$
+* $P( Z \leq 2)=F_{Z}(2)$
+* $P( Z \geq 2)=1-P(Z<2)=1-F_{Z}(2)$
+* $P( Z > 2)=1-P(Z\leq 2)=1-F_{Z}(2)$
+* $P( Z = 2)=0$
+* $P( Z \geq -2)=1-P(Z< -2)=1-F_{Z}(-2)=1-(1-F_Z(2))=F_Z(2).$
+</div>
+
+
+
+
+    Resumiendo podemos utilizar las siguientes propiedades, $X\equiv N(\mu,\sigma)$
+    
+    *  $Z$ es su variable tipificada, es decir,
+    $Z=\frac{X-\mu}{\sigma}\equiv N(0,1)$ entonces:
+
+    $$P(X\leq x)=P(\frac{X-\mu}{\sigma}\leq
+    \frac{x-\mu}{\sigma})=F_{Z}(\frac{x-\mu}{\sigma})$$
+
+   *  Cuando tengamos un intervalo
+    $$P(a<X<b)=P(\frac{a-\mu}{\sigma}<\frac{X-\mu}{\sigma}<\frac{b-\mu}{\sigma})=$$
+
+    $$=P(\frac{a-\mu}{\sigma}<Z<\frac{b-\mu}{\sigma})=F_{Z}(\frac{b-\mu}{\sigma})-
+    F_{Z}(\frac{a-\mu}{\sigma})$$
+    * Si $\delta>0$ $P(\mu-\delta\leq X \leq
+\mu+\delta)=2 F_Z(\frac{\delta}{\sigma})-1$
+
+
+
+
+
+## Ejemplo
+Sea $X$ una normal com media $2$ y varianza $4$, entonces
+
+*  $P(1< X< 2)= P(\frac{1-2}2<\frac{X-2}2<\frac{2-2}2)=P(\frac{-1}2<Z<0)=F_{Z}(0)-F_{Z}(-0.5)=\frac12-1+F_{Z}(0.5).$
+* $P(X>3)=P(\frac{X-2}2>\frac{3-2}2)=P(Z>0.5)=1-F_{Z}(0.5).$
+
+
+
+
+

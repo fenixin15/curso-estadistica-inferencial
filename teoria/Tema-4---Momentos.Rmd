@@ -996,6 +996,7 @@ lines(x2,f(x2),col="red")
 
 La **entropía** es una medida de la **incertidumbre** en un experimento aleatorio. 
 
+<<<<<<< HEAD
 Veremos cómo la **entropía** cuantifica la **incertidumbre** por la cantidad de **información** requerida para especificar el resultado de un experimento aleatorio. 
 
 
@@ -1088,3 +1089,6 @@ plot(x,f(x),type="l",ylab="Entropía")
 
 
 </div>
+=======
+Veremos cómo la **entropía** cuantifica la **incertidumbre** por la cantidad de **información** requerida para especificar el resultado de un experimento aleatorio. 
+>>>>>>> 2bf3a35820b3c3811586ce08f3d0f408bbac9e25

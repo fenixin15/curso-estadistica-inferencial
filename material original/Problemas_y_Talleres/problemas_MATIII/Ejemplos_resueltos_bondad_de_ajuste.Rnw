@@ -1,0 +1,164 @@
+\documentclass[10pt,spanish,es-nodecimaldot]{article}
+\usepackage{babel}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,graphicx,enumerate,multirow,adjustbox}
+\usepackage{multirow}
+%\usepackage{accents}
+\usepackage[utf8]{inputenc} 
+\decimalpoint
+
+
+
+
+\advance\hoffset by -0.9in \advance\textwidth by 1.8in
+\advance\voffset by -1.4in \advance\textheight by 2.8in \parskip= 1 ex
+\parindent = 10pt \baselineskip= 13pt
+
+\pagestyle{empty}
+
+\newcounter{problemes}
+\newcounter{punts} \def\thepunts{\arabic{punts}}
+\def\probl{\addtocounter{problemes}{1} \setcounter{punts}{0}
+\medskip\noindent{\bf \theproblemes) }}
+\def\punt{\addtocounter{punts}{1} \smallskip{\emph{\thepunts) }}}
+\newif\ifsol
+\solfalse
+%\solfalse
+
+
+
+\newenvironment{solucion}{\textbf{Solución:}\sf}{\rm}
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+
+
+\emph{Nombre:}\hfill\hfill\hfill\hfill\hfill\ \emph{Grupo:}\hfill \medskip
+\setcounter{problemes}{0}
+
+\begin{center}
+\textsc{\textbf{Matemáticas III. Entrega de Pascua. Cuestiones Grado Matemáticas UIB 16-17}}\\[1ex]%1
+\end{center}
+%{\footnotesize Tenéis que contestar en esta hoja. Todas las cuestiones valen \textbf{0.5 puntos}.}
+
+<<setup,echo=FALSE,include=FALSE>>=
+#library(knitr)
+#knitr::options(digits=4)
+knitr::opts_chunk$set(gigits=4)
+@
+
+
+
+
+\probl  Una compañía de gas afirma, bas-andose en experiencias anteriores, que normalment, al final del invierno el 80\%
+de las facturas han sido ya cobradas, un 10\% se cobrará con pago aplazado un mes, 6\% se cobrará a  2 meses y un 4\% se cobrará a más de  dos meses. Al final del invierno actual, la compañía seleccionada una muestra aleatoria de 400 facturas, resultando que 287 de estas facturas cobradas, 49 a cobrar en un mes, 30 a cobrar en dosmeses y 34 a cobrar en un periodo  superior a dos meses.  ¿Podemos concluir, a raíz de los resultados, que la experiencia de ãnos anteriores se ha vuelto a repetir este invierno?
+
+
+<<>>=
+oi=c(287,49,30,34)
+pi=c(0.8,0.1,0.06,0.04)
+sum(pi)
+#PONER EL PARAMETRO p= para bondad de ajuste , ensaco contrario hace un test de independencia
+chisq.test(oi,p=pi)
+@
+
+
+<<>>=
+ei=pi*sum(oi)
+sum((oi-ei)^2/ei)
+1-pchisq(27.18,3)
+@
+
+Todo da lo mismo
+
+
+\begin{tabular}{l||llll} 
+& Cobradas & un mes & dos meses & más de 2 meses \\
+\hline
+Prob bajo $H_0$ $p_i$ &0.8  &0.1 & 0.06 & 0.04\\
+Prob bajo $H_0$ $p_i$ &0.8  &0.1 & 0.06 & 0.04\\
+Prob bajo $H_0$ $p_i$ &0.8  &0.1 & 0.06 & 0.04\\
+Prob bajo $H_0$ $p_i$ &0.8  &0.1 & 0.06 & 0.04\\
+}
+
+
+
+
+\probl
+
+<<r setup, include=FALSE>>=
+knitr::opts_chunk$set(echo = TRUE)
+@
+
+<<r>>=
+x=c(0.60,-1.42,1.05,-0.14,0.57,0.11,-0.59,1.11,-1.55,-1.41)
+x=sort(x)
+x
+Fn=1:10/10
+Fx=(x+2)/4
+Fx
+#punif(x,-2,2)
+df_ks=data.frame(i=1:10,x,Fn,Fx)
+df_ks$F1=abs(Fx-(0:9)/10)
+df_ks$F2=abs(Fx-(1:10)/10)
+df_ks$pmax=pmax(df_ks$F1,df_ks$F2)
+df_ks$pmax
+D10=max(df_ks$pmax)
+D10
+@
+
+<<r>>=
+knitr::kable(df_ks)
+@
+
+<<r>>=
+ks.test(x,"punif",-2,2)
+@
+
+<<r>>=
+x=c(0:4)
+oi=c(10,26,35,25,5)
+pi=1.88^x/factorial(x)*exp(-1.88)
+ppois(x,1.88)
+sum(pi)
+pi[5]=1-sum(pi[1:4])
+sum(pi)
+pi
+ei=round(100*pi,2)
+ei
+(oi-ei)^2
+num_1=(oi-ei)^2
+num_2=(oi-ei)^2/ei
+sum(round((oi-ei)^2/ei,4))
+@
+
+<<r>>=
+df_chi2test=data.frame(x,oi,pi,ei,num_1=num_1,num_2=num_2)
+knitr::kable(df_chi2test)
+chi2=sum(df_chi2test$num_2)
+chi2
+@
+
+El número de clases es $k=5$ y  hemos estimado un paramétro la media de la Poisson. La muestra es grade y todas las frecuencias esperadas $e_i$ son mayores de 5 el estadístico de contraste sigue una ley $\chi^2_{k-1-1}=\chi^2_{3}.$  por lo tanto el p.valor del contraste es $P(\chi^2_3> \Sexpr{chi2})=1- P(\chi^2_3\leq \Sexpr{chi2})=1-pchisq(12.57924,3)=\Sexpr{1-pchisq(12.57924,3)}.$
+
+
+
+
+problema 28 
+
+<<>>=
+errores=c(5,3,2,1)/100
+errores
+amplitudes=2*errores
+nivel_confiaza=c(0.95,0.99)
+n95=ceiling(qnorm(1-0.05/2)^2/amplitudes)
+n95
+n99=ceiling(qnorm(1-0.01/2)^2/amplitudes)
+n99
+df=data.frame(n95,n99,amplitudes,errores)
+knitr::kable(df)
+@
+
+
+EL error en la estimació de la porporción es de $\pm 5\%$  con una probabilidad del 95\% para una muetras de tamaño $n=39$  supuesto que $p=q=0.5$
+
+

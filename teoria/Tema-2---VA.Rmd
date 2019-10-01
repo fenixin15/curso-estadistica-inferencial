@@ -14,7 +14,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# Introducción a las variables aleatorias
+
+
+# Introducción a las Variables Aleatorias 
+
 
 
 ## Introducción
@@ -246,6 +249,7 @@ $$X(\omega)=\left\{\begin{array}{ll} 1 & \mbox{si } \omega=roja  \\
 
 ## Ejemplo
 
+<div class="example-sol">
 La función de probabilidad es 
 
 $$P_{X}(x)=\left\{\begin{array}{ll} \frac36 & \mbox{si } x=1\\
@@ -1030,12 +1034,12 @@ Dada una v.a. continua $X$ se tiene que:
 <div class="dem">
 **Demostración:**
 
-La primera es evidente  $P(X<b)=P(X<b)+P(X=b)=P(X<b)$
+La primera es evidente  $P(X\leq b)=P(X<b)+P(X=b)=P(X<b)$
 
 Para demostrar la segunda, tenemos
 
 $$\{X<a\}\cap \{a<X<b\}=\emptyset$$ 
-$$\{X<a\}\cup \{a<X<b\}=\{X<a\}$$ 
+$$\{X<a\}\cup \{a<X<b\}=\{X<b\}$$ 
 
 entonces
 
@@ -1141,14 +1145,23 @@ que es la densidad de $X$, en efecto:
 
 <div class="example-sol">
 
-* Si $x \leq 0$ entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = 0.$
+$$
+f_{X}(x)=\left\{
+\begin{array}{ll}
+0 & \mbox{si } x\leq 0\\
+1 & \mbox{si } 0 < x < 1\\
+0 & \mbox{si } 1\leq x
+\end{array}\right.
+$$
 
-* Si $0\leq x\leq 1$ entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = \int_0^x 1 dt = x.$
+Si $x \leq 0$ entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = 0.$
 
-* Si $x\geq 1$  entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = \int_0^1 1 dt = 1.$
+Si $0\leq x\leq 1$ entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = \int_0^x 1 dt = x.$
+
+Si $x\geq 1$  entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = \int_0^1 1 dt = 1.$
 
 
-* Por lo tanto  $F_X(x)=\displaystyle\int_{-\infty}^x f_X(t) dt$ para todo $x\in\mathbb{R}.$
+Por lo tanto  $F_X(x)=\displaystyle\int_{-\infty}^x f_X(t) dt$ para todo $x\in\mathbb{R}.$
 
 </div>
 
@@ -1358,7 +1371,7 @@ En una empresa de venta de vinos por internet, sea
 $X=$ número de  litros de vino del país vendidos en un año.
 Supongamos que sabemos que $E(X)=10000$ y que $Var(X)=100$
 Supongamos que los gastos fijos de distribución son
-5 &euro; y el beneficio por litro es de 10 pts por botella.
+50.000 &euro; y el beneficio por litro es de 10 &euro; por botella.
 Definimos $T=10 X-50000$ que será el beneficio después de gastos.
 </div>
 
@@ -1367,7 +1380,7 @@ Definimos $T=10 X-50000$ que será el beneficio después de gastos.
 Entonces la esperanza del beneficio es 
 $$E(T)=10 E(X)-50000 = 50000$$
 y
-$$Var(T)=10^2 VAR(X)= 10000$$
+$$Var(T)=10^2 Var(X)= 10000$$
 </div>
 
 # Transformaciones de variables aleatorias

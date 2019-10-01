@@ -1,5 +1,4 @@
-\beamer@endinputifotherversion {3.36pt}
-\select@language {spanish}
+\babel@toc {spanish}{}
 \beamer@sectionintoc {1}{Variables Aleatorias}{1}{0}{1}
 \beamer@sectionintoc {2}{Distribuciones notables}{2}{0}{2}
 \beamer@sectionintoc {3}{Algunas variables aleatorias discretas}{3}{0}{3}
