@@ -102,7 +102,6 @@ lines(x2,f(x2),col="red")
 #for (i in 1:length(x2)){
 #  lines(c(x2[i],x2[i]),c(-2,f(x2[i])),lty=1)
 #}
-rgb(red,green,blue,alpha,names=NULL,maxColorValue=1)
 polygon(c(xmax,xmin,x2),c(ymin,ymin,f(x2)),col="red")
 #for (i in 1:(length(x2)-1)){
 #  polygon(c(x2[i],x2[i+1],x2[i+1],x2[i]),c(-2,-2,f(x2[i+1]),f(x2[i])),col="blue")
