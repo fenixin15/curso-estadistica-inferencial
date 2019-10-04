@@ -68,42 +68,267 @@ Consideremos el experimento aleatorio de elegir al azar un estudiante de primer 
 Estamos interesado en sucesos del tipo $A=\{H\leq 176,\ W\leq 85\}$, o sea, el conjunto de estudiantes que miden menos de 1.76 m. y que pesan menos de 85 kg.
 </div>
 
+<!-- ## Dos variables aleatorias. Introducción  -->
+<!-- Los sucesos que se derivan de una **variable aleatoria bidimensional** estan especificados por regiones del plano. -->
+<!-- Veamos algunos ejemplos: -->
+
+<!-- * Suceso: $\{X+Y\leq 1\}$. Sería la zona sombreada del gráfico siguiente: -->
+
+<!-- ```{r,echo=FALSE} -->
+<!-- xmin=-2 -->
+<!-- xmax=3 -->
+<!-- ymin=-2 -->
+<!-- ymax=3 -->
+<!-- tolx=0.0075*(xmax-xmin) -->
+<!-- toly=0.0075*(ymax-ymin) -->
+<!-- quantsx=5 -->
+<!-- quantsy=5 -->
+<!-- f = function(x){1-x} -->
+<!-- plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE) -->
+<!-- x=seq(from=xmin,to=xmax,by=0.01) -->
+<!-- #points(x,f(x),type="l") -->
+<!-- lines(c(0,0),c(ymin,ymax)) -->
+<!-- lines(c(xmin,xmax),c(0,0)) -->
+<!-- text(xmax-tolx,2*tolx,"x") -->
+<!-- text(toly,ymax+toly/2,"y") -->
+<!-- for (i in 0:(quantsx)){ -->
+<!--   lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,0.5*toly)) -->
+<!--   text(xmin+((xmax-xmin)/quantsx)*i,-3*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)} -->
+<!-- for (i in 0:(quantsy)){ -->
+<!--   lines(c(-tolx,tolx),rep(ymin+((ymax-ymin)/quantsy)*i,2)) -->
+<!--   text(-3*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)} -->
+<!-- x2=seq(from=xmin,to=xmax,by=0.01) -->
+<!-- lines(x2,f(x2),col="red") -->
+<!-- #for (i in 1:length(x2)){ -->
+<!-- #  lines(c(x2[i],x2[i]),c(-2,f(x2[i])),lty=1) -->
+<!-- #} -->
+<!-- polygon(c(xmax,xmin,x2),c(ymin,ymin,f(x2)),col="red") -->
+<!-- #for (i in 1:(length(x2)-1)){ -->
+<!-- #  polygon(c(x2[i],x2[i+1],x2[i+1],x2[i]),c(-2,-2,f(x2[i+1]),f(x2[i])),col="blue") -->
+<!-- #} -->
+<!-- ``` -->
+
+
 ## Dos variables aleatorias. Introducción 
 Los sucesos que se derivan de una **variable aleatoria bidimensional** estan especificados por regiones del plano.
 Veamos algunos ejemplos:
 
-* Suceso: $\{X+Y\leq 1\}$. Sería la zona sombreada del gráfico siguiente:
+Suceso: $\{X+Y\leq 1\}$. Sería la zona sombreada del gráfico siguiente:
 
-```{r,echo=FALSE}
-xmin=-2
-xmax=3
-ymin=-2
-ymax=3
-tolx=0.0075*(xmax-xmin)
-toly=0.0075*(ymax-ymin)
-quantsx=5
-quantsy=5
-f = function(x){1-x}
-plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
-x=seq(from=xmin,to=xmax,by=0.01)
-#points(x,f(x),type="l")
-lines(c(0,0),c(ymin,ymax))
-lines(c(xmin,xmax),c(0,0))
-text(xmax-tolx,2*tolx,"x")
-text(toly,ymax+toly/2,"y")
-for (i in 0:(quantsx)){
-  lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,0.5*toly))
-  text(xmin+((xmax-xmin)/quantsx)*i,-3*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
-for (i in 0:(quantsy)){
-  lines(c(-tolx,tolx),rep(ymin+((ymax-ymin)/quantsy)*i,2))
-  text(-3*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)}
-x2=seq(from=xmin,to=xmax,by=0.01)
-lines(x2,f(x2),col="red")
-#for (i in 1:length(x2)){
-#  lines(c(x2[i],x2[i]),c(-2,f(x2[i])),lty=1)
-#}
-polygon(c(xmax,xmin,x2),c(ymin,ymin,f(x2)),col="red")
-#for (i in 1:(length(x2)-1)){
-#  polygon(c(x2[i],x2[i+1],x2[i+1],x2[i]),c(-2,-2,f(x2[i+1]),f(x2[i])),col="blue")
-#}
+<div class="center">
+
+```{r, echo=FALSE, label=bid1,fig.cap="",out.width = "450px"}
+knitr::include_graphics("Images/Bidim1.png",dpi=1200)
 ```
+</div>
+
+## Dos variables aleatorias. Introducción 
+Suceso: $\{X^2+Y^2\leq 4\}$. Sería la zona sombreada del gráfico siguiente:
+
+<div class="center">
+
+```{r, echo=FALSE, label=bid2,fig.cap="",out.width = "450px"}
+knitr::include_graphics("Images/Bidim2.png",dpi=1200)
+```
+</div>
+
+## Dos variables aleatorias. Introducción 
+Suceso: $\{\max\{X,Y\}\geq 1\}$. Sería la zona sombreada del gráfico siguiente:
+
+<div class="center">
+
+```{r, echo=FALSE, label=bid3,fig.cap="",out.width = "450px"}
+knitr::include_graphics("Images/Bidim3.png",dpi=1200)
+```
+</div>
+
+## Dos variables aleatorias. Introducción 
+
+La probabilidad de que la **variable bidimensional** pertenezca a una cierta **región del plano $B$** se define de la forma siguiente:
+$$
+P((X,Y)\in B)=P\{w\in \Omega,\ |\ (X(w),Y(w))\in B\},
+$$
+o sea, la probabilidad anterior es la probabilidad del suceso formado por los elementos de $w\in\Omega$ que cumplen que su **imagen** por la **variable aleatoria bidimensional $(X,Y)$** esté en $B$.
+
+
+Por ejemplo, si consideramos $B=\{X+Y\leq 1\}$, $P((X,Y)\in B)$ sería la probabilidad del suceso formado por los elementos $w$ de $\Omega$ tal que la suma de las imágenes por $X$ e $Y$ sea menor o igual que 1: $X(w)+Y(w)\leq 1$.
+
+# Función de distribución conjunta
+
+## Función de distribución conjunta. Introducción
+Dada una **variable aleatoria bidimensional** $(X,Y)$, queremos estudiar cómo se distruye la probabilidad de sucesos cualesquiera de la forma $\{(X,Y)\in B\}$, donde $B$ es una región del plano.
+
+Para ello, definimos la **función de distribución conjunta**:
+
+<l class="definition">Definión de función de distribución conjunta:</l>
+Dada una variable bidimensional $(X,Y)$, definimos su **función de distribución conjunta** $F_{XY}$ a la función definida sobre $\mathbb{R}^2$ de la manera siguiente:
+$$
+\begin{array}{rl}
+F_{XY}: \mathbb{R}^2 & \longrightarrow \mathbb{R}\\
+(x,y) & \longrightarrow F_{XY}(x,y)=P(X\leq x,\ Y\leq y).
+\end{array}
+$$
+
+## Función de distribución conjunta. Introducción
+
+O sea, dado un valor $(x,y)\in \mathbb{R}^2$, consideramos la región del plano $(-\infty,x]\times (-\infty,y]$:
+<div class="center">
+
+```{r, echo=FALSE, label=bid4,fig.cap="",out.width = "450px"}
+knitr::include_graphics("Images/Fxy.png",dpi=1200)
+```
+</div>
+
+## Función de distribución conjunta. Introducción
+Entonces la **función de distribución conjunta** en el valor $(x,y)$ es la probabilidad del suceso formado por aquellos elementos tal que la imagen por la **variable aleatoria bidimensional** $(X,Y)$ caen dentro de la región sombreada en el gráfico anterior:
+
+$$
+\begin{array}{rl}
+F_{XY}(x,y) & =P\{w\in\Omega,\ |\ (X(w),Y(w))\in (-\infty,x]\times (-\infty,y]\} \\ & = P\{w\in\Omega,\ |\ X(w)\leq x,\ Y(w)\leq y\}.
+\end{array}
+$$
+
+## Función de distribución conjunta. Ejemplo
+<div class="example">
+**Ejemplo**
+
+Consideremos el experimento aleatorio de lanzar dos dados no trucados. 
+
+Sea $(S,P)$ la **variable aleatoria bidimensional** que nos da la suma y el producto de los resultados obtenidos, respectivamente.
+
+La **función de distribución conjunta** en el valor $(3,4)$ será:
+$$
+F_{XY}(3,4) = P(S\leq 3,\ P\leq 4)=P\{(1,1), (1,2), (2,1) \}=\frac{3}{36}=\frac{1}{12}\approx `r round(1/12,3)`, 
+$$
+ya que $\Omega$ tiene en total $36$ resultados:
+$$
+\Omega =\{(1,1),(1,2).\ldots, (6,6)\}.
+$$
+</div>
+<div class="exercise">
+**Ejercicio**
+
+Hallar el valor de la **función de distribución conjunta** para la **variable aleatoria bidimensional** anterior $(S,P)$ en los valores $(i,j)$ para $i,j=1,2,3,4,5,6$.
+</div>
+
+# Variables aleatorias bidimensionales discretas
+
+## Variables aleatorias bidimensionales discretas. Introducción
+
+<l class="definition">Definición de variable aleatoria bidimensional discreta:</l>
+Sea $(X,Y)$ una **variable aleatoria bidimensional**. Diremos que es discreta cuando su conjunto de valores en $\mathbb{R}^2$, $(X,Y)(\Omega)$ es un conjunto finito o numerable. 
+
+En la mayoría de los casos, dicho conjunto será un subconjunto de los enteros naturales.
+
+## Variables aleatorias bidimensionales discretas. Ejemplo
+
+<div class="example">
+**Ejemplo**
+
+La variable aleatoria bidimensional anterior que nos daba la suma y el producto de los resultados obtenidos por los dos dados, respectivamente es discreta ya que: 
+$$
+\begin{array}{rl}
+(S,P)(\Omega) & =\{(2,1),(3,2),(4,3),(4,4),(5,4),(5,6),(6,5),(6,8),(6,9),(7,6),(7,10),(7,12),(8,12),\\ & (8,15),(8,16),(9,18),(9,20),(10,24),(10,25),(11,30),(12,36)\}.
+\end{array}
+$$
+
+</div>
+<div class="exercise">
+**Ejercicio**
+
+Comprobar que el conjunto $(S,P)(\Omega)$ dado por el ejemplo coincide con la expresión dada. 
+O sea, hallar el conjunto $(S,P)(\Omega)$:
+$$
+\begin{array}{rl}
+(S,P): \Omega & \longrightarrow \mathbb{R}^2\\
+(1,1) & \longrightarrow (S(1,1),P(1,1))=(2,1),\\
+(1,2) & \longrightarrow (S(1,2),P(1,2))=(3,2),\\
+\vdots & \vdots \\
+(6,6) & \longrightarrow (S(6,6),P(6,6))=(12,36).
+\end{array}
+$$
+
+</div>
+
+## Función de probabilidad conjunta
+<l class="definition">Definición de función de probabilidad conjunta:</l>
+Dada una **variable aleatoria bidimensional discreta** $(X,Y)$ con $(X,Y)(\Omega)=\{(x_i,y_j),\ i=1,2,\ldots,\ j=1,2,\ldots,\}$, definimos la función de probabilidad discreta $P_{XY}$ para un valor $(x,y)\in\mathbb{R}^2$ de la siguiente forma:
+$$
+\begin{array}{rl}
+P_{XY}: \mathbb{R}^2 & \longrightarrow \mathbb{R}\\
+(x,y) & \longrightarrow P_{XY}(x,y)=P(X= x,\ Y= y).
+\end{array}
+$$
+
+<l class="observ">Observación:</l>
+Si $(x,y)\not\in (X,Y)(\Omega)$, el valor de la **función de probabilidad conjunta** en $(x,y)$ en nulo: $P_{XY}(x,y)=0$, ya que, en este caso, el conjunto $\{w\in\Omega,\ | (X(w),Y(w))=(x,y)\}=\emptyset$ ya que recordemos $(x,y)\not\in (X,Y)(\Omega)$.
+
+## Función de probabilidad conjunta
+
+Por tanto, de cara a calcular $P_{XY}$ basta calcular $P_{XY}(x_i,y_j)$ para $(x_i,y_j)\in (X,Y)(\Omega)$:
+
+<div class="center">
+| $X/Y$| $y_1$    | $y_2$  | $\ldots$ | $y_N$ |
+|------|----------|--------|----------|-------|
+| $x_1$| $P_{XY}(x_1,y_1)$ | $P_{XY}(x_1,y_2)$ | $\ldots$ | $P_{XY}(x_1,y_N)$|
+| $x_2$| $P_{XY}(x_2,y_1)$ | $P_{XY}(x_2,y_2)$ | $\ldots$ | $P_{XY}(x_2,y_N)$|
+| $\vdots$ |$\vdots$ |$\vdots$ |$\vdots$ |$\vdots$ |
+| $x_M$| $P_{XY}(x_M,y_1)$ | $P_{XY}(x_M,y_2)$ | $\ldots$ | $P_{XY}(x_M,y_N)$|
+</div>
+
+
+## Función de probabilidad conjunta. Ejemplo
+<div class="example">
+**Ejemplo de la suma y el producto de los resultados del lanzamiento de dos dados**
+
+La **función de probabilidad conjunta** será:
+<div class="center">
+| $S/P$| 1 | 2| 3 | 4 | 5| 6 | 8| 9| 10 | 12 | 15 | 16 | 18 | 20 | 24 | 25 | 30 | 36 
+|------|---|--|---|---|--|---|--|--|----|----|----|----|----|----|----|----|----|---
+| 2    |$\frac{1}{36}$|0 |0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+| 3    | 0 | $\frac{2}{36}$ |0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+| 4   | 0 | 0 | $\frac{2}{36}$ | $\frac{1}{36}$ | 0|0|0|0|0|0|0|0|0|0|0|0|0|0
+| 5   | 0 | 0 | 0 | $\frac{2}{36}$ | 0 | $\frac{2}{36}$ | 0|0|0|0|0|0|0|0|0|0|0|0
+| 6 | 0 | 0 | 0 | 0 | $\frac{2}{36}$ | 0 | $\frac{2}{36}$ |$\frac{1}{36}$|0|0|0|0|0|0|0|0|0|0
+</div>
+
+</div>
+
+
+## Función de probabilidad conjunta. Ejemplo
+<div class="example">
+<div class="center">
+| $S/P$| 1 | 2| 3 | 4 | 5| 6 | 8| 9| 10 | 12 | 15 | 16 | 18 | 20 | 24 | 25 | 30 | 36 
+|------|---|--|---|---|--|---|--|--|----|----|----|----|----|----|----|----|----|---
+| 7 | 0 |0|0|0|0|$\frac{2}{36}$|0|0|$\frac{2}{36}$|$\frac{2}{36}$|0|0|0|0|0|0|0|0
+|8  |0|0|0|0|0|0|0|0|0|$\frac{2}{36}$|$\frac{2}{36}$|$\frac{1}{36}$|0|0|0|0|0|0
+|9 |0|0|0|0|0|0|0|0|0|0|0|0|$\frac{2}{36}$|$\frac{2}{36}$|0|0|0|0
+| 10 | 0|0|0|0|0|0|0|0|0|0|0|0|0|0|$\frac{2}{36}$|$\frac{1}{36}$|0|0
+| 11 | 0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|$\frac{2}{36}$|0
+| 12 |  0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|$\frac{1}{36}$
+</div>
+
+</div>
+
+## Propiedades de la función de probabilidad conjunta
+
+Sea $(X,Y)$ una **variable aleatoria bidimensional discreta** con conjunto de valores $(X,Y)(\Omega)=\{(x_i,y_j)\, i=1,2,\ldots,\ j=1,2,\ldots\}$. Entonces su **función de probabilidad conjunta** verifica las propiedades siguientes:
+
+La suma de todos los valores de la **función de probabilidad conjunta** sobre el conjunto de valores siempre vale 1: $$\sum_{i}\sum_j P_{XY}(x_i,y_j)=1.$$
+
+
+## Propiedades de la función de probabilidad conjunta
+
+Sea $B$ una región del plano. El valor de la probabilidad $P((X,Y)\in B)$ se puede calcular de la forma siguiente:
+$$
+P((X,Y)\in B) =\sum_{(x_i,y_j)\in B} P_{XY}(x_i,y_j).
+$$
+O sea, la probabilidad de que la variable bidimensional coja valores en $B$ es igual a la suma de todos aquellos valores de la función de probabilidad conjunta que están en $B$.
+
+## Propiedades de la función de probabilidad conjunta
+
+En particular, tenemos la relación siguiente que relaciona la **función de distribución conjunta** con la **función de probabilidad conjunta**:
+$$
+F_{XY}(x,y)=\sum_{x_i\leq x, y_j\leq y} P_{XY}(x_i,y_j).
+$$
+Dicha expresión se deduce de la expresión anterior considerando $B=(-\infty,x]\times (-\infty,y]$.
