@@ -1,5 +1,5 @@
 ---
-title: "Tema 3 - Variables Aleatorias. Complementos"
+title: "Tema 4 - Variables Aleatorias. Complementos"
 author: "Ricardo Alberich, Juan Gabriel Gomila y  Arnau Mir"
 date: 
 output: 
@@ -146,11 +146,11 @@ $$
 
 Sea $X$ una variable de Bernoulli de parámetro $p$. Recordemos que su función de probabilidad es:
 $$
-P_X(0)=q=1-p,\ p_X(1)=p.
+P_X(0)=q=1-p,\ P_X(1)=p.
 $$
 Usando que $E(X)=p$, su momento central de orden $n$ será:
 $$
-\momentocentral_n = E\left((X-p)^n\right)=p\cdot (1-p)^n+(1-p)\cdot (0-p)^n = p(1-p)^n + (1)^n (1-p) p^n.
+\momentocentral_n = E\left((X-p)^n\right)=p\cdot (1-p)^n+(1-p)\cdot (0-p)^n = p(1-p)^n + (-1)^n (1-p) p^n.
 $$
 
 <div class="exercise">

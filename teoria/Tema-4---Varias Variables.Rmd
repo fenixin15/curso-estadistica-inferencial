@@ -188,9 +188,123 @@ F_{XY}(x,y) & =P\{w\in\Omega,\ |\ (X(w),Y(w))\in (-\infty,x]\times (-\infty,y]\}
 \end{array}
 $$
 
+## Función de distribución conjunta. Propiedades
+Sea $(X,Y)$ una variable bidimensional. Sean $F_{XY}$ su **función de distribución conjunta**. Dicha función satisface las propiedades siguientes:
+
+* La función de distribución conjunta es no decreciente en cada una de las variables:
+$$
+\mbox{Si }x_1\leq x_2, \mbox{ y }y_1\leq y_2,\mbox{ entonces, }F_{XY}(x_1,y_1)\leq F_{XY}(x_2,y_2).
+$$
+
+* $F_{XY}(x,-\infty)=F_{XY}(-\infty,y)=0,$ $F_{XY}(\infty,\infty)=1$, para todo $x,y\in\mathbb{R}$.
+
+
+## Función de distribución conjunta. Propiedades
+
+* Las variables aleatorias $X$ e $Y$ se llaman **variables aleatorias marginales** y sus funciones de distribución $F_X$ y $F_Y$ pueden hallarse de la forma siguiente como función de la **función de distribución conjunta** $F_{XY}$:
+$$
+F_X(x)=F_{XY}(x,\infty),\ F_Y(y)=F_{XY}(\infty,y),
+$$
+para todo $x,y\in\mathbb{R}$.
+
+* La función de distribución conjunta es continua por el "norte" y por el "este":
+$$
+\begin{array}{rl}
+\lim_{x\to a^+}F_{XY}(x,y) & =\lim_{x\to a, x> a}F_{XY}(x,y)=F_{XY}(a,y), \\
+\lim_{y\to b^+}F_{XY}(x,y) & =\lim_{y\to b, y> b}F_{XY}(x,y)=F_{XY}(x,b),
+\end{array}
+$$
+para todo $a,b\in\mathbb{R}$. Ver figura siguiente.
+
+## Función de distribución conjunta. Propiedades
+<div class="center">
+
+```{r, echo=FALSE, label=bid5,fig.cap="",out.width = "450px"}
+knitr::include_graphics("Images/Fxy2.png",dpi=1200)
+```
+</div>
+
+
+## Función de distribución conjunta. Propiedades
+
+* Dados $x_1<x_2$ y $y_1<y_2$, consideramos $B$ el rectángulo de vértices $(x_1,y_1)$, $(x_1,y_2)$, $(x_2,y_1)$ y $(x_2,y_2)$: $(x_1,x_2]\times (y_1,y_2]$. Entonces,
+$$
+P((X,Y)\in B)=F_{XY}(x_2,y_2)-F_{XY}(x_2,y_1)-F_{XY}(x_1,y_2)+F_{XY}(x_1,y_1).
+$$
+
+<div class="center">
+
+```{r, echo=FALSE, label=bid6,fig.cap="",out.width = "400px"}
+knitr::include_graphics("Images/Fxy3.png",dpi=1200)
+```
+</div>
+
 ## Función de distribución conjunta. Ejemplo
 <div class="example">
 **Ejemplo**
+
+Consideremos una variable aleatoria bidimensional $(X,Y)$ con **función de distribución conjunta**:
+$$
+F_{XY}(x,y)=\begin{cases}
+0, & \mbox{si }x<0,\mbox{ o }y<0,\\
+xy, & \mbox{si }0\leq x\leq 1,\ 0\leq y\leq 1, \\
+x, & \mbox{si }0\leq x\leq 1,\ y> 1, \\
+y, & \mbox{si }0\leq y\leq 1,\ x> 1, \\
+1, & x\geq 1,\ y\geq 1.
+\end{cases}
+$$
+En la figura siguiente, hemos representado por zonas cómo está definida $F_{XY}$.
+</div>
+
+
+## Función de distribución conjunta. Ejemplo
+<div class="example">
+<div class="center">
+
+```{r, echo=FALSE, label=bid7,fig.cap="",out.width = "450px"}
+knitr::include_graphics("Images/FxyEx.png",dpi=1200)
+```
+</div>
+</div>
+
+## Función de distribución conjunta. Ejemplo
+<div class="example">
+Comprobemos algunas de las propiedades que hemos enunciado anteriormente:
+
+* Claramente $F_{XY}(x,-\infty)=F_{XY}(-\infty,y)=0$ ya que $F_{XY}(x,y)=0$ si $x<0$ o $y<0$. Por tanto, si hacemos tender $x$ o $y$ hacia $-\infty$, obtendremos que $F_{XY}(x,-\infty)=F_{XY}(-\infty,y)=0$.
+
+* De la misma manera $F_{XY}(\infty,\infty)=1$ ya que $F_{XY}(x,y)=1$ para $x>1$ e $y>1$. Por tanto, si hacemos tender $x$ e $y$ hacia $\infty$, obtendremos $F_{XY}(\infty,\infty)=1$.
+
+* Hallemos las marginales:
+$$
+F_X(x)=F_{XY}(x,\infty)=\begin{cases}
+0, & \mbox{ si }x<1,\\
+x, & \mbox{ si } 0\leq x\leq 1,\\
+1, & \mbox{ si } x>1.
+\end{cases}
+$$
+Para ver la expresión anterior basta trazar la recta vertical $X=x$ en el gráfico anterior y ver hacia dónde tiende a medida que la $y$ se va hacia $\infty$. 
+
+¿Habéis averiguado cuál es la distribución de $X$?
+</div>
+
+
+## Función de distribución conjunta. Ejemplo
+<div class="example">
+¡Efectivamente!, $X$ es la uniforme en el intervalo $(0,1)$.
+
+Dejamos como ejercicio hallar la distribución marginal para la variable $Y$.
+
+* Comprobemos que $F_{XY}$ es continua por el "norte" y el "este" en el punto $(1,1)$ que sería un punto problemático:
+$$
+\lim_{x\to 1,x> 1} F_{XY}(x,1)=\lim_{x\to 1,x> 1} 1  = F_{XY}(1,1),\ \lim_{y\to 1,y> 1} F_{XY}(1,y)=\lim_{y\to 1,y> 1} 1  = F_{XY}(1,1).
+$$
+
+</div>
+
+## Función de distribución conjunta. Ejemplo
+<div class="example">
+**Ejemplo: lanzamiento de dos dados no trucados**
 
 Consideremos el experimento aleatorio de lanzar dos dados no trucados. 
 
@@ -204,11 +318,12 @@ ya que $\Omega$ tiene en total $36$ resultados:
 $$
 \Omega =\{(1,1),(1,2).\ldots, (6,6)\}.
 $$
+y los únicos resultados en los que la suma es menor o igual que 3 y el producto menor o igual que 4 son $(1,1)$ (suma 2 producto 1), $(1,2)$ (suma 3 y producto 2) y $(2,1)$ (suma 3 y producto 2).
 </div>
 <div class="exercise">
 **Ejercicio**
 
-Hallar el valor de la **función de distribución conjunta** para la **variable aleatoria bidimensional** anterior $(S,P)$ en los valores $(i,j)$ para $i,j=1,2,3,4,5,6$.
+Hallar el valor de la **función de distribución conjunta** para la **variable aleatoria bidimensional** anterior $(S,P)$ en los valores $(i,j)$ siguientes: $(4,5),\ (4,9),\ (5,9),\ (6,10)$.
 </div>
 
 # Variables aleatorias bidimensionales discretas
@@ -332,3 +447,113 @@ $$
 F_{XY}(x,y)=\sum_{x_i\leq x, y_j\leq y} P_{XY}(x_i,y_j).
 $$
 Dicha expresión se deduce de la expresión anterior considerando $B=(-\infty,x]\times (-\infty,y]$.
+
+
+## Propiedades de la función de probabilidad conjunta. Ejemplo
+
+<div class="example">
+**Ejemplo de la suma y el producto de los resultados del lanzamiento de dos dados**
+
+<div class="exercise">
+**Ejercicio**
+
+Comprobad usando la tabla de la función de probabilidad conjunta que la suma de todos sus valores suma 1.
+</div>
+
+Apliquemos la fórmula que relaciona la función de distribución conjunta con la función de probabilidad conjunta para $(x,y)=(5,4)$.
+
+Recordemos la tabla de la función de probabilidad conjunta hasta $S=5$ y $P=4$:
+
+
+
+
+</div>
+
+
+## Propiedades de la función de probabilidad conjunta. Ejemplo
+
+<div class="example">
+
+<div class="center">
+| $S/P$| 1 | 2| 3 | 4 | 
+|------|---|--|---|---|--
+| 2    |$\frac{1}{36}$|0 |0|0|$\ldots$
+| 3    | 0 | $\frac{2}{36}$ |0|0|$\ldots$
+| 4   | 0 | 0 | $\frac{2}{36}$ | $\frac{1}{36}$ | $\ldots$
+| 5   | 0 | 0 | 0 | $\frac{2}{36}$ | $\ldots$
+| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$
+</div>
+
+
+</div>
+
+## Propiedades de la función de probabilidad conjunta. Ejemplo
+
+<div class="example">
+Observamos que los únicos valores $(x_i,y_j)\in (X,Y)(\Omega)$ que verifican $x_i\leq 5$ y $y_j\leq 4$ son $(2,1)$, $(3,2)$, $(4,3)$, $(4,4)$ y $(5,4)$. Por tanto,
+$$
+\begin{array}{rl}
+F_{SP}(5,4) & = P_{SP}(2,1)+P_{SP}(3,2)+P_{SP}(4,3)+P_{SP}(4,4)+P_{SP}(5,4) \\ & = \frac{1}{36}+\frac{2}{36}+\frac{2}{36}+\frac{1}{36}+\frac{2}{36} = \frac{8}{36}=\frac{2}{9}.
+\end{array}
+$$
+O sea, "a la larga", de cada 9 veces que lanzamos dos dados, 2 veces obtenemos un resultado cuya suma es menor o igual que 5 y cuyo producto es menor o igual que 4.
+</div>
+
+## Variables aleatorias marginales
+Consideremos una variable aleatoria **bidimensional discreta $(X,Y)$** con **función de probabilidad conjunta** $P_{XY}(x_i,y_j)$, con $(x_i,y_j)\in (X,Y)(\Omega)$, $i=1,2,\ldots$, $j=1,2,\ldots$.
+
+La tabla de la **función de probabilidad conjunta** contiene suficiente información para obtener las **funciones de probabilidad** de las variables $X$ e $Y$. 
+
+Dichas variables $X$ e $Y$ se denominan **distribuciones marginales** y sus correspondientes **funciones de probabilidad**, **funciones de probabilidad marginales** $P_X$ de la variable $X$ y $P_Y$ de la variable $Y$.
+
+Veamos cómo obtener $P_X$ y $P_Y$ a partir de la tabla $P_{XY}$.
+
+## Variables aleatorias marginales
+<l class="prop">Proposición. Expresión de las funciones de probabilidad marginales. </l>
+Sea $(X,Y)$ una variable aleatoria **bidimensional discreta** con **función de probabilidad conjunta** $P_{XY}(x_i,y_j)$, con $(x_i,y_j)\in (X,Y)(\Omega)$, $i=1,2,\ldots$, $j=1,2,\ldots$.
+
+Las **funciones de probabilidad marginales** $P_X(x_i)$ y $P_Y(y_j)$ se calculan usando las expresiones siguientes:
+$$
+P_X(x_i)  = \sum_{j=1} P_{XY}(x_i,y_j), \ P_Y(y_j)  = \sum_{i=1} P_{XY}(x_i,y_j),\ i=1,2,\ldots,\ j=1,2,\ldots
+$$
+
+## Variables aleatorias marginales
+
+
+O sea, si pensamos $P_{XY}$ como una tabla bidimensional donde en la primera fila están los valores de la variable $Y$ ($y_1,y_2,\ldots$) y en la primera columna están los valores de la variable $X$ ($x_1,x_2,\ldots$), para obtener la **función de probabilidad marginal** de la variable $X$ en el valor $x_i$, $P_X(x_i)$, hay que sumar todos los valores de $P_{XY}(x_i,y_j)$ correspondientes a la fila $i$-ésima y para obtener la **función de probabilidad marginal** de la variable $Y$ en el valor $y_j$, $P_Y(y_j)$, hay que sumar todos los valores de $P_{XY}(x_i,y_j)$ correspondientes a la columna $j$-ésima.
+
+## Variables aleatorias marginales. Ejemplo
+
+<div class="example">
+**Ejemplo de la suma y el producto de los resultados del lanzamiento de dos dados**
+
+Hallemos la función de probabilidad marginal para la suma de los resultados $S$ usando la expresión vista:
+$$
+\begin{array}{rl}
+P_S(2) & = P_{SP}(2,1)=\frac{1}{36},\\
+P_S(3) & = P_{SP}(3,2)=\frac{2}{36},\\
+P_S(4) & = P_{SP}(4,3)+P_{SP}(4,4)=\frac{2}{36}+\frac{1}{36}=\frac{3}{36}=\frac{1}{12},\\
+P_S(5) & = P_{SP}(5,4)+P_{SP}(5,6)=\frac{2}{36}+\frac{2}{36}=\frac{4}{36}=\frac{1}{9},\\
+P_S(6) & = P_{SP}(6,5)+P_{SP}(6,8)+P_{SP}(6,9)=\frac{2}{36}+\frac{2}{36}+\frac{1}{36}=\frac{5}{36},\\
+P_S(7) & = P_{SP}(7,6)+P_{SP}(7,10)+P_{SP}(7,12)=\frac{2}{36}+\frac{2}{36}+\frac{2}{36}=\frac{6}{36}=\frac{1}{6},\\
+P_S(8) & = P_{SP}(8,12)+P_{SP}(8,15)+P_{SP}(8,16)=\frac{2}{36}+\frac{2}{36}+\frac{1}{36}=\frac{5}{36},\\
+P_S(9) & = P_{SP}(9,18)+P_{SP}(9,20)=\frac{2}{36}+\frac{2}{36}=\frac{4}{36}=\frac{1}{9},\\
+P_S(10) & = P_{SP}(10,24)+P_{SP}(10,25)=\frac{2}{36}+\frac{1}{36}=\frac{3}{36}=\frac{1}{12},\\
+P_S(11) & = P_{SP}(11,30)=\frac{2}{36},\\
+P_S(12) & = P_{SP}(12,36)=\frac{1}{36}.
+\end{array}
+$$
+
+</div>
+
+## Variables aleatorias marginales. Ejemplo
+<div class="exercise">
+**Ejercicio**
+
+Consideremos el ejemplo anterior de la suma y el producto de los resultados del lanzamiento de dos dados.
+
+Calcular la **función de probabilidad marginal** del producto $P$ de los resultados.
+
+</div>
+
+
