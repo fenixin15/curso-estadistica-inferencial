@@ -225,8 +225,6 @@ plot(x,dbinom(x,20,0.9),type="l",ylab="función de probabilidad")
 x=seq(from=0,to=100, by=0.1)
 plot(x,dchisq(x,10),type="l",ylab="función de densidad")
 ```
-
-
 </div>
 
 ## ¿Cómo calcular la asimetría de una variable aleatoria?
@@ -314,7 +312,7 @@ Por tanto, en este caso $\momentocentral_3=0$ y, por tanto, $\gamma_1=0$.
 
 Deducimos que la distribución normal es totalmente simétrica.
 
-De hecho, usando que su función de densidad es $f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},$ para $x\in \mathbb{R}$, se puede comprovar que $f_X(\mu-x)=f_X(\mu +x)$, o sea, tiene el eje de simetría $x=\mu$:
+De hecho, usando que su función de densidad es $f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},$ para $x\in \mathbb{R}$, se puede comprobar que $f_X(\mu-x)=f_X(\mu +x)$, o sea, tiene el eje de simetría $x=\mu$:
 
 
 ## Ejemplo de cálculo de asimetría
@@ -353,11 +351,11 @@ A la expresión anterior se le denomina **medida de curtosis de Pearson**.
 
 ## Definición
 
-* Diremos que una variable aleatoria no tiene exceso de cursosis o **mesocúrtica** si $\gamma_2 \approx 3$.
+* Diremos que una variable aleatoria no tiene exceso de curtosis o **mesocúrtica** si $\gamma_2 \approx 3$.
 
-* Diremos que una variable aleatoria tiene exceso positivo de cursosis o **leptocúrtica** si $\gamma_2 >3$.
+* Diremos que una variable aleatoria tiene exceso positivo de curtosis o **leptocúrtica** si $\gamma_2 >3$.
 
-* Diremos que una variable aleatoria tiene exceso negativo de cursosis o **platicúrtica** si $\gamma_2 <3$.
+* Diremos que una variable aleatoria tiene exceso negativo de curtosis o **platicúrtica** si $\gamma_2 <3$.
 
 
 ## Ejemplo de cálculo de curtosis
@@ -606,7 +604,7 @@ Comprobemos la fórmula de la inversión:
 $$
 \begin{array}{rl}
 P_X(1) & = \frac{1}{2\pi}\int_0^{2\pi} \left(1+p\left(\mathrm{e}^{\mathrm{i}w} -1 \right)\right) e^{-\mathrm{i}w\cdot 1}\, dw =\frac{1}{2\pi}\left(\int_0^{2\pi} (1-p)e^{-\mathrm{i}w}\, dw + \int_0^{2\pi} p\, dw\right) \\ & = \frac{1}{2\pi}\left( (1-p) \left[\frac{\mathrm{e}^{-\mathrm{i}w}}{-\mathrm{i}}\right]_0^{2\pi} +2\pi p\right)=\frac{1}{2\pi}\left((1-p)\cdot 0 +2\pi p\right)=p, \\
-P_X(0) & = \frac{1}{2\pi}\int_0^{2\pi} \left(1+p\left(\mathrm{e}^{\mathrm{i}w} -1 \right)\right) e^{-\mathrm{i}w\cdot 0}\, dw =\frac{1}{2\pi}\left(\int_0^{2\pi} (1-p) \, dw + \int_0^{2\pi} p \mathrm{e}^{\mathrm{i}w}\, dw\right) \\ & = \frac{1}{2\pi}\left( (1-p)  +p \left[\frac{\mathrm{e}^{\mathrm{i}w}}{\mathrm{i}}\right]_0^{2\pi}\right)=\frac{1}{2\pi}\left((1-p) + p\cdot 0\right)=1-p.
+P_X(0) & = \frac{1}{2\pi}\int_0^{2\pi} \left(1+p\left(\mathrm{e}^{\mathrm{i}w} -1 \right)\right) e^{-\mathrm{i}w\cdot 0}\, dw =\frac{1}{2\pi}\left(\int_0^{2\pi} (1-p) \, dw + \int_0^{2\pi} p \mathrm{e}^{\mathrm{i}w}\, dw\right) \\ & = \frac{1}{2\pi}\left( (1-p) \cdot 2\pi  +p \left[\frac{\mathrm{e}^{\mathrm{i}w}}{\mathrm{i}}\right]_0^{2\pi}\right)=\frac{1}{2\pi}\left((1-p)\cdot 2\pi + p\cdot 0\right)=1-p.
 \end{array}
 $$
 </div>
@@ -673,7 +671,7 @@ Sean $X$ una variable aleatoria con **función característica** $\FunCar_X(w)$.
 $$
 \momento_n =E\left(X^n\right)=\frac{1}{\mathrm{i}^n}\frac{d}{d w^n}\FunCar_X(w)|_{w=0} =\frac{1}{\mathrm{i}^n}\FunCar_X^{(n)}(0).
 $$
-O sea, el momento de orden $n$ de $X$ es la derivada $n$-ésima de la función generatriz de momentos evaluada en $w=0$ dividido por $\mathrm{i}^n$.
+O sea, el momento de orden $n$ de $X$ es la derivada $n$-ésima de la función característica evaluada en $w=0$ dividido por $\mathrm{i}^n$.
 
 
 ## Relación entre la función característica y los momentos
@@ -830,6 +828,7 @@ Vamos a testear si nuestro método funciona.
 Para ello generaremos una muestra de 500 valores usando el método de transformación y dibujaremos su **histograma de frecuencias relativas**.
 
 Seguidamente dibujaremos la **función de densidad de la variable exponencial de parámetro $\lambda$** y compararemos los resultados:
+
 ```{r,eval=FALSE}
 n=500
 lambda=2
@@ -846,6 +845,8 @@ lines(x2,dexp(x2,lambda),col="red")
 ## Ejemplo
 <div class="example">
 **Ejemplo: generar una muestra de una variable exponencial de parámetro $\lambda$**
+<div class="center">
+
 ```{r,echo=FALSE}
 n=500
 lambda=2
@@ -857,7 +858,7 @@ x2=seq(from=0,to=2.5,by=0.01)
 lines(x2,dexp(x2,lambda),col="red")
 ```
 
-
+</div>
 
 </div>
 
@@ -973,7 +974,8 @@ lines(x2,f(x2),col="red")
 
 
 ## Ejemplo
-<div class="example">
+<div class="center">
+
 ```{r,echo=FALSE}
 a=0; b=2; c=0; d=1; n=500; i=1;
 f = function(x){ifelse(x>=0 & x<=1,x,ifelse(x>=1&x<=2,2-x,0))}
@@ -983,11 +985,10 @@ while(i <=n){
   y=runif(1,c,d)
   if(y <= f(x)){muestra=c(muestra,x); i=i+1}
 }
-hist(muestra,freq=FALSE,ylab="frecuencias relativas",main="Histograma de la muestra")
+hist(muestra,freq=FALSE,ylab="frecuencias relativas",main="Histograma de la muestra", ylim = c(0,1))
 x2=seq(from=0,to=2,by=0.01)
 lines(x2,f(x2),col="red")
 ```
-
 </div>
 
 # Entropía
