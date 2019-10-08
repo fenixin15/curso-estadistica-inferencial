@@ -20,30 +20,35 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * En este tema estudiaremos diversos tipos de experimentos que son muy frecuentes y algunas de las variables aleatorias asociadas a ellos. 
 
-* Estas variables reciben distintos nombres
-que aplicaremos sin distinción al tipo de población del experimento a la variable o a su
-función de probabilidad, densidad o distribución.
+* Estas variables reciben distintos nombres que aplicaremos sin distinción al tipo de población del experimento a la variable o a su función de probabilidad, densidad o distribución.
 
-* Empezaremos con las variables aleatorias discretas que se presentan con frecuencia ya que están relacionadas con situaciones muy comunes como el número de caras en varios lanzamiento de
-una moneda, el número de veces que una maquina funciona hasta que se estropea, el numero de
-clientes en una cola,...
+* Empezaremos con las variables aleatorias discretas que se presentan con frecuencia ya que están relacionadas con situaciones muy comunes como el número de caras en varios lanzamiento de una moneda, el número de veces que una maquina funciona hasta que se estropea, el numero de clientes en una cola,...
 
 
 # Distribuciones Discretas. 
 
 ## Distribución Bernoulli
 
+
+<l class="definition"> Distribución Bernouilli </l>
+
 * Consideremos un experimento con dos resultados posibles éxito (E) y
-fracaso (F). El espacio de sucesos será.
-* Supongamos  que  $P(E)=p$ y entonces $P(F)=1-p=q$ con $0<p<1$.
+fracaso (F). El espacio de sucesos será $\Omega=\{E,F\}$.
+* Supongamos que la probabilidad de éxito es  $P(E)=p$, por lo que  $P(F)=1-p=q$ con $0<p<1$.
 * Consideremos la  aplicación 
-$$X:\Omega=\{E,F\}\to \mathbb{R}$$
+
+$$
+X:\Omega=\{E,F\}\to \mathbb{R}$$
+
 definida por
+
 $$X(E)=1\mbox{, }X(F)=0$$
 
 
 ## Distribución Bernoulli
 * Su  función de probabilidad es
+
+
 $$
 P_{X}(x)=
 \left\{
@@ -58,12 +63,12 @@ $$
 
 ## Distribución Bernoulli
 
-
-* Bajo estas condiciones diremos que $X$ sigue una distribución de
-probabilidad  Bernoulli de parámetro $p$ y lo denotaremos por
+* Bajo estas condiciones diremos que $X$  **es una v.a. Bernoulli** o que  sigue una ley de  **distribución de probabilidad  Bernoulli** de parámetro $p$.
+* Lo denotaremos por
 $$X\equiv Ber(p)\mbox{ o también } X\equiv B(1,p).$$
-* A los experimentos de este tipo (éxito/fracaso)
-    se les denomina experimentos Bernoulli.
+* A este tipo de  experimentos (éxito/fracaso)se les denomina experimentos Bernoulli.
+
+* Fue  [Jacob Bernoulli](https://es.wikipedia.org/wiki/Jakob_Bernoulli)  científico suizo y una más de la de la [familia de científicos suizos Bernoulli](https://es.wikipedia.org/wiki/Familia_Bernoulli)
 
 ## Resumen v.a con distribución Bernoulli, $Ber(p)$
 
@@ -79,7 +84,6 @@ $$X\equiv Ber(p)\mbox{ o también } X\equiv B(1,p).$$
 
 ## Veamos los cálculos básicos $Ber(p=0.25)$
 
-
 ```{r binomialfunciones}
 dbinom(0,size=1,prob=0.25)
 dbinom(1,size=1,prob=0.25)
@@ -90,28 +94,30 @@ rbinom(n=20,size = 1,prob=0.25)
 
 
 
-## Gráficos de las funciones de distribución de una  $Ber(0.25)$
+## Gráficos de la  distribución   $Ber(p=0.25)$
 
 
-El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ber(0.25)$
+El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ber(p=0.25)$
 
 ```{r eval=FALSE}
 plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=0.25),
     ylim=c(0,1),xlim=c(-1,2),xlab="x",
     main="Función de probabilidad\n Ber(p=0.25)")
+lines(x=c(0,0,1,1),y=c(0,0.75,0,0.25), type = "h", lty = 2,col="blue")
 curve(pbinom(x,size=1,prob=0.25),
     xlim=c(-1,2),col="blue",
     main="Función de distribución\n Ber(p=0.25)")
 ```
 
 
-## Gráficos de las funciones de distribución de una  $Ber(0.25)$
+## Gráficos de la  distribución  $Ber(p=0.25)$
 
 ```{r fig.align='center',echo=FALSE}
 par(mfrow=c(1,2))
 plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=0.25),
      ylim=c(0,1),xlim=c(-1,2),xlab="x",
      main="Función de probabilidad\n Ber(p=0.25)")
+lines(x=c(0,0,1,1),y=c(0,0.75,0,0.25), type = "h", lty = 2,col="blue")
 curve(pbinom(x,size=1,prob=0.25),
       xlim=c(-1,2),col="blue",
       main="Función de distribución\n Ber(p=0.25)")
@@ -120,10 +126,13 @@ par(mfrow=c(1,1))
 
 
 
-# Distribución Binomial
+# Distribución binomial
 
 
-## Distribución Binomial
+## Distribución binomial
+
+
+<l class=definition> Distribución binomial </l>
 
 Si repetimos $n$ veces de forma independiente un experimento Bernoulli de parámetro $p$.
 
@@ -132,7 +141,9 @@ Consideremos la v.a.
 
 $$X(\overbrace{EFFF\ldots EEF}^{n})=\mbox{número de éxitos en la cadena}.$$
 
-Entonces
+## Función de probabibildad de la distribución binomial
+
+Entonces su **función de probabilidad** es 
 
  $$P_{X}(x)=\left\{
  \begin{array}{ll}
@@ -143,7 +154,7 @@ Entonces
 
 ##  Distribución Binomial
 
-En las anteriores circunstancias diremos que la v.a. sigue una *ley de probabilidad binomial con parámetros* $n$ y $p$ y lo denotaremos así 
+En las anteriores circunstancias diremos que la v.a. sigue una **ley de probabilidad binomial** ... con parámetros $n$ y $p$ y lo denotaremos así 
     
 $$X\equiv B(n,p).$$ 
     
@@ -151,17 +162,19 @@ Obviamente se tiene que una bernoulli es una binomial con $n=1$
 
 $$B(1,p)=Ber(p).$$
 
+<div class="exercise"> Ejercicio:
 
-
+Calculad las funciones de distribución de una binomial $B(n=1,p=0.3)$ y comprobar que coinciden con  las distribuciones de una $Ber(p=0.3)$.
+</div>
 
 ## Observaciones sobre la distribución binomial
 
-* La probabilidad de fracaso la denotaremos con  $q=1-p$, sin ningún aviso adicional.
-* Su función de distribución no tienen una formula general, por ello esta tabulada.
-* En el material de la asignatura disponéis de unas tablas de esta distribución
-para distintos valores de $n$ y $p$. 
+* La probabilidad de fracaso la denotaremos con  $q=1-p$, **sin ningún aviso adicional**.
+* Su **función de distribución no tienen una formula general**, hay que calcularla con una función de R o python... En el siglo pasado se tabulaban en los libros de papel :-).
+* En el material adicional os pondremos unas tablas de esta distribución
+para distintos valores de $n$ y $p$ para que disfruteis de tan anscentral método de cálculo. 
 * Cualquier paquete estadístico, hoja de cálculo dispone de
-funciones para el cálculo de estas probabilidades, así que el uso de las tablas queda *totalmente anticuado*. 
+funciones para el cálculo de estas probabilidades, así que el **uso de las tablas** queda **totalmente anticuado**. 
 
 
 
@@ -178,49 +191,104 @@ $E(X)=$ |  $n\cdot p$
 $Var(X)=$ | $n\cdot p \cdot (1-p)$
 
 ## Cálculos con R
-Veamos los cálculos básicos con funciones de R para la binomial  $B(n=10,p=0.25)$.
+Veamos los cálculos básicos con funciones de R para una v.a $X$ con distribución  binomial  $B(n=10,p=0.25)$. 
 
-Función de probabilidad
+Función de probabilidad $P(X\leq 0) y $P(X\leq 4)
 
 
 
 ```{r binomialfuncionesA}
 pbinom(0,size=10,prob=0.25)
-pbinom(1,size=10,prob=0.25)
+pbinom(4,size=10,prob=0.25)
 ```
 
 
-## Cálculos con R
+## Cálculos binomial con R
 Veamos los cálculos básicos con funciones de R para la binomial  $B(n=10,p=0.25)$.
 
-Función de distribución
+Función de probabilidad $P(X=0)$ y $P(X=4)$:
 
-```{r binomialfunciones2A}
+```{r binomialfunciones2A_dbinom}
 dbinom(0,size=10,prob=0.25)
-dbinom(1,size=10,prob=0.25)
+dbinom(4,size=10,prob=0.25)
+```
+Generación de muestras aleatorias para esta binomial
+
+```{r binomialfunciones2A_random}
 rbinom(n=20,size = 10,prob=0.25)
 ```
 
 
 
+## Cálculos binomial con python
 
-## Gráficos de la distribución binomial
+Veamos los cálculos básicos con funciones de python para una v.a $X$ con distribución  binomial  $B(n=10,p=0.25)$.
 
-El siguiente código dibuja las función de probabilidad y la de distribución de una  $B(n=10,p=0.25)$
+Primero cargamos la librería
+
+```{python binomialfunciones2A_python}
+from scipy.stats import binom
+```
+
+
+
+
+Función de distribución $P(X\leq 0) y $P(X\leq 4)
+
+
+
+```{python bino3_py}
+binom.cdf(0,n=10,p=0.25)
+binom.cdf(4,n=10,p=0.25)
+```
+
+##  Cálculos binomial con python
+
+Función de probabilidad $P(X=0)$ y $P(X=4)$:
+
+
+```{python bino4_py_2}
+binom.pmf(0,n=10,p=0.25)
+binom.pmf(4,n=10,p=0.25)
+```
+
+
+##  Cálculos binomial con python
+
+Generación de números aleatorios de una binomial
+
+
+```{python bino4_py}
+binom.rvs(n=20,p=0.25,size = 10)
+```
+## Cálculos binomial con python
+Veamos los cálculos básicos con funciones de python para la binomial  $B(n=10,p=0.25)$.
+
+Función de distribución
+
+```{python binomialfunciones2A_python2}
+binom.pmf(0,5,0.4)
+binom.pmf(1,10,0.25)
+binom.rvs(n=20,p=0.25,size=10)
+```
+## Gráficos de la distribución binomial con R
+
+El siguiente código de R dibuja las función de probabilidad y la de distribución de una  $B(n=10,p=0.25)$
+
 
 ```{r fig.align='center',echo=FALSE}
 par(mfrow=c(1,2))
+aux=rep(0,22)
+aux[seq(2,22,2)]=dbinom(c(0:10),size=10,prob=0.25)
 plot(x=c(0:10),y=dbinom(c(0:10),size=10,prob=0.25),
   ylim=c(0,1),xlim=c(-1,11),xlab="x",
   main="Función de probabilidad\n B(n=10,p=0.25)")
+lines(x=rep(0:10,each=2),y=aux, type = "h", lty = 2,col="blue")
 curve(pbinom(x,size=10,prob=0.25),
   xlim=c(-1,11),col="blue",
   main="Función de distribución\n B(n=10,p=0.25)")
 par(mfrow=c(1,1))
 ```
-
-
-
 
 
 
@@ -288,17 +356,21 @@ A este efecto se le suele referenciar con la frase  *el experimento carece de me
 
 Un ejemplo muy sencillo nos aclarará el alcance de esta propiedad
 
-<l class="example"> **Ejemplo**: Llavero </l>
+<div class="example"> **Ejemplo**: Llavero 
 Tenemos un llavero con 10 llaves,  solo una de ellas abre una puerta. Cada vez que probamos una llave y falla olvidamos que llave hemos probado. ¿Cuál es la probabilidad de que  si ya lo hemos intentado  5 veces necesitemos más de 4 intentos adicionales  para abrir la puerta?
 
-$k=4,j=5$, aplicando la propiedad de la carencia de memoria
+</div>
 
-$$.
+<div class="example-sol">
+
+Tomemos $k=4,j=5$, aplicando la propiedad de la falta de memoria
+
+$$
 P(X>= 4+5/X>5)=P(X\geq 4)
 $$
 
-Es decir después de 5 fracasos no estamos más cerca de abrir la puerta, ya que  por la porpiedad de la  falta de  memoria  es como si empezásemos  de nuevo a abrir la puerta.
-
+Es decir después de 5 fracasos no estamos más cerca de abrir la puerta, ya que  por la propiedad de la  falta de  memoria  es como si empezásemos  de nuevo a abrir la puerta.
+</div>
 
 ## La variable geométrica que cuenta el número de intentos  para obtener el primer éxito.
 
@@ -556,9 +628,9 @@ podemos aproximar una $B(n,p)$ por una $Po(n\cdot p)$
 
 ## Modelo de la distribución hipergeométrica
 
-Es la que modeliza, por ejemplo, el número de bolas blancas extraídas de una urnasin reposición.
+Es la que modeliza matemáticamente, por ejemplo, el número de bolas blancas extraídas de una urna sin reposición.
 
-Sean $n$,$m$ y $k$tres número esnteros positvos y tales  que $k<m+n$.
+Sean $n$,$m$ y $k$tres número esteros positivos y tales  que $k<m+n$.
 
 Sea una urna que contiene $m+n$ bolas de las que
 $m$ son blancas y las restantes $n$ no.
@@ -627,7 +699,7 @@ $$f_X(x)=\left\{\begin{array}{ll}
 Como ejercicio comprobar que el área comprendida entre $f_X$ y la horizontal
 vale 1.
 
-## Función de distibución uniforme.
+## Función de distribución uniforme.
 
 Entonces su función de distribución es
 
@@ -637,7 +709,7 @@ $$F_X(x)=\left\{\begin{array}{ll} 0  & \mbox{si } x\leq a\\
 \right. $$
 
 
-## Función de distibución uniforme:  cálculo.
+## Función de distribución uniforme:  cálculo.
 
 Efectivamente:
 
@@ -712,7 +784,7 @@ $U(d\cdot b +e,d\cdot a +e)$. Las demostración se dejan como ejercicios.
 
 ## Resumen v.a con distribución uniforme, $U(a,b)$
 
-Dostribución uniforme | $U(a,b)$
+Distribución uniforme | $U(a,b)$
 ----:|:-----
 Dominio | $D_X=(a,b)$
 $f_{X}(x)$ |$\left\{\begin{array}{ll}\frac1{b-a} & \mbox{si } a<x<b\\ 0  & \mbox{en cualquier otro caso}\end{array} \right.$
@@ -723,8 +795,7 @@ $F_X(x)=P(X\leq X)=$ |  $\left\{\begin{array}{ll} 0 & \mbox{ si } x\leq a\\\frac
 
 
 ## SIGUEEEEE
-Songamos que tenemos un proceso Poisson con parámetr
-$\lambda$ en una unidad de tiempo.
+Supongamos que tenemos un proceso Poisson con parámetro $\lambda$ en una unidad de tiempo.
 
          Sea $t$ una cantidad de tiempo en u.t. entonces $N_{t}=$ número de
          eventos en el intervalo de tiempo $(0,t]$
@@ -774,7 +845,7 @@ $\lambda$ en una unidad de tiempo.
 
 
 
-\subsubsection{Resumen v.a con distribución exponencial, $Exp(\lambda)$}
+## Resumen v.a con distribución exponencial, $Exp(\lambda)$
 
 Sea $X\equiv Exp(\lambda).$
 
