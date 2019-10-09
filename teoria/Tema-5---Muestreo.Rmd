@@ -1,5 +1,5 @@
 ---
-title: "Tema 5 - Muestreo estadístico"
+title: "Tema 1 - Muestreo estadístico"
 author: "Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir"
 date: ''
 output: 

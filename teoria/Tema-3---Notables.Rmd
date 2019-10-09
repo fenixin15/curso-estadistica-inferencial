@@ -182,20 +182,18 @@ funciones para el cálculo de estas probabilidades, así que el **uso de las tab
 
 ## Resumen v.a con distribución binomial $B(n,p)$
 
-**Binomial**| $B(n,p)$
+**Binomial**| $B(n,p)$ 
 -------------:|:--------
 $D_X=$ |  $\{0,1,\ldots n\}$ 
 $P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}{n\choose x}\cdot  p^x\cdot  (1-p)^{n-x} & \mbox{ si } x=0,1,\ldots,n\\0  & \mbox{ en otro caso.}\end{array}\right.$
-$F_X(x)=P(X\leq X)=$ | no tiene utilizar tablas o funciones de R o python
+$F_X(x)=P(X\leq X)=$ | no tiene fórmula (utilizad funciones de R o python)
 $E(X)=$ |  $n\cdot p$
 $Var(X)=$ | $n\cdot p \cdot (1-p)$
 
 ## Cálculos con R
 Veamos los cálculos básicos con funciones de R para una v.a $X$ con distribución  binomial  $B(n=10,p=0.25)$. 
 
-Función de probabilidad $P(X\leq 0) y $P(X\leq 4)
-
-
+**Función de distribución** $P(X\leq 0)$ y $P(X\leq 4)$:
 
 ```{r binomialfuncionesA}
 pbinom(0,size=10,prob=0.25)
@@ -204,38 +202,47 @@ pbinom(4,size=10,prob=0.25)
 
 
 ## Cálculos binomial con R
-Veamos los cálculos básicos con funciones de R para la binomial  $B(n=10,p=0.25)$.
 
-Función de probabilidad $P(X=0)$ y $P(X=4)$:
+**Función de probabilidad** $P(X=0)$ y $P(X=4)$:
 
 ```{r binomialfunciones2A_dbinom}
 dbinom(0,size=10,prob=0.25)
 dbinom(4,size=10,prob=0.25)
 ```
-Generación de muestras aleatorias para esta binomial
 
+
+
+## Cálculos binomial con R
+
+**Generación de muestras aleatorias  binomial**
+
+Generaremos una muestra aleatoria  de  100 valores  de una población $B(20,0.5)$
+
+```{r semilla_binomial, include=FALSE}
+set.seed(8102019)
+```
 ```{r binomialfunciones2A_random}
-rbinom(n=20,size = 10,prob=0.25)
+rbinom(100,size = 20,prob=0.5)
 ```
 
-
+<div class="example"> Ejemplo:
+EL ejemplo anterior correspondería a repetior 100 veces el experimento lanzar una moneda  20 veces y contar el número de caras.
+</div>
 
 ## Cálculos binomial con python
 
 Veamos los cálculos básicos con funciones de python para una v.a $X$ con distribución  binomial  $B(n=10,p=0.25)$.
 
-Primero cargamos la librería
+Primero importamos la  función `binom` de la librería `scipy.stat`
 
 ```{python binomialfunciones2A_python}
 from scipy.stats import binom
 ```
 
 
+## Cálculos binomial con python
 
-
-Función de distribución $P(X\leq 0) y $P(X\leq 4)
-
-
+**Función de distribución** $P(X\leq 0)$ y $P(X\leq 4)$
 
 ```{python bino3_py}
 binom.cdf(0,n=10,p=0.25)
@@ -244,8 +251,7 @@ binom.cdf(4,n=10,p=0.25)
 
 ##  Cálculos binomial con python
 
-Función de probabilidad $P(X=0)$ y $P(X=4)$:
-
+**Función de probabilidad** $P(X=0)$ y $P(X=4)$:
 
 ```{python bino4_py_2}
 binom.pmf(0,n=10,p=0.25)
@@ -253,14 +259,18 @@ binom.pmf(4,n=10,p=0.25)
 ```
 
 
-##  Cálculos binomial con python
+##  Cálculos distribución binomial con python
 
-Generación de números aleatorios de una binomial
-
+**Generación de muestras aleatorias  binomial*. Generaremos una muestra aleatoria  de  100 valores  de una población $B(20,0.5)$
 
 ```{python bino4_py}
-binom.rvs(n=20,p=0.25,size = 10)
+binom.rvs(n=100,p=0.25,size = 20)
 ```
+</div class="observ"> Notemos que la secuencia aletoria generada no es la misma que con R. De hecho volvemos a ejecutarla obtendremos una muestra alearoria distinta.
+</div>
+
+
+
 ## Cálculos binomial con python
 Veamos los cálculos básicos con funciones de python para la binomial  $B(n=10,p=0.25)$.
 
@@ -290,16 +300,48 @@ curve(pbinom(x,size=10,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
+## Gráficos de la distibución binomial con python
+
+</div class="exercise">
+Ejercicio
+Buscad en los manuales de python cómo se dibuja la función de probablidad y de distribución de una binomial.
+</div>
+
+</div class="exercise-sol">
+Necesitamos más librerías
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+```
+
+
+```{python dibu_python1,eval=FALSE}
+n, p = 5, 0.4
+x = np.arange(binom.ppf(0.01, n, p),binom.ppf(0.99, n, p))
+plt.plot(x, binom.pmf(x, n, p), 'bo', ms=8, label='binom pmf')
+plt.vlines(x, 0, binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
+```
+</div>
 
 
 
+## Gráficos de la distibución binomial con python (GGGGRANDES)
+
+```{python dibu_python2,echo=FALSE,fig.width=3,fig.eight=3}
+n, p = 5, 0.4
+x = np.arange(binom.ppf(0.01, n, p),binom.ppf(0.99, n, p))
+plt.plot(x, binom.pmf(x, n, p), 'bo', ms=8, label='binom pmf')
+plt.vlines(x, 0, binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
+```
+
+# Distribución geométrica
 
 
-# Distribución Geométrica
+## Distribución geométrica
 
 
-## Distribución Geométrica
-
+<l class="definition"> DIstribución geométrica </l>
 
 * Repitamos un experimento Bernoulli, de parámetro p, de forma independiente hasta obtener el primer éxito.
 * Sea $X$ la v.a. que cuenta el número de fracasos antes del primer éxito. Por ejemplo  que  hayamos tenido  $x$ fracasos  será una cadena de $x$ fracasos culminada con un éxito. Más concretamente 
@@ -326,31 +368,102 @@ distribución geométrica de parámetro $p$..
 * La  denotaremos por $Ge(p)$. 
 * Su dominio es  $D_X=\{0,1,2,\ldots\}$.
 
+
+## Función de distribución geométrica
+
+Calculemos P($X\leq 3$).
+
+Por la propiedad de la probabilidad del suceso complementario tenemos que
+
+$$
+P(X\leq 3 )=1-P(X> 3)=1-P(X\geq 4)
+$$
+
+ Efectivamente, el  evento  tenemos que $X\leq 3$  es que hemos fracasado más de tres veces hasta conseguir el primer éxito; es decir **hemos fracasado 4 o más veces**, por lo tanto 
+
+
+$$
+\{X>3\}=\{X\geq 4\}= \{FFFF\}
+$$
+
+## Función de distribución geométrica
+
+Ahora, al  ser los intentos sucesos independientes, podemos hacer:
+
+$$
+\begin{eqnarray*}
+P(X>3) & = & P(\{FFFF\})= P(F)\cdot P(F)\cdot P(F)\cdot P(F)\\
+&=& (1-p)\cdot (1-p)\cdot (1-p)\cdot (1-p)\\
+&=& (1-p)^{3+1}=(1-p)^{4}.
+\end{eqnarray*}
+$$
+
+## Función de distribución geométrica
+
+De la misma forma podemos generalizar a cualquier entero positivo $k$ 
+
+$$F_X(k)=P(X\leq k)=1-(1-p)^{k+1}$$
+En general  tendremos que 
+
+
+$$
+F_X(x)=P(X\leq X)=\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\
+  1- (1-p)^{k+1} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=0,1,2,\ldots\end{array}
+    \right.\end{array}\right.
+$$
+
 ## Propiedad de la falta de memoria
 
 <l class="prop"> Propiedad de la falta  de memoria </l>
 
 Sea $X$ una v.a. discreta con dominio $D_X=\{0,1,2,\ldots\}$  y con $P(X=1)=p$.
 
-Entonces $X$ sigue una ley $Ge(p)$ si y sólo si  
-$$P(X\geq k+j\big| X> j)=P(X\geq k)$$
+Entonces $X$ sigue una ley $Ge(p)$ sí y sólo si
+
+$$P\left(X\geq k+j\big| X> j\right)=P(X\geq k)$$
 para todo $k,j=1,2,3\ldots$.
+
+
+## Propiedad de la falta de memoria
+
+<div class="dem">
+**Demostración**
+
+El lado derecho de la igualdad es 
+
+$$
+P(X\geq k)=1-P(X< k)=1-P(X< k-1)=1-\left(1-(1-p)^{k-1+1}\right)=(1-p)^k
+$$
+
+El lado de izquierdo es
+
+$$
+\begin{eqnarray*}
+P\left(X> k+j\big| X> j\right)&=&\frac{P\left(\{X> k+j\}\cap \{X>j\} \right)}{P\left(X>j\right)}=
+\frac{P\left(X>k+j \right)}{P\left(X> j \right)}=
+\frac{1-P(X\leq k+j)}{1-P(X\leq j)}\\
+&=& \frac{1-P(X\leq k+j)}{1-P(X\leq j)}=
+\frac{1-(1-(1-p)^{k+j+1})}{1-(1-(1-p)^{j+1})}=\frac{(1-p)^{k+j+1}}{(1-p)^{j+1}}=(1-p)^{k}
+\end{eqnarray*}
+$$
+
+
+Lo que demuestra  la igualdad.
+</div>
 
 
 ## Falta de memoria
 
-Interpretación 
-
+<l class="observ"> Observación: Interpretación  de la propiedad</l>
+ La propiedad  de la falta de memoria
 $$
-P(X\geq k+j|X> j)=\frac{P(\{X\geq k+j\}\cap \{X>j\})}{
-P(\{X\geq j\})}=P(X\geq k)
+P(X> k+j|X> j)=P(X\geq k)
 $$   
 
-la igualdad antenrios significa  que aunque *ya llevemos más de* $j$ fracasos la probabilidad de *que necesitemos al menos* $k$ intentos más no disminuye; es la misma  que si empezáramos de nuevo el experimento. 
-
+la igualdad anterior significa  que aunque **ya llevemos más de $j$ fracasos** la probabilidad de **que fracasemos $k$ veces más** no disminuye; es la misma  que si empezáramos de nuevo el experimento. 
 
 A este efecto se le suele referenciar con la frase  *el experimento carece de memoria* o es un *experimento sin memoria*.
-
+</div>
 
 ## Falta de memoria
 
@@ -358,7 +471,6 @@ Un ejemplo muy sencillo nos aclarará el alcance de esta propiedad
 
 <div class="example"> **Ejemplo**: Llavero 
 Tenemos un llavero con 10 llaves,  solo una de ellas abre una puerta. Cada vez que probamos una llave y falla olvidamos que llave hemos probado. ¿Cuál es la probabilidad de que  si ya lo hemos intentado  5 veces necesitemos más de 4 intentos adicionales  para abrir la puerta?
-
 </div>
 
 <div class="example-sol">
@@ -385,7 +497,7 @@ primer éxito.
 ## Resumen  $Ge(p)$ empezando en 0
 
 $Y=$ | número de fracasos  para conseguir el primer éxito
-|------|-----|
+|------:|:-----|
 |*Geométrica* |  que empieza en $0$|
 |$D_X=$ | $\{0,1,\ldots n\}$ | 
 $P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{x}\cdot p & \mbox{ si } x=0,1,\ldots,n\\0  & \mbox{ en otro caso.}\end{array}\right.$
@@ -399,7 +511,7 @@ $P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{x}\cdot p & \mbox{ si } x=0,1,
 ## Resumen $Ge(p)$ comenzando en $1$.
 
 $X=$ |número de INTENTOS  para OBTENER el primer éxito
-------|-----
+------:|:-----
 |*Geométrica*|$Ge(p)$, $q=1-p$.|
 |$D_X=$ |  $\{1,\ldots n\}$ | 
 |$P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{x-1}\cdot p & \mbox{ si } x=1,\ldots,n\\  0  & \mbox{ en otro caso.}\end{array}\right.$|
@@ -419,6 +531,7 @@ dgeom(1,prob=0.25)
 
 
 ## Cálculos con R
+
 Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ empezando en $0$
 
 ```{r binomialfuncionesA0}
@@ -508,7 +621,7 @@ $$
 <!-- 
 
 
-## Distribución binomial negativa NO ACABADO
+## Distribución binomial negativa NO se incluye son propiedades de los números binomiales negativos
 
 Además 
 
@@ -539,7 +652,7 @@ q^{x-r}\cdot p^r & \mbox{si }  x=r,r+1,\ldots \\
 0 & \mbox{en otro caso.}
 \end{array}
 \right.$
-|$F_X(x)=P(X\leq X)=$ | no tiene fórmula (utilizar tablas o función de R.)
+|$F_X(x)=P(X\leq X)=$ | no tiene fórmula (utilizar funciones de R o python.)
 $E(X)=\frac{r}{p}$|$Var(X)=\frac{r\cdot q}{p^2}$ 
 
 # Distribución Poisson
