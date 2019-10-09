@@ -229,12 +229,16 @@ knitr::include_graphics("Images/Fxy2.png",dpi=1200)
 
 * Dados $x_1<x_2$ y $y_1<y_2$, consideramos $B$ el rectángulo de vértices $(x_1,y_1)$, $(x_1,y_2)$, $(x_2,y_1)$ y $(x_2,y_2)$: $(x_1,x_2]\times (y_1,y_2]$. Entonces,
 $$
-P((X,Y)\in B)=F_{XY}(x_2,y_2)-F_{XY}(x_2,y_1)-F_{XY}(x_1,y_2)+F_{XY}(x_1,y_1).
+\begin{array}{rl}
+P((X,Y)\in B)  = & F_{XY}(x_2,y_2)-F_{XY}(x_2,y_1)-F_{XY}(x_1,y_2)\\ & +F_{XY}(x_1,y_1).
+\end{array}
 $$
+
+## Función de distribución conjunta. Propiedades
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid6,fig.cap="",out.width = "400px"}
+```{r, echo=FALSE, label=bid6,fig.cap="",out.width = "450px"}
 knitr::include_graphics("Images/Fxy3.png",dpi=1200)
 ```
 </div>
@@ -320,6 +324,9 @@ $$
 $$
 y los únicos resultados en los que la suma es menor o igual que 3 y el producto menor o igual que 4 son $(1,1)$ (suma 2 producto 1), $(1,2)$ (suma 3 y producto 2) y $(2,1)$ (suma 3 y producto 2).
 </div>
+
+## Función de distribución conjunta. Ejemplo
+
 <div class="exercise">
 **Ejercicio**
 
@@ -348,6 +355,9 @@ $$
 $$
 
 </div>
+
+## Variables aleatorias bidimensionales discretas. Ejemplo
+
 <div class="exercise">
 **Ejercicio**
 
@@ -384,7 +394,7 @@ Por tanto, de cara a calcular $P_{XY}$ basta calcular $P_{XY}(x_i,y_j)$ para $(x
 
 <div class="center">
 | $X/Y$| $y_1$    | $y_2$  | $\ldots$ | $y_N$ |
-|------|----------|--------|----------|-------|
+|----|----|----|----|----|
 | $x_1$| $P_{XY}(x_1,y_1)$ | $P_{XY}(x_1,y_2)$ | $\ldots$ | $P_{XY}(x_1,y_N)$|
 | $x_2$| $P_{XY}(x_2,y_1)$ | $P_{XY}(x_2,y_2)$ | $\ldots$ | $P_{XY}(x_2,y_N)$|
 | $\vdots$ |$\vdots$ |$\vdots$ |$\vdots$ |$\vdots$ |
@@ -399,7 +409,7 @@ Por tanto, de cara a calcular $P_{XY}$ basta calcular $P_{XY}(x_i,y_j)$ para $(x
 La **función de probabilidad conjunta** será:
 <div class="center">
 | $S/P$| 1 | 2| 3 | 4 | 5| 6 | 8| 9| 10 | 12 | 15 | 16 | 18 | 20 | 24 | 25 | 30 | 36 
-|------|---|--|---|---|--|---|--|--|----|----|----|----|----|----|----|----|----|---
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--
 | 2    |$\frac{1}{36}$|0 |0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
 | 3    | 0 | $\frac{2}{36}$ |0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
 | 4   | 0 | 0 | $\frac{2}{36}$ | $\frac{1}{36}$ | 0|0|0|0|0|0|0|0|0|0|0|0|0|0
@@ -414,7 +424,7 @@ La **función de probabilidad conjunta** será:
 <div class="example">
 <div class="center">
 | $S/P$| 1 | 2| 3 | 4 | 5| 6 | 8| 9| 10 | 12 | 15 | 16 | 18 | 20 | 24 | 25 | 30 | 36 
-|------|---|--|---|---|--|---|--|--|----|----|----|----|----|----|----|----|----|---
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--
 | 7 | 0 |0|0|0|0|$\frac{2}{36}$|0|0|$\frac{2}{36}$|$\frac{2}{36}$|0|0|0|0|0|0|0|0
 |8  |0|0|0|0|0|0|0|0|0|$\frac{2}{36}$|$\frac{2}{36}$|$\frac{1}{36}$|0|0|0|0|0|0
 |9 |0|0|0|0|0|0|0|0|0|0|0|0|$\frac{2}{36}$|$\frac{2}{36}$|0|0|0|0
@@ -476,7 +486,7 @@ Recordemos la tabla de la función de probabilidad conjunta hasta $S=5$ y $P=4$:
 
 <div class="center">
 | $S/P$| 1 | 2| 3 | 4 | 
-|------|---|--|---|---|--
+|--|--|--|---|---|--
 | 2    |$\frac{1}{36}$|0 |0|0|$\ldots$
 | 3    | 0 | $\frac{2}{36}$ |0|0|$\ldots$
 | 4   | 0 | 0 | $\frac{2}{36}$ | $\frac{1}{36}$ | $\ldots$
@@ -514,7 +524,9 @@ Sea $(X,Y)$ una variable aleatoria **bidimensional discreta** con **función de 
 
 Las **funciones de probabilidad marginales** $P_X(x_i)$ y $P_Y(y_j)$ se calculan usando las expresiones siguientes:
 $$
-P_X(x_i)  = \sum_{j=1} P_{XY}(x_i,y_j), \ P_Y(y_j)  = \sum_{i=1} P_{XY}(x_i,y_j),\ i=1,2,\ldots,\ j=1,2,\ldots
+\begin{array}{rl}
+P_X(x_i)  & = \sum_{j=1} P_{XY}(x_i,y_j),\  i=1,2,\ldots,\\ P_Y(y_j) &  = \sum_{i=1} P_{XY}(x_i,y_j),\ \ j=1,2,\ldots
+\end{array}
 $$
 
 ## Variables aleatorias marginales
@@ -547,6 +559,19 @@ $$
 </div>
 
 ## Variables aleatorias marginales. Ejemplo
+<div class="example">
+La **función de probabilidad marginal** de la suma $S$ queda resumida en la tabla siguiente:
+
+<div class="center">
+| $S$| 2 | 3| 4 | 5 | 6| 7| 8 | 9 | 10 | 11 | 12 
+|--|--|--|--|--|--|--|--|--|--|--|--
+| $P_S$|$\frac{1}{36}$|$\frac{2}{36}$|$\frac{3}{36}$|$\frac{4}{36}$|$\frac{5}{36}$|$\frac{6}{36}$|$\frac{5}{36}$|$\frac{4}{36}$|$\frac{3}{36}$|$\frac{2}{36}$|$\frac{1}{36}$
+</div>
+
+</div>
+
+
+
 <div class="exercise">
 **Ejercicio**
 
