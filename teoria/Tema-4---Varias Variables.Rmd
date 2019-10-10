@@ -1,6 +1,6 @@
 ---
 title: "Tema 4 - Introducción a varias variables aleatorias"
-author: "Juan Gabriel Gomila, Arnau Mir y Ricardo Alberich"
+author: "Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir"
 date: 
 output: 
   ioslides_presentation:
@@ -581,4 +581,369 @@ Calcular la **función de probabilidad marginal** del producto $P$ de los result
 
 </div>
 
+# Variables aleatorias bidimensionales continuas
 
+## Introducción
+Recordemos la definición de **variable continua unidimensional**: $X$ es continua si existe una función $f_X:\mathbb{R}\longrightarrow \mathbb{R}$, llamada **función de densidad** no negativa $f_X(x)\geq 0$, para todo $x\in\mathbb{R}$ tal que para cualquier intervalo $(a,b)$, la probabilidad de que $X$ esté en $(a,b)$ se calcula de la forma siguiente:
+$$
+P(X\in B)=P(a< X < b)=\int_B f_{X}(x)\,du=\int_a^b f_{X}(x)\,dx.
+$$
+
+## Introducción
+La generalización natural será, entonces:
+
+<l class="definition">Definición de variable aleatoria bidimensional continua. </l>
+Sea $(X,Y)$ una variable aleatoria bidimensional. Diremos que $(X,Y)$ es continua si existe una función 
+$f_{XY}:\mathbb{R}^2\longrightarrow \mathbb{R}$ llamada **función de densidad** no negativa $f_{XY}(x,y)\geq 0$ para todo $(x,y)\in\mathbb{R}^2$ tal que dado cualquier región $B$ del plano, la probabilidad de que $(X,Y)$ esté en $B$ se calcula de la forma siguiente:
+$$
+P((X,Y)\in B)=\int\int_B f_{XY}(x,y)\,dx\,dy.
+$$
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Consideremos la **función de densidad siguiente**:
+$$
+f_{XY}(x,y)=\begin{cases}
+1, & \mbox{ si }0\leq x\leq 1,\ 0\leq y\leq 1, \\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+En este caso, si consideramos $B=\left[-1,\frac{1}{2}\right]\times \left[-1,\frac{1}{2}\right]$, la probabilidad de que $(X,Y)$ esté en $B$ se calcularía de la forma siguiente:
+$$
+P((X,Y)\in B)=\int_{-1}^{\frac{1}{2}}\int_{-1}^{\frac{1}{2}} f_{XY}(x,y)\, dx\, dy =\int_0^{\frac{1}{2}}\int_0^{\frac{1}{2}} 1\, dx\,dy=\int_0^{\frac{1}{2}} 1\, dx\int_0^{\frac{1}{2}} 1\, dy=\frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}.
+$$
+En la figura siguiente hemos dibujado en morado la región donde $f_{XY}$ no es cero, o sea $[0,1]\times [0,1]$, la región $B$ en verde y la región intersección de las dos anteriores que es donde tenemos que integrar la **función de densidad** dada.
+</div>
+
+## Ejemplo
+<div class="center">
+
+```{r, echo=FALSE, label=bid8,fig.cap="",out.width = "700px"}
+knitr::include_graphics("Images/VaUniformeBidi.png",dpi=1200)
+```
+</div>
+
+## Propiedades de la función de densidad
+Sea $(X,Y)$ una **variable aleatoria bidimensional continua** con **función de densidad** $f_{XY}$. Entonces dicha función verifica las propiedades siguientes:
+
+* La integral de dicha función sobre todo el plano vale 1: 
+$$
+\int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\,dy =1.
+$$
+Para ver dicha propiedad, basta considerar $B=\mathbb{R}^2$, tener en cuenta que el suceso $(X,Y)\in \mathbb{R}^2$ es el total $\Omega$ y aplicar la definición de $f_{XY}$:
+$$
+P((X,Y)\in \mathbb{R}^2)=1= \int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\,dy.
+$$
+
+## Propiedades de la función de densidad
+* La relación que hay entre la **función de distribución** $F_{XY}$ y la **función de densidad** $f_{XY}$ es la siguiente:
+$$
+F_{XY}(x,y)=\int_{-\infty}^x\int_{-\infty}^y f_{XY}(u,v)\,du\,dv.
+$$
+Para ver dicha propiedad, basta considerar $B=(-\infty,x]\times (-\infty,y]$ y aplicar la definición de **función de distribución**:
+$$
+F_{XY}(x,y)=P((X,Y)\in (-\infty,x]\times (-\infty,y])=\int_{-\infty}^x\int_{-\infty}^y f_{XY}(u,v)\,du\,dv.
+$$
+
+## Propiedades de la función de densidad
+* La relación que hay entre la **función de densidad** $f_{XY}$ y la **función de distribución** $F_{XY}$ es la siguiente:
+$$
+f_{XY}(x,y)=\frac{\partial^2 F_{XY}(x,y)}{\partial x\partial y}.
+$$
+Dicha propiedad se deduce de la anterior, derivando primero respecto a $x$ y después respecto a $y$ para eliminar las dos integrales.
+
+* Las **funciones de densidad marginales** de las variables $X$ e $Y$, $f_X(x)$ y $f_Y(y)$ respectivamente, se calculan de la forma siguiente:
+$$
+f_X(x)=\int_{-\infty}^\infty f_{XY}(x,y)\, dy,\ f_Y(y)=\int_{-\infty}^\infty f_{XY}(x,y)\, dx
+$$
+
+## Ejemplo
+<div class="example">
+**Ejemplo anterior**
+
+Comprobemos las propiedades usando la **función de densidad** del ejemplo anterior: 
+$f_{XY}(x,y)=\begin{cases}
+1, & \mbox{ si }0\leq x\leq 1,\ 0\leq y\leq 1, \\
+0, & \mbox{en caso contrario.}
+\end{cases}$
+
+* La integral de $f_{XY}$ sobre todo el plano vale 1:
+$$
+\int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\, dy=\int_0^1\int_0^1 1\, dx\, dv=\int_0^1 1\, dx\int_0^1 1\, dy=1\cdot 1=1.
+$$
+
+* Vamos a calcular la función de distribución $F_{XY}$. Para ello dividimos el plano en 5 zonas tal como muestra la figura siguiente:
+</div>
+
+## Ejemplo
+<div class="center">
+
+```{r, echo=FALSE, label=bid9,fig.cap="",out.width = "700px"}
+knitr::include_graphics("Images/VaUniformeBidi2.png",dpi=1200)
+```
+</div>
+
+
+## Ejemplo
+<div class="example">
+Sea $(x,y)$ un punto cualquiera de $\mathbb{R}^2$. De cara a calcular $F_{XY}(x,y)$ tenemos que averiguar el conjunto intersección siguiente: $([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])$ ya que el dominio donde $f_{XY}$ es no nula es $[0,1]\times [0,1]$ y la función de distribución $F_{XY}(x,y)$ valdrá:
+$$
+F_{XY}(x,y)=\int_{-\infty}^x\int_{-\infty}^y f_{XY}(u,v)\,du\,dv =\int\int_{([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])} f_{XY}(u,v)\,du\,dv.
+$$
+
+* Caso $(x,y)\in \mbox{Zona A}$ o $x<0$ o $y<0$ En este caso: $([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])=\emptyset.$ Ver figura siguiente donde la zona morada $([0,1]\times [0,1]$) no se interseca con la zona verde ($(-\infty,x]\times (-\infty,y]$).
+
+Por tanto en este caso, $F_{XY}(x,y)=0$.
+</div>
+
+
+## Ejemplo
+<div class="center">
+
+```{r, echo=FALSE, label=bid10,fig.cap="",out.width = "700px"}
+knitr::include_graphics("Images/VaUniformeBidi3.png",dpi=1200)
+```
+</div>
+
+
+## Ejemplo
+<div class="example">
+* Caso $(x,y)\in \mbox{Zona B}$, o $(x,y)\in [0,1]\times [0,1]$. En este caso: $([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])=[0,x]\times [0,y].$ Ver figura siguiente. 
+
+Por tanto en este caso, 
+$$
+F_{XY}(x,y)=\int_0^x \int_0^y 1\,du\,dv =\int_0^x 1\, du\int_0^y 1\, dy =x\cdot y.
+$$
+
+</div>
+
+## Ejemplo
+<div class="center">
+
+```{r, echo=FALSE, label=bid11,fig.cap="",out.width = "700px"}
+knitr::include_graphics("Images/VaUniformeBidi4.png",dpi=1200)
+```
+</div>
+
+## Ejemplo
+<div class="example">
+Dejamos como ejercicio los otros casos. En resumen:
+$$
+F_{XY}(x,y)=\begin{cases}
+0, & \mbox{ si }x<0, \mbox{ o }y<0,\\
+x y, & \mbox{ si }(x,y)\in [0,1]\times [0,1],\\
+x, & \mbox{ si }0\leq x\leq 1,\ y>1,\\
+y, & \mbox{ si }x>1,\ 0\leq y\leq 1,\\
+1, & \mbox{ si } x>1,\ y>1.
+\end{cases}
+$$
+¿Os suena? 
+
+Ver el primer ejemplo que pusimos del tema. Es la misma variable aleatoria bidimensional. 
+Ahora sabemos que se trata de una **variable aleatoria bidimensional continua**.
+</div>
+
+## Ejemplo
+<div class="example">
+Comprobemos seguidamente que si derivamos dos veces la expresión de $F_{XY}$, primero respecto $x$ y después respecto $y$, obtendremos la **función de densidad** $f_{XY}$.
+
+Si derivamos respecto $x$ obtenemos:
+$$
+\frac{\partial F_{XY}(x,y)}{\partial x}=\begin{cases}
+0, & \mbox{ si }x<0, \mbox{ o }y<0,\\
+y, & \mbox{ si }(x,y)\in [0,1]\times [0,1],\\
+1, & \mbox{ si }0\leq x\leq 1,\ y>1,\\
+0, & \mbox{ si }x>1,\ 0\leq y\leq 1,\\
+0, & \mbox{ si } x>1,\ y>1.
+\end{cases}
+$$
+Si ahora derivamos respecto $y$ obtenemos:
+$$
+\frac{\partial^2 F_{XY}(x,y)}{\partial y\partial x}=\begin{cases}
+0, & \mbox{ si }x<0, \mbox{ o }y<0,\\
+1, & \mbox{ si }(x,y)\in [0,1]\times [0,1],\\
+0, & \mbox{ si }0\leq x\leq 1,\ y>1,\\
+0, & \mbox{ si }x>1,\ 0\leq y\leq 1,\\
+0, & \mbox{ si } x>1,\ y>1,
+\end{cases}
+$$
+expresión que coincide con la **función de densidad** $f_{XY}(x,y)$.
+</div>
+
+
+## Ejemplo
+<div class="example">
+Hallemos para finalizar las **funciones de densidad marginales**. Empezemos con $f_X(x)$:
+$$
+f_X(x)=\int_{-\infty}^\infty  f_{XY}(x,y)\, dy.
+$$
+Recordemos que la región donde no se anulaba la **función de densidad conjunta** $f_{XY}$ era el cuadrado $[0,1]\times [0,1]$. Por tanto, fijado $x$, el valor de $f_X(x)$ será no nulo si la recta vectical $X=x$ interseca dicho cuadrado. Y esto ocurre siempre que $x\in (0,1)$. Por tanto,
+$$
+f_X(x)=\begin{cases}
+\int_{0}^1  f_{XY}(x,y)\, dy=\int_{0}^1  1\, dy=1, & \mbox{ si }x\in (0,1),\\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+Por tanto la variable $X$ sigue la distribución uniforme en el intervalo $[0,1]$.
+
+Dejamos como ejercicio comprobar que la variable $Y$ también sigue la distribución uniforme en el mismo intervalo.
+</div>
+
+
+## Ejemplo 2
+<div class="example">
+**Ejemplo**
+
+Consideremos la variable aleatoria bidimensional $(X,Y)$ con **función de densidad**:
+$$
+f_{XY}(x,y)=\begin{cases}
+c \mathrm{e}^{-x}\mathrm{e}^{-y}, & 0\leq y\leq x < \infty,\\
+0, & \mbox{ en caso contrario,}
+\end{cases}
+$$
+donde $c$ es un valor que se tiene que hallar para que $f_{XY}$ sea función de densidad.
+
+Para hallar $c$, hemos de imponer que la integral de la función anterior debe ser 1 sobre todo el plano $\mathbb{R}^2$.
+
+Primero fijémonos en como es la región de integración (zona morada de la figura). Fijado un valor $x\geq 0$, el valor $y$ va desde $y=0$ hasta $y=x$. Por tanto, para calcular el valor de $c$, hay que hacer lo siguiente:
+
+
+</div>
+
+## Ejemplo
+<div class="center">
+
+```{r, echo=FALSE, label=bid12,fig.cap="",out.width = "700px"}
+knitr::include_graphics("Images/Ejemplo2Bidi.png",dpi=1200)
+```
+</div>
+
+## Ejemplo 2
+<div class="example">
+
+$$
+\begin{array}{rl}
+1 & =\int\int_{\mathbb{R}^2}f_{XY}(x,y)\, dx\, dy=\int_{x=0}^{x=\infty}\int_{y=0}^{y=x} c \mathrm{e}^{-x}\mathrm{e}^{-y} \, dy\, dx =c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\int_{y=0}^{y=x}\mathrm{e}^{-y}\, dy\, dx \\ & =
+c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\left[-\mathrm{e}^{-y}\right]_{y=0}^{y=x}\, dx = c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\left(1-\mathrm{e}^{-x}\right)\, dx =c \int_{x=0}^{x=\infty}\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\, dx \\ & = c \left[-\mathrm{e}^{-x}+\frac{1}{2}\mathrm{e}^{-2x}\right]_{x=0}^{x=\infty} = c\left(1-\frac{1}{2}\right)=\frac{c}{2}.
+\end{array}
+$$
+El valor de $c$ será $c=2$.
+
+Vamos a calcular seguidamente su función de distribución.
+
+Fijémonos que, en este caso, si $x<0$ o $y<0$, $F_{XY}(x,y)=0$, ya que el dominio $B=(-\infty,x]\times (-\infty,y]$ no interseca la zona morada del gráfico anterior.
+
+Suponemos entonces que $x\geq 0$ e $y\geq 0$. 
+
+Vamos a considerar dos casos:
+
+* $x\leq y$. Ver zona verde del gráfico siguiente.
+
+* $x\geq y$. Ver zona morada del gráfico siguiente.
+</div>
+
+## Ejemplo
+<div class="center">
+
+```{r, echo=FALSE, label=bid13,fig.cap="",out.width = "700px"}
+knitr::include_graphics("Images/Ejemplo2Bidi2.png",dpi=1200)
+```
+</div>
+
+## Ejemplo 2
+<div class="example">
+* Caso $x\leq y$ (zona verde de la figura adjunta). En este caso, si hacemos la intersección de la región $B=(-\infty,x]\times (-\infty,y]$ (zona azul) con la zona morada o región donde $f_{XY}(x,y)\neq 0$ obtenemos el triángulo $T_{x,y}=\{(u,v)\in\mathbb{R}^2,\ 0\leq u\leq x,\ 0\leq v\leq u\}.$ Ver figura adjunta.
+
+Por tanto,
+$$
+\begin{array}{rl}
+F_{XY}(x,y) & =\int_{u=0}^{u=x}\int_{v=0}^{v=u} f_{XY}(u,v)\,dv\,du= 2 \int_{u=0}^{u=x} \mathrm{e}^{-u}\int_{v=0}^{v=u}  \mathrm{e}^{-v}\,dv\,du  =
+2 \int_{u=0}^{u=x} \mathrm{e}^{-u}\left[-\mathrm{e}^{-v}\right]_{v=0}^{v=u}\, du \\ & = 2 \int_{u=0}^{u=x} \mathrm{e}^{-u} (1-\mathrm{e}^{-u})\, du =2 \int_{u=0}^{u=x} \left(\mathrm{e}^{-u}-\mathrm{e}^{-2u}\right)\, du=2 \left[-\mathrm{e}^{-u}+\frac{1}{2}\mathrm{e}^{-2u}\right]_{u=0}^{u=x}  \\ & =
+2\left(-\mathrm{e}^{-x}+\frac{1}{2}\mathrm{e}^{-2x}+1-\frac{1}{2}\right) =1-2\mathrm{e}^{-x}+\mathrm{e}^{-2x}.
+\end{array}
+$$
+
+</div>
+
+## Ejemplo
+<div class="center">
+
+```{r, echo=FALSE, label=bid14,fig.cap="",out.width = "700px"}
+knitr::include_graphics("Images/Ejemplo2Bidi3.png",dpi=1200)
+```
+</div>
+
+
+## Ejemplo 2
+<div class="example">
+* Caso $x\geq y$ (zona morada de la figura adjunta). En este caso, si hacemos la intersección de la región $B=(-\infty,x]\times (-\infty,y]$ (zona azul) con la zona morada o región donde $f_{XY}(x,y)\neq 0$ obtenemos el trapecio $T_{x,y}=\{(u,v)\in\mathbb{R}^2,\ 0\leq v\leq y,\ v\leq u\leq x\}.$ Ver figura adjunta.
+
+Por tanto,
+$$
+\begin{array}{rl}
+F_{XY}(x,y) & =\int_{v=0}^{v=y}\int_{u=v}^{u=x} f_{XY}(u,v)\,dv\,du= 2 \int_{v=0}^{v=y} \mathrm{e}^{-v}\int_{u=v}^{u=x} \mathrm{e}^{-u}\,du\,dv  =
+2 \int_{v=0}^{v=y} \mathrm{e}^{-v}\left[-\mathrm{e}^{-u}\right]_{u=v}^{u=x}\, dv \\ & = 2 \int_{v=0}^{v=y} \mathrm{e}^{-v} (\mathrm{e}^{-v}-\mathrm{e}^{-x})\, du =2 \int_{v=0}^{v=y} \left(\mathrm{e}^{-2v}-\mathrm{e}^{-v-x}\right)\, du=2 \left[-\frac{1}{2}\mathrm{e}^{-2v}+\mathrm{e}^{-v-x}\right]_{v=0}^{v=y}  \\ & =
+2\left(-\frac{1}{2}\mathrm{e}^{-2y}+\mathrm{e}^{-x-y}+\frac{1}{2}-\mathrm{e}^{-x}\right) =1-2\mathrm{e}^{-x}-\mathrm{e}^{-2y}+2\mathrm{e}^{-x-y}.
+\end{array}
+$$
+</div>
+
+## Ejemplo
+<div class="center">
+
+```{r, echo=FALSE, label=bid15,fig.cap="",out.width = "700px"}
+knitr::include_graphics("Images/Ejemplo2Bidi4.png",dpi=1200)
+```
+</div>
+
+## Ejemplo 2
+<div class="example">
+En resumen:
+$$
+F_{XY}(x,y)=\begin{cases}
+1-2\mathrm{e}^{-x}+\mathrm{e}^{-2x}, & \mbox{si }x\geq 0,\ y\geq 0,\ x\leq y,\\
+1-2\mathrm{e}^{-x}-\mathrm{e}^{-2y}+2\mathrm{e}^{-x-y}, & \mbox{si }x\geq 0,\ y\geq 0,\ x\geq y,\\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+</div>
+
+## Ejemplo 2
+<div class="example">
+Comprobemos a continuación que si derivamos dos veces la expresión de $F_{XY}$, primero respecto $x$ y después respecto $y$, obtendremos la **función de densidad** $f_{XY}$.
+
+Si derivamos respecto $x$ obtenemos:
+$$
+\frac{\partial F_{XY}(x,y)}{\partial x}=\begin{cases}
+2\mathrm{e}^{-x}-2\mathrm{e}^{-2x}, & \mbox{si }x\geq 0,\ y\geq 0,\ x\leq y,\\
+2\mathrm{e}^{-x}-2\mathrm{e}^{-x-y}, & \mbox{si }x\geq 0,\ y\geq 0,\ x\geq y,\\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+Si ahora derivamos respecto $y$ obtenemos:
+$$
+\frac{\partial^2 F_{XY}(x,y)}{\partial y\partial x}=\begin{cases}
+0, & \mbox{si }x\geq 0,\ y\geq 0,\ x\leq y,\\
+2\mathrm{e}^{-x-y}, & \mbox{si }x\geq 0,\ y\geq 0,\ x\geq y,\\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+expresión que coincide con la **función de densidad** $f_{XY}(x,y)$.
+</div>
+
+
+## Ejemplo 2
+<div class="example">
+Hallemos las **funciones de densidad marginales**. Fijémonos que basta tener en cuenta los casos en que $x\geq 0$ e $y\geq 0$ ya que en caso contrario tanto $f_X(x)$ como $f_Y(y)$ serán nulas.
+
+$$
+\begin{array}{rl}
+f_X(x) & = \int_{-\infty}^{\infty} f_{XY}(x,y)\, dy =\int_{y=0}^{y=x}2\mathrm{e}^{-x-y}\, dy = 2\left[-\mathrm{e}^{-x-y}\right]_{y=0}^{y=x} = 2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right),\mbox{ si }x\geq 0, \\
+f_Y(y) & = \int_{-\infty}^{\infty} f_{XY}(x,y)\, dx =\int_{x=y}^{x=\infty}2\mathrm{e}^{-x-y}\, dx = 2\left[-\mathrm{e}^{-x-y}\right]_{x=y}^{x=\infty} = 2\mathrm{e}^{-2x}, \mbox{ si }y\geq 0.
+\end{array}
+$$
+Vemos que la variable $Y$ corresponde a una distribución exponencial de parámetro $\lambda =2$.
+
+</div>
