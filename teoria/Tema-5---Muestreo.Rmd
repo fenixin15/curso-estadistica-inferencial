@@ -445,7 +445,9 @@ head(muestra.worldcup.pol,12)
 ```
 </div>
 
-## Guía rápida
+# Guía rápida
+
+## Código en `R`
 
 * `sample(x, n, replace=...)` genera una muestra aleatoria de tamaño `n` del vector `x`. Si `x` es un número natural `x`, representa el vector $1,2,\ldots,x$. Dispone de los dos parámetros siguientes: 
 
@@ -471,6 +473,8 @@ import pandas
 
 ## Código en `python`
 
+Podemos acceder a variables `xxx` de `R` gracias a las funciones `r.xxx` del paquete `reticulate`: 
+
 ```{python}
 iris_py = r.iris
 print(iris_py.head())
@@ -478,10 +482,17 @@ print(iris_py.head())
 
 
 ## Código en `python`
+Obtenemos las filas de la muestra con la función `sample` y consultamos con ellas los datos gracias a la función `iloc`:
 ```{python}
+random.seed(25) # fijamos la semilla de aleatoriedad de la librería random
 rows = random.sample(range(0, 150), 5)
 iris_py.iloc[rows,:]
-iris_py.sample(frac=0.02) # n = 3
 ```
 
+## Código en `python`
+Si queremos obtener un porcentaje concreto del total del individuos de la población, podemos cambiar y usar el parámetro `frac` de la función `sample` aplicada al propio data frame:
+
+```{python}
+iris_py.sample(frac=0.02) # n = 3
+```
 
