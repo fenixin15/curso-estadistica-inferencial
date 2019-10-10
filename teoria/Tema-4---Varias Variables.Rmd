@@ -831,7 +831,6 @@ c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\left[-\mathrm{e}^{-y}\right]_{y=0}^{y=x}\
 $$
 El valor de $c$ será $c=2$.
 
-<<<<<<< HEAD
 Vamos a calcular seguidamente su función de distribución.
 
 Fijémonos que, en este caso, si $x<0$ o $y<0$, $F_{XY}(x,y)=0$, ya que el dominio $B=(-\infty,x]\times (-\infty,y]$ no interseca la zona morada del gráfico anterior.
@@ -947,6 +946,4 @@ f_Y(y) & = \int_{-\infty}^{\infty} f_{XY}(x,y)\, dx =\int_{x=y}^{x=\infty}2\math
 $$
 Vemos que la variable $Y$ corresponde a una distribución exponencial de parámetro $\lambda =2$.
 
-=======
->>>>>>> d28b6a77753916442ffc6dd407514a3aeb958464
 </div>

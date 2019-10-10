@@ -1,5 +1,5 @@
 ---
-title: "Tema 6 - Estimación Puntual"
+title: "Tema 2 - Estimación Puntual"
 author: "Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir"
 date: 
 output: 

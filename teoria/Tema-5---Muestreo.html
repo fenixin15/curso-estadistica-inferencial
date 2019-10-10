@@ -3244,7 +3244,7 @@ font-size: 0.5em
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Tipos de muestreo</h2></hgroup><article  id="tipos-de-muestreo">
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio con y sin reposición</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-con-y-sin-reposicion">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio con y sin reposición</h2></hgroup><article  id="muestreo-aleatorio-con-y-sin-reposicion" class="unnumbered">
 
 <p><l class="definition">Muestreo aleatorio</l>: consiste en seleccionar una muestra de la población de manera que todas las muestras del mismo tamaño sean <strong>equiprobables</strong>.</p>
 
@@ -3260,7 +3260,7 @@ Una urna de 100 bolas
 
 </p></div></div>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio con y sin reposición</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-con-y-sin-reposicion-1">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio con y sin reposición</h2></hgroup><article  id="muestreo-aleatorio-con-y-sin-reposicion-1" class="unnumbered">
 
 <p>Queremos extraer una muestra de 15 bolas. Para ello, podríamos repetir 15 veces el proceso de sacar una bola de la urna, anotar su número y devolverla a la urna. El tipo de muestra obtenida de esta manera recibe el nombre de <strong>muestra aleatoria con reposición</strong>, o simple (una <strong>m.a.s.</strong>, para abreviar).</p>
 
@@ -3274,7 +3274,7 @@ Una muestra aleatoria simple
 
 </p></div></div>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio con reposición</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-con-reposicion">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio con reposición</h2></hgroup><article  id="muestreo-aleatorio-con-reposicion" class="unnumbered">
 
 <p>Las bolas violetas son las escogidas para la muestra. La bola azul se ha escogido dos veces al ser el muestreo con reposición.</p>
 
@@ -3282,11 +3282,11 @@ Una muestra aleatoria simple
 
 <pre class = 'prettyprint lang-r'>sample(1:100, 15, replace=TRUE)</pre>
 
-<pre >##  [1] 61 41 38 30 23 73 26  3 53 38 53 47  4  4 96</pre>
+<pre >##  [1]  48  56  99  43  26 100  70  87  32  53  39  11   8   9  45</pre>
 
 <p>Fijaos que no hemos obtenido la misma muestra. Esto es debido a que no hemos fijado la <strong>semilla de aleatoriedad</strong>.</p>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  class="unnumbered" id="ejemplo-iris">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  id="ejemplo-iris" class="unnumbered">
 
 <div class="example">
 <p><strong>Ejemplo</strong></p>
@@ -3306,7 +3306,7 @@ Una muestra aleatoria simple
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</pre></div>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  class="unnumbered" id="ejemplo-iris-1">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  id="ejemplo-iris-1" class="unnumbered">
 
 <div class="example-sol">
 <p>Si quisiéramos una muestra de 10 flores con reposición, haríamos lo siguiente:</p>
@@ -3320,7 +3320,7 @@ flores.elegidas.10.con=sample(1:150,10,replace=TRUE) </pre>
 
 <pre class = 'prettyprint lang-r'>muestra.iris.10.con = iris[flores.elegidas.10.con,] </pre></div>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  class="unnumbered" id="ejemplo-iris-2">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  id="ejemplo-iris-2" class="unnumbered">
 
 <div class="example-sol">
 <p>Por último, mostramos la muestra de las flores:</p>
@@ -3339,7 +3339,7 @@ flores.elegidas.10.con=sample(1:150,10,replace=TRUE) </pre>
 ## 102           5.8         2.7          5.1         1.9  virginica
 ## 130           7.2         3.0          5.8         1.6  virginica</pre></div>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio sin reposición</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-sin-reposicion">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio sin reposición</h2></hgroup><article  id="muestreo-aleatorio-sin-reposicion" class="unnumbered">
 
 <p><l class="definition">Muestra aleatoria sin reposición</l>: Otra manera de extraer nuestra muestra sería repetir 15 veces el proceso de sacar una bola de la urna pero ahora sin devolverla. En este caso se habla de una <strong>muestra aleatoria sin reposición</strong>.</p>
 
@@ -3353,7 +3353,7 @@ Una muestra aleatoria sin reposición
 
 </p></div></div>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio sin reposición</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-sin-reposicion-1">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio sin reposición</h2></hgroup><article  id="muestreo-aleatorio-sin-reposicion-1" class="unnumbered">
 
 <p>Para simular un muestreo de 15 bolas sin reposición en la urna anterior de 100 en <code>R</code>, haríamos los siguiente:</p>
 
@@ -3361,7 +3361,7 @@ Una muestra aleatoria sin reposición
 
 <pre >##  [1] 24  1 84 35 27 48 95  2 32 47 44 69 15 22 89</pre>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  class="unnumbered" id="ejemplo-iris-3">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  id="ejemplo-iris-3" class="unnumbered">
 
 <div class="example">
 <p><strong>Ejemplo</strong></p>
@@ -3380,7 +3380,7 @@ flores.elegidas.10.sin=sample(1:150,10,replace=FALSE)</pre>
 
 <pre class = 'prettyprint lang-r'>muestra.iris.10.sin = iris[flores.elegidas.10.sin,] </pre></div>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  class="unnumbered" id="ejemplo-iris-4">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  id="ejemplo-iris-4" class="unnumbered">
 
 <div class="example-sol">
 <p>Por último, mostramos las muestra de las flores:</p>
@@ -3479,7 +3479,7 @@ Una muestra aleatoria sistemática
 ## 7            4.6         3.4          1.4         0.3     setosa
 ## 22           5.1         3.7          1.5         0.4     setosa</pre></div>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-estratificado">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  id="muestreo-aleatorio-estratificado" class="unnumbered">
 
 <p><l class="definition">Muestreo aleatorio estratificado</l>: Este tipo de muestreo se utiliza cuando la población está clasificada en <strong>estratos</strong> que son de interés para la propiedad estudiada. Se toma una muestra aleatoria de cada estrato y se unen en una muestra global. A este proceso se le llama <strong>muestreo aleatorio estratificado</strong>.</p>
 
@@ -3495,11 +3495,11 @@ Una muestra aleatoria estratificada con dos estratos
 
 </p></div></div>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  class="unnumbered" id="muestreo-aleatorio-estratificado-1">
+</article></slide><slide class=""><hgroup><h2>Muestreo aleatorio estratificado</h2></hgroup><article  id="muestreo-aleatorio-estratificado-1" class="unnumbered">
 
 <p>Para tomar una muestra aleatoria estratificada de 15 bolas, considerando como estratos los dos colores, tomaríamos una muestra aleatoria de 6 bolas del primer color y una muestra aleatoria de 9 bolas del segundo color.</p>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  class="unnumbered" id="ejemplo-iris-8">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  id="ejemplo-iris-8" class="unnumbered">
 
 <div class="example">
 <p><strong>Ejemplo</strong></p>
@@ -3517,7 +3517,7 @@ Una muestra aleatoria estratificada con dos estratos
 fls.muestra.versicolor=sample(51:100,4,replace=TRUE) 
 fls.muestra.virginica=sample(101:150,4,replace=TRUE) </pre></div>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  class="unnumbered" id="ejemplo-iris-9">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>iris</code></h2></hgroup><article  id="ejemplo-iris-9" class="unnumbered">
 
 <div class="example-sol">
 <p>seguidamente, calculamos y mostramos la muestra estratificada juntando las tres muestras de cada especie</p>
@@ -3539,13 +3539,13 @@ fls.muestra.virginica=sample(101:150,4,replace=TRUE) </pre></div>
 ## 101          6.3         3.3          6.0         2.5  virginica
 ## 108          7.3         2.9          6.3         1.8  virginica</pre></div>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  class="unnumbered" id="muestreo-por-conglomerados">
+</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados" class="unnumbered">
 
 <p>El proceso de obtener y estudiar una muestra aleatoria en algunos casos es caro o difícil, incluso aunque dispongamos de la lista completa de la población.</p>
 
 <p><l class="definition"> Muestreo por conglomerados</l>: una alternativa posible sería, en vez de extraer una muestra aleatoria de todos los individuos de la población, escoger primero al azar unos subconjuntos en los que la población está dividida, a las que llamamos en este contexto <strong>conglomerados</strong> (<em>clusters</em>).</p>
 
-</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  class="unnumbered" id="muestreo-por-conglomerados-1">
+</article></slide><slide class=""><hgroup><h2>Muestreo por conglomerados</h2></hgroup><article  id="muestreo-por-conglomerados-1" class="unnumbered">
 
 <p>Supongamos que las 100 bolas de nuestra urna se agrupan en 20 conglomerados de 5 bolas cada uno según las franjas verticales.</p>
 
@@ -3561,7 +3561,7 @@ Una muestra aleatoria por conglomerados con 2 estratos y 20 conglomerados
 
 </p></div></div>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>worldcup</code></h2></hgroup><article  class="unnumbered" id="ejemplo-worldcup">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>worldcup</code></h2></hgroup><article  id="ejemplo-worldcup" class="unnumbered">
 
 <div class="example">
 <p><strong>Ejemplo</strong></p>
@@ -3578,7 +3578,7 @@ Una muestra aleatoria por conglomerados con 2 estratos y 20 conglomerados
 <li>Saves: número de paradas.</li>
 </ul></div>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>worldcup</code></h2></hgroup><article  class="unnumbered" id="ejemplo-worldcup-1">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>worldcup</code></h2></hgroup><article  id="ejemplo-worldcup-1" class="unnumbered">
 
 <pre class = 'prettyprint lang-r'>library(faraway)
 head(worldcup)</pre>
@@ -3591,7 +3591,7 @@ head(worldcup)</pre>
 ## Aboubakar  Cameroon    Forward   46     2     16       0     0
 ## Abreu       Uruguay    Forward   72     0     15       0     0</pre>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>worldcup</code></h2></hgroup><article  class="unnumbered" id="ejemplo-worldcup-2">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>worldcup</code></h2></hgroup><article  id="ejemplo-worldcup-2" class="unnumbered">
 
 <div class="example">
 <p><strong>Ejemplo</strong></p>
@@ -3614,7 +3614,7 @@ países.elegidos = unique(worldcup$Team)[números.países.elegidos]</pre>
 <pre >## [1] Slovakia    Mexico      New Zealand France     
 ## 32 Levels: Algeria Argentina Australia Brazil Cameroon Chile ... Uruguay</pre></div>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo <code>worldcup</code></h2></hgroup><article  class="unnumbered" id="ejemplo-worldcup-3">
+</article></slide><slide class=""><hgroup><h2>Ejemplo <code>worldcup</code></h2></hgroup><article  id="ejemplo-worldcup-3" class="unnumbered">
 
 <div class="example-sol">
 <p>La muestra elegida estará formada por los jugadores que perteneces a dichos países:</p>
@@ -3715,7 +3715,51 @@ jugadores.pais4 = sample(1:dim(worldcup.pais4)[1],5,replace=FALSE)</pre>
 <li><code>prob</code>, que permite especificar las probabilidades de aparición de los diferentes elementos de <code>x</code> (por defecto, son todas la misma).</li>
 </ul></li>
 <li><p><code>set.seed</code> permite fijar la semilla de aleatoriedad.</p></li>
-</ul></article></slide>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Código en <code>python</code></h2></hgroup><article  id="codigo-en-python">
+
+<p>Cargamos la librería reticulate para conectar <code>R</code> con <code>Python</code> indicando donde tenemos instalada la versión favorita de <code>Python</code>:</p>
+
+<pre class = 'prettyprint lang-r'>library(reticulate)
+use_python(&quot;/Users/juangabriel/anaconda3/bin/python3&quot;)
+#reticulate::py_install(&quot;pandas&quot;)</pre>
+
+<p>Cargamos las librerías que vamos a usar</p>
+
+<pre class = 'prettyprint lang-python'>import random
+import pandas</pre>
+
+</article></slide><slide class=""><hgroup><h2>Código en <code>python</code></h2></hgroup><article  id="codigo-en-python-1">
+
+<pre class = 'prettyprint lang-python'>iris_py = r.iris
+print(iris_py.head())</pre>
+
+<pre >##    Sepal.Length  Sepal.Width  Petal.Length  Petal.Width Species
+## 0           5.1          3.5           1.4          0.2  setosa
+## 1           4.9          3.0           1.4          0.2  setosa
+## 2           4.7          3.2           1.3          0.2  setosa
+## 3           4.6          3.1           1.5          0.2  setosa
+## 4           5.0          3.6           1.4          0.2  setosa</pre>
+
+</article></slide><slide class=""><hgroup><h2>Código en <code>python</code></h2></hgroup><article  id="codigo-en-python-2">
+
+<pre class = 'prettyprint lang-python'>rows = random.sample(range(0, 150), 5)
+iris_py.iloc[rows,:]</pre>
+
+<pre >##      Sepal.Length  Sepal.Width  Petal.Length  Petal.Width     Species
+## 76            6.8          2.8           4.8          1.4  versicolor
+## 80            5.5          2.4           3.8          1.1  versicolor
+## 30            4.8          3.1           1.6          0.2      setosa
+## 142           5.8          2.7           5.1          1.9   virginica
+## 82            5.8          2.7           3.9          1.2  versicolor</pre>
+
+<pre class = 'prettyprint lang-python'>iris_py.sample(frac=0.02)</pre>
+
+<pre >##     Sepal.Length  Sepal.Width  Petal.Length  Petal.Width Species
+## 39           5.1          3.4           1.5          0.2  setosa
+## 29           4.7          3.2           1.6          0.2  setosa
+## 10           5.4          3.7           1.5          0.2  setosa</pre></article></slide>
 
 
   <slide class="backdrop"></slide>

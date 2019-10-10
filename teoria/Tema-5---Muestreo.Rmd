@@ -453,3 +453,35 @@ head(muestra.worldcup.pol,12)
   * `prob`, que permite especificar las probabilidades de aparición de los diferentes elementos de `x` (por defecto, son todas la misma).
 
 * `set.seed` permite fijar la semilla de aleatoriedad. 
+
+## Código en `python`
+
+Cargamos la librería reticulate para conectar `R` con `Python` indicando donde tenemos instalada la versión favorita de `Python`:
+```{r}
+library(reticulate)
+use_python("/Users/juangabriel/anaconda3/bin/python3")
+#reticulate::py_install("pandas")
+```
+
+Cargamos las librerías que vamos a usar
+```{python}
+import random
+import pandas
+```
+
+## Código en `python`
+
+```{python}
+iris_py = r.iris
+print(iris_py.head())
+```
+
+
+## Código en `python`
+```{python}
+rows = random.sample(range(0, 150), 5)
+iris_py.iloc[rows,:]
+iris_py.sample(frac=0.02) # n = 3
+```
+
+
