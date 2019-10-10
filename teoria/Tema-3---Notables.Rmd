@@ -420,7 +420,7 @@ Sea $X$ una v.a. discreta con dominio $D_X=\{0,1,2,\ldots\}$  y con $P(X=1)=p$.
 
 Entonces $X$ sigue una ley $Ge(p)$ sí y sólo si
 
-$$P\left(X\geq k+j\big| X> j\right)=P(X\geq k)$$
+$$P\left(X> k+j\big| X\geq j\right)=P(X> k)$$
 para todo $k,j=1,2,3\ldots$.
 
 
@@ -432,18 +432,18 @@ para todo $k,j=1,2,3\ldots$.
 El lado derecho de la igualdad es 
 
 $$
-P(X\geq k)=1-P(X< k)=1-P(X< k-1)=1-\left(1-(1-p)^{k-1+1}\right)=(1-p)^k
+P(X > k)=1-P(X\leq k)=1-\left(1-(1-p)^{k+1}\right)=(1-p)^{k+1}
 $$
 
 El lado de izquierdo es
 
 $$
 \begin{eqnarray*}
-P\left(X> k+j\big| X> j\right)&=&\frac{P\left(\{X> k+j\}\cap \{X>j\} \right)}{P\left(X>j\right)}=
-\frac{P\left(X>k+j \right)}{P\left(X> j \right)}=
-\frac{1-P(X\leq k+j)}{1-P(X\leq j)}\\
-&=& \frac{1-P(X\leq k+j)}{1-P(X\leq j)}=
-\frac{1-(1-(1-p)^{k+j+1})}{1-(1-(1-p)^{j+1})}=\frac{(1-p)^{k+j+1}}{(1-p)^{j+1}}=(1-p)^{k}
+P\left(X> k+j\big| X\geq j\right)&=&\frac{P\left(\{X> k+j\}\cap \{X\geq j\} \right)}{P\left(X\geq j\right)}=
+\frac{P\left(X>k+j \right)}{P\left(X\geq j \right)}\\
+&=& \frac{1-P(X\leq k+j)}{1-P(X\leq j-1)} = \\
+&=& \frac{1-(1-(1-p)^{k+j+1})}{1-(1-(1-p)^{j-1+1})}=\frac{(1-p)^{k+j+1}}{(1-p)^{j}}\\
+&=&(1-p)^{k+1}
 \end{eqnarray*}
 $$
 
@@ -455,6 +455,7 @@ Lo que demuestra  la igualdad.
 ## Falta de memoria
 
 <l class="observ"> Observación: Interpretación  de la propiedad</l>
+
  La propiedad  de la falta de memoria
 $$
 P(X> k+j|X> j)=P(X\geq k)
@@ -478,13 +479,13 @@ Tenemos un llavero con 10 llaves,  solo una de ellas abre una puerta. Cada vez q
 Tomemos $k=4,j=5$, aplicando la propiedad de la falta de memoria
 
 $$
-P(X>= 4+5/X>5)=P(X\geq 4)
+P(X> 4+5/X>5)=P(X\geq 4)
 $$
 
-Es decir después de 5 fracasos no estamos más cerca de abrir la puerta, ya que  por la propiedad de la  falta de  memoria  es como si empezásemos  de nuevo a abrir la puerta.
+Es decir después de 5 fracasos no estamos más cerca de abrir la puerta, ya que  por la propiedad de la  falta de  memoria  es como si empezásemos  de nuevo a abrir la puerta. después de más de 5 fallos la probabilidad de que fallemos al menos 4 veces más es la misma.
 </div>
 
-## La variable geométrica que cuenta el número de intentos  para obtener el primer éxito.
+## La variable geométrica que cuentao los intentos para obtener el primer éxito.
 
 * Supongamos que sólo estamos interesados en el número de intentos para obtener el
 primer éxito. 
@@ -494,6 +495,29 @@ primer éxito.
 * $Var(Y)=Var(X+1)=Var(X)=\frac{1-p}{p^2}$.
 
 
+## Variable geométrica
+
+<div classs="example"> 
+
+**Número de partidos consecutivos ganados Madrid-Barça**
+
+Los partidos Real Madrid FC Barcelona de **la liga** española se suelen denominar  **El Clásico**, sean en el Bernabeu (estadio del Real Madrid) o en el Camp Nou (estadio del Barça)
+
+Sea $Y$ la variable que cuenta el número de veces que  en un partido de futbol de la liga el Real Madrid  pierde contra el Barça sea en el Camp Nou  o el Calderón.
+
+Un aficionado culé (Barça) o blanco (Madrid)  quiere averiguar cuántos partidos de *EL Clásico** tiene que ver hasta ver ganar al Barça
+
+Para ello  consulta [datos historicos de **EL clásico**  en la wikipedia](https://es.wikipedia.org/wiki/El_Cl%C3%A1sico)  y  averigua que hasta el 3 de marzo de 2019  el Real Madrid ganó en 72 ocasiones el Barça en 72  y empataron 34 veces, en totalse  han jugado 178 **Clásicos**.
+
+Como nuestro aficionado tiene un mamá estadística  averigua que  probabilidad de que el barca gane es $P(Barça)=\frac{72}{178}=`r 72/178`$.
+
+Supongamos  que el experimento sigue una ley  geométrica con probailidad de éxito .  $p=P(Barça)=\frac{72}{178}$
+
+Es decir $Y=X+1$ donde $X$ es una v.a que sigue una ley $Ge(p=0.1)$. En este caso el "éxito" es que no nos de el dinero.
+
+
+
+</div>
 ## Resumen  $Ge(p)$ empezando en 0
 
 $Y=$ | número de fracasos  para conseguir el primer éxito
@@ -521,7 +545,7 @@ $X=$ |número de INTENTOS  para OBTENER el primer éxito
 
 ## Cálculos con R
 
-Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ empezando en $0$
+Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ que cuenta el número de fracasos antes del primer éxito es decir empezando en $0$
 
 ```{r binomialfuncionesA011111}
 dgeom(0,prob=0.25)
