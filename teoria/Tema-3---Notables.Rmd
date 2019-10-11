@@ -34,7 +34,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * Consideremos un experimento con dos resultados posibles éxito (E) y
 fracaso (F). El espacio de sucesos será $\Omega=\{E,F\}$.
-* Supongamos que la probabilidad de éxito es  $P(E)=p$, por lo que  $P(F)=1-p=q$ con $0<p<1$.
+* Supongamos que la probabilidad de éxito es  $P(E)=p$,  y naturalmente $P(F)=1-p=q$ con $0<p<1$.
 * Consideremos la  aplicación 
 
 $$
@@ -152,6 +152,28 @@ Entonces su **función de probabilidad** es
     0  & \mbox{ en otro caso}
   \end{array}\right..$$
 
+
+## Números binomiales con R
+
+Los números binomiales nos calculan cuanto equipos de baloncesto ($k=5$ jugadores) se pueden hacer con 6 jugadores ($n=6$).
+
+Es decir cuántas  manearas distintas hay para elegir (*choose*) 5 jugadores en un conjunto de 6 jugadores. Todo el mundo diria 
+¡¡¡6!!!. Efectivamente con R es 
+
+```{r}
+choose(6,5)
+```
+
+Si  son 10 jugadorespara elegir 5 el número de queipos distintos es bastante más grande
+
+```{r}
+choose(10,5)
+```
+
+
+
+
+
 ##  Distribución Binomial
 
 En las anteriores circunstancias diremos que la v.a. sigue una **ley de probabilidad binomial** ... con parámetros $n$ y $p$ y lo denotaremos así 
@@ -172,7 +194,7 @@ Calculad las funciones de distribución de una binomial $B(n=1,p=0.3)$ y comprob
 * La probabilidad de fracaso la denotaremos con  $q=1-p$, **sin ningún aviso adicional**.
 * Su **función de distribución no tienen una formula general**, hay que calcularla con una función de R o python... En el siglo pasado se tabulaban en los libros de papel :-).
 * En el material adicional os pondremos unas tablas de esta distribución
-para distintos valores de $n$ y $p$ para que disfruteis de tan anscentral método de cálculo. 
+para distintos valores de $n$ y $p$ para que disfrutéis de tan ancestral método de cálculo. 
 * Cualquier paquete estadístico, hoja de cálculo dispone de
 funciones para el cálculo de estas probabilidades, así que el **uso de las tablas** queda **totalmente anticuado**. 
 
@@ -226,7 +248,7 @@ rbinom(100,size = 20,prob=0.5)
 ```
 
 <div class="example"> Ejemplo:
-EL ejemplo anterior correspondería a repetior 100 veces el experimento lanzar una moneda  20 veces y contar el número de caras.
+EL ejemplo anterior correspondería a repetir 100 veces el experimento lanzar una moneda  20 veces y contar el número de caras.
 </div>
 
 ## Cálculos binomial con python
@@ -266,12 +288,13 @@ binom.pmf(4,n=10,p=0.25)
 ```{python bino4_py}
 binom.rvs(n=100,p=0.25,size = 20)
 ```
-</div class="observ"> Notemos que la secuencia aletoria generada no es la misma que con R. De hecho volvemos a ejecutarla obtendremos una muestra alearoria distinta.
+</div class="observ"> Notemos que la secuencia aleatoria generada no es la misma que con R. De hecho volvemos a ejecutarla obtendremos una muestra aleatoria distinta.
 </div>
 
 
 
 ## Cálculos binomial con python
+
 Veamos los cálculos básicos con funciones de python para la binomial  $B(n=10,p=0.25)$.
 
 Función de distribución
@@ -281,6 +304,8 @@ binom.pmf(0,5,0.4)
 binom.pmf(1,10,0.25)
 binom.rvs(n=20,p=0.25,size=10)
 ```
+
+
 ## Gráficos de la distribución binomial con R
 
 El siguiente código de R dibuja las función de probabilidad y la de distribución de una  $B(n=10,p=0.25)$
@@ -300,11 +325,11 @@ curve(pbinom(x,size=10,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-## Gráficos de la distibución binomial con python
+## Gráficos de la distribución binomial con python
 
 </div class="exercise">
 Ejercicio
-Buscad en los manuales de python cómo se dibuja la función de probablidad y de distribución de una binomial.
+Buscad en los manuales de python cómo se dibuja la función de probabilidad y de distribución de una binomial.
 </div>
 
 </div class="exercise-sol">
@@ -326,7 +351,7 @@ plt.vlines(x, 0, binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
 
 
 
-## Gráficos de la distibución binomial con python (GGGGRANDES)
+## Gráficos de la distribución binomial con python (GGGGRANDES)
 
 ```{python dibu_python2,echo=FALSE,fig.width=3,fig.eight=3}
 n, p = 5, 0.4
@@ -341,7 +366,7 @@ plt.vlines(x, 0, binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
 ## Distribución geométrica
 
 
-<l class="definition"> DIstribución geométrica </l>
+<l class="definition"> Distribución geométrica </l>
 
 * Repitamos un experimento Bernoulli, de parámetro p, de forma independiente hasta obtener el primer éxito.
 * Sea $X$ la v.a. que cuenta el número de fracasos antes del primer éxito. Por ejemplo  que  hayamos tenido  $x$ fracasos  será una cadena de $x$ fracasos culminada con un éxito. Más concretamente 
@@ -402,13 +427,18 @@ $$
 
 De la misma forma podemos generalizar a cualquier entero positivo $k$ 
 
-$$F_X(k)=P(X\leq k)=1-(1-p)^{k+1}$$
+$$F_X(k)=P(X\leq k)=1-(1-p)^{k+1}\mbox{ si } k=0,1,2,\ldots$$
 En general  tendremos que 
 
 
 $$
-F_X(x)=P(X\leq X)=\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\
-  1- (1-p)^{k+1} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=0,1,2,\ldots\end{array}
+F_X(x)=P(X\leq x)=
+\left\{\begin{array}{ll} 
+0 & \mbox{ si } x<0\\
+1- (1-p)  & \mbox{ si } k=0\leq x <1\\
+1- (1-p)^2 & \mbox{ si } k=1\leq x <2\\
+1- (1-p)^3 & \mbox{ si } k=2\leq x <3\\
+1- (1-p)^{k+1} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=0,1,2,\ldots\end{array}
     \right.\end{array}\right.
 $$
 
@@ -440,10 +470,8 @@ El lado de izquierdo es
 $$
 \begin{eqnarray*}
 P\left(X> k+j\big| X\geq j\right)&=&\frac{P\left(\{X> k+j\}\cap \{X\geq j\} \right)}{P\left(X\geq j\right)}=
-\frac{P\left(X>k+j \right)}{P\left(X\geq j \right)}\\
-&=& \frac{1-P(X\leq k+j)}{1-P(X\leq j-1)} = \\
-&=& \frac{1-(1-(1-p)^{k+j+1})}{1-(1-(1-p)^{j-1+1})}=\frac{(1-p)^{k+j+1}}{(1-p)^{j}}\\
-&=&(1-p)^{k+1}
+\frac{P\left(X>k+j \right)}{P\left(X\geq j \right)} = \frac{1-P(X\leq k+j)}{1-P(X\leq j-1)}\\
+&=&  \frac{1-(1-(1-p)^{k+j+1})}{1-(1-(1-p)^{j-1+1})} =\frac{(1-p)^{k+j+1}}{(1-p)^{j}} = (1-p)^{k+1}
 \end{eqnarray*}
 $$
 
@@ -461,9 +489,9 @@ $$
 P(X> k+j|X> j)=P(X\geq k)
 $$   
 
-la igualdad anterior significa  que aunque **ya llevemos más de $j$ fracasos** la probabilidad de **que fracasemos $k$ veces más** no disminuye; es la misma  que si empezáramos de nuevo el experimento. 
+la igualdad anterior significa  que aunque **ya llevemos al menos  $j$ fracasos** la probabilidad de **que fracasemos $k$ veces más** no disminuye; es la misma  que si empezáramos de nuevo el experimento. 
 
-A este efecto se le suele referenciar con la frase  *el experimento carece de memoria* o es un *experimento sin memoria*.
+A este efecto se le suele etiquetar con la frase  *el experimento carece de memoria* o es un *experimento sin memoria*.
 </div>
 
 ## Falta de memoria
@@ -479,13 +507,14 @@ Tenemos un llavero con 10 llaves,  solo una de ellas abre una puerta. Cada vez q
 Tomemos $k=4,j=5$, aplicando la propiedad de la falta de memoria
 
 $$
-P(X> 4+5/X>5)=P(X\geq 4)
+P(X> 4+5/X \geq 5)=P(X > 4)
 $$
 
-Es decir después de 5 fracasos no estamos más cerca de abrir la puerta, ya que  por la propiedad de la  falta de  memoria  es como si empezásemos  de nuevo a abrir la puerta. después de más de 5 fallos la probabilidad de que fallemos al menos 4 veces más es la misma.
+Después de 5 fracasos no estamos *más cerca* de abrir la puerta.
+La propiedad de la  falta de  memoria  nos dice que en después de cada intento es como si empezásemos  de nuevo a abrir la puerta. Tras 5 fracasos la probabilidad de que fallemos más de  4 veces  más es la misma.
 </div>
 
-## La variable geométrica que cuentao los intentos para obtener el primer éxito.
+## La variable geométrica que cuenta los intentos para obtener el primer éxito.
 
 * Supongamos que sólo estamos interesados en el número de intentos para obtener el
 primer éxito. 
@@ -495,30 +524,82 @@ primer éxito.
 * $Var(Y)=Var(X+1)=Var(X)=\frac{1-p}{p^2}$.
 
 
-## Variable geométrica
+## Variable geométrica: Madrid/Barça, Barça/Madrid
 
-<div classs="example"> 
-
-**Número de partidos consecutivos ganados Madrid-Barça**
+<div class="example"> 
+**Ejemplo**:  Número de partidos de fútbol necesarios para ver ganar el Barça al Madrid:
 
 Los partidos Real Madrid FC Barcelona de **la liga** española se suelen denominar  **El Clásico**, sean en el Bernabeu (estadio del Real Madrid) o en el Camp Nou (estadio del Barça)
 
-Sea $Y$ la variable que cuenta el número de veces que  en un partido de futbol de la liga el Real Madrid  pierde contra el Barça sea en el Camp Nou  o el Calderón.
+Sea $Y$ la variable que cuenta el número de veces que  en un partido de fútbol de la liga el Real Madrid  pierde contra el Barça sea en el Camp Nou  o el Calderón.
 
-Un aficionado culé (Barça) o blanco (Madrid)  quiere averiguar cuántos partidos de *EL Clásico** tiene que ver hasta ver ganar al Barça
+Nuestra amiga Aina es muy culé (hincha del Barça) quiere averiguar cuántos partidos consecutivos de **EL Clásico** tiene que ver hasta ver ganar al Barça por primera vez. 
 
-Para ello  consulta [datos historicos de **EL clásico**  en la wikipedia](https://es.wikipedia.org/wiki/El_Cl%C3%A1sico)  y  averigua que hasta el 3 de marzo de 2019  el Real Madrid ganó en 72 ocasiones el Barça en 72  y empataron 34 veces, en totalse  han jugado 178 **Clásicos**.
-
-Como nuestro aficionado tiene un mamá estadística  averigua que  probabilidad de que el barca gane es $P(Barça)=\frac{72}{178}=`r 72/178`$.
-
-Supongamos  que el experimento sigue una ley  geométrica con probailidad de éxito .  $p=P(Barça)=\frac{72}{178}$
-
-Es decir $Y=X+1$ donde $X$ es una v.a que sigue una ley $Ge(p=0.1)$. En este caso el "éxito" es que no nos de el dinero.
-
-
+Le interesa estimar cuánto le va a costar este capricho. Tendrá que comprar las entradas y pagar los viajes de Barcelona a Madrid.
 
 </div>
-## Resumen  $Ge(p)$ empezando en 0
+
+## Variable geométrica: Madrid/Barça, Barça/Madrid
+
+
+
+<div class="example"> 
+
+Le interesa estimar cuánto le va a costar este capricho. Tendrá que comprar las entradas y pagar los viajes de Barcelona a Madrid.
+
+Para ello  consulta [datos historicos de **El clásico**  en la wikipedia](https://es.wikipedia.org/wiki/El_Cl%C3%A1sico)  y  averigua que hasta el 3 de marzo de 2019  el Real Madrid ganó en 72 ocasiones el Barça en 72  y empataron 34 veces, en total se  han jugado 178 
+**Clásicos**.
+
+La pregunta es:
+
+¿Cuál es la probabilidad de que tenga que ver al menos tres partidos hasta que el Barça gane el cuarto?
+
+</div>
+
+## Madrid/Barça, Barça/Madrid
+
+<div class="example-sol"> 
+
+Como nuestro aficionada tiene un tía que juega mucho al fútbol en su consola  y con los datos que le damos  estima que  la probabilidad de que el Barça gane un clasico cualquiera es
+
+$$P(Barça)=\frac{72}{178}=`r round(72/178,4)`.$$
+
+Supongamos  pues que nuestro  *experimento de fútbol*  sigue una ley  geométrica con probabilidad de éxito $p=P(Barça)=\frac{72}{178}.$
+
+Entonces si $X$ es el número de partidos que pierde el Barça antes de que gane el primero  seguirá  una ley $Ge(p=\frac{72}{178})$.
+
+Así que  lo que nos pregunta Aina es la siguiente probabilidad
+
+$$P(X>3)=1-P(X\leq 3)=1-\left(1-\frac{72}{178}\right)^4=`r round(1-(1-72/178)^4,4)`.$$
+
+
+Así que  tienen una probabilidad del $87.42\%$ de que necesite ver al menos no ganar al Barça 3 partidos antes de ver uno en el que gane.
+</div>
+
+## Madrid/Barça, Barça/Madrid
+
+<div class="example"> 
+**Ejemplo**
+
+Bajo las condiciones del problema Barça-Madrid de nuestra amiga Aina ¿cuál es el valor esperado de $X$? ¿y su varianza? 
+ 
+</div>
+<div class="example-sol"> 
+
+$X=Ge(p=\frac{72}{178}=`r round(72/178,4)`)$ 
+
+entonces 
+
+$E(X)=\frac{1-p}{p}=\frac{1-`r round(72/178,4)`}{`r round(72/178,4)`}=`r round((1- (72/178))/(72/178),4)`$ 
+
+y
+
+$Var(X)=\frac{1-p}{p^2}=\frac{1-`r round(72/178,4)`}{(`r round(72/178,4)`)* 2}=`r round((1- (72/178))/(72/178)^2,4)`$
+
+</div>
+
+
+## Resumen $Ge(p)$ empezando en 0
 
 $Y=$ | número de fracasos  para conseguir el primer éxito
 |------:|:-----|
@@ -574,6 +655,14 @@ par(mfrow=c(1,2))
 plot(x=c(0:10),y=dgeom(c(0:10),prob=0.25),
   ylim=c(0,1),xlim=c(-1,11),xlab="x",
   main="Función de probabilidad\n Ge(p=0.25)")
+lines(x=rep(0:10,each=2),y=aux, type = "h", lty = 2,col="blue")
+
+aux0=dgeom(c(0:10),prob=0.25)
+ceros=rep(0,21)
+ceros
+aux=ceros
+aux[2*(c(1:11))]<-aux0
+curve(pbinom(x,size=10,prob=0.25),
 curve(pgeom(x,prob=0.25),
   xlim=c(-1,10),col="blue",
   main="Función de distribución\n Ge(p=0.25)")
@@ -597,29 +686,37 @@ par(mfrow=c(1,1))
 
 
 
+# Distribución binomial negativa
+
+
+
+
+## El problema de la  puerta con dos cerraduras
+
+
+Repitamos el problema de abrir la puerta. Tenemos un llavero con 10 llaves distintas y tenemos que abrir una puerta con **dos cerraduras**  empezamos por la primera cerradura  y cada vez olvidamos que llave hemos probado, una vez abierta la primera cerradura probamos con la segunda hasta que también la abrimos.
+
+Sea $X=$ número de intentos necesarios hasta abrir la  puerta.
 
 
 
 
 
+# Distribución binomial negativa
+
+La idea de la puerta es que tenemos un experimento Bernoulli con probabilidad de éxito $p=0.1$. Y repetiremos el experimento hasta obtener 2 éxitos.
 
 
+En general tendremos un experimento  Bernoulli con probabilidad de éxito $0<p<1$ y  tal que:
 
-
-
-
-
-
-## Distribución binomial negativa
-
-* Repetimos el experimento hasta obtener el $r$-ésimo éxito. 
+* Repetimos el experimento hasta obtener el $r$-ésimo éxito (abrir la maldita puerta). 
 * Sea $X$ la v.a que cuenta el número de repeticiones del experimento hasta el r-ésimo
 éxito. 
 * Su función de probabilidad es
 
 $$
 P_{X}(x)=P(X=x)=\left\{\begin{array}{ll}
-     {{x-1}\choose{r-1}} (q)^{x-r}p^r & \mbox{si } x=r,r+1,\ldots\\
+     {{x-1}\choose{r-1}} (1-p)^{x-r}p^r & \mbox{si } x=r,r+1,\ldots\\
      0 & \mbox{en otro caso}\end{array}\right.
 $$
      
