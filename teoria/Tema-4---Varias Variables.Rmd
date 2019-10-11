@@ -941,9 +941,221 @@ Hallemos las **funciones de densidad marginales**. Fijémonos que basta tener en
 $$
 \begin{array}{rl}
 f_X(x) & = \int_{-\infty}^{\infty} f_{XY}(x,y)\, dy =\int_{y=0}^{y=x}2\mathrm{e}^{-x-y}\, dy = 2\left[-\mathrm{e}^{-x-y}\right]_{y=0}^{y=x} = 2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right),\mbox{ si }x\geq 0, \\
-f_Y(y) & = \int_{-\infty}^{\infty} f_{XY}(x,y)\, dx =\int_{x=y}^{x=\infty}2\mathrm{e}^{-x-y}\, dx = 2\left[-\mathrm{e}^{-x-y}\right]_{x=y}^{x=\infty} = 2\mathrm{e}^{-2x}, \mbox{ si }y\geq 0.
+f_Y(y) & = \int_{-\infty}^{\infty} f_{XY}(x,y)\, dx =\int_{x=y}^{x=\infty}2\mathrm{e}^{-x-y}\, dx = 2\left[-\mathrm{e}^{-x-y}\right]_{x=y}^{x=\infty} = 2\mathrm{e}^{-2y}, \mbox{ si }y\geq 0.
 \end{array}
 $$
 Vemos que la variable $Y$ corresponde a una distribución exponencial de parámetro $\lambda =2$.
 
 </div>
+
+## La distribución gausiana bidimensional
+Vamos a generalizar la distribución normal a dos dimensiones.
+
+<l class="definition">Definición de distribución gausiana bidimensional. </l>
+Diremos que la distribución de la variable aleatoria bidimensional $(X,Y)$ es **gausiana bidimensional** dependiendo del parámetro $\rho$ si su **función de densidad conjunta** es:
+$$
+f_{XY}(x,y)=\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}},\ -\infty <x,y<\infty.
+$$
+
+
+## La distribución gausiana bidimensional
+Propiedades de la **función de densidad de la variable gausiana bidimensional**:
+
+* Para cualquier punto $(x,y)\in\mathbb{R}^2$, la **función de densidad** es no nula: $f_{XY}(x,y)>0$.
+
+* La **función de densidad** tiene un único máximo absoluto en el punto $(0,0)$ que vale $f_{XY}(0,0)=\frac{1}{2\pi\sqrt{1-\rho^2}}.$ Por tanto, para $\rho=0$, dicho máximo alcanza el mínimo valor posible y si $\rho\to \pm 1$, dicho máximo tiende a $\infty$.
+
+## La distribución gausiana bidimensional
+* Las densidades marginales $f_X(x)$ y $f_Y(y)$ son normales $N(0,1)$. Veámoslo con $f_X(x)$. Por simetría, quedaría deducido para $f_Y(y)$:
+$$
+\begin{array}{rl}
+f_X(x) & =\frac{1}{2\pi\sqrt{1-\rho^2}}\int_{-\infty}^\infty \mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}}\, dy =
+\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{x^2}{2(1-\rho^2)}}\int_{-\infty}^\infty \mathrm{e}^{-\frac{(-2\rho xy+y^2)}{2(1-\rho^2)}}\, dy \\ & = \frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{x^2}{2(1-\rho^2)}} \int_{-\infty}^\infty \mathrm{e}^{-\frac{(y-\rho x)^2}{2(1-\rho^2)}} \mathrm{e}^{\frac{\rho^2 x^2}{2(1-\rho^2)}}\, dy \\ & =\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{x^2}{2}} \int_{-\infty}^\infty \mathrm{e}^{-\frac{(y-\rho x)^2}{2(1-\rho^2)}}\, dy,  \mbox{ Hacemos cambio $z=\frac{y-\rho x}{\sqrt{1-\rho^2}}$}\\ & = \frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{x^2}{2}} \int_{-\infty}^\infty \mathrm{e}^{-\frac{z^2}{2}}\sqrt{1-\rho^2}\, dy =\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}},
+\end{array}
+$$
+
+## La distribución gausiana bidimensional
+
+función que coincide con la **función de densidad** de la variable $N(0,1)$. En el último paso hemos usado que 
+$$
+\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \mathrm{e}^{-\frac{z^2}{2}}\, dz=1,
+$$
+ya que correspondería al área de una **función de densidad** de una distribución $N(0,1)$.
+
+El gráfico siguiente muestra la **función de densidad** para $\rho=\frac{1}{2}$.
+
+## La distribución gausiana bidimensional
+
+<div class="center">
+```{r, echo=FALSE, label=bid16,fig.cap="",out.width = "600px"}
+knitr::include_graphics("Images/NormalBidi.png",dpi=1200)
+```
+</div>
+
+# Independencia de variables aleatorias
+
+## Independencia de variables aleatorias discretas
+Recordemos que dos sucesos $A$ y $B$ son independientes si $P(A\cap B)=P(A)\cdot P(B)$.
+
+¿Cómo trasladar dicho concepto al caso de variables aleatorias?
+
+En el caso de **variables aleatorias discretas bidimensionales** vimos que, dada una variable aleatoria bidimensional discreta $(X,Y)$ con $(X,Y)(\Omega)=\{(x_i,y_j),\ i=1,2,\ldots,j=1,2,\ldots\}$, los sucesos de la forma $\{X=x_i,\  Y=y_j\}$ determinaban cómo se distribuían los valores de la variable $(X,Y)$. De ahí la definición siguiente:
+
+## Independencia de variables aleatorias discretas
+<l class="definition">Definición de independencia para variables aleatorias bidimensionales discretas. </l>
+Sean $(X,Y)$ una **variable aleatoria bidimensional discreta** con $(X,Y)(\Omega)=\{(x_i,y_j),\ i=1,2,\ldots,j=1,2,\ldots\}$ y **función de probabilidad** $P_{XY}$ y **funciones de probabilidad marginales** $P_X$ y $P_Y$. Entonces $X$ e $Y$ son independientes si:
+$$
+P_{XY}(x_i,y_j)=P_X(x_i)\cdot P_Y(y_k),\ i=1,2,\ldots,j=1,2,\ldots
+$$
+o dicho de otra forma:
+$$
+P(X=x_i,\ Y=y_k)=P(X=x_i)\cdot P(Y=y_k),\ i=1,2,\ldots,j=1,2,\ldots
+$$
+
+
+## Independencia de variables aleatorias discretas. Ejemplo
+<div class="example">
+**Ejemplo de la suma y el producto del lanzamiento de dos dados**
+
+Consideramos la variable aleatoria $(S,P)$ donde $S$ representa la suma de los valores obtenidos al lanzar dos dados y $P$, su producto. 
+
+En este caso $S$ y $P$ no son independientes ya que recordemos que por ejemplo $P_{SP}(3,2)=\frac{2}{36}$, $P_S(3)=\frac{2}{36}$ y $P_P(2)=\frac{2}{36}$, ya que en este último caso, sólo hay dos posibles resultados en los que el producto dé 2: el $(1,2)$ y el $(2,1)$.
+
+Entonces no se cumple que $P_{SP}(3,2)=P_S(3)\cdot P_P(2)$, ya que $\frac{2}{36}\neq \frac{2}{36}\cdot \frac{2}{36}$.
+
+De ahí que no sean independientes ya que la condición anterior se debería cumplir para todos los valores $x_i$ e $y_k$ y hemos encontrado un contraejemplo en donde no se cumple.
+
+</div>
+
+<l class="observ">Observación. </l>
+Si la tabla de la **función de probabilidad conjunta** de $(X,Y)$ contiene algún $0$, $X$ e $Y$ no pueden ser independientes. ¿Podéis decir por qué?
+
+## Independencia de variables aleatorias discretas. Ejemplo
+<div class="example">
+**Ejemplo**
+
+Veamos un caso de independencia.
+
+Consideramos experimento aleatorio de lanzar un dado dos veces. Sea $X$ el resultado del primer lanzamiento e $Y$, el resultado del segundo lanzamiento.
+
+Veamos que, en este caso, $X$ e $Y$ son independientes.
+
+El valor de $(X,Y)(\Omega)=\{(1,1),(1,2),\ldots,(6,6)\}$, en total 36 resultados.
+
+La **función de probabilidad conjunta** en un valor cualquiera $(i,j)$ con $i,j\in\{1,2,3,4,5,6\}$ será:
+$P_{XY}(i,j)=\frac{1}{36}$ ya que la probabilidad que salga $i$ en el primer lanzamiento es $\frac{1}{6}$ y la probabilidad de que salga $j$ en el segundo lanzamiento, también. Por tanto, la probabilidad de que salga $i$ en el primer lanzamiento y $j$ en el segundo será: $\frac{1}{6}\cdot \frac{1}{6}=\frac{1}{36}.$
+</div>
+
+
+## Independencia de variables aleatorias discretas. Ejemplo
+<div class="example">
+**Ejemplo**
+
+Las **funciones de densidad marginales** de $X$ e $Y$ serán:
+<div class="center">
+| $X$ o $Y$| 1 | 2| 3 | 4 | 5| 6 
+|--|--|--|--|--|--|--
+| $P_X$ o $P_Y$|$\frac{1}{36}$|$\frac{1}{36}$|$\frac{1}{36}$|$\frac{1}{36}$|$\frac{1}{36}$|$\frac{1}{36}$
+</div>
+
+Por tanto, para todo $(i,j)$ con $i,j\in\{1,2,3,4,5,6\}$ se cumplirá:
+$$
+P_{XY}(i,j)=\frac{1}{36}=\frac{1}{6}\cdot \frac{1}{6}=P_X(i)\cdot P_Y(j).
+$$
+Deducimos que son independientes.
+</div>
+
+
+## Independencia de variables aleatorias continuas
+La definición dada para **variables aleatorias discretas** se traslada de forma natural a las **variables aleatorias continuas**:
+
+<l class="definition">Definición de independencia para variables aleatorias bidimensionales continuas. </l>
+Sean $(X,Y)$ una **variable aleatoria bidimensional continua** con **función de densidad conjunta** $f_{XY}$ y **funciones de probabilidad marginales** $f_X$ y $f_Y$. Entonces $X$ e $Y$ son independientes si:
+$$
+f_{XY}(x,y)=f_X(x)\cdot f_Y(y),\ \mbox{para todo $x,y\in\mathbb{R}$.}
+$$
+
+## Independencia de variables aleatorias continuas. Ejemplo
+<div class="example">
+**Ejemplo**
+
+Recordemos el ejemplo siguiente visto donde teníamos una **variable aleatoria bidimensional continua** $(X,Y)$ con **función de densidad conjunta**:
+$$
+f_{XY}(x,y)=\begin{cases}
+1, & \mbox{ si }0\leq x\leq 1,\ 0\leq y\leq 1, \\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+y con densidad marginales:
+$$
+f_{X}(x)=\begin{cases}
+1, & \mbox{ si }0\leq x\leq 1,\\
+0, & \mbox{en caso contrario.}
+\end{cases}\quad f_{Y}(y)=\begin{cases}
+1, & \mbox{ si }0\leq y\leq 1,\\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+</div>
+
+## Independencia de variables aleatorias continuas. Ejemplo
+<div class="example">
+**Ejemplo**
+
+Veamos que son independientes.
+
+Consideremos dos casos:
+
+* $(x,y)\in [0,1]\times [0,1]$. En este caso:
+$$
+f_{XY}(x,y) =1 =1\cdot 1=f_X(x)\cdot f_Y(y).
+$$
+
+* $(x,y)\not\in [0,1]\times [0,1]$. En este caso:
+$$
+f_{XY}(x,y) =0 = f_X(x)\cdot f_Y(y),
+$$
+ya que si $(x,y)\not\in [0,1]\times [0,1]$, o $x\not\in [0,1]$ o $y\not\in [0,1]$. Por tanto $f_X(x)=0$ o $f_Y(y)=0$. En cualquier caso, $f_X(x)\cdot f_Y(y)=0$.
+</div>
+
+## Independencia de variables aleatorias continuas. Ejemplo
+<div class="example">
+**Ejemplo**
+
+Recordemos el ejemplo siguiente visto donde teníamos una **variable aleatoria bidimensional continua** $(X,Y)$ con **función de densidad conjunta**:
+$$
+f_{XY}(x,y)=\begin{cases}
+2 \mathrm{e}^{-x}\mathrm{e}^{-y}, & 0\leq y\leq x < \infty,\\
+0, & \mbox{ en caso contrario,}
+\end{cases}
+$$
+y con densidad marginales:
+$$
+f_X(x)  = 2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right),\mbox{ si }x\geq 0, \quad
+f_Y(y)  =  2\mathrm{e}^{-2y}, \mbox{ si }y\geq 0.
+$$
+En este caso no son independientes ya que claramente $f_{XY}(x,y)\neq f_X(x)\cdot f_Y(y)$.
+</div>
+
+
+## Ejemplo de la variable gausiana bidimensional
+En este caso, recordemos que la **función de densidad conjunta** de $(X,Y)$ es:
+$$
+f_{XY}(x,y)=\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}},\ -\infty <x,y<\infty.
+$$
+Las **funciones de densidad marginales** de $X$ e $Y$ correspondían a $N(0,1)$:
+$$
+f_X(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}},\ -\infty <x<\infty,\quad f_Y(y)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{y^2}{2}},\ -\infty <y<\infty.
+$$
+
+## Ejemplo de la variable gausiana bidimensional
+
+¿Para qué valor(es) de $\rho$ las variables normales estándard $X$ e $Y$ serían independientes?
+
+o, ¿para qué valor(es) de $\rho$ se cumple?
+$$
+f_X(x)\cdot f_Y(y)=\frac{1}{2\pi}\mathrm{e}^{-\frac{x^2+y^2}{2}} = \frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}}.
+$$
+La respuesta es claramente para $\rho=0$.
+
+Por tanto, $\rho$ se puede interpretar como un parámetro de independencia, cuánto más cercano a cero esté, más cerca de la independencia estarán las variables $X$ e $Y$.
