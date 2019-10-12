@@ -1036,7 +1036,7 @@ Si la tabla de la **función de probabilidad conjunta** de $(X,Y)$ contiene alg�
 
 Veamos un caso de independencia.
 
-Consideramos experimento aleatorio de lanzar un dado dos veces. Sea $X$ el resultado del primer lanzamiento e $Y$, el resultado del segundo lanzamiento.
+Consideramos el experimento aleatorio de lanzar un dado dos veces. Sea $X$ el resultado del primer lanzamiento e $Y$, el resultado del segundo lanzamiento.
 
 Veamos que, en este caso, $X$ e $Y$ son independientes.
 
@@ -1159,3 +1159,360 @@ $$
 La respuesta es claramente para $\rho=0$.
 
 Por tanto, $\rho$ se puede interpretar como un parámetro de independencia, cuánto más cercano a cero esté, más cerca de la independencia estarán las variables $X$ e $Y$.
+
+## Relación de la independencia y la función de distribución
+El siguiente resultado nos da la relación entre la **independencia de variables aleatorias** y su **función de distribución conjunta**:
+
+<l class="prop">Teorema. </l>
+Sea $(X,Y)$ una variable aleatoria bidimensional. Entonces 
+$X$ e $Y$ son independientes si, y sólo si, la **función de distribución conjunta** es el producto de las **funciones de distribución marginales** en todo valor $(x,y)\in\mathbb{R}^2$:
+$$
+F_{XY}(x,y)=F_X(x)\cdot F_Y(y),\ (x,y)\in\mathbb{R}^2.
+$$
+
+## Ejemplo de variables aleatorias discretas independientes
+<div class="example">
+**Ejemplo**
+
+
+Consideramos el experimento aleatorio de lanzar un dado dos veces. Sea $X$ el resultado del primer lanzamiento e $Y$, el resultado del segundo lanzamiento.
+
+Recordemos que, en este caso, $X$ e $Y$ son independientes.
+
+En primer lugar notemos que si $x<1$ o $y<1$, $F_{XY}(x,y)=0$ ya que el suceso $\{X\leq x,\ Y\leq y\}$ es vacío.
+
+De la misma forma como $x<1$ o $y<1$, o el suceso $\{X\leq x\}$ o el suceso $\{Y\leq y\}$ son vacíos. Por tanto, o $F_X(x)=0$ o $F_Y(y)=0$.
+
+En cualquier caso, se cumple $F_{XY}(x,y)=0=F_X(x)\cdot F_Y(y)$.
+
+Podemos suponer, por tanto, que $x\geq 1$ e $y\geq 1$.
+
+</div>
+
+## Ejemplo de variables aleatorias discretas independientes
+<div class="example">
+
+Sea $(x,y)\in \mathbb{R}^2$ con $x\geq 1$ e $y\geq 1$. Podemos suponer tal que existen dos valores $i$ y $j$ en $\{1,2,\ldots\}$ con $i\leq x < i+1$ y $j\leq y <j+1$.
+
+
+El valor de la **función de distribución conjunta** en $(x,y)$ será: 
+$$
+F_{XY}(x,y)=\begin{cases}
+\frac{i\cdot j}{36}, & \mbox{si }i\leq 6, \ j\leq 6, \\
+\frac{6 i}{36}, & \mbox{si }i\leq 6,\ j\geq 6,\\
+\frac{6 j}{36}, & \mbox{si }i\geq 6,\ j\leq 6,\\
+1, & \mbox{ si }i\geq 6,\ j\geq 6,
+\end{cases}
+$$
+</div>
+## Ejemplo de variables aleatorias discretas independientes
+<div class="example">
+ya que:
+$$
+\begin{array}{rl}
+F_{XY}(x,y) & =P(X\leq i,\ Y\leq j)=P(\{(k,l)\in \{1,2,3,4,5,6\}^2,\ |\ k\leq i,\ l\leq j\})\\ & =P(\{(1,1),\ldots,(1,j),\ldots,(i,1),\ldots,(i,j)\})=\begin{cases}
+\frac{i\cdot j}{36}, & \mbox{si }i\leq 6, \ j\leq 6, \\
+\frac{6 i}{36}, & \mbox{si }i\leq 6,\ j\geq 6,\\
+\frac{6 j}{36}, & \mbox{si }i\geq 6,\ j\leq 6,\\
+1, & \mbox{ si }i\geq 6,\ j\geq 6,
+\end{cases},
+\end{array}
+$$
+ya que claramente el cardinal del conjunto $\{(1,1),\ldots,(1,j),\ldots,(i,1),\ldots,(i,j)\}$ es $\begin{cases}
+i\cdot j, & \mbox{si }i\leq 6, \ j\leq 6, \\
+6 i, & \mbox{si }i\leq 6,\ j\geq 6,\\
+6 j, & \mbox{si }i\geq 6,\ j\leq 6,\\
+36, & \mbox{ si }i\geq 6,\ j\geq 6.
+\end{cases}$.
+</div>
+
+## Ejemplo de variables aleatorias discretas independientes
+<div class="example">
+
+Hallemos ahora la función de distribución de $X$ e $Y$ que consiste en el resultado del lanzamiento de un dado.
+
+Dado $x\in\mathbb{R}$ con $x\geq 1$, existe un $i$ con $i\in\{1,2,\ldots,\}$ con $i\leq x <i+1$. En este caso, el valor de $F_X(x)$ es:
+$$
+F_X(x)=\begin{cases}
+\frac{i}{6}, &\mbox{si }i\leq 6,\\
+1, & \mbox{si }i\geq 6,
+\end{cases}
+$$
+ya que:
+$$
+F_X(x)=F_X(i)=P(X\leq i)=P(\{k\in\{1,2,3,4,5,6\},\ |\ k\leq i\})=\begin{cases}
+\frac{i}{6}, &\mbox{si }i\leq 6,\\
+1, & \mbox{si }i\geq 6,
+\end{cases},
+$$
+ya que el cardinal del conjunto $\{k\in\{1,2,3,4,5,6\},\ |\ k\leq i\}$ es $\begin{cases}
+i, &\mbox{si }i\leq 6,\\
+6, & \mbox{si }i\geq 6.
+\end{cases}$
+</div>
+
+## Ejemplo de variables aleatorias discretas independientes
+<div class="example">
+La función de distribución de $Y$ es de la misma forma.
+
+Por último, comprobemos que se verifica que $F_{XY}(x,y)=F_X(x)\cdot F_Y(y)$, si $x\geq 1$ e $y\geq 1$.
+
+Sea $(x,y)\in\mathbb{R}^2$ y sean los enteros $i$ y $j$ tales que $i\leq x<i+1$ y $j\leq y<j+1$. Consideremos 4 casos:
+
+* $i\leq 6, \ j\leq 6$. En este caso:
+$$
+F_{XY}(x,y)=\frac{i\cdot j}{36}=\frac{i}{6}\cdot \frac{j}{6}=F_X(x)\cdot F_Y(y).
+$$
+
+* $i\leq 6,\ j\geq 6$. En este caso:
+$$
+F_{XY}(x,y)=\frac{6i}{36}=\frac{i}{6}\cdot 1=F_X(x)\cdot F_Y(y).
+$$
+
+
+</div>
+## Ejemplo de variables aleatorias discretas independientes
+<div class="example">
+* $i\geq 6,\ j\leq 6$. En este caso:
+$$
+F_{XY}(x,y)=\frac{6j}{36}=1\cdot \frac{j}{6}=F_X(x)\cdot F_Y(y).
+$$
+
+* $i\geq 6,\ j\geq 6$. En este caso:
+$$
+F_{XY}(x,y)=1=1\cdot 1=F_X(x)\cdot F_Y(y).
+$$
+
+En resumen, para todo $(x,y)\in \mathbb{R}^2$ se verifica que $F_{XY}(x,y)=F_X(x)\cdot F_Y(y)$, tal como queríamos ver.
+</div>
+
+
+## Ejemplo de variables aleatorias continuas independientes
+<div class="example">
+**Ejemplo**
+
+Recordemos la variable aleatoria bidimensional continua con **función de densidad conjunta**:
+$$
+f_{XY}(x,y)=\begin{cases}
+1, & \mbox{ si }0\leq x\leq 1,\ 0\leq y\leq 1, \\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+Su **función de distribución conjunta** es: 
+$$
+F_{XY}(x,y)=\begin{cases}
+0, & \mbox{si }x<0,\mbox{ o }y<0,\\
+xy, & \mbox{si }0\leq x\leq 1,\ 0\leq y\leq 1, \\
+x, & \mbox{si }0\leq x\leq 1,\ y> 1, \\
+y, & \mbox{si }0\leq y\leq 1,\ x> 1, \\
+1, & x\geq 1,\ y\geq 1.
+\end{cases}
+$$
+</div>
+
+## Ejemplo de variables aleatorias continuas independientes
+<div class="example">
+Recordemos también que las **distribuciones marginales** de $X$ e $Y$ eran uniformes en el intervalo $[0,1]$. Por tanto, las **funciones de distribución marginales** serán:
+$$
+F_X(x)=\begin{cases}
+0, & \mbox{si }x\leq 0, \\
+x, & \mbox{si }0\leq x\leq 1, \\
+1, & \mbox{si }x\geq 1. \\
+\end{cases},\quad 
+F_Y(y)=\begin{cases}
+0, & \mbox{si }y\leq 0, \\
+y, & \mbox{si }0\leq y\leq 1, \\
+1, & \mbox{si }y\geq 1. \\
+\end{cases}
+$$
+Recordemos que $X$ e $Y$ son independientes. Verifiquemos que $F_{XY}(x,y)=F_X(x)\cdot F_Y(y)$. 
+
+Distinguiremos cinco casos:
+
+* $x<0$ o $y<0$. En este caso, $F_{XY}(x,y)=0$ y, o $F_X(x)=0$, si $x<0$, o $F_Y(y)=0$, si $y<0$. En cualquier caso, se cumple que $F_{XY}(x,y)=F_X(x)\cdot F_Y(y)$.
+
+* $0\leq x\leq 1,\ 0\leq y\leq 1$. En este caso, $F_{XY}(x,y)=xy$, $F_X(x)=x$ y $F_Y(y)=y$. Claramente, se cumple que $F_{XY}(x,y)=F_X(x)\cdot F_Y(y)$.
+
+</div>
+
+## Ejemplo de variables aleatorias continuas independientes
+<div class="example">
+
+* $0\leq x\leq 1,\ y> 1$. En este caso, $F_{XY}(x,y)=x$, $F_X(x)=x$ y $F_Y(y)=1$. Claramente, se cumple que $F_{XY}(x,y)=F_X(x)\cdot F_Y(y)$.
+
+* $x >1,\ 0\leq y\leq  1$. En este caso, $F_{XY}(x,y)=y$, $F_X(x)=1$ y $F_Y(y)=y$. Claramente, se cumple que $F_{XY}(x,y)=F_X(x)\cdot F_Y(y)$.
+
+* $x\geq 1,\ y\geq 1$. En este caso, $F_{XY}(x,y)=1$, $F_X(x)=1$ y $F_Y(y)=1$. Claramente, se cumple que $F_{XY}(x,y)=F_X(x)\cdot F_Y(y)$.
+
+
+</div>
+
+# Momentos conjuntos y valores esperandos conjuntos
+
+## Introducción
+
+El **valor esperado** de una variable aelatoria $X$ se identifica con el *centro de masa de la distribución de $X$*. 
+
+La **varianza** proporciona una medida de la *extensión de la distribución*. 
+
+En el caso de dos variables aleatorias, estamos interesados en cómo $X$ e $Y$ varían juntas. 
+
+En particular, nos interesa saber si la variación de $X$ e $Y$ está correlacionada. Por ejemplo, si $X$ aumenta, ¿Y tiende a aumentar o disminuir? 
+
+Los momentos conjuntos de $X$ e $Y$, que se definen como valores esperados de las funciones de $X$ e $Y$, proporcionan esta información.
+
+## Valor esperado de una función de dos variables aleatorias
+Sea $(X,Y)$ una variable aleatoria bidimensional. 
+
+Sea $P_{XY}$ su **función de probabilidad conjunta** en el caso en que $(X,Y)$ sea **discreta** y $f_{XY}$ su **función de densidad conjunta** en el caso en que $(X,Y)$ sea **continua**.
+
+Sea $Z=g(X,Y)$ una **variable aleatoria unidimensional** función de las variables $X$ e $Y$. Por ejemplo: 
+
+* Suma de las dos variables $g(x,y)=x+y$: $Z=X+Y$.
+* Producto de las dos variables $g(x,y)=x\cdot y$: $Z=X\cdot Y$.
+* Suma de los cuadrados de las variables $g(x,y)=x^2+y^2$: $Z=X^2+Y^2$.
+
+## Valor esperado de una función de dos variables aleatorias
+Hay que tener en cuenta que $Z$, como **variable aleatoria unidimensional** tiene una **función de probabilidad** $P_Z$ en el caso en que $(X,Y)$ sea discreta y una **función de densidad** $f_Z$ en el caso en que $(X,Y)$ sea continua.
+
+El siguiente resultado nos dice cómo calcular el **valor esperado** de $Z$ sin tener que calcular $P_Z$ o $f_Z$, sólo usando la información de la **variable aleatoria conjunta** $(X,Y)$:
+
+## Valor esperado de una función de dos variables aleatorias
+
+<l class="prop">Proposición. </l>
+El valor esperado de $Z$ se puede hallar usando la expresión siguiente:
+
+* en el caso en que $(X,Y)$ sea discreta con $(X,Y)(\Omega)=\{(x_i,y_j),\ i=1,2,\ldots, j=1,2,\ldots\}$,
+$$
+E(Z)  = E(g(X,Y))  =\sum_{x_i}\sum_{y_j}g(x_i,y_j)P(x_i,y_j),
+$$
+
+* en el caso en que $(X,Y)$ sea continua:
+$$
+E(Z)=E(g(X,Y))=\int_{-\infty}^\infty g(x,y)f_{XY}(x,y)\, dx\, dy.
+$$
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Consideremos el ejemplo de la variable $(S,P)$ que nos daba la suma y el producto de los resultados cuando lanzábamos dos dados. 
+
+Vamos a calcular $E(X+Y)$.
+
+Recordemos que ya hemos calculado $P_{XY}$. La expresión de $E(X+Y)$ será:
+$$
+\begin{array}{rll}
+E(X+Y) & = &(2+1)\cdot P_{XY}(1,2)+(3+2)\cdot P_{XY}(3,2)+(4+3)\cdot P_{XY}(4,3)+(4+4)\cdot P_{XY}(4,4)\\ & &
++ (5+4)\cdot P_{XY}(5,4)+(5+6)\cdot P_{XY}(5,6)+(6+5)\cdot P_{XY}(6,5)+(6+8)\cdot P_{XY}(6,8)\\ & & 
++ (6+9)\cdot P_{XY}(6,9)+(7+6)\cdot P_{XY}(7,6)+(7+10)\cdot P_{XY}(7,10)+(7+12)\cdot P_{XY}(7,12)\\ & & 
++ (8+12)\cdot P_{XY}(8,12)+(8+15)\cdot P_{XY}(8,15)+(8+16)\cdot P_{XY}(8,16)\\ & & +(9+18)\cdot P_{XY}(9,18)
++ (9+20)\cdot P_{XY}(9,20)+(10+24)\cdot P_{XY}(10,24)\\ & & +(10+25)\cdot P_{XY}(10,25)+(11+30)\cdot P_{XY}(11,30) 
++ (12+36)\cdot P_{XY}(12,36) \\ & = & 3\cdot \frac{1}{36}+5\cdot\frac{2}{36}+7\cdot \frac{2}{36}+8\cdot \frac{1}{36}+9\cdot \frac{2}{36}+11\cdot\frac{2}{36}+11\cdot \frac{2}{36}+14\cdot\frac{2}{36}+15\cdot\frac{1}{36}\\ & & 
++ 13\cdot\frac{2}{36}+17\cdot\frac{2}{36}+19\cdot\frac{2}{36}+20\cdot\frac{2}{36}+23\cdot\frac{2}{36}+24\cdot\frac{1}{36}+27\cdot\frac{2}{36}+29\cdot\frac{2}{36} \\ & & 
++ 34\cdot\frac{2}{36}+35\cdot\frac{1}{36}+41\cdot\frac{2}{36}+48\cdot\frac{1}{36}=\frac{`r 3+10+14+8+18+22+22+14*2+15+13*2+17*2+19*2+20*2+23*2+24+27*2+29*2+34*2+35+41*2+48`}{36}= `r (3+10+14+8+18+22+22+14*2+15+13*2+17*2+19*2+20*2+23*2+24+27*2+29*2+34*2+35+41*2+48)/36`.
+\end{array}
+$$
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Recordemos el ejemplo donde $(X,Y)$ era una variable aleatoria bidimensional continua con **función de densidad conjunta**:
+$$
+f_{XY}(x,y)=\begin{cases}
+2 \mathrm{e}^{-x}\mathrm{e}^{-y}, & 0\leq y\leq x < \infty,\\
+0, & \mbox{ en caso contrario.}
+\end{cases}
+$$
+Calculemos $E(X\cdot Y)$:
+$$
+\begin{array}{rl}
+E(X\cdot Y) & =\int_{x=0}^{x=\infty} \int_{y=0}^{y=x} 2 x y \mathrm{e}^{-x}\mathrm{e}^{-y}\, dy\, dx=2\int_{x=0}^{x=\infty} x \mathrm{e}^{-x} \int_{y=0}^{y=x}  y \mathrm{e}^{-y}\, dy\, dx = 2\int_{x=0}^{x=\infty}x \mathrm{e}^{-x} \left[-\mathrm{e}^{-y} (y+1)\right]_{y=0}^{y=x}\, dx\\ & =
+2\int_{x=0}^{x=\infty}x \mathrm{e}^{-x} \left(1-\mathrm{e}^{-x}(x+1)\right)\, dx = 2\int_{x=0}^{x=\infty}x\left( \mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)-x^2\mathrm{e}^{-2x}\, dx \\ & =
+2\left[-\mathrm{e}^{-x}(x+1)+\frac{1}{4}\mathrm{e}^{-2 x}(1+2x)+\frac{1}{4} \mathrm{e}^{-2 x} \left(2 x^2+2
+   x+1\right)\right]_{x=0}^{x=\infty} = 2\cdot \left(1-\frac{1}{4}-\frac{1}{4}\right)=1.
+\end{array}
+$$
+En el último cálculo hemos usado integración por partes para integrar $\int x\mathrm{e}^{-x}\,dx$, $\int x\mathrm{e}^{-2x}\,dx$ y $\int x^2\mathrm{e}^{-2x}\, dx$.
+</div>
+
+<div class="exercise">
+**Ejercicio**
+
+Hallar $E(X+Y)$ para el ejemplo anterior.
+
+</div>
+
+## Valor esperado de una función de dos variables aleatorias independientes
+
+El siguiente resultado nos simplifica el cálculo del **valor esperado de una función de dos variables aleatorias** en el caso en que sean **independientes**:
+
+<l class="prop">Proposición: cálculo del valor esperado de una función de dos variables aleatorias en el caso de independencia. </l>
+Sea $(X,Y)$ una variable aleatoria bidimensional donde suponemos que $X$ e $Y$ son independientes. 
+Sea $Z=g(X,Y)$ una variable aleatoria unidimensional función de $X$ e $Y$ donde suponemos que podemos "separar" las variables $x$ e $y$ en la función $g$. O sea, existen dos funciones $g_x$ y $g_y$ tal que $g(x,y)=g_x(x)\cdot g_y(y)$ para todo valor $x,y\in\mathbb{R}$. En este caso, el valor esperado de $Z$ se puede calcular como:
+$$
+E(Z)=E(g(X,Y))=E_X(g_x(X))\cdot E_Y(g_y(Y)).
+$$
+
+## Valor esperado de una función de dos variables aleatorias independientes
+O sea, el cálculo de $E(g(X,Y))$ que sería una suma doble en el caso de que $(X,Y)$ sea **discreta** o una integral doble en el caso en que $(X,Y)$ sea continua se transforma en el producto de dos sumas simples (caso **discreto**) o el producto de dos integrales simples (caso **continuo**):
+$$
+\begin{array}{rl}
+E(Z) & =E(g(X,Y))=\left(\sum_{x_i} g_x(x_i)\cdot P_X(x_i)\right)\cdot \left(\sum_{y_j} g_y(y_j)\cdot P_Y(y_j)\right),\\ &\ \quad \mbox{caso discreto},\\
+E(Z) & =E(g(X,Y))=\left(\int_{-\infty}^\infty g_x(x)\cdot f_X(x)\, dx\right)\cdot \left(\int_{-\infty}^\infty g_y(y)\cdot f_Y(y)\right), \\  &\ \quad \mbox{caso continuo}.
+\end{array}
+$$
+
+## Valor esperado de una función de dos variables aleatorias independientes
+Un caso particular de aplicación de la proposición anterior sería cuando querramos calcular $E(X\cdot Y)$. En este caso $g(x,y)=x\cdot y$, $g_x(x)=x$, y $g_y(y)=y$. 
+
+Podemos escribir, por tanto:
+$$
+E(X\cdot Y)=E_X(X)\cdot E_Y(Y),
+$$
+si $X$ e $Y$ son independientes.
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+
+Recordemos el experimento aleatorio que consiste en lanzar un dado dos veces. Sea $X$ el resultado del primer lanzamiento e $Y$, el resultado del segundo lanzamiento.
+
+Hemos visto que $X$ e $Y$ son independientes. 
+
+Las marginales de $X$ e $Y$ recordemos que son las siguientes:
+<div class="center">
+| $X$ o $Y$| 1   |2 | 3 | 4 | 5 |  6
+|----|---|---|---|---|---|---
+| $P_X(i)$ o $P_Y(i)$ | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$
+</div>
+Calculemos $E(X\cdot Y)$ usando la proposición anterior:
+$$
+E(X\cdot Y)=E_X(X)\cdot E_Y(Y)=\left(\sum_{i=1}^6 i\cdot \frac{1}{6}\right)\cdot \left(\sum_{i=1}^6 i\cdot \frac{1}{6}\right)=\left(\frac{21}{6}\right)^2 = `r (21/6)^2`.
+$$
+Dejamos como ejercicio el cálculo de $E(X\cdot Y)$ usando la **función de probabilidad conjunta**  $P_{XY}$ y comprobar que da el mismo resultado.
+</div>
+
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Recordemos la variable aleatoria bidimensional continua con **función de densidad conjunta**:
+$$
+f_{XY}(x,y)=\begin{cases}
+1, & \mbox{ si }0\leq x\leq 1,\ 0\leq y\leq 1, \\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+donde vimos que $X$ e $Y$ eran independientes y de distribución uniforme en el intervalo $[0,1]$.
+
+Calculemos $E(X\cdot Y)$ usando la proposición:
+$$
+E(X\cdot Y)=E_X(X)\cdot E_Y(Y)=\int_0^1 1\, dx\cdot \int_0^1 1\, dy =1\cdot 1=1.
+$$
+Dejamos como ejercicio el cálculo de $E(X\cdot Y)$ usando la **función de densidad conjunta**  $f_{XY}$ y comprobar que da el mismo resultado.
+</div>
