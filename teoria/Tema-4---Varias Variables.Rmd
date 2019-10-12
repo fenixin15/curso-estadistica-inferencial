@@ -1516,3 +1516,146 @@ E(X\cdot Y)=E_X(X)\cdot E_Y(Y)=\int_0^1 1\, dx\cdot \int_0^1 1\, dy =1\cdot 1=1.
 $$
 Dejamos como ejercicio el cálculo de $E(X\cdot Y)$ usando la **función de densidad conjunta**  $f_{XY}$ y comprobar que da el mismo resultado.
 </div>
+
+## Momentos conjuntos
+A continuación vamos a definir el momento de orden $(i,j)$ para una variable aleatoria bidimensional $(X,Y)$ para intentar obtener información de su comportamiento conjunto:
+
+<l class="definition">Definición de momento conjunto. </l>
+Sean $(X,Y)$ una variable aleatoira bidimensional con **función de probabilidad conjunta** $P_{XY}$ en el caso discreto y **función de densidad conjunta** $f_{XY}$ en el caso continuo. Dados $k$ y $l$ números enteros positivos, definimos el **momento conjunto de orden $(k,l)$** para la variable $(X,Y)$ como:
+$$
+E\left(X^k Y^l\right)=\begin{cases}
+\sum_{x_i}\sum_{y_j} x_i^k y_j^l P_{XY}(x_i,y_j), & \mbox{ caso discreto,} \\
+\int_{-\infty}^\infty\int_{-\infty}^\infty x^k y^l f_{XY}(x,y)\, dx\, dy. & \mbox{ caso continuo.}
+\end{cases}
+$$
+
+## Momentos conjuntos
+<l class="observ">Observación.</l>
+Si consideramos $l=0$, los momentos conjuntos de orden $(k,0)$ coinciden con los momentos de orden $k$ de la variable aleatoria $X$. 
+
+De la misma forma, considerando $k=0$, los momentos conjuntos de orden $(0,l)$ coinciden con los momentos de orden $l$ de la variable aleatoria $Y$.
+
+Para $l=1$ y $k=1$ obtenemos el momento de orden $(1,1)$ ya visto anteriormente: $E(X\cdot Y)$, denominado **correlación entre las variables $X$ e $Y$**. Si dicha correlación es nula, $E(X\cdot Y)=0$, se dice que las variables $X$ e $Y$ son **ortogonales**.
+
+## Momentos conjuntos centrados en las medias
+A continuación definamos los **momentos conjuntos centrados en las medias**:
+
+<l class="definition">Definición de momento conjunto. </l>
+Sean $(X,Y)$ una variable aleatoira bidimensional con **función de probabilidad conjunta** $P_{XY}$ en el caso discreto y **función de densidad conjunta** $f_{XY}$ en el caso continuo. Sean $\mu_X=E(X)$ y $\mu_Y=E(Y)$ los **valores esperados** de las variables $X$ e $Y$, respectivamente. Dados $k$ y $l$ números enteros positivos, definimos el **momento conjunto de orden $(k,l)$ centrado en las medias** para la variable $(X,Y)$ como:
+$$
+E\left((X-\mu_X)^k (Y-\mu_Y)^l\right)=\begin{cases}
+\sum_{x_i}\sum_{y_j} (x_i-\mu_X)^k (y_j-\mu_Y)^l P_{XY}(x_i,y_j), & \\\ \qquad \mbox{ caso discreto,}& \\
+\int_{-\infty}^\infty\int_{-\infty}^\infty (x-\mu_X)^k (y-\mu_Y)^l f_{XY}(x,y)\, dx\, dy. & \\ \ \qquad\mbox{ caso continuo.} &
+\end{cases}
+$$
+
+## Covariancia entre las variables
+El **momento conjunto centrado en las medias para $k=1$ y $l=1$** se denomina **covariancia** entre las variables $X$ e $Y$:
+$$
+\mathrm{Cov}(X,Y)=E((X-\mu_X)(Y-\mu_Y)).
+$$
+La covariancia puede calcularse a partir de la **correlación** entre las variables:
+$$
+\mathrm{Cov}(X,Y)=E((X-\mu_X)(Y-\mu_Y))=E(X\cdot Y)-\mu_X\cdot \mu_Y,
+$$
+
+## Covariancia entre las variables
+ya que, usando las propiedades de la esperanza, tenemos:
+$$
+\begin{array}{rl}
+E((X-\mu_X)(Y-\mu_Y)) & =E(X\cdot Y-\mu_Y X-\mu_X Y+\mu_X\cdot \mu_Y)\\ & =E(X\cdot Y)-\mu_YE(X)-\mu_X E(Y)+\mu_X\cdot \mu_Y \\ &  = E(X\cdot Y)-\mu_Y\cdot \mu_X-\mu_X \cdot \mu_Y+\mu_X\cdot \mu_Y \\ & = E(X\cdot Y)-\mu_X\cdot \mu_Y.
+\end{array}
+$$
+
+## Covarianza entre las variables
+<l class="observ">Observación. </l>
+Si las variables $X$ e $Y$ son **independientes**, su **covarianza** es nula ya que vimos que $E(X\cdot Y)=\mu_X\cdot \mu_y$.
+
+La **covarianza** es una medida de lo relacionadas están las variables $X$ e $Y$:
+
+* Si cuando $X\geq \mu_X$, también ocurre que $Y\geq \mu_Y$ o viceversa, cuando $X\leq \mu_X$, también ocurre que $Y\leq \mu_Y$, el valor $(X-\mu_X)(Y-\mu_Y)$ será positivo y la **covarianza** será positiva.
+
+* Si por el contrario, cuando $X\geq \mu_X$, también ocurre que $Y\leq \mu_Y$ o viceversa, cuando $X\leq \mu_X$, también ocurre que $Y\geq \mu_Y$, el valor $(X-\mu_X)(Y-\mu_Y)$ será negativo y la **covarianza** será negativa.
+
+* En cambio, si a veces ocurre una cosa y a veces ocurre otra, la **covarianza** va cambiando de signo y puede tener un valor cercano a 0.
+
+## Coeficiente de correlación entre las variables
+La **covarianza** depende de las unidades en las que están las variables $X$ e $Y$ ya que si $a>0$ y $b>0$, entonces:
+$$
+\mathrm{Cov}(aX,bY)=a\cdot b\cdot \mathrm{Cov}(X,Y).
+$$
+Por tanto, si queremos "medir" la relación que existe entre las variables $X$ tendremos que "normalizar" la **covarianza** definiendo el **coeficiente de correlación** entre las variables $X$ e $Y$:
+
+## Coeficiente de correlación entre las variables
+
+<l class="definition">Definición del coeficiente de correlación. </l>
+Sea $(X,Y)$ una variable aleatoria bidimensional. Se define el **coeficiente de correlación** entre las variables $X$ e $Y$ como: 
+$$
+\rho_{XY}=\frac{\mathrm{Cov}(X,Y)}{\sqrt{\mathrm{Var}(X)}\cdot\sqrt{\mathrm{Var}(Y)}}=\frac{E(X\cdot Y)-\mu_X\cdot \mu_Y}{\sqrt{E\left(X^2\right)-\mu_X^2}\cdot \sqrt{E\left(Y^2\right)-\mu_Y^2}}.
+$$
+
+<l class="observ">Observación. </l>
+Si las variables $X$ e $Y$ son **independientes**, su **coeficiente de correlación** $\rho_{XY}=0$ es nulo ya que su **covarianza** lo es.
+
+
+## Coeficiente de correlación entre las variables
+El **coeficiente de correlación** es un valor normalizado ya que siempre está entre -1 y 1: $-1\leq\rho_{XY}\leq 1$.
+
+
+Para ver la demostración de este hecho, sean $\mu_X=E(X)$, $\mu_Y=E(Y)$, $\sigma_X=\sqrt{\mathrm{Var}(X)}$ y $\sigma_Y=\sqrt{\mathrm{Var}(Y)}$. 
+
+Consideremos la variable $Z=\left(\frac{X-\mu_X}{\sigma_X}\pm \frac{Y-\mu_Y}{\sigma_Y}\right)^2$. Como $Z\geq 0$, tenemos que $E(Z)\geq 0$. Desarrollemos el valor de $E(Z)$:
+
+## Coeficiente de correlación entre las variables
+$$
+\begin{array}{rl}
+E(Z) & = E\left(\frac{X-\mu_X}{\sigma_X}\pm \frac{Y-\mu_Y}{\sigma_Y}\right)^2 = E\left(\left(\frac{X-\mu_X}{\sigma_X}\right)^2+\left(\frac{Y-\mu_Y}{\sigma_Y}\right)^2\pm 2\left(\frac{X-\mu_X}{\sigma_X}\right) \left(\frac{Y-\mu_Y}{\sigma_Y}\right)\right) \\ & =
+E\left(\left(\frac{X-\mu_X}{\sigma_X}\right)^2\right)+E\left(\left(\frac{Y-\mu_Y}{\sigma_Y}\right)^2\right)\pm 2 E\left(\left(\frac{X-\mu_X}{\sigma_X}\right) \left(\frac{Y-\mu_Y}{\sigma_Y}\right)\right) \\ & =
+\frac{1}{\sigma_X^2}E\left(\left(X-\mu_X\right)^2\right)+\frac{1}{\sigma_Y^2}E\left(\left(Y-\mu_Y\right)^2\right)\pm \frac{2}{\sigma_X\sigma_Y}E\left(\left(X-\mu_X\right) \left(Y-\mu_Y\right)\right) \\ & = \frac{1}{\sigma_X^2}\sigma_X^2+
+\frac{1}{\sigma_Y^2}\sigma_Y^2 \pm\frac{2}{\sigma_X\sigma_Y} \mathrm{Cov}(X,Y) = 1+1\pm 2\frac{\mathrm{Cov}(X,Y)}{\sigma_X\sigma_Y}=2(1\pm\rho_{XY})
+\end{array}
+$$
+Ahora, como $E(Z)\geq 0$, tenemos que $1\pm \rho_{XY}\geq 0$, lo que significa que, por un lado $1+\rho_{XY}\geq 0$ y, por otro, $1-\rho_{XY}\geq 0$. De la primera inecuación, deducimos que $\rho_{XY}\geq -1$ y de la segunda, $\rho_{XY}\leq 1$. 
+
+En resumen, $-1\leq\rho_{XY}\leq 1$, tal como queríamos ver.
+
+
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Hallemos el **coeficiente de correlación** para el ejemplo de la variable aleatoria bidimensional continua con **función de densidad conjunta**:
+$$
+f_{XY}(x,y)=\begin{cases}
+2 \mathrm{e}^{-x}\mathrm{e}^{-y}, & 0\leq y\leq x < \infty,\\
+0, & \mbox{ en caso contrario,}
+\end{cases}
+$$
+Recordemos los cálculos realizados anteriormente:
+
+* $E(X\cdot Y)=1.$
+
+* $f_X(x)=2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)$, si $x\geq 0$. Su esperanza será:
+$$
+E(X)=\int_0^\infty x 2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\, dx=2 \left[\frac{1}{4} \mathrm{e}^{-2 x} (2 x+1)-\mathrm{e}^{-x}(x+1)\right]_0^\infty = 2\left(1-\frac{1}{4}\right)=\frac{3}{2}.
+$$
+</div>
+
+## Ejemplo
+<div class="example">
+
+Calculemos a continuación su varianza: $\mathrm{Var}(X)=E\left(X^2\right)-\mu_X^2$. El valor de $E\left(X^2\right)$ será:
+$$
+E\left(X^2\right)=\int_0^\infty x^2 2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\, dx=2 \left[\frac{1}{4} \mathrm{e}^{-2 x}  (2x^2+2x+1)- \mathrm{e}^{-x} (x^2+2x+2)\right]_0^\infty = 2\left(2-\frac{1}{4}\right)=\frac{7}{2}.
+$$
+El valor de la varianza de $X$ será: $\mathrm{Var}(X)=\frac{7}{2}-\left(\frac{3}{2}\right)^2 = \frac{5}{4}.$
+
+* La variable $Y$ era exponencial de parámetro $\lambda =2$. Por tanto, $E(Y)=\frac{1}{2}$, $\mathrm{Var}(Y)=\frac{1}{4}$.
+
+El **coeficiente de correlación** entre las variables $X$ e $Y$ será:
+$$
+\rho_{XY}=\frac{E(X\cdot Y)-\mu_X\cdot \mu_Y}{\sqrt{\mathrm{Var}(X)}\cdot\sqrt{\mathrm{Var}(Y)}}=\frac{1-\frac{3}{2}\cdot \frac{1}{2}}{\sqrt{\frac{5}{4}}\cdot\sqrt{\frac{1}{4}}}=\frac{\sqrt{5}}{5}\approx `r round(sqrt(5)/5,3)`.
+$$
+Vemos que la **correlación** entre las variables $X$ e $Y$ es positiva pero no demasiado ya que su valor no está cercano a 1.
+</div>
