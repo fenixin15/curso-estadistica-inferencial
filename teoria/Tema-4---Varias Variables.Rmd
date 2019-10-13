@@ -1659,3 +1659,113 @@ $$
 $$
 Vemos que la **correlación** entre las variables $X$ e $Y$ es positiva pero no demasiado ya que su valor no está cercano a 1.
 </div>
+
+## Ejemplo normal bidimensional
+<div class="example">
+Recordemos que la **función de densidad** de la variable aleatoria **normal bidimensional** es:
+$f_{XY}(x,y)=\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}},\ -\infty <x,y<\infty.$
+
+Las **variables aleatorias marginales** eran normales estándard o $N(0,1)$.
+
+Hallemos el **coeficiente de correlación $\rho_{XY}$** en este caso.
+
+Calculemos $E(X\cdot Y)$:
+$$
+\begin{array}{rl}
+E(X\cdot Y) & = \int_{-\infty}^\infty x y \frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}}\, dy\, dx = \frac{1}{2\pi\sqrt{1-\rho^2}}\int_{x=-\infty}^{x=\infty}x  \mathrm{e}^{-\frac{x^2}{2(1-\rho^2)}}\int_{y=-\infty}^{y=\infty}y \mathrm{e}^{-\frac{(-2\rho xy+y^2)}{2(1-\rho^2)}}\, dy\, dx \\ & = \frac{1}{2\pi\sqrt{1-\rho^2}}\int_{x=-\infty}^{x=\infty}x  \mathrm{e}^{-\frac{x^2}{2(1-\rho^2)}}  \mathrm{e}^{\frac{\rho^2 x^2}{2(1-\rho^2)}} \int_{y=-\infty}^{y=\infty}y \mathrm{e}^{-\frac{(y-\rho y)^2}{2(1-\rho^2)}}\, dy\, dx,\\ &\ \qquad\mbox{ cambio de variable en la segunda integral $z=\frac{y-\rho x}{\sqrt{1-\rho^2}}$,}\\ & = \frac{1}{2\pi\sqrt{1-\rho^2}}\int_{x=-\infty}^{x=\infty}x  \mathrm{e}^{-\frac{x^2}{2}}  \int_{z=-\infty}^{z=\infty} \left(z\sqrt{1-\rho^2}+\rho x\right)\sqrt{1-\rho^2}\mathrm{e}^{-\frac{z^2}{2}}\, dz\, \\ & =
+\frac{1}{2\pi} \int_{x=-\infty}^{x=\infty}x  \mathrm{e}^{-\frac{x^2}{2}} \left(\sqrt{1-\rho^2}\int_{z=-\infty}^{z=\infty} z \mathrm{e}^{-\frac{z^2}{2}}\, dz +\rho x \int_{z=-\infty}^{z=\infty}\mathrm{e}^{-\frac{z^2}{2}}\, dz \right)\, dx
+\end{array}
+$$
+</div>
+
+
+## Ejemplo normal bidimensional
+<div class="example">
+Ahora, usando que el valor esperado de una variable $N(0,1)$ es cero tenemos que:
+$\int_{z=-\infty}^{z=\infty} z \mathrm{e}^{-\frac{z^2}{2}}\, dz =0,$ y usando que la integral de la **función de densidad** de la $N(0,1)$ ($\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{z^2}{2}}$) sobre todo $\mathbb{R}$ es 1, tenemos que:
+$\int_{z=-\infty}^{z=\infty} \mathrm{e}^{-\frac{z^2}{2}}\, dz =\sqrt{2\pi}.$
+
+Por tanto,
+$$
+E(X\cdot Y)=\frac{\rho}{2\pi} \int_{x=-\infty}^{x=\infty} x^2  \mathrm{e}^{-\frac{x^2}{2}}\sqrt{2\pi}\, dx=\frac{\rho}{\sqrt{2\pi}}\int_{x=-\infty}^{x=\infty} x^2  \mathrm{e}^{-\frac{x^2}{2}}\, dx.
+$$
+Por último, usando que la varianza de la distribución $Z=N(0,1)$ es 1, tenemos que $\mathrm{Var}(Z)=E\left(Z^2\right)-E(Z)^2$. Como $E(Z)=0$, deducimos que $E\left(Z^2\right)=1$:
+$$
+\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty x^2\mathrm{e}^{-\frac{x^2}{2}}\, dx=1,\ \Rightarrow \int_{-\infty}^\infty x^2\mathrm{e}^{-\frac{x^2}{2}}\, dx=\sqrt{2\pi}.
+$$
+El valor de $E(X\cdot Y)$ será:
+$$
+E(X\cdot Y)=\frac{\rho}{\sqrt{2\pi}}\sqrt{2\pi}=\rho.
+$$
+</div>
+
+## Ejemplo normal bidimensional
+<div class="example">
+
+La correlación entre las variables $X$ e $Y$ es precisamente $\rho$.
+
+Ahora, usando que $\mu_X=\mu_Y=0$ y $\sigma_X=\sigma_Y=1$ ya que recordemos que las marginales son $N(0,1)$, el **coeficiente de correlación** entre las variables $X$ e $Y$ será:
+$$
+\rho_{XY}=\frac{E(X\cdot Y)-\mu_X\cdot \mu_Y}{\sqrt{\mathrm{Var}(X)}\cdot\sqrt{\mathrm{Var}(Y)}}=\frac{\rho-0\cdot 0}{1\cdot 1}=\rho.
+$$
+Por tanto, $\rho$ es el **coeficiente de correlación** entre las variables $X$ e $Y$ y mide lo correlacionadas que están dichas variables.
+
+
+</div>
+
+## Incorrelación e independencia
+Hemos visto que si dos variables $X$ e $Y$ son **independientes**, entonces son **incorreladas**, o sea,  la **covarianza** es 0 ($E(X\cdot Y)=E(X)\cdot E(Y)$).
+
+El recíproco, sin embargo, es falso. Veamos un ejemplo de variables **incorreladas** que no son independientes.
+
+<div class="example">
+**Ejemplo de variables aleatorias incorreladas pero no independientes**
+
+Consideremos la variable aleatoria bidimensional continua con **función de densidad**:
+$$
+f_{XY}(x,y)=\begin{cases}
+\frac{3}{8}(x^2+y^2), & \mbox{si }(x,y)\in [-1,1]\times [-1,1],\\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+
+Dejamos como ejercicio comprobar que es una **función de densidad**. O sea, que es positiva y que la integral sobre todo el plano vale 1.
+
+</div>
+
+## Ejemplo de variables aleatorias incorreladas pero no independientes
+<div class="example">
+
+Calculemos las **densidades marginales**:
+$$
+\begin{array}{rl}
+f_X(x) & = \int_{-1}^{1} \frac{3}{8}(x^2+y^2)\, dy = \frac{3}{8}\left[x^2 y+\frac{y^3}{3}\right]_{-1}^1 =\frac{3}{8}\left(2 x^2+\frac{2}{3}\right)=\frac{3}{4} x^2+\frac{1}{4}, \\
+f_Y(y) & = \int_{-1}^{1} \frac{3}{8}(x^2+y^2)\, dx = \frac{3}{8}\left[\frac{x^3}{3}+y^2 x\right]_{-1}^1 =\frac{3}{8}\left(\frac{2}{3}+2 y^2+\right)=\frac{3}{4} y^2+\frac{1}{4}.
+\end{array}
+$$
+
+Los valores esperados de cada variable $X$ e $Y$ serán:
+$$
+\begin{array}{rl}
+E(X) & =\int_{-1}^1 x \left(\frac{3}{4} x^2+\frac{1}{4}\right)\, dx =0, \mbox{al integrar una función impar,}\\
+E(Y) & =\int_{-1}^1 x \left(\frac{3}{4} y^2+\frac{1}{4}\right)\, dx =0, \mbox{al integrar una función impar.}
+\end{array}
+$$
+</div>
+
+## Ejemplo de variables aleatorias incorreladas pero no independientes
+
+<div class="example">
+El valor de la **correlación** entre $X$ e $Y$ será:
+$$
+\begin{array}{rl}
+E(X\cdot Y) & =\int_{-1}^1\int_{-1}^1 x y \frac{3}{8}(x^2+y^2)\, dy\, dx\\ & =\frac{3}{8}\left(\int_{-1}^1\int_{-1}^1 x^3 y\, dy \, dx+\int_{-1}^1\int_{-1}^1 x y^3\, dy \, dx\right) \\ & = \frac{3}{8} \left(\int_{x=-1}^{x=1}x^3 \left[\frac{y^2}{2}\right]_{y=-1}^{y=1}\, dx + \int_{y=-1}^{y=1}y^3 \left[\frac{x^2}{2}\right]_{x=-1}^{x=1}\right)=0.
+\end{array}
+$$
+El **coeficiente de correlación** entre $X$ e $Y$ será: $\rho_{XY}=E(X\cdot Y)-E(X)\cdot E(Y)=0-0\cdot 0=0$. Por tanto, son **incorreladas**.
+
+En cambio no son **independientes** ya que claramente si $(x,y)\in [-1,1]\times [-1,1]$,
+$$
+f_{XY}(x,y)=\frac{3}{8}(x^2+y^2) \neq f_X(x)\cdot f_Y(y)=\left(\frac{3}{4} x^2+\frac{1}{4}\right)\cdot \left(\frac{3}{4} y^2+\frac{1}{4}\right).
+$$
+</div>
