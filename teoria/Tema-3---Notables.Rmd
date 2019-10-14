@@ -2,6 +2,7 @@
 title: "Tema 3 - Distribuciones Notables"
 author: "Ricardo Alberich, Juan Gabriel Gomila y  Arnau Mir"
 date: 
+runtime: shiny
 output: 
   ioslides_presentation:
     widescreen: true
@@ -124,7 +125,29 @@ curve(pbinom(x,size=1,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
+## Shiny gráficos
 
+```{r echo = FALSE}
+
+#selectInput("n_breaks", label = "Number of bins:",
+#             choices = c(10, 20, 35, 50), selected = 20)
+
+sliderInput("p", label = "Probabilidad éxito p:",
+              min = 0.01, max = 0.99, value = 0.25, step = 0.01)
+
+renderPlot({
+par(mfrow=c(1,2))
+plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=input$p),
+     ylim=c(0,1),xlim=c(-1,2),xlab="x",
+     main=paste0(c("Función de probabilidad\n
+                   Ber(p=",input$p,")"),collapse=""))
+lines(x=c(0,0,1,1),y=c(0,1-input$p,0,input$p), type = "h", lty = 2,col="blue")
+curve(pbinom(x,size=1,prob=input$p),
+      xlim=c(-1,2),col="blue",
+       main=paste0(c("Función de distribución\n Ber(p=",input$p,")"),collapse=""))
+par(mfrow=c(1,1))
+})
+```
 
 # Distribución binomial
 
@@ -327,12 +350,12 @@ par(mfrow=c(1,1))
 
 ## Gráficos de la distribución binomial con python
 
-</div class="exercise">
+<div class="exercise">
 Ejercicio
 Buscad en los manuales de python cómo se dibuja la función de probabilidad y de distribución de una binomial.
 </div>
 
-</div class="exercise-sol">
+<div class="exercise-sol">
 Necesitamos más librerías
 
 ```{python}
@@ -352,14 +375,14 @@ plt.vlines(x, 0, binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
 
 
 ## Gráficos de la distribución binomial con python (GGGGRANDES)
-
-```{python dibu_python2,echo=FALSE,fig.width=3,fig.eight=3}
+<div class="center"> 
+```{python dibu_python2,echo=FALSE,fig.width=1,fig.height=1}
 n, p = 5, 0.4
 x = np.arange(binom.ppf(0.01, n, p),binom.ppf(0.99, n, p))
 plt.plot(x, binom.pmf(x, n, p), 'bo', ms=8, label='binom pmf')
 plt.vlines(x, 0, binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
 ```
-
+</div>
 # Distribución geométrica
 
 
@@ -413,21 +436,28 @@ $$
 
 ## Función de distribución geométrica
 
-Ahora, al  ser los intentos sucesos independientes, podemos hacer:
+Ahora, al  ser los intentos sucesos independientes, tenemos que:
 
 $$
 \begin{eqnarray*}
 P(X>3) & = & P(\{FFFF\})= P(F)\cdot P(F)\cdot P(F)\cdot P(F)\\
-&=& (1-p)\cdot (1-p)\cdot (1-p)\cdot (1-p)\\
-&=& (1-p)^{3+1}=(1-p)^{4}.
+&=& (1-p)\cdot (1-p)\cdot (1-p)\cdot (1-p)= (1-p)^{3+1}\\\
+&=&(1-p)^{4}.
 \end{eqnarray*}
 $$
 
-## Función de distribución geométrica
 
-De la misma forma podemos generalizar a cualquier entero positivo $k$ 
+Ahora calculamos 
+
+$$F_X(3)=P(X\leq 3)=1-P(X>3)=1-(1-p)^{3+1}.$$
+
+Ahora podemos generalizar a cualquier entero positivo $k=0,1,2,\ldots$  
 
 $$F_X(k)=P(X\leq k)=1-(1-p)^{k+1}\mbox{ si } k=0,1,2,\ldots$$
+
+## Función de distribución geométrica
+
+
 En general  tendremos que 
 
 
@@ -446,7 +476,7 @@ $$
 
 <l class="prop"> Propiedad de la falta  de memoria </l>
 
-Sea $X$ una v.a. discreta con dominio $D_X=\{0,1,2,\ldots\}$  y con $P(X=1)=p$.
+Sea $X$ una v.a. discreta con dominio $D_X=\{0,1,2,\ldots\}$  y con $P(X=0)=p$.
 
 Entonces $X$ sigue una ley $Ge(p)$ sí y sólo si
 
@@ -458,8 +488,7 @@ para todo $k,j=1,2,3\ldots$.
 
 <div class="dem">
 **Demostración**
-
-El lado derecho de la igualdad es 
+Si es geométrica entonces el lado derecho de la igualdad es 
 
 $$
 P(X > k)=1-P(X\leq k)=1-\left(1-(1-p)^{k+1}\right)=(1-p)^{k+1}
@@ -479,6 +508,27 @@ $$
 Lo que demuestra  la igualdad.
 </div>
 
+## Propiedad de la falta de memoria
+
+<div class="dem">
+Ahora suponemos que cumple la propiedad de la  la falta de memoria 
+$$
+P(X > k)=1-P(X\leq k)=1-\left(1-(1-p)^{k+1}\right)=(1-p)^{k+1}
+$$
+
+El lado de izquierdo es
+
+$$
+\begin{eqnarray*}
+P\left(X> k+j\big| X\geq j\right)&=&\frac{P\left(\{X> k+j\}\cap \{X\geq j\} \right)}{P\left(X\geq j\right)}=
+\frac{P\left(X>k+j \right)}{P\left(X\geq j \right)} = \frac{1-P(X\leq k+j)}{1-P(X\leq j-1)}\\
+&=&  \frac{1-(1-(1-p)^{k+j+1})}{1-(1-(1-p)^{j-1+1})} =\frac{(1-p)^{k+j+1}}{(1-p)^{j}} = (1-p)^{k+1}
+\end{eqnarray*}
+$$
+
+
+Lo que demuestra  la igualdad.
+</div>
 
 ## Falta de memoria
 
@@ -684,28 +734,17 @@ curve(pgeom(x,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-
-
 # Distribución binomial negativa
 
-
-
-
 ## El problema de la  puerta con dos cerraduras
-
 
 Repitamos el problema de abrir la puerta. Tenemos un llavero con 10 llaves distintas y tenemos que abrir una puerta con **dos cerraduras**  empezamos por la primera cerradura  y cada vez olvidamos que llave hemos probado, una vez abierta la primera cerradura probamos con la segunda hasta que también la abrimos.
 
 Sea $X=$ número de intentos necesarios hasta abrir la  puerta.
 
-
-
-
-
 # Distribución binomial negativa
 
 La idea de la puerta es que tenemos un experimento Bernoulli con probabilidad de éxito $p=0.1$. Y repetiremos el experimento hasta obtener 2 éxitos.
-
 
 En general tendremos un experimento  Bernoulli con probabilidad de éxito $0<p<1$ y  tal que:
 
@@ -1288,9 +1327,6 @@ Dada  $Z\equiv N((0,1)$ entonces $F_{Z}(x)=1-F_{Z}(-x)$.
     F_{Z}(\frac{a-\mu}{\sigma})$$
     * Si $\delta>0$ $P(\mu-\delta\leq X \leq
 \mu+\delta)=2 F_Z(\frac{\delta}{\sigma})-1$
-
-
-
 
 
 ## Ejemplo
