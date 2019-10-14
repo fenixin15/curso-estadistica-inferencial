@@ -1356,7 +1356,7 @@ Distinguiremos cinco casos:
 
 </div>
 
-# Momentos conjuntos y valores esperandos conjuntos
+# Momentos conjuntos y valores esperados conjuntos
 
 ## Introducción
 
@@ -1782,4 +1782,372 @@ En cambio no son **independientes** ya que claramente si $(x,y)\in [-1,1]\times 
 $$
 f_{XY}(x,y)=\frac{3}{8}(x^2+y^2) \neq f_X(x)\cdot f_Y(y)=\left(\frac{3}{4} x^2+\frac{1}{4}\right)\cdot \left(\frac{3}{4} y^2+\frac{1}{4}\right).
 $$
+</div>
+
+# Variables aleatorias condicionales y valor esperado condicional
+
+## Introducción
+
+Muchas **variables aleatorias bidimensionales** de interés práctico no son independientes.
+
+Por ejemplo, la salida $Y$ de un canal de comunicación debe depender de la entrada $X$ para transmitir información. 
+
+En esta sección vamos a introducir variables aleatorias $Y$ cuya distribución depende de otras $Y$. Dichas variables se denominan **variables aleatorias condicionales**.
+
+También nos interesa el valor esperado de la **variable condicional** $Y$ suponiendo que conocemos $X=x$.
+
+## Variables aleatorias condicionales discretas
+
+Sea $(X,Y)$ una variable aleatoria bidimensional. Sea $B$ un subconjunto de los números reales $\mathbb{R}$. Recordemos que la **probabilidad condicional** del suceso $\{Y\in B\}$ suponiendo que $X=x$ se definía de la forma siguiente:
+$$
+P(Y\in B|X=x)=\frac{P(Y\in B,\ X=x)}{P(X=x)}, \mbox{ siempre que }P(X=x)>0.
+$$
+
+## Variables aleatorias condicionales discretas
+
+La definición anterior motiva la definición siguiente de **variable aleatoria condicional discreta**:
+
+<l class="definition">Definición de variable aleatoria condicional discreta. </l>
+Sea $(X,Y)$ una variable aleatoria bidimensional discreta con conjunto de valores $(X,Y)(\Omega)=\{(x_i,y_j)\ i=1,2,\ldots, j=1,2,\ldots\}$ y **función de probabilidad conjunta** $P_{XY}$. Sean $x_i$ un valor de $X(\Omega)$ con $P(X=x_i)>0$. Entonces definimos la **función de probabilidad** de la **variable aleatoria condicional discreta** $Y|X=x_i$ como:
+$$
+P_{Y|X=x_i}(y_j)=P(Y=y_j|X=x_i)=\frac{P(X=x_i,\ Y=y_j)}{P(X=x_i)}=\frac{P_{XY}(x_i,y_j)}{P_X(x_i)}.
+$$
+
+
+## Variables aleatorias condicionales discretas
+<l class="observ">Observación. </l>
+La **función de probabilidad** de la **variable aleatoria condicional $Y|X=x_i$** depende únicamente de la **función de probabilidad conjunta** de la variable aleatoria bidimensional $(X,Y)$.
+
+<l class="observ">Observación. </l>
+Al ser $Y|X=x_i$ una variable aleatoria unidimensional, su **función de probabilidad** tiene que verificar que la suma de todos sus valores tiene que dar 1. O sea:
+$$
+\sum_{y_j} P(Y=y_j|X=x_i)=1.
+$$
+Veámoslo:
+<div class="dem">
+$$
+\sum_{y_j} P(Y=y_j|X=x_i)=\sum_{y_j} \frac{P_{XY}(x_i,y_j)}{P_X(x_i)}=\frac{1}{P_X(x_i)}\sum_{y_j} P_{XY}(x_i,y_j) =\frac{1}{P_X(x_i)}\cdot P_X(x_i)=1.
+$$
+</div>
+
+## Variables aleatorias condicionales discretas
+<l class="observ">Observación. </l>
+Si $X$ e $Y$ son independientes, $Y|X=x_i =Y$, o sea, la **variable aleatoria condicional $Y|X=x_i$** coincide con $Y$. O sea, condicionar con $X=x_i$ no tiene ningún efecto sobre $Y$.
+
+<div class="dem">
+Efectivamente, veamos que $P_{Y|X=x_i}(y_j)=P_Y(y_j)$ para todo valor $y_j$ de $Y(\Omega)$:
+$$
+P_{Y|X=x_i}(y_j) =\frac{P_{XY}(x_i,y_j)}{P_X(x_i)} \stackrel{\mbox{Por ser independientes}}{=}\frac{P_Y(y_j)\cdot P_X(x_i)}{P_X(x_i)}=P_Y(y_j).
+$$
+</div>
+
+<l class="observ">Observación. </l>
+La definición de la **función de probabilidad** de la  **variable aleatoria condicional $X|Y=y_j$** se definiría de forma similar:
+$$
+P_{X|Y=y_j}(x_i)=P(X=x_i|Y=y_j)=\frac{P(X=x_i,\ Y=y_j)}{P(Y=y_j)}=\frac{P_{XY}(x_i,y_j)}{P_Y(y_j)}, 
+$$
+para todo $x_i\in X(\Omega)$.
+
+## Variables aleatorias condicionales discretas
+<l class="observ">Observación.</l>
+Si tenemos la tabla de la **función de probabilidad conjunta** $P_{XY}$, para hallar la **función de distribución de la variable $Y|X=x_i$** es equivalente a considerar la fila del valor $x_i$ a la tabla y dividir todos los valores de la fila por la suma de los valores en dicha fila:
+<div class="center">
+| $Y|X=x_i$| $y_1$    | $y_2$  | $\ldots$ | $y_N$ |
+|----|----|----|----|----|
+| $P_{Y|X=x_i}$| $\frac{P_{XY}(x_i,y_1)}{P_X(x_i)}$ | $\frac{P_{XY}(x_i,y_2)}{P_X(x_i)}$ | $\ldots$ | $\frac{P_{XY}(x_i,y_N)}{P_X(x_i)}$|
+</div>
+
+## Variables aleatorias condicionales discretas
+<l class="observ">Observación.</l>
+De la misma manera, si tenemos la tabla de la **función de probabilidad conjunta** $P_{XY}$, para hallar la **función de distribución de la variable $X|Y=y_j$** es equivalente a considerar la columna del valor $y=y_j$ a la tabla y dividir todos los valores de la columna por la suma de los valores en dicha columna:
+<div class="center">
+| $X|Y=y_j$|  $P_{X|Y=y_j}$
+|----|----|
+| $x_1$| $\frac{P_{XY}(x_1,y_j)}{P_Y(y_j)}$ |
+| $\vdots$| $\vdots$ |
+| $x_M$| $\frac{P_{XY}(x_M,y_j)}{P_Y(y_j)}$ |
+</div>
+
+## Ejemplo
+<div class="example">
+**Ejemplo de la suma y el producto de los resultados del lanzamiento de dos dados**
+
+Vamos a hallar la **variable aleatoria condicional $S|P=12$**.
+
+Tenemos calculada la tabla de la **función de probabilidad conjunta $P_{SP}$**.
+
+Si $P=12$, los únicos valores $x_i$ de $S(\Omega)$ para los que se verifica $P_{SP}(x_i,12)\neq 0$ son 7 y 8.
+
+Además si calculamos $P_P(12)$, obtenemos $P(P=12)=\frac{4}{36}$ ya que hay 4 casos en que el producto da 12: $(3,4), (4,3), (2,6)$ y $(6,2)$.
+</div>
+
+## Ejemplo
+<div class="example">
+
+Por tanto, la tabla de la **función de probabilidad condicional** de la variable $S|P=12$ será:
+
+<div class="center">
+| $S|P=12$| $P_{S|P=12}$ 
+|----|----|----|
+|$7$| $\frac{\frac{2}{36}}{\frac{4}{36}}=\frac{1}{2}$ | 
+|$8$| $\frac{\frac{2}{36}}{\frac{4}{36}}=\frac{1}{2}$ |
+</div>
+</div>
+
+
+## Ejemplo
+<div class="example">
+**Ejemplo de la suma y el producto de los resultados del lanzamiento de dos dados**
+
+Vamos a hallar la **variable aleatoria condicional $P|S=8$**.
+
+Si $S=8$, los únicos valores $y_j$ de $P(\Omega)$ para los que se verifica $P_{SP}(8,y_j)\neq 0$ son 12 y 15 y 16.
+
+El valor de $P_S(8)$ recordemos que valía: $P_S(8)=\frac{5}{36}$.
+
+Por tanto, la tabla de la **función de probabilidad condicional** de la variable $P|S=8$ será:
+
+<div class="center">
+| $P|S=8$| $12$ | $15$ | $16$ 
+|----|----|----|----|
+|$P_{P|S=8}$| $\frac{\frac{2}{36}}{\frac{5}{36}}=\frac{2}{5}$ | $\frac{\frac{2}{36}}{\frac{5}{36}}=\frac{2}{5}$ | $\frac{\frac{1}{36}}{\frac{5}{36}}=\frac{1}{5}$
+</div>
+</div>
+
+## Variables aleatorias condicionales continuas
+La definición en el caso continua se hace cambiando la **función de probabilidad** por la **función de densidad**:
+
+<l class="definition">Definición de variable aleatoria condicional discreta. </l>
+Sea $(X,Y)$ una variable aleatoria bidimensional continua con **función de densidad conjunta** $f_{XY}$. Sean $x\in\mathbb{R}$ con $f_X(x)>0$. Entonces definimos la **función de densidad** de la **variable aleatoria condicional continua** $Y|X=x$ como:
+$$
+f_{Y|X=x}(y)=\frac{f_{XY}(x,y)}{f_X(x)}.
+$$
+
+
+## Variables aleatorias condicionales continuas
+<l class="observ">Observación. </l>
+La **función de densidad** de la **variable aleatoria condicional continua$Y|X$** depende únicamente de la **función de densidad conjunta** de la variable aleatoria bidimensional $(X,Y)$.
+
+<l class="observ">Observación. </l>
+Al ser $Y|X=x$ una variable aleatoria unidimensional, su **función de densidad** tiene que verificar que la integral de dicha función sobre todo $\mathbb{R}$ tiene que ser 1. O sea:
+$$
+\int_{-\infty}^\infty f_{Y|X=x}(y)\, dy=1.
+$$
+Veámoslo:
+<div class="dem">
+$$
+\int_{-\infty}^\infty f_{Y|X=x}(y)\, dy =\int_{-\infty}^\infty \frac{f_{XY}(x,y)}{f_X(x)}\, dy=\frac{1}{f_X(x)}\int_{-\infty}^\infty f_{XY}(x,y)\, dy= \frac{1}{f_X(x)}\cdot f_X(x) =1.
+$$
+</div>
+
+## Variables aleatorias condicionales continuas
+<l class="observ">Observación. </l>
+Si $X$ e $Y$ son independientes, $Y|X=x =Y$, o sea, la **variable aleatoria condicional $Y|X=x$** coincide con $Y$. O sea, condicionar con $X=x$ no tiene ningún efecto sobre $Y$.
+
+<div class="dem">
+Efectivamente, veamos que $f_{Y|X=x}(y)=f_Y(y)$ para todo valor $y\in\mathbb{R}.$
+$$
+f_{Y|X=x}(y) =\frac{f_{XY}(x,y)}{f_X(x)} \stackrel{\mbox{Por ser independientes}}{=}\frac{f_Y(y)\cdot f_X(x)}{f_X(x)}=f_Y(y).
+$$
+</div>
+
+<l class="observ">Observación. </l>
+La definición de la **función de densidad** de la  **variable aleatoria condicional $X|Y=y$** se definiría de forma similar:
+$$
+f_{X|Y=y}(x)=\frac{f_{XY}(x,y)}{f_Y(y)},
+$$
+para todo $x\in\mathbb{R}$.
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Recordemos el ejemplo de la variable aleatoria bidimensional continua con **función de densidad**:
+$$
+f_{XY}(x,y)=\begin{cases}
+2 \mathrm{e}^{-x}\mathrm{e}^{-y}, & 0\leq y\leq x < \infty,\\
+0, & \mbox{ en caso contrario,}
+\end{cases}
+$$
+Dado un valor $x_0\geq 0$ cualquiera, vamos a hallar la **función de densidad** de la **variable aleatoria condicional** $Y|X=x_0$.
+
+Fijémonos que, fijado un valor $x_0$, los valores $y$ para los cuales $f_{XY}(x_0,y)\neq 0$ cumplen $0\leq y\leq x_0$.
+Por tanto,
+$$
+f_{Y|X=x_0}(y)=\frac{f_{XY}(x_0,y)}{f_X(x_0)}=\frac{2\mathrm{e}^{-x_0}\mathrm{e}^{-y}}{f_X(x_0)},
+$$
+si $0\leq y\leq x_0$, y $f_{Y|X=x_0}(y)=0$, en caso contrario.
+</div>
+
+## Ejemplo
+<div class="example">
+Recordemos que la **densidad marginal** de la variable $X$ era: $f_X(x_0)=2\left(\mathrm{e}^{-x_0}-\mathrm{e}^{-2x_0}\right)$. 
+
+La **función de densidad marginal** de la variable $Y|X=x_0$ será:
+$$
+f_{Y|X=x_0}(y)=\frac{2\mathrm{e}^{-x_0}\mathrm{e}^{-y}}{2\left(\mathrm{e}^{-x_0}-\mathrm{e}^{-2x_0}\right)}=\frac{e^{-y}}{1-\mathrm{e}^{-x_0}},
+$$
+si $0\leq y\leq x_0$, y $f_{Y|X=x_0}(y)=0$, en caso contrario.
+
+Sea ahora $y_0>0$. Calculemos ahora la **densidad marginal** de la variable $X|Y=y_0$.
+
+Fijémonos que, fijado un valor $y_0$, los valores $x$ para los cuales $f_{XY}(x,y_0)\neq 0$ cumplen $y_0\leq x\leq \infty$. Por tanto,
+$$
+f_{X|Y=y_0}(x)=\frac{f_{XY}(x,y_0)}{f_Y(y_0)}=\frac{2\mathrm{e}^{-x}\mathrm{e}^{-y_0}}{f_Y(y_0)},
+$$
+si $y_0\leq x\leq \infty$, y $f_{X|Y=y_0}(x)=0$, en caso contrario.
+</div>
+
+
+## Ejemplo
+<div class="example">
+Recordemos que la variable $Y$ era exponencial de parámetro $\lambda=2$. Por tanto, $f_Y(y_0)=2\mathrm{e}^{-2y_0}$.
+
+La **función de densidad marginal** de la variable $X|Y=y_0$ será:
+$$
+f_{X|Y=y_0}(x)=\frac{2\mathrm{e}^{-x}\mathrm{e}^{-y_0}}{2\mathrm{e}^{-2y_0}}=\frac{\mathrm{e}^{-x}}{\mathrm{e}^{-y_0}},
+$$
+si $y_0\leq x\leq \infty$, y $f_{X|Y=y_0}(x)=0$, en caso contrario.
+</div>
+
+
+## Ejemplo de la variable aleatoria normal bidimensional
+<div class="example">
+**Ejemplo de la normal bidimensional**
+
+Sea $(X,Y)$ una variable aleatoria bidimensional normal bidimensional con **densidad conjunta**:
+$$
+f_{XY}(x,y)=\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}},\ -\infty <x,y<\infty.
+$$
+Sea $x\in\mathbb{R}$. Hallemos la **función de densidad** de la **variable aleatoria condicionada** $Y|X=x$.
+
+Recordemos que las **marginales** eran $N(0,1)$. Por tanto, $f_X(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}.$
+</div>
+
+## Ejemplo de la variable aleatoria normal bidimensional
+<div class="example">
+La **función de densidad** de la variable condicional $Y|X=x$ será:
+$$
+f_{Y|X=x}(y)=\frac{f_{XY}(x,y)}{f_X(x)}=\frac{\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}}}{\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}}=\frac{1}{\sqrt{2\pi (1-\rho^2)}}\mathrm{e}^{-\frac{(y-\rho x)^2}{2(1-\rho^2)}},\ y\in\mathbb{R}.
+$$
+Concluimos que la **variable aleatoria condicional $Y|X=x$** es una normal de parámetros $\mu_{Y|X=x}=\rho x$ y $\sigma_{Y|X=x}^2 =1-\rho^2$.
+
+Tenemos dos observaciones con respecto al resultado obtenido:
+
+* La varianza de la **variable aleatoria condicional** no depende de la $x$ que se ha fijado. Sólo depende del parámetro $\rho$. La $x$ sólo influye en la media de dicha variable.
+
+* En el caso en que $\rho=0$, que significa que $X$ e $Y$ son independientes, la distribución condicional de $Y|X=x$ es una $N(0,1)$, distribución que coincide con la distribución de la **variable aleatoria marginal** $Y$.
+</div>
+
+## Valores esperados condicionales
+<l class="definition">Definición de valor esperado condicional.</l>
+Dada una variable aleatoria bidimensional $(X,Y)$, definimos el **valor esperado de la variable $Y$ dado que $X=x$** como $E(Y|x)$, o sea, el valor esperado de la **variable aleatoria condicional $Y|X=x$**:
+$$
+E(Y|x)=\begin{cases}
+\sum_{y_j} y_j P_{Y|X=x}(y_j), & \mbox{ caso discreto,}\\
+\int_{-\infty}^\infty y f_{Y|X=x}(y)\,dy, & \mbox{ caso continuo.}
+\end{cases}
+$$
+
+## Valores esperados condicionales
+
+Tenemos el siguiente resultado relacionado con los valores esperados: el valor esperado respecto $x$ del valor esperado de la **variable condicional $Y|X=x$** coincide con el valor esperado de la variable $Y$:
+
+<l class="prop">Proposición. </l>
+Sea $(X,Y)$ una variable aleatoria bidimensional. Sean $E(Y|x)$ el **valor esperado condicional de $Y$** respecto $x$. Entonces el valor esperado de la *variable aleatoria* $E(Y|X)$ como función de la variable $X$ es el valor esperado de la variable $Y$:
+$$
+E_X(E(Y|X))=E(Y).
+$$
+
+## Valores esperados condicionales
+
+<div class="dem">
+**Demostración**
+
+Haremos la demostración en el caso continuo. Dejamos como ejercicio la demostración para el caso discreto.
+
+Sea $f_{XY}$ la **función de densidad conjunta** y $f_X$ y $f_Y$ las **funciones de densidad marginales**.
+
+El valor de $E_X(E(Y|X))$ será:
+$$
+\begin{array}{rl}
+E_X(E(Y|X)) & =\int_{x=-\infty}^{x=\infty} E(Y|x)f_X(x)\, dx=\int_{x=-\infty}^{x=\infty}\int_{y=-\infty}^{y=\infty} y f_{Y|X=x}(y)\, dy f_X(x)\, dx \\ & = \int_{x=-\infty}^{x=\infty}\int_{y=-\infty}^{y=\infty} y \frac{f_{XY}(x,y)}{f_X(x)}f_X(x)\, dy\, dx = \int_{y=-\infty}^{y=\infty} y \int_{x=-\infty}^{x=\infty}f_{XY}(x,y)\, dx\, dy \\ &  = \int_{y=-\infty}^{y=\infty} y f_Y(y)\, dy = E(Y),
+\end{array}
+$$
+tal como queríamos ver.
+</div>
+
+
+## Valores esperados condicionales
+Podemos generalizar los valores esperados condicionales en el sentido que en lugar de hallar $E(Y|X=x)$, hallar $E(g(Y)|X=x)$, donde $g$ es una función de la variable aleatoria $Y$:
+
+<l class="definition">Definición de valor esperado condicional.</l>
+Dada una variable aleatoria bidimensional $(X,Y)$ y una función $g$, definimos el **valor esperado de la variable $g(Y)$ dado que $X=x$** como $E(g(Y)|x)$, o sea, el valor esperado de la **variable aleatoria condicional $g(Y)|X=x$**:
+$$
+E(g(Y)|x)=\begin{cases}
+\sum_{y_j} g(y_j) P_{Y|X=x}(y_j), & \mbox{ caso discreto,}\\
+\int_{-\infty}^\infty g(y) f_{Y|X=x}(y)\,dy, & \mbox{ caso continuo.}
+\end{cases}
+$$
+
+<l class="observ">Observación:</l> cuando $g(y)=y^k$, tenemos definidos los **momentos condicionados de orden $k$** de la variable $Y|X=x$.
+
+## Ejemplo
+<div class="example">
+**Ejemplo de la suma y el producto de los resultados del lanzamiento de dos dados**
+
+Vamos a hallar el valor esperado de la **variable aleatoria condicional $P|S=8$**.
+
+Recordemos su **función de probabilidad**:
+
+<div class="center">
+| $P|S=8$| $12$ | $15$ | $16$ 
+|----|----|----|----|
+|$P_{P|S=8}$| $\frac{\frac{2}{36}}{\frac{5}{36}}=\frac{2}{5}$ | $\frac{\frac{2}{36}}{\frac{5}{36}}=\frac{2}{5}$ | $\frac{\frac{1}{36}}{\frac{5}{36}}=\frac{1}{5}$
+</div>
+
+
+Su valor esperado será, pues:
+$$
+E(P|S=8)=12\cdot \frac{2}{5}+15\cdot \frac{2}{5}+16\cdot \frac{1}{5}=\frac{`r 12*2+15*2+16`}{5}=`r (12*2+15*2+16)/5`.
+$$
+El valor medio del producto de los resultados al lanzar dos dados cuando la suma de dichos resultados es 8 vale `r (12*2+15*2+16)/5`.
+</div>
+
+## Ejemplo
+<div class="example">
+Recordemos el ejemplo de la variable aleatoria bidimensional continua con **función de densidad**:
+$$
+f_{XY}(x,y)=\begin{cases}
+2 \mathrm{e}^{-x}\mathrm{e}^{-y}, & 0\leq y\leq x < \infty,\\
+0, & \mbox{ en caso contrario,}
+\end{cases}
+$$
+
+Vimos que si fijamos $x_0>0$, la **función de densidad** de la **variable aleatoria condicionada** $Y|X=x_0$ era:
+$$
+f_{Y|X=x_0}(y)=\begin{cases}
+\frac{e^{-y}}{1-\mathrm{e}^{-x_0}}, & \mbox{ si }0\leq y\leq x_0, \\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+
+Hallemos su valor esperado:
+$$
+E(Y|X=x_0)=\int_0^{x_0} y \frac{e^{-y}}{(1-\mathrm{e}^{-x_0})}\, dy=\frac{1}{(1-\mathrm{e}^{-x_0})}\left[-\mathrm{e}^{-y} (y+1)\right]_0^{x_0} = \frac{1-\mathrm{e}^{-x_0}(1+x_0)}{1-\mathrm{e}^{-x_0}}.
+$$
+</div>
+
+## Ejemplo
+<div class="example">
+Verifiquemos la propiedad vista anteriormente $E_X(E(Y|x))=E(Y)$. Recordemos que la **función de densidad marginal** de la variable $X$ era: $f_X(x)=2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)$, para $x>0$:
+$$
+\begin{array}{rl}
+E_X(E(Y|x)) & =\int_0^\infty E(Y|x)\cdot f_X(x)\, dx = \int_0^\infty \frac{1-\mathrm{e}^{-x}(1+x)}{1-\mathrm{e}^{-x}}\cdot 2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\, dx 
+\\ & =  2\int_0^\infty \frac{1-\mathrm{e}^{-x}(1+x)}{1-\mathrm{e}^{-x}} \mathrm{e}^{-x}\left(1-\mathrm{e}^{-x}\right)\, dx = 2 \int_0^\infty \left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}(1+x)\right)\, dx \\ & = 2\left[-\mathrm{e}^{-x}+\mathrm{e}^{-2 x}
+   \left(\frac{x}{2}+\frac{3}{4}\right)\right]_0^\infty = 2 \left(1-\frac{3}{4}\right)=\frac{1}{2}.
+\end{array}
+$$
+
+Recordemos que la variable $Y$ era exponencial de parámetro $\lambda=2$. Por tanto $E(Y)=\frac{1}{\lambda}=\frac{1}{2}$, valor que coincide con el hallado, tal como queríamos ver.
 </div>
