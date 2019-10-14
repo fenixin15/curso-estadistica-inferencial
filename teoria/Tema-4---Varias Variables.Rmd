@@ -966,21 +966,28 @@ Propiedades de la **función de densidad de la variable gausiana bidimensional**
 * La **función de densidad** tiene un único máximo absoluto en el punto $(0,0)$ que vale $f_{XY}(0,0)=\frac{1}{2\pi\sqrt{1-\rho^2}}.$ Por tanto, para $\rho=0$, dicho máximo alcanza el mínimo valor posible y si $\rho\to \pm 1$, dicho máximo tiende a $\infty$.
 
 ## La distribución gausiana bidimensional
-* Las densidades marginales $f_X(x)$ y $f_Y(y)$ son normales $N(0,1)$. Veámoslo con $f_X(x)$. Por simetría, quedaría deducido para $f_Y(y)$:
+* Las densidades marginales $f_X(x)$ y $f_Y(y)$ son normales $N(0,1)$. 
+
+<div class="dem">
+Veámoslo con $f_X(x)$. Por simetría, quedaría deducido para $f_Y(y)$:
 $$
 \begin{array}{rl}
 f_X(x) & =\frac{1}{2\pi\sqrt{1-\rho^2}}\int_{-\infty}^\infty \mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}}\, dy =
 \frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{x^2}{2(1-\rho^2)}}\int_{-\infty}^\infty \mathrm{e}^{-\frac{(-2\rho xy+y^2)}{2(1-\rho^2)}}\, dy \\ & = \frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{x^2}{2(1-\rho^2)}} \int_{-\infty}^\infty \mathrm{e}^{-\frac{(y-\rho x)^2}{2(1-\rho^2)}} \mathrm{e}^{\frac{\rho^2 x^2}{2(1-\rho^2)}}\, dy \\ & =\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{x^2}{2}} \int_{-\infty}^\infty \mathrm{e}^{-\frac{(y-\rho x)^2}{2(1-\rho^2)}}\, dy,  \mbox{ Hacemos cambio $z=\frac{y-\rho x}{\sqrt{1-\rho^2}}$}\\ & = \frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{x^2}{2}} \int_{-\infty}^\infty \mathrm{e}^{-\frac{z^2}{2}}\sqrt{1-\rho^2}\, dy =\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}},
 \end{array}
 $$
+función que coincide con la **función de densidad** de la variable $N(0,1)$. 
+</div>
 
 ## La distribución gausiana bidimensional
 
-función que coincide con la **función de densidad** de la variable $N(0,1)$. En el último paso hemos usado que 
+<div class="dem">
+En el último paso hemos usado que 
 $$
 \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \mathrm{e}^{-\frac{z^2}{2}}\, dz=1,
 $$
 ya que correspondería al área de una **función de densidad** de una distribución $N(0,1)$.
+</div>
 
 El gráfico siguiente muestra la **función de densidad** para $\rho=\frac{1}{2}$.
 
@@ -1145,7 +1152,9 @@ f_{XY}(x,y)=\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{
 $$
 Las **funciones de densidad marginales** de $X$ e $Y$ correspondían a $N(0,1)$:
 $$
-f_X(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}},\ -\infty <x<\infty,\quad f_Y(y)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{y^2}{2}},\ -\infty <y<\infty.
+\begin{array}{rl}
+f_X(x) & =\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}},\ -\infty <x<\infty,\\ f_Y(y) & =\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{y^2}{2}},\ -\infty <y<\infty.
+\end{array}
 $$
 
 ## Ejemplo de la variable gausiana bidimensional
@@ -1428,9 +1437,9 @@ f_{XY}(x,y)=\begin{cases}
 $$
 Calculemos $E(X\cdot Y)$:
 $$
-\begin{array}{rl}
-E(X\cdot Y) & =\int_{x=0}^{x=\infty} \int_{y=0}^{y=x} 2 x y \mathrm{e}^{-x}\mathrm{e}^{-y}\, dy\, dx=2\int_{x=0}^{x=\infty} x \mathrm{e}^{-x} \int_{y=0}^{y=x}  y \mathrm{e}^{-y}\, dy\, dx = 2\int_{x=0}^{x=\infty}x \mathrm{e}^{-x} \left[-\mathrm{e}^{-y} (y+1)\right]_{y=0}^{y=x}\, dx\\ & =
-2\int_{x=0}^{x=\infty}x \mathrm{e}^{-x} \left(1-\mathrm{e}^{-x}(x+1)\right)\, dx = 2\int_{x=0}^{x=\infty}x\left( \mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)-x^2\mathrm{e}^{-2x}\, dx \\ & =
+\begin{array}{ll}
+E(X\cdot Y) & =\int_{x=0}^{x=\infty} \int_{y=0}^{y=x} 2 x y \mathrm{e}^{-x}\mathrm{e}^{-y}\, dy\, dx=2\int_{x=0}^{x=\infty} x \mathrm{e}^{-x} \int_{y=0}^{y=x}  y \mathrm{e}^{-y}\, dy\, dx \\ & = 2\int_{x=0}^{x=\infty}x \mathrm{e}^{-x} \left[-\mathrm{e}^{-y} (y+1)\right]_{y=0}^{y=x}\, dx =
+2\int_{x=0}^{x=\infty}x \mathrm{e}^{-x} \left(1-\mathrm{e}^{-x}(x+1)\right)\, dx \\ &= 2\int_{x=0}^{x=\infty}x\left( \mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)-x^2\mathrm{e}^{-2x}\, dx \\ & =
 2\left[-\mathrm{e}^{-x}(x+1)+\frac{1}{4}\mathrm{e}^{-2 x}(1+2x)+\frac{1}{4} \mathrm{e}^{-2 x} \left(2 x^2+2
    x+1\right)\right]_{x=0}^{x=\infty} = 2\cdot \left(1-\frac{1}{4}-\frac{1}{4}\right)=1.
 \end{array}
@@ -1601,12 +1610,11 @@ Si las variables $X$ e $Y$ son **independientes**, su **coeficiente de correlaci
 ## Coeficiente de correlación entre las variables
 El **coeficiente de correlación** es un valor normalizado ya que siempre está entre -1 y 1: $-1\leq\rho_{XY}\leq 1$.
 
-
+<div class="dem">
 Para ver la demostración de este hecho, sean $\mu_X=E(X)$, $\mu_Y=E(Y)$, $\sigma_X=\sqrt{\mathrm{Var}(X)}$ y $\sigma_Y=\sqrt{\mathrm{Var}(Y)}$. 
 
 Consideremos la variable $Z=\left(\frac{X-\mu_X}{\sigma_X}\pm \frac{Y-\mu_Y}{\sigma_Y}\right)^2$. Como $Z\geq 0$, tenemos que $E(Z)\geq 0$. Desarrollemos el valor de $E(Z)$:
 
-## Coeficiente de correlación entre las variables
 $$
 \begin{array}{rl}
 E(Z) & = E\left(\frac{X-\mu_X}{\sigma_X}\pm \frac{Y-\mu_Y}{\sigma_Y}\right)^2 = E\left(\left(\frac{X-\mu_X}{\sigma_X}\right)^2+\left(\frac{Y-\mu_Y}{\sigma_Y}\right)^2\pm 2\left(\frac{X-\mu_X}{\sigma_X}\right) \left(\frac{Y-\mu_Y}{\sigma_Y}\right)\right) \\ & =
@@ -1615,10 +1623,14 @@ E\left(\left(\frac{X-\mu_X}{\sigma_X}\right)^2\right)+E\left(\left(\frac{Y-\mu_Y
 \frac{1}{\sigma_Y^2}\sigma_Y^2 \pm\frac{2}{\sigma_X\sigma_Y} \mathrm{Cov}(X,Y) = 1+1\pm 2\frac{\mathrm{Cov}(X,Y)}{\sigma_X\sigma_Y}=2(1\pm\rho_{XY})
 \end{array}
 $$
+</div>
+
+## Coeficiente de correlación entre las variables
+<div class="dem">
 Ahora, como $E(Z)\geq 0$, tenemos que $1\pm \rho_{XY}\geq 0$, lo que significa que, por un lado $1+\rho_{XY}\geq 0$ y, por otro, $1-\rho_{XY}\geq 0$. De la primera inecuación, deducimos que $\rho_{XY}\geq -1$ y de la segunda, $\rho_{XY}\leq 1$. 
 
 En resumen, $-1\leq\rho_{XY}\leq 1$, tal como queríamos ver.
-
+</div>
 
 
 ## Ejemplo
@@ -1647,7 +1659,9 @@ $$
 
 Calculemos a continuación su varianza: $\mathrm{Var}(X)=E\left(X^2\right)-\mu_X^2$. El valor de $E\left(X^2\right)$ será:
 $$
-E\left(X^2\right)=\int_0^\infty x^2 2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\, dx=2 \left[\frac{1}{4} \mathrm{e}^{-2 x}  (2x^2+2x+1)- \mathrm{e}^{-x} (x^2+2x+2)\right]_0^\infty = 2\left(2-\frac{1}{4}\right)=\frac{7}{2}.
+\begin{array}{rl}
+E\left(X^2\right) & =\int_0^\infty x^2 2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\, dx=2 \left[\frac{1}{4} \mathrm{e}^{-2 x}  (2x^2+2x+1)- \mathrm{e}^{-x} (x^2+2x+2)\right]_0^\infty \\ & = 2\left(2-\frac{1}{4}\right)=\frac{7}{2}.
+\end{array}
 $$
 El valor de la varianza de $X$ será: $\mathrm{Var}(X)=\frac{7}{2}-\left(\frac{3}{2}\right)^2 = \frac{5}{4}.$
 
@@ -1658,4 +1672,114 @@ $$
 \rho_{XY}=\frac{E(X\cdot Y)-\mu_X\cdot \mu_Y}{\sqrt{\mathrm{Var}(X)}\cdot\sqrt{\mathrm{Var}(Y)}}=\frac{1-\frac{3}{2}\cdot \frac{1}{2}}{\sqrt{\frac{5}{4}}\cdot\sqrt{\frac{1}{4}}}=\frac{\sqrt{5}}{5}\approx `r round(sqrt(5)/5,3)`.
 $$
 Vemos que la **correlación** entre las variables $X$ e $Y$ es positiva pero no demasiado ya que su valor no está cercano a 1.
+</div>
+
+## Ejemplo normal bidimensional
+<div class="example">
+Recordemos que la **función de densidad** de la variable aleatoria **normal bidimensional** es:
+$f_{XY}(x,y)=\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}},\ -\infty <x,y<\infty.$
+
+Las **variables aleatorias marginales** eran normales estándard o $N(0,1)$.
+
+Hallemos el **coeficiente de correlación $\rho_{XY}$** en este caso.
+
+Calculemos $E(X\cdot Y)$:
+$$
+\begin{array}{rl}
+E(X\cdot Y) & = \int_{-\infty}^\infty x y \frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}}\, dy\, dx = \frac{1}{2\pi\sqrt{1-\rho^2}}\int_{x=-\infty}^{x=\infty}x  \mathrm{e}^{-\frac{x^2}{2(1-\rho^2)}}\int_{y=-\infty}^{y=\infty}y \mathrm{e}^{-\frac{(-2\rho xy+y^2)}{2(1-\rho^2)}}\, dy\, dx \\ & = \frac{1}{2\pi\sqrt{1-\rho^2}}\int_{x=-\infty}^{x=\infty}x  \mathrm{e}^{-\frac{x^2}{2(1-\rho^2)}}  \mathrm{e}^{\frac{\rho^2 x^2}{2(1-\rho^2)}} \int_{y=-\infty}^{y=\infty}y \mathrm{e}^{-\frac{(y-\rho y)^2}{2(1-\rho^2)}}\, dy\, dx,\\ &\ \qquad\mbox{ cambio de variable en la segunda integral $z=\frac{y-\rho x}{\sqrt{1-\rho^2}}$,}\\ & = \frac{1}{2\pi\sqrt{1-\rho^2}}\int_{x=-\infty}^{x=\infty}x  \mathrm{e}^{-\frac{x^2}{2}}  \int_{z=-\infty}^{z=\infty} \left(z\sqrt{1-\rho^2}+\rho x\right)\sqrt{1-\rho^2}\mathrm{e}^{-\frac{z^2}{2}}\, dz\, \\ & =
+\frac{1}{2\pi} \int_{x=-\infty}^{x=\infty}x  \mathrm{e}^{-\frac{x^2}{2}} \left(\sqrt{1-\rho^2}\int_{z=-\infty}^{z=\infty} z \mathrm{e}^{-\frac{z^2}{2}}\, dz +\rho x \int_{z=-\infty}^{z=\infty}\mathrm{e}^{-\frac{z^2}{2}}\, dz \right)\, dx
+\end{array}
+$$
+</div>
+
+
+## Ejemplo normal bidimensional
+<div class="example">
+Ahora, usando que el valor esperado de una variable $N(0,1)$ es cero tenemos que:
+$\int_{z=-\infty}^{z=\infty} z \mathrm{e}^{-\frac{z^2}{2}}\, dz =0,$ y usando que la integral de la **función de densidad** de la $N(0,1)$ ($\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{z^2}{2}}$) sobre todo $\mathbb{R}$ es 1, tenemos que:
+$\int_{z=-\infty}^{z=\infty} \mathrm{e}^{-\frac{z^2}{2}}\, dz =\sqrt{2\pi}.$
+
+Por tanto,
+$$
+E(X\cdot Y)=\frac{\rho}{2\pi} \int_{x=-\infty}^{x=\infty} x^2  \mathrm{e}^{-\frac{x^2}{2}}\sqrt{2\pi}\, dx=\frac{\rho}{\sqrt{2\pi}}\int_{x=-\infty}^{x=\infty} x^2  \mathrm{e}^{-\frac{x^2}{2}}\, dx.
+$$
+Por último, usando que la varianza de la distribución $Z=N(0,1)$ es 1, tenemos que $\mathrm{Var}(Z)=E\left(Z^2\right)-E(Z)^2$. Como $E(Z)=0$, deducimos que $E\left(Z^2\right)=1$:
+$$
+\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty x^2\mathrm{e}^{-\frac{x^2}{2}}\, dx=1,\ \Rightarrow \int_{-\infty}^\infty x^2\mathrm{e}^{-\frac{x^2}{2}}\, dx=\sqrt{2\pi}.
+$$
+El valor de $E(X\cdot Y)$ será:
+$$
+E(X\cdot Y)=\frac{\rho}{\sqrt{2\pi}}\sqrt{2\pi}=\rho.
+$$
+</div>
+
+## Ejemplo normal bidimensional
+<div class="example">
+
+La correlación entre las variables $X$ e $Y$ es precisamente $\rho$.
+
+Ahora, usando que $\mu_X=\mu_Y=0$ y $\sigma_X=\sigma_Y=1$ ya que recordemos que las marginales son $N(0,1)$, el **coeficiente de correlación** entre las variables $X$ e $Y$ será:
+$$
+\rho_{XY}=\frac{E(X\cdot Y)-\mu_X\cdot \mu_Y}{\sqrt{\mathrm{Var}(X)}\cdot\sqrt{\mathrm{Var}(Y)}}=\frac{\rho-0\cdot 0}{1\cdot 1}=\rho.
+$$
+Por tanto, $\rho$ es el **coeficiente de correlación** entre las variables $X$ e $Y$ y mide lo correlacionadas que están dichas variables.
+
+
+</div>
+
+## Incorrelación e independencia
+Hemos visto que si dos variables $X$ e $Y$ son **independientes**, entonces son **incorreladas**, o sea,  la **covarianza** es 0 ($E(X\cdot Y)=E(X)\cdot E(Y)$).
+
+El recíproco, sin embargo, es falso. Veamos un ejemplo de variables **incorreladas** que no son independientes.
+
+<div class="example">
+**Ejemplo de variables aleatorias incorreladas pero no independientes**
+
+Consideremos la variable aleatoria bidimensional continua con **función de densidad**:
+$$
+f_{XY}(x,y)=\begin{cases}
+\frac{3}{8}(x^2+y^2), & \mbox{si }(x,y)\in [-1,1]\times [-1,1],\\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+
+Dejamos como ejercicio comprobar que es una **función de densidad**. O sea, que es positiva y que la integral sobre todo el plano vale 1.
+
+</div>
+
+## Ejemplo de variables aleatorias incorreladas pero no independientes
+<div class="example">
+
+Calculemos las **densidades marginales**:
+$$
+\begin{array}{rl}
+f_X(x) & = \int_{-1}^{1} \frac{3}{8}(x^2+y^2)\, dy = \frac{3}{8}\left[x^2 y+\frac{y^3}{3}\right]_{-1}^1 =\frac{3}{8}\left(2 x^2+\frac{2}{3}\right)=\frac{3}{4} x^2+\frac{1}{4}, \\
+f_Y(y) & = \int_{-1}^{1} \frac{3}{8}(x^2+y^2)\, dx = \frac{3}{8}\left[\frac{x^3}{3}+y^2 x\right]_{-1}^1 =\frac{3}{8}\left(\frac{2}{3}+2 y^2+\right)=\frac{3}{4} y^2+\frac{1}{4}.
+\end{array}
+$$
+
+Los valores esperados de cada variable $X$ e $Y$ serán:
+$$
+\begin{array}{rl}
+E(X) & =\int_{-1}^1 x \left(\frac{3}{4} x^2+\frac{1}{4}\right)\, dx =0, \mbox{al integrar una función impar,}\\
+E(Y) & =\int_{-1}^1 x \left(\frac{3}{4} y^2+\frac{1}{4}\right)\, dx =0, \mbox{al integrar una función impar.}
+\end{array}
+$$
+</div>
+
+## Ejemplo de variables aleatorias incorreladas pero no independientes
+
+<div class="example">
+El valor de la **correlación** entre $X$ e $Y$ será:
+$$
+\begin{array}{rl}
+E(X\cdot Y) & =\int_{-1}^1\int_{-1}^1 x y \frac{3}{8}(x^2+y^2)\, dy\, dx\\ & =\frac{3}{8}\left(\int_{-1}^1\int_{-1}^1 x^3 y\, dy \, dx+\int_{-1}^1\int_{-1}^1 x y^3\, dy \, dx\right) \\ & = \frac{3}{8} \left(\int_{x=-1}^{x=1}x^3 \left[\frac{y^2}{2}\right]_{y=-1}^{y=1}\, dx + \int_{y=-1}^{y=1}y^3 \left[\frac{x^2}{2}\right]_{x=-1}^{x=1}\right)=0.
+\end{array}
+$$
+El **coeficiente de correlación** entre $X$ e $Y$ será: $\rho_{XY}=E(X\cdot Y)-E(X)\cdot E(Y)=0-0\cdot 0=0$. Por tanto, son **incorreladas**.
+
+En cambio no son **independientes** ya que claramente si $(x,y)\in [-1,1]\times [-1,1]$,
+$$
+f_{XY}(x,y)=\frac{3}{8}(x^2+y^2) \neq f_X(x)\cdot f_Y(y)=\left(\frac{3}{4} x^2+\frac{1}{4}\right)\cdot \left(\frac{3}{4} y^2+\frac{1}{4}\right).
+$$
 </div>
