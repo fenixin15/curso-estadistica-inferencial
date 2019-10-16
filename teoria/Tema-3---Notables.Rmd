@@ -60,6 +60,19 @@ p & \mbox{si } x=1\\
 \right.
 $$
 
+* Su función de distribución es 
+
+$$
+F_{X}(x)=P(X\leq x)
+\left\{
+\begin{array}{ll} 
+0 & \mbox{si } x<0\\
+
+1-p & \mbox{si } 0\geq x <1\\
+1 & \mbox{si } 1\geq 1 \\
+\end{array}
+\right.
+$$
 
 
 ## Distribución Bernoulli
@@ -69,17 +82,41 @@ $$
 $$X\equiv Ber(p)\mbox{ o también } X\equiv B(1,p).$$
 * A este tipo de  experimentos (éxito/fracaso)se les denomina experimentos Bernoulli.
 
-* Fue  [Jacob Bernoulli](https://es.wikipedia.org/wiki/Jakob_Bernoulli)  científico suizo y una más de la de la [familia de científicos suizos Bernoulli](https://es.wikipedia.org/wiki/Familia_Bernoulli)
+* Fue su descubridor un científico suizo  [Jacob Bernoulli](https://es.wikipedia.org/wiki/Jakob_Bernoulli),  uno más de la de la conocida [familia de científicos suizos Bernoulli](https://es.wikipedia.org/wiki/Familia_Bernoulli)
+
+## Esperanza de una v.a. $X$ con distribución $Ber(p)$·
+
+Su **valor esperado** es 
+
+$$E(X)=\displaystyle\sum_{i=1}^2 x\cdot P(X=x)= 0\cdot(1-p)+1\cdot(p)=p.$$
+
+
+
+Calculemos también $E(X^2)$
+
+$$E(X^2)=\displaystyle\sum_{i=1}^2 x^\cdot P(X=x)= 0^2\cdot(1-p)+1^2\cdot(p)=p.$$
+
+## Varianza de una v.a. $X$ con distribución $Ber(p)$·
+
+
+Su  **varianza** es 
+
+$$Var(X)=E(X^2)-\left(E(X)\right)^2=p+p^2=p\cdot (1-p).$$
+
+
+Su desviación típica es 
+
+$$\sqrt{Var(X)}=\sqrt{p\cdot (1-p)}.$$
 
 ## Resumen v.a con distribución Bernoulli, $Ber(p)$
 
 
-| Bernoulli |$Ber(p)$|
-|-----------:|--------|
-|$D_X=$ | $\{0,1\}$| 
-|$P_X(x)=P(X=x)=$ |  $\left\{\begin{array}{ll} q & \mbox{si } x=0\\ p & \mbox{si } x=1\\0 & \mbox{en otro caso}\end{array}\right.$ |
-|$F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\q & \mbox{ si } 0\leq x<1\\1 & \mbox{ si } 1\leq x \end{array}\right.$|
-|$E(X)=p$ | $Var(X)=p\cdot q$|
+$X$  Bernoulli | $Ber(p)$
+-----------:|:--------
+$D_X=$ | $\{0,1\}$
+$P_X(x)=P(X=x)=$ |  $\left\{\begin{array}{ll} q & \mbox{si } x=0\\ p & \mbox{si } x=1\\0 & \mbox{en otro caso}\end{array}\right.$ 
+$F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\q & \mbox{ si } 0\leq x<1\\1 & \mbox{ si } 1\leq x \end{array}\right.$
+$E(X)=p$ | $Var(X)=p\cdot q$
 
 
 
@@ -125,7 +162,7 @@ curve(pbinom(x,size=1,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-## Shiny gráficos
+## Graficas de la  distribución $Ge(p)$
 
 ```{r echo = FALSE}
 
@@ -137,14 +174,26 @@ sliderInput("p", label = "Probabilidad éxito p:",
 
 renderPlot({
 par(mfrow=c(1,2))
-plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=input$p),
-     ylim=c(0,1),xlim=c(-1,2),xlab="x",
+  p=input$p
+plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=p),
+     ylim=c(0,1),xlim=c(-0.5,2),xlab="x",
      main=paste0(c("Función de probabilidad\n
-                   Ber(p=",input$p,")"),collapse=""))
-lines(x=c(0,0,1,1),y=c(0,1-input$p,0,input$p), type = "h", lty = 2,col="blue")
-curve(pbinom(x,size=1,prob=input$p),
-      xlim=c(-1,2),col="blue",
-       main=paste0(c("Función de distribución\n Ber(p=",input$p,")"),collapse=""))
+                   Ber(p=",p,")"),collapse=""))
+segments(x0=0,y0=0,x1=0,y1=1-p, col = "blue", lty =2)
+segments(x0=1,y0=0,x1=1,y1=p, col = "blue", lty =2)
+segments(x0=-1,y0=1-p,x1=0,y1=1-p, col = "blue", lty =2)
+segments(x0=-1,y0=p,x1=1,y1=p, col = "blue", lty =2)
+x=0:1
+y=pbinom(x,size=1,prob=p)
+plot(x,y,
+      xlim=c(-0.5,2),col="blue",
+       main=paste0(c("Función de distribución\n Ber(p=",p,")"),collapse=""))
+segments(x0=-1,y0=1-p,x1=0,y1=1-p, col = "blue", lty =2)
+segments(x0=-1,y0=1,x1=1,y1=1, col = "blue", lty =2)
+
+segments(x0=-1,y0=1-p,x1=0,y1=1-p, col = "blue", lty =2)
+segments(x0=-1,y0=1,x1=1,y1=1, col = "blue", lty =2)
+
 par(mfrow=c(1,1))
 })
 ```
@@ -164,16 +213,43 @@ Consideremos la v.a.
 
 $$X(\overbrace{EFFF\ldots EEF}^{n})=\mbox{número de éxitos en la cadena}.$$
 
-## Función de probabibildad de la distribución binomial
+## Función de probabilidad de una  binomial
 
 Entonces su **función de probabilidad** es 
 
- $$P_{X}(x)=\left\{
- \begin{array}{ll}
- \left(\begin{array}{ll} n\\
-    x\end{array}\right) p^x (1-p)^{n-x} &\mbox{ si } x=0,1,\ldots,n\\
-    0  & \mbox{ en otro caso}
-  \end{array}\right..$$
+$$
+P_{X}(x)=\left\{
+\begin{array}{ll}
+{n\choose x}\cdot  p^x \cdot(1-p)^{n-x} &\mbox{ si } x=0,1,\ldots,n\\
+0  & \mbox{ en otro caso}
+\end{array}\right..
+$$
+
+## Función de distribución de binomial
+
+Su **función de distribución** no tiene una fórmula cerrada. Hay que acumular la función de probabilidad:
+
+$$
+\begin{eqnarray*}
+F_{X}(x)=P(X\leq x) & = & \sum_{i=0}^x P_X(i)\\
+& = & 
+\left\{
+\begin{array}{ll}
+0 & \mbox{ si } x\leq 0\\\displaystyle
+\sum_{i=1}^k {n\choose i}\cdot  p^i \cdot (1-p)^{n-i} & \mbox{ si } 
+\left\{
+  \begin{array}{l} 
+  k\leq x< k+1\\
+  k=0,1,\ldots,n.
+  \end{array}
+\right.\\
+1 & \mbox{ si } n\leq x
+\end{array}
+\right..
+\end{eqnarray*}
+$$
+
+
 
 
 ## Números binomiales con R
@@ -187,15 +263,20 @@ Es decir cuántas  manearas distintas hay para elegir (*choose*) 5 jugadores en 
 choose(6,5)
 ```
 
-Si  son 10 jugadorespara elegir 5 el número de queipos distintos es bastante más grande
+## Números binomiales con R
+
+Con 10 jugadores  el número de euqipos de  5 distintos es bastante más grande
 
 ```{r}
 choose(10,5)
 ```
 
+Y por ejemplo con un equipo de fútbol profesional  que tiene en plantilla 22 jugadores  (quitamos lo porteros) se pueden formar ¡¡nada menos que!!
 
-
-
+```{r}
+choose(22,10)
+```
+equipos distintos
 
 ##  Distribución Binomial
 
@@ -214,12 +295,36 @@ Calculad las funciones de distribución de una binomial $B(n=1,p=0.3)$ y comprob
 
 ## Observaciones sobre la distribución binomial
 
-* La probabilidad de fracaso la denotaremos con  $q=1-p$, **sin ningún aviso adicional**.
+* La probabilidad de fracaso se sule denotar con  $q=1-p$, **sin ningún aviso adicional** con el fin de acortar la escritura de las  fórmulas.
 * Su **función de distribución no tienen una formula general**, hay que calcularla con una función de R o python... En el siglo pasado se tabulaban en los libros de papel :-).
 * En el material adicional os pondremos unas tablas de esta distribución
 para distintos valores de $n$ y $p$ para que disfrutéis de tan ancestral método de cálculo. 
 * Cualquier paquete estadístico, hoja de cálculo dispone de
 funciones para el cálculo de estas probabilidades, así que el **uso de las tablas** queda **totalmente anticuado**. 
+
+## Esperanza  de una $X$ $B(n,p)$·
+
+Su *esperanza* es 
+$$E(X)=\displaystyle\sum_{k=0}^n k \cdot  {n \choose k }\cdot p^k\cdot q^{n-k} = n\cdot p.$$
+
+La esperanza de $X^2$ es 
+
+$$
+\begin{eqnarray*}
+E(X^2)&=& \displaystyle\sum_{k=0}^n k^2 \cdot  {n \choose k }\cdot p^k\cdot q^{n-k}\\
+&=& n\cdot p\cdot q-(n\cdot p)^2.
+\end{eqnarray*}
+$$
+
+## Variaza de una $X$ $B(n,p)·
+
+Su **varianza** es 
+
+ $$Var(X)=E(X^2)-\left(E(X)\right)^2=n\cdot p \cdot q=n\cdot p\cdot (1-p).$$
+
+Su desviación  típica es
+ 
+ $$+\sqrt{n\cdot p\cdot q}=+\sqrt{n\cdot p\cdot (1-p)}.$$
 
 
 
@@ -227,7 +332,7 @@ funciones para el cálculo de estas probabilidades, así que el **uso de las tab
 
 ## Resumen v.a con distribución binomial $B(n,p)$
 
-**Binomial**| $B(n,p)$ 
+ $X$ binomial | $B(n,p)$ 
 -------------:|:--------
 $D_X=$ |  $\{0,1,\ldots n\}$ 
 $P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}{n\choose x}\cdot  p^x\cdot  (1-p)^{n-x} & \mbox{ si } x=0,1,\ldots,n\\0  & \mbox{ en otro caso.}\end{array}\right.$
@@ -236,6 +341,7 @@ $E(X)=$ |  $n\cdot p$
 $Var(X)=$ | $n\cdot p \cdot (1-p)$
 
 ## Cálculos con R
+
 Veamos los cálculos básicos con funciones de R para una v.a $X$ con distribución  binomial  $B(n=10,p=0.25)$. 
 
 **Función de distribución** $P(X\leq 0)$ y $P(X\leq 4)$:
@@ -306,7 +412,7 @@ binom.pmf(4,n=10,p=0.25)
 
 ##  Cálculos distribución binomial con python
 
-**Generación de muestras aleatorias  binomial*. Generaremos una muestra aleatoria  de  100 valores  de una población $B(20,0.5)$
+**Generación de muestras aleatorias  binomial**. Generaremos una muestra aleatoria  de  100 valores  de una población $B(20,0.5)$
 
 ```{python bino4_py}
 binom.rvs(n=100,p=0.25,size = 20)
@@ -346,6 +452,55 @@ curve(pbinom(x,size=10,prob=0.25),
   xlim=c(-1,11),col="blue",
   main="Función de distribución\n B(n=10,p=0.25)")
 par(mfrow=c(1,1))
+```
+
+## Gráficas interactivas
+
+
+```{r echo = FALSE}
+
+#selectInput("n_breaks", label = "Number of bins:",
+#             choices = c(10, 20, 35, 50), selected = 20)
+# textInputRow<-function (inputId, label, value = 10, min=1,max=50,step=1 ) 
+# {
+#     div(style="display:inline-block",
+#         tags$label(label, `for` = inputId), 
+#         tags$input(id = inputId, type = "text", value = value,min=min,max=max,step=step,class="sliderInput"))
+# }
+#         textInputRow(inputId="n", label="Número de repeticiones n:", value = 10, min=1,max=50,step=1)
+#         
+#         textInputRow(inputId="p", label="x-max", value = 0.5)
+
+fluidPage(
+fluidRow(
+  column(6, 
+       sliderInput("n", label = "Número de repeticiones n:",
+              min = 1, max = 50, value =10 , step = 1)
+       ), 
+       column(6, 
+         sliderInput("prob", label = "Probabilidad éxito p:",
+              min = 0.01, max = 0.99, value = 0.25, step = 0.01)
+         )
+  )
+)
+
+renderPlot({
+  par(mfrow=c(1,2))
+  n=input$n
+  p=input$prob
+  aux=rep(0,(n+1)*2)
+  aux[seq(2,(n+1)*2,2)]=dbinom(c(0:n),size=n,prob=p)
+  plot(x=c(0:n),y=dbinom(c(0:n),size=n,prob=p),
+       ylim=c(0,1),xlim=c(-1,n+1),xlab="x",
+       main=paste0(c("Función de probabilidad\n B(n=",n,",p=",p,")"),collapse = ""))
+  lines(x=rep(0:n,each=2),y=aux, type = "h", lty = 2,col="blue")
+  curve(pbinom(x,size=n,p=p),
+        xlim=c(-1,input$n+1),col="blue",
+        main=paste0(c("Función de distribución\n B(n=",input$n,",p=",p,")"),
+                    collapse = ""))
+        par(mfrow=c(1,1))
+})
+
 ```
 
 ## Gráficos de la distribución binomial con python
@@ -796,10 +951,9 @@ $$
 
 ## Resumen Binomial Negativa $BN(r,p)$
 
-$X=$ |número de intentos para conseguir el $r$-ésimo éxito
-
+$X=$ | número de intentos para conseguir el $r$-ésimo éxito
 *Binomial negativa* $BN(r,p)$ | $r$ éxitos, probabilidad de éxito $p$, $q=1-p$
---------------|------------
+--------------:|:------------
 $D_X=$ | $\{r,1,2,3\ldots\}$  
 $P_X(x)=P(X=x)=$ | $\left\{
 \begin{array}{cc}
