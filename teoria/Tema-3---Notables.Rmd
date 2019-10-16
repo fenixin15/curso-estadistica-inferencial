@@ -162,7 +162,7 @@ curve(pbinom(x,size=1,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-## Graficas de la  distribución $Ge(p)$
+## Gráficas de la  distribución $Ge(p)$
 
 ```{r echo = FALSE}
 
@@ -176,23 +176,18 @@ renderPlot({
 par(mfrow=c(1,2))
   p=input$p
 plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=p),
-     ylim=c(0,1),xlim=c(-0.5,2),xlab="x",
+     ylim=c(0,1),xlim=c(-0.5,2),xlab="x",pch=21,
      main=paste0(c("Función de probabilidad\n
-                   Ber(p=",p,")"),collapse=""))
+                   Ber(p=",p,")"),collapse=""),bg="black")
 segments(x0=0,y0=0,x1=0,y1=1-p, col = "blue", lty =2)
 segments(x0=1,y0=0,x1=1,y1=p, col = "blue", lty =2)
 segments(x0=-1,y0=1-p,x1=0,y1=1-p, col = "blue", lty =2)
 segments(x0=-1,y0=p,x1=1,y1=p, col = "blue", lty =2)
 x=0:1
 y=pbinom(x,size=1,prob=p)
-plot(x,y,
-      xlim=c(-0.5,2),col="blue",
-       main=paste0(c("Función de distribución\n Ber(p=",p,")"),collapse=""))
-segments(x0=-1,y0=1-p,x1=0,y1=1-p, col = "blue", lty =2)
-segments(x0=-1,y0=1,x1=1,y1=1, col = "blue", lty =2)
-
-segments(x0=-1,y0=1-p,x1=0,y1=1-p, col = "blue", lty =2)
-segments(x0=-1,y0=1,x1=1,y1=1, col = "blue", lty =2)
+curve(pbinom(x,size=1,prob=p),
+      xlim=c(-1,2),col="blue",
+      main="Función de distribución\n Ber(p=0.25)")
 
 par(mfrow=c(1,1))
 })
@@ -256,7 +251,7 @@ $$
 
 Los números binomiales nos calculan cuanto equipos de baloncesto ($k=5$ jugadores) se pueden hacer con 6 jugadores ($n=6$).
 
-Es decir cuántas  manearas distintas hay para elegir (*choose*) 5 jugadores en un conjunto de 6 jugadores. Todo el mundo diria 
+Es decir cuántas  manearas distintas hay para elegir (*choose*) 5 jugadores en un conjunto de 6 jugadores. Todo el mundo diría 
 ¡¡¡6!!!. Efectivamente con R es 
 
 ```{r}
@@ -265,7 +260,7 @@ choose(6,5)
 
 ## Números binomiales con R
 
-Con 10 jugadores  el número de euqipos de  5 distintos es bastante más grande
+Con 10 jugadores  el número de equipos de  5 distintos es bastante más grande
 
 ```{r}
 choose(10,5)
@@ -295,14 +290,14 @@ Calculad las funciones de distribución de una binomial $B(n=1,p=0.3)$ y comprob
 
 ## Observaciones sobre la distribución binomial
 
-* La probabilidad de fracaso se sule denotar con  $q=1-p$, **sin ningún aviso adicional** con el fin de acortar la escritura de las  fórmulas.
+* La probabilidad de fracaso se suele denotar con  $q=1-p$, **sin ningún aviso adicional** con el fin de acortar la escritura de las  fórmulas.
 * Su **función de distribución no tienen una formula general**, hay que calcularla con una función de R o python... En el siglo pasado se tabulaban en los libros de papel :-).
 * En el material adicional os pondremos unas tablas de esta distribución
 para distintos valores de $n$ y $p$ para que disfrutéis de tan ancestral método de cálculo. 
 * Cualquier paquete estadístico, hoja de cálculo dispone de
 funciones para el cálculo de estas probabilidades, así que el **uso de las tablas** queda **totalmente anticuado**. 
 
-## Esperanza  de una $X$ $B(n,p)$·
+## Esperanza  de una $X$ con distribución $B(n,p).$
 
 Su *esperanza* es 
 $$E(X)=\displaystyle\sum_{k=0}^n k \cdot  {n \choose k }\cdot p^k\cdot q^{n-k} = n\cdot p.$$
@@ -316,7 +311,7 @@ E(X^2)&=& \displaystyle\sum_{k=0}^n k^2 \cdot  {n \choose k }\cdot p^k\cdot q^{n
 \end{eqnarray*}
 $$
 
-## Variaza de una $X$ $B(n,p)·
+## Varianza distribución $B(n,p)$.
 
 Su **varianza** es 
 
@@ -324,7 +319,7 @@ Su **varianza** es
 
 Su desviación  típica es
  
- $$+\sqrt{n\cdot p\cdot q}=+\sqrt{n\cdot p\cdot (1-p)}.$$
+ $$\sqrt{n\cdot p\cdot q}=\sqrt{n\cdot p\cdot (1-p)}.$$
 
 
 
@@ -538,6 +533,151 @@ plt.plot(x, binom.pmf(x, n, p), 'bo', ms=8, label='binom pmf')
 plt.vlines(x, 0, binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
 ```
 </div>
+
+
+
+## Ejemplo distribución binomial
+
+<div class="example">
+**Ejemplo: Número de bolas rojas extraídas  de urna con reposición.**
+
+
+Tenemos una urna con $100$ bolas de las cuales 40 son rojas  y 60  blancas. Extraemos al azar una bola, anotamos su color y  la devolvemos (la reponemos en la urna)  a la urna.
+
+Supongamos que repetimos este proceso $n=10$; reponiendo en cada ocasión la bola extraída. 
+
+Consideremos la variable aleatoria $X=$ número de bolas rojas extraídas (con reposición)  en $n=10$ repeticiones del miesmo experimento Bernoulli.
+
+
+Bajo estas condiciones tenemos que  repetimos $n=10$ veces el mismo experimento Bernouilli con probabilidad de éxito (sacar bola roja) es 
+
+$$P(Roja)=P(Éxito)=p=\frac{40}{100}=0.4.$$
+
+Así que la variable $X=" número de bolas rojas extraídas de la urna en $n=10$ ocasiones sigue una ley binomial  $B(=n=10,p=0.4).$
+
+
+## Ejemplo $B(n=10,p=0.4).$
+
+Nos preguntamos:
+
+1. ¿Cuál es la probabilidad de que saquemos exactamente $4$ rojas?
+2. ¿Cuál es la probabilidad de que saquemos al menos  $4$ rojas?
+3. ¿Cuál es la probabilidad de que saquemos  menos  $3$ rojas?
+4. ¿Cuál es el valor esperado del número de bolas rojas?
+5. ¿Cuál es la desviación típica  del número de bolas rojas?
+
+</div>
+
+## Ejemplo $B(n=10,p=0.4).$
+
+<div class="exmaple-sol">
+ 
+**Solución 1**. ¿Cuál es la probabilidad de que saquemos exactamente $4$ rojas?
+
+Utilizando al función de probabilidad  tenemos que 
+
+$$
+\begin{eqnarray*}
+P_x(x=4)&=&{10\choose 4}\cdot 0.4^4\cdot (1-0.4)^{10-4}
+= \frac{10!}{(10-4)!\cdot 4!}\cdot 0.4^4\cdot 0.6^6\\
+&=& \frac{7\cdot 8\cdot 9\cdot 10}{1\cdot 2\cdot 3\cdot 4}\cdot 0.4^4\cdot 0.6^6=`r round(choose(10,4)* 0.4^4*0.6^6,7)`
+\end{eqnarray*}
+.
+$$
+
+
+Con R
+
+```{r}
+dbinom(4,size=10,prob = 0.4)
+```
+## Ejemplo $B(n=10,p=0.4).$
+
+
+**Solución 2**.  ¿Cuál es la probabilidad de que saquemos al menos  $4$ rojas?
+
+Al menos 4 rojas es $P(X \geq  4)=1-P(X<4)=1-P(x\leq 3).$
+
+Así que calculemos $P(X\leq3)$
+
+$$
+\begin{eqnarray*}
+P(x\leq 3)&=& P(X=0)+P(X=1)+P(X=2)+P(X=3)\\
+&=& 
+ {10\choose 0}\cdot 0.4^0\cdot (1-0.4)^{10-0}+ {10\choose 1}\cdot 0.4^1\cdot (1-0.4)^{10-1}\\
+&+&{10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}+ {10\choose 3}\cdot 0.4^3\cdot (1-0.4)^{10-3}\\
+&=&`r round(pbinom(3,10,0.4),7)`
+\end{eqnarray*}
+.
+$$
+
+
+
+
+## Ejemplo $B(n=10,p=0.4).$
+
+Con R
+
+```{r}
+pbinom(3,10,0.4)
+```
+
+
+Así que
+
+$$P(X \geq 4 )=1-P(x< 4)=P(X\leq 3)=1-`r round(pbinom(3,10,0.4),7)`=`r round(1-pbinom(3,10,0.4),7)`.$$
+
+
+## Ejemplo $B(n=10,p=0.4).$
+
+O con R también
+
+```{r}
+1-pbinom(3,10,0.4)
+pbinom(3,10,0.4,lower.tail = FALSE)
+```
+
+
+## Ejemplo $B(n=10,p=0.4).$
+
+**Solución 3**.  ¿Cuál es la probabilidad de que saquemos  menos  $3$ rojas?
+
+$$
+\begin{eqnarray*}
+P(x< 3)&=& P(X\leq 2)=  P(X=0)+P(X=1)+P(X=2)\\
+&=& 
+ {10\choose 0}\cdot 0.4^0\cdot (1-0.4)^{10-0}+ {10\choose 1}\cdot 0.4^1\cdot (1-0.4)^{10-1}\\
+&+&{10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}\\
+&=&`r round(pbinom(2,10,0.4),7)`
+\end{eqnarray*}
+.
+$$
+
+
+
+## Ejemplo $B(n=10,p=0.4).$
+
+**Solución 4**. ¿Cuál es el valor esperado del número de bolas rojas?
+
+Como  $X$ es una $B(n=10,p=0.4)$ sabemos que 
+
+$$E(X)=n\cdot p = 10\cdot 0.4=`r 10*0.4`.$$
+
+## Ejemplo $B(n=10,p=0.4).$
+
+**Solución 5**. ¿Cuál es la desviación típica  del número de bolas rojas?
+
+
+La varianza es 
+$$Var(X)=n\cdot p \cdot(1-p)=10\cdot 0.4\cdot 0.6=`r 10*0.4*0.6`.$$
+
+
+Pro lo tanto la desviación típica es 
+
+$\sqrt{Var(X)}=\sqrt{`r 10*0.4*0.6`}= `r sqrt(10*0.4*0.6)`.$
+</div>
+
+
 # Distribución geométrica
 
 
@@ -765,7 +905,7 @@ La pregunta es:
 
 <div class="example-sol"> 
 
-Como nuestro aficionada tiene un tía que juega mucho al fútbol en su consola  y con los datos que le damos  estima que  la probabilidad de que el Barça gane un clasico cualquiera es
+Como nuestro aficionada tiene un tía que juega mucho al fútbol en su consola  y con los datos que le damos  estima que  la probabilidad de que el Barça gane un clásico cualquiera es
 
 $$P(Barça)=\frac{72}{178}=`r round(72/178,4)`.$$
 
