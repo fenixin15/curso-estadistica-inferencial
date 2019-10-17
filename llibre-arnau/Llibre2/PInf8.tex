@@ -1,0 +1,565 @@
+\chapter{Intervals de confian\c{c}a}
+\index{interval!de confianca@de confian\c{c}a}
+
+\section{Resum te\`oric}
+
+En el tema anterior s'ha estudiat el problema de trobar:
+\begin{itemize}
+\item un estimador puntual
+\index{estimador!puntual} $\Gamma$ d'un par\`ametre
+\index{parametre@par\`ametre} desconegut $\gamma$ donada una
+mostra aleat\`oria d'observacions\index{observacio@observaci\'o} d'una variable aleat\`oria.
+
+\item criteris per comparar dos o m\'es estimadors
+\index{estimador} del mateix par\`ametre.
+\end{itemize}
+
+El nom d'estimador puntual\index{estimador!puntual} fa refer\`encia al fet que despr\'es de fer el mostreig i
+observar el valor de l'estimador,\index{estimador} el producte final 
+\'es un \'unic nombre, que \'es una bona estimaci\'o
+\index{estimacio@estimaci\'o} per al vertader valor desconegut del par\`ametre.
+\index{parametre@par\`ametre}
+
+Ara estudiarem els intervals de confian\c{c}a
+\index{interval!de confianca@de confian\c{c}a} com a indicadors del 
+grau de confian\c ca 
+\index{grau!de confianca@de confian\c{c}a}que es pot tenir, 
+en base a la mostra, 
+que s'ha donat una indicaci\'o correcta del valor num\`eric possible del par\`ametre.
+\index{parametre@par\`ametre}
+
+\begin{defin}
+Suposem que $X$ \'es una variable aleat\`oria la distribuci\'o 
+de la qual dep\`en d'un par\`ametre\index{parametre@par\`ametre} 
+desconegut $\gamma$. Donada una mostra aleat\`oria simple de $X$, 
+les dues estad\'{\i}stiques $L_1$ i $L_2$ formen un 
+{\bf interval de confian\c ca del $100(1-\alpha)\%$} per a $\gamma$ si:
+\index{interval!de confianca@de confian\c{c}a}
+$$\pp{L_1 \leq \gamma \leq L_2} = 1 - \alpha.$$
+
+$L_1$ i $L_2$ poden ser $-\infty$ i $+\infty$.
+\end{defin}
+
+{\bf Nota:} L'interval \'es aleatori, ja que els dos extrems s\'on variables
+aleat\`ories.\index{extrem}
+
+\begin{proposition}
+Si $X_1, \ldots , X_n$ \'es una mostra aleat\`oria simple d'una
+variable alea\-t\`oria $N(\mu,\sigma^2)$, amb $\sigma^2$ coneguda, aleshores
+$$L_1 = \bar{X} - z_{1-\alpha/2} {\sigma \over \sqrt{n}}, \ \ \ L_2 = \bar{X} +
+z_{1-\alpha/2} {\sigma \over \sqrt{n}}$$
+formen un interval de confian\c{c}a del $100(1-\alpha) \% $ per a $\mu$.
+\index{interval!de confianca@de confian\c{c}a}
+\newline
+($z_{1-\alpha/2}$ \'es el $100(1-\alpha/2)$-\`essim percentil de la distribuci\'o
+$N(0,1)$).
+\end{proposition}
+
+\begin{proposition}
+Si $X_1, \ldots , X_n$ \'es una mostra aleat\`oria simple d'una
+variable alea\-t\`oria $N(\mu,\sigma^2)$, amb $\mu$ desconeguda, aleshores
+$$L_1 = {\sum (X_i - \bar{X})^2 \over \chi_{1-\alpha/2}^2}, \ \ \ L_2 = {\sum
+(X_i - \bar{X})^2 \over \chi_{\alpha/2}^2}$$
+formen un interval de confian\c ca del $100(1-\alpha)\%$ per a $\sigma^2$.
+\index{interval!de confianca@de confian\c{c}a}
+($\chi_{1-\alpha/2}^2$ i $\chi_{\alpha/2}^2$ s\'on els $100\alpha/2$ i
+$100(1-\alpha/2)$-\`essims percentils de la distribuci\'o $\chi^2$ amb $n-1$ graus de
+llibertat.)
+
+$\sqrt{L_1}$ i $\sqrt{L_2}$ formen un interval de confian\c ca del $100(1-\alpha)\%$
+per a $\sigma$.
+\end{proposition}
+
+En general ni $\mu$ ni $\sigma^2$ seran conegudes. 
+Vegem que es fa en aquest cas.
+
+
+\begin{proposition}
+Si $Z$ \'es $N(0,1)$ i $V$ \'es $\chi^2$ amb $n$ graus de
+llibertat, aleshores, si $Z$ i $V$ s\'on independents, la variable aleat\`oria
+$\displaystyle T = {Z \over \sqrt{V/n}}$ t\'e la densitat
+$$f_T(t) = {\Gamma({n+1 \over 2}) \over \Gamma({n \over 2}) \cdot \sqrt{n \pi}}
+\left(1 + {t^2 \over n}\right)^{-(n+1)/2},$$
+coneguda com la {\bf distribuci\'o $t$ de Student amb $n$ graus de llibertat}.
+\index{distribucio@distribuci\'o!$t$ de Student}
+\end{proposition}
+
+{\bf Nota:} Les propietats de la funci\'o gamma~$\Gamma$ es poden trobar en el
+problema~\ref{PROPIETATSGAMMA}.
+\index{funcio@funci\'o!gamma}
+
+\begin{proposition}
+Sigui $X$ una variable aleat\`oria amb distribuci\'o
+$N(\mu,\sigma^2)$. Si \break $X_1, \ldots , X_n$ \'es una mostra aleat\`oria simple 
+de $X$, aleshores $\displaystyle {\bar{X} - \mu \over \tilde{S}/\sqrt{n}}$ 
+t\'e la distribuci\'o~$t$ amb $n-1$ graus de llibertat. 
+($\tilde{S}$ \'es la desviaci\'o est\`andard de la mostra.)
+\index{desviacio estandard@desviaci\'o est\`andard!de la mostra}
+\end{proposition}
+
+\begin{proposition}
+Sigui $X$ una variable aleat\`oria amb distribuci\'o
+$N(\mu,\sigma^2)$, amb $\mu$ i $\sigma^2$ desconegudes. 
+Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria simple de $X$. Aleshores
+$$L_1 = \bar{X} - t_{1-\alpha/2} {\tilde{S} \over \sqrt{n}}, \quad 
+L_2 = \bar{X} +t_{1-\alpha/2} {\tilde{S} \over \sqrt{n}}$$
+formen un interval de confian\c ca del $100(1-\alpha)\%$ per a $\mu$.
+\index{interval!de confianca@de confian\c{c}a}
+($t_{1-\alpha/2}$ \'es el $100(1-\alpha/2)$-\`essim percentil de la 
+distribuci\'o $t$ amb $n-1$ graus de llibertat.)
+\end{proposition}
+
+\begin{proposition}
+Suposem que $X_1, \ldots , X_n$ \'es una mostra aleat\`oria simple
+d'una variable aleat\`oria exponencial
+\index{variable!aleatoria@aleat\`oria!exponencial} amb par\`ametre~$\lambda$.
+\index{parametre@par\`ametre} Aleshores
+$$L_1 = {\chi_{\alpha/2}^2 \over 2n\bar{X}}, \ \ \ L_2 = {\chi_{1-\alpha/2}^2
+\over 2n\bar{X}}$$
+formen un interval de confian\c ca del $100(1-\alpha)\%$ per a $\lambda$.
+\index{interval!de confianca@de confian\c{c}a}
+\end{proposition}
+
+{\bf Nota:} De vegades interessa un interval de confian\c ca unilateral.
+\index{interval!de confianca@de confian\c{c}a!unilateral} En aquests
+casos, es fa constant $L_1$ o $L_2$, segons interessi.
+
+\begin{proposition}
+Siguin $U$ i $V$ dues variables aleat\`ories independents que
+tenen distribucions $\chi_{n_1}^2$ i $\chi_{n_2}^2$, respectivament. 
+Aleshores la variable aleat\`oria
+$$F = {U/n_1 \over V/n_2}$$
+t\'e una funci\'o de densitat donada per:
+$$f_F(x) = 
+\left\{ 
+\begin{array}{ll} 
+{\Gamma\left[(n_1 + n_2)/2 \right](n_1 /
+n_2)^{n_1 / 2} \over \Gamma(n_1 / 2) \Gamma(n_2 / 2)} {x^{n_1 / 2 - 1}\over
+\left(1 + n_1 x / n_2 \right)^{(n_1 + n_ 2)/2}}, & 0 < x < \infty,\\ 0, & {\rm en
+\> cas \> contrari},
+\end{array}
+\right.$$
+i es diu que t\'e la {\bf distribuci\'o $F$ de Fisher-Snedecor 
+\index{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}amb $n_1$ i $n_2$
+graus de llibertat.}
+\end{proposition}
+
+L'ap\`endix A mostra els intervals de confian\c ca per als par\`ametres i distribucions
+m\'es t\'{\i}pics.
+\index{interval!de confianca@de confian\c{c}a}
+
+\section{Problemes resolts}
+
+\begin{probres}
+{
+Trobau una estad\'{\i}stica $L_2$ tal que
+$$\pp{\sigma^2\leq L_2}=1-\alpha,$$
+donada una mostra aleat\`oria simple de grand\`aria $n$ 
+d'una variable aleat\`oria normal amb mitjana $\mu$ i
+vari\`ancia $\sigma^2$.
+}
+\end{probres}
+
+\res{Recordem que la variable aleat\`oria 
+\[
+\frac{\sum\limits_{i=1}^n {(X_i -\overline{X})}^2}{\sigma^2}
+\]
+es distribueix segons una variable khi quadrat amb $n-1$ graus de llibertat.
+
+Per tant, podem escriure:
+\begin{equation}
+\pp{
+\frac{\sum\limits_{i=1}^n {(X_i -\overline{X})}^2}{\sigma^2}\geq
+\chi_\alpha^2}=1-\alpha,
+\label{EQUACIONPERCENTILCHI}
+\end{equation}
+on $\chi_\alpha^2$ \'es el $100\alpha$-\`essim percentil per a la distribuci\'o
+$\chi_{n-1}^2$.
+
+A\"illant $\sigma^2$ de~(\ref{EQUACIONPERCENTILCHI}), tenim que:
+\[
+\pp{
+\frac{\sum\limits_{i=1}^n {(X_i -\overline{X})}^2}{\chi_\alpha^2}\geq
+\sigma^2}=
+\pp{
+\sigma^2\leq\frac{\sum\limits_{i=1}^n {(X_i -\overline{X})}^2}{\chi_\alpha^2}
+}=
+1-\alpha.
+\]
+Per tant, $L_2 =
+\frac{\sum\limits_{i=1}^n {(X_i -\overline{X})}^2}{\chi_\alpha^2}$.
+}
+
+\begin{probres}
+{
+Suposem que $X_1,X_2,\ldots, X_{n_1}$ 
+\'es una mostra aleat\`oria simple d'una va\-ria\-ble aleat\`oria normal
+$X$ amb mitjana $\mu_X$ i vari\`ancia $\sigma^2$. $Y_1, Y_2,\ldots, Y_{n_2}$
+\'es una mostra aleat\`oria simple independent 
+d'una variable aleat\`oria normal $Y$ amb mitjana $\mu_Y$ i vari\`ancia
+$\sigma^2$. (Notem que les vari\`ancies s\'on iguals.) Trobau un interval de
+confian\c{c}a al $100(1-\alpha)\%$ per a la difer\`encia $\mu_X
+-\mu_Y$.
+\newline{\footnotesize Indicaci\'o: Si $\scriptstyle s_X^2$ \'es la
+vari\`ancia mostral de la mostra aleat\`oria simple 
+de $\scriptstyle X$ i $\scriptstyle s_Y^2$ \'es 
+la vari\`ancia mostral de la mostra aleat\`oria simple de 
+$\scriptstyle Y$, considerau la
+distribuci\'o $\scriptstyle {(n_1-1) \tilde{s}_X^2 +(n_2 -1) \tilde{s}_Y^2\over
+\sigma^2}$, que \'es independent de $\scriptstyle \overline{X}-\overline{Y}$.}
+}
+\etiqueta{INTCONFDIFMITJANES}
+\end{probres}
+
+\res{
+Recordem que les variables $\overline{X}$ i $\overline{Y}$ s\'on 
+normals amb els par\`ametres seg\"uents:
+\[
+\overline{X}=N\left(\mu_X,\frac{\sigma^2}{n_1}\right),\ 
+\overline{Y}=N\left(\mu_Y,\frac{\sigma^2}{n_2}\right). 
+\]
+Per tant, la variable aleat\`oria $\overline{X}-\overline{Y}$ ser\`a
+normal amb par\`ametres:
+\[
+\overline{X}-\overline{Y}=N\left(\mu_X -\mu_Y,\sigma^2\left(
+\frac{1}{n_1}+\frac{1}{n_2}\right)\right).
+\]
+D'on dedu\"{\i}m, passant a una normal est\`andard, que la seg\"uent variable
+\'es $N(0,1)$:
+\[
+Z=\frac{\overline{X}-\overline{Y}-(\mu_X -\mu_Y)}
+{\sigma\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}.
+\]
+A m\'es a m\'es, tenim que la variable 
+$V=\frac{(n_1 -1)\tilde{S}_X^2
++(n_2 -1) \tilde{S}_Y^2}{\sigma^2}$ 
+segueix la distribuci\'o khi quadrat
+amb $n_1 +n_2-2$ graus de llibertat ja que:
+\[
+V=\frac{(n_1 -1)\tilde{S}_X^2
++(n_2 -1) \tilde{S}_Y^2}{\sigma^2}=
+\frac{\sum\limits_{i=1}^{n_1}
+{(X_i -\overline{X})}^2}{\sigma^2}+
+\frac{\sum\limits_{i=1}^{n_2}
+{(Y_i -\overline{Y})}^2}{\sigma^2}.
+\]
+
+Tenint en compte que si $Z$ \'es $N(0,1)$ i $U$ \'es $\chi_n^2$, aleshores
+$T=\frac{Z}{\sqrt{\frac{U}{n}}}$ \'es $t_n$ (distribuci\'o $t$ de Student
+amb $n$ graus de llibertat), i podem assegurar que la variable:
+\[
+T=\frac{Z}{\sqrt{\frac{V}{n_1 +n_2 -2}}}=
+\frac{\left(\overline{X}-\overline{Y}-(\mu_X -\mu_Y)\right)
+\sqrt{n_1 +n_2 -2}
+}{\sqrt{\left((n_1 -1)\tilde{S}_X^2 +(n_2 -1)\tilde{S}_Y^2\right)
+\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}},
+\]
+segueix la distribuci\'o $t$ de Student
+ amb $n_1 +n_2-2$ graus de llibertat.
+
+Podem escriure, doncs:
+\begin{equation}
+\pp{-t_{1-\frac{\alpha}{2}}\leq
+\frac{\left(\overline{X}-\overline{Y}-(\mu_X -\mu_Y)
+\right)}{\sqrt{
+\frac{\left((n_1 -1)\tilde{S}_X^2 +(n_2 -1)
+\tilde{S}_Y^2\right)}{n_1+n_2-2}
+\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}
+\leq t_{1-\frac{\alpha}{2}}}
+=1-\alpha,
+\label{PROBPERCENTILTSTUDENT}
+\end{equation}
+on $t_{1-\frac{\alpha}{2}}$ \'es el $100\left(1-\frac{\alpha}{2}\right)$-\`essim 
+percentil de la distribuci\'o~$t_{n_1 +n_2-2}$.
+
+Fent servir~(\ref{PROBPERCENTILTSTUDENT}), podem trobar un interval de 
+confian\c{c}a bilateral per al par\`ametre $\mu_X -\mu_Y$:
+\begin{eqnarray*}
+&&p\Biggl\{\overline{X}-\overline{Y}-t_{1-\frac{\alpha}{2}}\sqrt{
+\frac{\left((n_1 -1)\tilde{S}_X^2 +(n_2 -1)
+\tilde{S}_Y^2\right)}{n_1+n_2-2}
+\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}
+\leq \mu_X -\mu_Y\leq\\ &&
+\overline{X}-\overline{Y}+t_{1-\frac{\alpha}{2}}\sqrt{
+\frac{\left((n_1 -1)\tilde{S}_X^2 +(n_2 -1)
+\tilde{S}_Y^2\right)}{n_1+n_2-2}
+\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}\Biggr\}=1-\alpha.
+\end{eqnarray*}
+}
+
+\begin{probres}
+{
+Suposem que el temps de ruptura d'un fil de $9.14$ m. de llargada \'es una
+variable aleat\`oria normal amb $\sigma =1$ any.
+\begin{itemize}
+\item[a)]{Quina \'es la funci\'o de confiabilitat per a aquest fil per a $t$ anys?}
+\item[b)]{Trobau un interval de confian\c{c}a per a $R(t)$, donada una mostra aleat\`oria simple de $n$
+valors d'aquesta distribuci\'o.}
+\item[c)]{Suposem que es proven $n=10$ fils d'aquest tipus i que la suma dels
+temps de falla \'es $111$ hores. 
+Calculau un interval de confian\c{c}a bilateral al
+$95\%$ per $R(10)$.}
+\end{itemize}
+}
+\end{probres}
+
+\res{Recordem que si tenim una variable aleat\`oria $X$, la confiabilitat
+per a un per\'{\i}ode $t$ \'es:
+\[
+R(t)=\pp{X>t},\ t>0.
+\]
+\begin{itemize}
+\item[a)] En el nostre cas, $X$ \'es $N(\mu,\sigma=1\mbox{ any})$. Per tant, 
+la confiabilitat per a $t$ anys ser\`a:
+\[
+R(t)=\pp{X>t}=\pp{\frac{X-\mu}{\sigma=1}>\frac{t-\mu}{\sigma=1}}
+=1-F_Z (t-\mu),
+\]
+on $F_Z(z)$ \'es la funci\'o de distribuci\'o de la variable normal est\`andard.
+\item[b)] Sigui $X_1,\ldots,X_n$ una mostra aleat\`oria de $X$. Recordem
+que l'interval de confian\c{c}a per el par\`ametre $\mu$ \'es:
+\begin{equation}
+\pp{
+\overline{X}-\frac{\sigma}{\sqrt{n}} z_{1-\frac{\alpha}{2}}
+\leq\mu\leq
+\overline{X}+\frac{\sigma}{\sqrt{n}} z_{1-\frac{\alpha}{2}}
+} =1-\alpha,
+\label{INTCONFPARMUNORMAL}
+\end{equation}
+on $z_{1-\frac{\alpha}{2}}$ \'es el percentil $100\left(1-\frac{\alpha}{2}\right)\%$ de la distribuci\'o
+normal est\`andard.
+
+Fent servir~(\ref{INTCONFPARMUNORMAL}), podem  trobar un interval de 
+confian\c{c}a per a $R(t)$:
+\begin{eqnarray*}
+\pp{
+t-\frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}-\overline{X}
+\leq t-\mu\leq
+t+\frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}-\overline{X}
+}  &=&  1- \alpha, \\
+\pp{
+F_Z\left(t-\frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}-\overline{X}\right)
+\leq F_Z(t-\mu)\leq
+F_Z\left(t+\frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}-\overline{X}\right)
+}  &= & 1- \alpha, \\
+p\Biggl\{
+1- F_Z\left(t+\frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}-\overline{X}\right)
+\leq R(t)=1-F_Z(t-\mu)\leq && \\
+1- F_Z\left(t-\frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}}-\overline{X}\right)
+\Biggr\}   &=&  1- \alpha, 
+\end{eqnarray*}
+ja que la funci\'o $F_Z(z)$ \'es creixent.
+\item[c)] Suposem que $n=10$, $\sum X_i =111$. Trobem amb aquestes dades,
+i fent servir l'apartat anterior, un interval de confian\c{c}a per a
+$R(t=10)$ al $95\%$ de confian\c{c}a ($\alpha =0.05$).
+
+En aquest cas, $\overline{X}=\frac{\sum X_i}{n}=\frac{111}{10}=11.1$ i
+$z_{1-\frac{\alpha}{2}}=z_{0.975}=1.96$.
+
+Els extrems esquerre i dret de l'interval s'obtendran fent servir les 
+f\'ormules trobades a l'apartat b):
+\begin{eqnarray*}
+L_1 & = & 1-F_Z\left(10-11.1+\frac{1.96}{\sqrt{10}}\right)
+=1-F_Z (-0.480) =F_Z (0.480)\approx 0.6844,\\
+L_2 & = & 1-F_Z\left(10-11.1-\frac{1.96}{\sqrt{10}}\right)
+=1-F_Z (-1.719) =F_Z(1.719) \approx 0.9573.
+\end{eqnarray*}
+\end{itemize}
+}
+
+\begin{probres}
+{
+Suposem que una variable aleat\`oria $X$ est\`a distribu\"{\i}da uniformement
+en l'interval $(0,b)$. 
+Fent servir el m\`axim valor d'una mostra aleat\`oria simple de grand\`aria $n$ de
+$X$, trobau un interval de confian\c{c}a per a $b$.
+\newline{\footnotesize Indicaci\'o:
+feu servir la distribuci\'o de $\scriptstyle {X_{(n)}\over b}$.}
+}
+\end{probres}
+  
+\res{Abans de comen\c{c}ar a fer el problema, 
+recordem que si $X$ \'es $U(0,b)$,     
+aleshores la funci\'o de densitat i de distribuci\'o de $X$ s\'on:
+\[
+f_X(t)=
+\left\{\begin{array}{ll}
+\frac{1}{b}, & \text{si $t\in (0,b)$},\\ & \\ 
+0, & \text{en cas contrari},
+\end{array}\right.\ 
+F_X(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<0$}, \\ & \\ \frac{t}{b}, & \text{si $0\leq t\leq b$},\\
+& \\ 1, & \text{si $t>1$}.
+\end{array}\right. 
+\]
+A m\'es a m\'es, recordem que si $X_1,\ldots,X_n$ \'es una mostra
+aleat\`oria simple d'una variable cont\'{\i}nua $X$, la funci\'o de 
+densitat de $X_{(n)}$ (m\`axim de les $X_i$) val:
+\[
+f_{X_{(n)}}(t)=n f_X (t) {F_X(t)}^{n-1}=
+\left\{\begin{array}{ll}
+n\cdot\frac{1}{b}\cdot\frac{t^{n-1}}{b^n}=\frac{n t^{n-1}}{b^n}, & \text{si $t\in (0,b)$},
+\\ & \\ 0, & \text{en cas contrari}.
+\end{array}\right.
+\]
+Ja que hem de fer servir la variable $X_{(n)}$ per trobar l'interval de 
+confian\c{c}a per al par\`ametre $b$, trobem els percentils
+$100\left(1-\frac{\alpha}{2}\right)\%$ ($X_{(n),1-\frac{\alpha}{2}}$) 
+i $100\frac{\alpha}{2}\%$ ($X_{(n),\frac{\alpha}{2}}$). 
+En aquest exercici trobarem un interval de confian\c{c}a bilateral. Deixam
+com a exercici per al lector trobar els corresponents intervals de 
+confian\c{c}a unilaterals. 
+Aix\'{\i} doncs:
+\begin{eqnarray*}
+\int_0^{X_{(n),1-\frac{\alpha}{2}}} 
+f_{X_{(n)}}(t)\, dt & = & 1-\frac{\alpha}{2},\\
+\int_0^{X_{(n),1-\frac{\alpha}{2}}}
+\frac{n t^{n-1}}{b^n}\, dt & = & 1-\frac{\alpha}{2}, \\
+\frac{{X_{(n),1-\frac{\alpha}{2}}}^n}{b^n}= 1-\frac{\alpha}{2}.
+\end{eqnarray*}
+D'on dedu\"{\i}m que:
+\[
+X_{(n),1-\frac{\alpha}{2}}
+=b\root n\of{1-\frac{\alpha}{2}}.
+\]
+Fent un raonament semblant podem trobar el percentil $100\frac{\alpha}{2}
+\%$:
+\[
+X_{(n),\frac{\alpha}{2}}
+=b \root n\of{\frac{\alpha}{2}}.
+\]
+Podem escriure, per tant:
+
+\begin{eqnarray*}
+\pp{X_{(n),\frac{\alpha}{2}}\leq X_{(n)}\leq 
+X_{(n),1-\frac{\alpha}{2}} 
+}& = &
+1-\alpha, \\
+\pp{
+b\root n\of{\frac{\alpha}{2}}\leq X_{(n)}\leq 
+b\root n\of{1-\frac{\alpha}{2}}}& = & 1-\alpha, \\
+\pp{
+\root n\of{\frac{\alpha}{2}}\leq \frac{X_{(n)}}{b}\leq 
+\root n\of{1-\frac{\alpha}{2}}}& =&  1-\alpha, \\
+\pp{ X_{(n)}\root n\of{\frac{2}{2-\alpha}}\leq b\leq 
+X_{(n)}\root n\of{\frac{2}{\alpha}}} & =&  1-\alpha.
+\end{eqnarray*}
+}
+
+\section{Problemes proposats}
+
+\begin{prob}
+Suposem que la velocitat m\`axima a qu\`e pot arribar un cert model de
+cotxe de competici\'o \'es una variable aleat\`oria normal $X$ amb mitjana 
+$\mu$ desconeguda i
+desviaci\'o est\`andard $\sigma$. Es tria una mostra aleat\`oria simple 
+de 10 cotxes constru\"{\i}ts
+d'acord amb aquest disseny i es prova cada cotxe. La suma 
+de les velocitats m\`aximes (en km/h.) i la suma dels seus
+quadrats  s\'on:
+$$\sum_{i=1}^{10} x_i =2633.13,\quad \sum_{i=1}^{10} x_i^2 =731865$$
+Trobau un interval de confian\c{c}a per al par\`ametre $\mu$ al 95\% de
+confian\c{c}a. 
+\end{prob}
+
+\begin{prob}
+Es volen comparar dos r\`egims alimentaris distints per engreixar el
+bestiar. En el primer es fan servir $n_1=8$ vaques durant 1 mes; la suma 
+dels augments de pes 
+i la suma dels seus quadrats s\'on: $\sum
+x_i=416,\ \sum x_i^2 =21807$. En el segon r\`egim, es fan servir $n_2 =10$ 
+vaques;
+la suma dels augments de pes i la suma dels seus quadrats s\'on:
+$\sum x_i=468,\ \sum x_i^2 =22172$.\newline
+Feu servir l'exercici \ref{INTCONFDIFMITJANES}
+per obtenir un interval de confian\c{c}a al $95\%$
+per a la difer\`encia dels augments mitjans, $\mu_X -\mu_Y$.
+\end{prob}
+
+\enlargethispage*{1000pt}
+
+\begin{prob}
+Suposem que el temps en qu\`e pot fallar una bombeta \'es una variable
+aleat\`oria exponencial de par\`ametre $\lambda$. Es posen a prova $n=20$
+bombetes i es troba que la suma dels seus temps de
+duraci\'o \'es de $20169$ hores.
+\begin{itemize}
+\item[a)]{Quin \'es l'estimador de m\`axima versemblan\c{c}a 
+de $R(1000)$, o sigui, la
+confiabilitat de la bombeta per a $1000$ hores?}
+\item[b)]{Trobau un l\'{\i}mit inferior de confian\c{c}a 
+al $90\%$ per a $R(1000)$.}
+\end{itemize}
+\end{prob}
+
+\newpage
+
+\begin{prob}
+Trobau uns intervals de confian\c{c}a de la forma $(0,L_1)$ i
+$(L_2,\infty)$ per al par\`ametre $\lambda$ d'una variable aleat\`oria
+exponencial donada una mostra aleat\`oria simple $X_1,\ldots,X_n$ de
+l'esmentada variable.\newline{\footnotesize Final. Juny 93.}
+\end{prob}
+
+\begin{prob}
+Es varen prendre mostres independents de dos cursos i es registraren
+les qualificacions seg\"uents:
+$$
+\begin{tabular}{|c|c|}
+\hline
+Mostra
+1&Mostra 2\\\hline\hline
+75&52\\ 70&60\\ 60&42\\
+75&58\\\hline
+\end{tabular}
+$$
+Trobau un interval de confian\c{c}a del $95\%$ per a:
+\begin{itemize}
+\item[a)]{La difer\`encia de mitjanes dels grups $\mu_1 -\mu_2$.}
+\item[b)]{La mitjana de cada classe: $\mu_1$ i $\mu_2$.}
+\end{itemize}
+{\footnotesize Segon
+Parcial. Juny 91.}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X$ una variable uniforme en l'interval $(a,b)$ on $a$ \'es
+conegut i fix. Sigui $X_1,\ldots,X_n$ una mostra aleat\`oria simple de $X$.
+Trobau un interval de confian\c{c}a bilateral per al par\`ametre $b$ 
+al nivell de
+significaci\'o $\alpha$ fent servir la distribuci\'o $X_{(n)}$ (m\`axim
+de $X_1,\ldots,X_n$).
+\newline{\footnotesize Segon parcial. Juny 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X_1,\ldots,X_{50}$ una mostra aleat\`oria simple d'una variable
+aleat\`oria\break $N(\mu,\sigma^2)$ tal que $\sum X_i =200$ i $\sum X_i^2 =1000$. 
+Trobau un interval de confian\c{c}a al $90\%$ per al par\`ametre~$\sigma^2$.
+\newline{\footnotesize Final. Juny 96.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Considerem la seg\"uent mostra aleat\`oria simple d'una variable
+aleat\`oria $N(\mu,\sigma^2)$:
+\[
+28.3,26.4,27.0,22.5,23.5,29.1,26.8,26.7,30.9,25.0
+\]
+Trobau un interval de confian\c{c}a al $90\%$ per al par\`ametre~$\mu$.
+\newline{\footnotesize Final. Setembre 96.}
+}
+\end{prob}
+
+\begin{prob}
+{Sigui $X_1,\ldots, X_n$ una mostra aleat\`oria simple d'una 
+variable aleat\`oria\break\mbox{$X\ N(\mu,\sigma^2)$.} Suposem $n=20$. Sigui $Y={\overline{X}-\mu\over
+{\tilde{S}\over \sqrt{n}}}$ on $\tilde{S}^2 ={\sum\limits_{i=1}^n {(X_i
+-\overline{X})}^2\over n-1}$. Trobau $\pp{Y\leq 1.328}$.\newline{\footnotesize Final.
+Setembre 94.}}
+\end{prob}

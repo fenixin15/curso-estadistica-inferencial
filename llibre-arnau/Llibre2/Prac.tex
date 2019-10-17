@@ -1,0 +1,1145 @@
+\chapter{Pr\`actiques d'estad\'{\i}stica proposades}
+
+En aquest cap\'{\i}tol s'exposaran una s\`erie de pr\`actiques que 
+l'alumne pot realitzar al llarg del curs.
+
+Podem dir que una pr\`actica \'es un problema en qu\`e necessita l'ajut d'un
+ordinador per resoldre'l.
+
+La pr\`actica ha de constar dels fitxers seg\"uents:
+\begin{enumerate}
+\item Programa font. 
+Fitxer en format ASCII 
+on hi ha el programa font de 
+la pr\`actica.
+
+\item Dades. Fitxer en format ASCII 
+on l'usuari ha de posar les dades del problema.
+
+\item Executable. Fitxer 
+binari on hi ha l'executable, o sigui, el
+programa font una vegada compilat 
+i enlla\c{c}at.
+
+\item Ajut. Fitxer en format ASCII 
+on hi haur\`a tota la informaci\'o de
+com s'ha realitzat la pr\`actica. B\`asicament s'hi ha de trobar:
+\begin{itemize}
+\item[a)] Software que s'ha fet servir en la realitzaci\'o de la
+pr\`actica.
+\item[b)] Format del fitxer de dades per poder executar la pr\`actica. 
+O sigui, com s'han d'entrar les dades perqu\`e el fitxer 
+executable les entengui.
+\item[c)] Resultats obtenguts amb algun exemple.
+\end{itemize}
+Aquest darrer fitxer s'ha d'entregar impr\`es.
+\end{enumerate} 
+
+La pr\`actica s'avaluar\`a executant el fitxer 
+executable i vegent els resultats, tenint en compte els punts seg\"uents:
+\begin{itemize}
+\item Presentaci\'o.
+\item Capacitat d'emmagatzematge de dades.
+\item Resultats.
+\end{itemize}
+
+\section{Estad\'{\i}stica descriptiva
+}
+
+\subsection{Introducci\'o}
+
+Sigui $X_1,\ldots,X_N$ un conjunt de dades.
+
+\begin{itemize}
+\item Feu la distribuci\'o 
+de freq\"u\`encies amb 
+intervals de classe amb l\'{\i}mits reals
+ i l\'{\i}mits aparents
+ d'amplada fixada $a$. 
+
+Recordau que per trobar l'extrem de l'esquerra del primer 
+interval, heu de trobar primer el m\'{\i}nim de 
+la distribuci\'o.
+
+\item Feu l'histograma de les freq\"u\`encies
+ relatives i les 
+freq\"u\`encies
+relatives acumulades.
+
+\item Siguin $X_{1,r},\ldots,X_{I,r}$ les marques 
+de classe de la variable agrupada amb l\'{\i}mits 
+reals i $X_{1,a},\ldots,X_{I,a}$
+les marques de classe de la variable agrupada
+ amb l\'{\i}mits 
+aparents. Calculau:
+\[
+\begin{array}{rlcrl}
+\overline{X}_r = & \frac{\sum\limits_{i=1}^I n_i X_{i,r}}{N}, 
+& &\overline{X}_a = & \frac{\sum\limits_{i=1}^I n_i X_{i,a}}{N}, \\
+S_r^2 = & \frac{\sum\limits_{i=1}^I n_i X_{i,r}^2}{N}- 
+\overline{X}_r^2,
+& & S_a^2 = & \frac{\sum\limits_{i=1}^I n_i X_{i,a}^2}{N}- 
+\overline{X}_a^2.
+\end{array}
+\]
+\end{itemize}
+
+\subsection{Definici\'o de les variable aleat\`ories discretes
+}
+
+\subsection*{Variable aleat\`oria 
+discreta per a l\'{\i}mits reals}
+
+Considerem la variable aleat\`oria discreta
+ $X_r^{(d)}$ tal que 
+el seu rang \'es:
+\[
+X_r^{(d)} (\Omega) =\{L_1,\ldots,L_I\},
+\]
+on els valors~$L_j$ s\'on els extrems dels intervals a considerar.
+
+La funci\'o de distribuci\'o de $X_r^{(d)}$ 
+s'obt\'e a partir de les freq\"u\`encies
+ relatives 
+acumulades de la variable agrupada
+en la secci\'o anterior.
+
+Suposem que la distribuci\'o de 
+freq\"u\`encies de la variable
+agrupada es troba en la taula \ref{TAULAVARIABLEAGRUPADAREAL}.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Intervals&$X_{i,r}$&$f_i$&$F_i$\\\hline\hline
+$[L_1,L_2)$&$X_{1,r}$&$f_1$&$F_1$\\\hline
+$[L_2,L_3)$&$X_{2,r}$&$f_2$&$F_2$\\\hline
+$\vdots$&$\vdots$&$\vdots$&$\vdots$\\\hline
+$[L_I,L_{I+1})$&$X_{I,r}$&$f_I$&$F_I$\\\hline
+\end{tabular}
+\end{center}
+\caption{Taula de les freq\"u\`encies
+ relatives de la variable 
+agrupada amb l\'{\i}mits reals.}
+
+\label{TAULAVARIABLEAGRUPADAREAL}
+\end{table}
+
+La funci\'o de distribuci\'o de la variable 
+aleat\`oria $X_r^{(d)}$ ser\`a:
+\[
+F_{X_r^{(d)}}(x)=  
+\left\{
+\begin{array}{ll}
+0, & \mbox{si $x< L_1$,} \\
+F_1, & \mbox{si $L_1\leq x < L_2$,} \\
+F_2, & \mbox{si $L_2\leq x < L_3$,} \\
+\vdots & \vdots \\
+1, & \mbox{si $x\geq L_{I+1}$.}
+\end{array}
+\right.
+\]
+
+Trobeu $\EE (X_r^{(d)})$ i $\mbox{Var }(X_r^{(d)})$.
+
+\subsection*{Variable aleat\`oria discreta per a l\'{\i}mits aparents}
+
+Feu el mateix que hem fet en la subsecci\'o anterior per\`o ara 
+prenent l\'{\i}mits aparents.
+
+O sigui, definim la variable aleat\`oria $X_a^{(d)}$ amb rang:
+\[
+X_a^{(d)} (\Omega) =\{L_1,\ldots,L_I\}.
+\]
+La funci\'o de distribuci\'o de $X_a^{(d)}$ 
+es defineix de la mateixa manera que la funci\'o de distribuci\'o
+ de $X_r^{(d)}$ per\`o
+tenint en compte les freq\"u\`encies
+ relatives 
+acumulades de la variable agrupada amb l\'{\i}mits 
+aparents.
+
+\subsection*{Q\"uestions}
+\begin{itemize}
+\item[a)] Quins dels valors $\EE (X_r^{(d)})$ o $\EE (X_a^{(d)})$ s'aproximen
+m\'es a $\overline{X}=\frac{\sum\limits_{i=1}^N X_i}{N}$?
+
+\item[b)] Quins dels valors $\mbox{Var }(X_r^{(d)})$ o $\mbox{Var }
+(X_a^{(d)})$ s'aproximen m\'es a \break
+$S^2 =\frac{\sum\limits_{i=1}^N X_i^2}{N}-
+\overline{X}^2$?
+
+\item[c)] Feu els gr\`afics de les funcions de distribuci\'o
+ de les variables
+aleat\`ories 
+$X_r^{(d)}$ i $X_a^{(d)}$.
+\end{itemize}
+
+\subsection{Definici\'o de les variables aleat\`ories
+cont\'{\i}nues}
+
+\subsection*{Variable aleat\`oria
+cont\'{\i}nua per a l\'{\i}mits reals}
+
+Ara definirem la variable aleat\`oria cont\'{\i}nua
+ $X_r^{(c)}$.
+
+Tenint en compte que la taula de les freq\"u\`encies relatives i 
+acumulades es troba en la 
+taula~\ref{TAULAVARIABLEAGRUPADAREAL}, la
+funci\'o de distribuci\'o de 
+$X_r^{(c)}$ est\`a definida de la 
+manera seg\"uent:
+
+\begin{itemize}
+\item[] Si $x\leq L_1$, $F_{X_r^{(c)}}(x)=0$.
+
+\item[] Si $L_1 < x\leq L_2$, $F_{X_r^{(c)}}(x)$ val la imatge que li 
+correspon en la recta que uneix els punts $(L_1,0)$ i $(L_2,F_1)$.
+
+\item[] Si $L_2 <x \leq L_3$, $F_{X_r^{(c)}}(x)$ val la imatge que li
+correspon en la recta que uneix els punts $(L_2,F_1)$ i $(L_3,F_2)$.
+
+\item[] $\vdots$
+
+\item[] Si $x\geq L_{I+1}$, $F_{X_r^{(c)}}(x)$ val $1$.
+
+\end{itemize}
+
+O sigui, la funci\'o de distribuci\'o
+ est\`a constru\"{\i}da com a interpolaci\'o
+lineal de les 
+freq\"u\`encies relatives acumulades com imatges dels intervals 
+de classe. Vegeu el gr\`afic \ref{VARCONTREAL} per entendre
+millor la construcci\'o.
+
+\begin{figure}
+%\setlength{\unitlength}{0.0125in}%
+\setlength{\unitlength}{0.00825in}%
+\begin{center}
+\begin{picture}(500,350)(40,395)
+\thinlines
+\put(120,415){\line( 0, 1){  0}}
+\put(120,415){\line( 0, 1){  5}}
+\put(180,415){\line( 0, 1){  5}}
+\put(240,415){\line( 0, 1){  5}}
+\put(300,415){\line( 0, 1){  5}}
+\put(355,415){\line( 0, 1){  5}}
+\put( 80,745){\line( 0,-1){330}}
+\put( 80,415){\line( 1, 0){460}}
+\put( 80,440){\line( 1, 0){  5}}
+\put( 80,560){\line( 1, 0){  5}}
+\put( 80,650){\line( 1, 0){  5}}
+\put(120,415){\line( 5, 2){ 60.345}}
+\put(180,440){\line( 3, 4){ 60}}
+\put(240,520){\line( 3, 2){ 60}}
+\put(300,560){\line( 3, 5){ 50.735}}
+\put(350,645){\line( 1, 0){190}}
+\put( 80,520){\line( 1, 0){  5}}
+\put(110,395){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{$L_1$}}}
+\put(170,395){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{$L_2$}}}
+\put(230,395){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{$L_3$}}}
+\put(290,395){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{$L_4$}}}
+\put(345,395){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{$L_5$}}}
+\put( 50,435){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{$F_1$}}}
+\put( 50,555){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{$F_3$}}}
+\put( 50,515){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{$F_2$}}}
+\put( 60,645){\makebox(0,0)[lb]{\raisebox{0pt}[0pt][0pt]{$1$}}}
+\end{picture}
+\end{center}
+\caption{Gr\`afic de la funci\'o de distribuci\'o per a la
+variable aleat\`oria $X_{r}^{(c)}$}
+\label{VARCONTREAL}
+\end{figure}
+
+\subsection*{Variable aleat\`oria
+cont\'{\i}nua per a l\'{\i}mits aparents}
+
+Feu el mateix que hem fet en la subsecci\'o anterior per\`o ara 
+prenent l\'{\i}mits aparents.
+
+O sigui, definim la variable aleat\`oria $X_a^{(c)}$ on la
+funci\'o de distribuci\'o de $X_a^{(c)}$ 
+es defineix de la mateixa manera que la funci\'o de distribuci\'o
+ de $X_r^{(c)}$ per\`o
+tenint en compte les freq\"u\`encies
+relatives acumulades de la variable agrupada 
+amb l\'{\i}mits aparents.
+
+\subsection*{Q\"uestions}
+\begin{itemize}
+\item[a)] Quins dels valors $\EE (X_r^{(c)})$ o $\EE (X_a^{(c)})$ s'aproximen
+m\'es a $\overline{X}=\frac{\sum\limits_{i=1}^N X_i}{N}$?
+
+\item[b)] Quins dels valors $\mbox{Var }(X_r^{(c)})$ o $\mbox{Var }
+(X_a^{(c)})$ s'aproximen m\'es a \break $S^2 =\frac{\sum\limits_{i=1}^N 
+X_i^2}{N}-\overline{X}^2$?
+\enlargethispage*{1000pt}
+\item[c)] Feu els gr\`afics de les funcions de distribuci\'o
+ de les variables
+aleat\`ories 
+$X_r^{(c)}$ i $X_a^{(c)}$.
+\end{itemize}
+
+\newpage
+\section{Teorema del l\'{\i}mit central}
+
+\subsection{Generaci\'o de la mostra aleat\`oria simple}
+
+Sigui $X$ una variable aleat\`oria  amb funci\'o de distribuci\'o coneguda. 
+Per exemple $X$ pot ser:
+\begin{description}
+\item[$Poiss(\lambda)$] Variable aleat\`oria de Poisson 
+amb par\`ametre
+$\lambda$.
+
+\item[$B(n,p)$] Variable aleat\`oria 
+binomial amb par\`ametres 
+$n$ i $p$.
+
+\item[$\mbox{Exp }(\lambda)$] Variable aleat\`oria exponencial amb par\`ametre
+$\lambda$.
+
+\item[$N(\mu,\sigma^2)$] Variable aleat\`oria
+ normal amb par\`ametres 
+$\mu$ i $\sigma^2$.
+
+\item[$\chi^2_n$] Variable aleat\`oria
+ khi quadrat 
+amb $n$ graus de llibertat.
+
+\end{description}
+
+Generau una mostra aleat\`oria 
+simple de grand\`aria $N$ per a una variable aleat\`oria~$X$ amb qualsevol de 
+les funcions de distribuci\'o descrites
+anteriorment. Vegeu el problema~\ref{PROBGENMOSTRES} com a ajuda de com generar l'esmentada 
+mostra.
+
+\subsection{Comprovaci\'o que la mostra anterior correspon a la 
+va\-ria\-ble aleat\`oria $X$}
+
+Vegeu mitjan\c{c}ant el test $\chi^2$ i mitjan\c{c}ant el test
+de Kolmogorov-Smirnov que la mostra anterior 
+correspon a la variable aleat\`oria $X$.
+
+O sigui, trobeu l'error tipus I m\`axim 
+$\alpha_{\mbox{\footnotesize m\`ax}}$ per 
+poder acceptar que la mostra anterior correspon a la
+variable aleat\`oria $X$ fent servir els dos tests esmentats anteriorment.
+
+\subsection{Definici\'o de la funci\'o de distribuci\'o
+emp\'{\i}rica}
+
+Sigui $X_1,\ldots,X_N$ la mostra aleat\`oria
+ simple generada en
+l'apartat anterior.
+
+Definim una nova mostra aleat\`oria
+ simple $Y_1,\ldots,Y_N$ a 
+partir de la mostra anterior:
+\[
+Y_i = \frac{\overline{X}_i -\mu}{\frac{\sigma}{\sqrt{i}}}, 
+\]
+on
+\[
+\overline{X}_i =  \frac{\sum\limits_{j=1}^i X_j}{i},\quad 
+\mu =  \EE (X), \quad
+\sigma =  \sqrt{\mbox{Var }(X)}.
+\]
+
+Considerem la funci\'o de distribuci\'o
+ emp\'{\i}rica 
+a partir de la mostra anterior definida com:
+\[
+F_{Y}^{(N)}(t) = \frac{\#\{i\ |\ Y_i\leq t\}}{N}, \mbox{ on el 
+s\'{\i}mbol $\#$ indica cardinal d'un conjunt.}
+\]
+
+Fixat $t$, trobeu:
+\[  
+\lim_{N\to\infty} F_{Y}^{(N)}(t) := L_t.
+\]
+
+Q\"uesti\'o:
+
+\'Es cert que:
+\[
+L_t = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^t e^{-\frac{t^2}{2}}\, dt =
+0.5+\frac{1}{\sqrt{2\pi}}\int_{0}^t e^{-\frac{t^2}{2}}\, dt?
+\]
+\section{Estudi de la fiabilitat d'un examen tipus test}
+
+\subsection{Introducci\'o}
+
+Considerem un examen tipus test amb $N$ preguntes, realitzat per 
+$M$ alumnes.
+
+Suposem que cada pregunta t\'e en total $5$ respostes i que cada pregunta
+t\'e la mateixa puntuaci\'o per a la nota final.
+
+Si l'alumne contesta b\'e la pregunta, li donam $1$ punt damunt $N$ en la
+nota final; si la contesta malament, li restam $0.25$ punts damunt $N$ i si
+contesta en blanc, no li donam cap punt.
+
+Considerem la matriu $A$ on tenim el resultat de l'examen:
+\[  
+A=\pmatrix{
+a_{11}&\cdots&a_{1N}\cr
+a_{21}&\cdots&a_{2N}\cr
+\vdots&\ddots&\vdots\cr
+a_{M1}&\cdots&a_{MN}},
+\]
+on $a_{ij}$ representa el que ha contestat l'alumne $i$ a la pregunta $j$.
+
+Amb vista a fixar idees, suposeu que la resposta verdadera \'es sempre
+la primera. O sigui, si l'examen d'un determinat alumne \'es:
+\[
+1,1,1,1\ldots,1,
+\]
+t\'e un $N$ damunt $N$ de nota final o un $10$ damunt $10$.
+
+\subsection{Estudi de la independ\`encia
+ de la variable {\it Resposta} i
+de la variable {\it Nota}}
+
+Per a cada pregunta $P_i$ ($i=1,\ldots,N$) considerem la taula seg\"uent:
+
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|}
+\hline
+Nota$\backslash$Resposta&1&2&3&4&5&0\\\hline\hline
+$[0,1)$&$b_{01}$&$b_{02}$&$b_{03}$&$b_{04}$&$b_{05}$&$b_{06}$\\\hline
+$[1,2)$&$b_{11}$&$b_{12}$&$b_{13}$&$b_{14}$&$b_{15}$&$b_{16}$\\\hline
+$[2,3)$&$b_{21}$&$b_{22}$&$b_{23}$&$b_{24}$&$b_{25}$&$b_{26}$\\\hline
+$[3,4)$&$b_{31}$&$b_{32}$&$b_{33}$&$b_{34}$&$b_{35}$&$b_{36}$\\\hline
+$[4,5)$&$b_{41}$&$b_{42}$&$b_{43}$&$b_{44}$&$b_{45}$&$b_{46}$\\\hline
+$[5,6)$&$b_{51}$&$b_{52}$&$b_{53}$&$b_{54}$&$b_{55}$&$b_{56}$\\\hline
+$[6,7)$&$b_{61}$&$b_{62}$&$b_{63}$&$b_{64}$&$b_{65}$&$b_{66}$\\\hline
+$[7,8)$&$b_{71}$&$b_{72}$&$b_{73}$&$b_{74}$&$b_{75}$&$b_{76}$\\\hline
+$[8,9)$&$b_{81}$&$b_{82}$&$b_{83}$&$b_{84}$&$b_{85}$&$b_{86}$\\\hline
+$[9,10)$&$b_{91}$&$b_{92}$&$b_{93}$&$b_{94}$&$b_{95}$&$b_{96}$\\\hline
+\end{tabular}
+\end{center}
+on $b_{ij}$ \'es la quantitat d'alumnes que han contestat la 
+resposta $j$ i han tret una nota entre $i$ i $i+1$.
+
+La partici\'o que hem fet de la variable 
+{\it Nota} en la taula anterior \'es d'intervals d'amplada $1$. 
+Per fer la pr\`actica, s'han de considerar altres particions 
+per a amplades qualsevols.
+
+Vegeu a partir del test $\chi^2$ si la variable {\it Resposta}
+\'es independent de la variable {\it Nota}. O sigui, 
+trobau l'error tipus~I m\`axim ($\alpha_{\mbox{\footnotesize m\`ax}}$) 
+a partir del qual acceptam independ\`encia.
+
+
+\subsection{Estudi de la dificultat i 
+coher\`encia de cada pregunta}
+
+Per a cada pregunta $P_i$ ($i=1,\ldots,N$), constru\"{\i}u la 
+taula seg\"uent:
+
+\begin{center}
+\begin{tabular}{|c||c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}|}
+%\begin{tabular}{|c||cccccccccc|}
+\hline
+Nota&$[0,1)$&$[1,2)$&$[2,3)$&$[3,4)$&$[4,5)$&$[5,6)$&$[6,7)$&$[7,8)$&$[8,9)$&$[9,10)$\\\hline\hline
+&$p_0^{(i)}\%$& $p_1^{(i)}\%$&$p_2^{(i)}\%$&$p_3^{(i)}\%$&$p_4^{(i)}\%$&$p_5^{(i)}\%$&$p_6^{(i)}\%$&$p_7^{(i)}\%$&$p_8^{(i)}\%$&$p_9^{(i)}\%$\\\hline
+\end{tabular}
+\end{center}
+on $p_j^{(i)}\%$ \'es el tant per cent de gent que ha contestat b\'e
+la pregunta $P_i$ i ha tengut una nota entre $j$ i $j+1$. O sigui, 
+$p_j^{(i)}/100$ \'es el quocient entre la quantitat d'alumnes que han
+contestat b\'e la pregunta~$P_i$ i han tengut una nota entre~$j$ i
+$j+1$ i la quantitat d'alumnes que han contestat b\'e la
+pregunta~$P_i$. S'ha de complir, doncs, que $\sum\limits_{j=0}^9 
+p_j^{(i)} =100$.
+
+Feu el gr\`afic de la variable $p_j^{(i)}\%$ com a funci\'o de la 
+variable {\it Nota} per a cada pregunta $P_i$ i uniu de forma lineal
+els punts que surten. Vegeu gr\`afic
+\ref{PICENTNOTA} per entendre com ha de ser el gr\`afic demanat.
+Agafeu les marques de classe dels 
+intervals agrupats de la variable
+{\it Nota} per representar el gr\`afic.
+
+\begin{figure}
+% GNUPLOT: LaTeX picture
+\setlength{\unitlength}{0.240900pt}
+\ifx\plotpoint\undefined\newsavebox{\plotpoint}\fi
+\sbox{\plotpoint}{\rule[-0.200pt]{0.400pt}{0.400pt}}%
+\begin{picture}(1500,900)(0,0)
+\font\gnuplot=cmr10 at 10pt
+\gnuplot
+\sbox{\plotpoint}{\rule[-0.200pt]{0.400pt}{0.400pt}}%
+\put(176.0,68.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(176.0,68.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,68.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,68){\makebox(0,0)[r]{0}}
+\put(1416.0,68.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,108.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,108.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,108){\makebox(0,0)[r]{5}}
+\put(1416.0,108.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,149.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,149.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,149){\makebox(0,0)[r]{10}}
+\put(1416.0,149.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,189.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,189.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,189){\makebox(0,0)[r]{15}}
+\put(1416.0,189.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,230.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,230.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,230){\makebox(0,0)[r]{20}}
+\put(1416.0,230.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,270.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,270.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,270){\makebox(0,0)[r]{25}}
+\put(1416.0,270.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,311.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,311.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,311){\makebox(0,0)[r]{30}}
+\put(1416.0,311.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,351.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,351.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,351){\makebox(0,0)[r]{35}}
+\put(1416.0,351.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,392.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,392.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,392){\makebox(0,0)[r]{40}}
+\put(1416.0,392.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,432.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,432.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,432){\makebox(0,0)[r]{45}}
+\put(1416.0,432.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,473.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,473.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,473){\makebox(0,0)[r]{50}}
+\put(1416.0,473.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,513.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,513.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,513){\makebox(0,0)[r]{55}}
+\put(1416.0,513.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,553.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,553.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,553){\makebox(0,0)[r]{60}}
+\put(1416.0,553.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,594.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,594.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,594){\makebox(0,0)[r]{65}}
+\put(1416.0,594.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,634.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,634.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,634){\makebox(0,0)[r]{70}}
+\put(1416.0,634.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,675.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,675.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,675){\makebox(0,0)[r]{75}}
+\put(1416.0,675.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,715.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,715.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,715){\makebox(0,0)[r]{80}}
+\put(1416.0,715.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,756.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,756.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,756){\makebox(0,0)[r]{85}}
+\put(1416.0,756.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,796.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,796.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,796){\makebox(0,0)[r]{90}}
+\put(1416.0,796.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,837.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,837.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,837){\makebox(0,0)[r]{95}}
+\put(1416.0,837.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,877.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,877.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(154,877){\makebox(0,0)[r]{100}}
+\put(1416.0,877.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(176.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(176.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(176,23){\makebox(0,0){0}}
+\put(176.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(239.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(239.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(239,23){\makebox(0,0){0.5}}
+\put(239.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(302.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(302.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(302,23){\makebox(0,0){1}}
+\put(302.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(365.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(365.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(365,23){\makebox(0,0){1.5}}
+\put(365.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(428.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(428.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(428,23){\makebox(0,0){2}}
+\put(428.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(491.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(491.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(491,23){\makebox(0,0){2.5}}
+\put(491.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(554.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(554.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(554,23){\makebox(0,0){3}}
+\put(554.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(617.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(617.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(617,23){\makebox(0,0){3.5}}
+\put(617.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(680.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(680.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(680,23){\makebox(0,0){4}}
+\put(680.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(743.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(743.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(743,23){\makebox(0,0){4.5}}
+\put(743.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(806.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(806.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(806,23){\makebox(0,0){5}}
+\put(806.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(869.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(869.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(869,23){\makebox(0,0){5.5}}
+\put(869.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(932.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(932.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(932,23){\makebox(0,0){6}}
+\put(932.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(995.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(995.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(995,23){\makebox(0,0){6.5}}
+\put(995.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1058.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(1058.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1058,23){\makebox(0,0){7}}
+\put(1058.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1121.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(1121.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1121,23){\makebox(0,0){7.5}}
+\put(1121.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1184.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(1184.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1184,23){\makebox(0,0){8}}
+\put(1184.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1247.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(1247.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1247,23){\makebox(0,0){8.5}}
+\put(1247.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1310.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(1310.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1310,23){\makebox(0,0){9}}
+\put(1310.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1373.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(1373.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1373,23){\makebox(0,0){9.5}}
+\put(1373.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1436.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(1436.0,68.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1436,23){\makebox(0,0){10}}
+\put(1436.0,857.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(176.0,68.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(1436.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(176.0,877.0){\rule[-0.200pt]{303.534pt}{0.400pt}}
+\put(176.0,68.0){\rule[-0.200pt]{0.400pt}{194.888pt}}
+\put(239,108){\usebox{\plotpoint}}
+\multiput(365.00,108.58)(1.545,0.498){79}{\rule{1.329pt}{0.120pt}}
+\multiput(365.00,107.17)(123.241,41.000){2}{\rule{0.665pt}{0.400pt}}
+\multiput(491.00,149.58)(1.584,0.498){77}{\rule{1.360pt}{0.120pt}}
+\multiput(491.00,148.17)(123.177,40.000){2}{\rule{0.680pt}{0.400pt}}
+\multiput(617.00,187.92)(1.584,-0.498){77}{\rule{1.360pt}{0.120pt}}
+\multiput(617.00,188.17)(123.177,-40.000){2}{\rule{0.680pt}{0.400pt}}
+\multiput(743.00,147.92)(1.545,-0.498){79}{\rule{1.329pt}{0.120pt}}
+\multiput(743.00,148.17)(123.241,-41.000){2}{\rule{0.665pt}{0.400pt}}
+\put(239.0,108.0){\rule[-0.200pt]{30.353pt}{0.400pt}}
+\multiput(995.00,108.58)(0.778,0.499){159}{\rule{0.722pt}{0.120pt}}
+\multiput(995.00,107.17)(124.501,81.000){2}{\rule{0.361pt}{0.400pt}}
+\multiput(1121.00,187.92)(1.584,-0.498){77}{\rule{1.360pt}{0.120pt}}
+\multiput(1121.00,188.17)(123.177,-40.000){2}{\rule{0.680pt}{0.400pt}}
+\multiput(1247.00,149.58)(0.778,0.499){159}{\rule{0.722pt}{0.120pt}}
+\multiput(1247.00,148.17)(124.501,81.000){2}{\rule{0.361pt}{0.400pt}}
+\put(239,108){\raisebox{-.8pt}{\makebox(0,0){$\bullet$}}}
+\put(365,108){\raisebox{-.8pt}{\makebox(0,0){$\bullet$}}}
+\put(491,149){\raisebox{-.8pt}{\makebox(0,0){$\bullet$}}}
+\put(617,189){\raisebox{-.8pt}{\makebox(0,0){$\bullet$}}}
+\put(743,149){\raisebox{-.8pt}{\makebox(0,0){$\bullet$}}}
+\put(869,108){\raisebox{-.8pt}{\makebox(0,0){$\bullet$}}}
+\put(995,108){\raisebox{-.8pt}{\makebox(0,0){$\bullet$}}}
+\put(1121,189){\raisebox{-.8pt}{\makebox(0,0){$\bullet$}}}
+\put(1247,149){\raisebox{-.8pt}{\makebox(0,0){$\bullet$}}}
+\put(1373,230){\raisebox{-.8pt}{\makebox(0,0){$\bullet$}}}
+\put(869.0,108.0){\rule[-0.200pt]{30.353pt}{0.400pt}}
+\end{picture}
+\caption{Gr\`afic de la variable $p_j^{(i)}\%$ com a funci\'o de la
+ variable {\it Nota}}
+\label{PICENTNOTA}
+\end{figure}
+
+Dibuxau en el mateix dibuix tots els gr\`afics corresponents a totes
+les preguntes~$P_i$.
+
+Interpretau els resultats.
+
+Q\"uestions:
+
+\begin{itemize}
+\item Com es veu reflectida la dificultat d'una pregunta en el gr\`afic 
+anterior?
+
+\item Digau a partir del vostre gr\`afic quina seria segons el vostre
+criteri la pregunta m\'es dif\'{\i}cil i la m\'es f\`acil.
+
+\item Com es veu reflectida la coher\`encia
+ d'una pregunta en el gr\`afic 
+anterior? Per coher\`encia 
+vull dir si la pregunta est\`a ben contestada pels alumnes bons i 
+mal contestada pels dolents.
+
+\item Digau, a partir del vostre gr\`afic, quina seria segons el vostre
+criteri la pregunta m\'es coherent i la menys 
+coherent.
+
+\end{itemize}
+
+\subsection{Estudi de la coher\`encia 
+dels distractors}
+
+Fixam una pregunta~$P_i$. Per a cada resposta err\`onia~$R_k$ ($k\not =1$),
+constru\"{\i}u la taula:
+\begin{center}
+\begin{tabular}{|c||c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}|}
+\hline
+Nota&$[0,1)$&$[1,2)$&$[2,3)$&$[3,4)$&$[4,5)$&$[5,6)$&$[6,7)$&$[7,8)$&$[8,9)$&$[9,10)$\\\hline\hline
+&$p_0^{(i,k)}\%$& $p_1^{(i,k)}\%$&$p_2^{(i,k)}\%$&$p_3^{(i,k)}\%$&
+$p_4^{(i,k)}\%$&$p_5^{(i,k)}\%$&$p_6^{(i,k)}\%$&$p_7^{(i,k)}\%$&
+$p_8^{(i,k)}\%$&$p_9^{(i,k)}\%$\\\hline
+\end{tabular}
+\end{center}
+on $p_j^{(i,k)}\%$ \'es el tant per cent de gent que ha contestat la 
+resposta~$k$ i ha tret una nota entre~$j$ i \mbox{$j+1$.} O sigui, 
+$p_j^{(i,k)}/100$ \'es el quocient entre la quantitat d'alumnes que han
+contestat la resposta~$k$ en la pregunta~$i$ i han obtengut una nota
+entre~$j$ i $j+1$ i la quantitat d'alumnes que han contestat la
+resposta~$k$ en la pregunta~$i$. S'ha de complir, doncs, que
+$\sum\limits_{j=0}^9 p_j^{(i,k)}=100$.
+
+Feu el gr\`afic de la variable $p_j^{(i,k)}$ com a funci\'o de la variable
+{\it Nota}. Vegeu gr\`afic~\ref{PICENTNOTA} per entendre millor com
+ha de ser el gr\`afic demanat.
+
+Intepretaci\'o dels resultats.
+
+Q\"uesti\'o:
+
+- Com es veu reflectida la coher\`encia del distractor~$R_k$ en els gr\`afics
+anteriors? 
+
+Un distractor~$R_k$ \'es coherent si hi ha hagut pocs alumnes bons que
+l'han contestat i molts de dolents.
+
+\section{Contrasts d'hip\`otesi corresponents als
+par\`ametres $\mu$ i $\sigma$}
+
+
+\subsection{Introducci\'o i generaci\'o de les mostres}
+
+En aquesta pr\`actica veurem si els estimadors 
+$\overline{X}$, $S^2$ i $\tilde{S}^2$ s\'on bons estimadors
+ dels par\`ametres 
+$\mu$ i $\sigma^2$ respectivament, fent servir la teoria del contrast
+ d'hip\`otesi.
+
+Generau dues mostres 
+aleat\`ories simples: una d'una variable aleat\`oria 
+$N(\mu,\sigma^2)$ on $\mu$ i $\sigma^2$ s\'on par\`ametres
+ i l'altra d'una variable aleat\`oria $t_n$ 
+($t$ de Student amb $n$ graus de llibertat) on 
+$n$ tamb\'e \'es un altre par\`ametre. 
+Els par\`ametres s'han de
+fixar d'entrada. Vegeu problema~\ref{PROBGENMOSTRES} per entendre com podem generar
+les esmentades mostres.
+
+Comprovau a partir del test $\chi^2$ i el test de Kolmogorov-Smirnov
+que les mostres anteriors corresponen a la variable 
+aleat\`oria normal i $t_n$ de Student, respectivament.
+
+\subsection{Contrast d'hip\`otesi per a la mitjana}
+
+Sigui $X_1,\ldots,X_n$ la mostra generada en la secci\'o anterior.
+
+Sigui $\mu_0$ un valor qualsevol fixat d'entrada.
+
+Considerem el contrast d'hip\`otesi seg\"uent:
+\[
+\left.
+\begin{array}{ll}
+H_0:&\mu =\mu_0, \\
+H_1:&\mu\not =\mu_0.
+\end{array}
+\right\}
+\]
+Trobau $\alpha_{\mbox{\footnotesize m\`ax}}(\mu_0)$: error tipus 
+I m\`axim a partir del qual rebutjam la hip\`otesi\break nu{\lgem}a~$H_0$.
+
+Representau gr\`aficament la funci\'o: 
+$\alpha_{\mbox{\footnotesize m\`ax}}=\alpha_{\mbox{\footnotesize m\`ax}}(\mu_0)$.
+
+Q\"uestions:
+\begin{itemize}
+\item \'Es cert que el gr\`afic anterior t\'e el m\`axim 
+en $\overline{X}= \frac{\sum\limits_{i=1}^n X_i}{n}$?
+
+\item Interpretau el gr\`afic anterior.
+\end{itemize}
+
+\subsection{Contrast d'hip\`otesi per a la vari\`ancia
+}
+
+Sigui $\sigma_0^2$ un valor qualsevol fixat d'entrada.
+
+Considerem ara el contrast seg\"uent:
+
+\[
+\left.
+\begin{array}{ll}
+H_0:&\sigma^2 =\sigma_0^2, \\
+H_1:&\sigma^2\not =\sigma_0^2.
+\end{array}
+\right\}
+\]
+
+Trobau $\alpha_{\mbox{\footnotesize m\`ax}}(\sigma_0^2)$: error tipus~I 
+m\`axim a partir del qual rebutjam la hip\`otesi nu{\lgem}a~$H_0$.
+
+Representau gr\`aficament la funci\'o: 
+$\alpha_{\mbox{\footnotesize m\`ax}}=\alpha_{\mbox{\footnotesize m\`ax}}(\sigma_0^2)$.
+
+\begin{itemize}
+\item On t\'e el m\`axim el gr\`afic anterior?
+
+\item De quin dels dos estimadors, $S^2$ o $\tilde{S}^2$ est\`a m\'es 
+a prop el m\`axim anterior?
+
+Recordem que les f\'ormules dels estimadors 
+$S^2$ i $\tilde{S}^2$ s\'on:
+\begin{eqnarray*}
+S^2 & = & \frac{\sum\limits_{i=1}^n X_i^2}{n}-\overline{X}^2, \\
+\tilde{S}^2 & = & \frac{1}{n-1}\sum_{i=1}^n {(X_i-\overline{X})}^2 = 
+\frac{n}{n-1} S^2.
+\end{eqnarray*}
+
+\item Interpretau el gr\`afic anterior.
+\end{itemize}
+
+\section{Lleis dels grans nombres i test $\chi^2$}
+
+\subsection{Introducci\'o}
+\label{INTRODUCCIO}
+
+Considerem $(X_1,\ldots,X_k)$ una variable aleat\`oria multinomial amb 
+par\`ametres\break $p_1,\ldots,p_k,n$ on recordem que 
+\[
+\sum_{i=1}^k p_i =1,\quad \sum_{i=1}^k X_i =n.
+\] 
+
+Trobau una mostra aleat\`oria 
+simple de la variable aleat\`oria anterior
+de grand\`aria~$N$. Sigui
+\[
+\begin{array}{lcl}
+(X_1^{(1)},&\ldots,&X_k^{(1)})\\
+(X_1^{(2)},&\ldots,&X_k^{(2)})\\
+&\vdots&\\
+(X_1^{(N)},&\ldots,&X_k^{(N)}),
+\end{array}
+\]
+l'esmentada mostra.
+
+Per exemple, en el cas del llan\c{c}ament d'un dau, $k=6$ i
+$p_i =\frac{1}{6},\ i=1,2,3,4,5,6$.
+
+
+\subsection{Lleis dels grans nombres}
+
+Trobau el l\'{\i}mit seg\"uent:
+\[
+\lim_{N\to\infty} \frac{\sum\limits_{i=1}^{N} X_j^{(i)}}{n N} := L_j.
+\]
+
+Comprovau la llei dels grans nombres, 
+o sigui, vegeu que $L_j =p_j$, per a tot $j=1,\ldots,k$.
+
+\subsection{Test $\chi^2$}
+
+\subsection*{Estudi del test a partir del propi test $\chi^2$}
+
+A partir de cada element de la mostra aleat\`oria simple generada 
+en la secci\'o~\ref{INTRODUCCIO}, definim una altra mostra de la forma seg\"uent:
+\[
+Y^{(i)}=\sum_{j=1}^k \frac{{(X_j^{(i)}- n p_j)}^2}{n p_j},\ i=1,\ldots,N.
+\]
+
+Vegeu mitjan\c{c}ant el test de la $\chi^2$ si la mostra aleat\`oria
+ simple
+\[
+Y^{(1)},\ldots,Y^{(N)},
+\]
+correspon a una variable aleat\`oria $\chi_{k-1}^2$ (variable khi 
+quadrat amb $k-1$ graus de llibertat).
+
+\subsection*{Estudi del test a partir de la funci\'o de 
+distribuci\'o emp\'{\i}rica}
+
+Considerem la funci\'o de distribuci\'o
+
+emp\'{\i}rica de la mostra aleat\`oria
+ simple 
+\[
+Y^{(1)},\ldots,Y^{(N)}:
+\]
+ 
+\[
+F^{(N)} (t)= \frac{\#\{ i\ |\ Y^{(i)}\leq t\}}{N},
+\]
+on el s\'{\i}mbol $\#$ vol dir cardinal d'un conjunt. 
+
+Fixam $t$. Trobau el l\'{\i}mit:
+\[
+\lim_{N\to\infty} F^{(N)} (t):= L_t.
+\]
+
+Q\"uesti\'o:
+
+\'Es cert que el l\'{\i}mit anterior $L_t$ val $F_{\chi_{k-1}^2} (t)$ 
+(funci\'o de distribuci\'o 
+de la variable $\chi_{k-1}^2$ en el punt $t$)?
+
+\section{Test ANOVA d'un factor}
+
+\subsection{Generaci\'o de les mostres}
+
+Siguin $X_1,\ldots,X_k$, $k$ variables aleat\`ories
+ normals 
+$X_i =N(\mu_i,\sigma^2)$ i independents.
+
+Generau $k$ mostres aleat\`ories simples corresponents a les
+variables aleat\`ories 
+anteriors de grand\`aries respectives $n_1,\ldots,n_k$:
+\[
+\begin{array}{lcl}
+Y_{1,1},&\ldots,&Y_{1,n_1},\\
+Y_{2,1},&\ldots,&Y_{2,n_2},\\
+&\vdots&\\
+Y_{k,1},&\ldots,&Y_{k,n_k}.
+\end{array}
+\]
+
+Vegeu el problema~\ref{PROBGENMOSTRES} per entendre millor com generar les 
+mostres an\-te\-riors.
+
+\subsection{Comprovaci\'o de la normalitat i la 
+independ\`encia}
+
+Vegeu mitjan\c{c}ant el test de la $\chi^2$ que les mostres anteriors
+s\'on normals.
+
+Fent servir el mateix test, comprovau que s\'on independents de
+ dues en dues, o
+sigui, vegeu que la mostra corresponent a la variable $Y_i$ \'es
+independent de la mostra corresponent a la variable $Y_j$, per $i\not = j$.
+
+\subsection{Comprovaci\'o de la igualtat de vari\`ancies}
+
+Vegeu mitjan\c{c}ant el test de Bartlett si totes 
+les mostres anteriors corresponen a $k$ variables 
+aleat\`ories amb la mateixa 
+vari\`ancia.
+
+
+\subsection{Contrast ANOVA}
+
+Realitzau el contrast:
+\[
+\left.
+\begin{array}{rl}
+H_0: & \mu_1 =\ldots =\mu_k \\
+H_1: & \exists i,j\ |\ \mu_i\not =\mu_j
+\end{array}
+\right\}
+\]
+O sigui, trobau $\alpha_{\mbox{\footnotesize m\`ax}}$ (error tipus I
+m\`axim) per poder acceptar $H_0$.
+
+En el cas de rebuig de la hip\`otesi nu{\lgem}a $H_0$, vegeu quines mitjanes
+s\'on diferents a partir del test de Scheff\'e.
+
+
+\section{C\`alcul d'una integral definida 
+per m\`etodes estad\'{\i}stics}
+
+\subsection{Introducci\'o}
+
+Sigui 
+\(
+f:[a,b] \longrightarrow  \RR 
+\)
+una funci\'o real de variable real, integrable de Riemann
+ en l'interval~$[a,b]$.
+
+L'objectiu d'aquesta pr\`actica \'es calcular 
+\mbox{Int:= $\int\limits_a^b f(x)\, dx$.}
+
+Suposem que la funci\'o~$f$ compleix dues condicions:
+\begin{itemize}
+\item $f(x)\geq 0$, per a tot $x\in [a,b]$.
+
+\item $|f(x)|\leq M$ o $f(x)\in [0,M]$, per a tot $x\in [a,b]$, on
+\mbox{$M=\max\limits_{x\in [a,b]} f(x):= f(x_M)$.}
+\end{itemize}
+
+Trobarem la integral de dues maneres diferents.
+
+\subsection{C\`alcul de la integral a partir d'una variable aleat\`oria 
+bidimensional}
+
+\subsection*{Definicions de les variables aleat\`ories}
+Considerem les variables aleat\`ories $X$ 
+uniforme en l'interval $[a,b]$ i $Y$ uniforme en l'interval $[0,M]$.
+
+Suposem que les variables aleat\`ories~$X$ i $Y$ s\'on 
+independents.
+
+La funci\'o de densitat conjunta 
+de la variable aleat\`oria bidimensional
+$(X,Y)$ ser\`a:
+\[
+f(x,y)=
+\left\{
+\begin{array}{ll}
+\frac{1}{M(b-a)}, & \mbox{si $(x,y)\in [a,b]\times [0,M]$,} \\
+0, & \mbox{en cas contrari.}
+\end{array}
+\right.
+\]
+Considerem la prova de Bernoulli seg\"uent:
+
+Sigui $(X_1,Y_1)$ una mostra aleat\`oria
+ simple de grand\`aria~$1$ de la 
+variable aleat\`oria anterior $(X,Y)$.
+
+Direm que ha sortit \`exit en la prova de Bernoulli si 
+\mbox{$Y_1\leq f(X_1)$} i 
+que ha sortit frac\`as si \mbox{$Y_1 > f(X_1)$.}
+
+La probabilitat~$p$ d'\`exit valdr\`a, doncs:
+\begin{eqnarray*}
+p & = & \pp{Y\leq f(X)} = \int\!\int_{\{(x,y)\ |\ y\leq f(x)\}} 
+\frac{1}{M(b-a)}\, dx\,dy \\ & = & \int_a^b
+\int_0^{f(x)}\frac{1}{M(b-a)}\, dx\, dy =\frac{1}{M(b-a)} {\rm Int}.
+\end{eqnarray*}
+
+Sigui $Z$ la variable aleat\`oria de Bernoulli 
+corresponent a la prova de Bernoulli definida anteriorment.
+
+\subsection*{C\`alcul de la integral de forma aproximada}
+
+Sigui $Z_1,\ldots,Z_n$ una mostra aleat\`oria simple de la variable
+aleat\`oria~$Z$. Cada va\-ria\-ble $Z_i$ t\'e assignada una variable 
+bidimensional $(X_i,Y_i)$ amb la mateixa 
+distribuci\'o que la variable~$(X,Y)$.
+
+Fent servir que l'estimador~$\overline{Z}$ del par\`ametre~$p$ \'es 
+consistent, podem afirmar:
+\[
+\lim_{n\to\infty} \pp{|\overline{Z}-p| <\epsilon}= 1,\quad
+\forall\epsilon >0,
+\]
+on $\overline{Z}=\frac{\sum\limits_{i=1}^n Z_i}{n}$.
+
+Podem afirmar que $\overline{Z}$ \'es una bona aproximaci\'o del
+par\`ametre~$p$.
+
+Podem aproximar la integral~${\rm Int}$ de la forma seg\"uent:
+\[
+{\rm Int} = M(b-a) p\approx M(b-a)\overline{Z}.
+\]
+
+\subsection*{Control de l'error com\`es}
+
+Donats $\epsilon >0$, $\delta >0$ fixats, trobeu~$n$ tal que
+\[
+\pp{|\overline{Z}-p| > \epsilon} \leq \delta,
+\]
+El que es demana, de fet, \'es fer una taula de valors per a 
+diferents $\epsilon$, $\delta$ i~$n$. 
+
+Indicaci\'o: feu servir l'aproximaci\'o binomial a la 
+normal per poder trobar la probabilitat anterior.
+
+\subsection{C\`alcul de la integral a partir d'una variable aleat\`oria 
+unidimensional}
+
+\subsection*{Definici\'o de les variables aleat\`ories}
+
+Suposem que la funci\'o $f(x)$, a m\'es de complir les dues condiciones
+esmentades anteriorment, \'es estrictament mon\`otona
+ en l'interval
+ $[a,b]$.
+
+Sigui $X$ una variable aleat\`oria $U[a,b]$.
+Definim una altra variable $Y$ de la forma seg\"uent:
+
+Donat un element $\omega$ de l'espai mostral $\Omega$, 
+definim $Y(\omega)$ com:
+\[
+Y(\omega)=
+\left\{
+\begin{array}{ll}
+f\left(X(\omega)\right), & \mbox{si $X(\omega)\in [a,b]$,} \\
+0, & \mbox{en cas contrari.}
+\end{array}
+\right.
+\]
+
+Vegeu que $\EE_Y (Y) =\EE_X (f(X))$, o sigui, comprovau la igualtat de les
+f\'ormules seg\"uents:
+\begin{equation}
+\EE_Y (Y)\int_{\RR} y f_Y (y)\, dy = \int_a^b \frac{1}{b-a} f(x)\, dx.
+\label{INTSEGFORMA}
+\end{equation}
+
+\subsection*{C\`alcul de la integral de forma aproximada}
+
+Sigui $X_1,\ldots,X_n$ una mostra aleat\`oria
+ simple de la v.a.~$X$.
+Aleshores, podem afirmar que $Y_1:= f(X_1),\ldots,Y_n:= f(X_n)$ ser\`a una mostra
+aleat\`oria simple de la v.a.~$Y$.
+
+Fent servir l'expresi\'o~\ref{INTSEGFORMA}, podem afirmar: 
+$\EE_Y (Y) =\frac{1}{b-a} {\rm Int}$.
+
+Tenint en compte que $\overline{Y}=\overline{f(X)}=
+\frac{\sum\limits_{i=1}^n f(X_i)}{n}$ \'es un bon estimador
+ del par\`ametre $\EE_Y(Y)$, 
+podem escriure:
+\begin{equation}
+\lim_{n\to\infty} \left\{\left|\overline{Y}-\frac{1}{b-a} {\rm Int}\right|
+> \epsilon\right\} =0,\quad\forall\epsilon >0.
+\label{ESTYCONSISTENT}
+\end{equation}
+Aix\'{\i} prenem com a aproximaci\'o de ${\rm Int}$:
+\[
+{\rm Int} = (b-a) E_Y (Y)\approx (b-a)\overline{Y}.
+\]
+
+Podem dir que la f\'ormula~\ref{ESTYCONSISTENT} continua essent certa 
+per a funcions $f$ no mon\`otones? I per a funcions $f$ qualssevol integrables de
+Riemann?
+
+

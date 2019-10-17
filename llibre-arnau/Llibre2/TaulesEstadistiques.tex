@@ -1,0 +1,88 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[catalan]{babel}
+\usepackage{fancybox,fancyhdr,latexsym,multirow,array,epic,calc}
+\usepackage[utf8]{inputenc}
+%\includeonly{Nor,td,xi,Fl,Kolmogorov}
+\includeonly{Fl2}
+%\includeonly{PInf6,PInf7,PInf8,PInf9,PInf10,PInf11,PInf12,PInf13,
+%TaulaContrast,Prac,Nor,td,xi,Fl,Kolmogorov}
+%\includeonly{PInf6,PInf7,PInf8,PInf9,PInf10,PInf11,PInf12,PInf13}
+%\includeonly{PInf12,TaulaContrast,Nor,td,xi,Fl}
+
+\setlength{\textwidth}{18.5cm}
+\setlength{\textheight}{22cm}
+\setlength{\oddsidemargin}{-1.95cm}
+\setlength{\evensidemargin}{-1.95cm}
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+
+
+%Definitions of \Bbb
+\newif\ifamsfonts
+% If you do not have the AMS font msbm, comment the next line
+\amsfontstrue
+\ifamsfonts
+%Definitions of \Bbb with AMS blackboard fonts
+\font\twlbbb=msbm10 scaled\magstep1         
+\font\egtbbb=msbm8                          
+\font\sixbbb=msbm6                          
+\newfam\bbbfam
+\textfont\bbbfam=\twlbbb
+\scriptfont\bbbfam=\egtbbb
+\scriptscriptfont\bbbfam=\sixbbb
+\newcommand{\Bbb}[1]{{\fam\bbbfam\relax#1}}
+\else
+%Definitions of \Bbb without Blackboard fonts
+\newcommand{\Bbb}[1]{{\bf#1}}
+\fi
+
+%Definitions of numbers
+\newcommand\RR{\Bbb{R}}
+\newcommand\QQ{\Bbb{Q}}
+\newcommand\CC{\Bbb{C}}
+\newcommand\ZZ{\Bbb{Z}}
+\newcommand\NN{\Bbb{N}}
+
+
+\newcounter{problema}
+%\numberwithin{problema}{section}
+
+\begin{document}
+\font\fiverm = cmr5
+\newcommand{\bblref}[1]{{\bf \ref{#1}}}
+\setcounter{problema}{0}
+\newcounter{cas}
+\newcounter{aux}
+\setcounter{cas}{0}
+\newcommand{\e}{{\rm e}}
+\newcommand{\EE}{{\rm E}}
+\newcommand{\Var}{{\rm Var}}
+\newcommand{\Cov}{{\rm Cov}}
+\newcommand{\pp}[1]{p\left\{#1\right\}}
+\renewcommand{\thecas}{\Roman{cas}}
+\newcommand{\posacas}{\addtocounter{cas}{1}{\bf \thecas}}
+\newcommand{\text}[1]{\mbox{#1}}
+
+\newenvironment{prob}
+{\addtocounter{problema}{1}
+\noindent
+{\textbf{\thechapter.\theproblema.- }}}
+{
+\vspace{\baselineskip}}
+
+
+
+\title{TAULES ESTADÍSTIQUES}
+
+
+\author{Arnau Mir\and
+Ricardo Alberich}
+\maketitle
+%\include{Nor}
+%\include{td}
+%\include{xi}
+\include{Fl2}
+%\include{Kolmogorov}
+\end{document}
+

@@ -1,0 +1,451 @@
+\appendix
+
+\chapter{Taules de contrasts d'hip\`otesi m\'es usuals}
+
+En aquest ap\`endix
+donarem unes quantes taules especificant tots els contrasts d'hip\`otesi
+param\`etrics m\'es usuals. 
+
+Donarem les condicions per a cada contrast, l'estad\'{\i}stic
+a usar en cada cas, la regi\'o cr\'{\i}tica i 
+l'interval de confian\c ca corresponent a
+cada par\`ametre que surt en el contrast.
+
+En l'estad\'{\i}stic hem usat la notaci\'o seg\"uent:
+\begin{itemize}
+\item[$\bullet$] $X_\alpha$: {Donada una variable aleat\`oria 
+$X$, direm $X_\alpha$ al valor on la
+funci\'o de distribuci\'o de $X$ val $\alpha$, o sigui, $$\pp{X\leq X_\alpha
+}=\alpha.$$} 
+\item[$\bullet$] $Z$: {Distribuci\'o normal $N(0,1)$.} 
+\item[$\bullet$] $t_n$: {Distribuci\'o
+$t$ de Student amb $n$ graus de llibertat.} 
+\item[$\bullet$] $\chi_n^2$: {Distribuci\'o
+khi-quadrat amb $n$ graus de llibertat.} 
+\item[$\bullet$] $F_{n_1,n_2}$: {Distribuci\'o $F$ de
+Fisher-Snedecor amb $n_1$ i $n_2$ graus de llibertat.}
+\end{itemize}
+
+\section{Taula de contrasts d'hip\`otesi per al par\`ametre $\mu$ d'una 
+variable aleat\`oria normal}
+
+%\enlargethispage*{1000pt}
+%\pagebreak
+%\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+\subsection{Tipus de contrasts i condicions}
+%\catalan
+\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|>{\small}c@{\hspace{1mm}}|c|>{\small}c|c|c@{\hspace{1mm}}|}
+\hline Tipus&Condicions&Mostra&\multicolumn{1}{m{2 cm}}{
+Hip\`otesi alternativa}&\multicolumn{1}{|c|}{Cas}\\
+\hline\hline
+\multirow{6}{2.5 cm}{Una sola mitjana. $H_0:\mu =\mu_0$} &\multirow{3}{3 cm}{
+$\sigma$ coneguda. Poblaci\'o normal o $n$ gran.} &  
+\multirow{3}{3cm}{$n$ observacions independents.} & 
+$H_1:\mu\not =\mu_0$&
+\posacas \\\cline{4-5} & & &$H_1:\mu <\mu_0$&\posacas \\\cline{4-5}
+ & & &$H_1:\mu>\mu_0$&\posacas\\\cline{2-5} & \multirow{3}{3 cm}{
+ $\sigma$ desconeguda.
+ Poblaci\'o Normal o $n$ gran.} & \multirow{3}{3cm}{
+ $n$ observacions independents.}&
+$H_1:\mu\not =\mu_0$&\posacas \\\cline{4-5} & & &$H_1:\mu <\mu_0$&\posacas\\
+\cline{4-5} & & & $H_1:\mu>\mu_0$&\posacas\\\hline
+\multirow{9}{2.5 cm}{Dues mitjanes. $H_0:\mu_1 =\mu_2$}&\multirow{3}{3 cm}{
+$\sigma_1$ i $\sigma_2$ conegudes. Poblacions Normals o $n_1$ i $n_2$ grans} &
+\multirow{3}{3 cm}{$n_1$ i $n_2$ observacions totes independents.}&
+$H_1:\mu_1\not =\mu_2$&  
+\posacas\\\cline{4-5} & & & $H_1:\mu_1<\mu_2$&\posacas\\\cline{4-5}
+ & & &$H_1:\mu_1>\mu_2$&\posacas\\\cline{2-5} & \multirow{3}{3cm}{
+ $\sigma_1$ i $\sigma_2$ desconegudes. $\sigma_1 =\sigma_2$. 
+ Poblacions Normals.}&
+ \multirow{3}{3cm}{$n_1$ i $n_2$ observacions totes independents.}&
+ $H_1:\mu_1\not =\mu_2$&\posacas\\\cline{4-5}
+ & & & $H_1:\mu_1<\mu_2$&\posacas\\\cline{4-5}
+ & & & $H_1:\mu_1>\mu_2$&\posacas\\\cline{2-5} & \multirow{3}{3 cm}{
+$\sigma_1$ i $\sigma_2$ desconegudes. $\sigma_1\not =\sigma_2$. Poblacions 
+Normals.}&\multirow{3}{3cm}{$n_1$ i $n_2$ observacions totes
+independents.}&
+$H_1:\mu\not =\mu_2$&\posacas\\\cline{4-5} & & &$H_1:\mu_1<\mu_2$&\posacas\\
+\cline{4-5} & & &$H_1:\mu_1>\mu_2$&\posacas\\\hline
+\multicolumn{5}{|l|}{Continua en la p\`agina seg\"uent}\\\hline
+\end{tabular}
+\end{minipage}
+
+\newpage
+
+\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|>{\small}c@{\hspace{0.5mm}}|c@{\hspace{0.5mm}}|
+>{\small}c@{}|c|c@{\hspace{1mm}}|}
+\hline Tipus&Condicions&Mostra&\multicolumn{1}{m{2 cm}}{
+Hip\`otesi alternativa}&\multicolumn{1}{|c|}{Cas}\\
+\hline\hline
+\multirow{6}{2.5 cm}{Difer\`encia de mitjanes dependents. $H_0:\mu_d =0$, on 
+$\mu_d =\mu_1 -\mu_2$.}&
+\multirow{3}{3 cm}{Dues poblacions normals dependents.
+$\sigma_d$\footnote{$\sigma_d$ \'es la vari\`ancia de la variable 
+$D=X_1 -X_2$.} 
+coneguda.}
+&\multirow{3}{2.5cm}{$n$ difer\`encies independents.}&
+$H_1:\mu_d\not =0$&\posacas\\\cline{4-5} & & & $H_1:\mu_d <0$&\posacas\\
+\cline{4-5} & & & $H_1:\mu_d >0$&\posacas\\\cline{2-5} & 
+\multirow{3}{3cm}{Dues poblacions dependents. $\sigma_d$
+desconeguda.}&
+\multirow{3}{2.5cm}{$n$ difer\`encies independents.}&$H_1:\mu_d\not
+=0$& 
+\posacas\\\cline{4-5} & & &$H_1:\mu_d< 0$&\posacas
+\\\cline{4-5} & & &$H_1:\mu_d>0$&\posacas\\
+\hline
+\end{tabular}
+\end{minipage}
+\newpage
+\setcounter{cas}{0}
+
+\subsection{Estad\'{\i}stic de contrast, regions cr\'{\i}tiques i
+intervals de confian\c{c}a}
+
+\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|>{\small}c@{}|c@{}|>{$\scriptstyle}c<{$}@{}|
+@{}>{$\scriptstyle}c<{$}|}
+\hline
+Cas&Estad\'{\i}stic&\multicolumn{1}{c|}{Regi\'o
+cr\'{\i}tica}&\multicolumn{1}{c|}{Interval confian\c ca}\\\hline\hline
+\posacas&\multirow{3}{2cm}{$Z=
+\frac{\overline{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}$ Normal $N(0,1)$}&\{Z\leq
+z_{\frac{\alpha}{2}}\}\cup \{Z \geq z_{1-\frac{\alpha}{2}}\}&
+\left(\overline{X}+z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}},
+\overline{X}+z_{1-\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}\right) \\
+\cline{1-1}\cline{3-4}\posacas & &\{Z\leq z_{\alpha}\}&
+\left(-\infty,
+\overline{X}+z_{1-\alpha}\frac{\sigma}{\sqrt{n}}\right)\\
+\cline{1-1}\cline{3-4}
+\posacas & &\{Z\geq z_{1-\alpha}\}&\left(
+\overline{X}+z_{\alpha}\frac{\sigma}{\sqrt{n}},+\infty\right)\\\hline
+\posacas&\multirow{3}{2cm}{$T=
+\frac{\overline{X}-\mu_0}{\frac{\tilde{S}}{\sqrt{n}}}$
+$t_{n-1}$\footnote{$t_{n-1}$ \'es la distribuci\'o $t$ de Student amb
+$n-1$ graus de llibertat.}}&\{T\leq
+t_{n-1,\frac{\alpha}{2}}\}\cup \{T \geq t_{n-1,1-\frac{\alpha}{2}}\}&
+\left(\overline{X}+t_{n-1,\frac{\alpha}{2}}\frac{\tilde{S}}{\sqrt{n}},
+\overline{X}+t_{n-1,1-\frac{\alpha}{2}}
+\frac{\tilde{S}}{\sqrt{n}}\right)\\\cline{1-1}\cline{3-4}\posacas & &
+\{T\leq t_{n-1,\alpha}\}&
+\left(-\infty,
+\overline{X}+t_{n-1,1-\alpha}\frac{\tilde{S}}{\sqrt{n}}\right)\\
+\cline{1-1}\cline{3-4}
+\posacas & &\{T\geq t_{n-1,1-\alpha}\}&\left(
+\overline{X}+t_{n-1,\alpha}
+\frac{\tilde{S}}{\sqrt{n}},+\infty\right)\\\hline
+\posacas&\multirow{3}{2cm}{$Z=
+\frac{\overline{X}_1-\overline{X}_2}{\tilde{S}\footnote{$\tilde{S}=
+\sqrt{\frac{\sigma_1^2}{n_1}+
+\frac{\sigma_2^2}{n_2}}$}}$ Normal $N(0,1)$}& \{Z\leq
+z_{\frac{\alpha}{2}}\}\cup \{Z \geq z_{1-\frac{\alpha}{2}}\}&
+\left(\overline{X}_1 -\overline{X}_2
++z_{\frac{\alpha}{2}}\tilde{S},
+\overline{X}_1 -\overline{X}_2
++z_{1-\frac{\alpha}{2}}\tilde{S}\right)\\
+\cline{1-1}\cline{3-4}\posacas & &\{Z\leq z_{\alpha}\}&
+\left(-\infty,
+\overline{X}_1 -\overline{X}_2
++z_{1-\alpha}\tilde{S}\right)\\
+\cline{1-1}\cline{3-4}
+\posacas & &\{Z\geq z_{1-\alpha}\}&\left(
+\overline{X}_1 -\overline{X}_2
++z_{\alpha}\tilde{S},+\infty\right)\\\hline
+\posacas&\multirow{3}{2cm}{$T=\frac{\overline{X}_1 -\overline{X}_2}{
+\tilde{S}_{1,2}\footnote{$\tilde{S}_{1,2}=\sqrt{\frac{(n_1
+-1)\tilde{S_1}^2 +(n_2 -1)\tilde{S}_2^2}{n_1 +n_2
+-2}\cdot\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}$}}$ $t_{n_1 +n_2
+-2}\footnote{Distribuci\'o $t$ de Student amb $n_1 +n_2 -2$ graus de
+llibertat.}$}&\{T\leq t_{m\footnote{$m=n_1+n_2
+-2$},\frac{\alpha}{2}}\}\cup \{T\geq
+t_{m,1-\frac{\alpha}{2}}\}&(\overline{X}_1 -\overline{X}_2
++t_{m,\frac{\alpha}{2}} \tilde{S}_{1,2},\overline{X}_1 -\overline{X}_2
++t_{m,1-\frac{\alpha}{2}}
+\tilde{S}_{1,2})\\\cline{1-1}\cline{3-4}\posacas & &\{T\leq
+t_{m,\alpha}\}&(-\infty,\overline{X}_1 -\overline{X}_2 +t_{m,1-\alpha}
+\tilde{S}_{1,2})\\\cline{1-1}\cline{3-4}\posacas & &\{T\geq
+t_{m,1-\alpha}\}&(\overline{X}_1 -\overline{X}_2
++t_{m,\alpha}\tilde{S}_{1,2},+\infty)\\\hline\posacas&
+\multirow{3}{2cm}{$
+Z=\frac{\overline{X}_1-\overline{X}_2}{\tilde{S}_{1,2}\footnote{$
+\tilde{S}_{1,2}=\sqrt{\frac{\tilde{S}_1^2}{n_1}+\frac{\tilde{S}_2^2}{n_2}}$}}$
+Normal $N(0,1)$}&\{Z\leq
+z_{\frac{\alpha}{2}}\} \cup \{Z\geq z_{1-\frac{\alpha}{2}}\}&(\overline{X}_1
+-\overline{X}_2 +z_{\frac{\alpha}{2}}\tilde{S}_{1,2},\overline{X}_1
+-\overline{X}_2
++z_{1-\frac{\alpha}{2}}\tilde{S}_{1,2})\\\cline{1-1}\cline{3-4}\posacas & & 
+\{Z\leq z_{\alpha}\} &(-\infty,\overline{X}_1 -\overline{X}_2
++z_{1-\alpha}\tilde{S}_{1,2})\\
+\cline{1-1}\cline{3-4}\posacas & & \{Z\geq z_{1-\alpha}\} & (\overline{X}_1
+-\overline{X}_2 +z_{\alpha}\tilde{S}_{1,2},+\infty)\\\hline
+\posacas&\multirow{3}{2cm}{$Z=\frac{\overline{D}\footnote{$D$ \'es la
+variable aleat\`oria: $D=X_1 -X_2$.}}{\frac{\sigma_D}{\sqrt{n}}}$ Normal
+$N(0,1)$}&
+\{Z\leq z_{\frac{\alpha}{2}}\} \cup \{Z\geq z_{1-\frac{\alpha}{2}}\}&
+(\overline{D} +z_{\frac{\alpha}{2}}\frac{\sigma_D}{\sqrt{n}},
+\overline{D}+z_{1-\frac{\alpha}{2}}\frac{\sigma_D}{\sqrt{n}})\\\cline{1-1}
+\cline{3-4}\posacas & & \{Z\leq z_{\alpha}\}&(-\infty,
+\overline{D}+z_{1-\alpha}\frac{\sigma_D}{\sqrt{n}})\\\cline{1-1}
+\cline{3-4}\posacas & &\{Z\geq z_{1-\alpha}\} &(\overline{D} +z_{\alpha}
+\frac{\sigma_D}{\sqrt{n}},+\infty)\\\hline
+\multicolumn{4}{|l|}{Continua en la p\`agina seg\"uent}\\\hline
+\end{tabular}
+\end{minipage}
+
+\newpage
+
+\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|>{\small}c@{}|c@{}|>{$\scriptstyle}c<{$}@{}|
+@{}>{$\scriptstyle}c<{$}|}
+\hline
+Cas&Estad\'{\i}stic&\multicolumn{1}{c|}{Regi\'o
+Cr\'{\i}tica}&\multicolumn{1}{c|}{Interval Confian\c ca}\\\hline\hline
+\posacas&\multirow{3}{2cm}{$T=\frac{\overline{D}\footnote{$D$ \'es la
+variable aleat\`oria: $D=X_1 -X_2$.}}{\frac{\tilde{S}_D}{\sqrt{n}}}$
+$t_{n-1}\footnote{$t_{n-1}$ 
+\'es la variable $t$ de Student amb
+$n-1$ graus de llibertat.}$}&\{T\leq t_{n-1,\frac{\alpha}{2}}\}\cup
+\{T\geq t_{n-1,1-\frac{\alpha}{2}}\}&(\overline{D} +
+z_{\frac{\alpha}{2}}\frac{\tilde{S}_D}{\sqrt{n}},
+\overline{D}+z_{1-\frac{\alpha}{2}}\frac{\tilde{S}_D}{\sqrt{n}})
+\\\cline{1-1}
+\cline{3-4}\posacas & & \{T\leq t_{n-1,\alpha}\}&(-\infty,
+\overline{D}+z_{1-\alpha}\frac{\tilde{S}_D}{\sqrt{n}})\\\cline{1-1}
+\cline{3-4}\posacas & &\{T\geq t_{n-1,1-\alpha}\}&(\overline{D} +z_{\alpha}
+\frac{\sigma_D}{\sqrt{n}},+\infty)\\\hline
+\end{tabular}
+\end{minipage}
+\setcounter{cas}{0}
+
+\newpage
+
+\section{Contrats d'hip\`otesi per al par\`ametre $\sigma$ d'una normal}
+%\enlargethispage*{1000pt}
+%\pagebreak
+\subsection{Tipus de contrasts i condicions}
+\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|>{\small}c@{}|c|>{\small}c|c|@{}c@{}|}
+\hline Tipus&Condicions&Mostra&\multicolumn{1}{m{2 cm}}{
+Hip\`otesi alternativa}&\multicolumn{1}{|c|}{Cas}\\
+\hline\hline
+\multirow{3}{2.5cm}{Una sola vari\`ancia $H_0:\sigma^2 =\sigma_0^2$}&
+\multirow{3}{3cm}{Poblaci\'o Normal. $\mu$ desconeguda.}&
+\multirow{3}{3cm}{$n$ observacions independents.}&
+$H_1:\sigma^2\not =\sigma_0^2$&\posacas\\\cline{4-5} & & &
+$H_1:\sigma^2 <\sigma_0^2$&\posacas\\\cline{4-5} & & &
+$H_1:\sigma^2 >\sigma_0^2$&\posacas\\\hline
+\multirow{3}{2.5cm}{Dues vari\`ancies. Observacions
+independents. $H_0:\sigma_1^2=\sigma_2^2$}&
+\multirow{3}{3cm}{Poblacions normals.}&\multirow{3}{3cm}{Dues mostres
+de grand\`aries $n_1$ i $n_2$ totes independents.}
+&$H_1:\sigma_1^2\not =\sigma_2^2$&\posacas\\\cline{4-5} & & & 
+$H_1:\sigma_1^2 <\sigma_2^2$&\posacas\\\cline{4-5} & & &
+$H_1:\sigma_1^2 >\sigma_2^2$&\posacas\\\hline
+\multirow{3}{2.5cm}{Dues vari\`ancies. Observacions
+dependents. $H_0:\sigma_1^2=\sigma_2^2$}& 
+\multirow{3}{3cm}{Poblacions normals.}&\multirow{3}{3cm}{Dues mostres
+independents de grand\`aria $n$ correlacionades entre si.}&
+$H_1:\sigma_1^2\not =\sigma_2^2$&\posacas\\\cline{4-5} & & &
+$H_1:\sigma_1^2 <\sigma_2^2$&\posacas\\\cline{4-5} & & &
+$H_1:\sigma_1^2 >\sigma_2^2$&\posacas\\\hline
+\multirow{3}{2.5cm}{Una proporci\'o. $H_0:p=p_0$}&\multirow{3}{3cm}{
+Poblaci\'o Bernoulli.}&\multirow{3}{3cm}{$n$ observacions independents.}
+&$H_1:p\not =p_0$&\posacas\\\cline{4-5} & & &
+$H_1:p <p_0$&\posacas\\\cline{4-5}& & &
+$H_1:p >p_0$&\posacas\\\hline
+\multirow{3}{2.5cm}{Dues proporcions. Observacions independents. $H_0:p_1=p_2$}&
+\multirow{3}{3cm}{Poblacions Bernoulli.}&
+\multirow{3}{3cm}{Dues mostres de grand\`aries $n_1$ i $n_2$ totes independents.}&
+$H_1 :p_1\not =p_2$&\posacas\\\cline{4-5} & & &
+$H_1 :p_1 <p_2$&\posacas\\\cline{4-5}& & &
+$H_1 :p_1 >p_2$&\posacas\\\hline
+\multirow{3}{2.5cm}{Dues proporcions. Observacions dependents. $H_0:p_a=p_d$}&
+\multirow{3}{3cm}{Poblacions Bernoulli.}&
+\multirow{3}{3cm}{Dues mostres de grand\`aria $n$ correlacionades entre si.}&
+$H_1:p_a\not = p_b$&\posacas\\\cline{4-5} & & &
+$H_1:p_a < p_b$&\posacas\\\cline{4-5}& & &
+$H_1:p_a > p_b$&\posacas\\\hline
+\end{tabular}
+\end{minipage}
+
+\setcounter{cas}{0}
+
+\subsection{Estad\'{\i}stic de contrast, regions cr\'{\i}tiques i
+intervals de confian\c ca}
+
+\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|>{\small}c|c@{}|@{}>{$\scriptstyle}c<{$}@{}|
+>{$\scriptstyle}c<{$}|}
+\hline
+Cas&Estad\'{\i}stic&\multicolumn{1}{c|}{Regi\'o
+Cr\'{\i}tica}&\multicolumn{1}{c|}{Interval Confian\c ca}\\\hline\hline
+\posacas\footnote{Si $\mu$
+fos coneguda,
+l'estad\'{\i}stic \'es
+$\chi^2 =\frac{\sum\limits_{i=1}^n {(X_i -\mu)}^2}{\sigma_0^2}$ i la seva
+distribuci\'o \'es $\chi_n^2$ (distribuci\'o khi quadrat amb $n$ graus de
+llibertat.} &\multirow{3}{3cm}{${\chi^2}\footnote{Distribuci\'o khi quadrat
+amb
+$n-1$ graus de llibertat.} =\frac{(n-1)\tilde{S}^2}{\sigma_0^2}$}&\{\chi^2\leq
+\chi_{n-1,\frac{\alpha}{2}}^2\}\cup
+\{\chi^2\geq \chi_{n-1,1-\frac{\alpha}{2}}^2\}&
+\left(\frac{(n-1)\tilde{S}^2}{\chi_{n-1,1-\frac{\alpha}{2}}^2},
+\frac{(n-1)\tilde{S}^2}{\chi_{n-1,\frac{\alpha}{2}}^2}\right) \\
+\cline{1-1}\cline{3-4}\posacas & & \{\chi^2\leq \chi_{n-1,\alpha}^2\} &
+\left(0,\frac{(n-1)\tilde{S}^2}{\chi_{n-1,\alpha}^2}\right)\\
+\cline{1-1}\cline{3-4}\posacas & & \{\chi^2\geq \chi_{n-1,1-\alpha}^2\} &
+\left(\frac{(n-1)\tilde{S}^2}{\chi_{n-1,1-\alpha}^2},+\infty\right)\\\hline
+\posacas&\multirow{3}{3cm}{$
+F
+\footnote{Distribuci\'o
+$F$ de Fisher-Snedecor amb $n_1 -1$ i $n_2 -1$ graus de llibertat.}
+=\frac{\tilde{S}_1^2}{\tilde{S}_2^2}$
+}&\begin{tabular}{l}
+$\{F\leq F_{n_1 -1,n_2 -1,\frac{\alpha}{2}}\}\cup$\\
+$\{F\geq F_{n_1 -1,n_2 -1,1-\frac{\alpha}{2}}\}$
+\end{tabular}&
+\begin{tabular}[c]{>{$\scriptstyle}c<{$}}
+(\frac{\tilde{S}_1^2}{\tilde{S}_2^2}F_{n_1 -1,n_2 -1,\frac{\alpha}{2}}, \\
+\frac{\tilde{S}_1^2}{\tilde{S}_2^2}F_{n_1 -1,n_2 -1,1-\frac{\alpha}{2}})
+\end{tabular}
+\\\cline{1-1}\cline{3-4}\posacas & & \{F\leq F_{n_1 -1,n_2
+-1,\alpha}\} & \left(0,\frac{\tilde{S}_1^2}{\tilde{S}_2^2}F_{n_1 -1,n_2
+-1,1-\alpha}\right)\\\cline{1-1}\cline{3-4}\posacas & & \{F\geq F_{n_1 -1,n_2
+-1,1-\alpha}\} & \left(\frac{\tilde{S}_1^2}{\tilde{S}_2^2}F_{n_1 -1,n_2
+-1,\alpha},+\infty\right)\\\hline\posacas&
+\multirow{3}{3.25cm}{$T=\frac{\sqrt{n-2} (S_1\footnote{$S_1 =\sum\limits_{i=1}^n
+x_{1,i}^2$, on $x_{1,i}=X_{1,i}-\overline{X}_1$.}-S_2\footnote{$S_2
+=\sum\limits_{i=1}^n x_{2,i}^2$, on
+$x_{2,i}=X_{2,i}-\overline{X}_2$.})}{2\sqrt{S_1 S_2 - S_3^2\footnote{$S_3
+=\sum\limits_{i=1}^n x_{1,i} x_{2,i}$.}}}$ Distribuci\'o
+$t_{n-2}$\footnote{Distribuci\'o $t$ de Student amb $n-2$ graus de
+llibertat.}}&\{T\leq t_{n-2,\frac{\alpha}{2}}\}\cup \{T\geq
+t_{n-2,1-\frac{\alpha}{2}}\}& \\\cline{1-1}\cline{3-4}\posacas & &
+\{T\leq t_{n-2,\alpha}\} & \\\cline{1-1}\cline{3-4}\posacas & &
+\{T\geq t_{n-2,1- \alpha}\} & \\\hline\posacas&
+\multirow{3}{3cm}{$n\overline{p}$\footnote{$\overline{p}$ \'es la proporci\'o
+mostral}}&
+\begin{tabular}[c]{>{$\scriptstyle}c<{$}}
+\{n\overline{p}\leq\max\limits_{k\in\NN}
+\{\pp{ B(n,p_0)\footnote{$B(n,p_0)$ \'es la distribuci\'o binomial de
+par\`ametres $n$ i $p_0$}\leq k}\leq\frac{\alpha}{2}\}\}\cup\\
+\{n\overline{p}\geq\min\limits_{k\in\NN}
+\{\pp{B(n,p_0)\geq k}\leq\frac{\alpha}{2}\}\}
+\end{tabular}&
+\\\cline{1-1}\cline{3-4}\posacas & & 
+\{n\overline{p}\leq\max\limits_{k\in\NN}
+\{\pp{B(n,p_0)\leq k}\leq\alpha\}\} & \\\cline{1-1}\cline{3-4}\posacas& & 
+\{n\overline{p}\geq\min\limits_{k\in\NN}
+\{\pp{B(n,p_0)\geq k}\geq\alpha\}\} &
+\\\hline
+\end{tabular}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|@{}>{\small}c@{}|c@{}|@{}
+>{$\scriptstyle}c<{$}@{}|@{}>{$\scriptstyle}c<{$}@{}|}
+\hline
+Cas&Estad\'{\i}stic&\multicolumn{1}{c|}{Regi\'o
+Cr\'{\i}tica}&\multicolumn{1}{c|}{Interval Confian\c ca}\\\hline\hline
+\setcounter{aux}{10}{\bf\Roman{aux}}
+&\multirow{3}{3.5cm}{
+$Z=\frac{\overline{p}-p_0}{\sqrt{\frac{p_0 (1-p_0)}{n}}}\footnote{Aquest
+estad\'{\i}stic \'es v\`alid si $np(1-p)\geq 3$ i $\overline{p}$ \'es la
+proporci\'o mostral.}$ Normal $N(0,1)$.} &\{Z\leq z_{\frac{\alpha}{2}}\}\cup 
+\{Z\geq z_{1-\frac{\alpha}{2}}\} &
+\begin{tabular}[c]{>{$\scriptstyle}c<{$}}
+(\overline{p}+z_{\frac{\alpha}{2}}\sqrt{
+\frac{\overline{p}(1-\overline{p})}{n}}, \\
+\overline{p}+z_{1-\frac{\alpha}{2}}\sqrt{
+\frac{\overline{p}(1-\overline{p})}{n}})
+\end{tabular}
+\\\cline{1-1}\cline{3-4}
+\setcounter{aux}{11}{\bf\Roman{aux}}&
+&\{Z\leq z_{\alpha}\}&\left(-\infty,\overline{p}+z_{1-\alpha}\sqrt{
+\frac{\overline{p}(1-\overline{p})}{n}}\right)\\\cline{1-1}\cline{3-4}
+\setcounter{aux}{12}{\bf\Roman{aux}}&
+&\{Z\geq z_{1-\alpha}\}&\left(\overline{p}+z_{\alpha}\sqrt{
+\frac{\overline{p}(1-\overline{p})}{n}},+\infty\right)\\
+\hline
+\posacas&\multirow{3}{3.5cm}{$Z=\frac{\overline{p}_1 -\overline{p}_2}{
+\sqrt{\overline{p}\footnote{$\overline{p}=\frac{n_1 \overline{p}_1 +n_2
+\overline{p}_2}{n_1 +n_2}$}\overline{q}\footnote{$\overline{q}=1-\overline{p}$}
+\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}$ Normal $N(0,1)$}
+&\{Z\leq z_{\frac{\alpha}{2}}\}\cup
+\{Z\geq z_{1-\frac{\alpha}{2}}\}&
+\begin{tabular}[c]{>{$\scriptstyle}c<{$}}
+(\overline{p}_1-\overline{p_2}+z_{\frac{\alpha}{2}}\sqrt{\overline{p}
+\overline{q}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}, \\
+\overline{p}_1-\overline{p_2}-z_{\frac{\alpha}{2}}\sqrt{\overline{p}
+\overline{q}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)})
+\end{tabular}
+\\\cline{1-1}\cline{3-4}\posacas& &\{Z\leq z_{\alpha}\}&
+\left(-\infty,\overline{p}_1-\overline{p_2}+z_{1-\alpha}
+\sqrt{\overline{p}
+\overline{q}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}\right)
+\\\cline{1-1}\cline{3-4}\posacas& &\{Z\geq z_{1-\alpha}\}&
+\left(\overline{p}_1-\overline{p_2}+z_{\alpha}
+\sqrt{\overline{p}
+\overline{q}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)},+\infty\right)
+\\\hline
+\posacas&\multirow{3}{3cm}{$Z=\frac{\overline{p}_{1\bullet}-
+\overline{p}_{\bullet 1}}{\sqrt{\frac{b+d}{n^2}}}$
+\footnote{En aquest cas, hem de construir la taula seg\"uent:
+$$
+\begin{tabular}{c|c||c|c|c|c|}
+\cline{2-6}
+& & \multicolumn{4}{c|}{Mostra despr\'es}\\
+\cline{2-6} & & \'Exit & Frac\`as & Freq\"u\`encia & Proporci\'o \\
+\cline{2-6}\cline{2-6}
+\multirow{4}{2cm}{Mostra abans}&
+ \`Exit & $a$ & $b$ & $a+b$ & $\overline{p}_{1\bullet}=
+\frac{a+b}{n}$\\\cline{2-6}
+& Frac\`as & $d$ & $c$ & $c+d$ & $\overline{p}_{2\bullet}=
+\frac{c+d}{n}$\\
+\cline{2-6}\cline{2-6}
+& Freq\"u\`encia & $a+d$ & $b+c$ & $n$ & \\\cline{2-6}
+& Proporci\'o & $\overline{p}_{\bullet 1}=\frac{a+d}{n}$ & 
+$\overline{p}_{\bullet 2}=\frac{b+c}{n}$ & & $1$ \\\cline{2-6}
+\end{tabular}
+$$
+Per tant $a$ representa el nombre d'individus en les dues mostres
+(abans i despr\'es) que han obtengut \`exit, $b$ el nombre d'individus
+que han obtengut \`exit en la mostra d'abans i frac\`as en la mostra de
+despr\'es, $c$ el nombre d'individus que han obtengut frac\`as en les 
+dues mostres i $d$ el nombre d'individus que han obtengut \`exit en la
+mostra de despr\'es i frac\`as en la mostra d'abans. Les proporcions
+$\overline{p}_{1\bullet}$ i $\overline{p}_{\bullet 1}$ les donen
+les f\'ormules en la taula anterior.
+}
+Normal $N(0,1)$}&
+\{Z\leq z_{\frac{\alpha}{2}}\}\cup
+\{Z\geq z_{1-\frac{\alpha}{2}}\}&
+\begin{tabular}[c]{>{$\scriptstyle}c<{$}}
+(\overline{p}_{1\bullet}-\overline{p}_{\bullet 1}+z_{\frac{\alpha}{2}}
+\sqrt{\frac{b+d}{n^2}}, \\
+\overline{p}_{1\bullet}-\overline{p}_{\bullet 1}-z_{\frac{\alpha}{2}}
+\sqrt{\frac{b+d}{n^2}})
+\end{tabular}
+\\\cline{1-1}\cline{3-4}\posacas& &\{Z\leq z_{\alpha}\}&
+\left(-\infty,\overline{p}_{1\bullet}-\overline{p}_{\bullet 1}+z_{1-\alpha}
+\sqrt{\frac{b+d}{n^2}}\right)\\\cline{1-1}\cline{3-4}\posacas& &
+\{Z\geq z_{1-\alpha}\}&
+\left(\overline{p}_{1\bullet}-\overline{p}_{\bullet 1}+z_{\alpha}
+\sqrt{\frac{b+d}{n^2}},+\infty\right)\\\hline
+\end{tabular}
+\end{minipage}
+
+
+
+
+
+
+

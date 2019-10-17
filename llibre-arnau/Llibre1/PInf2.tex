@@ -1,0 +1,1744 @@
+\chapter{Variables aleat\`ories} 
+
+\section{Resum te\`oric}
+
+\begin{defin}
+Sigui $(\Omega, {\cal F}, p)$ un espai de probabilitat. Direm {\bf
+variable aleat\`oria}\index{variable aleatoria@variable aleat\`oria} (real) a tota
+aplicaci\'o $X : \Omega \to \RR$ tal que  $\forall x \in \RR, X^{-1}((-\infty,x])
+\in {\cal F}$ (\'es a dir, \'es un
+succ\'es). Aquest
+conjunt $X^{-1}((-\infty,x])$ se sol indicar amb $\{ X \leq x \}$.
+\end{defin}
+
+\begin{defin}
+La {\bf funci\'o de distribuci\'o}\index{funcio@funci\'o!de
+distribucio@de distribuci\'o}
+d'una variable aleat\`oria $X$ \'es la funci\'o $F: \RR \to [0,1]$ definida per:
+
+$$F(x) = p \circ X^{-1}((-\infty,x]) = \pp{X \leq x}.$$
+\end{defin}
+
+{\bf Propietats.}
+\begin{enumerate}
+
+\item $F$ \'es creixent.
+
+\item $F$ \'es cont\'{\i}nua per la dreta.
+
+\item $\displaystyle \lim_{x \to + \infty} F(x) = 1, \ \lim_{x \to - \infty}
+F(x) = 0.$
+
+\end{enumerate}
+
+El rec\'{\i}proc tamb\'e \'es cert: si $F : \RR \to [0,1]$ \'es una funci\'o que
+verifica (1)-(3), aleshores $F$ \'es la funci\'o de distribuci\'o d'una variable
+aleat\`oria $X$.
+
+{\bf Notes:} Sigui $X$ una variable aleat\`oria i $F$ la seva funci\'o de
+distribuci\'o.
+\begin{enumerate}
+\item En general, $F$ no \'es cont\'{\i}nua per l'esquerra. 
+De fet, \mbox{$F(x-) = F(x) - \pp{X = x}$.}
+
+\item Mitjan\c{c}ant la funci\'o de distribuci\'o es poden expressar les
+probabilitats
+que la variable aleat\`oria $X$ prengui els seus valors en intervals diversos.
+Per exemple, si $a, b \in \RR$,
+
+\begin{enumerate}
+
+\item $\pp{X < a} = F(a-),$
+
+\item $\pp{a \leq X \leq b} = F(b) - F(a-),$
+
+\item $\pp{a < X \leq b} = F(b) - F(a),$
+
+\item $\pp{a \leq X < b} = F(b-) - F(a-),$
+
+\item $\pp{a < X < b} = F(b-) - F(a).$
+
+\end{enumerate}
+
+\end{enumerate}
+
+\begin{defin}
+Direm que una variable aleat\`oria $X$ \'es {\bf
+discreta}\index{variable aleatoria@variable aleat\`oria!discreta}
+si el conjunt $X(\Omega)$ de tots els valors que pren \'es finit o numerable
+sense punts
+d'acumulaci\'o.
+\end{defin}
+
+{\bf Notes.}
+
+\begin{enumerate}
+
+\item Per a aquestes variables aleat\`ories, tenim:
+\[
+\{X\leq t\}\in {\cal F}\Longleftrightarrow X^{-1}(x_k)=\{ X=x_k\}\in {\cal F},\ 
+\forall x_k\in X(\Omega).
+\]
+
+\item Si $\Omega$ \'es finit, aleshores tota variable aleat\`oria $X$ sobre
+$(\Omega, {\cal F}, p)$ \'es discreta.
+
+\item Si $X$ \'es una variable aleat\`oria discreta i $g$ \'es una 
+funci\'o real de variable real \'es tal
+que
+$g(X(\Omega))$ no t\'e punts d'acumulaci\'o, aleshores $g(X) : \Omega \to \RR$
+donada
+per $g(X)(\omega) = g(X(\omega))$ tamb\'e \'es una variable aleat\`oria discreta.
+
+\item Si $X$ i $Y$ s\'on variables aleat\`ories discretes, tamb\'e ho
+s\'on $X+Y$ i $X\cdot Y$.
+\end{enumerate}
+
+\begin{defin}
+Sigui $X$ una variable aleat\`oria discreta, amb $X(\Omega) = \{ x_1,
+x_2, \ldots \}$. Direm {\bf funci\'o de probabilitat}\index{funcio@funci\'o!de
+probabilitat}
+de $X$ a l'aplicaci\'o  $f_X : \RR \to \RR$ donada per 
+$$f_X(x) = \pp{X = x} \ \forall x \in \RR.$$
+\end{defin}
+
+{\bf Notes.}
+
+\begin{enumerate}
+
+\item Si $x\not\in X(\Omega),\ f_X (x)=0$.
+
+\item Si $B \subset \RR$ \'es tal que $\{ X \in B \} 
+\in {\cal F}$, aleshores $\pp{X \in B} = \sum\limits_{x_i \in B \cap X(\Omega)}
+f_X(x_i)$
+
+\item $F(x) = \sum\limits_{x_i \leq x, x_i \in X(\Omega)} f_X(x_i) \
+\forall x \in \RR.$
+
+\end{enumerate}
+
+\begin{defin}
+Direm que la variable aleat\`oria $X$ \'es {\bf cont\'{\i}nua}
+\index{variable aleatoria@variable aleat\`oria!continua@cont\'{\i}nua} si la seva
+funci\'o de distribuci\'o \'es cont\'{\i}nua.
+\end{defin}
+
+\noindent{\bf Propietat:} $X$ \'es cont\'{\i}nua si i nom\'es si $\pp{X= x} =0\ 
+\forall x \in \RR.$
+
+\begin{defin}
+Una funci\'o $f : \RR \to \RR$ s'anomena {\bf densitat}\index{densitat} si
+compleix les condicions seg\"uents:
+
+\begin{enumerate}
+\item $f \geq 0$,
+
+\item $f$ \'es integrable (en el sentit de Riemann) en $\RR$,
+
+\item $\int\limits_{-\infty}^{+\infty} f(x) \> dx = 1.$
+
+\end{enumerate}
+\end{defin}
+
+\begin{defin}
+Direm que $X$ \'es una variable aleat\`oria {\bf absolutament cont\'{\i}nua amb
+densitat $f$}\index{variable aleatoria@variable aleat\`oria!absolutament continua
+@absolutament cont\'{\i}nua} si la seva funci\'o de distribuci\'o $F$ se pot
+escriure com:
+
+$$F(x) = \int_{-\infty}^{x} f(y) \> dy \ \ \forall x \in \RR,$$
+on $f$ \'es una densitat.
+\end{defin}
+
+{\bf Notes.}
+
+\begin{enumerate}
+
+\item Tota variable aleat\`oria absolutament cont\'{\i}nua \'es cont\'{\i}nua. El
+rec\'{\i}proc no \'es cert en general.
+
+\item Si $X$ \'es absolutament cont\'{\i}nua amb densitat $f$, aleshores
+
+$$\pp{X \in A} = \int_A f(x) \> dx \ \ \forall A \subset \RR \mbox{ tal que } \{ X
+\in A \} \in {\cal F}.$$
+\end{enumerate}
+
+De vegades, donada una variable aleat\`oria $X$, estarem interessats en la
+distribuci\'o d'una nova variable aleat\`oria $Y$ funci\'o de $X, \ Y = g(X)$, on
+$g
+: \RR \to \RR$ \'es una funci\'o donada. El cas discret \'es trivial; ens
+centrarem, per
+tant, en el cas absolutament continu.
+\newpage
+{\bf Propietats.}
+
+\begin{enumerate}
+\item Si $g$ \'es creixent,
+
+$$F_Y(y) = F_X(x) \mid_{x = g^{-1}(y)}.$$
+
+\item Si $g$ \'es decreixent,
+
+$$F_Y(y) = 1 - F_X(x) \mid_{x = g^{-1}(y)}.$$
+
+\item Si, a m\'es, $g$ \'es diferenciable,
+
+$$f_Y(y) = {\left.{f_X(x) \over |g'(x)|}\right|}_{x = g^{-1}(y)}.$$
+
+\item En general, si $g$ \'es diferenciable (no necess\`ariament mon\`otona) tal
+que\break
+$\forall y \in \RR$, l'equaci\'o $g(x) = y$ t\'e un nombre finit de solucions
+$x_1,
+\ldots, x_n$,
+
+$$f_Y(y) = {\left.\sum_{x_k} {f_X(x) \over |g'(x)|}\right|}_{x = x_k}.$$
+
+\end{enumerate}
+
+Per tal de descriure completament el comportament d'una variable aleat\`oria,
+s'ha de donar una funci\'o, o b\'e la de distribuci\'o o b\'e la de densitat (de
+probabilitat en el cas discret). En certes situacions, estarem interessats en
+uns quants par\`ametres que resumeixin la informaci\'o donada per aquestes
+funcions. Vegem-ne el m\'es importants.
+
+\begin{defin}
+Direm {\bf esperan\c ca}\index{esperanca@esperan\c{c}a} ({\bf
+mitjana,}\index{mitjana} o {\bf valor esperat}\index{valor esperat}) 
+d'una va\-ria\-ble ale\-at\`o\-ria~$X$ a:
+
+\begin{itemize}
+
+\item $\EE X = \sum\limits_k x_k \cdot \pp{X = x_k}$ si $X$ \'es discreta amb
+$X(\Omega) = \{ x_1, x_2, \ldots \},$
+
+\item $\EE X = \int\limits_{-\infty}^{+\infty} x \> f(x) \> dx$ si $X$ \'es
+absolutament cont\'{\i}nua amb densitat $f$.
+\end{itemize}
+\end{defin}
+
+L'esperan\c ca de $X$ est\`a definida si la s\`erie o integral anterior
+convergeix
+absolutament, \'es a dir si $\EE |X| < \infty$.
+
+{\bf Notes:} Si $X$ \'es una variable aleat\`oria no negativa, es compleix:
+
+\begin{enumerate}
+
+\item $\EE X = \sum\limits_{k=0}^\infty \pp{X > k}$ (cas discret amb
+$X(\Omega) = \ZZ^+$).
+
+\item $\EE X = \int\limits_{0}^{+\infty} (1 - F_X(x)) \> dx$ (cas
+absolutament continu).
+
+\end{enumerate}
+
+Si $Y = g(X)$ \'es absolutament cont\'{\i}nua, aleshores, segons la definici\'o,
+$\EE Y = \int\limits_{-\infty}^{+\infty} y \> f_Y (y) \, dy$, per\`o es 
+pot provar que tamb\'e $\EE Y = \int\limits_{-\infty}^{+\infty} g(x)
+\> f_X(x) \, dx$, on aquesta integral existir\`a si $\EE Y =
+\int\limits_{-\infty}^{+\infty} |g(x)| \> f_X(x) \, dx < \infty$.
+
+{\bf Propietats.}
+
+\begin{enumerate}
+
+\item $\forall a \in \RR$, $\EE (a) = a.$
+
+\item $\forall a \in \RR$, $\EE (aX) = a \cdot \EE X$ (si existeix).
+
+\item $\EE \left(\sum\limits_{k=1}^n a_k g_k(X) \right) = 
+\sum\limits_{k=1}^n a_k \cdot \EE (g_k(X))$ (si existeixen totes les esperances).
+
+\item Si $\EE |X| < \infty$, aleshores $|\EE X| \leq \EE |X|.$
+
+\item $X \geq 0 \Longrightarrow \EE X \geq 0$ (si existeix).
+
+\item Si $f_X$ \'es sim\`etrica respecte de $a$ ($f_X(a-x) = f_X(a+x)$),
+aleshores
+$\EE X = a$ (si existeix).
+
+\end{enumerate}
+
+\begin{defin}
+Direm que una variable aleat\`oria $X$ t\'e {\bf moment d'ordre $n$
+finit}\index{moment!d'ordre $n$}
+si $X^n$ t\'e esperan\c ca finita i, en aquest cas, $\EE\left(X^n\right)$ s'anomena el moment
+d'ordre $n$ de $X$.
+\end{defin}
+
+\begin{defin}
+Si $X$ t\'e esperan\c ca finita, direm que $X$ t\'e {\bf moment central
+d'ordre $n$ finit}\index{moment!central d'ordre $n$} si existeix 
+$\EE\left( (X -\EE X)^n\right)$, i aquest \'es el moment central d'ordre $n$ de $X$.
+\end{defin}
+
+\begin{defin}
+Direm {\bf vari\`ancia}\index{variancia@vari\`ancia} d'una variable aleat\`oria
+$X$ al moment central de segon ordre: $\Var X = \sigma_X^2 =\EE (X -\EE X)^2$.
+L'arrel quadrada positiva
+de $\Var X$ s'anomena la {\bf desviaci\'o t\'{\i}pica}
+\index{desviacio@desviaci\'o!tipica@t\'{\i}pica}
+(o {\bf est\`andard}\index{desviacio@desviaci\'o!estandard@est\`andard}) de
+$X$: $\sigma_X = + \sqrt{\Var X}$.
+\end{defin}
+
+\newpage
+
+{\bf Propietats.}
+
+\begin{enumerate}
+
+\item $\Var X = \EE\left(X^2\right) - (\EE X)^2.$
+
+\item $\Var (aX) = a^2 \cdot \Var X \ \ \forall a \in \RR.$
+
+\item $\Var (a) = 0 \ \ \forall a \in \RR.$
+
+\item $\Var (X + Y) = \Var X + \Var Y + 2 (\EE (XY) -\EE X \cdot\EE Y).$
+
+\item $\Var (aX + b) = a^2 \cdot \Var X \ \ \forall a,b \in \RR.$
+
+\item $\Var (X -\EE X) = \Var X.$
+
+\end{enumerate}
+
+{\bf Desigualtat de Txebixef}:\index{desigualtat!de
+Txebixev}
+
+Sigui $X$ una variable aleat\`oria no negativa, i $g : \RR^+ \to \RR^+$
+una funci\'o creixent tal que $\EE (g(X)) < \infty$. Sigui $a \in \RR$ tal que 
+$g(a) > 0$. Aleshores
+
+$$\pp{X \geq a} \leq {1 \over g(a)} \> \EE (g(X))$$
+
+{\bf Notes.}
+
+\begin{enumerate}
+
+\item {\bf Desigualtat de Markov}:\index{desigualtat!de
+Markov}
+En particular, si $X$ t\'e moment de segon ordre finit i $a > 0$,
+
+$$\pp{|X| \geq a} \leq {{\rm E}X^2 \over a^2}.$$
+
+\item Si $X$ t\'e moment central de segon ordre finit,
+
+$$\pp{|X - {\rm E}X| \geq a} \leq {\Var X \over a^2}.$$
+
+\item Si $X$ t\'e moment central de segon ordre finit,
+
+$$\pp{|X - {\rm E}X| \geq a \cdot \sigma_X} \leq 1/a^2.$$
+
+En particular,
+$$\pp{|X - {\rm E}X| \geq 3 \sigma_X} \leq 1/9 = 0.111,$$
+\'es a dir que la probabilitat que $X$ prengui valors fora de l'interval
+\newline $(\EE X - 3 \sigma_X, \EE X + 3 \sigma_X)$ \'es menor que 0.111 (si $a =
+4$, la
+cota \'es 0.0625).
+
+\end{enumerate}
+
+Per tal d'obtenir m\'es operativitat en el tractament de certs problemes, se
+solen aplicar transformacions de la distribuci\'o d'una variable aleat\`oria, de manera que,
+la transformada conservi tota la informaci\'o referent a la variable aleat\`oria
+i
+que el proc\'es sigui reversible. Vegem-ne unes quantes d'aquestes
+transformacions.
+
+
+\begin{defin}
+Direm que $X = X_1 + {\rm i} \cdot X_2$ \'es una {\bf variable aleat\`oria
+complexa}\index{variable aleatoria@variable aleat\`oria!complexa} si $X_1$ i $X_2$ s\'on
+dues variables aleat\`ories reals. \end{defin}
+
+\begin{defin}
+Donada una variable aleat\`oria real $X$, definim la {\bf funci\'o
+caracter\'{\i}stica}\index{funcio@funci\'o!caracteristica@caracter\'{\i}stica}
+de $X$ com la
+funci\'o $\phi_X : \RR \to \CC$ donada per  $$\phi_X(t) ={\rm E}(\e^{{\rm i}tX})
+={\rm E}(\cos tX) + {\rm i} \cdot
+{\rm E}(\sin tX) \ \forall t
+\in \RR.$$
+\end{defin}
+
+{\bf Propietats.}
+
+\begin{enumerate}
+\item La funci\'o caracter\'{\i}stica sempre existeix.
+
+\item $\phi_X$ caracteritza la variable aleat\`oria $X$, en el sentit que dues
+variables aleat\`ories amb la mateixa funci\'o caracter\'{\i}stica tenen la
+mateixa
+distribuci\'o.
+
+\item Si $X$ t\'e moment d'ordre $k$ finit,
+$${\rm E}X^k = {1 \over {\rm i}^k} \cdot \left. {d^k \phi_X(t) \over dt^k}
+\right|_{t=0}.$$
+
+\item Si $X$ \'es absolutament cont\'{\i}nua i si $|\phi_X|$ \'es integrable 
+en $\RR$, podem recuperar $f_X$ a partir de $\phi_X$:
+$$f_X(x) = { 1 \over 2 \pi} \int_{-\infty}^{+\infty} \phi_X(t) \> \e^{-{\rm
+i}tx} \> dt \ \ \forall x \in \RR.$$
+
+\item Si $X$ \'es discreta amb $X(\Omega) =\ZZ$, obtenim tamb\'e una f\'ormula
+d'inversi\'o:
+$$\pp{X = k} = { 1 \over 2 \pi} \int_{0}^{2 \pi} \phi_X(t) \> \e^{-{\rm i}tk} \>
+dt \ \ \forall k \in \ZZ.$$
+
+\end{enumerate}
+
+\begin{defin}
+Si en la definici\'o de la funci\'o caracter\'{\i}stica substitu\"{\i}m 
+{\rm i}$t$ per $t$, obtenim la {\bf funci\'o generatriu de
+moments}:\index{funcio@funci\'o!generatriu!de moments}
+
+$$m_X(t) = {\rm E}(\e^{tX})$$
+
+Si $X$ t\'e moment d'ordre $k$ finit, resulta: $\EE X^k = m_X(0)$.
+\end{defin}
+
+\begin{defin}
+La {\bf funci\'o generatriu
+cumulativa}\index{funcio@funci\'o!generatriu!cumulativa} 
+\'es la funci\'o $c_X(t) = \ln m_X(t)$. \end{defin}
+
+\begin{defin}
+La {\bf funci\'o generatriu
+factorial}\index{funcio@funci\'o!generatriu!factorial} 
+\'es la funci\'o $\psi_X(t) =\EE (t^X)$. \end{defin}
+
+\section{Problemes resolts}
+
+\begin{probres}
+{Una urna cont\'e 4 bolles
+numerades 1, 2, 3 i 4 respectivament. Sigui $Y$ el nombre que surt quan 
+s'extreu una bolla a l'atzar. Quina \'es la funci\'o de probabilitat per a
+$Y$?} \end{probres}
+
+\res{El rang de la variable aleat\`oria $Y$ \'es:
+ $Y(\Omega)=\{1,2,3,4\}$.
+ 
+Tenint en compte que tots els valors de $Y(\Omega)$ tenen la
+mateixa probabilitat de sortir, la funci\'o de probabilitat ser\`a per a 
+qualsevol valor de $Y(\Omega)$: $f_Y (i)=\pp{Y=i}=\frac{1}{4}$.
+  
+La funci\'o de probabilitat de $Y$ queda esquematitzada en la taula seg\"uent:
+\renewcommand{\arraystretch}{1.5}
+$$
+%\setlength{\extrarowheight}{4pt}
+\begin{tabular}{|c|c|c|c|c|}
+\hline $Y$ & 1 & 2 & 3 & 4 \\
+\hline $f_Y(y)$ & $\frac{1}{4}$ & $\frac{1}{4}$
+& $\frac{1}{4}$ & $\frac{1}{4}$ \\
+\hline
+\end{tabular}
+$$}
+
+\begin{probres}
+{Considerem l'urna del problema anterior. Es treuen dues bolles sense
+reposici\'o i sigui $Z$ la suma dels dos nombres que surten. Trobau la
+funci\'o de
+probabilitat per a $Z$.} 
+\end{probres}
+
+\res{El rang de valors de $Z$ ser\`a: $Z(\Omega)=\{3,4,5,6,7\}$ on 
+$\Omega$ \'es l`espai mostral: $\Omega=\{(i,j), i\not= j\}$.
+
+Tenint en compte que els successos elementals de $\Omega$ tenen la mateixa
+probabilitat de sortir, podem escriure els successos $\{Z=i\}$ en funci\'o
+dels elements de $\Omega$ per aix\'{\i} poder trobar la funci\'o de probabilitat
+de $Z$.
+
+Per tant, observem que:
+\[
+\begin{array}{rlrl}
+\{Z=3\} = & \{(1,2),(2,1)\},&\ \{Z=4\} = & \{(1,3),(3,1)\}, \\
+\{Z=5\} = & \{(1,4),(4,1),(2,3),(3,2)\},&\ 
+\{Z=6\} = & \{(2,4),(4,2)\}, \\
+\{Z=7\} = & \{(3,4),(4,3)\}. &&
+\end{array}
+\]
+La funci\'o de probabilitat valdr\`a:
+\renewcommand{\arraystretch}{1.5}
+$$
+%\setlength{\extrarowheight}{4pt}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline $Z$ & 3 & 4 & 5 & 6 & 7\\
+\hline $f_Z(z)$ & $\frac{1}{6}$ & $\frac{1}{6}$
+& $\frac{1}{3}$ & $\frac{1}{6}$ & $\frac{1}{6}$ \\
+\hline
+\end{tabular}
+$$}
+
+\begin{probres}
+{Comprovau que:
+$$F_X (t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<-3$},\\ & \\ {1\over 3}, & \text{si $-3\leq t<-1$},
+\\ & \\
+{2\over 3}, & \text{si $-1\leq t<0$},
+\\ & \\
+1, & \text{si $t\geq 0$},
+\end{array}\right.$$
+\'es una funci\'o de
+distribuci\'o i trobau la funci\'o de probabilitat per a $X$.} 
+\end{probres}
+
+\res{
+Comprovem que $F_X (t)$ verifica totes les propietats 
+d'una funci\'o de distribuci\'o:
+\begin{itemize}
+\item $F_X$ \'es creixent ja que a mesura que $t$ creix $F_X(t)$ tamb\'e.
+\item $F_X$ \'es cont\'{\i}nua per la dreta ja que $F_X(t)$
+\'es cont\'{\i}nua en tot punt distint de $-3,-1$ i $0$, i en aquest punts
+es verifica:
+\begin{itemize}  
+\item $\lim\limits_{t\to {-3}^{+}} F_X (t)=\lim\limits_{t\to
+{-3}^{+}}\frac{1}{3}=F_X (-3)$.
+\item $\lim\limits_{t\to {-1}^{+}} F_X (t)=\lim\limits_{t\to
+{-1}^{+}}\frac{2}{3}=F_X (-1)$.
+\item $\lim\limits_{t\to {0}^{+}} F_X (t)=\lim\limits_{t\to {0}^{+}}1 =F_X (0)$.
+\end{itemize}
+\item $F_X$ compleix que:
+\begin{itemize}
+\item $\lim\limits_{t\to -\infty} F_X (t)=0$.
+\item $\lim\limits_{t\to \infty} F_X (t)=1$.
+\end{itemize}
+\end{itemize}
+Com podem observar, es tracta d'una funci\'o de distribuci\'o corresponent
+a una variable aleat\`oria discreta ja que $F_X$ \'es una funci\'o 
+esglaonada. 
+
+El rang de la variable aleat\`oria $X$ s\'on els punts on $F_X$ no \'es 
+cont\'{\i}nua. Per tant, tenim que: $X(\Omega)=\{-3,-1,0\}$.
+
+Per trobar la funci\'o de densitat en aquests punts basta calcular el salt
+de la discontinu\"{\i}tat corresponent a cada punt, o sigui:
+\[
+f_X (i)=\lim\limits_{t\to i^{+}} F_X (t) -\lim\limits_{t\to i^{-}} F_X (t).
+\]
+La funci\'o de probabilitat ser\`a, doncs:
+\renewcommand{\arraystretch}{1.5}
+$$
+\begin{tabular}{|c|c|c|c|}
+\hline $X$ & -3 & -1 & 0 \\
+\hline $f_X(x)$ & $\frac{1}{3}$ & $\frac{1}{3}$
+& $\frac{1}{3}$ \\
+\hline
+\end{tabular}
+$$}
+
+\begin{probres}
+{Verificau que:
+$$F_Z (t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<0$},
+\\ t^2, & \text{si $0\leq t<{1\over 2}$},\\
+1-3 {(1-t)}^2, & \text{si ${1\over 2}\leq t<1$},
+\\ 1, & \text{si $t\geq 1$},
+\end{array}\right.$$\'es una
+funci\'o de distribuci\'o i trobau la funci\'o de densitat per a $Z$.}
+\end{probres}
+
+\res{
+\begin{itemize}
+\item $F_Z$ \'es creixent. Comprovem que la derivada \'es positiva en cada
+un dels trossos on est\`a definida, ja que en els punts 0,1/2 i 1 els trossos
+enganxen b\'e:
+\begin{itemize}
+\item Si $t<0$, tenim que $F_Z' (t)=0$.
+\item Si $0\leq t <\frac{1}{2}$, tenim que $F_Z'(t)=2 t\geq 0$.
+\item Si $\frac{1}{2}\leq t<1$, tenim que $F_Z' (t)=6 (1-t)\geq 0$.
+\item Si $t\geq 1$, tenim que $F_Z' (t)=0$.
+\end{itemize}
+\item $F_Z$ \'es trivialment cont\'{\i}nua 
+en tot punt distint de $0,\frac{1}{2}$ i $1$ ja que $F_Z (t)$ 
+est\`a definit com un polinomi. Vegem que en aquests punts $F_Z$ tamb\'e
+\'es cont\'{\i}nua.
+\begin{itemize}  
+\item $\lim\limits_{t\to {0}^{+}} F_Z (t)=\lim\limits_{t\to {0}^{+}} t^2 =0
+=\lim\limits_{t\to 0^{-}} F_Z =\lim\limits_{t\to 0^{-}} 0$.
+\item $\lim\limits_{t\to {\frac{1}{2}}^{+}} F_Z (t)=
+\lim\limits_{t\to {\frac{1}{2}}^{+}} 1-3 {(1-t)}^2 =\frac{1}{4}
+=\lim\limits_{t\to {\frac{1}{2}}^{-}} F_Z (t) = 
+\lim\limits_{t\to {\frac{1}{2}}^{-}} t^2$.
+\item $\lim\limits_{t\to {1}^{+}} F_Z (t)=\lim\limits_{t\to {1}^{+}} 1 =1
+=\lim\limits_{t\to 1^{-}} F_Z =\lim\limits_{t\to 1^{-}} 1-3 {(1-t)}^2$.
+\end{itemize}
+\item $F_Z$ compleix que:
+\begin{itemize}
+\item $\lim\limits_{t\to -\infty} F_Z (t)=0$.
+\item $\lim\limits_{t\to \infty} F_Z (t)=1$.
+\end{itemize}
+\end{itemize}
+Com podem observar es tracta d'una funci\'o de distribuci\'o 
+d'una variable aleat\`oria absolutament cont\'{\i}nua ja que
+$F_Z$ \'es cont\'{\i}nua.
+
+Per trobar la funci\'o de densitat, basta fer servir la f\'ormula
+$f_Z (t)= F_Z'(t)$ en els punts on $F_Z (t)$ sigui derivable, o sigui,
+per a tot $t$ distint de $0,\frac{1}{2}$ i $1$.
+En aquests punts, podem definir $f_Z (t)$ com vulguem, ja que 
+la funci\'o de densitat d'una variable aleat\`oria absolutament
+cont\'{\i}nua est\`a determinada excepte un nombre finit de punts
+(de fet pot ser un nombre numerable).
+
+Aix\'{\i} doncs, $f_Z (t)$ val:
+$$
+f_Z (t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<0$}, \\
+2 t, & \text{si $0\leq t <\frac{1}{2}$}, \\
+6 (1-t), & \text{si $\frac{1}{2}\leq t <1$}, \\ 
+0, & \text{si $t\geq 1$}. 
+\end{array}\right.
+$$
+}
+
+\begin{probres}
+{Sigui la variable aleat\`oria 
+$X$ amb funci\'o de probabilitat:
+$$f_X(x)=
+\left\{\begin{array}{ll}
+\frac{1}{4}, & \text{si $x=2,4,8,16$},\\ 0, & \text{
+en cas contrari.}
+\end{array}\right.$$
+Calculau $\EE X$, $\EE X^2$, $\EE\left(\frac{1}{X}\right)$, 
+$\EE\left(2^{\frac{X}{2}}\right)$ i $\hbox{Var }X$.}
+\end{probres}
+
+\res{El rang de la variable aleat\`oria $X$ 
+\'es
+ \[ X(\Omega)=\{2^i,i=1,2,3,4\}. \]
+
+Aix\'{\i} doncs:
+\[
+\begin{array}{rl}
+	\EE X & = \sum\limits_{i=1}^4 \frac{1}{4}\cdot 2^i = 7.5,  \\
+	\EE\left( X^2\right) & = \sum\limits_{i=1}^4 \frac{1}{4}\cdot 2^{2 i} = 85,\\
+	\EE\left( \frac{1}{X}\right) & = \sum\limits_{i=1}^4 \frac{1}{4}\cdot 
+	\frac{1}{2^{i}}=  0.234375, \\
+	\EE\left( 2^{\frac{X}{2}}\right) & =\sum\limits_{i=1}^4 \frac{1}{4}\cdot 
+	2^{2^{i-1}}= 69.5,\\
+	\mbox{Var }X & = \EE\left( X^2\right) -{\left( \EE X\right)}^2 =85 - {7.5}^2 =
+	28.75
+\end{array}
+\]
+}
+
+\begin{probres}
+{Prenent la funci\'o de densitat seg\"uent:
+$$f_X(x)=
+\left\{\begin{array}{ll}
+2(1-x), & \text{si $0<x<1$},\\ 0, & \text{en cas contrari},
+\end{array}\right.$$calculau 
+$\EE X$, $\EE\left( X^2 \right)$, $\EE\left( {(X+10)}^2\right)$, 
+$\EE\left( {1\over 1-X}\right)$ i $\hbox{Var }X$.}
+\end{probres}
+
+\res{El rang de la variable aleat\`oria $X$ \'es l'interval 
+$(0,1)$.
+
+Aix\'{\i} doncs:
+\begin{eqnarray*}
+	\EE X & = & \int_0^1 2 x (1-x)\, dx = \int_0^1 (2 x-2 x^2)\, dx 
+	={\left[ x^2 -\frac{2}{3} x^3\right]}_0^1 \\ &=&1- \frac{2}{3} =\frac{1}{3}, \\
+	\EE\left( X^2\right) & = & \int_0^1 2 x^2 (1-x)\, dx = \int_0^1 (2 x^2-2 
+	x^3)\, dx = {\left[ \frac{2}{3} x^3 -\frac{1}{2} x^4\right]}_0^1 \\ &=& 
+	\frac{2}{3} - \frac{1}{2} = \frac{1}{6}, \\
+	\EE\left({(X+10)}^2\right) & = & \EE\left( X^2 + 20 X+100\right)= \EE\left( 
+	X^2\right)+20 \EE X +100 \\ &=& \frac{1}{6}+ 20 \frac{1}{3}+100=\frac{641}{6},  \\
+	\EE\left(\frac{1}{1-X}\right) & = & \int_0^1 2 \frac{1-x}{1-x}\, dx 
+	={\left[ 2 x\right]}_0^1 = 2,  \\
+	\mbox{Var }X & = & \EE\left(X^2\right)-{\left( \EE X\right)}^2 
+	=\frac{1}{6}-{\left(\frac{1}{3}\right)}^2 =\frac{1}{18}.
+	\end{eqnarray*}
+}
+
+\begin{probres}
+{Ens donen la seg\"uent funci\'o de distribuci\'o d'una variable aleat\`oria
+$X$:
+$$F_X(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<0$},
+\\ & \\
+{t\over 100}, & \text{si $0\leq t\leq
+100$},
+\\ & \\
+1, & \text{si $t>100$.}
+\end{array}\right.
+$$
+Trobau el percentil 10\% ($t_{0.10}$), el 
+percentil 20\% ($t_{0.20}$) i el percentil 80\% ($t_{0.80}$).}
+\end{probres}
+
+\res{Fixau-vos que es tracta d'una variable aleat\`oria cont\'{\i}nua.
+
+Per tant, 
+per trobar el percentil $t_p$ hem de resoldre l'equaci\'o: $F_X(t_p)=p$.
+A m\'es a m\'es, tots els valors dels percentils es trobaran en l'interval 
+$(0,100)$, ja que aquest \'es el rang de la variable aleat\`oria $X$.
+
+L'equaci\'o anterior es transformar\`a, doncs, en $\frac{t_p}{100}=p$. D'on 
+dedu\"{\i}m que el percentil $t_p$ val $t_p =100\cdot p$.
+
+Els percentils valen:
+\[ t_{0.10}= 10,\ t_{0.20}=20,\ t_{0.80}=80.\]
+}
+
+\newpage
+
+\begin{probres}
+{Sigui $F_X(t)$ la funci\'o de distribuci\'o seg\"uent:
+$$F_X(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<0$},
+\\ & \\
+{1\over 6}, & \text{si $0\leq t< 1$},
+\\ & \\
+{1\over 3}, & \text{si $1\leq t<2$},
+\\ & \\
+{1\over 2}, & \text{si $2\leq t< 3$}, 
+\\ & \\
+1, &
+\text{si $t\geq 3$}.
+\end{array}\right.
+$$
+Trobau la mediana i el percentil 16\% ($t_{0.16}$).}
+\end{probres}
+
+\res{Ens demanen trobar el percentil 50\% (mediana o $t_{0.50}$) i el 
+percentil 16\% o $t_{0.16}$.
+
+La f\'ormula general per trobar un percentil $100p$\% o $t_p$ \'es
+\begin{equation} 
+t_p =\min\{ t\ \vert\ F_{X} (t)\geq p\}.
+\label{PerOrig}
+\end{equation}
+En el cas continu, com ja hem comentat en el problema anterior, resoldre 
+l'equaci\'o anterior \'es equivalent a resoldre l'equaci\'o $F(t_p)=p$, per\`o
+en  el cas discret, com \'es el cas que ens ocupa, no podem aplicar la darrera 
+f\'ormula. En aquest darrer cas, hem d'aplicar la f\'ormula original~(\ref{PerOrig}).
+
+\begin{figure}
+	\centerline{
+	\setlength{\unitlength}{1.5cm}
+	\begin{picture}(7,2)(0,0)
+	\put (0,0) {\line(1,0){7}}
+	\put (3,0) {\line(0,1){2}}
+	\put (3,0) {\line(0,1){0.1}}
+	\put (4,0) {\line(0,1){0.1}}
+	\put (5,0) {\line(0,1){0.1}}
+	\put (6,0) {\line(0,1){0.1}}
+	\put (3,-0.1){\makebox (0,0)[rt]{0}}
+	\put (4,-0.1){\makebox (0,0)[t]{1}}
+	\put (5,-0.1){\makebox (0,0)[rt]{2}}
+	\put (6,-0.1){\makebox (0,0)[t]{3}}
+	\put (2.9,1){\makebox (0,0)[r]{0.5}}
+	\put (2.9,2){\makebox (0,0)[r]{1}}
+	\put (3,1) {\line(1,0){0.1}}
+	\put (3,2) {\line(1,0){0.1}}
+	\put (3,0.33) {\line(1,0){0.95}}
+	\put (4,0.66) {\line(1,0){0.95}}
+	\put (5,1) {\line(1,0){0.95}}
+	\put (6,2) {\line(1,0){1}}
+	\multiput(4,0)(0,0.11){6}{\line(0,1){0.055}}
+	\multiput(5,0)(0,0.11){9}{\line(0,1){0.055}}
+	\multiput(6,0)(0,0.11){18}{\line(0,1){0.055}}
+	\multiput(3,1)(0.11,0){18}{\line(1,0){0.055}}
+	\put(2.9,0.32){\makebox(0,0)[r]{0.16}}
+	\put(3,0.32){\line(1,0){0.1}}
+	\put(2.9,1){\makebox(0,0)[r]{0.5}}
+	\end{picture}}
+	\caption{Funci\'o de distribuci\'o.}
+	\label{FigFunDist}
+\end{figure}
+En la figura \ref{FigFunDist} hem dibuixat la funci\'o de distribuci\'o.
+Fixau-vos que el percentil 16\% ser\`a en aquest cas $t_{0.16} =0$, ja que el 
+valor $0$ \'es el valor m\'es petit en qu\`e la funci\'o de distribuci\'o \'es
+m\'es 
+gran o igual que $0.16$.
+
+De la mateixa manera, tenim que el percentil 50\% val $t_{0.50} =2$.
+}
+
+\begin{probres}
+{Suposau que $X$ \'es una variable aleat\`oria  (discreta) amb funci\'o
+generatriu de moments
+$$\psi_X(t)={{(1-t^{n+1})}\over (n+1) (1-t)}.$$Trobau $f_X(x)$ (funci\'o de
+probabilitat) i $m_X(t)$.
+
+Suposau que el rang de $X$ \'es $X(\Omega)=\{0,1,\ldots,n\}$.}
+\end{probres}
+
+\res{Abans de resoldre el problema vegem la proposici\'o seg\"uent:
+\begin{proposition}
+Sigui $X$ una variable aleat\`oria discreta amb rang $X(\Omega
+)=\{0,1,\ldots,n\}$.
+
+Aleshores la funci\'o de probabilitat es pot trobar segons la 
+f\'ormula seg\"uent: 
+\begin{equation}
+f_X(k)=\frac{\psi_X^{(k)}(0)}{k!},\mbox{ on }\psi_X (t)\mbox{ \'es la funci\'o 
+generatriu factorial de }X\mbox{ per a }k=0,\ldots,n.
+\label{FunDenGenFac}
+\end{equation}
+\end{proposition}
+
+Prova de la proposici\'o.
+
+Fixau-vos que:
+\begin{eqnarray*}
+	\psi_X (t) & = & \sum\limits_{j=0}^n t^j f_X(j),  \\
+	\psi_X'(t) & = & \sum\limits_{j=0}^{n-1} (j+1) t^j f_X(j+1).
+\end{eqnarray*}
+Es pot veure per inducci\'o de forma molt f\`acil que la derivada $k$-\`essima 
+de la funci\'o generatriu factorial compleix la f\'ormula per a $k=1,\ldots,n$:
+\begin{equation}
+	\psi_X^{(k)}(t)=\sum\limits_{j=0}^{n-k} (j+1)\cdot (j+2)\ldots (j+k) t^j 
+	f_X(j+k).
+	\label{ForDerkPsi}
+\end{equation}
+D'aqu\'{\i}, doncs, podem deduir que:
+\[ \psi_X^{(k)}(0) = k! f_X(k), \]
+d'on, a\"{\i}llant $f_X(k)$, queda vista la proposici\'o $\Box$
+
+Resolguem el problema. 
+
+Primer simplificam l'expressi\'o de $\psi_X (t)$:
+\[ \psi_X 
+(t)=\frac{1}{(n+1)}\frac{(t^{n+1}-1)}{(t-1)}=\frac{1}{n+1}\sum\limits_{j=0}^n t^j.\]
+Raonant de manera semblant a la prova de la proposici\'o anterior, podem 
+deduir la seg\"uent f\'ormula per a la derivada $k$-\`essima:
+\[ 
+\psi_X^{(k)}(t)=\frac{1}{n+1}\sum\limits_{j=0}^{n-k} (j+1)\ldots (j+k) 
+t^j.
+\]
+D'aqu\'{\i} dedu\"{\i}m que $\psi_X^{(k)}(0) =\frac{1}{n+1} k!$ per 
+$k=0,\ldots,n$.
+
+Finalment, aplicant la f\'ormula~(\ref{FunDenGenFac}) tenim que la funci\'o de 
+probabilitat de $X$ val:
+\[ f_X (k) =\frac{1}{n+1}, k=0,1,\ldots,n.\]
+A continuaci\'o trobarem $m_X(t)$:
+\[ m_X(t) =\EE \left(\e^{t X}\right) =\psi_X \left(\e^t\right)=
+\frac{\e^{(n+1) t}-1}{(n+1) (\e^t -1)}. \]}
+
+\begin{probres}
+{Donada la funci\'o generatriu cumulativa
+$c_X(t)$, provau que $c_X'(0)=\mu_X=\EE (X)$ i
+$c_X''(0)=\sigma_X^2=\hbox{Var }X$.}
+\end{probres}
+
+\res{Fent c\`alculs, podem trobar les dues primeres derivades de $c_X(t)$:
+\begin{eqnarray*}
+	c_X' (t) & = & \frac{m_X'(t)}{m_X(t)},  \\
+	c_X''(t) & = & \frac{m_X''(t) m_X(t)-{m_X' (t)}^2}{{m_X (t)}^2}.
+\end{eqnarray*}
+Tenint en compte les relacions que hi ha entre les derivades de 
+$m_X(t)$ i els moments,
+\begin{equation}
+	m_X (0)=\EE\left( \e^{t 0}\right)=\EE (1)=1,\ m_X'(0)=\EE X,\ m_X''(0)=\EE\left( 
+	X^2\right),
+	\label{RelMxMom}
+\end{equation}
+arribam a les conclusions seg\"uents:
+\begin{eqnarray*}
+	c_X'(0) & = & \frac{m_X'(0)}{m_X(0)}=\EE X,  \\
+	c_X''(0) & = & \frac{m_X''(0) m_X(0)-{m_X' (0)}^2}{{m_X (0)}^2}=\EE\left( 
+	X^2\right) -{\left( \EE X\right)}^2 =\mbox{Var }X.
+\end{eqnarray*}
+}
+
+\begin{probres}
+{Si 
+$$F_Y(t)=
+\left\{\begin{array}{ll}
+1-\e^{-t}, & \text{si $t\geq 0$}, 
+\\ 0, & \text{si $t<0$},
+\end{array}\right.
+$$
+trobau $F_X(t)$
+i $f_X(t)$ on $X=2Y-7$.}
+\end{probres}
+
+\res{Recordem que si tenim una variable aleat\`oria $Y$ i feim un canvi del 
+tipus $X=g(Y)$ on $g(Y)$ \'es una funci\'o estrictament mon\`otona (creixent o 
+decreixent), les relacions que hi ha entre les funcions de distribuci\'o i 
+de densitat de $Y$ i $X$ s\'on les seg\"uents:
+\begin{eqnarray}
+	F_X (t) & = & F_Y (g^{-1}(t)), \label{Distribucio} \\
+	f_X(t) & = & f_Y (g^{-1} (t))\cdot\frac{d g^{-1}}{dt}(t)=\frac{f_Y (g^{-1} 
+	(t))}{\left|\frac{dg}{dt}(g^{-1}(t))\right|}.\label{Densitat}
+\end{eqnarray}
+En el nostre cas, tenim que $g(Y)= 2 Y -7$ i $g^{-1}(Y)=\frac{Y+7}{2}$.
+
+Fixau-vos que la funci\'o de densitat la podem trobar de dues maneres; una, 
+derivant la funci\'o de distribuci\'o en tractar-se $Y$ d'una variable 
+aleat\`oria cont\'{\i}nua i, dues, aplicant directament la f\'ormula~(\ref{Densitat}).
+Ho farem de la primera manera.
+
+Per tant, aplicant~(\ref{Distribucio}) podem trobar 
+$F_X (t)$ i $f_X (t)$.
+\begin{eqnarray*}
+	F_X(t) & = & F_Y \left(\frac{(t+7)}{2}\right)=
+	\left\{\begin{array}{ll}
+	1-\e^{-\frac{(t+7)}{2}}, 
+	& \text{si $\frac{t+7}{2}\geq 0$},
+	\\ & \\
+	 0, & \text{si $\frac{t+7}{2}< 0$}.
+	\end{array}\right. 
+	 = 
+	 \left\{\begin{array}{ll}
+	 1-\e^{-\frac{(t+7)}{2}}, 
+	& \text{si $t \geq -7$},
+	\\ & \\
+	0, & \text{si $t< -7$}.
+	\end{array}\right.
+	\\
+	f_X (t) & = & F_X'(t)=
+	\left\{\begin{array}{ll}
+	\frac{1}{2} \e^{-\frac{(t+7)}{2}}, & 
+	\text{si $t \geq -7$},
+	\\ & \\
+	0, & \text{si $t< -7$}.
+	\end{array}\right.
+\end{eqnarray*}
+}
+
+\begin{probres}
+{Donada la funci\'o de distribuci\'o seg\"uent
+$$F_U(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<-1$}, 
+\\ & \\ 
+{1\over 3}, & \text{si $-1\leq t<0$},
+\\ & \\ 
+{2\over 3}, & \text{si $0\leq t<1$},
+\\ & \\ 
+1, & \text{si $t\geq 1$},
+\end{array}\right.$$
+trobau la funci\'o de distribuci\'o per a la forma est\`andard de $U$.}
+\end{probres}
+
+\res{La forma est\`andard d'una variable aleat\`oria $U$ \'es una altra 
+variable $Z_U$ relacionada de la seg\"uent forma amb $U$:
+\[
+Z_U =\frac{U- \EE U}{\sqrt{\mbox{Var }U}}
+\]
+Per tant, primer de tot hem de trobar $\EE U$ i $\mbox{Var }U$.
+
+Observem que es tracta d'una variable aleat\`oria discreta amb rang 
+\[
+U(\Omega)=\{ -1,0,1\}.
+\]
+La funci\'o de probabilitat ser\`a el valor dels salts de discontinu\"{\i}tat
+en la funci\'o de distribuci\'o:
+\renewcommand{\arraystretch}{1.5}
+$$
+\begin{tabular}{|c|c|c|c|}
+\hline $U$ & -1 & 0 & 1  \\
+\hline $f_U(u)$ & $\frac{1}{3}$ & $\frac{1}{3}$
+& $\frac{1}{3}$ \\
+\hline
+\end{tabular}
+$$
+Per tant, 
+\begin{eqnarray*}
+	\EE U & = & \sum\limits_{i=-1}^1 i \frac{1}{3}= \frac{1}{3} (-1+0+1)=0, \\
+	\mbox{Var }U & = & \EE\left( U^2\right)-{(\EE U)}^2 =\sum\limits_{i=-1}^1 i^2 
+	\frac{1}{3}=\frac{2}{3}.
+\end{eqnarray*}
+Aix\'{\i}, doncs, el canvi que hem de fer \'es:
+\[
+Z_U = \frac{U}{\sqrt{\frac{2}{3}}}:= g(U).
+\]
+Tenint en compte que $g^{-1}(U)=\sqrt{\frac{2}{3}} U$, la funci\'o de
+distribuci\'o de la 
+variable $Z_U$ ser\`a:
+\[
+F_{Z_U}(t)=F_U \left(\sqrt{\frac{2}{3}} t\right)=
+\left\{\begin{array}{ll}
+0, & \text{si $\sqrt{\frac{2}{3}} t<-1$}, 
+\\ & \\
+{1\over 3}, 
+& \text{si $-1\leq \sqrt{\frac{2}{3}} t <0$},
+\\ & \\
+{2\over 3}, & \text{si $0\leq \sqrt{\frac{2}{3}} t  <1$},
+\\ & \\
+1, 
+& \text{si $\sqrt{\frac{2}{3}} t  \geq 1$},
+\end{array}\right.
+=
+\left\{\begin{array}{ll}
+0, & \text{si $ t<-\sqrt{\frac{3}{2}}$}, 
+\\ & \\
+{1\over 3}, 
+& \text{si $-\sqrt{\frac{3}{2}}\leq  t <0$},
+\\ & \\
+{2\over 3}, & \text{si $0\leq  t  <\sqrt{\frac{3}{2}}$},
+\\ & \\
+1, 
+& \text{si $t  \geq \sqrt{\frac{3}{2}}$}.
+\end{array}\right.
+\]
+}
+
+\begin{probres}
+{Considerem un examen tipus TEST amb $n$ preguntes on cada pregunta t\'e
+nom\'es $k$ possibles respostes. En cada pregunta nom\'es hi ha una sola resposta
+certa.\newline\indent Suposem que l'alumne contesta a l'atzar i que la
+probabilitat de contestar a qualsevol pregunta val $\frac{1}{2}$. 
+\begin{itemize}
+\item[a)] {Si
+l'alumne encerta una pregunta li donam 1 punt, si la deixa en blanc, 0 punts i
+si falla, li restam $x$ punts. Trobau el valor de $x$ perqu\`e l'esperan\c{c}a
+d'encertar una pregunta a l'atzar sigui $0$.}
+\item[b)] {Considerem $n=5$ i $k=5$. Sigui $X$ la variable aleat\`oria que ens
+d\'ona la puntuaci\'o a l'examen tenint en compte a), o sigui, que si l'alumne
+contesta malament una pregunta, li restam el que li
+correspongui.\newline Trobau la funci\'o de probabilitat de $X$, $\EE X$ i
+$\hbox{Var }X$.\newline\hfill{\footnotesize Final. Juny 93.}}
+\end{itemize}}
+\end{probres}
+
+\res{\begin{itemize}
+	\item [a)] Definim la variable aleat\`oria discreta:
+	\[ 
+	P=\mbox{``Puntuaci\'o d'una pregunta''.}
+	\]
+	El rang de la variable aleat\`oria $P$ \'es: $P(\Omega)=\{-x,0,1\}$.
+	
+	La funci\'o de probabilitat de $P$ \'es:
+    \renewcommand{\arraystretch}{1.5}
+	$$
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		$p$ & -x & 0 & 1  \\
+		\hline
+		$f_X (p)$ & $\frac{k-1}{2k}$ & $\frac{1}{2}$ & $\frac{1}{2k}$  \\
+		\hline
+	\end{tabular}
+	$$
+	Expliquem una mica els resultats anteriors:
+		 \[ 
+		\begin{array}{rl}
+			\pp{P = -x} & =\pp{\mbox{``fallar la pregunta''}}  \\
+			 & = \pp{\mbox{``contestar la 
+		pregunta''} \cap \mbox{``fallar la pregunta''}}  \\
+			 & =\pp{\mbox{``contestar la 
+		pregunta''}}\cdot \pp{\mbox{``fallar la pregunta''}}\\ 
+		& =\frac{1}{2}\cdot 
+		\frac{k-1}{k}=\frac{k-1}{2 k}, \\
+		\pp{P=0} & = \pp{\mbox{``no contestar la pregunta''}} =\frac{1}{2}, \\
+			\pp{P =1} & =\pp{\mbox{``encertar la pregunta''}}  \\
+			 & = \pp{\mbox{``contestar la 
+		pregunta''} \cap \mbox{``encertar la pregunta''}}  \\
+			 & =\pp{\mbox{``contestar la 
+		pregunta''}}\cdot \pp{\mbox{``encertar la pregunta''}}\\ 
+		& =\frac{1}{2}\cdot 
+		\frac{1}{k}=\frac{1}{2 k}.
+		\end{array}
+		\]
+		A continuaci\'o, trobem $\EE P$:
+		\[
+		\EE P =-\frac{k-1}{2 k}\cdot x + \frac{1}{2}\cdot 0 +\frac{1}{2 k}\cdot 1 =
+		\frac{1 - x(k-1)}{2 k}.
+		\]
+		Si imposam que $\EE P =0$ ens resulta que el valor de $x$ \'es 
+		$x=\frac{1}{k-1}$.
+	\item [b)] Considerem que el nombre de preguntes \'es $n=5$ i el nombre de 
+	respostes \'es $k=5$.
+	
+	Fixau-vos que si contesta $i$ preguntes b\'e i $j$ preguntes malament, la 
+	nota que t\'e, tenint en compte a), \'es: Nota$=i-\frac{j}{4}$.
+	
+	A m\'es a m\'es, tenim que la probabilitat que contesti $i$ preguntes b\'e i 
+	$j$ malament val:
+	\begin{equation}
+	\begin{array}{rl}
+	 \pp{i\mbox{ preguntes b\'e }\cap j\mbox{ preguntes malament}} & = \\ 
+	 	PR_5^{i,j,5-i-j} \cdot {\left(\frac{1}{2\cdot 5}\right)}^i\cdot 
+		{\left(\frac{4}{2\cdot 5}\right)}^j \cdot 
+		{\left(\frac{1}{2}\right)}^{5-i-j}& = \frac{5!}{i! j! (5-i-j)!}\cdot 
+		\frac{4^j}{2^5 5^{i+j}}.
+	\end{array}
+	\label{BenMalCont}
+	\end{equation}
+	Farem una taula on queda indicada la nota, suposant que hi ha $i$ 
+	preguntes ben contestades i $j$ de mal contestades:
+	$$
+	\begin{tabular}{|c|r@{.}l|r@{.}l|r@{.}l|r@{.}l|r@{.}l|r@{.}l|}
+		\hline
+		$j\backslash i$ & \multicolumn{2}{|c|}{0} & \multicolumn{2}{|c|}{1} & 
+		\multicolumn{2}{|c|}{2} & \multicolumn{2}{|c|}{3} & 
+		\multicolumn{2}{|c|}{4} & \multicolumn{2}{|c|}{5}  \\
+		\hline
+		0 & 0&& 1&& 2&& 3&& 4&& 5&  \\
+		\hline
+		1&-0&25 & 0&75 & 1&75 & 2&75 & 3&75 &\multicolumn{2}{|c|}{--}  \\
+		\hline
+		2 & -0&5 & 0&5&1&5 &2 &5 & \multicolumn{2}{|c|}{--} &
+\multicolumn{2}{|c|}{--}   \\
+		\hline
+		3 & -0&75 & 0&25 & 1&25 & \multicolumn{2}{|c|}{--} &
+\multicolumn{2}{|c|}{--} & 
+		\multicolumn{2}{|c|}{--}  \\
+		\hline
+		4 & -1& & 0& &\multicolumn{2}{|c|}{--} & \multicolumn{2}{|c|}{--} & 
+		\multicolumn{2}{|c|}{--} & \multicolumn{2}{|c|}{--}   \\
+		\hline
+		5 & -1& 25 &\multicolumn{2}{|c|}{--}&\multicolumn{2}{|c|}{--}&
+		\multicolumn{2}{|c|}{--}&\multicolumn{2}{|c|}{--}&\multicolumn{2}{|c|}{--}
+\\
+		\hline
+	\end{tabular}
+	$$
+	De la taula anterior podem deduir que el rang de la variable aleat\`oria 
+	$X=$``nota'' \'es el seg\"uent:
+	\[
+	\begin{array}{ll}
+	X(\Omega) =\{ &-1.25,-1,-0.75,-0.5,-0.25,0,0.25,0.5,0.75,1,  \\
+		 & 1.25,1.5,1.75,2,2.5,2.75,3,3.75,4,5\}.
+	\end{array}
+	\]
+	Per trobar la funci\'o de probabilitat de $X$ fent servir la taula
+	anterior, 	 	fixau-vos que, per a cada nota, 
+	existeix una \'unica $i$ i una \'unica $j$ tals que:
+	\[
+	f_X (x)=\pp{X=x}= \pp{ i\mbox{ preguntes b\'e }\cap j\mbox{ preguntes 
+	malament}}.
+	\]
+	El valor de la darrera probabilitat el d\'ona la f\'ormula~(\ref{BenMalCont}).
+	
+	L'\'unic valor del rang de $X$ on falla la f\'ormula anterior \'es el valor
+	 	$0$. Fixau-vos que per al valor $0$ hi ha dos possibles $i$
+	 	(preguntes ben contestades) i dos possibles $j$ (preguntes mal
+	 	contestades): $i=0, j=0$ i $i=1,j=4$. Aix\'{\i} doncs:
+	\[
+	\pp{X=0}= \frac{5!}{0! 0! 5!}\cdot 
+		\frac{4^0}{2^5 5^{0}}+\frac{5!}{1! 4! 0!}\cdot 
+		\frac{4^4}{2^5 5^{5}}=0.04405.
+	\]
+	Exposam a continuaci\'o la taula de la funci\'o de probabilitat de $X$:
+	
+	$$
+	\begin{tabular}{|@{}c@{}|r@{.}l|r@{.}l|r@{.}l|r@{.}l|r@{.}l|r@{.}l|r@{.}l|}
+		\hline
+		$x$ & -1&25 & -1& & -0&75 & -0&5 & -0&25 & 0& & 0&25 \\
+		\hline
+		$f_X (s)$ & 0&01024 & 0&064 & 0&16 & 0&2 & 0&125 & 0&04405 & 0&064  \\
+		\hline
+		\hline 
+		$x$ &  0&5 & 0&75 & 1&&1&25 & 1&5 & 1&75 & 2& \\
+		\hline
+		$f_X (s)$ &
+		0&12 & 0&1 & 0&03125& 0&0064 & 0&024 & 0&03 & 0&0125 \\
+		\hline\hline
+		$x$ & 2&5 & 2&75 & 3& & 3&75 & 4&& 5& &\multicolumn{2}{|c|}{}\\
+		\hline
+		$f_X (x)$ & 0&0016 & 0&004 & 0&0025 & 
+		0&0002 & 0&00025 & 0&00001 &\multicolumn{2}{|c|}{} \\\hline
+	\end{tabular}
+	$$
+	Per trobar $\EE X$, hem de tenir en compte que $X=\sum\limits_{i=1}^5 P_i$ 
+	on $P_i$ \'es la variable aleat\`oria que ens d\'ona la puntuaci\'o de la 
+	pregunta $i$-\`essima.
+	
+	Tenint en compte l'apartat a), $\EE (P_i)=0$. D'aqu\'{\i}, doncs, $\EE X=0$.
+	
+	La vari\`ancia de $X$ es podr\`a trobar com:
+\begin{eqnarray*}	
+	\mbox{Var }X & = & \EE\left( X^2\right) =\sum_{x_i\in X(\Omega)} x_i^2
+	f_X(x_i)= 	 	{(-1.25)}^2\cdot 0.01024+\cdots + 5^2\cdot 0.00001 \\ 
+	& = & \frac{5}{8}=0.625.
+\end{eqnarray*}	
+	De fet, quan s'introdueixi el concepte d'independ\`encia de variables 
+	aleat\`ories, podrem trobar la vari\`ancia d'una forma molt semblant al
+c\`alcul 
+	de l'esperan\c{c}a. M\'es concretament, tenint en compte que les
+	variables  	$P_i$ s\'on independents, podem escriure:
+	\[
+	\mbox{Var }X =\sum_{i=1}^5 \mbox{Var }P_i = 5\mbox{Var }P,
+	\]
+	on $P$ \'es qualsevol variable de les $P_i$.
+	
+	El c\`alcul de $\mbox{Var }P$ \'es molt senzill:
+	\[
+	\mbox{Var }P =\EE\left( P^2 \right)={(-0.25)}^2\cdot 
+	\frac{4}{10}+0^2\cdot\frac{1}{2}+ 1^2\cdot\frac{1}{10}=\frac{1}{8}.
+	\]
+	Per tant, $\mbox{Var }X =\frac{5}{8}$.
+\end{itemize}
+}
+
+\begin{probres}
+{S'ha estimat que el temps de vida $X$, en hores, d'un cert component
+electr\`onic segueix una distribuci\'o donada per la densitat
+$$
+f(x) = \left\{ \begin{array}{ll} 0, & {\rm si } \ x < 0,\\ 
+\frac{1}{8} \e^{-x/8}, & {\rm en \> cas \> contrari}.
+\end{array} \right.
+$$
+El departament de control de qualitat rebutja tots els components que fallen
+durant les 3 primeres hores i comercialitza la resta.
+
+\begin{itemize}
+\item[a)] Determinau la distribuci\'o del temps de vida dels components
+comercialitzats.
+\item[b)] Quina \'es la probabilitat que un component comercialitzat funcioni
+m\'es de 12 hores?
+\end{itemize}}
+
+\end{probres}
+
+\res{
+\begin{itemize}
+\item[a)] Posem:
+$$
+Y : \mbox{temps de vida d'un component comercialitzat}.
+$$
+Per pr\`opia definici\'o, $Y$ pren valors m\'es grans que $3$. Aleshores, si $y
+\leq 3, \> F_Y (y) = \pp{ Y \leq y } = 0$. D'altra banda, si $y > 3$,
+
+\begin{eqnarray*}
+	F_Y(y) & = & \pp{ Y \leq y} = \pp{ X \leq y / X > 3 } \\
+	& = & {\pp{ X \leq y, X > 3 } \over \pp{ X > 3}} = 
+	{\pp{ 3 < X \leq y}
+	\over 1 - \pp{ X \leq 3}} =  {F_X(y) - F_X(3) \over 1 - F_X(3)}.
+\end{eqnarray*}
+
+Tenim
+\[
+	F_X(y)  = \int_0^y \frac{1}{8} \e^{-x/8} \, dx 
+	 = \frac{1}{8} \left[ {\e^{-x/8} \over -1/8} \right]_0^y = 
+1 - \e^{-y/8}.
+\]
+
+Aix\'{\i}
+$$
+F_X(3) = 1 - \e^{-3/8},
+$$
+i resulta
+$$
+F_Y(y) = {1 - \e^{-y/8} - 1 + \e^{-3/8} \over 1 - 1 + \e^{-3/8}} = 1 -
+\e^{-\frac{1}{8}(y-3)}.
+$$
+Finalment,
+$$
+F_Y(y) = \left\{ \begin{array}{ll} 0, & {\rm si } \ y \leq 3,\\ 
+1 - \e^{-\frac{1}{8}(y-3)}, & {\rm en \> cas \> contrari}.
+\end{array} \right.
+$$
+
+\item[b)] 
+\begin{eqnarray*}
+	\pp{ Y > 12 } & = & 1 - \pp{ Y \leq 12} = 1 - F_Y(12) \\
+	& = & 1 -1 + \e^{-\frac{1}{8}(12-3)} = \e^{-9/8}.
+\end{eqnarray*}
+\end{itemize}
+}
+
+\begin{probres}
+{La funci\'o de densitat d'una variable aleat\`oria $X$ \'es:
+$$
+f_X(x) = \left\{ \begin{array}{ll} x+1, & {\rm si } \ x \in (-1,0],\\ 
+-x+1, & {\rm si } \ x \in (0,1], \\
+0, & {\rm si } \ x \in (-\infty,-1] \cup (1,\infty).
+\end{array} \right.
+$$
+Definim la variable aleat\`oria $Y=g(X)$, on $g$ \'es la funci\'o
+$$
+g(x) = \left\{ \begin{array}{ll} 1, & {\rm si } \ x \in (1/2,\infty),\\ 
+0, & {\rm si } \ x \in (-1/2,1/2], \\
+-1, & {\rm si } \ x \in (-\infty,-1/2].
+\end{array} \right.
+$$
+Determinau la funci\'o de probabilitat i la de distribuci\'o de $Y$.}
+\end{probres}
+
+\res{Tenim
+\begin{eqnarray*}
+	p\{ Y=1\} & = & p\{ X>1/2\} = 1-p\{ X\leq 1/2\} = 
+	 1-\int_{-\infty}^{1/2} f_X(x) \> dx \\
+	& = & 1 - \int_{-1}^0 (x+1) \> dx - \int_0^{1/2} (-x+1) \> dx \\
+	& = & 1 - \left[ {x^2 \over 2} + x \right]_{-1}^0 -
+	 \left[ {-x^2 \over 2}+ x \right]_0^{1/2} \\
+	& = & 1 + \frac{1}{2} - 1 + \frac{1}{8} - \frac{1}{2} = \frac{1}{8}.
+\end{eqnarray*}
+
+Tamb\'e
+\begin{eqnarray*}
+	p\{ Y=-1\} & = & p\{ X \leq -1/2\} = \int_{-\infty}^{-1/2} f_X(x) \> dx \\
+	& = & \int_{-1}^{-1/2} (x+1) \> dx = \left[ {x^2 \over 2} + x
+	\right]_{-1}^{-1/2} 
+	 =  \frac{1}{8}-\frac{1}{2}-\frac{1}{2}+1 = \frac{1}{8}.
+\end{eqnarray*}
+
+Finalment,
+\[
+	p\{ Y=0\}  =  1-\left[p\{ Y=1\}+p\{ Y=-1\} \right] 
+	 =  1-\frac{1}{8}-\frac{1}{8} = \frac{3}{4}.
+\]
+
+Aix\'{\i}, la funci\'o de distribuci\'o de la $Y$ ser\`a
+$$
+F_Y(x) = \left\{ \begin{array}{ll} 0, & {\rm si } \ x < -1, \\ 
+1/8, & {\rm si } \ -1 \leq x < 0, \\
+7/8, & {\rm si } \ 0 \leq x < 1, \\
+1, & {\rm si } \ x \geq 1.
+\end{array} \right.
+$$
+}
+
+\begin{probres}
+{Un joc es diu que \'es just si el guany esperat de cada jugador \'es 0. Dos
+jugadors $A$ i $B$ tiren un dau per torns i guanya el primer que obt\'e un
+`5'. Cada jugador aposta una quantitat $c_j (j=1, 2)$ i el total se'l quedar\`a
+el guanyador. Si suposam que comen\c{c}a a jugar $A$, quina condici\'o han de
+verificar $c_1$ i $c_2$ perqu\`e el joc sigui just?}
+\end{probres}
+
+\res{
+Calculem la probabilitat que guanyi cada jugador. Posem
+\begin{eqnarray*}
+A_i & : & \mbox{el jugador $A$ obt\'e un `5' en la jugada $i$-\`essima},\\
+B_i & : & \mbox{el jugador $B$ obt\'e un `5' en la jugada $i$-\`essima},
+\end{eqnarray*}
+entenent en cada cas que s'obt\'e el `5' per primera vegada. Aleshores
+$$
+p\{ A\} = \sum_{i=1}^\infty p\{ A_{2i-1} \},
+$$
+on $\pp{A}$ \'es la probabilitat que guanyi el jugador~$A$.
+
+Ara b\'e,
+$$
+p\{ A_1\} = \frac{1}{6}, \ p\{ A_3\} = \left( \frac{5}{6} \right)^2 \cdot
+\frac{1}{6}.
+$$
+
+En general,
+$$
+p\{ A_{2i-1}\} = \left( \frac{5}{6} \right)^{2i-2} \cdot \frac{1}{6}.
+$$
+
+Per tant
+\begin{eqnarray*}
+	p\{ A\} & = & \sum\limits_{i=1}^\infty \left( \frac{5}{6} 
+	\right)^{2i-2} 
+	\cdot \frac{1}{6} 
+	 =  \frac{1}{6} \cdot \sum\limits_{i=1}^\infty 
+	\left( \frac{25}{36} 
+	\right)^i \cdot \frac{1}{25/36} 
+	 =  \frac{6}{25} \cdot \sum\limits_{i=1}^\infty 
+	\left( \frac{25}{36} 
+	\right)^i \\
+	& = & \frac{6}{25} \cdot {\frac{25}{36} \over 1-\frac{25}{36}} 
+	=  \frac{6}{25} \cdot {\frac{25}{36} \over \frac{11}{36}} =
+	\frac{6}{11}.
+\end{eqnarray*}
+
+An\`alogament,
+$$
+p\{ B_2\} = \frac{5}{6}\cdot\frac{1}{6}, \ p\{ B_4\} = \left( \frac{5}{6}
+\right)^3 \cdot \frac{1}{6},
+$$
+
+i, en general,
+$$
+p\{ B_{2i}\} = \left( \frac{5}{6} \right)^{2i-1} \cdot \frac{1}{6}.
+$$
+
+Aleshores
+\[
+	p\{ B\}  =  \sum\limits_{i=1}^\infty p\{ B_{2i} \} = 
+	\sum\limits_{i=1}^\infty \left( \frac{5}{6} \right)^{2i-1} \cdot
+	\frac{1}{6} 
+	 =  \frac{1}{6} \cdot \sum\limits_{i=1}^\infty \left( 
+	\frac{25}{36} 
+	\right)^i \cdot \frac{1}{5/6} 
+	 =  \frac{1}{5} \cdot {\frac{25}{36} \over \frac{11}{36}} =
+	\frac{5}{11},
+\]
+on $\pp{B}$ \'es la probabilitat que guanyi el jugador~$B$.
+
+Si ara $X : \mbox{guany del jugador A}$, $X(\Omega) = \{ c_2, -c_1 \}$
+i la funci\'o de probabilitat \'es:
+$$
+p\{ X=c_2\} = p\{ A\} = 6/11, \ p\{ X=-c_1\} = p\{ B\} = 5/11.
+$$
+
+Aleshores $\EE X = \frac{6}{11} \cdot c_2 = \frac{5}{11} \cdot c_1$. 
+Si el joc ha de ser just,
+$$
+\EE X = 0 \Longrightarrow 6 c_2 = 5 c_1.
+$$
+
+Observem que si $Y:\mbox{guany del jugador B}$, 
+aleshores $Y=-X$ i $\EE Y = -\EE X$
+i, per tant, s'obt\'e la mateixa condici\'o.}
+
+\begin{probres}
+{El preu per estacionament en un aparcament \'es de 75 pts. per a la primera
+hora o fracci\'o, i de 60 pts. a partir de la segona hora o fracci\'o. Suposem
+que el temps, en hores, que un vehicle qualsevol roman a l'aparcament es
+modelitza segons la funci\'o de densitat
+$$
+f_X(x) = \left\{ \begin{array}{ll} \e^{-x}, & {\rm si } \ x\geq 0,\\ 
+0, & {\rm en \> cas \> contrari}.
+\end{array} \right.
+$$
+
+Calculau l'ingr\'es mitj\`a per vehicle}
+\end{probres}
+
+\res{
+Siguin $Y :$ ingr\'es per aparcament i $Z :$ nombre d'hores
+(inclosa la fracci\'o de la darrera hora) que un vehicle est\`a aparcat.
+Aleshores $Y = 75 + 60(Z-1)$. $Z$ pren valors $1, 2, \ldots$ 
+amb probabilitats:
+\begin{eqnarray*}
+	p\{ Z=1\} & = & p\{ 0 \leq X \leq 1\} = \int_0^1 \e^{-x} 
+	\, dx = 1-\e^{-1}
+	\\
+	p\{ Z=2\} & = & p\{ 1 \leq X \leq 2\} = \int_1^2 \e^{-x} \, dx =
+	 \e^{-1}-\e^{-2} \\
+	& \vdots & \\
+	p\{ Z=k\} & = & p\{ k-1 \leq X \leq k\} = \int_{k-1}^k \e^{-x} \, 
+	dx =\e^{-k+1}-\e^{-k}.
+\end{eqnarray*}
+
+Per tant
+\begin{eqnarray*}
+	\EE Z & = & \sum\limits_{k \geq 1} k \cdot p\{ Z=k\} = \sum\limits_{k \geq
+	1} 	k 	\cdot (\e^{-k+1}-\e^{-k}) \\
+	& = & 1-\e^{-1}+2\e^{-1}-2\e^{-2}+3\e^{-2}-3\e^{-3}+\cdots \\
+	& = & 1+\e^{-1}+\e^{-2}+\cdots = \sum\limits_{k \geq 0} \e^{-k} 
+	= {1 \over 1-\e^{-1}} \approx 1.582.
+\end{eqnarray*}
+
+Finalment,
+
+\[
+\EE Y  =  \EE (75+60(Z-1)) = 75+60 (\EE Z -1)  \approx  
+75+60\times 0.582 = 109.92.
+\]
+}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Hi ha 10 estudiants inscrits en una classe
+d'Estad\'{\i}stica, d'entre els quals 3 tenen 19 anys, 4 tenen 20 anys, 1 t\'e
+21 anys, 1 t\'e 24 anys i 1 t\'e 26 anys. D'aquesta classe se seleccionen dos
+estudiants sense reposici\'o. Sigui $X$ la edat mitjana dels dos estudiants
+seleccionats. Trobau la funci\'o de probabilitat per a $X$.} 
+\end{prob}
+
+\newpage
+
+\begin{prob}
+{Verificau que:
+$$F_W (t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<3$},
+\\ & \\ 
+{1\over 3}, & \text{si $3\leq t<4$},
+\\ & \\ 
+{1\over 2}, & \text{si $4\leq t<5$},
+\\ & \\ 
+{2\over 3}, & \text{si $5\leq t<6$},
+\\ & \\ 
+1, & \text{si $t\geq 6$},
+\end{array}\right.
+$$
+\'es una funci\'o de
+distribuci\'o i especificau la funci\'o de probabilitat per a $W$. Trobau
+tamb\'e $\pp{3<W\leq 5}$.}
+\end{prob}
+
+\begin{prob}
+{La variable aleat\`oria $Z$ t\'e per funci\'o de probabilitat:
+$$f_Z (x)=
+\left\{\begin{array}{ll}
+{1\over 3}, & \text{si $x=0,1,2$},\\ 0, & \text{en els altres
+casos.}
+\end{array}\right.
+$$
+Quina \'es la funci\'o de distribuci\'o per a $Z$?}
+\end{prob}
+
+\begin{prob}
+{Verificau que:
+$$F_X (t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<-1$},
+\\ & \\ 
+{t+1\over 2}, & \text{si $-1\leq
+t\leq 1$},
+\\ & \\ 
+1, & \text{si $t> 1$},
+\end{array}\right.
+$$
+\'es una funci\'o de distribuci\'o i trobau la
+funci\'o de densitat per a $X$. Calculau tamb\'e $\pp{-{1\over 2}\leq X\leq
+{1\over 2}}$.}
+\end{prob}
+
+\begin{prob}
+{Sigui $Y$ una variable cont\'{\i}nua amb funci\'o de densitat:
+$$f_Y(y)=
+\left\{\begin{array}{ll}
+2(1-y), & \text{si $0<y<1$},\\ 0, & \text{en els altres casos}.
+\end{array}\right.
+$$Trobau la
+funci\'o de distribuci\'o $F_Y(t)$.}
+\end{prob}
+
+\begin{prob}
+{Verificau que:
+$$F_Y(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<0$},\\
+\sqrt{t}, & \text{si $0\leq t\leq 1$},\\ 1, &
+\text{si $t>1$},
+\end{array}\right.
+$$
+\'es una funci\'o de distribuci\'o i especificau la 
+funci\'o de densitat
+per a $Y$. Feu servir aquest resultat per trobar $\pp{-{1\over 2}<Y<{3\over
+4}}$.} 
+\end{prob}
+
+\begin{prob}
+{Considerem la seg\"uent funci\'o de distribuci\'o per a una variable
+aleat\`oria $U$:
+$$F_U(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<1$},\\ \ln t, & 
+\text{si $1\leq t\leq\e$},\\ 1, & 
+\text{si $t>\e$}.
+\end{array}\right.$$
+Trobau la mediana (el percentil 50\%), $\EE (U)$ i
+$\hbox{Var } U$.}
+\end{prob}
+
+\begin{prob}
+{Es vol rifar un cotxe amb un valor de 3.000\$, per la qual cosa es
+venen 10.000 paperetes que valen 1\$ cada una. Si es compra 1 papereta, quin \'es
+el benefici esperat? Quin \'es el benefici esperat si es compren 100 paperetes?
+Trobau la vari\`ancia en cada un dels dos casos.}
+\end{prob}
+
+\begin{prob}
+{Suposau que $Y$, el nombre de minuts que es necessiten per dinar en
+qualsevol dia, t\'e la mateixa  versemblan\c{c}a (probabilitat) d'estar
+en l'interval de 30 a 40 minuts. Trobau $m_Y(t)$ i $m_{Y-\mu_Y}(t)$.}
+\end{prob}
+
+\begin{prob}
+{Se selecciona a l'atzar un nombre del conjunt $\{1,2,3,\ldots,n\}$.
+Sigui $V$ l'enter seleccionat. Trobau $\psi_V(t)$.}
+\end{prob}
+
+\begin{prob}
+{Suposau que $X$ \'es una variable aleat\`oria (discreta) amb funci\'o
+generatriu
+$$\psi_X (t)={pt\over 1-(1-p) t},\hbox{ on } 0<p<1.$$Trobau $f_X(x)$ (funci\'o
+de probabilitat) i $m_X(t)$.}
+\end{prob}
+
+\begin{prob}
+{Sigui $X$ una variable aleat\`oria amb funci\'o de distribuci\'o $F_X(t)$ i
+sigui $Y=a+bX$ on $b<0$. Trobau la funci\'o de distribuci\'o per a la variable
+$Y$.}
+\end{prob}
+
+\begin{prob}
+{A partir de 
+$$F_X(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<-1$},
+\\ & \\
+{t+1\over 2}, & \text{si $-1\leq t\leq
+1$},
+\\ & \\
+1, & \text{si $t>1$},
+\end{array}\right.$$
+trobau la funci\'o de distribuci\'o per a $Y=15+2X$ i la
+funci\'o de densitat per $Y$.}
+\end{prob}
+
+\begin{prob}
+{Si 
+$$F_X(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<0$},\\ t, & 
+\text{si $0\leq t\leq 1$},\\ 1, & \text{si
+$t>1$},
+\end{array}\right.
+$$
+trobau la funci\'o de distribuci\'o i la funci\'o de densitat de la forma
+est\`andard de $X$ ($Z={X-\mu_X\over \sigma_X}$).}
+\end{prob}
+
+\begin{prob}
+{Per formar un jard\'{\i} circular, un jardiner talla una corda, la ferma a
+una estaca i hi marca el per\'{\i}metre. Suposau que la llargada de la
+corda
+t\'e la mateixa versemblan\c{c}a d'estar en l'interval compr\`es entre $r-0.1$
+i $r+0.1$. Quina \'es la distribuci\'o de $X$, l'\`area de la superf\'{\i}cie
+del jard\'{\i}?
+Quina \'es la probabilitat que l'\`area de la superf\'{\i}cie sigui m\'es gran
+que
+$\pi r^2$?}
+\end{prob}
+
+\begin{prob}
+{En un determinat lloc, el 60\% dels conductors respecten els senyals
+de reducci\'o de velocitat, mentre que el 40\% no els respecten. En aquest
+lloc hi ha un sem\`afor i uns 100 metres abans d'arribar-hi hi ha un senyal
+de reducci\'o de velocitat. Per als conductors que respecten l'esmentat senyal
+el sem\`afor continua verd per\`o per als conductors que van a una velocitat
+elevada sense fer cas del senyal, el sem\`afor es posa vermell. 
+\newline Considerem la variable aleat\`oria $X=$``Nombre de cotxes que
+passen pel sem\`afor sense aturar-se a partir d'una certa hora''.\newline
+Trobau la funci\'o de probabilitat de $X$, $\EE X$ i $\hbox{Var }X$.
+\newline\hfill 
+{\footnotesize Indicaci\'o: }$\scriptstyle \sum\limits_{n\geq 1}n x^n
+={x\over {(1-x)}^2},\quad \sum\limits_{n\geq 1}n^2 x^n ={x (x+1)\over
+{(1-x)}^3}$.\newline{\footnotesize Final. Setembre 93.}}
+\end{prob}
+
+\enlargethispage*{1000pt}
+
+\begin{prob}
+{Sigui $X$ una variable aleat\`oria cont\'{\i}nua amb funci\'o de densitat
+$f_X(x)$.
+Considerem la variable aleat\`oria $Y=\e^X$. Trobau la funci\'o de densitat
+de la variable aleat\`oria $Y$, $f_Y(y)$.
+\newline\hfill{\footnotesize Final.
+Setembre 94.}}
+\end{prob}
+
+\newpage
+
+\begin{prob}
+{
+Sigui 
+\[
+f(x)= 
+\left\{
+\begin{array}{ll}
+ax \sin x, & \text{si $x\in [0,\pi]$},\\
+ 0, & \text{en cas contrari.}
+\end{array}
+\right.
+\]
+
+Trobau el valor de $a$ perqu\`e $f(x)$ sigui una funci\'o de densitat.
+\newline{\footnotesize Primer parcial. Febrer 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X$ una variable aleat\`oria $\mbox{Exp}(\lambda)$ (exponencial amb
+par\`ametre $\lambda$). Considerem la variable $Y=\e^X$. Trobau la funci\'o de
+densitat de $Y$  $f_Y(t)$. 
+\newline{\footnotesize Primer parcial. Febrer 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $f(x)=
+\left\{\begin{array}{ll}
+\frac{C}{1+x},&\mbox{si $x\in (0,2)$},\\
+0,& \mbox{en cas contrari,}
+\end{array}\right.
+$
+on~$C$ es calcula de tal forma que~$f(x)$ sigui una densitat.
+Trobau el valor de l'esperan\c{c}a de~$X$ ($\EE (X)$).
+\newline{\footnotesize Final. Juny 96.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui~$X$ una variable aleat\`oria amb funci\'o generatriu~$m_X(t)$. Trobau
+la funci\'o generatriu de la variable aleat\`oria~$X+1$.
+\newline{\footnotesize Final. Setembre 96.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui~$X$ una variable aleat\`oria cont\'{\i}nua
+amb funci\'o de densitat:
+\[
+f(x)=
+\left\{
+\begin{array}{ll}
+\frac{1}{2}\sin x, & \mbox{si $x\in [0,\pi]$},\\
+0, & \mbox{en cas contrari.}
+\end{array}
+\right.
+\]
+\begin{itemize}
+\item[a)] Trobau la funci\'o generatriu de moments, $\EE (X)$ i Var $(X)$.
+\item[b)] Calculau $\pp{X^2 -3 X +2>0}$.
+\end{itemize}
+{\footnotesize Final. Setembre 96.}
+}
+\end{prob}
+
+\newpage
+
+\begin{prob} {La durada de les confer\`encies telef\`oniques \'es una variable
+aleat\`oria amb funci\'o de distribuci\'o: $$ F(x) = \left\{ \begin{array}{ll} 0,
+& {\rm si } \ x \leq 0,\\ 1-\frac{1}{2} \e^{-x/3}-\frac{1}{2} \e^{-E[x/3]}, & {\rm
+en \> cas \> contrari}, \end{array} \right. $$ on $E[x]$ \'es la part entera de
+$x$. Trobau la probabilitat que una confer\`encia duri:
+
+\begin{itemize} \item[a)] m\'es de 6 minuts, \item[b)] menys de 4 minuts,
+\item[c)] exactament 3 minuts, \item[d)] menys de 9 minuts, sabent que n'ha durat
+m\'es de 5, \item[e)] m\'es de 5 minuts, sabent que n'ha durat menys de 9.
+\end{itemize}} \end{prob}
+
+\begin{prob}
+{El temps de vida, en anys, d'un cert component d'una m\`aquina es 
+modelitza mitjan\c{c}ant la funci\'o de densitat seg\"uent: 
+$$
+f_X(x) = \left\{ \begin{array}{ll} \e^{-x}, & {\rm si } \ x \geq 0,\\ 
+0, & {\rm en \> cas \> contrari}.
+\end{array} \right.
+$$ 
+Si el cost $Y$ de funcionament del component, en milions de ptes., 
+\'es funci\'o del temps de vida: $Y = 2 X^2 + 1$, calculau
+la quantitat que espera gastar l'empresa en concepte de manteniment.}
+\end{prob}
+
+\begin{prob}
+{Un sistema de transmissi\'o emet els d\'{\i}gits $-1$, $0$ i $1$. 
+Quan es transmet el s\'{\i}mbol $i$, es rep el s\'{\i}mbol $j$ 
+amb les probabilitats seg\"uents: $\pp{r_1 /t_1} = 1,\  
+\pp{ r_{-1} / t_{-1}} = 1,\  \pp{ r_1 /t_0} = 0.1, 
+\ \pp{ r_{-1} / t_0} = 0.1, \ \pp{ r_0 / t_0} = 0.8$. Es diu en aquest cas que s'ha
+produ\"{\i}t una distorsi\'o $(i-j)^2$. Quin \'es el valor mitj\`a de la
+distorsi\'o?}
+\end{prob}
+
+\enlargethispage*{1000pt}
+
+\begin{prob}
+{Una font bin\`aria emet de manera equiprobable i independent un bloc de 3
+d\'{\i}gits (0 o 1) cada segon. De cada bloc envia a un canal de transmissi\'o
+un 0 si al bloc hi ha m\'es 0 que 1, i un 1 en cas contrari. El canal
+transmet el d\'{\i}git amb una probabilitat d'error $p$. El receptor
+reconstrueix la terna de d\'{\i}gits repetint tres vegades el d\'{\i}git que ha
+rebut. Quin \'es el nombre mitj\`a de bits erronis per bloc? Quina hauria de
+ser la probabilitat $p$ per tal que aquest valor mitj\`a no fos m\'es gran que
+1?}
+\end{prob}
+

@@ -1,0 +1,2101 @@
+\chapter{Contrasts d'hip\`otesi}
+\index{contrast!d'hipotesi@d'hip\`otesi}
+
+\section{Resum te\`oric}
+
+En molts de casos s'ha de decidir {\it a priori} entre dues opcions possibles 
+sobre la distribuci\'o d'una variable aleat\`oria donada. 
+Les dues possibilitats s'anomenen {\bf hip\`otesi nu{\lgem}a} 
+\index{hipotesi@hip\`otesi!nul.la@nu{\lgem}a}$H_0$ i 
+{\bf hip\`otesi alternativa} $H_1$.
+\index{hipotesi@hip\`otesi!alternativa} Per exemple, si
+$X$ \'es una variable aleat\`oria $N(\mu,4)$ amb $\mu$ desconeguda, 
+$H_0: \mu = 2, \ H_1: \mu \not = 2$.
+
+Un test o contrast d'hip\`otesi\index{contrast!d'hipotesi@d'hip\`otesi} 
+\'es una regla que permet decidir quina de les dues
+hip\`otesis \'es acceptada, partint d'una s\`erie d'experiments.
+
+El m\`etode consisteix a determinar un succ\'es $E$ que pot oc\'orrer o no 
+despr\'es de cada experiment i tal que, si $H_0$ \'es certa, 
+la probabilitat que ocorri $E^c$ \'es quasi~$1$ i, si $H_1$ \'es certa, 
+la probabilitat de $E$ \'es pr\`oxima a~$1$.
+Aleshores es realitza l'experiment. Si ocorre $E^c$ es conclou que $H_0$ \'es
+certa, i si ocorre $E$ es decideix que $H_1$ \'es certa.
+
+Aix\'{\i} hem dividit l'espai mostral en dues parts, una part que fa 
+acceptar $H_0$ i l'altra, anomenada {\bf regi\'o cr\'{\i}tica}, que fa rebutjar $H_0$.
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+
+En tot contrast d'hip\`otesi, podem distingir dos possibles errors: 
+l'{\bf error de tipus~I}\index{error!de tipus I} que es comet en rebutjar $H_0$ si \'es certa, i 
+l'{\bf error de tipus~II}, com\`es en acceptar $H_0$ si \'es falsa.
+\index{error!de tipus II}
+
+Quan provam hip\`otesis respecte d'un par\`ametre~$\gamma$,
+\index{parametre@par\`ametre} la probabilitat
+d'acceptar $H_0$ \'es una funci\'o de $\gamma$, denotada per $C(\gamma)$, i
+s'anomena la {\bf corba OC}\index{corba OC} (Operating Characteristic) de la prova. A $Q(\gamma)
+= 1 - C(\gamma)$ se l'anomena la {\bf funci\'o de pot\`encia del test}.
+\index{funcio@funci\'o!de potencia del test@de pot\`encia del test}
+
+\subsection{Hip\`otesis simples}\index{hipotesi@hip\`otesi!simple}
+
+Una hip\`otesi simple \'es la que especifica completament la funci\'o 
+de probabilitat o densitat d'una variable aleat\`oria. 
+Per exemple, si $f_X$ nom\'es dep\`en d'un par\`ametre $\gamma$, aleshores
+\index{parametre@par\`ametre}
+\begin{description}
+\item $H_0: \gamma = \gamma_0$.
+\item $H_1: \gamma = \gamma_1$.
+\end{description}
+\'es un contrast d'hip\`otesi simple davant d'alternativa simple.
+\index{contrast!d'hipotesi@d'hip\`otesi!simple}
+
+En aquest cas, les probabilitats d'error de tipus I i II estan ben definides i
+es denoten per $\alpha$ i $\beta$, respectivament; \'es a dir,
+\index{probabilitat!d'error tipus I}
+\index{probabilitat!d'error tipus II}
+$$\pp{\mbox{rebutjar } H_0 / H_0 \mbox{ certa}} = \alpha, \ 
+\pp{\mbox{ acceptar } H_0 / H_1 \mbox{ certa}} = \beta.$$
+
+Donada una regi\'o cr\'{\i}tica $R.C.$, s'anomena {\bf nivell de significaci\'o} 
+\index{nivell!de significacio@de significaci\'o}
+de la regi\'o a \break $\pp{X \in R.C. / H_0}$. 
+Observem que el nivell de significaci\'o coincideix amb
+$\alpha$, la probabilitat de l'error de tipus I.
+\index{probabilitat!d'error tipus I}
+
+Normalment no \'es complicat trobar una regi\'o cr\'{\i}tica.
+\index{regio@regi\'o!critica@cr\'{\i}tica} De totes formes, sovint en
+tenim m\'es d'una i volem determinar quina utilitzar. D'entre totes les regions
+cr\'{\i}tiques $R.C.$ amb nivell de significaci\'o~$\alpha$, 
+\index{nivell!de significacio@de significaci\'o}
+volem determinar una regi\'o cr\'{\i}tica~${R.C.}^*$
+\index{regio@regi\'o!critica@cr\'{\i}tica} amb error de tipus~II 
+\index{error!de tipus II}
+m\'{\i}nim. Si existeix ${R.C.}^*$, s'anomena {\bf regi\'o cr\'{\i}tica \`optima}.
+\index{regio@regi\'o!critica@cr\'{\i}tica!optima@\`optima}
+
+Existeix un resultat que permet obtenir regions cr\'{\i}tiques \`optimes.
+
+{\bf Lema de Neyman-Pearson.}\index{lema de Neyman-Pearson}
+
+Suposem que $X$ \'es una variable aleat\`oria amb funci\'o de distribuci\'o 
+dependent d'un par\`ametre~$\gamma$.\index{parametre@par\`ametre} 
+Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria simple
+de $X$. Sigui $L(\gamma)$ la funci\'o de versemblan\c ca de la mostra. Volem
+\index{funcio@funci\'o!de versemblanca@de versemblan\c{c}a!de la mostra}
+contrastar
+
+\begin{description}
+\item $H_0: \gamma = \gamma_0$.
+
+\item $H_1: \gamma = \gamma_1$.
+\end{description}
+
+Aleshores
+$$ R.C. = \left\{ (x = (x_1, \ldots , x_n) : {L(\gamma_1) \over
+L(\gamma_0)} \geq k \right\}$$
+\'es una regi\'o cr\'{\i}tica \`optima 
+\index{regio@regi\'o!critica@cr\'{\i}tica!optima@\`optima}
+amb nivell de significaci\'o~$\alpha$, on $k$
+\index{nivell!de significacio@de significaci\'o}
+s'elegeix de manera que $\pp{X \in R.C. /H_0} = \alpha$.
+
+\begin{proposition}
+Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria simple d'una
+variable alea\-t\`oria $N(\mu,\sigma^2)$ amb $\sigma^2$ coneguda. 
+Aleshores la regi\'o cr\'{\i}tica \`optima amb nivell de significaci\'o $\alpha$ per al contrast $H_0: \mu =
+\index{regio@regi\'o!critica@cr\'{\i}tica!optima@\`optima}
+\index{nivell!de significacio@de significaci\'o}
+\mu_0$ davant de $H_1: \mu = \mu_1$ s'obt\'e amb 
+\begin{description}
+\item $\bar{x} \geq \mu_0 + {\sigma \over \sqrt{n}} z_{1-\alpha} \ \ (\mu_1 >
+\mu_0)$,
+
+\item $\bar{x} \leq \mu_0 - {\sigma \over \sqrt{n}} z_{1-\alpha} \ \ (\mu_1 <
+\mu_0)$,
+\end{description}
+on $z_{1-\alpha}$ \'es el $100(1-\alpha)$-\`essim percentil d'una $N(0,1)$.
+\end{proposition}
+
+\begin{proposition}
+Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria simple d'una
+variable alea\-t\`oria $N(\mu,\sigma^2)$. Aleshores la regi\'o
+cr\'{\i}tica \`optima amb nivell de significaci\'o $\alpha$ per al contrast $H_0: \sigma
+= \sigma_0$ davant de $H_1: \sigma = \sigma_1$ s'obt\'e amb
+\index{regio@regi\'o!critica@cr\'{\i}tica!optima@\`optima}
+\index{nivell!de significacio@de significaci\'o}
+\begin{description}
+\item $\sum (x_i - \overline{x})^2 > \sigma_0^2 \chi_{1-\alpha}^2 \ \ (\sigma_1 >
+\sigma_0)$,
+
+\item $\sum (x_i - \overline{x})^2 < \sigma_0^2 \chi_\alpha^2 \ \ (\sigma_1 < \sigma_0)$,
+\end{description}
+on $\chi_{1-\alpha}^2$ i $\chi_\alpha^2$ s\'on, respectivament, el $100(1-\alpha)$
+i el $100\alpha$-\`essim percentils d'una $\chi^2$ amb $n-1$ graus de llibertat.
+\end{proposition}
+
+Si la hip\`otesi alternativa \'es unilateral,
+\index{hipotesi@hip\`otesi!alternativa!unilateral} 
+per exemple $H_1: \mu > \mu_1$, aleshores la regi\'o cr\'{\i}tica de 
+\index{regio@regi\'o!critica@cr\'{\i}tica!de Neyman-Pearson}
+Neyman-Pearson \'es la que d\'ona la funci\'o de
+pot\`encia m\'es alta possible.\index{funcio@funci\'o!de potencia@de pot\`encia}
+
+La regi\'o cr\'{\i}tica de Neyman-Pearson d\'ona el valor m\'es petit 
+possible per a $\beta$ d'entre totes les proves amb el mateix valor de $\alpha$.
+\index{regio@regi\'o!critica@cr\'{\i}tica!de Neyman-Pearson}
+
+Una altra caracter\'{\i}stica desitjable dels contrasts d'hip\`otesi \'es 
+que en general siguin una funci\'o de l'estad\'{\i}stica suficient
+\index{estadistica@estad\'{\i}stica!suficient} per al par\`ametre,
+\index{parametre@par\`ametre} si existeix. El
+resultat seg\"uent tracta aquest aspecte.
+
+\begin{proposition}
+Suposem que $X_1, \ldots , X_n$ \'es una mostra aleat\`oria simple
+d'una variable aleat\`oria $X$ i que la funci\'o de distribuci\'o de $X$ dep\`en d'un
+sol par\`ametre\index{parametre@par\`ametre} 
+desconegut $\gamma$. Suposem que $Y = g(X_1, \ldots , X_n)$ \'es una
+estad\'{\i}stica suficient
+\index{estadistica@estad\'{\i}stica!suficient} per a~$\gamma$. 
+Aleshores la regi\'o cr\'{\i}tica de Neyman-Pearson \'es funci\'o de $Y$.
+\index{regio@regi\'o!critica@cr\'{\i}tica!de Neyman-Pearson}
+\end{proposition}
+
+\subsection{Hip\`otesis compostes}\index{hipotesi@hip\`otesi!composta}
+
+Quan $H_0$ i/o $H_1$ s\'on compostes, aleshores no es disposa d'un resultat 
+com el lema de Neyman-Pearson
+\index{lema de Neyman-Pearson} que doni la regi\'o cr\'{\i}tica \`optima. 
+\index{regio@regi\'o!critica@cr\'{\i}tica!optima@\`optima}De totes formes, hi ha
+un procediment general semblant al donat pel lema que produeix un bon contrast.
+
+Primer de tot observem que si $H_0$ \'es composta, aleshores no tenim un \'unic
+valor per a la probabilitat de l'error de tipus~I. 
+\index{error!de tipus I}En aquestes situacions
+s'acostuma a indicar amb $\alpha$ el valor m\'es gran de la probabilitat de
+l'error de tipus I per a tots els possibles valors del par\`ametre especificats
+per $H_0$.
+
+Aleshores, per a totes les proves possibles amb aquesta $\alpha$, se selecciona
+la que t\'e la corba OC\index{corba OC} m\'es baixa per a tots els valors especificats per $H_1$, si
+existeix.
+
+El {\bf criteri de contrast de la ra\'o de versemblan\c ca}
+\index{criteri de contrast!de la rao de versemblanca@de la ra\'o de versemblan\c{c}a} 
+\'es un m\`etode que es pot utilitzar per obtenir una regi\'o cr\'{\i}tica
+\index{regio@regi\'o!critica@cr\'{\i}tica} 
+per provar $H_0$ davant de $H_1$, \`adhuc quan una, o les dues hip\`otesis, \'es composta. Vegem quin \'es.
+\index{hipotesi@hip\`otesi!composta}
+
+Suposem que $X_1, \ldots , X_n$ \'es una mostra aleat\`oria simple d'una 
+variable aleat\`oria $X$ amb distribuci\'o dependent de $\gamma_1, \ldots , \gamma_r$. Per
+provar $H_0$ davant de $H_1$, on una o les dues hip\`otesis poden ser 
+compostes, sigui $L(\hat{\omega})$ el valor m\`axim de la funci\'o de 
+versemblan\c ca de la mostra en qu\`e els par\`ametres
+\index{funcio@funci\'o!de versemblanca@de versemblan\c{c}a!de la mostra}
+\index{parametre@par\`ametre}
+ $\gamma_1, \ldots , \gamma_r$ estan restringits als valors
+especificats per $H_0$, i sigui $L(\hat{\Omega})$ el valor m\`axim de la funci\'o de
+versemblan\c ca de la mostra en qu\`e els par\`ametres poden prendre qualsevol valor
+especificat per la uni\'o de $H_0$ i $H_1$. Aleshores 
+la regi\'o cr\'{\i}tica $R.C.$ est\`a
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+formada pels resultats de la mostra tals que
+$$\lambda = {L(\hat{\omega}) \over L(\hat{\Omega})} < A,$$
+on $A$ es tria de manera que $P(\rm{error \> de \> tipus \> I}) = \alpha$.
+\index{error!de tipus I}
+
+L'ap\`endix A mostra una s\`erie de taules on s'especifiquen tots els contrasts
+d'hip\`o\-tesi param\`etrics m\'es usuals. 
+\index{contrast!d'hipotesi@d'hip\`otesi!parametric@param\`etric}
+Es donen les condicions per a cada contrast,
+l'estad\'{\i}s\-tica\index{estadistica@estad\'{\i}stica} 
+a utilitzar en cada cas, la regi\'o cr\'{\i}tica 
+\index{regio@regi\'o!critica@cr\'{\i}tica}i l'interval de confian\c{c}a 
+\index{interval!de confianca@de confian\c{c}a}
+corresponent a cada par\`ametre que surt en el contrast.
+
+\newpage
+
+\section{Problemes resolts}
+
+\begin{probres}
+{Suposem que $X$ \'es una variable aleat\`oria normal amb mitjana $\mu$ desconeguda i
+vari\`ancia $9$. Si es pren una mostra aleat\`oria simple de 16 observacions de $X$ i es vol provar
+$H_0:\mu=2$, demostrau que cada una de les seg\"uents regions cr\'{\i}tiques 
+\'es de grand\`aria~$0.05$, o sigui, que l'error tipus I per a cada regi\'o cr\'{\i}tica \'es de
+$0.05$:
+$$\mbox{a) } \overline{X}>3.23,\quad \mbox{b) } \overline{X}<0.77,\quad
+\mbox{c) } 1.952<\overline{X}<2.048.$$Quin tipus d'hip\`otesi alternativa $H_1$
+seria apropiada per a cada una de les regions cr\'{\i}tiques anteriors?}
+\end{probres}
+
+\res{Tenint en compte que les regions cr\'{\i}tiques han d'estar
+en conson\`ancia amb la hip\`otesi alternativa $H_1$ 
+i que l'estimador millor per al par\`ametre $\mu$ \'es 
+$\overline{X}$, les hip\`otesis
+alternatives corresponents a les regions cr\'{\i}tiques anteriors s\'on:
+\begin{itemize}
+\item[a)] $H_1:\mu >2$
+
+Trobem l'error tipus I $\alpha$:
+\begin{eqnarray*}
+\alpha & = & \pp{\mbox{Rebutjar $H_0$}/\mbox{$H_0$ certa}}=
+\pp{R.C./\mu=2} \\ & = & 
+\pp{\overline{X}>3.23/\mu=2} =
+\pp{Z=N(0,1)=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}
+>\frac{3.23 - 2}{\frac{3}{\sqrt{16}}}} \\ & = & 
+\pp{ Z>1.64}=1-F_Z (1.64)=1-0.95 =0.05,
+\end{eqnarray*}
+tenint en compte que la variable $\overline{X}$ \'es normal 
+$N\left(\mu,\frac{\sigma^2}{n}\right)$.
+\item[b)] $H_1 :\mu <2$. Error tipus I:
+\begin{eqnarray*}
+\alpha  & = & \pp{ \overline{X}<0.77/\mu =2} =
+\pp{ Z=N(0,1) <\frac{0.77 -2}{\frac{3}{\sqrt{16}}}} \\ & = &
+\pp{ Z <-1.64} =\pp{ Z>1.64}=0.05.
+\end{eqnarray*}
+\item[c)] En aquest cas, no t\'e sentit escollir cap $H_1$ ja que 
+la regi\'o cr\'{\i}tica escollida est\`a en contradicci\'o amb
+la filosofia de realitzar un contrast d'hip\`otesi. Fixau-vos que
+en aquest cas \mbox{$\mu =2\in\ R.C.$} Per tant, dir que $H_0$ \'es certa
+seria equivalent a afirmar que \mbox{$\overline{X}\in\ R.C.$}
+
+Comprovaci\'o que l'error tipus I val $0.05$:
+\begin{eqnarray*}
+\alpha & = & \pp{1.952<\overline{X}<2.048} =
+\pp{\frac{1.952-2}{\frac{3}{\sqrt{16}}}<Z=N(0,1)<
+\frac{2.048-2}{\frac{3}{\sqrt{16}}}} \\ & = & 
+\pp{-0.064 < Z < 0.064}= 2 F_Z (0.064) -1 \approx 0.05.
+\end{eqnarray*}
+\end{itemize}
+}
+
+\begin{probres}
+{Suposem que $X$ \'es una variable aleat\`oria uniforme en l'interval que va des de $0$
+fins a $\theta$. S'observa un valor de $X$ i es vol provar $H_0:\theta=1$ en
+funci\'o de $H_1:\theta>1$. Es decideix rebutjar $H_0$ si el valor de la mostra
+\'es m\'es gran que $0.99$. Trobau l'error tipus I per a aquest contrast i feu un
+dibuix de la funci\'o de pot\`encia.}
+\etiqueta{EXGRAFFUNPOT}
+\end{probres}
+
+\res{La situaci\'o de forma esquem\`atica \'es la seg\"uent:
+
+Tenim una variable aleat\`oria $X\ U(0,\theta)$.
+
+Tenim una mostra aleat\`oria simple de $X$ de grand\`aria: $X_1$.
+
+Volem fer el contrast seg\"uent:
+\[
+\left.
+\begin{array}{ll}
+H_0 :& \theta =1, \\
+H_1 :& \theta >1.
+\end{array}
+\right\}
+\]
+Regi\'o cr\'{\i}tica escollida: $R.C.=\{X_1 > 0.99\}$.
+
+Trobem l'error tipus I $\alpha$:
+\begin{eqnarray*}
+\alpha & = & \pp{\mbox{rebutjar $H_0$}/\mbox{$H_0$ certa}} =
+\pp{ X_1 >0.99/\theta =1} \\ &=&\int_{0.99}^1 1\, dx =
+1-0.99 =0.01,
+\end{eqnarray*}
+tenint en compte que la funci\'o de densitat de $X_1$ val, si
+$H_0$ \'es certa:
+\[
+f_{X_1}(x)=f_X (x)=
+\left\{\begin{array}{ll}
+1, & \text{si $x\in (0,1)$}, \\
+0, & \text{en cas contrari}.
+\end{array}\right.
+\]
+Funci\'o de pot\`encia:
+\begin{eqnarray*}
+Q(\theta)&=&\pp{\mbox{rebutjar $H_0$}}=1-\pp{\mbox{acceptar $H_0$}}=
+1-\pp{X_1\leq 0.99} \\ &=& 1-\int_0^{0.99}\frac{1}{\theta}\, dx =
+1-\frac{0.99}{\theta}.
+\end{eqnarray*}
+El gr\`afic de la funci\'o de pot\`encia es pot veure en la figura
+\ref{GRAFFUNPOT}.
+
+\begin{figure}
+\begin{center}
+\setlength{\unitlength}{2.5cm}
+\begin{picture}(4,2.25)(-0.5,-0.2)
+\put (0,0){\line(1,0){4}}
+\put (0,0){\line(0,1){2.25}}
+\put (-0.3,0.02){\makebox(0,0){$0.01$}}
+\put (-0.1,2){\makebox(0,0){$1$}}
+\put (-0.25,1){\makebox(0,0){$0.5$}}
+\put (0,0.02) {\line (1,0){0.1}}
+\put (0,1) {\line (1,0){0.1}}
+\put (0,2) {\line (1,0){0.1}}
+\put (1,0) {\line (0,1){0.1}}
+\put (2,0) {\line (0,1){0.1}}
+\put (3,0) {\line (0,1){0.1}}
+\put (4,0) {\line (0,1){0.1}}
+\put (3.5,-0.2) {\makebox(0,0){$\theta$}}
+\put (-0.4,1.5) {\makebox(0,0){$Q(\theta)$}}
+\put (1,-0.2) {\makebox(0,0){$1$}}
+\put (2,-0.2) {\makebox(0,0){$2$}}
+\put (3,-0.2) {\makebox(0,0){$3$}}
+\put (4,-0.2) {\makebox(0,0){$4$}}
+\dashline[+30]{0.05}(0,2)(4,2)
+\drawline
+(1.0000,0.0200)
+(1.0100,0.0396)
+(1.0200,0.0588)
+(1.0300,0.0777)
+(1.0400,0.0962)
+(1.0500,0.1143)
+(1.0600,0.1321)
+(1.0700,0.1495)
+(1.0800,0.1667)
+(1.0900,0.1835)
+(1.1000,0.2000)
+(1.1100,0.2162)
+(1.1200,0.2321)
+(1.1300,0.2478)
+(1.1400,0.2632)
+(1.1500,0.2783)
+(1.1600,0.2931)
+(1.1700,0.3077)
+(1.1800,0.3220)
+(1.1900,0.3361)
+(1.2000,0.3500)
+(1.2100,0.3636)
+(1.2200,0.3770)
+(1.2300,0.3902)
+(1.2400,0.4032)
+(1.2500,0.4160)
+(1.2600,0.4286)
+(1.2700,0.4409)
+(1.2800,0.4531)
+(1.2900,0.4651)
+(1.3000,0.4769)
+(1.3100,0.4885)
+(1.3200,0.5000)
+(1.3300,0.5113)
+(1.3400,0.5224)
+(1.3500,0.5333)
+(1.3600,0.5441)
+(1.3700,0.5547)
+(1.3800,0.5652)
+(1.3900,0.5755)
+(1.4000,0.5857)
+(1.4100,0.5957)
+(1.4200,0.6056)
+(1.4300,0.6154)
+(1.4400,0.6250)
+(1.4500,0.6345)
+(1.4600,0.6438)
+(1.4700,0.6531)
+(1.4800,0.6622)
+(1.4900,0.6711)
+(1.5000,0.6800)
+(1.5100,0.6887)
+(1.5200,0.6974)
+(1.5300,0.7059)
+(1.5400,0.7143)
+(1.5500,0.7226)
+(1.5600,0.7308)
+(1.5700,0.7389)
+(1.5800,0.7468)
+(1.5900,0.7547)
+(1.6000,0.7625)
+(1.6100,0.7702)
+(1.6200,0.7778)
+(1.6300,0.7853)
+(1.6400,0.7927)
+(1.6500,0.8000)
+(1.6600,0.8072)
+(1.6700,0.8144)
+(1.6800,0.8214)
+(1.6900,0.8284)
+(1.7000,0.8353)
+(1.7100,0.8421)
+(1.7200,0.8488)
+(1.7300,0.8555)
+(1.7400,0.8621)
+(1.7500,0.8686)
+(1.7600,0.8750)
+(1.7700,0.8814)
+(1.7800,0.8876)
+(1.7900,0.8939)
+(1.8000,0.9000)
+(1.8100,0.9061)
+(1.8200,0.9121)
+(1.8300,0.9180)
+(1.8400,0.9239)
+(1.8500,0.9297)
+(1.8600,0.9355)
+(1.8700,0.9412)
+(1.8800,0.9468)
+(1.8900,0.9524)
+(1.9000,0.9579)
+(1.9100,0.9634)
+(1.9200,0.9688)
+(1.9300,0.9741)
+(1.9400,0.9794)
+(1.9500,0.9846)
+(1.9600,0.9898)
+(1.9700,0.9949)
+(1.9800,1.0000)
+(1.9900,1.0050)
+(2.0000,1.0100)
+(2.0100,1.0149)
+(2.0200,1.0198)
+(2.0300,1.0246)
+(2.0400,1.0294)
+(2.0500,1.0341)
+(2.0600,1.0388)
+(2.0700,1.0435)
+(2.0800,1.0481)
+(2.0900,1.0526)
+(2.1000,1.0571)
+(2.1100,1.0616)
+(2.1200,1.0660)
+(2.1300,1.0704)
+(2.1400,1.0748)
+(2.1500,1.0791)
+(2.1600,1.0833)
+(2.1700,1.0876)
+(2.1800,1.0917)
+(2.1900,1.0959)
+(2.2000,1.1000)
+(2.2100,1.1041)
+(2.2200,1.1081)
+(2.2300,1.1121)
+(2.2400,1.1161)
+(2.2500,1.1200)
+(2.2600,1.1239)
+(2.2700,1.1278)
+(2.2800,1.1316)
+(2.2900,1.1354)
+(2.3000,1.1391)
+(2.3100,1.1429)
+(2.3200,1.1466)
+(2.3300,1.1502)
+(2.3400,1.1538)
+(2.3500,1.1574)
+(2.3600,1.1610)
+(2.3700,1.1646)
+(2.3800,1.1681)
+(2.3900,1.1715)
+(2.4000,1.1750)
+(2.4100,1.1784)
+(2.4200,1.1818)
+(2.4300,1.1852)
+(2.4400,1.1885)
+(2.4500,1.1918)
+(2.4600,1.1951)
+(2.4700,1.1984)
+(2.4800,1.2016)
+(2.4900,1.2048)
+(2.5000,1.2080)
+(2.5100,1.2112)
+(2.5200,1.2143)
+(2.5300,1.2174)
+(2.5400,1.2205)
+(2.5500,1.2235)
+(2.5600,1.2266)
+(2.5700,1.2296)
+(2.5800,1.2326)
+(2.5900,1.2355)
+(2.6000,1.2385)
+(2.6100,1.2414)
+(2.6200,1.2443)
+(2.6300,1.2471)
+(2.6400,1.2500)
+(2.6500,1.2528)
+(2.6600,1.2556)
+(2.6700,1.2584)
+(2.6800,1.2612)
+(2.6900,1.2639)
+(2.7000,1.2667)
+(2.7100,1.2694)
+(2.7200,1.2721)
+(2.7300,1.2747)
+(2.7400,1.2774)
+(2.7500,1.2800)
+(2.7600,1.2826)
+(2.7700,1.2852)
+(2.7800,1.2878)
+(2.7900,1.2903)
+(2.8000,1.2929)
+(2.8100,1.2954)
+(2.8200,1.2979)
+(2.8300,1.3004)
+(2.8400,1.3028)
+(2.8500,1.3053)
+(2.8600,1.3077)
+(2.8700,1.3101)
+(2.8800,1.3125)
+(2.8900,1.3149)
+(2.9000,1.3172)
+(2.9100,1.3196)
+(2.9200,1.3219)
+(2.9300,1.3242)
+(2.9400,1.3265)
+(2.9500,1.3288)
+(2.9600,1.3311)
+(2.9700,1.3333)
+(2.9800,1.3356)
+(2.9900,1.3378)
+(3.0000,1.3400)
+(3.0100,1.3422)
+(3.0200,1.3444)
+(3.0300,1.3465)
+(3.0400,1.3487)
+(3.0500,1.3508)
+(3.0600,1.3529)
+(3.0700,1.3550)
+(3.0800,1.3571)
+(3.0900,1.3592)
+(3.1000,1.3613)
+(3.1100,1.3633)
+(3.1200,1.3654)
+(3.1300,1.3674)
+(3.1400,1.3694)
+(3.1500,1.3714)
+(3.1600,1.3734)
+(3.1700,1.3754)
+(3.1800,1.3774)
+(3.1900,1.3793)
+(3.2000,1.3813)
+(3.2100,1.3832)
+(3.2200,1.3851)
+(3.2300,1.3870)
+(3.2400,1.3889)
+(3.2500,1.3908)
+(3.2600,1.3926)
+(3.2700,1.3945)
+(3.2800,1.3963)
+(3.2900,1.3982)
+(3.3000,1.4000)
+(3.3100,1.4018)
+(3.3200,1.4036)
+(3.3300,1.4054)
+(3.3400,1.4072)
+(3.3500,1.4090)
+(3.3600,1.4107)
+(3.3700,1.4125)
+(3.3800,1.4142)
+(3.3900,1.4159)
+(3.4000,1.4176)
+(3.4100,1.4194)
+(3.4200,1.4211)
+(3.4300,1.4227)
+(3.4400,1.4244)
+(3.4500,1.4261)
+(3.4600,1.4277)
+(3.4700,1.4294)
+(3.4800,1.4310)
+(3.4900,1.4327)
+(3.5000,1.4343)
+(3.5100,1.4359)
+(3.5200,1.4375)
+(3.5300,1.4391)
+(3.5400,1.4407)
+(3.5500,1.4423)
+(3.5600,1.4438)
+(3.5700,1.4454)
+(3.5800,1.4469)
+(3.5900,1.4485)
+(3.6000,1.4500)
+(3.6100,1.4515)
+(3.6200,1.4530)
+(3.6300,1.4545)
+(3.6400,1.4560)
+(3.6500,1.4575)
+(3.6600,1.4590)
+(3.6700,1.4605)
+(3.6800,1.4620)
+(3.6900,1.4634)
+(3.7000,1.4649)
+(3.7100,1.4663)
+(3.7200,1.4677)
+(3.7300,1.4692)
+(3.7400,1.4706)
+(3.7500,1.4720)
+(3.7600,1.4734)
+(3.7700,1.4748)
+(3.7800,1.4762)
+(3.7900,1.4776)
+(3.8000,1.4789)
+(3.8100,1.4803)
+(3.8200,1.4817)
+(3.8300,1.4830)
+(3.8400,1.4844)
+(3.8500,1.4857)
+(3.8600,1.4870)
+(3.8700,1.4884)
+(3.8800,1.4897)
+(3.8900,1.4910)
+(3.9000,1.4923)
+(3.9100,1.4936)
+(3.9200,1.4949)
+(3.9300,1.4962)
+(3.9400,1.4975)
+(3.9500,1.4987)
+(3.9600,1.5000)
+(3.9700,1.5013)
+(3.9800,1.5025)
+(3.9900,1.5038)
+\end{picture}
+\caption{Gr\`afic de la funci\'o de pot\`encia per a l'exercici 
+\ref{EXGRAFFUNPOT}}
+\label{GRAFFUNPOT}
+\end{center}
+\end{figure}
+}
+
+\begin{probres}
+{Suposem que $X$ \'es una variable aleat\`oria de Bernoulli amb par\`ametre $p$. Es pren una
+mostra aleat\`oria simple de 4 observacions de $X$ i es vol provar $H_0:p={1\over 4}$ contra
+$H_1:p={3\over 4}$. Es rebutja $H_0$ si s'obtenen $4$ \`exits en la mostra.
+Trobau els valors de $\alpha$ (error tipus I) i $\beta$ (error tipus II).}
+\end{probres}
+
+\res{Considerem $X_1,X_2,X_3,X_4$ una mostra aleat\`oria simple
+d'una variable aleat\`oria $X$ Bernoulli $(p)$.
+
+Es rebutja $H_0$ si hi ha $4$ \`exits en la mostra. Per tant, la regi\'o
+cr\'{\i}tica ser\`a:
+\[
+R.C. =\{X_1=1\cap X_2=1\cap X_3 =1\cap X_4 =1\}=
+\{\min\{ X_1,X_2,X_3,X_4 \}=X_{(1)}=1\},
+\]
+ja que considerar $4$ \`exits en la mostra \'es equivalent a dir 
+que el m\'{\i}nim de les $X_i$ val $1$.
+
+En el problema \ref{FUNDENMAXMINBERNOULLI} varem veure que la funci\'o
+de probabilitat de $X_{(1)}$ era:
+\begin{center}
+\begin{tabular}{|c||c|c|}
+\hline
+$x$&$0$&$1$\\\hline
+$f_{X_{(1)}}$&$1-p^4$&$p^4$\\\hline
+\end{tabular}
+\end{center}
+Per tant, podem deduir que $\pp{X_{(1)}=1}=p^4$ i 
+$\pp{X_{(1)}=0}=1-p^4$.
+
+Trobem l'error tipus I ($\alpha$) i tipus II ($\beta$):
+\begin{eqnarray*}
+\alpha & = & 
+\pp{\mbox{rebutjar $H_0$}/\mbox{$H_0$ certa}}
+= \pp{ X_{(1)}=1/ p=\frac{1}{4}}={\left(\frac{1}{4}\right)}^4
+\approx 0.003906,\\ 
+\beta & = & 
+\pp{\mbox{acceptar $H_0$}/\mbox{$H_0$ falsa}}
+= \pp{ X_{(1)}=0/ p=\frac{3}{4}}=1-{\left(\frac{3}{4}\right)}^4
+\approx 0.6836.
+\end{eqnarray*}
+}
+
+\begin{probres}
+{Si $X$ \'es una variable aleat\`oria normal amb mitjana $0$, trobau la prova uniforme m\'es
+poderosa de $H_0:\sigma^2=2$ contra $H_1:\sigma^2 >2$ de grand\`aria $\alpha$,
+donada una mostra aleat\`oria simple de $n$ observacions de $X$.}
+\etiqueta{EXERCICIREGCRITPODEROSASIGMA}
+\end{probres}
+
+\res{Considerem $X_1,\ldots,X_n$ una mostra aleat\`oria simple de la variable
+aleat\`oria \mbox{$X=N(\mu =0,\sigma^2)$.}
+
+Sigui $\sigma_1$ un valor fix amb $\sigma_1^2 >2$. Considerem el 
+contrast seg\"uent:
+\begin{equation}
+\left.
+\begin{array}{ll}
+H_0 :&  \sigma^2 =2, \\
+H_1 :&  \sigma^2 =\sigma_1^2.
+\end{array}
+\right\}
+\label{CONTRASTHIPSIMPLES}
+\end{equation}
+on l'error tipus I \'es $\alpha$.
+ 
+Aplicant el teorema de Neyman-Pearson, la regi\'o cr\'{\i}tica m\'es
+bona (la que t\'e l'error tipus II m\'es petit) per al contrast anterior
+\'es:
+\[
+R.C.=\left\{
+\frac{L\left(\sigma_1^2\right)}{L(2)}\geq k_{\alpha}
+\right\},
+\]
+on $L\left(\sigma^2\right)$ \'es la funci\'o de versemblan\c{c}a de la   
+mostra:
+\[
+L\left(\sigma^2\right)=\frac{1}{{(2\pi)}^{\frac{n}{2}}\sigma^n}
+\e^{-\frac{1}{2\sigma^2}\sum\limits_{i=1}^n X_i^2}.
+\]
+Per tant, el quocient que apareix en la regi\'o cr\'{\i}tica anterior val:
+\[
+\frac{L\left(\sigma_1^2\right)}{L(2)}=\frac{2^{\frac{n}{2}}}{\sigma_1^n}
+\e^{-\left(\frac{1}{2\sigma_1^2}-\frac{1}{4}\right)\sum\limits_{i=1}^n
+X_i^2}.
+\]
+Per tant, escriure 
+\(\frac{L\left(\sigma_1^2\right)}{L(2)}\geq k_{\alpha}\) \'es 
+equivalent a:
+\[
+\sum_{i=1}^n X_i^2 \geq\frac{\ln\left(
+\frac{k_{\alpha}\sigma_1^2}{2^{\frac{n}{2}}}\right)}
+{\frac{1}{4}-\frac{1}{2\sigma_1^2}}:=C_{\alpha}.
+\]
+La regi\'o cr\'{\i}tica per al contrast \ref{CONTRASTHIPSIMPLES} ser\`a,
+per tant:
+\[
+R.C.=\left\{\sum_{i=1}^n X_i^2 \geq C_{\alpha}\right\}.
+\]
+A continuaci\'o, trobem $C_{\alpha}$. 
+
+Si $H_0$ \'es certa, aleshores
+les variables $X_i$ s\'on normals $N(0,\sigma^2 =2)$. 
+Per tant les variables $\frac{X_i}{\sqrt{2}}$
+s\'on $N(0,1)$. D'aqu\'{\i} dedu\"{\i}m que la variable
+\mbox{$\frac{\sum\limits_{i=1}^n X_i^2}{2}$} \'es una variable khi
+quadrat amb $n$ graus de llibertat. 
+Tenint en compte que l'error tipus I val $\alpha$, podem trobar el
+valor de la constant $C_{\alpha}$:
+\[
+\alpha =\pp{\mbox{rebutjar $H_0$}/\mbox{$H_0$ certa}}=
+\pp{\frac{\sum\limits_{i=1}^n X_i^2}{2}\geq\frac{C_{\alpha}}{2}
+}=\pp{\chi_n^2\geq\frac{C_{\alpha}}{2}}.
+\]
+Per tant $C_{\alpha}=2\chi_{1-\alpha}^2$ on $\chi_{1-\alpha}^2$ \'es
+el $100(1-\alpha)$-\`essim percentil per la distribuci\'o $\chi_n^2$.
+
+Concloem que la millor regi\'o cr\'{\i}tica per al 
+contrast~(\ref{CONTRASTHIPSIMPLES}) \'es:
+\begin{equation}
+R.C.=\left\{\sum_{i=1}^n X_i^2\geq 2\chi_{1-\alpha}^2\right\}.
+\label{MILLORREGCRIHIPSIMPLES}
+\end{equation}
+Prenem com a regi\'o cr\'{\i}tica del contrast original
+\begin{equation}
+\left.
+\begin{array}{ll}
+H_0 :& \sigma^2 =2, \\
+H_1 :&  \sigma^2 >2.
+\end{array}
+\right\}
+\label{CONTRASTHIPCOMPOSTES}
+\end{equation}
+la regi\'o cr\'{\i}tica~(\ref{MILLORREGCRIHIPSIMPLES}) anterior.
+
+Vegem que aquesta \'es la millor regi\'o cr\'{\i}tica per al
+contrast~(\ref{CONTRASTHIPCOMPOSTES}).
+\newpage
+Trobem la funci\'o de pot\`encia:
+\begin{eqnarray*}
+Q\left(\sigma^2\right)& = & 1-\pp{\mbox{acceptar $H_0$}}
+=\pp{\sum_{i=1}^n X_i^2\geq 2\chi_{1-\alpha}^2}\\ 
+& = & \pp{\frac{\sum\limits_{i=1}^n X_i^2}{\sigma^2}=\chi_n^2
+\geq \frac{2}{\sigma^2}\chi_{1-\alpha}^2}=
+1-F_{\chi_n^2}\left(\frac{2}{\sigma^2}\chi_{1-\alpha}^2\right).
+\end{eqnarray*}
+La representaci\'o gr\`afica de la funci\'o de pot\`encia es pot 
+veure en la figura \ref{GRAFFUNPOTCONHIPCOMPOSTES}.
+
+\begin{figure}
+\setlength{\unitlength}{2.5cm}
+\begin{picture}(4,2.25)(-0.5,-0.2)
+\put (0,0){\line(1,0){4}}
+\put (0,0){\line(0,1){2.25}}
+\put (-0.1,2){\makebox(0,0){$1$}}
+\put (0,1) {\line (1,0){0.1}}
+\put (0,2) {\line (1,0){0.1}}
+\put (1,0) {\line (0,1){0.1}}
+\put (2,0) {\line (0,1){0.1}}
+\put (3,0) {\line (0,1){0.1}}
+\put (4,0) {\line (0,1){0.1}}
+\put (1,-0.2) {\makebox(0,0){$1$}}
+\put (2,-0.2) {\makebox(0,0){$2$}}
+\put (3,-0.2) {\makebox(0,0){$3$}}
+\put (4,-0.2) {\makebox(0,0){$4$}}
+\put (0,0.6){\line (1,0){0.1}}
+\put (-0.1,0.6){\makebox(0,0){$\alpha$}}
+\put (3.5,-0.2) {\makebox(0,0){$\sigma^2$}}
+\put (-0.4,1.5) {\makebox(0,0){$Q(\sigma^2)$}}
+\dashline[+30]{0.05}(0,2)(4,2)
+\drawline
+(2.0000,0.6001)
+(2.0100,0.6083)
+(2.0200,0.6164)
+(2.0300,0.6246)
+(2.0400,0.6327)
+(2.0500,0.6409)
+(2.0600,0.6490)
+(2.0700,0.6571)
+(2.0800,0.6652)
+(2.0900,0.6733)
+(2.1000,0.6814)
+(2.1100,0.6895)
+(2.1200,0.6975)
+(2.1300,0.7056)
+(2.1400,0.7136)
+(2.1500,0.7216)
+(2.1600,0.7296)
+(2.1700,0.7375)
+(2.1800,0.7454)
+(2.1900,0.7534)
+(2.2000,0.7613)
+(2.2100,0.7691)
+(2.2200,0.7770)
+(2.2300,0.7848)
+(2.2400,0.7926)
+(2.2500,0.8004)
+(2.2600,0.8081)
+(2.2700,0.8158)
+(2.2800,0.8235)
+(2.2900,0.8312)
+(2.3000,0.8388)
+(2.3100,0.8464)
+(2.3200,0.8540)
+(2.3300,0.8615)
+(2.3400,0.8690)
+(2.3500,0.8765)
+(2.3600,0.8840)
+(2.3700,0.8914)
+(2.3800,0.8988)
+(2.3900,0.9061)
+(2.4000,0.9134)
+(2.4100,0.9207)
+(2.4200,0.9280)
+(2.4300,0.9352)
+(2.4400,0.9424)
+(2.4500,0.9495)
+(2.4600,0.9567)
+(2.4700,0.9637)
+(2.4800,0.9708)
+(2.4900,0.9778)
+(2.5000,0.9848)
+(2.5100,0.9917)
+(2.5200,0.9986)
+(2.5300,1.0055)
+(2.5400,1.0123)
+(2.5500,1.0191)
+(2.5600,1.0259)
+(2.5700,1.0326)
+(2.5800,1.0393)
+(2.5900,1.0459)
+(2.6000,1.0525)
+(2.6100,1.0591)
+(2.6200,1.0657)
+(2.6300,1.0722)
+(2.6400,1.0786)
+(2.6500,1.0850)
+(2.6600,1.0914)
+(2.6700,1.0978)
+(2.6800,1.1041)
+(2.6900,1.1104)
+(2.7000,1.1166)
+(2.7100,1.1228)
+(2.7200,1.1290)
+(2.7300,1.1351)
+(2.7400,1.1412)
+(2.7500,1.1472)
+(2.7600,1.1532)
+(2.7700,1.1592)
+(2.7800,1.1651)
+(2.7900,1.1710)
+(2.8000,1.1769)
+(2.8100,1.1827)
+(2.8200,1.1885)
+(2.8300,1.1942)
+(2.8400,1.1999)
+(2.8500,1.2056)
+(2.8600,1.2113)
+(2.8700,1.2168)
+(2.8800,1.2224)
+(2.8900,1.2279)
+(2.9000,1.2334)
+(2.9100,1.2389)
+(2.9200,1.2443)
+(2.9300,1.2497)
+(2.9400,1.2550)
+(2.9500,1.2603)
+(2.9600,1.2656)
+(2.9700,1.2708)
+(2.9800,1.2760)
+(2.9900,1.2812)
+(3.0000,1.2863)
+(3.0100,1.2914)
+(3.0200,1.2965)
+(3.0300,1.3015)
+(3.0400,1.3065)
+(3.0500,1.3114)
+(3.0600,1.3164)
+(3.0700,1.3212)
+(3.0800,1.3261)
+(3.0900,1.3309)
+(3.1000,1.3357)
+(3.1100,1.3404)
+(3.1200,1.3451)
+(3.1300,1.3498)
+(3.1400,1.3545)
+(3.1500,1.3591)
+(3.1600,1.3637)
+(3.1700,1.3682)
+(3.1800,1.3727)
+(3.1900,1.3772)
+(3.2000,1.3817)
+(3.2100,1.3861)
+(3.2200,1.3905)
+(3.2300,1.3948)
+(3.2400,1.3992)
+(3.2500,1.4035)
+(3.2600,1.4077)
+(3.2700,1.4119)
+(3.2800,1.4161)
+(3.2900,1.4203)
+(3.3000,1.4244)
+(3.3100,1.4286)
+(3.3200,1.4326)
+(3.3300,1.4367)
+(3.3400,1.4407)
+(3.3500,1.4447)
+(3.3600,1.4486)
+(3.3700,1.4526)
+(3.3800,1.4565)
+(3.3900,1.4603)
+(3.4000,1.4642)
+(3.4100,1.4680)
+(3.4200,1.4718)
+(3.4300,1.4755)
+(3.4400,1.4793)
+(3.4500,1.4830)
+(3.4600,1.4866)
+(3.4700,1.4903)
+(3.4800,1.4939)
+(3.4900,1.4975)
+(3.5000,1.5011)
+(3.5100,1.5046)
+(3.5200,1.5081)
+(3.5300,1.5116)
+(3.5400,1.5151)
+(3.5500,1.5185)
+(3.5600,1.5219)
+(3.5700,1.5253)
+(3.5800,1.5286)
+(3.5900,1.5320)
+(3.6000,1.5353)
+(3.6100,1.5386)
+(3.6200,1.5418)
+(3.6300,1.5450)
+(3.6400,1.5483)
+(3.6500,1.5514)
+(3.6600,1.5546)
+(3.6700,1.5577)
+(3.6800,1.5608)
+(3.6900,1.5639)
+(3.7000,1.5670)
+(3.7100,1.5700)
+(3.7200,1.5730)
+(3.7300,1.5760)
+(3.7400,1.5790)
+(3.7500,1.5820)
+(3.7600,1.5849)
+(3.7700,1.5878)
+(3.7800,1.5907)
+(3.7900,1.5935)
+(3.8000,1.5964)
+(3.8100,1.5992)
+(3.8200,1.6020)
+(3.8300,1.6048)
+(3.8400,1.6075)
+(3.8500,1.6103)
+(3.8600,1.6130)
+(3.8700,1.6157)
+(3.8800,1.6183)
+(3.8900,1.6210)
+(3.9000,1.6236)
+(3.9100,1.6262)
+(3.9200,1.6288)
+(3.9300,1.6314)
+(3.9400,1.6339)
+(3.9500,1.6365)
+(3.9600,1.6390)
+(3.9700,1.6415)
+(3.9800,1.6439)
+(3.9900,1.6464)
+\end{picture}
+\caption{Gr\`afic de la funci\'o de pot\`encia per a l'exercici 
+\ref{EXERCICIREGCRITPODEROSASIGMA}}
+\label{GRAFFUNPOTCONHIPCOMPOSTES}
+\end{figure}
+
+Suposem ara que tenim una altra regi\'o cr\'{\i}tica $R.C.'$ m\'es
+bona que la donada per~(\ref{MILLORREGCRIHIPSIMPLES}). Aix\`o voldria
+dir que la funci\'o de pot\`encia $Q'\left(\sigma^2\right)$ donada per
+$R.C.'$ hauria d'estar per damunt de la funci\'o de pot\`encia
+$Q\left(\sigma^2\right)$ donada per la regi\'o 
+cr\'{\i}tica~(\ref{MILLORREGCRIHIPSIMPLES}). 
+Per\`o aix\`o \'es absurd ja que sabem que,
+per a $\sigma^2 =\sigma_1^2 >2$, la funci\'o de pot\`encia del 
+contrast~(\ref{CONTRASTHIPSIMPLES}) pren el valor m\`axim en $Q\left(\sigma_1^2
+\right)$ ja que la $R.C.$ donada per~(\ref{MILLORREGCRIHIPSIMPLES}) \'es
+la millor regi\'o cr\'{\i}tica del contrast~(\ref{CONTRASTHIPSIMPLES}).
+}
+
+\newpage
+
+\begin{probres}
+{Suposem que la precipitaci\'o de pluja anual registrada en una
+determinada estaci\'o \'es una variable aleat\`oria normal amb mitjana $\mu$ i desviaci\'o est\`andard
+de $0.05$ metres. S'estudia una mostra aleat\`oria simple de grand\`aria~$5$. La pluja registrada (en
+metres) en cada un dels 5 anys va ser: $$0.46,\ 0.52,\ 0.44,\ 0.38\mbox{ i
+}0.57.$$Feu el contrast d'hip\`otesi seg\"uent:
+$$\left.
+\begin{array}{ll}
+H_0 :&  \mu =0.5334,\\
+H_1 :&  \mu<0.5334.
+\end{array}
+\right\}
+$$
+
+O sigui, trobau l'error tipus I m\`axim per poder acceptar $H_0$.}
+\end{probres}
+
+\res{Hem de fer un contrast respecte del par\`ametre $\mu$ d'una variable
+aleat\`oria $X$ normal amb par\`ametres $\mu$ i $\sigma =0.05$ coneguda.
+La regi\'o cr\'{\i}tica corresponent a aquest contrast (vegeu ap\`endix 
+A.1 cas \setcounter{aux}{2}\Roman{aux}) \'es:
+\[
+R.C.=\{ Z\leq z_{\alpha}\},
+\]
+on $Z$ \'es una normal $N(0,1)$ i $z_{\alpha}$ \'es el percentil
+$100\alpha\%$ de la mateixa variable $N(0,1)$.
+
+L'estad\'{\i}stic a fer servir \'es (est\`a en el mateix ap\`endix):
+\[
+Z=\frac{\overline{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}=
+\frac{0.474-0.5334}{\frac{0.05}{\sqrt{5}}}\approx -2.6564.
+\]
+L'error $\alpha_{\mbox{\footnotesize max}}$ per poder acceptar $H_0$ 
+ser\`a:
+\[
+\alpha_{\mbox{\footnotesize max}}=\pp{Z\leq -2.6564}=1-
+\pp{Z\leq 2.6564}\approx 1-0.996 =0.004,
+\]
+ja que si $\alpha< 0.004$, aleshores $Z=-2.6564 > z_{\alpha}$ i, per 
+tant, el valor de l'estad\'{\i}stic $Z$ est\`a fora de la regi\'o 
+cr\'{\i}tica.
+
+Com que $\alpha_{\mbox{\footnotesize max}}$ \'es molt petit,
+rebutjam~$H_0$ i concloem que $\mu <0.5334$.
+}
+
+\begin{probres}
+{Fent servir la prova del criteri de la ra\'o de versemblan\c{c}a, trobau la
+regi\'o cr\'{\i}tica per a la hip\`otesi 
+\mbox{$H_0:\lambda \leq\lambda_0$} contra l'alternativa
+\mbox{$H_1:\lambda >\lambda_0$}
+on $\lambda$ \'es el par\`ametre d'una variable aleat\`oria exponencial.
+Suposem que disposam d'una mostra aleat\`oria simple de $n$ observacions de 
+$X$ i volem que l'error
+tipus I sigui~$\alpha$.}
+\etiqueta{CONHIPEXPLAMBDARAOVERSEM}
+\end{probres}
+
+\res{Les funcions de densitat i de versemblan\c{c}a corresponents
+a la variable $X\ \mbox{Exp }(\lambda)$ i la mostra aleat\`oria simple,
+respectivament, s\'on:
+\begin{eqnarray*}
+f_X (x) & = & \lambda \e^{-\lambda x},\ x>0,\\
+L(\lambda) & = & \prod_{i=1}^n f_{X_i} (x_i) = \lambda^n \e^{
+-\lambda \sum\limits_{i=1}^n x_i}, \ x_i>0.
+\end{eqnarray*}
+Segons el criteri de la ra\'o de versemblan\c{c}a, la millor regi\'o
+cr\'{\i}tica \'es:
+\begin{equation}
+R.C.=\left\{\frac{L(\omega)}{L(\Omega)}< A\right\},
+\label{REGCRITEXPLAMBDA}
+\end{equation}
+on 
+\[ 
+L(\omega)=\max\limits_{\lambda\in H_0} L(\lambda),\  
+L(\Omega)=\max\limits_{\lambda\in H_0\cup H_1} L(\lambda),
+\]
+i $A$ s'ha d'escollir de tal forma que l'error tipus~I sigui~$\alpha$.
+
+En el nostre cas, 
+\[ 
+L(\omega)=
+\max\limits_{\lambda\leq \lambda_0} L(\lambda)
+\mbox{ i } 
+L(\Omega)=\max\limits_{\lambda\in \RR} L(\lambda)
+\]
+Quan estudi\`avem els estimadors de m\'axima versemblan\c{c}a 
+(vegeu problema \ref{MAXVEREXPLAMBDA}), v\`arem veure que l'estimador
+de m\`axima versemblan\c{c}a del par\`ametre $\lambda$ era 
+$\frac{1}{\overline{X}}$. Per tant, podem afirmar que:
+\begin{eqnarray*}
+L(\Omega) & = & 
+L\left(\frac{1}{\overline{X}}\right)=\frac{\e^{-n}}
+{{\overline{X}}^n}, \\
+L(\omega) & = & 
+\max\limits_{\lambda\leq \lambda_0} L(\lambda) =
+\left\{\begin{array}{ll}
+L(\lambda_0)=\lambda_0^n \e^{-n\lambda_0 \overline{X}}, &
+\text{si $\lambda_0<\frac{1}{\overline{X}}$},\\
+L\left(\frac{1}{\overline{X}}\right)=\frac{\e^{-n}}
+{{\overline{X}}^n}, & \text{si $\lambda_0\geq\frac{1}{\overline{X}}$}. 
+\end{array}\right.
+\end{eqnarray*}
+El quocient $\frac{L(\omega)}{L(\Omega)}$ que surt en la regi\'o   
+cr\'{\i}tica valdr\`a:
+\[
+\frac{L(\omega)}{L(\Omega)} =
+\left\{\begin{array}{ll}
+{(\lambda_0\overline{X})}^n e^{-n (\lambda_0\overline{X} -1)}, 
+& \text{si $\lambda_0 <\frac{1}{\overline{X}}$}, \\
+1, & \text{si $\lambda_0\geq \frac{1}{\overline{X}}$}.
+\end{array}\right.
+\]
+El gr\`afic de la funci\'o $\frac{L(\omega)}{L(\Omega)}$  com 
+a funci\'o de la variable $\frac{1}{\overline{X}}$ es pot veure en
+la figura \ref{GRAFFUNVERSEMBLANCA}.
+\begin{figure}
+\setlength{\unitlength}{2.5cm}
+\begin{picture}(4,2.25)(-0.5,-0.2)
+\put (0,0){\line(1,0){4}}
+\put (0,0){\line(0,1){2.25}}
+\put (-0.1,2){\makebox(0,0){$1$}}
+\put (0,1) {\line (1,0){0.1}}
+\put (0,2) {\line (1,0){0.1}}
+\put (1,0) {\line (0,1){0.1}}
+%\put (2,0) {\line (0,1){0.1}}
+%\put (3,0) {\line (0,1){0.1}}
+%\put (4,0) {\line (0,1){0.1}}
+\put (0,2) {\line (1,0){1}}
+\put (-0.3,1.5){\makebox(0,0){$\frac{L(\omega)}{L(\Omega)}$}}
+\put (3,-0,2) {\makebox(0,0){$\frac{1}{\overline{X}}$}}
+\put (1,-0.2) {\makebox(0,0){$\lambda_0$}}
+%\put (2,-0.2) {\makebox(0,0){$2$}}
+%\put (3,-0.2) {\makebox(0,0){$3$}}
+%\put (4,-0.2) {\makebox(0,0){$4$}}
+%\put (0,1.0352){\line (1,0){0.1}}
+%\put (-0.25,1.0352){\makebox(0,0){$1-\alpha$}}
+\dashline[+30]{0.05}(0,1)(1.48,1)
+\dashline[+30]{0.05}(1.48,0)(1.48,1)
+\put (1.48,-0.2) {\makebox(0,0){$C'$}}
+\put (-0.2,1) {\makebox(0,0){$A$}}
+\drawline
+(1.0000,2.0000)
+(1.0100,1.9990)
+(1.0200,1.9961)
+(1.0300,1.9914)
+(1.0400,1.9849)
+(1.0500,1.9767)
+(1.0600,1.9670)
+(1.0700,1.9557)
+(1.0800,1.9431)
+(1.0900,1.9291)
+(1.1000,1.9139)
+(1.1100,1.8975)
+(1.1200,1.8800)
+(1.1300,1.8616)
+(1.1400,1.8422)
+(1.1500,1.8219)
+(1.1600,1.8008)
+(1.1700,1.7791)
+(1.1800,1.7567)
+(1.1900,1.7337)
+(1.2000,1.7102)
+(1.2100,1.6862)
+(1.2200,1.6618)
+(1.2300,1.6371)
+(1.2400,1.6121)
+(1.2500,1.5868)
+(1.2600,1.5613)
+(1.2700,1.5357)
+(1.2800,1.5099)
+(1.2900,1.4841)
+(1.3000,1.4582)
+(1.3100,1.4323)
+(1.3200,1.4065)
+(1.3300,1.3807)
+(1.3400,1.3550)
+(1.3500,1.3294)
+(1.3600,1.3039)
+(1.3700,1.2786)
+(1.3800,1.2535)
+(1.3900,1.2286)
+(1.4000,1.2039)
+(1.4100,1.1795)
+(1.4200,1.1553)
+(1.4300,1.1313)
+(1.4400,1.1077)
+(1.4500,1.0843)
+(1.4600,1.0613)
+(1.4700,1.0385)
+(1.4800,1.0161)
+(1.4900,0.9940)
+(1.5000,0.9722)
+(1.5100,0.9508)
+(1.5200,0.9297)
+(1.5300,0.9089)
+(1.5400,0.8885)
+(1.5500,0.8685)
+(1.5600,0.8488)
+(1.5700,0.8294)
+(1.5800,0.8104)
+(1.5900,0.7918)
+(1.6000,0.7735)
+(1.6100,0.7555)
+(1.6200,0.7379)
+(1.6300,0.7206)
+(1.6400,0.7037)
+(1.6500,0.6871)
+(1.6600,0.6709)
+(1.6700,0.6550)
+(1.6800,0.6394)
+(1.6900,0.6242)
+(1.7000,0.6093)
+(1.7100,0.5947)
+(1.7200,0.5804)
+(1.7300,0.5664)
+(1.7400,0.5528)
+(1.7500,0.5394)
+(1.7600,0.5263)
+(1.7700,0.5136)
+(1.7800,0.5011)
+(1.7900,0.4889)
+(1.8000,0.4770)
+(1.8100,0.4653)
+(1.8200,0.4540)
+(1.8300,0.4429)
+(1.8400,0.4320)
+(1.8500,0.4214)
+(1.8600,0.4111)
+(1.8700,0.4010)
+(1.8800,0.3911)
+(1.8900,0.3815)
+(1.9000,0.3721)
+(1.9100,0.3630)
+(1.9200,0.3540)
+(1.9300,0.3453)
+(1.9400,0.3368)
+(1.9500,0.3285)
+(1.9600,0.3204)
+(1.9700,0.3124)
+(1.9800,0.3047)
+(1.9900,0.2972)
+(2.0000,0.2899)
+(2.0100,0.2827)
+(2.0200,0.2757)
+(2.0300,0.2689)
+(2.0400,0.2623)
+(2.0500,0.2558)
+(2.0600,0.2495)
+(2.0700,0.2434)
+(2.0800,0.2373)
+(2.0900,0.2315)
+(2.1000,0.2258)
+(2.1100,0.2202)
+(2.1200,0.2148)
+(2.1300,0.2095)
+(2.1400,0.2044)
+(2.1500,0.1994)
+(2.1600,0.1945)
+(2.1700,0.1897)
+(2.1800,0.1850)
+(2.1900,0.1805)
+(2.2000,0.1761)
+(2.2100,0.1718)
+(2.2200,0.1676)
+(2.2300,0.1635)
+(2.2400,0.1595)
+(2.2500,0.1556)
+(2.2600,0.1518)
+(2.2700,0.1481)
+(2.2800,0.1445)
+(2.2900,0.1410)
+(2.3000,0.1376)
+(2.3100,0.1342)
+(2.3200,0.1310)
+(2.3300,0.1278)
+(2.3400,0.1247)
+(2.3500,0.1217)
+(2.3600,0.1187)
+(2.3700,0.1159)
+(2.3800,0.1131)
+(2.3900,0.1104)
+(2.4000,0.1077)
+(2.4100,0.1051)
+(2.4200,0.1026)
+(2.4300,0.1002)
+(2.4400,0.0978)
+(2.4500,0.0954)
+(2.4600,0.0932)
+(2.4700,0.0909)
+(2.4800,0.0888)
+(2.4900,0.0867)
+(2.5000,0.0846)
+(2.5100,0.0826)
+(2.5200,0.0806)
+(2.5300,0.0787)
+(2.5400,0.0769)
+(2.5500,0.0751)
+(2.5600,0.0733)
+(2.5700,0.0716)
+(2.5800,0.0699)
+(2.5900,0.0683)
+(2.6000,0.0667)
+(2.6100,0.0651)
+(2.6200,0.0636)
+(2.6300,0.0621)
+(2.6400,0.0607)
+(2.6500,0.0592)
+(2.6600,0.0579)
+(2.6700,0.0565)
+(2.6800,0.0552)
+(2.6900,0.0539)
+(2.7000,0.0527)
+(2.7100,0.0515)
+(2.7200,0.0503)
+(2.7300,0.0492)
+(2.7400,0.0480)
+(2.7500,0.0469)
+(2.7600,0.0459)
+(2.7700,0.0448)
+(2.7800,0.0438)
+(2.7900,0.0428)
+(2.8000,0.0418)
+(2.8100,0.0409)
+(2.8200,0.0399)
+(2.8300,0.0390)
+(2.8400,0.0382)
+(2.8500,0.0373)
+(2.8600,0.0365)
+(2.8700,0.0356)
+(2.8800,0.0348)
+(2.8900,0.0341)
+(2.9000,0.0333)
+(2.9100,0.0326)
+(2.9200,0.0318)
+(2.9300,0.0311)
+(2.9400,0.0304)
+(2.9500,0.0298)
+(2.9600,0.0291)
+(2.9700,0.0285)
+(2.9800,0.0278)
+(2.9900,0.0272)
+(3.0000,0.0266)
+(3.0100,0.0260)
+(3.0200,0.0255)
+(3.0300,0.0249)
+(3.0400,0.0244)
+(3.0500,0.0238)
+(3.0600,0.0233)
+(3.0700,0.0228)
+(3.0800,0.0223)
+(3.0900,0.0218)
+(3.1000,0.0214)
+(3.1100,0.0209)
+(3.1200,0.0204)
+(3.1300,0.0200)
+(3.1400,0.0196)
+(3.1500,0.0191)
+(3.1600,0.0187)
+(3.1700,0.0183)
+(3.1800,0.0179)
+(3.1900,0.0176)
+(3.2000,0.0172)
+(3.2100,0.0168)
+(3.2200,0.0165)
+(3.2300,0.0161)
+(3.2400,0.0158)
+(3.2500,0.0154)
+(3.2600,0.0151)
+(3.2700,0.0148)
+(3.2800,0.0145)
+(3.2900,0.0142)
+(3.3000,0.0139)
+(3.3100,0.0136)
+(3.3200,0.0133)
+(3.3300,0.0130)
+(3.3400,0.0128)
+(3.3500,0.0125)
+(3.3600,0.0122)
+(3.3700,0.0120)
+(3.3800,0.0117)
+(3.3900,0.0115)
+(3.4000,0.0113)
+(3.4100,0.0110)
+(3.4200,0.0108)
+(3.4300,0.0106)
+(3.4400,0.0104)
+(3.4500,0.0102)
+(3.4600,0.0100)
+(3.4700,0.0098)
+(3.4800,0.0096)
+(3.4900,0.0094)
+(3.5000,0.0092)
+(3.5100,0.0090)
+(3.5200,0.0088)
+(3.5300,0.0086)
+(3.5400,0.0085)
+(3.5500,0.0083)
+(3.5600,0.0081)
+(3.5700,0.0080)
+(3.5800,0.0078)
+(3.5900,0.0076)
+(3.6000,0.0075)
+(3.6100,0.0073)
+(3.6200,0.0072)
+(3.6300,0.0071)
+(3.6400,0.0069)
+(3.6500,0.0068)
+(3.6600,0.0066)
+(3.6700,0.0065)
+(3.6800,0.0064)
+(3.6900,0.0063)
+(3.7000,0.0061)
+(3.7100,0.0060)
+(3.7200,0.0059)
+(3.7300,0.0058)
+(3.7400,0.0057)
+(3.7500,0.0056)
+(3.7600,0.0055)
+(3.7700,0.0054)
+(3.7800,0.0052)
+(3.7900,0.0051)
+(3.8000,0.0050)
+(3.8100,0.0050)
+(3.8200,0.0049)
+(3.8300,0.0048)
+(3.8400,0.0047)
+(3.8500,0.0046)
+(3.8600,0.0045)
+(3.8700,0.0044)
+(3.8800,0.0043)
+(3.8900,0.0042)
+(3.9000,0.0042)
+(3.9100,0.0041)
+(3.9200,0.0040)
+(3.9300,0.0039)
+(3.9400,0.0039)
+(3.9500,0.0038)
+(3.9600,0.0037)
+(3.9700,0.0036)
+(3.9800,0.0036)
+(3.9900,0.0035)
+(4.0000,0.0034)
+\end{picture}
+\caption{Gr\`afic de la funci\'o $\frac{L(\omega)}{L(\Omega)}$ per a l'exercici
+\ref{CONHIPEXPLAMBDARAOVERSEM}}
+\label{GRAFFUNVERSEMBLANCA}
+\end{figure}
+Fixau-vos que dir que $\frac{L(\omega)}{L(\Omega)}<A$ \'es equivalent
+a dir que existeix una constant $C'$ tal que 
+\mbox{$\frac{1}{\overline{X}}>C'$}. Per tant, la regi\'o cr\'{\i}tica
+\ref{REGCRITEXPLAMBDA} es pot escriure com:
+\[
+R.C.=\left\{\frac{1}{\overline{X}}>C'\right\}=\left\{
+\overline{X}<C\right\},
+\]
+on $C=\frac{1}{C'}$. Per acabar, diguem com trobar $C$.
+
+Sabem que si $X_1,\ldots,X_n$ \'es una mostra aleat\`oria simple d'una
+variable aleat\`oria $\mbox{Exp }(\lambda)$, aleshores la variable
+\mbox{$Y=2\lambda\sum\limits_{i=1}^n X_i$} es distribueix
+segons una distribuci\'o $\chi^2$ amb $2n$ graus de llibertat.
+
+Per tant, tenint en compte que l'error tipus I \'es $\alpha$, trobem
+el valor de $C$:
+\[
+\alpha =\pp{\overline{X}<C}=\pp{2\lambda_0 \sum_{i=1}^n
+X_i < 2\lambda_0 n C}=\pp{\chi_{2n}^2 < 2\lambda_0 n C}.
+\]
+Per tant, tendrem que $2\lambda_0 n C=\chi_{2n,\alpha}^2$ (percentil
+$100\alpha\%$ de la distribuci\'o $\chi^2$ amb $2n$ graus de llibertat).
+D'on dedu\"{\i}m que el valor de $C$ \'es:
+\[
+C=\frac{\chi_{2n,\alpha}^2}{2\lambda_0 n}.
+\]
+La regi\'o cr\'{\i}tica obtenguda ser\`a:
+\[
+R.C.=\left\{\overline{X}<\frac{\chi_{2n,\alpha}^2}{2\lambda_0 n}\right\}.
+\]
+}
+
+\begin{probres}
+{Suposem que $X_1,X_2,\ldots,X_n$ \'es una mostra aleat\`oria 
+simple d'una variable aleat\`oria normal amb
+mitjana $\mu_X$ i vari\`ancia $\sigma^2$. 
+Suposem tamb\'e que $Y_1,Y_2,\ldots,Y_n$ \'es
+una mostra aleat\`oria simple independent d'una variable aleat\`oria normal amb mitjana $\mu_Y$ i vari\`ancia $\sigma^2$
+(notau que les vari\`ancies s\'on iguals). Provau que si s'aplica la prova de la ra\'o
+de versemblan\c{c}a al contrast
+$$\left.
+\begin{array}{ll}
+H_0 :& \mu_X=\mu_Y,\\ H_1:& \mu_X\not
+=\mu_Y,
+\end{array}
+\right\}$$
+la regi\'o cr\'{\i}tica que surt es pot posar en funci\'o 
+de la variable aleat\`oria 
+$${(\overline{X}-\overline{Y})\sqrt{n}\over S\sqrt{2}},\mbox{ on
+}S^2={\sum\limits_{i=1}^n {(X_i-\overline{X})}^2 +  \sum\limits_{i=1}^n
+{(Y_i-\overline{Y})}^2\over 2(n-1)}.$$
+Quina \'es la distribuci\'o de la variable aleat\`oria anterior
+si $H_0$ \'es certa?}
+\etiqueta{CONTRASTDUESNORMALSVARIGUALS}
+\end{probres}
+
+\res{Les funcions de densitat de les mostres corresponents a les variables
+$X$ i $Y$ i la funci\'o de versemblan\c{c}a de la mostra
+s\'on:
+\begin{eqnarray*}
+f_X (x;\mu_X,\sigma^2) & = & \frac{1}{\sigma\sqrt{2\pi}}  
+\e^{-\frac{{(x-\mu_X)}^2}{2\sigma^2}}, \\
+f_Y (y;\mu_Y,\sigma^2) & = & \frac{1}{\sigma\sqrt{2\pi}}  
+\e^{-\frac{{(y-\mu_Y)}^2}{2\sigma^2}}, \\
+L(\mu_X,\mu_Y,\sigma^2) & = & \frac{1}{{(2\pi\sigma^2)}^{n}}
+\e^{-\frac{1}{2\sigma^2}\left(\sum\limits_{i=1}^n {(X_i-\mu_X)}^2
++\sum\limits_{i=1}^n {(Y_i -\mu_Y)}^2\right)}.
+\end{eqnarray*}
+La millor regi\'o cr\'{\i}tica fent servir el m\`etode de la ra\'o
+de versemblan\c{c}a ser\`a:
+\[
+R.C=\left\{\frac{L(\omega)}{L(\Omega)}<A\right\}=
+\left\{\frac{
+\max\limits_{\mu_X =\mu_Y,\sigma^2} L(\mu_X,\mu_Y,\sigma^2)}
+{\max\limits_{\mu_X,\mu_Y,\sigma^2} L(\mu_X,\mu_Y,\sigma^2)}<A\right\}. 
+\]
+Fent servir els problemes \ref{ESTMOMMAXVERDISTINTMUDISTINTSIGMA} i
+\ref{ESTMOMMAXVERMATEIXMUMATEIXSIGMA} podem trobar els valors de $L(\omega)$
+i $L(\Omega)$:
+\begin{eqnarray*}
+L(\omega) & = & 
+\max\limits_{\mu_X =\mu_Y,\sigma^2} L(\mu_X,\mu_Y,\sigma^2) \\ &= &
+L\left(\tilde{\mu}_{\mbox{\footnotesize max}}:= 
+\frac{\overline{X}+\overline{Y}}{2},\tilde{S}_{\mbox{\footnotesize max}}^2:=
+\frac{1}{2n}\left(
+\sum_{i=1}^n X_i^2 +\sum_{i=1}^n Y_i^2\right)-{\left(      
+\frac{\overline{X}+\overline{Y}}{2}\right)}^2\right)\\ 
+& = & 
+\frac{1}{{\left(\frac{\pi}{n}\left(\sum\limits_{i=1}^n 
+{(X_i-\tilde{\mu}_{\mbox{\footnotesize max}})}^2 +
+\sum\limits_{i=1}^n {(Y_i -\tilde{\mu}_{\mbox{\footnotesize max}})}^2\right)
+\right)}^n} \e^{-n}, \\
+L(\Omega) & = & \max\limits_{\mu_X,\mu_Y,\sigma^2} L(\mu_X,\mu_Y,\sigma^2) 
+\\ & = & L\left(\overline{X},\overline{Y},\frac{\sum\limits_{i=1}^n
+{(X_i -\overline{X})}^2+\sum\limits_{i=1}^n {(Y_i -\overline{Y})}^2}{2n}
+\right) \\ & = & 
+\frac{1}{{\left(\frac{\pi}{n}\left(\sum\limits_{i=1}^n 
+{(X_i-\overline{X})}^2 +
+\sum\limits_{i=1}^n {(Y_i -\overline{Y})}^2\right)\right)}^n} \e^{-n}. 
+\end{eqnarray*}
+Per tant, el quocient $\frac{L(\omega)}{L(\Omega)}$ val:
+\[
+\frac{L(\omega)}{L(\Omega)}=
+{\left(\frac{
+\sum\limits_{i=1}^n {(X_i -\overline{X})}^2 + 
+\sum\limits_{i=1}^n {(Y_i -\overline{Y})}^2} 
+{
+\sum\limits_{i=1}^n {(X_i -\tilde{\mu})}^2 + 
+\sum\limits_{i=1}^n {(Y_i -\tilde{\mu})}^2} 
+\right)}^n, 
+\]
+on recordem que $\tilde{\mu}=\frac{\overline{X}+\overline{Y}}{2}$.
+
+Fent servir que 
+\begin{eqnarray*}
+\sum_{i=1}^n {(X_i -\tilde{\mu}_{\mbox{\footnotesize max}})}^2 & = & \sum_{i=1}^n {(X_i -\overline{X})}^2
++\frac{n}{4} {(\overline{X}-\overline{Y})}^2 \\
+\sum_{i=1}^n {(Y_i -\tilde{\mu}_{\mbox{\footnotesize max}})}^2 & = & \sum_{i=1}^n {(Y_i -\overline{Y})}^2
++\frac{n}{4} {(\overline{X}-\overline{Y})}^2,
+\end{eqnarray*}
+podem escriure el quocient anterior de la manera seg\"uent:
+\begin{equation}
+\begin{array}{rl}
+\frac{L(\omega)}{L(\Omega)}= & 
+{\left(\frac{
+\sum\limits_{i=1}^n {(X_i -\overline{X})}^2 + 
+\sum\limits_{i=1}^n {(Y_i -\overline{Y})}^2} 
+{
+\sum\limits_{i=1}^n {(X_i -\overline{X})}^2 + 
+\sum\limits_{i=1}^n {(Y_i -\overline{Y})}^2 + (n/2)\cdot
+{(\overline{X}-\overline{Y})}^2} 
+\right)}^n  \\ = &
+{\left(\frac{1}{1+\frac{(n/2)\cdot
+{(\overline{X}-\overline{Y})}^2
+}{
+\sum\limits_{i=1}^n {(X_i -\overline{X})}^2 + 
+\sum\limits_{i=1}^n {(Y_i -\overline{Y})}^2 
+}}\right)}^n.
+\end{array}
+\label{QUOCIENTFUNVER}
+\end{equation}
+A continuaci\'o, relacionarem la variable que surt en el denominador
+de la darrera f\'ormula amb alguna distribuci\'o coneguda.
+Per fer-ho, hem de tenir en compte unes quantes consideracions.
+\begin{itemize}
+\item[$\bullet$]
+Fent servir que les distribucions de les variables $\overline{X}$ i
+$\overline{Y}$ s\'on normals $N\left(\mu_X,\frac{\sigma^2}{n}\right)$ i 
+$N\left(\mu_Y,\frac{\sigma^2}{n}\right)$, si la hip\`otesi nu{\lgem}a $H_0$ \'es
+certa, podem dir que la variable $\overline{X}-\overline{Y}$ \'es normal
+$N\left(0,\frac{2\sigma^2}{n}\right)$. Per tant, la variable aleat\`oria \mbox{$\frac{\sqrt{n}
+(\overline{X}-\overline{Y})}{\sqrt{2}\sigma}$} es distribuir\`a segons
+una normal $N(0,1)$.
+\item[$\bullet$]
+Tenint en compte que les variables 
+\mbox{$\frac{\sum\limits_{i=1}^n 
+{(X_i -\overline{X})}^2}{\sigma^2}$} i 
+\mbox{$\frac{\sum\limits_{i=1}^n 
+{(Y_i -\overline{Y})}^2}{\sigma^2}$} es distribueixen segons una distribuci\'o
+$\chi^2_{n-1}$, podem assegurar que 
+la variable
+\[
+\frac{\sum\limits_{i=1}^n {(X_i -\overline{X})}^2 +
+\sum\limits_{i=1}^n {(Y_i -\overline{Y})}^2}{\sigma^2}
+\]
+\'es $\chi^2_{2n-2}$,
+ja que fent servir el problema~\ref{SUMACHIQUADRAT} 
+sabem que la suma de dues variables
+independents amb distribucions $\chi^2_{n_1}$ i $\chi^2_{n_2}$ es 
+distribueix segons una distribuci\'o $\chi^2_{n_1 +n_2}$.
+\item[$\bullet$]
+Fent servir les dues consideracions anteriors i tenint en compte 
+que la variable $t_m$ ($t$ de Student amb $m$ graus de llibertat)
+es defineix com $t_m =\frac{Z}{\sqrt{\frac{V}{m}}}$ on $Z$ \'es $N(0,1)$ i
+$V$ \'es $\chi^2_m$, podem assegurar que la variable seg\"uent es distribueix
+segons una variable $t$ de Student amb $2(n-1)$ graus de llibertat:
+\[
+t:= \frac{
+\frac{
+\sqrt{n}(\overline{X}-\overline{Y})}{\sqrt{2}}}
+{\sqrt{
+\frac{\sum\limits_{i=1}^n {(X_i -\overline{X})}^2 +
+\sum\limits_{i=1}^n {(Y_i -\overline{Y})}^2}{2 (n-1)}}} 
+= \frac{\sqrt{n} (\overline{X}-\overline{Y})}{S \sqrt{2}}.
+\]
+\end{itemize}
+Fent servir les considerancions anteriors,
+el quocient \ref{QUOCIENTFUNVER} es pot posar com: 
+\[
+\frac{L(\omega)}{L(\Omega)}=
+{\left(
+\frac{1}{1+\frac{t^2}{2(n-1)}}\right)}^n.
+\]
+La millor regi\'o cr\'{\i}tica ens quedar\`a, doncs:
+\begin{eqnarray*}
+R.C. & = & \left\{\frac{L(\omega)}{L(\Omega)} < A\right\} =
+\left\{
+\frac{1}{1+\frac{t^2}{2(n-1)}}< A^{\frac{1}{n}}\right\} \\
+& = & 
+\{ t < -C\}\cup \{t> C\},
+\end{eqnarray*}
+on $C=\sqrt{2 (n-1) \left(A^{-\frac{1}{n}} -1\right)}$.
+
+El nostre objectiu \'es trobar $C$. Fent servir que la 
+distribuci\'o de $t$ \'es $t_{2(n-1)}$ i que l'error tipus I 
+\'es $\alpha$, podem escriure que:
+\[
+\pp{t< -C}=\frac{\alpha}{2},
+\]
+D'aqu\'{\i} dedu\"{\i}m que $C=- t_{2(n-1),\frac{\alpha}{2}}$ (percentil 
+$100\frac{\alpha}{2}\%$ de la distribuci\'o $t$ de Student de 
+$2(n-1)$ graus de llibertat.)
+
+Concloem que la millor regi\'o cr\'{\i}tica per realitzar aquest 
+contrast \'es:
+\[
+\{ t < t_{2(n-1),\frac{\alpha}{2}}\}\cup \{t> t_{2(n-1),1-\frac{\alpha}{2}}\}.
+\]
+}
+
+\begin{probres}
+{Aplicaci\'o pr\`actica de l'exercici \ref{CONTRASTDUESNORMALSVARIGUALS}. 
+Un determinat grup
+de $20$ alumnes rep l'ensenyament de lectura 
+pel m\`etode tradicional durant un
+any. La suma de les qualificacions d'aquest grup i la dels seus quadrats 
+s\'on $\sum x_i =1950$, $\sum x_i^2 =192861$. A un segon grup de $20$ estudiants
+se'ls ensenya a llegir per un nou m\`etode, diferent del tradicional. Les
+qualificacions d'aquest segon grup al final d'any s\'on $\sum y_i =2020$, $\sum
+y_i^2 =205920$. Suposant que les mostres s\'on independents i de distribucions
+normals amb la mateixa vari\`ancia, feu el contrast
+$$\left.
+\begin{array}{ll}
+H_0 :& \mu_X=\mu_Y,\\ H_1 :& \mu_X\not
+=\mu_Y.
+\end{array}
+\right\}$$
+Trobau l'$\alpha_{\mbox{\footnotesize max}}$ per poder acceptar $H_0$.}
+\end{probres}
+
+\res{Fent servir l'exercici \ref{CONTRASTDUESNORMALSVARIGUALS} tenim que la
+millor regi\'o cr\'{\i}tica per poder realitzar el contrast \'es:
+\[
+\{ t < t_{m,\frac{\alpha}{2}}\}\cup \{t> - t_{m,\frac{\alpha}{2}}\},
+\]
+on $m=2 (n-1) =2( 20-1) =38$ i l'estad\'{\i}stic $t$ val en aquest cas
+\[
+t=\frac{\sqrt{n}\left(\overline{X}-\overline{Y}\right)}{S\sqrt{2}}.
+\]
+A continuaci\'o, trobam els valors de $\overline{X}$, $\overline{Y}$ i $S$.
+\begin{eqnarray*}
+\overline{X} & = & \frac{1950}{20}=97.5,\quad \overline{Y}=\frac{2020}{20}
+= 101, \\
+S^2 & = & \frac{\sum\limits_{i=1}^n {(X_i -\overline{X})}^2 
++\sum\limits_{i=1}^n {(Y_i -\overline{Y})}^2}{2 (n-1)} =
+\frac{\sum\limits_{i=1}^n X_i^2 -n {\overline{X}}^2 +
+\sum\limits_{i=1}^n Y_i^2 -n {\overline{Y}}^2}{2\cdot 19} \\
+& = & \frac{192861-20\cdot {97.5}^2 +205920-20\cdot {101}^2}{38}= 
+\frac{4636}{38}=122.
+\end{eqnarray*}
+El valor de l'estad\'{\i}stic $t$ ser\`a:
+\[
+t=\frac{\sqrt{n}\left(\overline{X}-\overline{Y}\right)}{S\sqrt{2}}=
+\frac{\sqrt{20}\cdot (97.5 -101)}{\sqrt{122\cdot 2}}=-1.00204708.
+\]
+L'error tipus I m\`axim que es podr\`a cometre en acceptar $H_0$ en 
+les condicions del problema ser\`a:
+\[
+\frac{\alpha_{\mbox{\footnotesize max}}}{2}=\pp{
+t_{38}\leq -1.00204}= 1-F_{t_{38}}(1.00204)\approx 1-0.85=0.15.
+\]
+Concloem, doncs, que l'error tipus I m\`axim val aproximadament $0.3$ i, 
+per tant, \'es coherent acceptar que els dos m\`etodes d'ensenyament
+tenen la mateixa efic\`acia.
+}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Suposem que $X$ \'es un variable aleat\`oria de Poisson 
+amb par\`ametre $\lambda$. Es pren 
+una mostra aleat\`oria simple $X_1,X_2,\ldots,X_n$ de $X$ i 
+es vol provar $H_0:\lambda=2$ en funci\'o
+de $H_1:\lambda >2$. Quina pot ser una regi\'o cr\'{\i}tica raonable?}
+\end{prob}
+
+\begin{prob}
+{Suposem que el nombre de grams que carrega una m\`aquina embotelladora
+de refrescs \'es una variable aleat\`oria normal amb mitjana $\mu$ i vari\`ancia $\sigma^2$. Si
+$\sigma^2$ \'es massa gran, s'omplen massa botelles i la m\`aquina es desborda. Una
+$\sigma^2$ tolerable seria aquella que no fos m\'es gran que $7$.
+Suposem que es pren una mostra aleat\`oria simple de 20 botelles omplides per la m\`aquina i es vol
+provar $H_0: \sigma^2=7$ en funci\'o de $H_1: \sigma^2 >7$. Es
+decideix rebutjar $H_0$ si $$\sum_{i=1}^{20}{(X_i -\overline{X})}^2>213.64.$$
+Quina \'es l'error tipus I en aquest contrast?}
+\end{prob}
+
+\begin{prob}
+{Suposem que el temps de falla (en hores) d'un determinat tipus de
+bombeta \'es una variable aleat\`oria exponencial de par\`ametre $\lambda$. Es fa una prova en $10$
+bombetes i es vol provar la hip\`otesi $H_0:\lambda=0.001$ en funci\'o de
+$H_1:\lambda<0.001$. Es decideix acceptar fins que falli la primera bombeta i
+es rebutja $H_0$ si el temps de falla no \'es m\'es gran que $5.13$ hores. 
+Provau que l'error tipus I per a aquest contrast \'es de $0.05$.}
+\end{prob}
+
+\begin{prob}
+{Donada una variable aleat\`oria $X$ uniforme en l'interval $(0,\theta)$, es vol
+provar $H_0:\theta =1$ en contra de $H_1:\theta =2$. Es pren una mostra aleat\`oria simple de 2
+observacions de $X$ i es rebutja $H_0$ si $\overline{X}>0.99$. Calculau
+$\alpha$ i $\beta$ per a aquest contrast.}
+\end{prob}
+
+\begin{prob}
+{Suposem que la probabilitat que surti cara en una sola tirada d'una
+moneda \'es $p$. Trobau la millor regi\'o cr\'{\i}tica (la que t\'e l'error tipus II m\'es
+petit) per provar $H_0:p={1\over 2}$ contra $H_1: p={3\over 4}$, donada una
+mostra aleat\`oria simple de $n$ tirades de la moneda.}
+\end{prob}
+
+\begin{prob}
+{Suposem que $X$ \'es una variable aleat\`oria normal amb mitjana $\mu$ desconeguda i
+vari\`ancia $\sigma^2$ coneguda. Trobau pel criteri de la ra\'o de versemblan\c{c}a,
+la regi\'o cr\'{\i}tica dels contrasts seg\"uents:
+$$\mbox{a) }\left.
+\begin{array}{ll}
+H_0:&  \mu =\mu_0,\\ H_1 :&  \mu\not
+=\mu_0.
+\end{array}
+\right\}\quad\mbox{b) }\left.
+\begin{array}{ll}
+H_0 :&   \mu =\mu_0,\\ H_1 :& 
+\mu >\mu_0.
+\end{array}
+\right\}
+\quad\quad\mbox{c) }\left.
+\begin{array}{ll}
+H_0 :&   \mu =\mu_0,\\
+H_1 :&  \mu <\mu_0.
+\end{array}
+\right\}$$}
+\end{prob}
+
+\begin{prob}
+{Per decidir si un determinat tipus de planta \'es apropiat per formar
+jardins, \'es important que cada planta tengui 
+poca variabilitat en el creixement
+per any (suposades les plantes de la mateixa edat). Suposem que els creixements
+d'aquest determinat tipus de planta \'es una variable 
+aleat\`oria normal amb mitjana $\mu$ i
+vari\`ancia~$\sigma^2$. Aleshores, es decideix fer 
+el seg\"uent contrast per veure si
+la planta \'es adequada:
+$$\left.
+\begin{array}{ll}
+H_0 :& \sigma^2 =0.08,\\ H_1 :& \sigma^2 <0.08.
+\end{array}
+\right\}
+\mbox{ (amidament en metres).}$$
+S'enregistra el creixement de $5$ plantes durant 1 any i aquests valen: 
+$$0.58,\ 0.34,\ 0.82,\ 0.49\hbox{ i } 0.61\hbox{ metres.}$$
+Hem d'acceptar $H_0$? O sigui, quin \'es l'error tipus I m\`axim per
+poder acceptar $H_0$?}
+\end{prob}
+
+\begin{prob}
+{Se sap que el temps en qu\`e pot fallar un determinat aparell
+electr\`onic \'es una variable aleat\`oria exponencial 
+amb par\`ametre $\lambda$. Es posen a prova
+$1000$ aparells d'aquest tipus i es troba que la 
+suma dels temps de falla \'es de
+$109652$ hores. Quin \'es l'error tipus I m\`axim 
+per poder acceptar $H_0:\lambda \leq 0.008$ en
+contra de $H_1:\lambda >0.008$, donada aquella mostra aleat\`oria simple?} 
+\end{prob}
+
+\begin{prob}
+{El nombre de
+vegades que es pot encendre i apagar una interruptor \'es una variable aleat\`oria geom\`etrica $X$
+amb par\`ametre $p$ (aleshores $X$ \'es el nombre de vegades que encenem 
+l'interruptor fins
+que falla). Donada una mostra aleat\`oria simple de grand\`aria~$10$, s'ha trobat que la suma de les
+vegades que s'enc\'en i s'apaga l'interruptor ha estat de $15169$. 
+Quin \'es l'error tipus I m\`axim per poder acceptar
+$H_0:p=0.00005$ contra $H_1:p>0.00005$? {\footnotesize (Feu servir
+el teorema l\'{\i}mit per a la prova de ra\'o de versemblan\c{c}a.)}}
+\end{prob}
+
+\begin{prob}
+{Una empresa aliment\`aria indica en un paquet d'arr\`os que el seu pes mitj\`a
+\'es de $900$ gr. En una inspecci\'o s'agafen $9$ paquets, que pesen
+$$894,\ 890,\ 900,\ 892,\ 895,\ 896,\ 894,\ 903\hbox{ i }899.$$Est\`a d'acord la
+mostra amb el pes indicat en el paquet? (Trobau l'error tipus I
+m\`axim per poder acceptar que el pes mitj\`a del paquet \'es de $900$ gr.)
+\newline{\footnotesize Final. Juny 91.}}
+\end{prob}
+
+\begin{prob}
+{Sigui $X$ una variable aleat\`oria $N(\mu,\sigma^2)$. Sigui $X_1,X_2,\ldots,X_n$ una mostra aleat\`oria simple
+de $X$. Considerem el contrast
+$$\left.
+\begin{array}{ll}
+H_0 :& \mu=0,\\ H_1:&\mu\not =0.
+\end{array}
+\right\}$$
+\begin{itemize}
+\item[a)]{Trobau, raonant tots els passos, la millor regi\'o 
+cr\'{\i}tica en el cas
+que $\sigma=1$ coneguda i en el cas que $\sigma$ sigui desconeguda.}
+\item[b)]{Aplicau l'apartat anterior a la mostra seg\"uent\newline
+$1.12,\ -0.19,\ -0.32,\ -0.6,\ -1.1,\ 0.14,\ 0.19,\ 0.23,\ -1.12,\
+-1.4.$}
+\end{itemize}
+
+{\footnotesize Final. Setembre 93.}}
+\end{prob}
+
+\newpage
+
+\begin{prob}
+{Sigui $X$ una variable aleat\`oria exponencial de par\`ametre
+$\lambda$. Volem fer el contrast seg\"uent: 
+$$\left.
+\begin{array}{ll}
+H_0 :& 
+\lambda=\lambda_0,\\ H_1 :&  \lambda=\lambda_1.
+\end{array}
+\right\}$$
+\begin{itemize}
+\item[a)] {Digau quina \'es la millor regi\'o cr\'{\i}tica a 
+un nivell de significaci\'o
+$\alpha$. Digau tamb\'e com trobar-la.}
+\item[b)] {Sigui $X$ una variable aleat\`oria exponencial 
+de par\`ametre $\lambda$.
+Feu el contrast:
+$$\left.
+\begin{array}{ll}
+H_0 :&  \lambda=1,\\ H_1  :& 
+\lambda=2,
+\end{array}
+\right\}$$
+amb la seg\"uent mostra aleat\`oria simple de $X$:
+$$0.735,\ 0.949,\ 0.739,\ 0.535,\ 0.910,\ 0.989,\ 0.851,\
+0.786,\ 0.904,\ 0.932,$$
+aplicant l'apartat a). Trobau l'error tipus I m\`axim per poder acceptar
+$H_0$.
+}
+\end{itemize}
+
+{\footnotesize Final. Juny 93.}}
+\end{prob}
+
+\begin{prob}
+{Sigui la mostra aleat\`oria simple $1,2,3,4,5,6,7,8,9,10$ d'una
+variable aleat\`oria $N(\mu,\sigma^2)$. Feim el contrast:
+$$\left.
+\begin{array}{ll}
+H_0 :& \sigma =3, \\ H_1 :&  \sigma >3.
+\end{array}
+\right\}$$
+Digau quina condici\'o \'es v\`alida per a $\alpha$ (error tipus
+I) per tal de rebutjar $H_0$.
+\newline{\footnotesize Final. Setembre 94.}}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X$ una variable aleat\`oria $Poiss(\lambda)$. Sigui 
+\mbox{$X_1,\ldots,X_n$} una mostra aleat\`oria simple de $X$. Fent servir
+el criteri de ra\'o de m\`axima versemblan\c{c}a, trobau la regi\'o cr\'{\i}tica
+\`optima per fer el contrast:
+$$
+\left.
+\begin{array}{ll}
+H_0 :& \lambda =  \lambda_0,\\
+H_1 :& \lambda >  \lambda_0.
+\end{array}
+\right\}
+$$
+Aplicaci\'o pr\`actica. Suposem que la mostra \'es:
+$$
+1,\ 2,\ 1.5,\ 1.7,\ 1.6,\ 0.9,\ 2,
+$$
+i $\lambda_0 =1$, digau a partir de quin $\alpha$ (error tipus I) 
+acceptariem $H_0$.
+\newline{\footnotesize Examen extraordinari de febrer 95.}
+}
+\end{prob}
+
+\newpage
+
+\begin{prob}
+{
+Sigui $X$ una variable aleat\`oria de Bernoulli amb par\`ametre $p$.
+Prenem una mostra aleat\`oria simple de $n$ observacions \mbox{$X_1,
+\ldots,X_n$}. Volem fer el contrast:
+\[
+\left.
+\begin{array}{ll}
+H_0 :&  p=p_0, \\
+H_1 :&  p=p_1.
+\end{array}
+\right\}
+\]
+Rebutjam $H_0$ si $\overline{X}\leq\frac{p_0}{2}$. 
+Trobau els valors de $\alpha$
+(error tipus I) i $\beta$ (error tipus II).
+\iffalse
+($B(n,p)$ \'es la distribuci\'o binomial de par\`ametres $n$ i $p$ i $[x]$
+\'es la part entera de $x$.)
+\fi
+\newline{\footnotesize Segon parcial. Juny 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Considerem el contrast d'hip\`otesi seg\"uent:
+\[
+\left.
+\begin{array}{ll}
+H_0 : & \sigma =\sigma_0, \\
+H_1 : & \sigma\not =\sigma_0.
+\end{array}
+\right\}
+\]
+on $\sigma$ correspon a una variable aleat\`oria $N(\mu,\sigma^2)$ amb
+$\mu$ desconeguda.
+
+Suposant $\sigma_0=1$, $\tilde{S}=1.2$ i que tenim una mostra aleat\`oria
+simple de $20$ observacions, trobau l'error $\alpha_{\mbox{\footnotesize max}}$
+per poder acceptar $H_0$.
+\newline{\footnotesize Final. Setembre 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Considerem les dues mostres seg\"uents de dues normals independents
+de grand\`aria~$20$:
+\begin{center}
+\begin{tabular}{lllllll}
+Mostra 1& 0.53009&2.65819&3.26338&2.54875&1.72988&2.76075 \\ &1.58425&
+1.36660&0.56713&2.72981&3.34947&1.55879\\ &2.03271&1.70223&5.15895&
+3.20326&3.11516&2.65967\\&3.34316&4.55594&&&&\\
+Mostra 2&2.38721&1.48624&3.76097&0.53768&2.64521&0.54878\\&2.84931&
+0.81125&3.07246&1.67631&1.05417&1.71277\\ &2.31605&1.90741&1.98674&
+1.94790&0.84796&1.81512\\&2.99567&1.83909&&&&\\\hline
+\end{tabular}
+\end{center}
+Trobau l'error tipus~I m\`axim ($\alpha_{\mbox{\footnotesize m\`ax}}$) per
+poder acceptar~$H_0$ en el contrast seg\"uent:
+\[
+\left.
+\begin{array}{ll}
+H_0:& \mu_1  = \mu_2, \\
+H_1:& \mu_1  \not =  \mu_2.
+\end{array}
+\right\}
+\]
+\noindent Indicaci\'o: heu de realitzar el contrast previ d'igualtat
+de vari\`ancies.
+\newline{\footnotesize Final. Febrer 96.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X_1,\ldots,X_{40}$ una mostra aleat\`oria simple d'una variable
+aleat\`oria~$N(\mu,\sigma^2)$ tal que $\sum X_i =100$ i $\sum X_i^2 =1000$.
+Volem fer el contrast seg\"uent:
+\[
+\left.
+\begin{array}{ll}
+H_0:&\mu =3,\\
+H_1:&\mu\not = 3.
+\end{array}
+\right\}
+\]
+Trobau l'error tipus~I m\`axim $\alpha_{\max}$ per poder acceptar la hip\`otesi
+nu{\lgem}a~$H_0$.
+\newline{\footnotesize Final. Juny 96.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Ens donen dues mostres de dues variables aleat\`ories normals
+independents:
+
+\noindent Mostra 1: 5,6,7,4,8,9,6,5,7,6.
+
+\noindent Mostra 2: 2,3,4,3,4,4,3,1,5,4.
+
+Trobau l'error tipus~I m\`axim $\alpha_{\max}$ per poder acceptar 
+igualtat de vari\`ancies.
+\newline{\footnotesize Final. Setembre 96.}
+}
+\end{prob}
+

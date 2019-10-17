@@ -1,0 +1,1095 @@
+\chapter{Proves de la bondat d'ajustament i d'independ\`encia}
+\index{prova!de la bondat d'ajustament}
+\index{prova!d'independencia@d'independ\`encia}
+
+\section{Resum te\`oric}
+
+Els contrasts d'hip\`otesi vists en el tema anterior tractaven 
+\index{contrast!d'hipotesi@d'hip\`otesi}de confrontar
+afirmacions respecte de par\`ametres
+\index{parametre@par\`ametre} desconeguts de les distribucions de 
+poblacions d'inter\`es. Ara veurem els contrasts d'hip\`otesi on, 
+en lloc de par\`ametres, el que desconeixem \'es qualque propietat de la 
+forma de la funci\'o de distribuci\'o que se mostreja.
+\index{funcio@funci\'o!de distribucio@de distribuci\'o} 
+Endem\'es tamb\'e discutirem les proves d'independ\`encia 
+\index{prova!d'independencia@d'independ\`encia!de dues variables}
+de dues variables aleat\`ories en les quals l'evid\`encia mostral 
+s'obt\'e mitjan\c cant la classificaci\'o de cada variable aleat\`oria 
+en un cert nombre de categories.
+\index{classificacio@classificaci\'o}\index{categoria}
+
+Un m\`etode per provar les hip\`otesis referents a distribucions 
+\'es la prova de la
+bondat d'ajustament~$\chi^2$. Es basa en el resultat seg\"uent:
+\index{prova!de bondat d'ajustament}
+
+\begin{proposition}
+Si $(X_1, \ldots , X_k)$ \'es un vector aleatori multinomial 
+\index{vector aleatori!multinomial}amb par\`ametres $n,
+p_1, \ldots , p_k$,\index{parametre@par\`ametre} aleshores la 
+funci\'o de distribuci\'o de la variable aleat\`oria
+$$U = \sum_{i=1}^k {(X_i - n p_i)^2 \over n p_i}$$
+s'aproxima a la funci\'o de distribuci\'o $\chi^2$ amb $k-1$ graus 
+de llibertat quan $n \to \infty$.
+\end{proposition}
+
+Aix\'{\i}, si volem provar la hip\`otesi que $(X_1, \ldots , X_k)$ 
+\'es un vector aleatori multinomial amb par\`ametres especificats 
+$n, p_1, \ldots , p_k$, aleshores es pren una mostra, es calcula
+$$u = \sum_{i=1}^k {(x_i - n p_i)^2 \over n p_i},$$
+i es rebutja la hip\`otesi si $u > \chi_{1-\alpha}^2$, 
+el $100(1-\alpha)$-\`essim percentil de la distribuci\'o $\chi^2$ amb $k-1$ 
+graus de llibertat.
+
+Si la hip\`otesi \'es certa, aleshores $\alpha$ \'es 
+la probabilitat de rebutjar-la, \'es a dir, \'es la 
+probabilitat de l'error de tipus I.
+\index{probabilitat!d'error tipus I}
+
+Es pren com a cert que l'aproximaci\'o $\chi^2$ \'es bona per a $u$ 
+sempre que \break $n p_i \geq 5, \ \forall i = 1, \ldots , k$. 
+Si no \'es aix\'{\i}, es poden combinar algunes de
+les classes perqu\`e se satisfaci aquest requisit.
+
+Podem ara aplicar la prova multinomial 
+\index{prova!multinomial}per provar la hip\`otesi que la funci\'o de
+distribuci\'o $F_Y$ d'una variable aleat\`oria t\'e qualsevol 
+forma especificada.
+
+\begin{proposition}
+Suposem que $Y$ t\'e una funci\'o de distribuci\'o $F_Y$, i que $Y_1, 
+\ldots , Y_n$ \'es una mostra aleat\`oria simple de $Y$. Definim 
+\begin{eqnarray*}
+I_1 & = & \{ y : y \leq a_1 \}, \\
+I_i & = & \{ y : a_{i-1} < y \leq a_i \}, \ i=2,\ldots,k-1,\\
+I_k & = &  \{ y : a_{k-1} < y \},
+\end{eqnarray*}
+per a uns certs $a_1, \ldots , a_{k-1}$.
+Sigui $X_i$ la variable aleat\`oria que d\'ona el nombre de valors 
+mostrals que cauen dins $I_i, \ \forall i = 1, \ldots , k$.
+
+Aleshores $(X_1, \ldots , X_k)$ \'es un vector aleatori multinomial 
+\index{vector aleatori!multinomial}amb par\`ametres\break
+\index{parametre@par\`ametre}$n, p_1, \ldots , p_k$, on $n$ \'es la 
+grand\`aria de la mostra (de $Y$) i $p_i = \pp{Y \>
+{\rm cau \> en \> } I_i},$\break $i = 1, \ldots , k$.
+\end{proposition}
+
+Segons aquest resultat, es pot provar que $Y$ t\'e funci\'o 
+de distribuci\'o $F_Y$ provant la hip\`otesi que $(X_1, \ldots , X_k)$ 
+t\'e els par\`ametres $n, p_1, \ldots , p_k$ sense importar la forma de $F_Y$.
+
+Si es rebutja aquesta hip\`otesi, aleshores aparentment $F_Y$ 
+no \'es apropiada comparada amb la mostra. Si, en canvi, s'accepta la 
+hip\`otesi, aleshores pareix que $F_Y$ \'es consistent amb els valors de la mostra.
+
+Quan la variable aleat\`oria \'es discreta, 
+els intervals $I_i$ es determinen segons
+els valors discrets que pot prendre la variable. En el cas continu, 
+no hi ha cap regla general, nom\'es s'ha de tenir en compte que el 
+nombre d'intervals ha de ser tan gran com sigui
+possible, sempre verificant que $n p_i \geq 5 \ \forall i = 1, \ldots , k$.
+
+Sovint interessa provar la hip\`otesi que la funci\'o de distribuci\'o 
+\index{funcio@funci\'o!de distribucio@de distribuci\'o}t\'e una forma 
+determinada sense haver d'especificar tamb\'e els valors dels 
+par\`ametres de la funci\'o de distribuci\'o. Per exemple, 
+podem voler provar la hip\`otesi que una variable aleat\`oria~$Y$ 
+segueix una distribuci\'o de Poisson sense dir que el
+\index{distribucio@distribuci\'o!de Poisson}
+par\`ametre val, posem, $\lambda = 0.6$. En aquests casos nom\'es cal 
+fer una petita adaptaci\'o del m\`etode. El seg\"uent resultat d\'ona la metodologia.
+
+\begin{proposition}
+Suposem que $Y$ t\'e una funci\'o de distribuci\'o 
+\index{funcio@funci\'o!de distribucio@de distribuci\'o}
+$F_Y$ que satisf\`a certes condicions de regularitat, 
+\index{condicio de regularitat@condici\'o de regularitat}amb $r$ par\`ametres 
+\index{parametre@par\`ametre}desconeguts $\gamma_1, \ldots , \gamma_r$.
+Sigui $Y_1, \ldots , Y_n$ una mostra aleat\`oria simple de $Y$, i 
+$\hat{\Gamma}_1,\ldots , \hat{\Gamma}_r$ els estimadors 
+\index{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}
+de m\`axima versemblan\c{c}a per a $\gamma_1,
+\ldots , \gamma_r$, respectivament. Definim $I_1, \ldots , I_k$ i $X_1, \ldots ,
+X_k$ com a la proposici\'o anterior. 
+Aleshores, si definim $\hat{P}_i = \pp{Y \> {\rm
+cau \> en \> } I_i}, \ i = 1, \ldots , k$, on es reemplacen $\gamma_1, \ldots ,
+\gamma_r$ en $F_Y$ per $\hat{\Gamma}_1, \ldots , \hat{\Gamma}_r$, la distribuci\'o
+de l'estad\'{\i}stica\index{estadistica@estad\'{\i}stica}
+$$V= \sum_{i=1}^k {(X_i - n \hat{P}_i)^2 \over n \hat{P}_i}$$
+tendeix a la distribuci\'o d'una $\chi^2$ amb $k-r-1$ graus de llibertat quan $n
+\to \infty$.
+\end{proposition}
+
+Per tant, si volem provar que $F_Y$ t\'e una forma determinada sense 
+indicar res respecte dels seus par\`ametres,
+\index{parametre@par\`ametre} basta utilitzar les dades per
+estimar-los i llavors procedir com abans. \'Es a dir, es calcula el valor
+observat de $V$ i si \'es major que el $100(1-\alpha)$-\`essim percentil de la
+distribuci\'o $\chi^2$ amb $k-r-1$ graus de llibertat, es rebutja $H_0$. 
+Observem que hem perdut un grau de llibertat per cada par\`ametre que 
+s'ha hagut d'estimar.
+
+Vegem finalment les proves d'independ\`encia.
+\index{prova!d'independencia@d'independ\`encia} 
+Sovint els elements d'una mostra es classifiquen segons dos o m\'es 
+criteris i llavors es vol saber si els m\`etodes de
+\index{criteri} classificaci\'o s\'on independents. 
+\index{metode@m\`etode!de classificacio@de classificaci\'o}
+Considerem el cas de dos m\`etodes de
+classificaci\'o.
+
+Suposem que tenim una mostra de grand\`aria $n$ i dues maneres de 
+classificar els elements de la mostra. Suposem que el primer m\`etode de 
+classificaci\'o t\'e $r$ nivells (o classes) i que el segon en t\'e $c$.
+\index{nivell}\index{classe}
+
+Sigui $x_{ij}$ el nombre observat d'elements de la mostra que cauen en el
+$i$-\`essim nivell de classificaci\'o 1 i en el $j$-\`essim nivell de classificaci\'o 2,
+\index{nivell!de classificacio@de classificaci\'o}
+amb $i = 1, \ldots , r$ i $ j = 1, \ldots , c$. Anomenarem 
+{\bf taula de conting\`encia}\index{taula de contingencia@taula de conting\`encia}
+una representaci\'o tabular dels $x_{ij}$. 
+\index{representacio tabular@representaci\'o tabular}Volem determinar si els dos m\`etodes de
+classificaci\'o s\'on independents.
+\index{metode@m\`etode!de classificacio@de classificaci\'o!independent}
+
+La prova d'independ\`encia\index{prova!d'independencia@d'independ\`encia} 
+en una taula de conting\`encia\index{taula de contingencia@taula de conting\`encia} 
+\'es simplement un cas particular del resultat donat en la proposici\'o anterior.
+
+Suposem que tenim una poblaci\'o infinita,
+\index{poblacio@poblaci\'o!infinita} amb cada un dels seus elements en
+exactament un nivell de classificaci\'o~$1$ i exactament un 
+\index{nivell!de classificacio@de classificaci\'o}
+nivell de classificaci\'o~$2$, essent $r$ i $c$ els nombres totals de nivells de 
+classificaci\'o $1$ i $2$, respectivament. Sigui $p_{ij}$ la probabilitat que un 
+element seleccionat a l'atzar\index{atzar} caigui en el $i$-\`essim nivell de 
+classificaci\'o~$1$ i en el $j$-\`essim nivell
+de classificaci\'o~$2$. Aleshores $\displaystyle \sum_i \sum_j p_{ij} = 1$.
+
+Elegim una mostra\index{mostra} a l'atzar\index{atzar} de $n$ elements i definim $X_{ij} =$ nombre
+d'elements de la mostra en el $i$-\`essim nivell de classificaci\'o 1 i en el
+\index{nivell!de classificacio@de classificaci\'o}
+$j$-\`essim nivell de classificaci\'o 2, amb $i = 1, \ldots , r$ i $ j = 1, \ldots ,
+c$.
+
+Aleshores, el vector aleatori\index{vector aleatori} 
+format per les $r \cdot c$ variables aleat\`ories
+$X_{ij}$ \'es multinomial\index{multinomial} amb par\`ametres 
+\index{parametre@par\`ametre}$n, p_{ij} \ (i = 1, \ldots , r, \ j = 1,
+\ldots , c$). Endem\'es, si els dos m\`etodes de classificaci\'o s\'on independents,
+\index{metode@m\`etode!de classificacio@de classificaci\'o!independent}
+$p_{ij} = w_i \cdot s_j, \ i = 1, \ldots , r, \ j = 1, \ldots , c$, on $w_i$
+(resp. $s_j$) \'es la probabilitat que un element seleccionat a l'atzar caigui
+en la classe~$i$ (resp. $j$).\index{classe}
+
+Aleshores, si suposam independ\`encia dels dos m\`etodes de classificaci\'o,
+\index{independencia@independ\`encia} l'estimador
+de m\`axima versemblan\c ca de $w_i$ \'es
+\index{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}
+$$\hat{W}_i = {X_{i\bullet} \over n} = {1 \over n} \sum_j X_{ij}, \ i = 1, \ldots ,
+r,$$
+ja que $(X_{1\bullet}, \ldots , X_{r\bullet})$ seria multinomial 
+\index{multinomial}amb par\`ametres $n, w_1,
+\ldots , w_r$.\index{parametre@par\`ametre} (Hem usat la notaci\'o $\displaystyle X_{i\bullet} = \sum_j X_{ij}$.)
+
+An\`alogament, l'estimador de m\`axima versemblan\c{c}a de $s_j$ ser\`a
+\index{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}
+$$\hat{S}_j = {X_{\bullet j} \over n} = {1 \over n} \sum_i X_{ij}, \ j = 1, \ldots , c.$$
+(Hem usat la notaci\'o $\displaystyle X_{\bullet j} = \sum_i X_{ij}$.)
+
+Aleshores,
+$$V = \sum_i \sum_j {(X_{ij} - n \hat{W}_i \hat{S}_j)^2 \over n \hat{W}_i
+\hat{S}_j}$$
+\'es aproximadament una variable aleat\`oria $\chi^2$ amb 
+$r c-(c-1)-(r-1)-1=(r-1)(c-1)$ graus de
+llibertat per a $n$ gran.
+
+Aquesta estad\'{\i}stica\index{estadistica@estad\'{\i}stica} s'utilitza de manera id\`entica a com s'ha comentat per a les
+proves de la bondat d'ajustament.
+\index{prova!de bondat d'ajust}
+
+Aquestes taules de conting\`encia\index{taula de contingencia@taula de conting\`encia} 
+es poden generalitzar a tres o m\'es nivells de
+classificaci\'o
+\index{nivell!de classificacio@de classificaci\'o}i el criteri 
+\index{criteri}aplicat \'es b\`asicament el mateix.
+
+\section{Problemes resolts}
+
+\begin{probres}
+{Un atleta universitari va fer $100$ llan\c{c}aments durant una setmana de
+pr\`actica. En la seg\"uent taula surten les dist\`ancies a les quals va efectuar els
+llan\c{c}aments (mesurades en metres)
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Dist\`ancia $y$& Freq\"u\`encia $x$ \\
+\hline\hline
+$y\leq 18.6$&$12$ \\
+\hline
+$18.6< y\leq
+19.2$& $20$\\ \hline
+$19.2< y\leq 19.8$&$40$
+\\\hline
+$19.8< y\leq 20.4$&$25$\\\hline
+$y>20.4$&$\ 3$\\\hline
+\end{tabular}
+\end{center}
+
+Trobau l'error tipus I m\`axim que es pot cometre en acceptar 
+la hip\`otesi que
+la dist\`ancia $Y$ a qu\`e pot efectuar un llan\c{c}ament 
+\'es una variable aleat\`oria normal amb $\mu
+= 19.2$ metres i $\sigma = 0.61$ metres.}
+\end{probres}
+
+\res{
+Apliquem el test de la $\chi^2$ per resoldre el problema.
+
+L'estad\'{\i}stic a trobar \'es:
+\[
+\chi^2 =\sum  \frac{{(Y_i -n p_i)}^2}{n p_i},
+\]
+on $Y_i$ s\'on les freq\"u\`encies emp\'{\i}riques i $n p_i$ les
+freq\"u\`encies te\`oriques. $n$ representa la grand\`aria de la mostra; 
+en el nostre cas, $n=100$.
+
+A continuaci\'o, constru\"{\i}m la taula per trobar l'estad\'{\i}stic $\chi^2$:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|r@{,}l|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{Intervals $I_i$}
+&$Y_i$&$p_i$&$n p_i$&$|Y_i -n p_i|$&
+$\frac{{(Y_i -n p_i)}^2}{n p_i}$\\\hline\hline
+$(-\infty$&$18.6]$&$12$&$0.1635$&$16.35$&$\ 4.35$&$1.1573$\\\hline
+$(18.6$&$19.2]$&$20$&$0.3365$&$33.65$&$13.65$&$5.5370$\\\hline
+$(19.2$&$19.8]$&$40$&$0.3365$&$33.65$&$\ 6.35$&$1.1982$\\\hline
+$(19.8$&$20.4]$&$25$&$0.1385$&$13.85$&$11.15$&\multirow{2}{1cm}
+{$8.3011$}\\\cline{1-6}
+$(20.4$&$\infty)$&$\ 3$&$0.0250$&$\ 2.50$&$\ 0.5$&
+\\\hline\hline
+\multicolumn{2}{|c|}{}&&&
+&&$\chi^2 =16.1937$\\\hline
+\end{tabular}
+\end{center}
+Fixau-vos que hem hagut de juntar els dos \'ultims intervals ja que
+$n p_i =2.5$ \'es m\'es petit que $5$ en el darrer interval.
+
+El c\`alcul de les probabilitats te\`oriques
+ $p_i$ \'es el seg\"uent:
+\begin{eqnarray*}
+p_1 & = & \pp{X\leq 18.6}  = 
+\pp{ Z=N(0,1)\leq\frac{18.6 -19.2}{0.61}}
+\\ &=&P\{Z\leq -0.9836\} =0.1635, \\
+p_2 &=&\pp{18.6\leq X\leq 19.2}  = \pp{ -0.9836\leq Z=N(0,1)\leq 0}
+\\ &=&0.5 -
+0.1635 =0.3365, \\
+p_3 &=&\pp{19.2\leq X\leq 19.8}  = \pp{ 0\leq Z=N(0,1)\leq 0.9836}\\ &=&0.8365-
+0 =0.3365, \\
+p_4 & =&\pp{19.8\leq X\leq 20.4}  = \pp{ 0.9836\leq Z=N(0,1)\leq 1.9672}
+\\ & =&0.975-
+0.8365 =0.1385, \\
+p_5 & = & \pp{X\geq 20.4}  = 1-\pp{ Z=N(0,1)\leq 1.9672}\\& =&1-0.975=0.025.
+\end{eqnarray*}
+En aquest cas la distribuci\'o de l'estad\'{\i}stic
+ 
+$\chi^2$ s'aproxima a la distribuci\'o
+$\chi^2$ amb $3$ graus de llibertat ja que el nombre 
+d'intervals considerats
+en la partici\'o \'es $4$ (recordem que hem juntat els dos darrers intervals).
+
+La f\'ormula dels graus de llibertat \'es:
+
+g.ll. = nombre d'intervals - par\`ametres estimats - 1.
+
+La regi\'o cr\'{\i}tica per fer el contrast \'es:
+\[
+R.C.=\{ \chi^2 \geq \chi_{1-\alpha}^2\},
+\]
+on $\alpha$ \'es l'error tipus I.
+
+L'error tipus I $\alpha_{\mbox{\footnotesize max}}$ m\`axim,
+per sota del qual podem 
+acceptar que la distribuci\'o $X$ \'es una normal $N(\mu=19.2,
+\sigma =0.61)$ val:
+\[
+\alpha_{\mbox{\footnotesize max}} =\pp{\chi_3^2\geq 16.1937}\leq 
+1-0.995 =0.005
+\]
+Com que l'error anterior $\alpha_{\mbox{\footnotesize max}}$ \'es molt petit,
+rebutjam normalitat.
+}
+
+\newpage
+
+\begin{probres}
+{El nombre de cotxes que arriben a un supermercat \'es un proc\'es de
+Poisson. Per tant, el temps entre les arribades successives 
+\'es una variable aleat\`oria
+exponencial. S'enregistraren les hores d'arribada per a tots els cotxes durant
+dues hores i els temps entre arribades (en minuts) s\'on els que mostra la taula
+adjunta.
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Temps $t$ entre arribades & Freq\"u\`encia \\\hline\hline
+$t\leq 1$&$40$\\\hline
+$1<t\leq 2$&$29$\\\hline
+$2<t\leq
+3$&$15$\\\hline
+$t>3$&$\ 8$\\\hline
+Total&$92$\\\hline
+\end{tabular}
+\end{center}
+
+Provau la hip\`otesi que aquesta distribuci\'o de
+temps \'es consistent amb una distribuci\'o exponencial.}
+\end{probres} 
+
+\res{
+El primer que hem de fer \'es estimar el par\`ametre $\lambda$ del qual
+dep\`en la distribuci\'o exponencial.
+
+El millor estimador de $\lambda$ \'es $\frac{1}{\overline{X}}$. Trobem, 
+doncs, $\overline{X}$:
+\[
+\overline{X}=\frac{0.5\cdot 40+1.5\cdot 29+2.5\cdot 15+3.5\cdot 8}{92}
+\approx 1.4022.
+\]
+L'estimada de $\lambda$ valdr\`a: $\tilde{\lambda}=\frac{1}{\overline{X}}
+\approx 0.7132$.
+
+A continuaci\'o constru\"{\i}m la taula per trobar l'estad\'{\i}stic $\chi^2$:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|r@{,}l|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{Intervals $I_i$}
+&$Y_i$&$p_i$&$n p_i$&$|Y_i -n p_i|$&
+$\frac{{(Y_i -n p_i)}^2}{n p_i}$\\\hline\hline
+$(-\infty$&$1]$&$40$&$0.5099$&$46.9122$&$6.9122$&$1.0184$\\\hline
+$(1$&$2]$&$29$&$0.2499$&$22.9909$&$6.0090$&$1.5705$\\\hline
+$(2$&$3]$&$15$&$0.1225$&$11.2675$&$3.7324$&$1.2364$\\\hline
+$(3$&$\infty)$&$\ 8$&$0.1177$&$10.8292$&$2.8292$&$0.7391$\\\hline\hline
+\multicolumn{2}{|c|}{}&&&&&$\chi^2 =4.5646$\\\hline
+\end{tabular}
+\end{center}
+Amb vista a donar els c\`alculs de les probabilitats te\`oriques $p_i$, 
+recordem que la funci\'o de distribuci\'o d'una variable aleat\`oria 
+$\mbox{Exp }(\lambda)$ \'es: $F_X (t)=1-e^{-\lambda t}$.
+
+\begin{eqnarray*}
+p_1 & = & \pp{X\leq 1}=1 - e^{-\tilde{\lambda}}\approx 0.5099, \\
+p_2 & = & \pp{1\leq X\leq 2}=e^{-\tilde{\lambda}}-e^{-2\tilde{\lambda}}
+\approx 0.2499, \\
+p_3 & = & \pp{2\leq X\leq 3}=e^{-2 \tilde{\lambda}}-e^{-3\tilde{\lambda}}
+\approx 0.1225, \\
+p_4 & = & \pp{X\geq 3}=e^{-3 \tilde{\lambda}}\approx 0.1177.
+\end{eqnarray*}
+Tenint en compte que la distribuci\'o de l'estad\'{\i}stic $\chi^2$ 
+s'aproxima a una distribuci\'o $\chi^2$ amb $2$ 
+graus de llibertat (g.ll. $= 4-1-1$) i que la regi\'o cr\'{\i}tica \'es
+\[
+R.C.=\{ \chi^2 \geq \chi_{1-\alpha}^2\},
+\]
+on $\alpha$ \'es l'error tipus I, l'error tipus I m\`axim per sota
+del qual podem acceptar que la distribuci\'o \'es
+exponencial, compleix:
+\[
+0.1\leq \alpha_{\mbox{\footnotesize max}}=\pp{\chi_2^2\geq 4.5646}
+\leq 0.15.
+\]
+En vista del valor de $\alpha_{\mbox{\footnotesize max}}$, podem acceptar
+que la mostra correspon a una distribuci\'o exponencial.
+}
+
+
+\begin{probres}
+{En un per\'{\i}ode de $72$ hores en els Estats Units varen tenir lloc en
+total $290$ accidents de tr\`ansit. 
+El nombre d'accidents per hora durant aquest
+per\'{\i}ode va ser
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Nombre d'accidents per hora & Nombre d'hores \\\hline\hline
+$0$ o
+$1$&$\ 6$\\\hline
+$2$&$11$\\\hline $3$&$15$
+\\\hline $4$&$14$\\\hline 
+$5$&$12$\\\hline $6$&$\ 8$\\\hline $7$
+o m\'es&$\ 6$\\\hline
+\end{tabular}
+\end{center}
+Provau la hip\`otesi que el nombre d'accidents
+per hora durant un per\'{\i}ode semblant \'es una variable aleat\`oria de Poisson.}
+\end{probres} 
+
+\res{
+El problema \'es verificar si la variable $X=$``Nombre d'accidents per hora''
+segueix la distribuci\'o de Poisson amb par\`ametre $\lambda$.
+Per tant, el primer que hem de fer \'es estimar el par\`ametre $\lambda$.
+El millor estimador de $\lambda$ \'es $\overline{X}$. Per tant, el valor estimat
+de $\lambda$ valdr\`a: 
+\[
+\tilde{\lambda}=\overline{X}=\frac{290}{72}\approx 4.0277,
+\]
+ja que hi ha hagut $290$ accidents en un total de $72$ hores.
+
+La taula per trobar l'estad\'{\i}stic $\chi^2$ \'es:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|r@{,}l|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{Intervals $I_i$}
+&$Y_i$&$p_i$&$n p_i$&$|Y_i -n p_i|$&
+$\frac{{(Y_i -n p_i)}^2}{n p_i}$\\\hline\hline
+$(-\infty$&$1.5]$&$\ 6$&$0.0895$&$\ 6.4486$&$0.4486$&$0.0312$\\\hline
+$(1.5$&$2.5]$&$11$&$0.1445$&$10.4037$&$0.5962$&$0.0341$\\\hline
+$(2.5$&$3.5]$&$15$&$0.1940$&$13.9680$&$1.0319$&$0.0762$\\\hline
+$(3.5$&$4.5]$&$14$&$0.1953$&$14.0650$&$0.0650$&$0.0003$\\\hline
+$(4.5$&$5.5]$&$12$&$0.1573$&$11.3301$&$0.6698$&$0.0395$\\\hline
+$(5.5$&$6.5]$&$\ 8$&$0.1056$&$\ 7.6059$&$0.3940$&$0.0204$\\\hline
+$(6.5$&$\infty)$&$\ 6$&$0.1138$&$\ 8.1943$&$2.1943$&$0.5876$\\\hline\hline
+\multicolumn{2}{|c|}{}&&&&&$\chi^2 =0.7895$\\\hline
+\end{tabular}
+\end{center}
+Recordem que la funci\'o de probabilitat de la variable aleat\`oria de Poisson
+\'es: 
+\[
+f_X (k)=\frac{\lambda^k}{k!} e^{-\lambda}.
+\]
+Fent servir la f\'ormula anterior, podem trobar les probabilitats te\`oriques
+$p_i$:
+\begin{eqnarray*}
+p_1 & = & f_X (0)+f_X(1) = e^{-\tilde{\lambda}} (1+\tilde{\lambda})\approx 
+0.0895, \\
+p_2&  = & f_X (2) =e^{-\tilde{\lambda}} \frac{\tilde{\lambda}^2}{2!} \approx 
+0.1444, \\
+p_3 & = & f_X (3) =e^{-\tilde{\lambda}} \frac{\tilde{\lambda}^3}{3!} \approx 
+0.1940, \\
+p_4  & = & f_X (4) =e^{-\tilde{\lambda}} \frac{\tilde{\lambda}^4}{4!} \approx 
+0.1953, \\
+p_5 & = & f_X (5) =e^{-\tilde{\lambda}} \frac{\tilde{\lambda}^5}{5!} \approx 
+0.1573, \\
+p_6 & = & f_X (6) =e^{-\tilde{\lambda}} \frac{\tilde{\lambda}^6}{6!} \approx 
+0.1573, \\
+p_7  & = & \pp{X\geq 7}=1-\sum\limits_{i=0}^6 f_X(i) = 0.1138.
+\end{eqnarray*}
+Tenint en compte que la distribuci\'o de l'estad\'{\i}stic 
+$\chi^2$ s'aproxima a la distribuci\'o $\chi_5^2$, l'error tipus I m\`axim 
+per sota del qual podem acceptar
+que $X$ segueix la distribuci\'o de Poisson
+compleix:
+\[
+0.95\leq\alpha_{\mbox{\footnotesize max}}=\pp{\chi_5^2\geq 0.7895}
+\leq 0.99.
+\]
+Concloem, doncs, que es pot acceptar que $X$ segueix la distribuci\'o de
+Poisson.
+}
+
+\begin{probres}
+{Es va examinar una mostra de $2000$ defuncions amb els seg\"uents resultats
+\begin{center}
+\begin{tabular}{|l||c|c||c|}
+\hline &Mort per
+c\`ancer&Mort per altres
+causes&Totals\\\hline\hline Fumadors&$22$&$1178$&$1200$
+\\\hline No Fumadors&$26$&$\ 774$&$\ \,800$
+\\\hline Totals&$48$&$1952$&$2000$\\\hline 
+\end{tabular}
+\end{center}
+
+Suposem que
+aquests resultats s\'on el producte d'una mostra aleat\`oria 
+simple d'una poblaci\'o determinada i
+provau que les dues classificacions no s\'on independents,
+ o sigui, trobau l'error
+tipus~I m\`axim per poder acceptar independ\`encia i comprovau que aquest 
+error \'es petit.}
+\end{probres} 
+
+\res{
+Resoldrem aquest problema fent servir el test d'independ\`encia
+de la~$\chi^2$.    
+
+En aquest cas, l'estad\'{\i}stic a fer servir \'es:
+\[
+\chi^2 =\sum \frac{{(n_{ij}-\mbox{teor}_{ij})}^2}{\mbox{teor}_{ij}},
+\]
+on $n_{ij}$ s\'on les freq\"u\`encies emp\'{\i}riques (les donades per la
+taula del problema) i $\mbox{teor}_{ij}$ s\'on les freq\"u\`encies
+te\`oriques.
+Recordem que 
+la freq\"u\`encia te\`orica corresponent al nivell $i-j$ val:
+\[
+\mbox{teor}_{ij}=\frac{n_{i\bullet} n_{\bullet j}}{n},
+\]
+on $n_{i\bullet}$ \'es el nombre total d'individus que pertanyen al
+nivell $i$ segons el criteri de classificaci\'o $1$ i $n_{\bullet j}$ \'es
+el nombre total d'individus que pertanyen al nivell $j$ segons el criteri
+de classificaci\'o $2$.
+
+A continuaci\'o constru\"{\i}m la taula de freq\"u\`encies te\`oriques:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c||c|c||c|}
+\hline
+&Mort per c\`ancer&Mort per altres causes&Totals\\\hline\hline
+Fumadors&$\frac{1200\cdot 48}{2000}=28.8$&$\frac{1200\cdot 1952}{2000}
+=1171.2$&$1200$\\\hline
+No Fumadors&$\frac{\ 800\cdot 48}{2000}=19.2$&$\frac{\ 800\cdot 1952}{2000}
+=\ 780.8$&$\ 800$\\\hline
+\end{tabular}
+\end{center}
+El valor de l'estad\'{\i}stic $\chi^2$ valdr\`a:
+\begin{eqnarray*}
+\chi^2 & = & \frac{{(22-28.8)}^2}{28.8}+\frac{{(1178-1171.2)}^2}{1171.2}
++\frac{{(26-19.2)}^2}{19.2}+\frac{{(774-780.8)}^2}{780.8}\\
+& = & 4.1125.
+\end{eqnarray*}
+La distribuci\'o de l'estad\'{\i}stic
+ $\chi^2$ s'aproxima a la
+ distribuci\'o
+$\chi^2$ amb $(f-1)\cdot (c-1)$ graus de llibertat on $f$ \'es el nombre
+de files (nombre de nivells segons el criteri de classificaci\'o $1$) i
+$c$ \'es el nombre de columnes (nombre de nivells segons el criteri de 
+classificaci\'o $2$). En el nostre cas, 
+l'estad\'{\i}stic $\chi^2$  
+s'aproximar\`a a una variable $\chi_1^2$.
+
+Tenint en compte que la regi\'o cr\'{\i}tica per a aquest tipus de
+contrast \'es:
+\[
+R.C.=\{\chi^2 \geq \chi_{1,1-\alpha}^2\},
+\]
+on $\alpha$ \'es l'error tipus I, l'error tipus I m\`axim 
+per sota del qual acceptam
+independ\`encia complir\`a:
+\[
+0.025\leq \alpha_{\mbox{\footnotesize max}}=\pp{\chi_1^2 \geq 4.1125}
+\leq 0.05.
+\]
+Rebutjam, doncs, independ\`encia.
+}
+
+
+\begin{probres}
+{Suposem que $X_{ij}$ amb $i=1,\ldots,r$, $j=1,\ldots,s$ \'es una
+mostra aleat\`oria simple d'una variable aleat\`oria multinomial amb par\`ametres $n$ i $p_{ij}=w_i s_j$. ($w_i$ \'es la
+probabilitat que $X_{ij}$ estigui en la classe $(i,1)$, $(i,2)$,...,
+$(i,s)$ i $s_j$ \'es la
+probabilitat que $X_{ij}$ estigui en la classe $(1,j)$, $(2,j)$,...,
+$(r,j)$). Provau que els estimadors de m\`axima versemblan\c{c}a de $w_i$ i $s_j$
+s\'on
+$$\hat W_i ={X_{i\bullet}\over n}={\sum\limits_{j=1}^s X_{ij}\over n},
+\quad\hat S_j ={X_{\bullet j}\over n}={\sum\limits_{i=1}^r X_{ij}\over n}.$$}
+\end{probres} 
+
+\res{
+Recordem la funci\'o de probabilitat d'una variable aleat\`oria multinomial
+amb par\`ametres $n,p_{11},\ldots,p_{rs}$ val:
+\[
+f(x_{11},\ldots x_{rs}) =\frac{n!}{x_{11}!\ldots x_{rs}!} p_{11}^{x_{11}}
+\ldots p_{rs}^{x_{rs}}.
+\]
+A partir del m\`etode de la m\`axima versemblan\c{c}a, trobarem els 
+estimadors dels par\`ametres $p_{ij}$.
+
+El primer pas seria derivar la f\'ormula anterior respecte de cada una de les
+variables $p_{ij}$. Fixau-vos que hi ha molts de productes; per tant, 
+traguem logaritmes per simplificar el c\`alcul de les derivades.
+\[
+K:= \ln f(x_{11},\ldots x_{rs})=\ln\left(\frac{n!}{x_{11}!\ldots x_{rs}!}
+\right) +\sum_{i=1}^r\sum_{j=1}^s x_{ij} \ln p_{ij}.
+\]
+Abans de comen\c{c}ar a derivar, hem de tenir en compte que les variables
+$x_{ij}$ i els par\`ametres $p_{ij}$,
+$i=1,\ldots,r$, $j=1,\ldots, s$ no s\'on independents ja que:
+\begin{equation}
+\begin{array}{rl}
+x_{rs} = & n -\sum\limits_{(i,j)\not =(r,s)} x_{ij}, \\
+p_{rs} = & 1 -\sum\limits_{(i,j)\not =(r,s)} p_{ij}.
+\end{array}
+\label{FORXIJPIJ}
+\end{equation}
+Per tant, les derivades de la funci\'o $K$ respecte del par\`ametre $p_{ij}$ valen:
+\[
+\frac{\partial K}{\partial p_{ij}}=\frac{x_{ij}}{p_{ij}}+\frac{x_{rs}}{p_{rs}}\cdot 
+\frac{\partial p_{rs}}{\partial p_{ij}}=\frac{x_{ij}}{p_{ij}}-
+\frac{x_{rs}}{p_{rs}},\  \forall (i,j)\not =(r,s).
+\]
+El sistema a resoldre de cara a trobar els estimadors de m\`axima versemblan\c{c}a 
+$\tilde{p}_{ij}$ del par\`ametre $p_{ij}$ \'es
+\[
+\frac{\partial K}{\partial p_{ij}}=\frac{x_{ij}}{\tilde{p}_{ij}}-
+\frac{x_{rs}}{\tilde{p}_{rs}}=0\  \forall (i,j)\not =(r,s).
+\]
+El sistema d'equacions anterior es pot posar de forma equivalent com: 
+\begin{equation}
+\frac{\tilde{p}_{ij}}{\tilde{p}_{rs}}=\frac{x_{ij}}{x_{rs}}\  \forall (i,j)\not =(r,s).
+\label{EQPERPIJTILDE}
+\end{equation}
+Sumant totes les equacions anteriors per a tot $(i,j)\not =(r,s)$ i 
+tenint en compte~(\ref{FORXIJPIJ}), arribam a la seg\"uent expressi\'o 
+per a l'estimador $\tilde{p}_{rs}$:
+\[
+\frac{1-\tilde{p}_{rs}}{\tilde{p}_{rs}}=\frac{n-x_{rs}}{x_{rs}}.
+\]
+D'on podem trobar el valor de $\tilde{p}_{rs}$:
+\[
+\tilde{p}_{rs}=\frac{x_{rs}}{n}.
+\]
+Tenint en compte~(\ref{EQPERPIJTILDE}), podem trobar tots els valors dels altres 
+par\`ametres $\tilde{p}_{ij}$:
+\[
+\tilde{p}_{ij}=\frac{x_{ij}}{x_{rs}}\tilde{p}_{rs} =\frac{x_{ij}}{n}.
+\]
+A continuaci\'o, trobam els estimadors $\tilde{w}_i$ i $\tilde{s}_j$ dels par\`ametres
+$w_i$ i $s_j$.
+
+Fent servir les seg\"uents relacions entre els par\`ametres ${w}_i$, ${s}_j$ i
+$p_{ij}$
+\[
+w_i=\sum_{j=1}^s p_{ij}, \ s_j =\sum_{i=1}^r p_{ij},
+\]
+i tenint en compte les f\'ormules trobades per als estimadors 
+$\tilde{p}_{ij}$ dels 
+par\`ametres $p_{ij}$ arribam a la seg\"uent expressi\'o per als estimadors 
+$\tilde{w}_i$ i $\tilde{s}_j$:
+\[
+\tilde{w}_i=\sum_{j=1}^s \tilde{p}_{ij}=\frac{\sum\limits_{j=1}^s x_{ij}}{n}, 
+\ \tilde{s}_j =\sum_{i=1}^r \tilde{p}_{ij}=\frac{\sum\limits_{i=1}^r x_{ij}}{n}.
+\]
+}
+
+\begin{probres}
+{Sigui $X$ una variable aleat\`oria
+ uniforme en l'interval $[0,1]$. 
+Sigui $F(x)$ una
+funci\'o real cont\'{\i}nua, 
+estrictament creixent i 
+derivable definida a tot $\RR$
+tal que $F(x)\in [0,1]$ $\forall x\in\RR$ i que $\lim\limits_{x\to -\infty} 
+F(x)=0,\ \lim\limits_{x\to\infty} F(x)=1$.
+\begin{itemize}
+\item[a)]{Provau que la variable aleat\`oria $Y=F^{-1}(X)$ t\'e com a funci\'o 
+de distribuci\'o
+$F(x)$.}
+\item[b)]{Aplicant l'apartat a) i donada la seg\"uent mostra aleat\`oria simple d'una variable aleat\`oria uniforme
+en $[0,1]$, contru\"{\i}u una mostra aleat\`oria simple d'una variable aleat\`oria $Y$ que tengui com a funci\'o de
+densitat $$f_Y(y)={1\over \pi (1+y^2)},\quad y\in\RR .$$}
+Mostra aleat\`oria simple de $X$:
+\begin{center}
+\begin{tabular}{cccccccc}
+0.526,&0.973,&0.055,&0.826,&0.131,&0.285,&0.101,&0.165,\\
+0.638,&0.586,&0.706,&0.487,&0.239,&0.362,&0.813,&0.497,\\
+0.288,&0.270,&0.056,&0.692,&0.915,&0.706,&0.609,&0.717,\\
+0.600,&0.138,&0.675,&0.340,&0.019,&0.022,&0.735,&0.844.\\
+\end{tabular}
+\end{center}
+\item[c)]{Vegeu mitjan\c{c}ant el test de la $\chi^2$ si la
+mostra anterior correspon a una mostra de la variable $Y$.\newline
+{\footnotesize
+Condici\'o per fer el problema: heu d'agafar com a m\'{\i}nim 4
+intervals.}}
+\end{itemize}
+{\footnotesize Final. Juny 93.}
+}
+\etiqueta{PROBGENMOSTRES}
+\end{probres} 
+
+\res{
+\begin{itemize}
+\item[a)] Calculem la funci\'o de distribuci\'o de la variable aleat\`oria 
+$Y$:
+\[
+F_Y (t)=\pp{Y\leq t}=\pp{ F^{-1}(X)\leq t}=\pp{X\leq F(t)}=F_X (F(t)).
+\]
+La pen\'ultima igualtat \'es certa ja que la funci\'o $F$ \'es estrictament 
+creixent.
+
+L'\'unic que hem de trobar ara \'es la funci\'o de distribuci\'o de $X$. 
+Recordem que $X$ \'es $U[0,1]$ (uniforme en l'interval $[0,1]$). Per tant, la funci\'o
+de distribuci\'o valdr\`a:
+\[
+F_X (s)=\left\{\begin{array}{ll}
+0, & \text{si $s\leq 0$}, \\
+s, & \text{si $0< s\leq 1$}, \\
+1, & \text{si $s>1$}. 
+\end{array}\right.
+\]
+Tenint en compte que $F(t)\in [0,1]$ per a tot $t\in\RR$, tenim que:
+\[
+F_Y (t)=F_X (F(t))=F(t).
+\]
+Concloem, doncs, que la funci\'o de distribuci\'o
+ de $Y$ \'es $F$. 
+
+\item[b)] Sigui ara una variable $Y$ amb funci\'o
+ de densitat:
+$f_Y (y)=\frac{1}{\pi (1+y^2)},\ y\in\RR$. Hem de construir una mostra
+aleat\`oria simple de $Y$ a partir d'una mostra 
+aleat\`oria simple
+d'una variable uniforme $X$ en l'interval $[0,1]$. 
+
+Per fer-ho, aplicarem
+l'apartat anterior i trobarem la funci\'o de distribuci\'o
+ de la
+variable $Y$ $F_Y (y)$. Una vegada trobada la funci\'o
+ de distribuci\'o,
+trobarem la inversa $F_Y^{-1}$. L'\'unic que quedar\`a fer per trobar la 
+mostra de $Y$ 
+\'es aplicar la seg\"uent f\'ormula a tots els valors de la mostra
+de $X$:
+\[
+Y= F_Y^{-1} (X).
+\]
+Fixau-vos que aquest \'es un m\`etode que val per trobar qualsevol mostra
+aleat\`oria simple de qualsevol variable aleat\`oria $Y$. Aquest m\`etode
+es diu {\bf m\`etode de la transformada inversa}.
+
+Trobem la funci\'o de distribuci\'o $F_Y(t)$:
+\[
+F_Y (t)=\int_{-\infty}^y \frac{1}{\pi (1+y^2)}\, dy =\frac{1}{\pi}
+{[\mbox{arctan } y]}_{-\infty}^y =\frac{1}{2}+\frac{\mbox{arctan } y}{\pi}.
+\]
+A continuaci\'o, trobem la seva inversa $F_Y^{-1}(t)$:
+\[
+\begin{array}{c}
+F_Y (y)=t,\ \Longrightarrow \frac{1}{2}+\frac{1}{\pi}\mbox{arctan } y=t, \nonumber\\
+\mbox{arctan } y = \left( t-\frac{1}{2}\right) \pi,\ \Longrightarrow y=F_Y^{-1} (t)=
+\mbox{tan} \left(\pi \left(t-\frac{1}{2}\right)\right).
+\end{array}
+\]
+La mostra aleat\`oria simple de la variable $Y$ aplicant la f\'ormula anterior \'es
+\begin{center}
+\begin{tabular}{r@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}l}
+0&0818,&11&7609,&-5&7297,&1&6434,&-2&2910,&-0&8011,\\-3&045,&-1&7531,&
+0&4629,&0&2769,&0&7557,&-0&0408,\\-1&0716,&-0&4629,&1&5017,&-0&0094,&
+-0&7857,&-0&8816,\\-5&6253,&0&6888,&3&6553,&0&7557,&0&3564,&0&8115,\\
+0&3249,&-2&1602,&0&6128,&-0&5497,&-16&733,&-14&445,\\0&9099,&1&8744,&&&&&&&&
+\end{tabular}
+\end{center}
+
+\item[c)] Constru\"{\i}m la taula per trobar l'estad\'{\i}stic del test de la $\chi^2$:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|r@{,}l|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{Intervals $I_i$}
+&$Y_i$&$p_i$&$n p_i$&$|Y_i -n p_i|$&
+$\frac{{(Y_i -n p_i)}^2}{n p_i}$\\\hline\hline
+$(-\infty$&$-1]$&$\ \,9$&$0.25$&$8$&$1$&$0.125$\\\hline
+$(-1$&$0]$&$\ \,7$&$0.25$&$8$&$1$&$0.125$\\\hline
+$(0$&$1]$&$11$&$0.25$&$8$&$3$&$1.125$\\\hline
+$(1$&$\infty)$&$\ \,5$&$0.25$&$8$&$3$&$1.125$\\\hline
+\multicolumn{2}{|c|}{}&&&&&$\chi^2 =2.5$\\\hline
+\end{tabular}
+\end{center}
+C\`alcul de les probabilitats te\`oriques $p_i$:
+\begin{eqnarray*}
+p_1 & = & F_Y (-1) =\frac{1}{2}+\frac{\mbox{arctan }(-1)}{\pi}=0.25,\\
+p_2 & = & F_Y (0)- F_Y(-1) =0.5 -0.25 =0.25, \\
+p_3 & = & F_Y (1) - F_Y (0) = \frac{1}{2} +\frac{\mbox{arctan }1}{\pi} -0.5 =0.25, \\
+p_4 & = & 1 - F_Y(1)= 1 -0.75 =0.25.
+\end{eqnarray*}
+L'estad\'{\i}stic $\chi^2$ s'aproxima a la distribuci\'o $\chi_3^2$. 
+
+Regi\'o cr\'{\i}tica: $R.C.=\{\chi^2\geq \chi_{3,1-\alpha}^2\}$ 
+on $\alpha$ \'es l'error tipus I.
+
+L'error tipus I m\`axim per sota del qual acceptam que la mostra anterior segueix 
+la mateixa distribuci\'o de $Y$ compleix:
+\[
+0.45\leq \alpha_{\mbox{\footnotesize max}}=\pp{\chi_3^2 \geq 2.5}\leq 0.5.
+\]
+Acceptam, doncs, que la funci\'o de distribuci\'o
+ de la mostra anterior \'es $F_Y$.
+\end{itemize}
+}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Un parell de daus es varen llan\c{c}ar $500$ vegades. 
+En la taula seg\"uent es
+mostren les sumes que varen tenir lloc. Provau la hip\`otesi que els daus no
+estaven trucats, o sigui, 
+comprovau que l'error tipus I m\`axim com\`es
+en acceptar que els daus no estan trucats no \'es gaire petit.
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Suma & Freq\"u\`encia \\\hline\hline
+$2,3$ o $4$&$\ 74$\\\hline $5$ o
+$6$&$120$\\\hline $7$&$\ 83$\\\hline $8$ o
+$9$&$135$\\\hline $10,11$ o $12$&$\ 88$\\\hline
+\end{tabular}
+\end{center}
+}
+\end{prob}
+
+\begin{prob}
+{El $1972$, l'informe oficial va donar la seg\"uent distribuci\'o del
+nombre de dies que varen ser internats en l'hospital els malalts durant
+1971.
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+Nombre de dies & Nombre de malalts
+\\\hline\hline
+$1$&$\ 89$\\\hline $2$&$152$\\\hline 
+$3$&$105$
+\\\hline $4-5$&$165$\\\hline 
+$6-9$&$221$\\\hline $10-14$&$124$\\\hline $15-30$
+&$106$\\\hline $31$ o m\'es&$\ 38$\\\hline 
+\end{tabular}
+\end{center}
+
+Provau la hip\`otesi que aquestes dades es varen obtenir d'una
+distribuci\'o $\chi^2$ amb $4$ graus de llibertat.}
+\end{prob} 
+
+\begin{prob}
+{Es va seleccionar una mostra de $3000$ taronges de Val\`encia. Cada
+taronja es va classificar segons el seu color (clar, mig i obscur) i es va
+determinar el seu contengut de sucre (dol\c{c}a o no dol\c{c}a). Els resultats varen
+ser
+\begin{center}
+\begin{tabular}{|c||c|c||c|}
+\hline Color&Molt Dol\c{c}a&No
+Dol\c{c}a&Totals\\\hline\hline Clar&$1300$&$\ 200$&$1500$
+\\\hline Mig&$\ 500$&$\ 500$&$1000$\\\hline Obscur
+&$\ 200$&$\ 300$&$\ 500$\\\hline Totals
+&$2000$&$1000$&$3000$\\\hline 
+\end{tabular}
+\end{center}
+
+Provau la hip\`otesi que la dol\c{c}or i el color s\'on independents.
+}
+\end{prob} 
+
+\begin{prob}
+{Es va fer una prova d'inte{\lgem}ig\`encia a $100$
+estudiants. En la taula seg\"uent es mostren les qualificacions
+obtengudes:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Qualificaci\'o $x$&Freq\"u\`encia\\
+\hline\hline
+$70<x\leq 90$&$\ 8$\\\hline
+$90<x\leq 110$&$38$\\\hline
+$110<x\leq 130$&$45$\\\hline
+$130<x\leq 150$&$\ 9$\\\hline 
+\end{tabular}
+\end{center}
+
+Es pot suposar que aquestes qualificacions s\'on una
+mostra aleat\`oria de les que tendrien totes les persones
+possibles que fessin la prova. Provau la hip\`otesi que les
+qualificacions obtengudes per la poblaci\'o (conceptualment
+infinita) estarien distribu\"{\i}des normalment.
+\newline
+{\footnotesize
+Final. Juny 91.}}
+\end{prob} 
+
+\begin{prob}
+{Considerem la seg\"uent mostra
+aleat\`oria simple d'una v.a. $X$ tal que\break $X(\Omega)=[0,1]$.
+Provau, mitjan\c{c}ant el test $\chi^2$, que podem considerar que
+$X$ segueix una distribuci\'o uniforme en $[0,1]$.(Preneu intervals
+d'amplada $0.25$.)
+\begin{center}
+\begin{tabular}{ccccc}
+ 0.479, & 0.889, & 0.216, & 0.596, & 0.359\\
+ 0.347, & 0.646, & 0.359, & 0.991, & 0.227\\
+ 0.774, & 0.760, & 0.448, & 0.992, & 0.742\\
+ 0.402, & 0.049, & 0.213, & 0.296, & 0.711\\
+ \end{tabular}
+ \end{center}
+
+{\footnotesize Final. Setembre 91.}}
+\end{prob} 
+
+\begin{prob}
+{Sigui $X$ la variable aleat\`oria que t\'e
+com a funci\'o de densitat: $$f(x)=
+\left\{\begin{array}{ll}
+x+1, & \text{si $x\in [-1,0],$}\\ 1-x, & \text{si
+$x\in [0,1],$}\\
+0, & \text{en cas contrari.} 
+\end{array}\right.
+$$
+Comprovau mitjan\c{c}ant el test de la
+$\chi^2$ que la seg\"uent mostra aleat\`oria simple 
+segueix la mateixa distribuci\'o que $X$:
+\begin{center}
+\begin{tabular}{r@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}l} 
+0&183,&0&647,&0&148,&-0&143,&-0&625,&0&858,&-0&177,&0&350,\\-0&188,&-0&059,&
+0&845,&0&031,&-0&156,&0&564,&-0&235,&0&237,\\0&294,&-0&257,&0&110,&0&478,&
+0&647,&0&276,&-0&528,&-0&075,\\-0&498,&0&395,&-0&163,&-0&075,&-0&623,&0&053,&
+-0&647,&0&348,\\-0&795,&-0&132,&-0&381,&-0&017,&-0&227,&0&277,&0&590,&-0&832\\
+\end{tabular}
+\end{center}
+{\footnotesize Final. Setembre 93.}} 
+\end{prob}
+
+\begin{prob}
+{Ens donen les notes de
+certa assignatura de 3 grups d'alumnes $A$, $B$ i $C$:
+\begin{center}
+\begin{tabular}{|c||r@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}l
+r@{.}lr@{.}l|}
+\hline
+$A$&4&6&5&&5&1&5&6&4&6&5&&5&7&5&4&4&4&8&\\\hline
+$B$&4&6&3&4&5&3&4&&3&5&4&&5&&4&7&3&6&4&1\\\hline
+$C$&7&2&7&3&5&7&4&1&5&7&6&1&6&&7&8&7&&3&8\\\hline
+\end{tabular}
+\end{center}
+
+Els classificam segons $2$ criteris: per grup i per nota tenint en compte
+que:\newline {\bf Suspens} significa una nota m\'es petita que $5$
+(nota $<5$).
+\newline {\bf Aprovat} significa una nota entre $5$ i $6$ ($5\leq$ nota
+$\leq$ 6).
+\newline {\bf Notable} significa una nota m\'es gran que $6$
+(nota $>\ 6$).\newline Vegeu a partir del test $\chi^2$ per a quins
+valors de $\alpha$ (error tipus I) podem acceptar que els dos criteris s\'on
+independents.\newline{\footnotesize Final. Juny 94.}}
+\etiqueta{NOTESASIG}
+\end{prob} 
+
+\begin{prob}
+{Llan\c{c}am un dau 100 vegades on:
+$15$ vegades ha sortit la cara $1$,
+$15$ vegades ha sortit la cara $2$,
+$30$ vegades ha sortit la cara $3$,
+$15$ vegades ha sortit la cara $4$,
+$15$ vegades ha sortit la cara $5$,
+$10$ vegades ha sortit la cara $6$.
+Fent servir els test $\chi^2$, trobau el $\alpha$ m\`axim 
+(error tipus I) per al qual acceptam que el dau no est\`a trucat.
+\newline{\footnotesize Final. Juny 94.}}
+\end{prob}
+
+\begin{prob}
+{Trobau l'error tipus I m\`axim per poder acceptar que la seg\"uent
+mostra aleat\`oria simple segueix una distribuci\'o exponencial fent servir el
+test de la $\chi^2$.
+\begin{center}
+\begin{tabular}{r@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}lr@{.}l}
+1&68,&
+1&17,&0&6,&2&84,&1&55,&1&26,&1&24,&0&04,&0&28,&0&33,\\
+0&38,&0&67,&0&18,&0&27,&0&95,&2&9,&1&93,&0&12,&0&14,&
+0&
+86,\\
+1&71,&0&76,&0&7,&0&02,&0&53,&1&24,&1&27,&0&,&1&1,&1&9,
+\\
+1&02,&0&18,&0&63,&1&72,&1&9,&1&72,&0&12,&0&17,&2&76,&
+1&19,\\
+0&31,&0&45,&0&58,&1&97,&0&8,&0&35,&2&14,&0&29,&3&57,&
+2&91,
+\end{tabular}
+\end{center}
+Condici\'o per fer el problema: considerau la seg\"uent partici\'o de
+$[0,\infty)$:
+$$[0,\infty)=[0,0.25)\cup[0.25,0.5)\cup[0.5,0.75)\cup[0.75,1)\cup
+[1,\infty).$$\newline{\footnotesize Final. Setembre 94.}}
+\end{prob}
+
+\begin{prob}
+{
+Es vol provar la hip\`otesi que el di\`ametre, en mm., d'una
+pe\c{c}a \'es una variable aleat\`oria amb funci\'o 
+de densitat:
+\[
+f(x)=\frac{3}{37}x^2,\ 3\leq x\leq 4.
+\]
+Per fer el contrast se selecciona una mostra aleat\`oria simple de grand\`aria 
+$1000$ amb els resultats seg\"uents:
+$$
+\begin{tabular}{|c|c|c|}
+\hline
+Interval&Freq\"u\`encia\\\hline\hline
+3.0-3.2&157\\\hline
+3.2-3.4&174\\\hline
+3.4-3.6&190\\\hline
+3.6-3.8&226\\\hline
+3.8-4.0&253\\\hline
+\end{tabular}
+$$
+Fent servir el test $\chi^2$, trobau l'$\alpha_{\mbox{\footnotesize max}}$
+(error tipus I m\`axim) per poder acceptar la hip\`otesi.
+\newline{\footnotesize Segon parcial. Juny 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Classificam $N$ individus segons dos criteris. Cada criteri t\'e dos
+nivells. La taula de conting\`encia \'es:
+\begin{center}
+\begin{tabular}{|c|r|r|}
+\hline
+$C2\backslash C1$&\multicolumn{1}{|c|}{$A_1$}&
+\multicolumn{1}{|c|}{$A_2$}\\\hline\hline
+$B_1$&10&5\\\hline
+$B_2$&5&10\\\hline
+\end{tabular}
+\end{center}
+Trobau l'error tipus~I m\`axim per poder acceptar que els dos criteris s\'on 
+independents fent servir el test de la~$\chi^2$.
+\newline{\footnotesize Final. Juny 96.}
+}
+\end{prob}
+
+\begin{prob}
+{
+A partir de la seg\"uent mostra aleat\`oria
+simple d'una variable aleat\`oria $X\ U(0,1)$ (uniforme en l'interval $(0,1)$),
+generau una mostra aleat\`oria simple d'una variable aleat\`oria
+$Y\ \textrm{Exp} (\lambda =1)$ i comprovau a partir del test de la 
+bondat d'ajustament
+que la mostra anterior correspon a la variable aleat\`oria~$Y$.
+Preneu la seg\"uent partici\'o de $\RR$:
+\[
+\RR =(-\infty,0.5)\cap [0.5,1)\cap [1,\infty).
+\]
+
+\begin{center}
+\begin{tabular}{ccccc}
+0.033,&0.890,&0.548,&0.405,&0.281\\
+0.858,&0.820,&0.819,&0.531,&0.198\\
+0.038,&0.290,&0.917,&0.601,&0.912\\
+0.333,&0.658,&0.428,&0.400,&0.208\\
+0.369,&0.252,&0.154,&0.566,&0.575
+\end{tabular}
+\end{center}
+{\footnotesize Final. Juny 96.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Llan\c{c}am un dau~$200$ vegades amb els resultats seg\"uents:
+\begin{center}
+\begin{tabular}{|l||c|c|c|c|c|c|}
+\hline
+Cara&1&2&3&4&5&6\\\hline\hline
+Vegades&40&40&30&20&30&40\\\hline
+\end{tabular}
+\end{center}
+Trobau l'error tipus~I m\`axim per poder acceptar que el dau no est\`a trucat
+fent servir el test de la $\chi^2$.
+\newline{\footnotesize Final. Setembre 96.}
+}
+\end{prob}
+

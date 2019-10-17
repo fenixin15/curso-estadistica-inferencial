@@ -1,0 +1,267 @@
+\begin{theindex}
+{\bfseries\hfil Symbols\hfil}\nopagebreak
+
+  \item $\sigma$-\`algebra de successos\dotfill 22
+
+  \indexspace
+{\bfseries\hfil A\hfil}\nopagebreak
+
+  \item asim\`etrica
+    \subitem negativa\dotfill 8
+    \subitem per l'esquerra\dotfill 8
+    \subitem per la dreta\dotfill 8
+    \subitem positiva\dotfill 8
+
+  \indexspace
+{\bfseries\hfil C\hfil}\nopagebreak
+
+  \item campana de Gauss\dotfill 8, 78
+  \item coeficient
+    \subitem d'apuntament\dotfill 8
+    \subitem d'asimetria
+      \subsubitem de Fisher\dotfill 8
+      \subsubitem de Pearson\dotfill 8
+    \subitem de variaci\'o
+      \subsubitem de Pearson\dotfill 7
+      \subsubitem mitjana\dotfill 7
+  \item coeficient de correlaci\'o\dotfill 102
+  \item continu\"{\i}tat seq\"uencial
+    \subitem de la probabilitat\dotfill 23
+  \item covari\`ancia\dotfill 102
+  \item curtosi\dotfill 8
+
+  \indexspace
+{\bfseries\hfil D\hfil}\nopagebreak
+
+  \item decil\dotfill 6
+  \item definici\'o
+    \subitem cl\`assica de probabilitat\dotfill 24
+    \subitem freq\"uentista de probabilitat\dotfill 24
+  \item densitat\dotfill 45
+  \item descripci\'o num\`erica\dotfill 3
+  \item desigualtat
+    \subitem de Markov\dotfill 48
+    \subitem de Txebixev\dotfill 48
+  \item desviaci\'o
+    \subitem est\`andard\dotfill 47
+    \subitem mitjana\dotfill 7
+    \subitem t\'{\i}pica\dotfill 47
+  \item diagrama
+    \subitem de barres\dotfill 5
+    \subitem de freq\"u\`encies acumulades\dotfill 5
+  \item distribuci\'o
+    \subitem binomial\dotfill 75
+      \subsubitem negativa\dotfill 81
+    \subitem de Bernoulli\dotfill 75
+    \subitem de freq\"u\`encies\dotfill 8
+    \subitem de Pascal\dotfill 81
+    \subitem de Poisson\dotfill 76
+    \subitem exponencial\dotfill 78
+    \subitem gamma\dotfill 86
+    \subitem gaussiana\dotfill 78
+      \subsubitem bidimensional\dotfill 97
+    \subitem geom\`etrica\dotfill 76
+    \subitem hipergeom\`etrica\dotfill 77
+    \subitem multinomial\dotfill 100
+    \subitem normal\dotfill 78
+      \subsubitem est\`andard\dotfill 78
+    \subitem uniforme\dotfill 77
+      \subsubitem bidimensional\dotfill 97
+    \subitem unimodal\dotfill 8
+
+  \indexspace
+{\bfseries\hfil E\hfil}\nopagebreak
+
+  \item equiprobabilitat\dotfill 24
+  \item espai
+    \subitem de probabilitat\dotfill 25
+    \subitem mostral\dotfill 22, 25
+  \item esperan\c{c}a\dotfill 46
+    \subitem condicionada\dotfill 99
+  \item estad\'{\i }stica descriptiva\dotfill 1
+  \item experiment aleatori\dotfill 21
+
+  \indexspace
+{\bfseries\hfil F\hfil}\nopagebreak
+
+  \item falta de mem\`oria\dotfill 76, 78
+  \item fen\`omen aleatori\dotfill 21
+  \item F\'ormula de les probabilitats totals\dotfill 25
+  \item freq\"u\`encia
+    \subitem absoluta\dotfill 3, 5
+      \subsubitem acumulada\dotfill 3, 5
+    \subitem relativa\dotfill 3
+      \subsubitem acumulada\dotfill 3, 5
+  \item funci\'o
+    \subitem caracter\'{\i}stica\dotfill 49
+      \subsubitem multidimensional\dotfill 103
+    \subitem de densitat
+      \subsubitem condicionada\dotfill 98
+      \subsubitem conjunta\dotfill 96
+      \subsubitem marginal\dotfill 97
+    \subitem de distribuci\'o\dotfill 43
+      \subsubitem conjunta\dotfill 95
+      \subsubitem marginal\dotfill 95, 99
+    \subitem de probabilitat\dotfill 44
+      \subsubitem condicionada\dotfill 98
+      \subsubitem conjunta\dotfill 96
+      \subsubitem marginal\dotfill 96
+    \subitem generatriu
+      \subsubitem cumulativa\dotfill 50
+      \subsubitem de moments\dotfill 49
+      \subsubitem factorial\dotfill 50
+  \item funcions de
+    \subitem variables aleat\`ories\dotfill 100, 101
+
+  \indexspace
+{\bfseries\hfil H\hfil}\nopagebreak
+
+  \item histograma\dotfill 5
+
+  \indexspace
+{\bfseries\hfil I\hfil}\nopagebreak
+
+  \item independ\`encia condicionada\dotfill 26
+  \item individu\dotfill 3
+  \item interval de classe\dotfill 4, 5
+
+  \indexspace
+{\bfseries\hfil L\hfil}\nopagebreak
+
+  \item leptoc\'urtica\dotfill 8, 9
+  \item llei
+    \subitem feble dels grans nombres\dotfill 134
+    \subitem forta dels grans nombres\dotfill 134
+
+  \indexspace
+{\bfseries\hfil M\hfil}\nopagebreak
+
+  \item marca de classe\dotfill 5
+  \item matriu de covari\`ancies\dotfill 103
+  \item mediana\dotfill 6
+  \item mesoc\'urtica\dotfill 9
+  \item mesura de probabilitat\dotfill 23
+  \item mesura de simetria\dotfill 8
+  \item mitjana\dotfill 46
+    \subitem aritm\`etica\dotfill 6
+    \subitem geom\`etrica\dotfill 6
+    \subitem harm\`onica\dotfill 6
+    \subitem mostral\dotfill 134
+    \subitem quadr\`atica\dotfill 6
+  \item moda\dotfill 6
+  \item model probabil\'{\i}stic\dotfill 21, 25
+  \item moment\dotfill 7
+    \subitem central\dotfill 7
+      \subsubitem bidimensional\dotfill 102
+    \subitem central d'ordre $n$\dotfill 47
+    \subitem conjunt\dotfill 102
+    \subitem d'ordre $n$\dotfill 47
+    \subitem de funcions de variables aleat\`ories\dotfill 101
+    \subitem marginal\dotfill 102
+  \item mostra\dotfill 3
+
+  \indexspace
+{\bfseries\hfil O\hfil}\nopagebreak
+
+  \item observaci\'o\dotfill 3
+  \item ordenaci\'o\dotfill 3
+
+  \indexspace
+{\bfseries\hfil P\hfil}\nopagebreak
+
+  \item platic\'urtica\dotfill 8, 9
+  \item poblaci\'o\dotfill 3
+  \item pol\'{\i}gon
+    \subitem de freq\"u\`encies\dotfill 5
+      \subsubitem acumulades\dotfill 5
+  \item probabilitat\dotfill 21, 22
+    \subitem a posteriori\dotfill 26
+    \subitem a priori\dotfill 26
+    \subitem condicionada\dotfill 25, 26
+  \item prova de Bernoulli\dotfill 75, 76
+
+  \indexspace
+{\bfseries\hfil Q\hfil}\nopagebreak
+
+  \item quartil\dotfill 6
+
+  \indexspace
+{\bfseries\hfil R\hfil}\nopagebreak
+
+  \item recorregut\dotfill 7
+    \subitem interquart\'{\i}lic\dotfill 7
+    \subitem semiinterquart\'{\i}lic\dotfill 7
+  \item Regla de Bayes\dotfill 25
+  \item representaci\'o gr\`afica\dotfill 5
+
+  \indexspace
+{\bfseries\hfil S\hfil}\nopagebreak
+
+  \item sim\`etrica\dotfill 8
+  \item succ\'es\dotfill 21, 22
+    \subitem elemental\dotfill 22
+    \subitem impossible\dotfill 22
+    \subitem nul\dotfill 24
+    \subitem segur\dotfill 22
+  \item successos independents\dotfill 26
+
+  \indexspace
+{\bfseries\hfil T\hfil}\nopagebreak
+
+  \item taula de freq\"u\`encies\dotfill 4
+  \item temps d'espera\dotfill 76
+  \item teorema
+    \subitem de De Moivre-Laplace\dotfill 135
+    \subitem del l\'{\i}mit central\dotfill 135
+
+  \indexspace
+{\bfseries\hfil U\hfil}\nopagebreak
+
+  \item unitat estad\'{\i}stica\dotfill 3
+
+  \indexspace
+{\bfseries\hfil V\hfil}\nopagebreak
+
+  \item valor esperat\dotfill 46
+  \item variable
+    \subitem cont\'{\i}nua\dotfill 3
+    \subitem discreta\dotfill 3
+    \subitem estad\'{\i}stica\dotfill 3--5
+    \subitem unidimensional\dotfill 3
+  \item variable aleat\`oria\dotfill 43
+    \subitem absolutament cont\'{\i}nua\dotfill 45
+    \subitem binomial\dotfill 75
+      \subsubitem negativa\dotfill 81
+    \subitem complexa\dotfill 49
+    \subitem cont\'{\i}nua\dotfill 45
+    \subitem de Bernoulli\dotfill 75
+    \subitem de Pascal\dotfill 81
+    \subitem de Poisson\dotfill 76, 78
+    \subitem discreta\dotfill 44
+    \subitem exponencial\dotfill 78
+    \subitem gamma\dotfill 86
+    \subitem gaussiana\dotfill 78
+    \subitem geom\`etrica\dotfill 76
+    \subitem hipergeom\`etrica\dotfill 77
+    \subitem normal\dotfill 78
+      \subsubitem est\`andard\dotfill 78
+    \subitem uniforme\dotfill 77
+    \subitem vectorial\dotfill 95
+  \item variables aleat\`ories
+    \subitem conjuntament
+      \subsubitem absolutament cont\'{\i}nues\dotfill 96
+      \subsubitem gaussianes\dotfill 97
+    \subitem incorrelacionades\dotfill 102
+    \subitem independents\dotfill 98
+    \subitem relacionades linealment\dotfill 102
+  \item vari\`ancia\dotfill 6, 47
+    \subitem condicionada\dotfill 99
+  \item vector
+    \subitem aleatori\dotfill 95
+      \subsubitem absolutament continu\dotfill 96
+      \subsubitem gaussi\`a\dotfill 97
+      \subsubitem multinomial\dotfill 100
+      \subsubitem uniforme\dotfill 97
+    \subitem mitjana\dotfill 102
+
+\end{theindex}

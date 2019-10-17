@@ -1,0 +1,54 @@
+\begin{thebibliography}{Mey92}
+
+\bibitem[AM96]{AlMi}
+ALBERICH, R.; MIR, A.
+\newblock {\em Introducci\'o a l'Estad\'{\i}stica Descriptiva}.
+\newblock Publicacions UIB, 1996.
+
+\bibitem[Can92]{Ca}
+CANAVOS, G.C.
+\newblock {\em Probabilidad y Estad\'{\i}stica. Aplicaciones y M\'etodos.}
+\newblock McGraw-Hill, 1992.
+
+\bibitem[GS88]{GriSti}
+GRIMMETT, G.; STIRZAKER, D.
+\newblock {\em Probability and Random Processes}.
+\newblock Oxford Science Publications, 1988.
+
+\bibitem[iS94]{Sa}
+SANZ-SOL\'E, M.
+\newblock {\em Lli\c{c}ons de C\`alcul de Probabilitats}.
+\newblock Publicacions Universitat de Barcelona, 1994.
+
+\bibitem[Lar90]{Lar}
+LARSON, H.J.
+\newblock {\em Introducci\'on a la Teoria de las Probabilidades e Inferencia
+  Estad\'{\i}stica}.
+\newblock Limusa, 1990.
+
+\bibitem[LG94]{Le}
+LEON-GARCIA, A.
+\newblock {\em Probability and Random Processes for Electrical Engineering}.
+\newblock Addison-Wesley, 1994.
+
+\bibitem[Lli88]{Ba}
+BAR\'O-LLIN\`AS, J.
+\newblock {\em Estad\'{\i}stica Descriptiva}.
+\newblock Parram\'on, 1988.
+
+\bibitem[Mey92]{Me}
+MEYER, P.L.
+\newblock {\em Probabilidad y Aplicaciones Estad\'{\i}stica}.
+\newblock Addison-Wesley Iberoamericana, 1992.
+
+\bibitem[MR96]{MoRu}
+MONTGOMERY, D.C.; RUNGER, G.C.
+\newblock {\em Probabilidad y Estad\'{\i}stica aplicadas a la Ingenier\'{\i}a}.
+\newblock McGraw-Hill, 1996.
+
+\bibitem[QIL90]{QueIsiLo}
+QUESADA, V.; ISIDORO, A.; L\'OPEZ, L.A.
+\newblock {\em Curso y Ejercicios de Estad\'{\i}stica}.
+\newblock Alhambra Universidad, 1990.
+
+\end{thebibliography}
