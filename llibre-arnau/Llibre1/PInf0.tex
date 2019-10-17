@@ -1,0 +1,896 @@
+\part{Estad\'{\i}stica descriptiva
+\index{estadistica descriptiva@estad\'{\i}stica descriptiva}}
+
+\chapter{Variables unidimensionals\index{variable!unidimensional}}
+
+\section{Resum te\`oric}
+
+L'estad\'{\i}stica descriptiva \'es la part de l'estad\'{\i}stica que 
+s'encarrega de donar una descripci\'o num\`erica, 
+\index{descripcio numerica@descripci\'o num\`erica} 
+una ordenaci\'o\index{ordenacio@ordenaci\'o} 
+i una simplificaci\'o de la informaci\'o recollida.
+
+S'anomena {\bf poblaci\'o}\index{poblacio@poblaci\'o} 
+el conjunt de refer\`encia sobre el qual recauran les
+observacions.\index{observacio@observaci\'o} 
+Direm {\bf unitat estad\'{\i}stica}\index{unitat estadistica@unitat estad\'{\i}stica} 
+o {\bf individu}\index{individu} a cada element de
+la poblaci\'o. Una {\bf mostra}\index{mostra} 
+\'es un subconjunt de la poblaci\'o. Quan
+l'observaci\'o es pot quantificar, els valors num\`erics de l'observaci\'o
+s'anomenen {\bf variables estad\'{\i}stiques}.
+\index{variable!estadistica@estad\'{\i}stica} 
+Aquestes poden ser {\bf discretes},\index{variable!discreta}
+si prenen un conjunt finit o numerable de valors, i {\bf cont\'{\i}nues},
+\index{variable!continua@cont\'{\i}nua} si prenen
+un conjunt no numerable de valors.
+
+
+Per tal d'ordenar les dades obtengudes en l'observaci\'o d'una mostra 
+o poblaci\'o, necessitam con\`eixer els conceptes seg\"uents:
+
+\begin{enumerate}
+
+\item {\bf Freq\"u\`encia absoluta $n_i$} 
+\index{frequencia@freq\"u\`encia!absoluta}d'un valor $x_i$: el nombre de vegades
+que apareix en l'observaci\'o.
+
+\item {\bf Freq\"u\`encia relativa $f_i$} 
+\index{frequencia@freq\"u\`encia!relativa}d'un valor $x_i$: 
+la freq\"u\`encia absoluta
+dividida pel nombre d'observacions fetes.
+
+\item {\bf Freq\"u\`encia absoluta acumulada $N_i$} 
+\index{frequencia@freq\"u\`encia!absoluta!acumulada}en el valor $x_i$: la suma de
+les freq\"u\`encies absolutes dels valors menors o iguals al $x_i$.
+
+\item {\bf Freq\"u\`encia relativa acumulada $F_i$} 
+\index{frequencia@freq\"u\`encia!relativa!acumulada}en el valor $x_i$: la
+freq\"u\`encia absoluta acumulada dividida pel nombre d'observacions fetes.
+
+\end{enumerate}
+
+{\bf Propietats de les freq\"u\`encies}
+
+Sigui $N$ el nombre total d'observacions fetes i $k$, el nombre
+d'observacions diferents.
+
+\begin{enumerate}
+
+\item $\displaystyle \sum_{i=1}^k n_i = N$.
+
+\item $\displaystyle \sum_{i=1}^k f_i = 1$.
+
+\item $N_k = N$.
+
+\item $F_k = 1$.
+
+\item $0 \leq n_i \leq N, \ i = 1, \ldots , k$.
+
+\item $0 \leq f_i \leq 1, \ i = 1, \ldots , k$.
+
+\item $n_i = N_i - N_{i-1}, \ i = 2, \ldots , k$.
+
+\item El percentatge corresponent a un valor $x_i$ s'obt\'e com $f_i \times 100$.
+
+\end{enumerate}
+
+Una {\bf taula de freq\"u\`encies} 
+\index{taula de frequencies@taula de freq\"u\`encies}s'obt\'e ordenant els valors de menor a major i
+anotant les diferents freq\"u\`encies al costat de cada valor $x_i$:
+
+$$
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$x_i$ & $n_i$ & $N_i$ & $f_i$ & $F_i$ \\
+\hline
+\hline
+$x_1$ & $n_1$ & $N_1$ & $f_1$ & $F_1$ \\
+\hline
+$x_2$ & $n_2$ & $N_2$ & $f_2$ & $F_2$ \\
+\hline
+$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
+\hline
+$x_k$ & $n_k$ & $N_k$ & $f_k$ & $F_k$ \\
+\hline
+\hline
+Suma $\sum$ & N & & 1 & \\
+\hline
+\end{tabular} 
+$$
+
+Quan s'han fet moltes observacions i la variable estad\'{\i}stica 
+\index{variable!estadistica@estad\'{\i}stica}pren molts de
+valors diferents, l'estudi es fa tractant d'agrupar els valors de la variable
+estad\'{\i}stica en intervals anomenats {\bf intervals de classe},
+\index{interval de classe} que poden ser
+d'amplitud constant o variable. Aquests intervals es poden elegir de dos tipus:
+a) o b\'e intervals semioberts de la forma $[a,b)$ que no s'encavalquin, de manera
+que l'extrem obert d'un interval coincideixi amb l'extrem tancat del seg\"uent i
+que recobreixin tot el recorregut de la variable; o b\'e b) quan ens donin intervals
+que no s'encavalquin per\`o de manera que l'extrem obert d'un interval no
+coincideixi amb l'extrem tancat del seg\"uent, prendrem el punt mitj\`a 
+entre aquests dos extrems dels intervals consecutius com a nou extrem per als dos intervals.
+
+Direm {\bf marca de classe}\index{marca de classe} 
+al punt mitj\`a de cada interval. Sempre que vulguem resumir la informaci\'o 
+contenguda dins cada interval, agafarem la seva marca de
+classe.
+
+Les diferents representacions gr\`afiques 
+\index{representacio grafica@representaci\'o gr\`afica}que permeten observar 
+la informaci\'o recollida s\'on:
+
+\begin{enumerate}
+
+\item {\bf Diagrama de barres:} 
+\index{diagrama!de barres}posam en l'eix de les abscisses els valors de
+la variable i damunt cada un una l\'{\i}nia perpendicular d'al\c cada igual a
+la freq\"u\`encia absoluta (o relativa) del valor en q\"uesti\'o.
+
+\item {\bf Histograma:}\index{histograma} 
+quan les variables estad\'{\i}stiques estan agrupades en
+intervals de classe, aixecam damunt cada interval un rectangle d'\`area igual a
+la freq\"u\`encia absoluta (o relativa) de l'interval.
+
+\item {\bf Pol\'{\i}gon de freq\"u\`encies:} 
+\index{poligon@pol\'{\i}gon!de frequencies@de freq\"u\`encies} 
+s'obt\'e unint els extrems superiors de les
+barres en el diagrama de barres.\index{diagrama!de barres} 
+Si la variable est\`a agrupada en 
+intervals, el pol\'{\i}gon de freq\"u\`encies 
+\index{poligon@pol\'{\i}gon!de frequencies@de freq\"u\`encies}
+s'obt\'e unint els punts mitjans 
+de les bases superiors de cada interval.
+
+\item {\bf Diagrama de freq\"u\`encies acumulades:} 
+\index{diagrama!de frequencies acumulades@de freq\"u\`encies acumulades}
+posam a les abscisses els valors de la variable i sobre cada un una l\'{\i}nia perpendicular d'al\c cada
+igual a la freq\"u\`encia (absoluta o relativa) acumulada. Finalment s'uneixen amb
+segments horitzontals l'extrem superior de cada l\'{\i}nia amb la l\'{\i}nia seg\"uent.
+
+\item {\bf Pol\'{\i}gon de freq\"u\`encies acumulades:} 
+\index{poligon@pol\'{\i}gon!de frequencies@de freq\"u\`encies!acumulades}
+si la variable est\`a agrupada en
+intervals, co{\lgem}ocam en les abscisses els intervals de classe,
+\index{interval de classe} despr\'es posam
+damunt l'extrem dret de cada interval una l\'{\i}nia perpendicular d'al\c{c}ada
+equivalent a la seva freq\"u\`encia (absoluta o relativa) acumulada.
+\index{frequencia@freq\"u\`encia!absoluta!acumulada} 
+\index{frequencia@freq\"u\`encia!relativa!acumulada} 
+Finalment, unim els extrems superiors de totes aquestes l\'{\i}nies.
+\end{enumerate}
+
+De vegades interessa resumir la informaci\'o recollida a un o uns quants valors
+per tal de poder comparar diferents mostres o poblacions. 
+Veurem ara quins s\'on els valors m\'es utilitzats per a aix\`o. 
+En tot el que segueix, suposarem que la variable estad\'{\i}stica $X$ 
+\index{variable!estadistica@estad\'{\i}stica}
+pren els valors $x_1, \ldots , x_k$ amb freq\"u\`encies
+absolutes respectives $n_1, \ldots , n_k$. 
+\index{frequencia@freq\"u\`encia!absoluta}
+Sigui $N = n_1 + \cdots + n_k$.
+
+\begin{itemize}
+
+\item {\bf Mitjana aritm\`etica:} 
+\index{mitjana!aritmetica@aritm\`etica}
+$\displaystyle \bar{x} = {\sum\limits_{i=1}^k x_i n_i \over N} = 
+\sum_{i=1}^k x_i f_i$.
+
+\item {\bf Mitjana geom\`etrica:} 
+\index{mitjana!geometrica@geom\`etrica}
+$\displaystyle \bar{x}_G = \sqrt[N]{x_1^{n_1}
+\cdots x_k^{n_k}}$.
+
+\item {\bf Mitjana quadr\`atica:} 
+\index{mitjana!quadratica@quadr\`atica}
+$\displaystyle \bar{x}_Q = {\sum\limits_{i=1}^k
+x_i^2 n_i \over N}$.
+
+\item {\bf Mitjana harm\`onica:} 
+\index{mitjana!harmonica@harm\`onica}
+$\displaystyle \bar{x}_A = {N \over\sum\limits_{i=1}^k {n_i \over x_i}}$.
+
+\end{itemize}
+
+Resulta que $\bar{x}_A \leq \bar{x}_G \leq \bar{x} \leq \bar{x}_Q$.
+
+\begin{itemize}
+
+\item {\bf Mediana:} 
+\index{mediana}\'es el valor $M_e$ que, una vegada ordenats els valors de
+la variable, deixa igual nombre d'observacions a la seva esquerra que a la seva
+dreta. Si hi ha un nombre parell de valors, la mediana \'es la mitjana aritm\`etica
+dels dos valors centrals.
+
+\item {\bf Moda:}\index{moda} \'es el valor $M_d$ amb freq\"u\`encia m\'es alta. No t\'e perqu\`e
+ser \'unica. Si la variable ve agrupada en intervals de classe, parlam de
+l'interval modal, que en l'histograma correspon al rectangle d'\`area m\'es gran
+per unitat de base.
+
+\item {\bf Quartils:}\index{quartil} s\'on tres valors que divideixen les observacions ordenades
+en quatre parts iguals. El primer quartil $P_{1/4}$ \'es el que deixa la quarta
+part de les observacions menors o iguals que ell i les tres quartes parts
+majors que ell. El segon quartil $P_{2/4}$ \'es la mediana. El tercer quartil
+$P_{3/4}$ \'es el rec\'{\i}proc del primer.
+
+\item {\bf Decils:}\index{decil} el decil $i$-\`essim \'es el valor de la variable que deixa
+$i/10$ parts de les observacions menors o iguals que ell. An\`alogament es 
+defineix el {\bf percentil} $i$-\`essim com el valor de la variable que deixa
+$i/100$ parts de les observacions menors o iguals que ell.
+
+\item {\bf Vari\`ancia:}\index{variancia@vari\`ancia} 
+la d\'ona $\displaystyle S_x^2 =
+{\sum\limits_{i=1}^k (x_i - \bar{x})^2 n_i \over N}$. La seva arrel quadrada
+positiva s'anomena la {\bf desviaci\'o t\'{\i}pica} o {\bf est\`andard}: $\displaystyle
+S_x = + \sqrt{S_x^2}$.
+
+\item {\bf Desviaci\'o mitjana:}\index{desviacio@desviaci\'o!mitjana}
+
+\begin{itemize}
+
+\item respecte d'una mitjana $p$: $\displaystyle D_{M_p} = {\sum\limits_{i=1}^k
+| x_i - p | n_i \over N}$.
+
+\item respecte de la mitjana aritm\`etica: $\displaystyle D_{M_{\bar{x}}} =
+{\sum\limits_{i=1}^k | x_i - \bar{x} | n_i \over N}$.
+
+\item respecte de la mediana: $\displaystyle D_{M_{M_e}} = {\sum\limits_{i=1}^k
+| x_i - M_e | n_i \over N}$.
+
+\end{itemize}
+
+\item {\bf Coeficient de variaci\'o de Pearson:} $\displaystyle CV = {S_x
+\over \bar{x}}$.\index{coeficient!de variacio@de variaci\'o!de Pearson}
+
+\item {\bf Coeficient de variaci\'o mitjana:}
+\index{coeficient!de variacio@de variaci\'o!mitjana}
+
+\begin{itemize}
+
+\item respecte d'una mitjana $p$: $\displaystyle CVM_p = {D_{M_p} \over | p |}$.
+
+\item respecte de la mitjana aritm\`etica: $\displaystyle CVM_{\bar{x}} =
+{D_{M_{\bar{x}}} \over | \bar{x} |}$.
+
+\item respecte de la mediana: $\displaystyle CVM_{M_e} = {D_{M_{M_e}} \over |
+M_e |}$.
+
+\end{itemize}
+
+\item {\bf Recorregut:}\index{recorregut} \'es la difer\`encia $R$ entre el 
+valor m\`axim que pren la
+variable i el valor m\'{\i}nim.
+
+\item {\bf Recorregut interquart\'{\i}lic:} 
+\index{recorregut!interquartilic@interquart\'{\i}lic}
+$\displaystyle R_I = P_{3/4} - P_{1/4}$.
+
+\item {\bf Recorregut semiinterquart\'{\i}lic:} 
+\index{recorregut!semiinterquartilic@semiinterquart\'{\i}lic}
+$\displaystyle R_{SI} = {P_{3/4} - P_{1/4} \over 2}$.
+
+\item {\bf Moment d'ordre $r$ respecte del par\`ametre $c$:} 
+\index{moment} $\displaystyle M_r(c) = {\sum\limits_{i=1}^k 
+(x_i - c)^r n_i \over N}$.
+
+\item {\bf Moments centrals d'ordre $r$:} 
+\index{moment!central} quan $c = 0$: $\displaystyle a_r =
+{\sum\limits_{i=1}^k x_i^r n_i \over N}. \ $ Per exemple, $a_1 = \bar{x}$.
+
+\item {\bf Moments d'ordre $r$ respecte de la mitjana:} $\displaystyle m_r =
+{\sum\limits_{i=1}^k (x_i - \bar{x})^r n_i \over N}. \ $ Per exemple, $m_2 =
+S_x^2$.
+
+\end{itemize}
+
+Finalment parlarem de mesures d'asimetria i apuntament. 
+\index{mesura de simetria}
+Direm que una distribuci\'o de freq\"u\`encies 
+\index{distribucio@distribuci\'o!de frequencies@de freq\"u\`encies}
+\'es {\bf sim\`etrica}\index{simetrica@sim\`etrica} si els valors 
+equidistants d'un valor central tenen les mateixes freq\"u\`encies. 
+En aquest cas, resulta: $\bar{x} = M_e$. En el cas de distribucions
+unimodals, tenim que $\bar{x} =M_d = M_e$.
+\index{distribucio@distribuci\'o!unimodal}
+Una distribuci\'o asim\`etrica pot ser:
+
+\begin{itemize}
+
+\item {\bf asim\`etrica per la dreta} o {\bf positiva}, 
+\index{asimetrica@asim\`etrica!per la dreta}
+\index{asimetrica@asim\`etrica!positiva} quan la gr\`afica de les
+freq\"u\`encies presenta cua a la dreta, \'es a dir, les freq\"u\`encies descendeixen m\'es
+lentament per la dreta que per l'esquerra. En aquest cas, resulta: $\bar{x}
+\geq M_e$. Si la distribuci\'o \'es unimodal, resulta 
+$\bar{x}\geq M_e \geq M_d$.
+\index{distribucio@distribuci\'o!unimodal}
+
+\item {\bf asim\`etrica per l'esquerra} o {\bf negativa}, 
+\index{asimetrica@asim\`etrica!per l'esquerra}
+\index{asimetrica@asim\`etrica!negativa} en cas rec\'{\i}proc. En
+aquest cas, resulta: $\bar{x} \leq M_e$.
+Si la distribuci\'o \'es unimodal, resulta $\bar{x} \leq M_e \leq M_d$.
+\index{distribucio@distribuci\'o!unimodal}
+\end{itemize}
+
+Els seg\"uents coeficients permeten con\`eixer l'asimetria d'una distribuci\'o sense
+haver-la de representar.
+
+\begin{itemize}
+
+\item {\bf Coeficient d'asimetria de Pearson:} (nom\'es per a distribucions
+unimodals)
+\index{coeficient!d'asimetria!de Pearson} $ A_P = {\bar{x} - M_d \over
+S_x}$.
+
+\begin{itemize}
+
+\item Si $A_P > 0$, la distribuci\'o \'es asim\`etrica per la dreta.
+
+\item Si $A_P = 0$, la distribuci\'o \'es sim\`etrica.
+
+\item Si $A_P < 0$, la distribuci\'o \'es asim\`etrica per l'esquerra.
+
+\end{itemize}
+
+\item {\bf Coeficient d'asimetria de Fisher:} 
+\index{coeficient!d'asimetria!de Fisher} $A_F = {m_3 \over S_x^3}$.
+
+\begin{itemize}
+
+\item Si $A_F > 0$, la distribuci\'o \'es asim\`etrica per la dreta.
+
+\item Si $A_F = 0$, la distribuci\'o \'es sim\`etrica.
+
+\item Si $A_F < 0$, la distribuci\'o \'es asim\`etrica per l'esquerra.
+
+\end{itemize}
+
+\end{itemize}
+
+Per acabar, donarem un coeficient d'apuntament o {\bf curtosi}, 
+\index{coeficient!d'apuntament}\index{curtosi} que ens indica
+si la gr\`afica d'una distribuci\'o, comparada amb la de la normal (campana de
+Gauss),\index{campana de Gauss} \'es poc apuntada ({\bf platic\'urtica}
+\index{platicurtica@platic\'urtica} o apuntament baix), punxeguda
+({\bf leptoc\'urtica}\index{leptocurtica@leptoc\'urtica} 
+o apuntament alt) o mitjanament apuntada ({\bf mesoc\'urtica}). 
+\index{mesocurtica@mesoc\'urtica}
+El coeficient es defineix com:
+
+$$g_2 = {m_4 \over S_x^4}.$$
+
+Aleshores resulta:
+\begin{itemize}
+\item $g_2 > 3 \to $ leptoc\'urtica.\index{leptocurtica@leptoc\'urtica}
+\item $g_2 = 3 \to $ mesoc\'urtica.\index{mesocurtica@mesoc\'urtica}
+\item $g_2 < 3 \to $ platic\'urtica.\index{platicurtica@platic\'urtica}
+\end{itemize}
+
+\section{Problemes resolts}
+
+\begin{probres}
+{
+Considerem les puntuacions de $50$ aspirants a un lloc 
+de treball:
+$$\begin{tabular}{cccccccccc}
+8 & 11 & 11 & 8 & 9 & 10 & 16 & 6 & 12 & 19 \\
+13 & 6 & 9 & 13 & 15 & 9 & 12 & 16 & 8 & 7 \\
+14 & 11 & 15 & 6 & 14 & 14 & 17 & 11 & 6 & 9 \\
+10 & 19 & 12 & 11 & 12 &  6 & 15 & 16 & 16 & 12 \\ 
+13 & 12 & 12 & 8 & 17 & 13 & 7 & 12 & 14 & 12 
+\end{tabular}
+$$
+Trobau la taula 
+de freq\"u\`encies prenent intervals 
+d'amplada $3$.  Trobau tamb\'e l'histograma 
+de freq\"u\`encies absolutes amb el 
+corresponent pol\'{\i}gon
+ 
+de freq\"u\`encies.
+}
+\etiqueta{PROBUESTDESC}
+\end{probres}
+\newpage
+
+\res{
+El valor m\`axim \'es $19$ i el m\'{\i}nim, $6$. 
+Tenint en compte que 
+consideram l\'{\i}mits reals per als 
+intervals de classe, la taula ser\`a:
+$$
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline
+intervals  & $X_j$ & $n_j$ & $N_j$ &  $f_j$ &  $F_j$ \\
+\hline\hline
+$[5.5,8.5)$  & 7  & 11 & 11 & 0.22 &  0.22 \\\hline
+$[8.5,11.5)$ & 10  & 11  & 22  & 0.22  & 0.44 \\\hline
+$[11.5,14.5)$ & 13 & 17  & 39  & 0.34  & 0.78 \\\hline
+$[14.5,17.5)$ & 16 &  9  & 48  & 0.18  & 0.96 \\\hline
+$[17.5,20.5)$ & 19   & 2  & 50 & 0.04  & 1.00 \\
+\hline
+\end{tabular}
+$$
+
+L'histograma de freq\"u\`encies absolutes amb el 
+corresponent pol\'{\i}gon
+de freq\"u\`encies ser\`a com s'indica en el 
+gr\`afic~\ref{GRAFHISTO}.
+
+Fixau-vos que les al\c{c}ades dels rectangles depenen del fet que
+l'amplada dels intervals \'es~$3$:  \[ \begin{array}{rlcrl} h_1 =&
+\frac{n_1}{3}=\frac{11}{3}=3.6666,& & h_2=& \frac{n_2}{3}=
+\frac{11}{3}=3.666,\\ &&&&\\ h_3 =& \frac{n_3}{3}=\frac{17}{3}=5.6666,&
+& h_4=& \frac{n_4}{3}= \frac{9}{3}=3, \\ &&&&\\ h_5 = &
+\frac{n_5}{3}=\frac{2}{3}=0.666.&&& \end{array} \]
+
+\begin{figure}
+$$
+\setcoordinatesystem units <0.5cm,0.25cm>
+\beginpicture
+\setplotarea x from 5.5 to 20.5, y from 0 to 20
+\axis bottom shiftedto y=0 ticks
+in withvalues $5.5$ $8.5$ $11.5$ $14.5$ $17.5$ $20.5$ /
+ quantity 6 /
+\axis left shiftedto x=5.5 ticks
+in withvalues {} $2$ $4$ $6$ /
+ quantity 4 /
+\sethistograms
+\plot 5.5 0
+8.5 11
+11.5 11
+14.5 17
+17.5 9
+20.5 2 /
+\setlinear
+\plot 4 0
+7 11
+10 11
+13 17
+16 9
+19 2
+22 0 /
+\endpicture
+$$
+\caption{Histograma de freq\"u\`encies absolutes per al problema 
+\ref{PROBUESTDESC}}
+\label{GRAFHISTO}
+\end{figure}
+}
+
+\begin{probres}
+{
+Considerem les dades seg\"uents:
+$$
+\begin{tabular}{cccccccccc}
+10 & 5 & 2 & 7 & 9 & 5 & 7 & 6 & 5 & 9 \\
+12 & 2 & 6 & 6 & 9 & 12 & 6 & 6 & 6 & 4 \\
+ 9 & 7 & 12 & 11 & & & & & & 
+\end{tabular}
+$$
+Trobau la mitjana 
+aritm\`etica de les dades anteriors sense agrupar en 
+intervals i agrupant les dades en intervals
+ d'amplada $3$.
+
+Trobau tamb\'e la mediana i els percentils 
+$P_{1/4}$ i $P_{3/4}$ de les dades 
+agrupades.}
+\end{probres}
+
+\res{
+La mitjana aritm\`etica
+de les dades anteriors sense agrupar 
+en intervals ser\`a:
+
+$$\overline{X}= \frac{10+5+2+\cdots +12+11}{24}=\frac{173}{24}=7.20833   
+$$   
+                                          
+Si les agrupam en intervals d'amplada $3$, 
+la mitjana ser\`a (fem primer 
+la taula de
+freq\"u\`encies):
+$$
+\begin{tabular}{|l|r|r|r|}
+\hline
+intervals & $X_j$ & $n_j$ & $n_j X_j$ \\
+\hline\hline
+$[1.5,4.5)$&3&3&9\\
+\hline
+$[4.5,7.5)$&6&12&72\\ 
+\hline
+$[7.5,10.5)$&9&5&45\\ 
+\hline
+$[10.5,13.5)$ &12&4&48\\ 
+\hline\hline
+  Suma     & 24  &    & 174\\\hline
+\end{tabular}
+$$
+La mitjana ser\`a, doncs:
+$$\overline{X}= \frac{174}{24}=7.25$$
+
+Notem que els valors difereixen ja que l'agrupament provoca una 
+p\`erdua d'informaci\'o.
+
+A continuaci\'o trobam la mediana i els 
+percentils $P_{1/4}$ i $P_{3/4}$:
+
+Tenim que $N=24$. Per tant,
+$\frac{N}{2}=12$. L'interval cr\'{\i}tic, 
+ser\`a, en aquest cas: $[4.5,7.5)$.
+La mediana valdr\`a:
+$$Md=4.5+3\frac{12-3}{12}=6.75.$$
+
+Percentil $25$: $P_{1/4}\Rightarrow  
+\frac{NP}{100}= 6$. Interval cr\'{\i}tic: 
+
+$[4.5,7.5)$.
+$$P_{1/4}=4.5+3\frac{(6-3)}{12}=5.25$$
+Percentil $75$: $P_{3/4} \Rightarrow  
+\frac{NP}{100}= 18$. Interval cr\'{\i}tic:  
+
+$[7.5,10.5)$.
+$$
+P_{3/4}=7.5+3\frac{(18-15)}{5}=9.3
+$$
+}
+
+\begin{probres}
+{
+Considerem la distribuci\'o
+de freq\"u\`encies seg\"uent:
+$$
+\begin{tabular}{|l|r|}
+\hline
+intervals & $n_j$ \\
+\hline\hline
+$[9.5,29.5)$    &  38\\\hline  
+$[29.5,49.5)$   &  18\\\hline
+$[49.5,69.5)$   &  31 \\\hline
+$[69.5,89.5)$   &  20  \\\hline
+\end{tabular}
+$$
+Trobau la vari\`ancia i el coeficient
+ de variaci\'o respecte de la mitjana.
+}
+\end{probres}
+
+\res{
+Primer hem de trobar la mitjana.
+
+Per fer-ho, constru\"{\i}m la taula seg\"uent:
+
+$$
+\begin{tabular}{|l|r|r|r|}
+\hline
+intervals    & $X_j$ & $n_j$ & $n_jX_j$ \\
+\hline\hline
+$[9.5,29.5)$   & 19.5 &  38 &   741 \\\hline  
+$[29.5,49.5)$  & 39.5 &  18 &   711 \\\hline
+$[49.5,69.5)$  & 59.5 &  31 &  1844.5 \\\hline
+$[69.5,89.5)$  & 79.5 &  20 &  1590   \\\hline
+\hline
+    Sumes      &      & 107 &  4886.50 \\\hline
+\end{tabular}
+$$
+La mitjana valdr\`a:
+$$\overline{X}=\frac{4886.5}{107}=45.6682.$$
+
+Per trobar la vari\`ancia hem d'afegir dues 
+columnes m\'es a la taula anterior:
+$$
+\begin{tabular}{|c|r|r|}
+\hline
+ $X_j$ & $X_j^2$ & $n_jX_j^2$ \\
+\hline\hline
+ 19.5  & 380.25  & 14449.50 \\\hline
+ 39.5  & 1560.25 &  28084.50 \\\hline
+ 59.5  & 3540.25 & 109747.75 \\\hline
+ 79.5  & 6320.25 & 126405.00 \\
+\hline\hline
+Suma   &          & 278686.75  \\\hline
+\end{tabular}
+$$
+La vari\`ancia i la desviaci\'o 
+t\'{\i}pica valen:
+
+\begin{eqnarray*}
+S_X^2 & = & \frac{278686.75}{107}-45.6682^2=518.962, \\
+S_X & = & \sqrt{518.962}=22.7807.
+\end{eqnarray*}
+El coeficient 
+de variaci\'o val:
+$$CV=\frac{S_X}{\overline{X}}=\frac{22.6807}{45.6682}=0.4988.$$
+}
+
+\begin{probres}
+{
+Trobau els coeficients de simetria 
+i apuntament de la 
+distribuci\'o
+de freq\"u\`encies seg\"uent:
+$$
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+intervals  &  $ n_j$  \\ 
+\hline\hline
+$[14.5,19.5)$  &  4  \\\hline
+$[19.5,24.5)$  &  6 \\\hline
+$[24.5,29.5)$  &  8 \\\hline
+$[29.5,34.5)$  & 11  \\\hline
+$[34.5,39.5)$  & 35  \\\hline
+$[39.5,44.5)$  & 100 \\\hline
+$[44.5,49.5)$  & 218 \\
+\hline
+\end{tabular}
+$$
+}
+\end{probres}
+
+\newpage
+
+\res{
+Trobem primer la mitjana i la vari\`ancia.
+Per fer-ho constru\"{\i}m la 
+taula seg\"uent:
+$$
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+intervals &  $X_j$ & $ n_j$ &  $n_jX_j$  &  $n_jX_j^2$ \\ 
+\hline\hline
+$[14.5,19.5)$ & 17  &  4    & 68   & 1156  \\\hline
+$[19.5,24.5)$ & 22  &  6   & 132   & 2904 \\\hline
+$[24.5,29.5)$ & 27  &  8  &  216   & 5832 \\\hline
+$[29.5,34.5)$ & 32  & 11  &  352   & 11264 \\\hline
+$[34.5,39.5)$ & 37  & 35  & 1295   & 47915 \\\hline
+$[39.5,44.5)$ & 42  &100  & 4200  & 176400 \\\hline
+$[44.5,49.5)$ & 47  & 218 & 10246 & 481562 \\\hline
+\hline
+  Sumes       & &   382 & 16509 & 727033\\\hline
+\end{tabular}
+$$
+
+La mitjana i la vari\`ancia valen:
+
+$$
+\overline{X}=  \frac{16509}{382}=43.2173,\quad
+S_{X}^2=  \frac{727033}{382}-\left(\frac{16509}{382}\right)^2=35.49.
+$$
+
+Trobem ara el coeficient d'asimetria
+$A_F$. Per fer-ho, hem d'afegir una
+columna m\'es a la taula anterior: 
+
+$$
+\begin{tabular}{|r|r|r|}
+\hline
+        $X_j$ &  $ n_j$ &    $n_j {(X_j-\overline{X})}^3$ \\
+\hline\hline
+        17 &   4  & -72081.33  \\\hline
+        22  &  6  & -57308.66 \\\hline
+        27  &  8  & -34121.16 \\\hline
+        32  & 11  & -15525.84 \\\hline
+        37  & 35  &  -8411.41 \\\hline
+        42  & 100  &   -180.37 \\\hline
+        47  & 218  &  11799.67 \\\hline
+\hline
+ Sumes       & 382  &-175829.09 \\\hline
+\end{tabular}
+$$
+El moment de tercer ordre val:
+
+$$m_3=\frac{-175829.09}{382}=-460.285.$$
+
+A continuaci\'o calculam el coeficient d'asimetria de Fisher:
+
+
+$$A_F=\frac{m_3}{S_X^3}=\frac{-460.285}{\left(\sqrt{35.49}\right)^3}=-2.18.$$
+
+Per tant, podem dir que es tracta d'una 
+distribuci\'o asim\`etrica per l'esquerra o asim\`etrica 
+negativa.
+
+A continuaci\'o trobem el coeficient d'apuntament
+ $g_2$.
+Per fer-ho, hem d'afegir una columna m\'es a la taula anterior:
+$$
+\begin{tabular}{|l|r|r|r|}
+\hline
+intervals   &  $X_j$  & $n_j $  & $n_j(X_j-X)^4$   \\   
+\hline\hline
+$[14.5,19.5)$ & 17  & 4    & 1889776.11 \\\hline
+$[19.5,24.5)$ & 22  & 6    & 1215933.65 \\\hline
+$[24.5,29.5)$ & 27 &   8   &  553352.38 \\\hline
+$[29.5,34.5)$ & 32 &  11   & 174157.64 \\\hline
+$[34.5,39.5)$ & 37 &  35   & 52296.07 \\\hline
+$[39.5,44.5)$ & 42 & 100   &  219.56 \\\hline
+$[44.5,49.5)$ & 47 & 218  &  44634.88 \\\hline
+\hline
+  Sumes     & &    382  & 3930370.29 \\\hline
+\end{tabular}
+$$
+El moment de quart ordre val:
+
+$$m_4=\frac{3930370.29}{382}=10288.93.$$
+
+A continuaci\'o, calculam el coeficient d'apuntament
+
+$$g_2=\frac{m_4}{S_X^4} -3 =\frac{10288.93}{35.49^2}-3=5.17.$$
+Per tant, es tracta d'una distribuci\'o 
+punxeguda o leptoc\'urtica.
+}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{
+A 50 aspirants a un determinat lloc de treball se'ls 
+va sotmetre a una
+prova. Les puntuacions obtengudes varen ser:
+\begin{center}
+\begin{tabular}{rrrrrrrrrr}
+4,&4,&2,&10,&1,&9,&5,&3,&4,&5,\\
+6,&6,&7,&6,&8,&7,&6,&8,&7,&6,\\
+5,&4,&4,&4,&5,&6,&6,&7,&5,&6,\\
+6,&7,&5,&6,&6,&7,&5,&6,&4,&3,\\
+2,&6,&6,&7,&7,&8,&8,&9,&8,&7.\\
+\end{tabular}
+\end{center}
+\begin{itemize}
+\item[a)] {Constru\"{\i}u la taula de freq\"u\`encies 
+i la representaci\'o gr\`afica corresponent.}
+\item[b)] {Trobau la puntuaci\'o que 
+seleccioni el $20\%$ dels millors candidats.}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{
+En la poblaci\'o 
+d'estudiants de la facultat es va seleccionar una mostra
+de 20 alumnes i es varen obtenir les seg\"uents talles en cent\'{\i}metres:
+\begin{center}
+\begin{tabular}{cccccccccc}
+162,&168,&174,&168,&166,&170,&168,&166,&170,&172,\\
+188,&182,&178,&180,&176,&168,&164,&166,&164,&172.\\
+\end{tabular}
+\end{center}
+Es demana:
+\begin{itemize}
+\item[a)] {Descripci\'o num\`erica i representaci\'o gr\`afica.
+}
+\item[b)] {Mitjana aritm\`etica, 
+mediana i moda.}
+\end{itemize}
+}
+\etiqueta{POBESTFAC}
+\end{prob}
+
+\begin{prob}
+{
+Agrupant les dades de l'exercici \ref{POBESTFAC} en intervals d'amplada 
+$10$ cm., es demana:
+\begin{itemize}
+\item[a)] {Descripci\'o num\`erica i representaci\'o gr\`afica.
+}
+\item[b)] {Mitjana aritm\`etica, 
+mediana i moda.}
+\item[c)] {Analitzau els c\`alculs fets i els errors d'agregaci\'o 
+i comparau-los
+amb els de l'exercici anterior.}
+\end{itemize}}
+\end{prob}
+
+\begin{prob}
+{
+Les tres factories d'una ind\'ustria
+ han produ\"{\i}t en l'\'ultim any el seg\"uent
+nombre de motocicletes per trimestre:
+\begin{center}
+\begin{tabular}{|c||r|r|r|}
+\hline
+ & factoria 1 & factoria 2 & 
+factoria 3 \\\hline\hline 
+1r. trimestre & 600 & 650 & 550 \\\hline 
+2n. trimestre & 750 & 1200 & 900 \\\hline
+3r. trimestre & 850 &1250 & 1050 \\\hline
+4t. trimestre & 400 & 800 & 650 \\\hline
+\end{tabular}
+\end{center}
+Obteniu:
+\begin{itemize}
+\item[a)] {Producci\'o mitjana 
+trimestral de cada factoria i de tota la
+ind\'ustria.}
+\item[b)] {Producci\'o mitjana 
+di\`aria de cada factoria i 
+de tota la ind\'ustria
+tenint en compte que durant el primer trimestre hi va 
+haver $68$ dies laborables, durant el segon, $78$, durant el tercer, $54$ i 
+durant el quart, $74$.}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{
+Una empresa ha pagat per un cert article: 
+$225$, $250$, $300$ i $200$ ptes. de preu. 
+
+Determinau el preu mitj\`a en les hip\`otesis seg\"uents:
+\begin{itemize}
+\item[a)] {Comprava per valor de $38.250$, $47.500$, $49.500$ i $42.000$ ptes.,
+respectivament.}
+\item[b)] {Comprava cada vegada un mateix import global.}
+\item[c)] {Comprava $174$, $186$, $192$ i $214$ unitats, respectivament.}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{
+D'una mostra de $56$ botigues 
+distintes, es varen obtenir els seg\"uents preus de venda d'un determinat 
+article:
+\begin{center}
+\begin{tabular}{ccccccc}
+3260 & 3510 & 3410 & 3180 & 3300 & 3540 & 3320 \\
+3450 & 3840 & 3760 & 3340 & 3260 & 3720 & 3430 \\
+3320 & 3460 & 3600 & 3700 & 3670 & 3610 & 3910 \\
+3610 & 3610 & 3620 & 3150 & 3520 & 3430 & 3330 \\
+3370 & 3620 & 3750 & 3220 & 3400 & 3520 & 3360 \\
+3300 & 3340 & 3410 & 3600 & 3320 & 3670 & 3420 \\
+3320 & 3290 & 3550 & 3750 & 3710 & 3530 & 3500 \\
+3290 & 3410 & 3100 & 3860 & 3560 & 3440 & 3620 \\
+\end{tabular}
+\end{center}
+Es demana:
+\begin{itemize}
+\item[a)] {Agrupau la informaci\'o en sis intervals d'igual amplada
+ i representaci\'o gr\`afica
+ corresponent.}
+\item[b)] {Mitjana geom\`etrica, 
+quadr\`atica, 
+aritm\`etica 
+i harm\`onica.}
+\item[c)] {Desviaci\'o de les quatre mitjanes.}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{
+La seg\"uent distribuci\'o correspon al capital 
+pagat per les $420$ empreses de la construcci\'o 
+ amb adre\c{c}a social en una regi\'o 
+determinada:
+\begin{center}
+\begin{tabular}{|r|r|}
+\hline
+Capital (milions de ptes.) & Nombre d'empreses\\\hline\hline
+menys de 5 & 12 \\\hline
+de 5 a 13 & 66 \\\hline
+de 13 a 20 & 212 \\\hline
+de 20 a 30 & 84 \\\hline
+de 30 a 50 & 30 \\\hline
+de 50 a 100 & 14 \\\hline
+m\'es de 100 & 2 \\\hline
+\end{tabular}
+\end{center}
+\begin{itemize}
+\item[a)] {Fent servir com a marques de classe 
+del primer i \'ultim interval $4$ i
+$165$, respectivament, trobau la mitjana 
+aritm\`etica i la 
+desviaci\'o t\'{\i}pica.}
+\item[b)] {Calculau la moda i la mediana.}
+\item[c)] {Coeficient d'asimetria de Fisher.
+}
+\end{itemize}
+}
+\end{prob}
+

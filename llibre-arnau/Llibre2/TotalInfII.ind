@@ -1,0 +1,285 @@
+\begin{theindex}
+
+  \item ajust, 136
+  \item an\`alisi
+    \subitem de correlaci\'o, 144
+    \subitem de la vari\`ancia, 109, 141
+      \subsubitem d'un factor, 109
+      \subsubitem de dos factors, 114, 116
+  \item atzar, 85
+
+  \indexspace
+
+  \item Bartlett, 113
+  \item biaix, 138
+
+  \indexspace
+
+  \item categoria, 83
+  \item classe, 85, 86
+    \subitem d'alumnes, 109
+  \item classificaci\'o, 83
+  \item coeficient
+    \subitem de correlaci\'o, 144
+      \subsubitem mostral, 145
+      \subsubitem poblacional, 145
+    \subitem de regressi\'o, 136, 139
+  \item condici\'o de regularitat, 85
+  \item consist\`encia, 23
+  \item contrast
+    \subitem d'hip\`otesi, 9, 59, 83, 103, 109, 139
+      \subsubitem param\`etric, 62
+      \subsubitem simple, 60
+  \item corba OC, 59, 62
+  \item correlaci\'o, 144
+  \item cota de Cramer-Rao, 24, 25
+  \item criteri, 85, 86
+    \subitem de factoritzaci\'o de Fisher-Neyman, 23
+  \item criteri de contrast
+    \subitem de la ra\'o de versemblan\c{c}a, 62
+
+  \indexspace
+
+  \item derivada parcial, 136
+  \item desviaci\'o
+    \subitem t\'{\i}pica, 10
+  \item desviaci\'o est\`andard
+    \subitem de la mostra, 48
+  \item difer\`encia
+    \subitem deguda al m\`etode, 114
+    \subitem deguda al nivell social, 114
+    \subitem entre columnes, 116
+    \subitem entre files, 116
+  \item distribuci\'o
+    \subitem $F$ de Fisher-Snedecor, 49, 112, 117, 118, 142, 143
+    \subitem $t$ de Student, 48, 143
+    \subitem de la mostra, 103
+    \subitem de Poisson, 85
+    \subitem normal, 24
+    \subitem uniforme, 21
+
+  \indexspace
+
+  \item efic\`acia, 109, 114
+  \item equaci\'o
+    \subitem de predicci\'o, 135
+    \subitem de regressi\'o, 135
+    \subitem normal, 137
+  \item error
+    \subitem aleatori, 136
+    \subitem de tipus I, 59, 62, 104
+    \subitem de tipus II, 59, 60
+  \item esperan\c{c}a, 141
+  \item estad\'{\i}stic, 111, 113, 118, 142, 143, 145
+    \subitem de contrast, 113, 116, 117
+  \item estad\'{\i}stica, 9, 21, 62, 85, 86
+    \subitem de Kolmogorov-Smirnov, 103
+    \subitem inferencial, 11
+    \subitem suficient, 23, 24, 61
+  \item estimaci\'o, 47, 136
+    \subitem de par\`ametres, 21
+    \subitem del par\`ametre, 137, 138
+    \subitem puntual, 9
+  \item estimada, 21
+  \item estimador, 21, 22, 47
+    \subitem consistent, 23, 24
+    \subitem de m\`axima versemblan\c{c}a, 22, 24, 85, 86, 110
+    \subitem de m\'{\i}nims quadrats, 137, 138
+    \subitem de vari\`ancia m\'{\i}nima, 24
+    \subitem del par\`ametre, 110, 115
+    \subitem eficient, 22
+    \subitem lineal, 22, 23
+      \subsubitem sense biaix, 25
+    \subitem puntual, 47
+    \subitem sense biaix, 22, 24, 25, 138
+  \item extrem, 47
+
+  \indexspace
+
+  \item factor
+    \subitem ambiental, 109
+    \subitem tractament, 109
+  \item falta d'ajust, 143
+  \item funci\'o
+    \subitem de densitat, 11
+      \subsubitem conjunta, 144
+    \subitem de distribuci\'o, 9, 11, 83--85, 103
+      \subsubitem emp\'{\i}rica, 103
+    \subitem de pot\`encia, 61
+    \subitem de pot\`encia del test, 59
+    \subitem de versemblan\c{c}a
+      \subsubitem de la mostra, 22, 25, 60, 62
+    \subitem gamma, 48
+    \subitem generatriu de moments, 11
+
+  \indexspace
+
+  \item grau
+    \subitem de confian\c{c}a, 47
+    \subitem de llibertat, 11
+
+  \indexspace
+
+  \item hip\`otesi
+    \subitem alternativa, 59
+      \subsubitem unilateral, 61
+    \subitem composta, 61, 62
+    \subitem de normalitat, 140
+    \subitem nu{\lgem}a, 59, 104, 142
+    \subitem simple, 60
+
+  \indexspace
+
+  \item igualtat de vari\`ancies, 113
+  \item independ\`encia, 86
+  \item individu, 9
+  \item infer\`encia
+    \subitem estad\'{\i}stica, 9
+    \subitem sobre els coeficients de regressi\'o, 138
+    \subitem sobre els par\`ametres de regressi\'o, 142
+  \item interacci\'o, 114, 115, 117
+  \item interval
+    \subitem de confian\c{c}a, 9, 47--49, 62, 139--141
+      \subsubitem unilateral, 49
+    \subitem de predicci\'o, 141
+
+  \indexspace
+
+  \item lema de Neyman-Pearson, 60, 61
+
+  \indexspace
+
+  \item mediana de la mostra, 10
+  \item m\`etode
+    \subitem d'ensenyament, 109, 114, 115
+    \subitem de classificaci\'o, 85
+      \subsubitem independent, 85, 86
+    \subitem de la m\`axima versemblan\c{c}a, 22
+    \subitem del m\'{\i}nims quadrats, 136
+    \subitem dels moments, 21
+  \item mitjana, 11, 109, 140
+    \subitem de la mostra, 10
+    \subitem quadr\`atica, 111, 113, 116, 118
+      \subsubitem d'interacci\'o, 116
+      \subsubitem de l'error, 116
+      \subsubitem intergrup, 111
+      \subsubitem intragrup, 111
+      \subsubitem per columnes, 116
+      \subsubitem per files, 116
+      \subsubitem total, 111
+  \item moment de la mostra, 10
+  \item mostra, 9, 85, 109
+    \subitem aleat\`oria, 21
+      \subsubitem simple, 9
+  \item mostreig, 109
+    \subitem estad\'{\i}stic, 9
+  \item multinomial, 86
+
+  \indexspace
+
+  \item nivell, 85, 109
+    \subitem de classificaci\'o, 85, 86
+    \subitem de significaci\'o, 60, 61, 104, 113
+    \subitem social, 114, 115
+  \item normal, 11
+  \item normalitat, 113
+
+  \indexspace
+
+  \item observaci\'o, 47, 143
+    \subitem de la mostra, 136
+
+  \indexspace
+
+  \item par\`ametre, 9, 21--23, 47, 49, 59--62, 83--86, 110, 114, 136, 
+		141, 145
+  \item pendent, 142
+  \item percentil, 11
+  \item poblaci\'o, 9, 21
+    \subitem infinita, 85
+  \item predicci\'o, 140
+  \item primer moment, 21
+  \item probabilitat, 9
+    \subitem d'error tipus I, 60, 84
+    \subitem d'error tipus II, 60
+  \item propietat invariant, 24
+  \item prova
+    \subitem d'independ\`encia, 83, 85
+      \subsubitem de dues variables, 83
+    \subitem de bondat d'ajust, 86
+    \subitem de bondat d'ajustament, 83
+    \subitem de la bondat d'ajustament, 83, 103
+    \subitem de la linealitat de la regressi\'o, 143
+    \subitem multinomial, 84
+
+  \indexspace
+
+  \item quasivari\`ancia de la mostra, 10
+
+  \indexspace
+
+  \item rang de la mostra, 10
+  \item recta
+    \subitem de regressi\'o
+      \subsubitem ajustada, 136
+      \subsubitem estimada, 136
+    \subitem de regressi\'o, 142
+  \item regi\'o
+    \subitem cr\'{\i}tica, 59, 60, 62, 104, 112, 113, 117, 118, 
+		139, 140, 142, 144, 145
+      \subsubitem de Neyman-Pearson, 61
+      \subsubitem \`optima, 60, 61
+  \item regressi\'o, 135
+    \subitem lineal, 135, 143
+      \subsubitem simple, 135, 136
+  \item relaci\'o lineal, 145
+    \subitem perfecta, 145
+  \item rendiment, 114
+    \subitem mitj\`a, 114
+  \item representaci\'o tabular, 85
+  \item residu, 136
+  \item resposta, 135
+
+  \indexspace
+
+  \item significaci\'o estad\'{\i}stica, 109
+  \item sim\`etrica, 11
+  \item suma
+    \subitem de quadrats, 144
+      \subsubitem de l'error, 143
+      \subsubitem de l'error pur, 143
+      \subsubitem de regressi\'o, 142
+      \subsubitem degut a l'error com\`es, 142
+    \subitem total de quadrats, 142
+
+  \indexspace
+
+  \item taula de conting\`encia, 85, 86
+  \item test
+    \subitem de Kolmogorov-Smirnov, 103, 113
+    \subitem de Scheff\'e, 113
+    \subitem khi quadrat, 113
+  \item tractament, 109
+
+  \indexspace
+
+  \item valor esperat, 22
+  \item variabilitat, 109, 111, 112, 118
+    \subitem total, 116
+    \subitem total de la mostra, 111
+  \item variable
+    \subitem aleat\`oria, 9
+      \subsubitem exponencial, 49
+      \subsubitem normal, 11, 25, 109, 138
+    \subitem de regressi\'o, 135
+  \item variaci\'o, 143
+    \subitem deguda a la interacci\'o, 116
+    \subitem entre columnes, 117
+    \subitem entre files, 116
+  \item vari\`ancia, 11, 109, 137, 140, 141
+    \subitem de la mostra, 10
+    \subitem del estimador, 137
+  \item vector aleatori, 86
+    \subitem multinomial, 83, 84
+
+\end{theindex}

@@ -1,0 +1,1001 @@
+\part{Probabilitats}
+
+\chapter{Probabilitat elemental}
+
+\section{Resum te\`oric}
+
+Molts de sistemes d'inter\`es presenten fen\`omens que mostren variacions
+impredictibles, degudes a l'atzar. Aquests fen\`omens, anomenats {\bf fen\`omens
+aleatoris}\index{fenomen aleatori@fen\`omen aleatori} o {\bf experiments
+aleatoris}\index{experiment aleatori}, es caracteritzen perqu\`e les
+condicions sota les quals es realitzen no permeten precisar-ne {\it a priori} el
+resultat. Per tant, tendrem tot un conjunt de resultats possibles. Per exemple,
+en el llan\c{c}ament d'un dau, el conjunt de resultats possibles \'es
+$\{1,2,3,4,5,6\}$. En aquests casos, els models  deterministes no s\'on
+adequats, ja que aquests, cada vegada que es repeteixen les condicions inicials,
+donen el mateix resultat. Per tant, s'han d'utilitzar els anomenats {\bf models
+probabil\'{\i}stics}\index{model probabilistic@model probabil\'{\i}stic}.
+
+D'altra banda, a cada experiment aleatori hi podem associar
+successos\index{succes@succ\'es}, que s\'on q\"uestions que es poden contestar
+amb ``s\'{\i}'' o ``no'' i, una vegada realitzat l'experiment, podrem observar
+quina \'es la resposta correcta. En el llan\c{c}ament d'un dau, podem estar
+interessats, per exemple, en si s'obt\'e un nombre parell. Associat amb 
+``s\'{\i}'' tenim el conjunt de resultats possibles $\{2,4,6\}$ i associat 
+amb ``no'' tenim $\{1,3,5\}$.
+
+Finalment, sovint estarem interessats a avan\c{c}ar, abans de realitzar
+l'experiment, quines opcions t\'e un determinat succ\'es de produir-se
+(fonament dels jocs d'atzar). Aix\`o ho indicam amb frases com ``la
+probabilitat\index{probabilitat} de $A$ \'es $p$'', on $A$ \'es un succ\'es com
+el d'abans, o ``el Bar\c{c}a guanyar\`a la lliga'', o ``dem\`a far\`a sol'', 
+i $p$ \'es el nombre o adjectiu que descriu una quantitat tal com 
+``$1/2$'', ``alta'' o ``nu{\lgem}a''.
+
+Aix\'{\i}, amb cada experiment aleatori, ens apareixen tres conceptes: el conjunt
+dels seus possibles resultats, una s\`erie de q\"uestions o successos 
+relacionats amb l'experiment i unes quantitats o adjectius, associats amb
+cada succ\'es, que anomenam la probabilitat\index{probabilitat} del succ\'es en
+q\"uesti\'o i que ens permeten con\`eixer {\it a priori} les opcions que t\'e el
+succ\'es de produir-se. A continuaci\'o definirem amb rigor aquests tres 
+conceptes.
+
+\begin{defin}
+Donat un experiment aleatori, direm {\bf espai mostral}\index{espai!mostral}
+associat a l'experiment al conjunt de tots els seus resultats possibles. 
+L'indicarem amb $\Omega$, i els seus elements, anomenats {\bf successos
+elementals}\index{succes@succ\'es!elemental}, amb $\omega, \omega_i, \ldots$
+\end{defin}
+
+\begin{defin}
+Donat un conjunt $\Omega$, anomenarem {\bf $\sigma$-\`algebra} de successos
+sobre $\Omega$\index{$\sigma$-algebra de successos@$\sigma$-\`algebra de
+successos} a tot subconjunt ${\cal F} \subset \Omega$ tal que:
+
+\begin{enumerate}
+
+\item $\Omega \in {\cal F}$.
+
+\item $A \in {\cal F} \Longrightarrow A^c \in {\cal F}.$
+
+\item $\displaystyle A_1, A_2, \ldots \in {\cal F} \Longrightarrow
+\mathop{\cup}\limits_{n=1}^\infty A_n \in {\cal F}.$
+
+\end{enumerate}
+\end{defin}
+
+{\bf Notes.}
+
+\begin{enumerate}
+
+\item Anomenarem {\bf succ\'es}\index{succes@succ\'es} a tot element de ${\cal F}$. 
+Direm que un succ\'es $A\in {\cal F}$ {\bf ha ocorregut} (o ha tengut lloc)
+si el resultat $\omega$ de l'experiment \'es $\omega\in A$.
+
+\item Observem que els successos sobre $\Omega$ s\'on subconjunts de $\Omega$.
+El fet de dotar la co{\lgem}ecci\'o de successos de l'estructura de 
+$\sigma$-\`algebra \'es degut al fet que, per poder definir de manera autoconsistent
+la probabilitat sobre ${\cal F}$, necessitam que les 
+operacions de conjunts tals 
+com complementaci\'o, uni\'o, intersecci\'o, difer\`encia, etc. siguin 
+operacions internes sobre ${\cal F}$.
+
+\item Es pot provar que donada qualsevol co{\lgem}ecci\'o de successos (les
+q\"uestions relacionades amb l'experiment aleatori que ens interessi
+investigar), existeix la m\'{\i}nima $\sigma$-\`algebra que cont\'e la
+co{\lgem}ecci\'o, \'es a dir, que aquesta co{\lgem}ecci\'o es pot completar afegint el
+nombre m\'{\i}nim de successos de manera que el nou conjunt de successos
+obtengut tengui l'estructura de $\sigma$-\`algebra.
+
+\item El conjunt buit $\emptyset$ s'anomena el {\bf succ\'es
+impossible}\index{succes@succ\'es!impossible} (mai ocorre) i el conjunt total 
+$\Omega$ s'anomena el {\bf succ\'es segur}\index{succes@succ\'es!segur}
+(sempre ocorre).
+
+\end{enumerate}
+
+\newpage
+
+{\bf Propietats}
+
+\begin{enumerate}
+
+\item $\emptyset \in {\cal F}.$
+
+\item $\displaystyle A_1, A_2, \ldots \in {\cal F} \Longrightarrow
+\mathop{\cap}\limits_{i=1}^\infty \in {\cal F}.$
+
+\item Si $A_1, \ldots , A_n \in {\cal F} \Longrightarrow A_1 \cup \cdots \cup
+A_n \in {\cal F}.$
+
+\item Si $A_1, \ldots , A_n \in {\cal F} \Longrightarrow A_1 \cap \cdots \cap
+A_n \in {\cal F}.$
+
+\item $A, B \in {\cal F} \Longrightarrow A \setminus B = A \cap B^c \in {\cal
+F}.$
+
+\item La $\sigma$-\`algebra m\'es petita \'es 
+${\cal F} = \{ \emptyset, \Omega \}$ i
+la m\'es gran \'es ${\cal F} = P(\Omega)$.
+
+\end{enumerate}
+
+\begin{defin}
+Considerem un conjunt $\Omega$ i sigui ${\cal F}$ una $\sigma$-\`algebra 
+de successos sobre~$\Omega$. Una
+aplicaci\'o $p : {\cal F} \to [0,1] $ s'anomena una {\bf mesura de
+probabilitat}\index{mesura de probabilitat}
+(o {\bf probabilitat}) si verifica:
+
+\begin{enumerate}
+\item $\pp{\Omega} = 1.$
+
+\item Si $A_1, A_2, \ldots \in {\cal F}$ s\'on disjunts dos a dos ($A_i \cap A_j
+=
+\emptyset \ \ \forall i \not = j$), aleshores $\displaystyle 
+\pp{\mathop{\cup}\limits_{n \geq 1} A_n} = \sum_{n \geq 1} \pp{A_n}.$
+
+\end{enumerate}
+\end{defin}
+
+{\bf Propietats}
+
+\begin{enumerate}
+
+\item $\pp{A^c} = 1 - \pp{A}.$
+
+\item $\pp{\emptyset} = 0.$
+
+\item $A, B \in {\cal F} \Longrightarrow \pp{A \setminus B} = \pp{A} - 
+\pp{A \cap B}.
+$
+
+\item $\pp{A \cup B} = \pp{A}+ \pp{B} - \pp{A \cap B}.$
+
+\item $A \subset B \Longrightarrow \pp{A} \leq \pp{B}.$
+
+\item {\bf Continu\"{\i}tat seq\"uencial cap a
+dalt}:
+\index{continuitat sequencial@continu\"{\i}tat seq\"uencial!de la probabilitat} Si $A_1 \subset A_2 \subset \cdots$ \'es una successi\'o creixent de
+successos de ${\cal F}$, definim el seu l\'{\i}mit com $A = \lim A_n = \mathop{
+\cup}\limits_{n=1}^\infty A_n$. Aleshores resulta que
+$$\pp{A} = \lim_{n\to\infty} \pp{A_n}.$$
+
+\item {\bf Continu\"{\i}tat seq\"uencial cap a baix}: Si 
+$A_1 \supset A_2
+\supset \cdots$ \'es una successi\'o decreixent de successos de ${\cal F}$,
+definim el seu l\'{\i}mit com $A = \lim A_n = \mathop{ \cap}\limits_{n=1}^\infty
+A_n$. Aleshores resulta que $$\pp{A} = \lim_{n\to\infty} \pp{A_n}.$$
+
+\item $p$ \'es {\bf subadditiva}: $\displaystyle A_1, \ldots ,A_n \in {\cal F}
+\Longrightarrow \pp{\mathop{\cup}\limits_{i=1}^n A_i}
+ \leq \sum\limits_{i=1}^n \pp{A_i}.$
+
+\end{enumerate}
+
+{\bf Notes.}
+
+\begin{enumerate}
+
+\item Direm que $A \in {\cal F}$ \'es un {\bf succ\'es nul}
+\index{succes@succ\'es!nul} si $\pp{A} = 0$. No s'han de confondre els successos 
+nuls amb el succ\'es impossible $\emptyset$: els successos
+nuls poden oc\'orrer, encara que tenen probabilitat 0. Per exemple, encertar el
+centre geom\`etric d'una diana amb un dard t\'e probabilitat 0, per\`o no \'es
+el succ\'es impossible.
+
+\item Quan $\Omega = \{ \omega_1, \ldots , \omega_n \}$ \'es finit i tots els
+seus elements s\'on successos {\bf
+equiprobables}:\index{equiprobabilitat} 
+$\pp{\omega_1} = \cdots =\pp{\omega_n} = 1/n$, aleshores donat un succ\'es $A \in
+{\cal F}$, tenim l'anomenada {\bf
+definici\'o cl\`assica} de
+probabilitat
+\index{definicio@definici\'o!classica de probabilitat@cl\`assica de probabilitat}:
+
+$$\pp{A} = {card(A) \over n} = {nombre \> de \> casos \> favorables \> a \> A
+\over nombre \> de \> casos \> possibles}.$$
+
+Aquesta definici\'o falla quan $\Omega$ no \'es finit (quants de
+llan\c{c}aments d'una moneda s\'on necessaris per obtenir la primera cara?)
+i quan no hi ha equiprobabilitat dels successos elementals (en el
+llan\c{c}ament de dues monedes, la probabilitat d'obtenir una cara \'es el doble
+de la d'obtenir-ne dues). De totes formes, quan els requisits es compleixen,
+\'es una definici\'o molt \'util.
+
+\item D'altra banda, la {\bf definici\'o freq\"uentista}
+\index{definicio@definici\'o!frequentista de probabilitat@freq\"uentista de probabilitat}
+defineix la probabilitat d'un succ\'es com el l\'{\i}mit de les freq\"u\`encies
+relatives d'ocurr\`encies
+del succ\'es en una llarga s\`erie de realitzacions de l'experiment:
+
+$$\pp{A} = \lim_{n \to \infty} f_A(n) = \lim_{n \to \infty} {nombre \> de \>
+vegades \> que \> s'ha \> donat \> A \over nombre \> de \> realitzacions \> de
+\> l'experiment}.$$
+
+Aquesta definici\'o t\'e un clar problema pr\`actic i, a m\'es, qu\`e passa si
+l'ex\-pe\-ri\-ment no \'es repetible, com a m\'{\i}nim sota les mateixes condicions? De
+totes formes, en certes situacions ser\`a molt \'util.
+
+\end{enumerate}
+
+\begin{defin}
+Direm {\bf espai de probabilitat}\index{espai!de probabilitat} (o {\bf model
+probabil\'{\i}stic})\index{model probabilistic@model probabil\'{\i}stic} associat a un
+experiment aleatori donat a una terna $(\Omega, {\cal F}, p)$, on:
+
+\begin{itemize}
+
+\item $\Omega$ \'es l'espai mostral\index{espai!mostral}, o conjunt de tots els
+resultats possibles de l'experiment,
+
+\item ${\cal F}$ \'es una $\sigma$-\`algebra de successos sobre $\Omega,$
+
+\item $p$ \'es una mesura de probabilitat sobre ${\cal F}.$
+
+\end{itemize}
+\end{defin}
+
+\begin{defin}
+Sigui $B$ un succ\'es no nul. Definim la {\bf probabilitat condicionada de
+$A$ donat $B$}\index{probabilitat!condicionada} com:
+
+$$\pp{A/B} = {\pp{A \cap B} \over \pp{B}}.$$
+\end{defin}
+
+{\bf Propietats.}
+
+\begin{enumerate}
+
+\item $P(A \cap B) = \pp{B} \cdot \pp{A/B} = \pp{A} \cdot \pp{B/A}.$
+
+\item En general, donats $A_1, \ldots , A_n \in {\cal F}$ tals que 
+$\pp{A_1 \cap \cdots \cap A_{n-1}} > 0$, resulta:
+
+$$\pp{A_1 \cap \cdots \cap A_n} = \pp{A_1} \cdot \pp{A_2/A_1} 
+\cdot \pp{A_3/A_1 \cap A_2} \cdots \pp{A_n/A_1 \cap \cdots A_{n-1}}.$$
+
+\item {\bf F\'ormula de les probabilitats totals:}\index{Formula@F\'ormula de
+les probabilitats totals}
+
+Considerem una partici\'o finita (o numerable) de $\Omega$, $\displaystyle \pi =
+\{ A_i \} \subset {\cal F}$\break $(\Omega = \mathop{\cup}\limits_i A_i, \ A_i \cap
+A_j = \emptyset \ \forall i \not = j)$ tal que $\pp{A_i} > 0 \ \forall i$. Donat un
+succ\'es $A \in {\cal F}$, resulta:
+
+$$\pp{A} = \sum_i \pp{A \cap A_i} = \sum_i \pp{A_i} \cdot \pp{A/A_i}.$$
+
+\item {\bf Regla de Bayes:}\index{Regla de Bayes}
+
+Donada una partici\'o finita (o numerable) de $\Omega$, $\pi = \{ A_i \} \subset
+{\cal F}$ de successos no nuls, i $B \in {\cal F}$,
+
+$$\pp{A_i/B} = {\pp{A_i \cap B} \over \pp{B}} = {\pp{A_i} \cdot 
+\pp{B/A_i} \over \sum\limits_j \pp{A_j} \cdot \pp{B/A_j}}.$$
+
+En el cas de dos successos $A$ i $B$, resulta:
+
+$$\pp{A/B} = {\pp{A} \cdot \pp{B/A} \over
+\pp{A} \cdot \pp{B/A} + \pp{A^c} \cdot \pp{B/A^c}}.$$
+
+Aquesta propietat \'es \'util quan $B$ \'es un succ\'es observable i $A$ no ho
+\'es, per\`o del qual coneixem la seva probabilitat {\it a priori}
+\index{probabilitat!a priori} $\pp{A}$. 
+Volem con\`eixer la seva probabilitat {\it a posteriori}
+\index{probabilitat!a posteriori}
+$\pp{A/B}$, una vegada que hem observat $B$.
+
+\item Si $B \in {\cal F}$ \'es un succ\'es no nul, l'aplicaci\'o 
+$\pp{\bullet/B} : {\cal F}
+\to [0,1]$ donada per:
+
+$$\pp{\bullet/B}(A) = \pp{A/B} \ \ \forall A \in {\cal F}$$
+
+\'es una nova probabilitat sobre ${\cal F}$.
+
+\end{enumerate}
+
+\begin{defin}
+Direm que dos successos $A, B \in {\cal F}$ s\'on {\bf
+independents}\index{successos independents}
+si \break $ \pp{A \cap B} = \pp{A} \cdot \pp{B}$.
+\end{defin}
+
+{\bf Propietats.}
+
+\begin{enumerate}
+
+\item S\'on equivalents:
+
+\begin{enumerate}
+
+\item $A, B$ independents,
+
+\item $A, B^c$ independents,
+
+\item $A^c, B$ independents.
+
+\end{enumerate}
+
+\item $\Omega$ i $\emptyset$ s\'on independents de qualsevol succ\'es $A$.
+
+\item Si $A$ \'es independent d'ell mateix, aleshores o b\'e 
+$\pp{A} = 0$ o b\'e $\pp{A} = 1$.
+
+\end{enumerate}
+
+Com ja hem dit, donat un succ\'es no nul~$B$, la probabilitat
+condicionada~$\pp{\bullet/B}$
+\index{probabilitat!condicionada} tamb\'e \'es una probabilitat sobre~${\cal
+F}$. Aleshores podem definir el seg\"uent tipus d'independ\`encia: 
+
+\begin{defin}
+Dos successos $A,B\in {\cal F}$ s\'on {\bf condicionalment independents}
+\index{independencia condicionada@independ\`encia condicionada} donat un altre
+succ\'es no nul~$C\in {\cal F}$ si:
+\[
+\pp{A\cap B/C}=\pp{A/C}\cdot \pp{B/C}.
+\]
+\end{defin}
+
+{\bf Nota:}
+
+En principi, pareix que hi hauria d'haver relaci\'o entre la independ\`encia 
+de dos successos i la independ\`encia condicionada. Per exemple, si
+$C=\Omega$, coincideixen les dues independ\`encies. De totes formes, en
+general, no hi ha cap relaci\'o entre elles. (Vegeu problemes
+proposats.)
+
+\section{Problemes resolts}
+
+\begin{probres}
+{Trobau l'espai mostral per a l'experiment que consisteix a treure
+dues bolles amb reposici\'o i sense reposici\'o d'una urna que cont\'e 5 bolles
+(suposau que les bolles estan numerades d'1 a 5).}
+\end{probres}
+
+\res{
+Sigui $\Omega$ l'espai mostral. Aleshores tenim que:
+\begin{itemize}
+\item {$\Omega=\{(i,j),i=1,\ldots,5,j=1,\ldots,5\}$, si l'experiment \'es amb 
+reposici\'o.}
+\item {$\Omega=\{(i,j),i=1,\ldots,5,j=1,\ldots,5,j\not = i\}$, si l'experiment
+\'es    sense reposici\'o.}
+\end{itemize}
+}
+
+\begin{probres}
+{Per al problema anterior, especificau els successos seg\"uents:
+\begin{itemize}
+\item {$A=``\hbox{Treure exactament una bolla parell''}$}
+\item {$B=``\hbox{Treure la segona bolla parell''}$}
+\end{itemize}}
+\end{probres}
+
+\res{
+\begin{itemize}
+\item {$A=\{(1,2),(1,4),(2,1),(2,3),(2,5),(3,2),(3,4),(4,1),(4,3),(4,5),
+(5,2),(5,4)\}$, tant si l'experiment \'es amb reposici\'o com sense.}
+\item {\begin{itemize}
+\item $B=\{(1,2),(1,4),(2,2),(2,4),(3,2),(3,4),(4,2),(4,4),(5,2),(5,4)\}$, si  
+l'experiment \'es amb reposici\'o.
+\item $B=\{(1,2),(1,4),(2,4),(3,2),(3,4),(4,2),(5,2),(5,4)\}$, si  
+l'experiment \'es sense reposici\'o.
+\end{itemize}}
+\end{itemize}
+}
+
+\begin{probres}
+{Donats $\Omega=\{1,2,3\}$, $A=\{1\}$, $B=\{3\}$, $C=\{2\}$ i suposant
+que $\pp{A}={1\over 3}$, $\pp{B}={1\over 3}$, trobau: $\pp{C}$, 
+$\pp{A\cup B}$, $\pp{A^c}$, $\pp{A^c \cap B^c}$, 
+$\pp{A^c \cup B^c}$ i $\pp{B\cup C}$.}
+\end{probres}
+
+\res{
+\begin{itemize}
+\item $\pp{C}=1-\pp{A}-\pp{B}=1-\frac{1}{3}-\frac{1}{3}=\frac{1}{3}.$
+\item $\pp{A\cup B}=\pp{A}+\pp{B}=\frac{2}{3}$, ja que $A\cap B=\emptyset$.
+\item $\pp{{A}^c}=1-\pp{A}=\frac{2}{3}$. 
+\item $\pp{{A}^c\cap {B}^c}=
+\pp{{(A\cup B)}^c}=1-\pp{A\cup B}= \frac{1}{3}$.
+\item $\pp{{A}^c\cup {B}^c}=\pp{{A}^c}+
+\pp{{B}^c}- \pp{{A}^c \cap {B}^c}=
+\frac{2}{3}+\frac{2}{3}-\frac{1}{3}=1$.
+\item $\pp{B\cup C}=\pp{B}+\pp{C}=\frac{2}{3}$, ja que $B\cap C=\emptyset$.
+\end{itemize}
+}
+
+\begin{probres}
+{Es pinta un ``1'' en una cara d'una moneda i un ``2'' en l'altra
+cara. Es tiren tres monedes pintades d'aquesta manera. Trobau la probabilitat
+que la suma dels tres nombres que surtin sigui 3, que sigui 4, que sigui
+5 i que sigui~6.}
+\end{probres}
+
+\res{
+L'espai mostral ser\`a en aquest cas:
+\[ 
+\begin{array}{rl}
+\Omega=& \{ (1,1,1),(1,1,2),(1,2,1),(1,2,2),\\
+& (2,1,1),(2,1,2),(2,2,1),(2,2,2)\}
+\end{array}
+\]
+Fixau-vos que, en aquest cas, tots els successos elementals tenen la
+mateixa probabilitat de sortir. Aix\'{\i}, doncs,
+\begin{itemize}
+\item $\pp{\mbox{``Suma igual a 3''}}=\pp{(1,1,1)}=\frac{1}{8}$.
+\item $\pp{\mbox{``Suma igual a 4''}}=\pp{(1,1,2),(1,2,1),(2,1,1)}=
+\frac{3}{8}$.
+\item $\pp{\mbox{``Suma igual a 5''}}=\pp{(1,2,2),(2,2,1),(2,1,2)}=
+\frac{3}{8}$.
+\item $\pp{\mbox{``Suma igual a 6''}}=\pp{(2,2,2)}=\frac{1}{8}$.
+\end{itemize}
+}
+
+\begin{probres}
+{En un formiguer hi ha formigues vermelles i negres. En un
+passad\'{\i}s del formiguer, on l'espai \'es tan estret que nom\'es pot passar
+una formiga a la vegada, passen 4 formigues una darrera l'altra. Quantes
+combinacions diferents de color es poden produir suposant que les formigues
+vermelles no es poden distingir entre elles igualment que les negres?}
+\end{probres}
+
+\res{
+Hem de trobar totes les variacions amb repetici\'o del conjunt
+\break $\{$vermelles,  negres$\}$ presos els elements de 4 en 4. 
+ Per tant, el nombre de combinacions ser\`a:
+ \[ VR_2^4 =2^4=16.\]}
+
+\begin{probres}
+{Vint autom\`obils han de participar en una carrera, 8 dels quals s\'on
+de la marca A, 7 de la marca B i la resta de la marca C. Si nom\'es es mira la
+marca del cotxe a l'arribada, de quantes maneres poden arribar els cotxes
+a la meta? De totes les possibles formes d'arribar a la meta, quantes
+n'hi ha en qu\`e un cotxe de la marca A estigui en primer lloc? Quantes en qu\`e
+hi hagi dos cotxes de la marca A en els dos primers llocs?}
+\end{probres}
+
+\res{
+\begin{itemize}
+\item Maneres d'arribar a la meta $= PR_{20}^{8,7,5} =\frac{20!}{8!\cdot 7!
+\cdot 5!}=99768240$ maneres.
+\item Maneres en qu\`e un cotxe de la marca $A$ arriba en primer lloc 
+$= PR_{19}^{7,7,5} =\frac{19!}{7!\cdot 7!
+\cdot 5!}=39907296$ maneres.
+\item Maneres en qu\`e dos cotxes de la marca $A$ arriben en primer lloc 
+$= PR_{18}^{6,7,5} =\frac{18!}{6!\cdot 7!
+\cdot 5!}=14702688$ maneres.
+\end{itemize}}
+
+\newpage
+
+\begin{probres}
+{Trobau la probabilitat que 5 cartes escollides a l'atzar d'una
+baralla de 52 cartes contenguin:
+\begin{itemize}
+\item[a)]{exactament dues parelles.}
+\item[b)]{{\it full} (3 cartes d'un mateix 
+nombre i 2 d'un altre).}
+\item[c)]{Flor (5 cartes d'un mateix pal).}
+\item[d)]{Correguda (5 cartes en seq\"u\`encia ascendent).}
+\end{itemize}}
+\end{probres}
+
+\res{
+\begin{itemize}
+\item[a)] $\pp{\mbox{2 parelles }}=
+\frac{Casos\  favorables}{Casos\ possibles}
+=\frac{13\cdot {4\choose 2}\cdot 12\cdot {4\choose 2}\cdot 11 {4\choose 1}}{
+{52\choose 5}}=
+\frac{247104}{2598960}\approx 0.0951$
+
+L'explicaci\'o de la f\'ormula anterior \'es la seg\"uent:
+
+Primer hem de 
+tenir en compte que hem de pensar en nombres en lloc de cartes. 
+
+Aix\'{\i} doncs, tenim $13$ nombres per formar la primera parella i $4$ 
+pals per triar per cada nombre. Per tant, les maneres que tenim per formar
+la primera parella seran: $13\cdot {4\choose 2}$.
+
+Ara ens queden $12$ nombres per formar la segona parella i $4$ pals per 
+triar per cada nombre. Per tant, les maneres que tenim per formar 
+la segona parella seran: $12\cdot {4\choose 2}$.
+
+Finalment, ens queda un nombre per triar d'entre $4$ pals. Per tant, les
+maneres que tenim de triar l'\'ultima carta seran: $11\cdot {4\choose 1}$.
+
+Combinant els tres resultats anteriors, surt la f\'ormula.
+
+Tots els altres casos s'han resolt seguint la mateixa filosofia.
+\item[b)] $\pp{\mbox{``full''}}=
+\frac{Casos\  favorables}{Casos\ possibles}
+=\frac{13\cdot {4\choose 3}\cdot 12\cdot {4\choose 2}}{
+{52\choose 5}}=\frac{3744}{2598960}\approx 0.00144$ 
+\item[c)] $\pp{\mbox{``Flor''}}=
+\frac{Casos\  favorables}{Casos\ possibles}
+=\frac{4\cdot {13\choose 5}}{
+{52\choose 5}}=\frac{1287}{2598960}\approx 0.000495$ 
+\item[d)] $\pp{\mbox{``Correguda''}}=
+\frac{Casos\  favorables}{Casos\ possibles}
+=\frac{{4\choose 1}\cdot {4\choose 1}\cdot {4\choose 1}\cdot {4\choose 1}
+\cdot {4\choose 1}\cdot 9}{
+{52\choose 5}}=\frac{9216}{2598960}\approx 0.003546$ 
+
+L'\'ultima f\'ormula necessita una mica d'explicaci\'o.
+
+Fixau-vos que si posam els nombres en ordre ascendent:
+
+{\tt 1 2 3 4 5 6 7 8 9 10 J Q K}
+
+podem fer en total 9 corregudes, suposant que no es pot 
+donar la volta, o sigui, no s'admet el cas per exemple {\tt J Q K 1 2}.
+\end{itemize}}
+
+\begin{probres}
+{Una urna cont\'e 2 bolles negres i 5 de blanques. Se selecciona
+una bolla a l'atzar. Si la bolla \'es blanca, es torna a l'urna i s'afegeixen
+dues bolles blanques m\'es. Si la bolla \'es negra, no es torna a
+l'urna i no s'afegeix cap bolla m\'es. Es treu una segona bolla. Quina \'es
+la probabilitat que la bolla sigui blanca?}
+\end{probres}
+
+\res{
+Siguin els successos:
+\begin{itemize}
+\item[] $B_1=\{$ La primera bolla \'es blanca $\}$.
+\item[] $N_1=\{$ La primera bolla \'es negra $\}$.
+\item[] $B_2=\{$ La segona bolla \'es blanca $\}$.
+\end{itemize}
+Aplicant el teorema de les probabilitats totals, tenim:
+\begin{eqnarray*}
+\pp{B_2} &= &\pp{B_2/B_1}\cdot \pp{B_1}+\pp{B_2/N_1}\cdot \pp{N_1} \\ &=&
+\frac{7}{9}\cdot \frac{5}{7}+\frac{5}{6}\cdot \frac{2}{7}=
+\frac{35}{63}+\frac{10}{42}\approx 0.7936 
+\end{eqnarray*}
+}
+
+\begin{probres}
+{Dos fabricants, A i B, entreguen la mateixa pe\c{c}a a un
+altre fabricant, que guarda totes les exist\`encies en el mateix lloc. Els
+antecedents demostren que el 5\% de les peces entregades per A estan
+defectuoses i que el 9\% de les peces entregades per B tamb\'e estan
+defectuoses. A m\'es a m\'es, A entrega 4 vegades m\'es peces que B. Si es treu a
+l'atzar una pe\c{c}a i es troba que no est\`a defectuosa, quina \'es la
+probabilitat que l'hagi fabricada A.}
+\end{probres}
+
+\res{Considerem els successos:
+\begin{itemize}
+\item[] $A=\{$``Pe\c{c}a entregada per A''$\}$.
+\item[] $B=\{$``Pe\c{c}a entregada per B''$\}$.
+\item[] $D=\{$``Pe\c{c}a defectuosa''$\}$.
+\end{itemize}
+Com que A entrega 4 vegades m\'es peces que B, tenim que:
+$\pp{A}=\frac{4}{5},\ \pp{B}=\frac{1}{5}$.
+A m\'es a m\'es, tenim les probabilitats seg\"uents:
+
+\noindent $\pp{D/A}=0.05,\ \pp{D/B}=0.09$.
+
+Aplicant la f\'ormula de Bayes, podem trobar la probabilitat demanada:
+\begin{eqnarray*}
+\pp{A/{D}^c} & = & \frac{\pp{A\cap {D}^c}}{\pp{{D}^c}}=
+\frac{\pp{A}\cdot \pp{{D}^c/A}}{\pp{A}\cdot \pp{{D}^c/A}+
+\pp{B}\cdot \pp{{D}^c/B}} \\ 
+& = & \frac{0.8\cdot 0.95}{0.8\cdot 0.95+0.2 
+\cdot 0.91}\approx 0.8068.
+\end{eqnarray*}}
+
+\begin{probres}
+{Provau que si els successos $A$ i $B$ s\'on independents, tamb\'e ho
+s\'on ${A}^c$ i~${B}^c$.}
+\end{probres}
+
+\res{Estam suposant que $\pp{A\cap B}=\pp{A}\cdot \pp{B}$.
+
+Per tant, tenim:
+\begin{eqnarray*}
+\pp{{A}^c\cap {B}^c} & = & \pp{ {(A\cup B)}^c}=1-\pp{A\cup
+B}  = 1-(\pp{A}+\pp{B}-\pp{A\cap B})
+\\ &=&  1-\pp{A}-\pp{B}+\pp{A}\cdot\pp{B} 
+  = (1-\pp{A})\cdot (1-\pp{B}) \\ & = & \pp{{A}^c}\cdot \pp{{B}^c}
+\end{eqnarray*}}
+
+\begin{probres}
+{Considerem una urna amb $N$ bolles, de les quals n'hi ha $n$ de blanques. Traiem
+una bolla de l'urna. Si surt blanca, la tornam a posar a l'urna, per\`o si no
+\'es blanca no la hi tornam a posar. Traiem una bolla per segona vegada i surt
+blanca. Trobau la probabilitat $p$ que hagi sortit blanca la primera
+vegada.\newline{\footnotesize Final. Setembre 94.}}
+\end{probres}
+
+\res{
+Considerem els successos:
+
+\begin{itemize}
+\item[] $B_1=\{$``Surt blanca la primera vegada''$\}$.
+\item[] $B_2=\{$``Surt blanca la segona vegada''$\}$.
+\item[] $N_1=\{$``No surt blanca la primera vegada''$\}$.
+\end{itemize}
+
+Aplicant la f\'ormula de Bayes, tenim:
+
+\begin{eqnarray*}
+p & = & \pp{B_1/B_2}=\frac{\pp{B_1\cap B_2}}{\pp{B_2}}
+=\frac{\pp{B_1}\cdot \pp{B_2/B_1}}{\pp{B_1}\cdot \pp{B_2/B_1}+
+\pp{N_1}\cdot \pp{B_2/N_1}} \\
+& = & \frac{\frac{n}{N}\cdot\frac{n}{N}}{\frac{n}{N}\cdot
+\frac{n}{N}+\frac{N-n}{N}\cdot \frac{n}{N-1}}=
+\frac{\frac{n}{N}}{\frac{n}{N}+\frac{N-n}{N-1}} \\
+& = & \frac{\frac{n}{N}}{\frac{n (N-1)+N (N-n)}{N (N-1)}}=
+\frac{n (N-1)}{n N-n-n N+N^2}=\frac{n (N-1)}{N^2-n}
+\end{eqnarray*}
+}
+
+\begin{probres} {Una quarta part de la poblaci\'o ha estat vacunada contra una
+malaltia contagiosa. Durant una epid\`emia, s'observa que d'entre els malalts
+n'hi ha un que ha estat vacunat per cada quatre que no hi estan. \begin{itemize}
+\item[a)] Ha tengut gens d'efic\`acia la vacuna? \item[b)] D'altra banda, se sap
+que hi ha un malalt entre cada 12 persones vacunades. Quina \'es la probabilitat
+que estigui malalta una persona que no s'ha vacunat? \end{itemize}}
+\end{probres}
+
+\res{ \begin{itemize} \item[a)] S\'{\i} que ha tengut efic\`acia, ja que $$ \pp{
+\mbox{estar vacunat}} = \frac{1}{4} > \pp{\mbox{estar vacunat / malalt}} =
+\frac{1}{5}. $$
+
+\item[b)] Posem:
+\[ 
+V : \mbox{estar vacunat}, \quad
+M : \mbox{estar malalt}.
+\]
+
+Sabem:
+
+\begin{eqnarray*} \pp{V} = \frac{1}{4}, & & 
+\pp{ V / M } = \frac{1}{5}, \\ 
+\pp{ V^c } = \frac{3}{4}, & & 
+\pp{ V^c / M } = \frac{4}{5}. 
+\end{eqnarray*}
+
+Aleshores $$ \pp{ M / V^c } = {\pp{ M \cap V^c } \over \pp{ V^c}} = {\pp{ M} 
+\cdot \pp{ V^c / M } \over \pp{ V^c}}. $$ Falta con\`eixer $\pp{ M }.$
+Sabem per\`o que $\pp{ M / V } = \frac{1}{12}.$ Per tant $$ \pp{ V / M } = 
+{\pp{ V \cap M } \over \pp{ M }} \Longrightarrow \pp{ M } = {\pp{ V \cap M}
+\over \pp{ V / M }}. $$ I ara, $$ \pp{ V \cap M} = \pp{ V } \cdot \pp{ M / V} = 
+\frac{1}{4} \cdot \frac{1}{12} = \frac{1}{48}, $$ d'on $\pp{ M } = {1/48
+\over 1/5} = \frac{5}{48}$. Finalment, $$ \pp{ M / V^c } = {5/48 \cdot 4/5 \over
+3/4} = {1/12 \over 3/4} = \frac{4}{36} = \frac{1}{9}. $$ \end{itemize}}
+
+\begin{probres} {Un llarg missatge s'ha codificat en termes de dos s\'{\i}mbols
+$A$ i $B$ per a transmetre'l a trav\'es d'un canal de comunicaci\'o. La
+codificaci\'o \'es tal que $A$ apareix el doble de vegades que $B$ en el missatge
+codificat. El soroll del canal \'es tal que, quan $A$ es transmet, es rep com a
+$A$ amb probabilitat 0.8 i com a $B$ amb probabilitat 0.2; quan $B$ es transmet,
+es rep com a $B$ amb probabilitat 0.7 i com a $A$ amb probabilitat 0.3.
+\begin{itemize} \item[a)] Quina \'es la freq\"u\`encia relativa de $A$ en el
+missatge rebut? \item[b)] Si la darrera lletra del missatge que s'ha rebut \'es
+una $A$, quina \'es la probabilitat que s'hagi enviat una $A$? 
+\end{itemize}}
+\end{probres}
+
+\newpage
+
+\res{\begin{itemize} \item[a)] Posem: \begin{eqnarray*} A_t : \mbox{$A$
+transm\`es}, & \> & A_r : \mbox{$A$ rebut}, \\ B_t : \mbox{$B$ transm\`es}, & \>
+& B_r : \mbox{$B$ rebut}. \end{eqnarray*}
+
+Aleshores tenim: $$ \pp{ A_t } = 2 \cdot \pp{ B_t } \Longrightarrow \pp{ A_t }
+= 2/3, \> p\{ B_t \} = 1/3. $$ Tamb\'e,
+\[
+\begin{array}{llcll}
+\pp{ A_r / A_t} = &  0.8, & & \pp{ B_r / A_t } = & 0.2, \\ 
+\pp{ B_r / A_t} = &  0.3, & & \pp{ B_r / B_t } = & 0.7. 
+\end{array}
+\]
+Aleshores,
+ \begin{eqnarray*} \pp{ A_r } & = & \pp{ A_t } \cdot \pp{ A_r / A_t}
++ \pp{ B_t} \cdot \pp{ A_r / B_t} \\ & = & \frac{2}{3} \cdot \frac{8}{10} +
+\frac{1}{3} \cdot \frac{3}{10} = \frac{19}{30} = 0.633. \end{eqnarray*}
+
+\item[b)] 
+\[
+ \pp{ A_t / A_r }  =  {\pp{ A_t } \cdot \pp{ A_r /
+A_t } \over \pp{ A_r}} =  {\frac{2}{3} \times \frac{8}{10} \over
+\frac{19}{30}} = \frac{16}{19} = 0.84.
+\]
+\end{itemize}}
+
+\begin{probres} {Un comerciant ha de viatjar en avi\'o entre Bangkok i Bagdad.
+Preocupat, demana a la companyia a\`eria quina \'es la probabilitat que hi
+hagi com a m\'{\i}nim una bomba dins l'avi\'o i li diuen que \'es 0.1. M\'es
+preocupat encara, demana quina seria la probabilitat que n'hi hagu\'es com a
+m\'{\i}nim dues, i li diuen que seria 0.01. M\'es tranqui{\lgem}itzat, decideix dur una
+bomba en el seu equipatge. Quina valoraci\'o estad\'{\i}stica podem fer de la
+seva decisi\'o?} \end{probres}
+
+\res{ Posem: \begin{eqnarray*} A & : & \mbox{com a m\'{\i}nim una bomba}, \\ B &
+: & \mbox{com a m\'{\i}nim dues bombes}. \end{eqnarray*}
+
+Sabem que $\pp{ A} = 0.1$ i $ \pp{ B } = 0.01$, i per tant $\pp{ A \cap B } =
+\pp{ B } = 0.01$. Aleshores,
+ $$ \pp{ B / A } = {\pp{ A \cap B } \over \pp{ A}} = 
+{0.01 \over 0.1} = 0.1 = \pp{ A} !! $$ Per tant, de res serveix que dugui
+la seva bomba, com no sigui per augmentar la probabilitat que una bomba
+exploti per casualitat. El comerciant ha conf\'os $\pp{ B}$ amb $\pp{ B / A}$.}
+
+\begin{probres} {Un auditor ha estat informat de l'exist\`encia d'un error
+deliberat en un dels documents del departament de comptabilitat d'una empresa. La
+probabilitat que l'error es trobi en un lot de 10 documents \'es 0.05 i \'es
+igualment probable que el defecte estigui en qualsevol d'aquests documents. Si ja
+n'ha inspeccionat 9 sense trobar l'error, quina \'es la probabilitat que
+l'error no es trobi en aquest lot?}
+\end{probres}
+
+\res{Posem:
+
+\begin{eqnarray*} D_i & : & 
+\mbox{l'error es troba en el document $i$-\`essim ( i
+= 1, \ldots , 10)}, \\ L & : & \mbox{l'error es troba en el lot}. \end{eqnarray*}
+
+Aleshores ens demanam $$ \pp{ D_{10}^c / D_1^c \cap \cdots \cap D_9^c } = {\pp{
+D_1^c \cap \cdots \cap D_{10}^c} \over \pp{ D_1^c \cap \cdots \cap D_9^c}}.
+$$ I ara,
+\begin{eqnarray*} \pp{ D_1^c \cap \cdots \cap D_{10}^c} & = & \pp{ L^c} =
+0.95 \\ \pp{ D_1^c \cap \cdots \cap D_9^c} & = & \pp{ L } \cdot \pp{ D_1^c
+\cap \cdots \cap D_9^c / L}  +  \pp{ L^c } \cdot \pp{ D_1^c \cap \cdots
+\cap D_9^c / L^c} \\ & = & 0.05 \times \frac{1}{10} + 0.95 \times 1 = 0.955.
+\end{eqnarray*}
+
+Finalment, 
+$$
+\pp{ D_{10}^c / D_1^c \cap \cdots \cap D_9^c} = {0.95 \over
+0.955} = 0.995.
+$$
+}
+
+\newpage
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Se seleccionen a l'atzar tres cartes sense reposici\'o d'una baralla
+que cont\'e 3 cartes vermelles, 3 de blaves, 3 de verdes i 3 de negres. Especificau
+un espai mostral per a aquest experiment i trobau els successos seg\"uents:
+\begin{itemize}
+\item {$A=``\hbox{Totes les cartes seleccionades s\'on vermelles''}$}
+\item {$B=``\hbox{1 carta \'es vermella, 1 \'es verda i l'altra blava''}$} 
+\item {$C=``\hbox{Surten tres cartes de colors diferents''}$}
+\end{itemize}}
+\end{prob}
+
+\begin{prob}
+{Es llancen a l'aire dues monedes iguals. Trobau la probabilitat 
+que surtin dues cares iguals.}
+\end{prob}
+
+\begin{prob}
+{Suposau que s'ha trucat un dau de tal manera que la probabilitat 
+que surti un determinat nombre sigui proporcional al nombre. Trobau la
+probabilitat dels successos elementals, que surti nombre parell i 
+que surti nombre senar. Feu el mateix problema per\`o ara suposant que la
+probabilitat que surti un determinat nombre sigui inversament
+proporcional al nombre.}
+\end{prob}
+
+\begin{prob}
+{De quantes maneres diferents es
+poden co{\lgem}ocar tres llibres distints en una taula?}
+\end{prob}
+
+\begin{prob}
+{Sis persones es disposen a entrar al cinema. De quantes maneres
+diferents es poden co{\lgem}ocar en fila?}
+\end{prob}
+
+\begin{prob}
+{Tres ciutadans destacats han de rebre premis. Si hi ha 4 candidats a
+aquests premis, de quantes maneres diferents es poden distribuir aquests
+si un ciutad\`a nom\'es pot rebre com a m\`axim 1 premi? I si en pot rebre m\'es
+d'un?}
+\end{prob}
+
+\begin{prob}
+{Donat un conjunt de 15 punts en el pla, quantes l\'{\i}nies es 
+necessiten per juntar totes les possibles parelles de punts?}
+\end{prob}
+
+\begin{prob}
+{Donada una caixa amb els seg\"uents focus: 2 de 25 vats, 4 de 40 vats
+i 4 de 100 vats, de quantes maneres se'n poden escollir 3?}
+\end{prob}
+
+\begin{prob}
+{Suposem que les plaques de matr\'{\i}cula dels cotxes es componen de 3
+lletres seguides de 3 d\'{\i}gits. Si es poden emprar totes les combinacions
+possibles, quantes plaques diferents es poden formar?}
+\end{prob}
+
+\begin{prob}
+{De quantes maneres diferents es poden formar $2$ equips d'una lliga que
+tengui $8$ equips?}
+\end{prob}
+
+\begin{prob}
+{En un magatzem hi ha caixes vermelles i verdes. De
+quantes maneres es poden co{\lgem}ocar en fila 20 caixes si 15 s\'on
+vermelles i 5 verdes? I si n'hi ha 10 de cada color?}
+\end{prob}
+
+\begin{prob}
+{En una pres\'o de 100 presos, es varen seleccionar a l'atzar dues
+persones per posar-les en llibertat. Quina \'es la probabilitat que el m\'es
+vell dels presos sigui un dels elegits? I que se seleccioni la
+parella formada pel m\'es vell i el m\'es jove?}
+\end{prob}
+
+\begin{prob}
+{S'apunten A, B i C en una cursa. Quina \'es la probabilitat 
+que A acabi abans que C, si tots tenen la mateixa habilitat i no hi pot haver
+empats? Quina \'es la probabilitat que A acabi abans que B i C?}
+\end{prob}
+
+\begin{prob}
+{En una sala es troben $n$ persones. Trobau la probabilitat que
+hi hagi almenys 2 persones amb el mateix mes de naixement. Donau aquest
+valor per a $n=3,4,5,6$.}
+\end{prob}
+
+\begin{prob}
+{Una urna cont\'e 4 bolles numerades amb 1, 2, 3 i 4, respectivament. Es
+treuen 2 bolles sense reposici\'o. Sigui $A$ el succ\'es que la suma sigui
+5, i sigui $B_i$ el succ\'es que la primera bolla treta tengui una $i$,
+amb $i=1,2,3,4$. Trobau $\pp{A/B_i},\ i=1,2,3,4$ i $\pp{B_i/A},\
+i=1,2,3,4$.}
+\end{prob}
+
+\begin{prob}
+{Es llan\c{c}a a l'aire una moneda no trucada. Quina \'es la
+probabilitat que la quarta vegada surti cara, si surt cara en les tres
+primeres tirades? I si surten 2 cares en les 4 tirades?}
+\end{prob}
+
+\begin{prob}
+{La urna 1 cont\'e 2 bolles vermelles i 4 de blaves. La urna 2 cont\'e 10
+bolles vermelles i 2 de blaves. Si escollim a l'atzar una urna i en traiem una
+bolla, quina \'es la probabilitat que la bolla seleccionada
+sigui blava? I que sigui vermella?}
+\end{prob}
+
+\begin{prob}
+{Suposem que la ci\`encia m\`edica ha desenvolupat una prova per al
+diagn\`ostic de c\`ancer que t\'e un 95\% d'exactitud, tant en els que tenen
+c\`ancer com en els que no. Si el 5 per mil de la poblaci\'o realment t\'e
+c\`ancer, trobau la probabilitat que un determinat individu tengui
+c\`ancer, si la prova ha donat positiu.}
+\end{prob}
+
+\begin{prob}
+{Es tira una sola vegada un parell de daus. Si la suma dels dos \'es
+com a m\'{\i}nim 7, trobau la probabilitat que sigui igual a $i$, per a
+$i=7,8,9,10,11,12$.}
+\end{prob}
+
+\begin{prob}
+{Una moneda no trucada es tira a l'aire 2 vegades. Considerem els
+seg\"uents successos:
+\begin{itemize}
+\item {A: Surt una cara en la primera tirada.}
+\item {B: Surt una cara en la segona tirada.}
+\end{itemize}
+S\'on els dos successos independents?}
+\end{prob}
+
+\begin{prob}
+{Una urna cont\'e 4 bolles numerades amb 1, 2, 3 i 4, respectivament. Traiem
+dues bolles sense reposici\'o. Sigui A el succ\'es que la primera bolla
+treta tengui un 1 marcat i sigui B el succ\'es que la segona bolla treta
+tengui un 1 marcat. Es pot dir que A i B s\'on independents? I si
+l'experiment \'es amb reposici\'o?}
+\end{prob}
+
+\begin{prob}
+{Se sap que els ${2\over 3}$ dels interns d'una certa pres\'o s\'on menors
+de 25 anys. Tamb\'e se sap que els ${3\over 5}$ s\'on homes i que els
+${5\over8}$ dels interns o s\'on dones o majors de 25 anys. Quina \'es
+la probabilitat que
+un presoner escollit a l'atzar sigui dona i de menys de 25
+anys?\newline{\footnotesize Primer parcial Curs 92-93.}}
+\end{prob}
+
+\begin{prob}
+{
+Considerem una urna amb $2n$ bolles numerades de $1$ a $2n$. Traiem
+$2$ bolles de l'urna sense reposici\'o. Sabent que la segona bolla \'es
+parell, quina \'es la probabilitat que la primera bolla sigui senar?
+\newline{\footnotesize Final. Juny 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Considerem el seg\"uent experiment aleatori: traiem $5$ nombres a l'atzar
+sense reposici\'o a partir dels nombres naturals $1,2,\ldots,20$. Trobeu la 
+probabilitat $p$ que exactament dos dels nombres siguin m\'ultiples de
+$3$. \newline{\footnotesize Final. Setembre 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $\Omega$ un espai mostral i $A$, $B$ i $C$ tres successos. Provau que:
+\begin{itemize}
+\item[a)] Si $A$ i $B$ s\'on independents, tamb\'e ho s\'on $A$ i 
+${B}^c$.
+
+\item[b)] Si $A$, $B$ i $C$ s\'on independents, tamb\'e ho s\'on $A$,
+$B$ i ${C}^c$.
+
+\item[c)] \'Es cert que si $A$, $B$ i $C$ s\'on independents, tamb\'e
+ho s\'on $A$, ${B}^c$ i ${C}^c$? I ${A}^c$, 
+${B}^c$ i ${C}^c$? En el cas que la resposta sigui
+negativa, donau contraexemples on la propietat falli.
+\end{itemize}
+{\footnotesize Final. Setembre 95.}
+}
+\end{prob}
+
+\begin{prob}
+En una urna hi ha~$10$ bolles, numerades d'$1$ fins a~$10$. Les~$4$ primeres
+bolles, o sigui, les bolles $1$, $2$, $3$ i~$4$ s\'on blanques. Les bolles~$5$ 
+i $6$ s\'on negres i les bolles $7$, $8$, $9$ i $10$ s\'on vermelles.
+Traiem dues bolles sense reposici\'o. Sabent que la segona bolla \'es
+negre, trobau la probabilitat~$p$ que la primera bolla sigui blanca.
+\newline{\footnotesize Final. Juny 96.}
+\end{prob}
+
+\begin{prob}
+{
+Llan\c{c}am un dau no trucat~$3$ vegades. Trobau la probabilitat~$p$ 
+que la suma de les~$3$ cares sigui~$10$.
+\newline{\footnotesize Final. Setembre 96.}
+}
+\end{prob}
+
+\begin{prob} {Quatre cartes numerades de l'1 al 4 estan girades cap avall damunt
+d'una taula. Una persona, suposadament clarivident, anir\`a endevinant els valors
+de les 4 cartes una a una. Suposant que \'es un farsant i que el que fa \'es dir
+els quatre nombres a l'atzar, quina \'es la probabilitat que n'encerti com a
+m\'{\i}nim un? (\`Obviament, no repeteix cap nombre.)} \end{prob}
+
+\begin{prob} {Una manera d'augmentar la fiabilitat d'un sistema \'es
+mitjan\c{c}ant la introducci\'o d'una c\`opia dels components en una
+configuraci\'o para{\lgem}ela. Suposem que la NASA vol una probabilitat no menor que
+0.99999 que el transbordador espacial entri en \`orbita al voltant de la Terra
+amb \`exit. Quants de motors s'han de configurar en para{\lgem}el per tal d'assolir
+aquesta fiabilitat, si se sap que la probabilitat que un qualsevol dels motors
+funcioni adequadament \'es 0.95? Suposem que els motors funcionen de manera
+independent els uns amb els altres.} 
+\end{prob}
+
+\begin{prob}
+{
+Dues empreses $A$ i $B$ fabriquen el mateix producte. L'empresa~$A$ t\'e
+un $2\%$ de productes defectuosos mentre que l'empresa~$B$ en t\'e un
+$1\%$. Un client rep una comanda d'una de les empreses (no sap de
+quina) i comprova que la primera pe\c{c}a funciona. Si suposam que
+l'estat de les peces de cada empresa \'es independent, quina \'es la
+probabilitat que la segona pe\c{c}a que provi sigui bona? Comprovau
+que l'estat de les dues peces no \'es independent, per\`o en canvi \'es
+condicionalment independent donada l'empresa que les fabrica.
+}
+\end{prob}
+
+\begin{prob}
+{
+Trobau un exemple de tres successos~$A$, $B$ i $C$ tals que $A$ i $B$
+siguin independents per\`o en canvi no siguin condicionalment
+independents donat~$C$.
+}
+\end{prob}

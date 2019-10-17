@@ -1,0 +1,1281 @@
+\chapter{An\`alisi de la vari\`ancia}
+\index{analisi@an\`alisi!de la variancia@de la vari\`ancia}
+
+\section{Resum te\`oric}
+
+\'Es un conjunt de t\`ecniques d'an\`alisi estad\'{\i}stica que permeten analitzar com
+operen diversos factors simult\`aniament. Podem comprovar, per exemple, la
+significaci\'o estad\'{\i}stica
+\index{significacio estadistica@significaci\'o estad\'{\i}stica} 
+entre les mitjanes\index{mitjana} de dues o m\'es mostres,\index{mostra} determinant si
+les difer\`encies observades es poden assignar o no a fluctuacions del mostreig.
+\index{mostreig}
+
+Normalment, es vol estudiar com es diferencien els nivells
+\index{nivell} d'un cert factor\index{factor!tractament}
+subjecte a estudi (factor tractament), tenint en compte la incid\`encia d'altres
+factors (ambientals),\index{factor!ambiental} la influ\`encia dels quals s'elimina 
+mitjan\c cant una adequada descomposici\'o de la variabilitat.
+\index{variabilitat}
+
+\subsection{An\`alisi de la vari\`ancia d'un factor}
+\index{analisi@an\`alisi!de la variancia@de la vari\`ancia!d'un factor}
+
+Considerem el problema seg\"uent:
+
+Siguin $Y_1, \ldots , Y_k$ $k$ variables aleat\`ories normals amb mitjanes
+\index{variable!aleatoria@aleat\`oria!normal}\index{mitjana}
+respectives\break $\mu_1, \ldots , \mu_k$ i totes amb la 
+mateixa vari\`ancia
+\index{variancia@vari\`ancia}
+$\sigma^2$. Volem veure si totes tenen la mateixa mitjana, o sigui, volem fer el
+contrast d'hip\`otesi seg\"uent:\index{contrast!d'hipotesi@d'hip\`otesi}
+
+\begin{description}
+\item $H_0 : \mu_1 = \cdots = \mu_k$.
+\item $H_1$ : no totes les $\mu_i$ s\'on iguals.
+\end{description}
+
+Un exemple d'aplicaci\'o del problema anterior podria ser estudiar $k$ diferents
+tipus d'ensenyament\index{tractament} i veure si tenen la mateixa efic\`acia.
+\index{eficacia@efic\`acia} Per fer-ho, s'agafen
+$k$ classes d'alumnes\index{classe!d'alumnes} i a cada classe li \'es aplicat
+un m\`etode d'ensenyament\index{metode@m\`etode!d'ensenyament}
+diferent.
+
+En general tendrem:
+
+$Y_{1j}, \ldots , Y_{n_j j}$ una mostra aleat\`oria simple de la variable
+aleat\`oria $Y_j$.
+
+Considerem les variables aleat\`ories $\varepsilon_{ij} = Y_{ij} - \mu_j, \ i = 1,
+\ldots , n_j, \ j = 1 \ldots , k$. Totes s\'on $N(0,\sigma^2)$ i
+independents.
+
+Definim els par\`ametres\index{parametre@par\`ametre}
+$$\mu = {\sum\limits_{j=1}^k n_j \mu_j \over n}, \quad \alpha_j = \mu_j - \mu,$$
+on $n=\sum\limits_{j=1}^k n_j$.
+
+\begin{enumerate}
+\item {\bf Estimadors dels par\`ametres}\index{estimador!del parametre@del par\`ametre}
+\begin{itemize}
+\item[--] Estimador de $\mu_j$:
+
+Com que $Y_{1j}, \ldots , Y_{n_j j}$ \'es una mostra aleat\`oria simple de la variable
+aleat\`oria $Y_j$, l'estimador de m\`axima versemblan\c ca de $\mu_j$ val:
+\index{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}
+$$ \hat{\mu}_j = {\sum\limits_{i=1}^{n_j} Y_{ij} \over n_j} := \bar{Y}_j.$$
+
+\item[--] Estimador de $\mu$:
+
+A partir de l'expressi\'o de $\mu$, obtenim el seu estimador de m\`axima
+versemblan\c{c}a:
+\index{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}
+$$ \hat{\mu} = {\sum\limits_{j=1}^k n_j \hat{\mu}_j \over n} =
+{\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} Y_{ij}\over n} := \bar{Y}.$$
+
+\item[--] Estimador de $\alpha_j$:
+
+Com que $\alpha_j = \mu_j - \mu$, l'estimador de m\`axima versemblan\c ca de
+$\alpha_j$ \'es:
+$$\hat{\alpha}_j = \hat{\mu}_j - \hat{\mu} = \bar{Y}_j - \bar{Y}.$$
+\end{itemize}
+
+\newpage
+
+\item {\bf Variabilitat}\index{variabilitat}
+
+Definim la variabilitat total de la mostra com:\index{variabilitat!total de la mostra}
+$$VT = \sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} (Y_{ij} - \bar{Y})^2,$$
+i la descomposam de la manera seg\"uent:
+$$VT = \sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} (Y_{ij} - \bar{Y_j})^2 +
+\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} (\bar{Y}_j - \bar{Y})^2 + 2
+\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} (Y_{ij} - \bar{Y}_j)(\bar{Y}_j -
+\bar{Y}).$$
+
+El darrer sumand \'es $0$ i, per tant, resulta:
+\begin{eqnarray*}
+VT & = & \sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} (Y_{ij} - \bar{Y}_j)^2 +
+\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} (\bar{Y}_j - \bar{Y})^2 \\
+& = &
+\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} (Y_{ij} - \bar{Y}_j)^2 +
+\sum\limits_{j=1}^k n_j (\bar{Y}_j - \bar{Y})^2 := V_1 + V_2.
+\end{eqnarray*}
+
+$V_1$ \'es la variabilitat deguda a les difer\`encies entre els valors dins cada
+grup, i $V_2$ \'es la variabilitat deguda a les difer\`encies entre els grups.
+\index{variabilitat}
+
+Definim ara les mitjanes quadr\`atiques seg\"uents:\index{mitjana!quadratica@quadr\`atica}
+\begin{itemize}
+\item[--] Mitjana quadr\`atica total: $MC_t = {VT \over n-1} = {\sum\limits_{j=1}^k
+\sum\limits_{i=1}^{n_j} (Y_{ij} - \bar{Y})^2 \over n-1}$.
+\index{mitjana!quadratica@quadr\`atica!total}
+
+\item[--] Mitjana quadr\`atica intragrup: $MC_{tra} = {V_1 \over n-k} =
+{\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} (Y_{ij} - \bar{Y}_j)^2 \over n-k}$.
+\index{mitjana!quadratica@quadr\`atica!intragrup}
+
+\item[--] Mitjana quadr\`atica intergrup: $MC_{ter} = {V_2 \over k-1} =
+{\sum\limits_{j=1}^k n_j (\bar{Y}_j - \bar{Y})^2 \over k-1}$.
+\end{itemize}
+\index{mitjana!quadratica@quadr\`atica!intergrup}
+
+\item {\bf Estad\'{\i}stic de contrast}
+
+Volem trobar un estad\'{\i}stic de tal forma que, si $H_0$ \'es certa, puguem dir quin
+tipus de distribuci\'o segueix.\index{estadistic@estad\'{\i}stic}
+
+Primerament, observem que
+\begin{eqnarray*}
+Q &:= & \sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} {(Y_{ij} - \mu_j)^2 \over
+\sigma^2} \\ & = &  {\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} (Y_{ij} - \bar{Y}_j)^2
+\over \sigma^2} + {\sum\limits_{j=1}^k n_j (\bar{Y}_j - \bar{Y} - \alpha_j)^2
+\over \sigma^2} + {n (\bar{Y} - \mu)^2 \over \sigma^2} \\ & := & Q_1 + Q_2 + Q_3.
+\end{eqnarray*}
+
+Aleshores:
+
+\begin{itemize}
+\item[--] La variable aleat\`oria $Q$ segueix la distribuci\'o $\chi_n^2$.
+
+\item[--] La variable aleat\`oria $Q_1$ segueix la distribuci\'o $\chi_{n-k}^2$.
+
+\item[--] La variable aleat\`oria $Q_2$ segueix la distribuci\'o $\chi_{k-1}^2$.
+
+\item[--] La variable aleat\`oria $Q_3$ segueix la distribuci\'o $\chi_1^2$.
+\end{itemize}
+
+Si $H_0$ \'es certa, aleshores $\alpha_1 = \cdots = \alpha_k = 0$. Per tant
+resulta:
+$$Q_2 = {\sum\limits_{j=1}^k n_j (\bar{Y}_j - \bar{Y})^2 \over \sigma^2}.$$
+
+D'aqu\'{\i} dedu\"{\i}m que
+$$F := {Q_2 / (k-1) \over Q_1 / (n-k)} = {MC_{ter} \over MC_{tra}}$$
+segueix la distribuci\'o $F$ de Fisher-Snedecor amb $k-1$ i $n-k$ graus de
+llibertat.\index{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}
+
+La regi\'o cr\'{\i}tica ser\`a de la forma $\{ F > F_{k-1,n-k,1-\alpha} \}$.
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+
+Les f\'ormules seg\"uents permeten calcular les diferents variabilitats de manera m\'es
+senzilla:\index{variabilitat}
+
+\begin{itemize}
+\item[-] $VT = \sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} Y_{ij} - {\left(
+\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} Y_{ij}^2\right)^2 \over n}$.
+
+\item[-] $V_1 = \sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} Y_{ij}^2 -
+\sum\limits_{j=1}^k {\left( \sum\limits_{i=1}^{n_j} Y_{ij} \right)^2 \over n_j}$.
+
+\item[-] $V_2 = VT - V_1 = \sum\limits_{j=1}^k {\left( \sum\limits_{i=1}^{n_j} Y_{ij}
+\right)^2 \over n_j} - {\left( \sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j}
+Y_{ij}^2\right)^2 \over n}$.
+\end{itemize}
+
+Despr\'es, com ja hem dit, es calculen les mitjanes quadr\`atiques i, finalment,
+l'estad\'{\i}stic $F$.\index{mitjana!quadratica@quadr\`atica}
+\index{estadistic@estad\'{\i}stic}
+
+\item {\bf Comprovaci\'o d'hip\`otesis pr\`evies}
+
+Per tal de comprovar la igualtat de les vari\`ancies,\index{igualtat de variancies@igualtat de vari\`ancies}
+$$\sigma_1^2 = \cdots = \sigma_k^2,$$
+Bartlett va proposar l'estad\'{\i}stic de contrast seg\"uent:
+\index{Bartlett}\index{estadistic@estad\'{\i}stic!de contrast}
+$$B = {2.3026 \over A} \left[ \sum\limits_{j=1}^k (n_j - 1) \log_{10}
+{\sum\limits_{j=1}^k (n_j - 1) \tilde{S}_j^2 \over \sum\limits_{j=1}^k (n_j - 1)}
+- \sum\limits_{j=1}^k (n_j - 1) \log_{10} \tilde{S}_j^2 \right] = {C \over A},$$
+on
+$$\tilde{S_j}^2 = {\sum\limits_{i=1}^{n_j} (Y_{ij} - \bar{Y}_j)^2 \over n_j - 1},
+\ \ A = 1 + {1 \over 3 (k-1)} \left[ \sum\limits_{j=1}^k {1 \over n_j - 1} - {1
+\over \sum\limits_{j=1}^k n_j - 1} \right].$$
+
+L'estad\'{\i}stic $B$ es distribueix segons una $\chi_{k-1}^2$ i, per tant, la regi\'o
+cr\'{\i}tica vendr\`a donada per:\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\{ B > \chi_{k-1,1-\alpha} \}.$$
+
+\item {\bf Comprovaci\'o de la normalitat de les $Y_{ij}$}\index{normalitat}
+
+S'aplica el test $\chi^2$ si les $n_j$ s\'on grans o el test de Kolmogorov-Smirnov,
+en cas contrari.\index{test!khi quadrat}\index{test!de Kolmogorov-Smirnov}
+
+\item {\bf Variables que tenen les mitjanes diferents}
+
+Si hem rebutjat $H_0$, ens interessar\`a saber quines $Y_j$ tenen les mitjanes
+diferents. La t\`ecnica m\'es utilitzada \'es el test de Scheff\'e, 
+\index{test!de Scheffe@de Scheff\'e}que diu que, si hem
+rebutjat $H_0$, acceptarem que $\mu_i \not = \mu_j$ al nivell de significaci\'o
+$\alpha$ si\index{nivell!de significacio@de significaci\'o}
+$${|\bar{Y_i} - \bar{Y_j}| \over \sqrt{MC_{tra} \cdot ({1 \over n_i} + {1 \over
+n_j})}} \geq \sqrt{(k-1) F_{k-1,n-k,1-\alpha}}.$$
+\end{enumerate}
+
+\subsection{An\`alisi de la vari\`ancia de dos factors}
+\index{analisi@an\`alisi!de la variancia@de la vari\`ancia!de dos factors}
+
+En el cas anterior supos\`avem que la variaci\'o de les variables aleat\`ories $Y_i$
+nom\'es era deguda a un factor: el m\`etode d'ensenyament, 
+\index{metode@m\`etode!d'ensenyament}per exemple. Ara
+suposarem, continuant amb l'exemple anterior, que l'efic\`acia
+\index{eficacia@efic\`acia} dels alumnes dep\`en de
+dos factors: el m\`etode d'ensenyament i el nivell social.\index{nivell!social}
+
+Aix\'{\i}, doncs, sigui $Y_{rs}$ la variable aleat\`oria que ens indica el rendiment dels
+\index{rendiment}
+alumnes ensenyats pel m\`etode $r$ i que pertanyen al nivell social $s$ ($r = 1,
+\ldots , f, \ s = 1, \ldots , c$). Suposem que les variables aleat\`ories $Y_{rs}$
+s\'on $N(\mu_{rs},\sigma^2)$ i independents.
+
+Sigui $Y_{1rs}, \ldots , Y_{nrs}$ una mostra aleat\`oria simple de la variable
+aleat\`oria $Y_{rs}$\break $\forall r = 1, \ldots , f$, i $ \forall s = 1, \ldots , c$.
+(Suposem que totes les mostres tenen la mateixa grand\`aria.)
+
+Considerem les variables aleat\`ories $N(0,\sigma^2)$ $\varepsilon_{irs} = Y_{irs}
+- \mu_{rs}$. Introdu\"{\i}m els par\`ametres seg\"uents:
+
+\begin{itemize}
+\item[--] Rendiment mitj\`a de totes les persones ensenyades pel m\`etode $r$:
+\index{rendiment!mitja@mitj\`a}
+$$\mu_{r\bullet} = {\sum\limits_{s=1}^c \mu_{rs} \over c}.$$
+
+\item[--] Rendiment mitj\`a de totes les persones que pertanyen al nivell social $s$:
+$$\mu_{\bullet s} = {\sum\limits_{r=1}^f \mu_{rs} \over f}.$$
+\index{rendiment!mitja@mitj\`a}
+
+\item[--] Rendiment mitj\`a de totes les persones:
+\index{rendiment!mitja@mitj\`a}
+$$\mu_{\bullet\bullet} = {\sum\limits_{s=1}^c \sum\limits_{r=1}^f \mu_{rs} \over f c} =
+{\sum\limits_{r=1}^f \mu_{r\bullet} \over f} = {\sum\limits_{s=1}^c \mu_{\bullet s} \over c}.$$
+\end{itemize}
+
+Considerem els par\`ametres:\index{parametre@par\`ametre}
+\begin{itemize}
+\item[-] $\alpha_r = \mu_{r\bullet} - \mu_{\bullet\bullet}$ (difer\`encies degudes al m\`etode).
+\index{diferencia@difer\`encia!deguda al metode@deguda al m\`etode}
+
+\item[-] $\beta_s = \mu_{\bullet s} - \mu_{\bullet\bullet}$ (difer\`encies degudes al nivell social).
+\index{diferencia@difer\`encia!deguda al nivell social}
+
+\item[-] $\gamma_{rs} = \mu_{rs} - \mu_{r\bullet} - \mu_{\bullet s} + \mu_{\bullet\bullet}$ 
+(interacci\'o).\index{interaccio@interacci\'o}
+\end{itemize}
+
+Aleshores
+$$Y_{irs} = \mu_{rs} + \varepsilon_{irs} = \mu_{\bullet\bullet} + \alpha_r + \beta_s +
+\gamma_{rs} + \varepsilon_{irs}.$$
+
+Direm que hi ha interacci\'o entre els dos factors si $\gamma_{rs} \not = 0$ per a
+algun $r$ i algun~$s$.\index{interaccio@interacci\'o}
+
+De forma esquem\`atica, la situaci\'o \'es la seg\"uent:
+
+\begin{center}
+\begin{tabular}{c|c|cccc|c|}
+\multicolumn{1}{c}{}&\multicolumn{6}{c}{{\bf FACTOR I: Nivell Social}}\\\cline{2-7}
+\multirow{6}{3cm}{{\bf FACTOR II: Metodologia Docent}}&&$1$&$2$&$\ldots$&$c$&\\\cline{2-7}
+&$1$&$\mu_{11}$&$\mu_{12}$&$\ldots$&$\mu_{1c}$&$\mu_{1\bullet}$\\
+&$2$&$\mu_{21}$&$\mu_{22}$&$\ldots$&$\mu_{2c}$&$\mu_{2\bullet}$\\
+&$\vdots$&$\vdots$&$\vdots$&$\ddots$&$\vdots$&$\vdots$\\
+&$f$&$\mu_{f1}$&$\mu_{f2}$&$\ldots$&$\mu_{fc}$&$\mu_{f\bullet}$\\\cline{2-7}
+&&$\mu_{\bullet 1}$&$\mu_{\bullet 2}$&$\ldots$&$\mu_{\bullet c}$&$\mu_{\bullet\bullet}$\\\cline{2-7}
+\end{tabular}
+\end{center}
+\index{nivell!social}\index{metode@m\`etode!d'ensenyament}
+
+\begin{enumerate}
+\item {\bf Estimadors dels par\`ametres}\index{estimador!del parametre@del par\`ametre}
+
+A partir de les definicions dels diferents par\`ametres i tenint en compte que
+l'estimador de $\mu_{rs}$ \'es
+$$\hat{\mu}_{rs} = {\sum\limits_{i=1}^n Y_{irs} \over n},$$
+obtenim els estimadors seg\"uents:
+\begin{itemize}
+
+\item[-] $\hat{\mu}_{r\bullet} = {\sum\limits_{s=1}^c \sum\limits_{i=1}^n Y_{irs} \over n
+c} := \hat{Y}_{r\bullet}$,
+
+\item[-] $\hat{\mu}_{\bullet s} = {\sum\limits_{r=1}^f \sum\limits_{i=1}^n Y_{irs} \over n
+f} := \hat{Y}_{\bullet s}$,
+
+\item[-] $\hat{\mu}_{\bullet\bullet} = {\sum\limits_{s=1}^c \sum\limits_{r=1}^f
+\sum\limits_{i=1}^n Y_{irs} \over n f c} := \hat{Y}_{\bullet\bullet}$,
+
+\item[-] $\hat{\alpha}_r = \hat{Y}_{r\bullet} - \hat{Y}_{\bullet\bullet}$,
+
+\item[-] $\hat{\beta}_s = \hat{Y}_{\bullet s} - \hat{Y}_{\bullet\bullet}$,
+
+\item[-] $\hat{\gamma}_{rs} = \hat{Y}_{rs} - \hat{Y}_{r\bullet} - 
+\hat{Y}_{\bullet s} + \hat{Y}_{\bullet\bullet}$.
+\end{itemize}
+
+\item {\bf Variabilitat}
+
+Definim la variabilitat total de la mostra com:\index{variabilitat!total}
+$$VT = \sum\limits_{s=1}^c \sum\limits_{r=1}^f \sum\limits_{i=1}^n (Y_{irs} -
+\hat{Y}_{\bullet\bullet})^2,$$
+i la descomponem de la manera seg\"uent:
+\begin{eqnarray*}
+VT & = & \sum\limits_{s=1}^c \sum\limits_{r=1}^f \sum\limits_{i=1}^n (Y_{irs} -
+\hat{Y}_{rs})^2 + n c \sum\limits_{r=1}^f (\hat{Y}_{r\bullet} - 
+\hat{Y}_{\bullet\bullet})^2 + n f \sum\limits_{s=1}^c (\hat{Y}_{\bullet s} - 
+\hat{Y}_{\bullet\bullet})^2 \\ & & + n \sum\limits_{s=1}^c
+\sum\limits_{r=1}^f (\hat{Y}_{rs} - \hat{Y}_{r\bullet} - \hat{Y}_{\bullet s} +
+\hat{Y}_{\bullet\bullet})^2.
+\end{eqnarray*}
+
+Aix\'{\i} hem descompost $VT$ en
+$$VT = VT_e + VT_f + VT_c + VT_{int},$$
+on
+\begin{itemize}
+\item[--] $VT_e$ \'es la variaci\'o deguda a les difer\`encies entre els valors dins 
+cada grup.
+
+\item[--] $VT_f$ \'es la variaci\'o deguda a les difer\`encies entre files (Factor~II:
+metodologia docent).
+\index{diferencia@difer\`encia!entre files}
+
+\item[--] $VT_c$ \'es la variaci\'o deguda a les difer\`encies entre columnes (Factor~I:
+classe social).
+\index{diferencia@difer\`encia!entre columnes}
+
+\item[--] $VT_{int}$ \'es la variaci\'o deguda a la interacci\'o entre els dos factors.
+\end{itemize}
+\index{variacio@variaci\'o!deguda a la interaccio@deguda a la interacci\'o}
+
+Definim ara les mitjanes quadr\`atiques seg\"uents:\index{mitjana!quadratica@quadr\`atica}
+\begin{itemize}
+\item[--] Mitjana quadr\`atica de l'error: $MC_e = {VT_e \over (n-1) f c}$.
+\index{mitjana!quadratica@quadr\`atica!de l'error}
+
+\item[--] Mitjana quadr\`atica per files: $MC_f = {VT_f \over f-1}$ (factor~II).
+\index{mitjana!quadratica@quadr\`atica!per files}
+
+\item[--] Mitjana quadr\`atica per columnes: $MC_c = {VT_c \over c-1}$ (factor~I).
+\index{mitjana!quadratica@quadr\`atica!per columnes}
+
+\item[--] Mitjana quadr\`atica d'interacci\'o: $MC_{int} = {VT_{int} \over (f-1)(c-1)}$.
+\end{itemize}
+\index{mitjana!quadratica@quadr\`atica!d'interaccio@d'interacci\'o}
+
+\item {\bf Estad\'{\i}stics de contrast}\index{estadistic@estad\'{\i}stic!de contrast}
+
+Quan feim una an\`alisi de la vari\`ancia de dos factors, tenim tres possibles contrasts
+amb les seg\"uents hip\`otesis nu{\lgem}es:
+\index{analisi@an\`alisi!de la variancia@de la vari\`ancia!de dos factors}
+
+\begin{enumerate}
+\item $H_{01} : \alpha_1 = \cdots = \alpha_f = 0$ o $\mu_{1\bullet} = \cdots = 
+\mu_{f\bullet}
+= \mu_{\bullet\bullet}$.
+
+(No hi ha variaci\'o entre files (factor II)).\index{variacio@variaci\'o!entre files}
+
+\item $H_{02} : \beta_1 = \cdots = \beta_c = 0$ o $\mu_{\bullet 1} = \cdots = 
+\mu_{\bullet c} =
+\mu_{\bullet\bullet}$
+
+(No hi ha variaci\'o entre columnes (factor I)).\index{variacio@variaci\'o!entre columnes}
+
+\item $H_{03} : \gamma_{rs} = 0 \ \forall r = 1, \ldots , f $ i $ \ s = 1, \ldots
+,c$, o $\mu_{rs} - \mu_{\bullet\bullet} = (\mu_{r\bullet} - \mu_{\bullet\bullet}) + 
+(\mu_{\bullet s} - 
+\mu_{\bullet\bullet}) = \alpha_r + \beta_s \ \forall r = 1, \ldots , f $ i $ \ s = 1, \ldots ,c$
+
+(No hi ha interacci\'o).\index{interaccio@interacci\'o}
+\end{enumerate}
+
+Haurem de donar un estad\'{\i}stic per a cada tipus de contrast. Observem que
+\index{estadistic@estad\'{\i}stic!de contrast}
+
+\begin{eqnarray*}
+Q & := &  {\sum\limits_{s=1}^c \sum\limits_{r=1}^f \sum\limits_{i=1}^n (Y_{irs} -
+\mu_{rs})^2 \over \sigma^2} = {\sum\limits_{s=1}^c \sum\limits_{r=1}^f
+\sum\limits_{i=1}^n (Y_{irs} - \hat{Y}_{rs})^2 \over \sigma^2} \\ && + {n c
+\sum\limits_{r=1}^f (\hat{Y}_{r\bullet} - \hat{Y}_{\bullet\bullet} - \alpha_r)^2 \over \sigma^2} +
+{n f \sum\limits_{s=1}^c (\hat{Y}_{\bullet s} - \hat{Y}_{\bullet\bullet} - \beta_s)^2 \over
+\sigma_2} \\ && + {n \sum\limits_{s=1}^c \sum\limits_{r=1}^f (\hat{Y}_{rs} -
+\hat{Y}_{r\bullet} - \hat{Y}_{\bullet s} + \hat{Y}_{\bullet\bullet} - \gamma_{rs})^2 \over \sigma^2} + {n
+f c (\hat{Y}_{\bullet\bullet} - \mu)^2 \over \sigma^2} \\ & := & Q_1 + Q_2 + Q_3 + Q_4 + Q_5.
+\end{eqnarray*}
+
+Aleshores:
+\begin{itemize}
+\item[--] La variable aleat\`oria $Q$ segueix la distribuci\'o $\chi_{n f c}^2$.
+
+\item[--] La variable aleat\`oria $Q_1$ segueix la distribuci\'o $\chi_{(n-1) f c}^2$.
+
+\item[--] La variable aleat\`oria $Q_2$ segueix la distribuci\'o $\chi_{f-1}^2$.
+
+\item[--] La variable aleat\`oria $Q_3$ segueix la distribuci\'o $\chi_{c-1}^2$.
+
+\item[--] La variable aleat\`oria $Q_4$ segueix la distribuci\'o $\chi_{(f-1)(c-1)}^2$.
+
+\item[--] La variable aleat\`oria $Q_5$ segueix la distribuci\'o $\chi_1^2$.
+\end{itemize}
+
+
+A continuaci\'o donarem els diferents estad\'{\i}stics de contrast.
+\index{estadistic@estad\'{\i}stic!de contrast}
+
+\begin{enumerate}
+\item Si $H_{01}$ \'es certa, aleshores $\alpha_1 = \cdots = \alpha_f = 0$. Per tant
+resulta que
+$$\bar{F}_f := {Q_2 / (f-1) \over Q_1 / ((n-1) f c)} = {MC_f \over MC_{e}}$$
+segueix la distribuci\'o $F$ de Fisher-Snedecor amb $f-1$ i $(n-1) f c$ graus de
+llibertat.\index{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}
+
+La regi\'o cr\'{\i}tica ser\`a de la forma $\{ \bar{F}_f > F_{f-1,(n-1) f c,1-\alpha} \}$.
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+
+\item Si $H_{02}$ \'es certa, aleshores $\beta_1 = \cdots = \beta_c = 0$. Per tant
+resulta que
+$$\bar{F}_c := {Q_3 / (c-1) \over Q_1 / ((n-1) f c)} = {MC_c \over MC_{e}}$$
+segueix la distribuci\'o $F$ de Fisher-Snedecor amb $c-1$ i $(n-1) f c$ graus de
+llibertat.\index{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}
+
+La regi\'o cr\'{\i}tica ser\`a de la forma $\{ \bar{F}_c > F_{c-1,(n-1) f c,1-\alpha} \}$.
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+
+\item Si $H_{03}$ \'es certa, aleshores $\gamma_{rs} = 0 \ \forall r = 1, \ldots , f
+$ i $ \ s = 1, \ldots ,c$. Per tant resulta que
+$$\bar{F}_{int} := {Q_4 / (f-1)(c-1) \over Q_1 / ((n-1) f c)} = {MC_{int} \over
+MC_{e}}$$
+segueix la distribuci\'o $F$ de Fisher-Snedecor amb $(f-1)(c-1)$ i $(n-1) f c$
+graus de llibertat.\index{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}
+
+La regi\'o cr\'{\i}tica ser\`a de la forma $\{ \bar{F}_{int} > F_{(f-1)(c-1),(n-1) f
+c,1-\alpha} \}$.\index{regio@regi\'o!critica@cr\'{\i}tica}
+\end{enumerate}
+
+Les f\'ormules seg\"uents permeten calcular les diferents variabilitats de manera m\'es
+senzilla:\index{variabilitat}
+
+\begin{itemize}
+\item[-] $VT = \sum\limits_{r=1}^f \sum\limits_{s=1}^c \sum\limits_{i=1}^n Y_{irs}^2
+- {\left( \sum\limits_{r=1}^f \sum\limits_{s=1}^c \sum\limits_{i=1}^n Y_{irs}
+\right)^2 \over n f c}$.
+
+\item[-] $VT_e = \sum\limits_{r=1}^f \sum\limits_{s=1}^c \sum\limits_{i=1}^n
+Y_{irs}^2 - {\sum\limits_{r=1}^f \sum\limits_{s=1}^c \left( \sum\limits_{i=1}^n
+Y_{irs} \right)^2 \over n}$.
+
+\item[-] $VT_f = {\sum\limits_{r=1}^f \left( \sum\limits_{s=1}^c \sum\limits_{i=1}^n
+Y_{irs} \right)^2 \over n c} - {\left( \sum\limits_{r=1}^f \sum\limits_{s=1}^c
+\sum\limits_{i=1}^n Y_{irs} \right)^2 \over n f c}$.
+
+\item[-] $VT_c = {\sum\limits_{s=1}^c \left( \sum\limits_{r=1}^f \sum\limits_{i=1}^n
+Y_{irs} \right)^2 \over n f} - {\left( \sum\limits_{r=1}^f \sum\limits_{s=1}^c
+\sum\limits_{i=1}^n Y_{irs} \right)^2 \over n f c}$.
+
+\item[-] $ V_{int} = VT - VT_e - VT_f - VT_c$.
+\end{itemize}
+
+Despr\'es, com ja hem dit, es calculen les mitjanes quadr\`atiques i, finalment, els
+estad\'{\i}stics $\bar{F}$.\index{mitjana!quadratica@quadr\`atica}
+\index{estadistic@estad\'{\i}stic}
+
+\item {\bf Variables que tenen les mitjanes diferents}
+
+\begin{enumerate}
+\item Si hem rebutjat $H_{01}$, seguint amb la mateixa filosofia que la part
+d'an\`alisi de la vari\`ancia amb un sol factor, direm que $\mu_{r\bullet} \not = 
+\mu_{r'\bullet}$
+al nivell de significaci\'o $\alpha$ si:
+$${|\bar{Y_{r\bullet}} - \bar{Y_{r'\bullet}}| \over \sqrt{MC_e \cdot ({1 \over 
+n_{r\bullet}} + {1
+\over n_{r'\bullet}})}} \geq \sqrt{(f-1) F_{f-1,(n-1) f c,1-\alpha}}.$$
+
+En el nostre cas, $n_{r\bullet} = n_{r'\bullet} = n \cdot c$.
+
+\item Si hem rebutjat $H_{02}$, direm que $\mu_{\bullet s} \not = \mu_{\bullet s'}$ al nivell
+de significaci\'o $\alpha$ si:
+$${|\bar{Y_{\bullet s}} - \bar{Y_{\bullet s'}}| \over \sqrt{MC_e \cdot ({1 
+\over n_{\bullet s}} + {1
+\over n_{\bullet s'}})}} \geq \sqrt{(c-1) F_{c-1,(n-1) f c,1-\alpha}}.$$
+
+En el nostre cas, $n_{\bullet s} = n_{\bullet s'} = n \cdot f$.
+
+\item Si hem rebutjat $H_{03}$, direm que $\mu_{rs} \not = \mu_{r's'}$ al nivell
+de significaci\'o $\alpha$ si:
+$${|\bar{Y}_{rs} - \bar{Y}_{r's'}| \over \sqrt{MC_e \cdot ({1 \over n} + {1 \over
+n})}} \geq \sqrt{(f-1)(c-1) F_{(f-1)(c-1),(n-1) f c,1-\alpha}}.$$
+\end{enumerate}
+\end{enumerate}
+
+\section{Problemes resolts}
+
+\begin{probres}
+{Desitjam con\`eixer els efectes de
+l'alcohol en la realitzaci\'o de sumes. Per aix\`o, triam
+a l'atzar $8$ persones que subdividim aleat\`oriament en tres
+grups (amb $3$,$2$ i $3$ persones respectivament) als quals
+aplicam, tamb\'e aleat\`oriament, tres tractaments distints:
+$T_1$ (placebo), $T_2$ (baixa dosi d'alcohol), $T_3$
+(alta dosi d'alcohol). Els resultats del quadre adjunt
+representen el nombre d'errors comesos per cada una de
+les $8$ persones:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$T_1$&$T_2$&$T_3$\\\hline\hline
+$2$&$7$&$10$\\\hline
+$4$&$8$&$10$\\\hline
+ &$9$&$\ \,6$\\\hline
+\end{tabular}
+\end{center}
+\'Es compatible la hip\`otesi
+$H_0:\mu_1=\mu_2=\mu_3$, igual mitjana d'errors en les $3$
+poblacions, amb els resultats obtenguts? (trobau l'error tipus I m\`axim 
+per sota del qual acceptam la igualtat de mitjanes d'errors.)}
+\end{probres}
+
+\res{
+Constru\"{\i}m primer la taula que ens donar\`a les quantitats de qu\`e 
+depenen les variabilitats.
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|}
+\hline
+T_1&T_2&T_3&T_1^2&T_2^2&T_3^2\\\hline\hline
+2&\ \,7&10&\ \,4&\ \,49&100\\\hline
+4&\ \,8&10&16&\ \,64&100\\\hline
+&\ \,9&\ \,6&&\ \,81&\ \,36\\\hline\hline
+6&24&26&20&194&236\\\hline
+\end{tabular}
+\end{center}
+Fixau-vos que, en el nostre cas, el nombre de grups val $k=3$, 
+la grand\`aria de 
+cada mostra corresponent a cada grup \'es $n_1 =2$, $n_2 =3$ i $n_3 =3$ i
+la grand\`aria total de la mostra val $n=n_1+n_2+n_3 =8$.
+
+Per tant, el valor de les quantitats anteriors \'es:
+\begin{eqnarray*}
+\sum_{j=1}^k \sum_{i=1}^{n_j} Y_{ij}^2 & = & 20+194+236 = 450, \\
+\frac{{\left(\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} Y_{ij}\right)}^2}{n} 
+& = & \frac{{(6+24+26)}^2}{2+3+3}=\frac{3136}{8}=392, \\
+\sum_{j=1}^k\frac{{\left(\sum\limits_{i=1}^{n_j} Y_{ij}\right)}^2}{n_j} & 
+= &
+\frac{6^2}{2}+\frac{{24}^2}{3}+\frac{{26}^2}{3}=435.33.
+\end{eqnarray*} 
+Els valors de les variabilitats totals ($VT$), intragrups ($V_{tra}$) 
+i intergrups ($V_{ter}$) s\'on, respectivament:
+\begin{eqnarray*}
+VT & = & \sum_{j=1}^k \sum_{i=1}^{n_j} Y_{ij}^2 -
+\frac{{\left(\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} 
+Y_{ij}\right)}^2}{n} = 450 - 392 = 58, \\
+V_{tra} & = & \sum_{j=1}^k \sum_{i=1}^{n_j} Y_{ij}^2 -
+\sum_{j=1}^k\frac{{\left(\sum\limits_{i=1}^{n_j} Y_{ij}\right)}^2}{n_j} =
+450 - 435.33 = 14.66, \\
+V_{ter} & = & VT - V_{tra} = 58 - 14.66 = 43.33.
+\end{eqnarray*}
+Finalment, constru\"{\i}m la taula per trobar l'estad\'{\i}stic de contrast 
+$F$ on F.V. vol dir Font de Variaci\'o, g. ll. vol dir graus de llibertat i 
+$MQ$, mitjana quadr\`atica:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c||c|c|@{}c@{}|@{}c@{}|}
+\hline
+F.V.&$V$&g. ll.&$MQ=\frac{V}{\mbox{g. ll.}}$&$F=\frac{
+MQ_{ter}}{MQ_{tra}}$\\\hline\hline
+Inter&$43.33$&$k-1 
+=3-1=2$&$MQ_{ter}=\frac{43.33}{2}=21.66$&\multirow{3}{3.4cm}
+{$F=\frac{21.66}{2.93}=7.3864$}\\\cline{1-4}
+Intra&$14.66$&$n-k=8-3=5$&$MQ_{tra}=\frac{14.66}{5}=2.93$&\\\cline{1-4}
+Total&$58.00$&$n-1 =8-1=7$&&\\\hline
+\end{tabular}
+\end{center}
+La distribuci\'o de l'estad\'{\i}stic $F$ \'es aproximadament la funci\'o 
+$F$ de Fisher-Snedecor amb graus de llibertat $k-1=2$ i $n-k=5$.
+
+Tenint en compte que la regi\'o cr\'{\i}tica per realitzar el contrast 
+\'es:
+\[
+R.C.=\{ F>F_{2,5,1-\alpha}\},
+\]
+on $\alpha$ \'es l'error tipus I, l'error tipus I m\`axim per sota del 
+qual acceptarem igualtat de mitjanes compleix:
+\[
+\alpha_{\mbox{\footnotesize max}}=\pp{F_{2,5}>7.3864}\leq 1-0.975 =0.025.
+\]
+En vista del resultat anterior, rebutjam $H_0$ i concloem que les 
+mitjanes de tots els grups no s\'on iguals.
+}
+
+\begin{probres}
+{Sigui una mostra aleat\`oria simple que
+dividim aleat\`oriament en 3 submostres de grand\`aries $n_1=3$,
+$n_2=4$ i $n_3=3$, respectivament. Desitjam comprovar si
+la lluminositat ambiental modifica la percepci\'o visual.
+Per aix\`o, sotmetem la primera mostra a una tasca de
+reconeixement de lletres amb baixa lluminositat
+ambiental. La segona realitza la tasca amb alta
+lluminositat i la tercera la realitza sota un nivell
+mitj\`a de lluminositat. Els resultats s\'on els
+seg\"uents (en nombre de lletres reconegudes
+correctament):
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Lluminositat
+baixa&Lluminositat alta&Lluminositat
+mitjana\\\hline\hline
+$4$&$\ \,9$&$12$\\\hline
+$5$&$\ \,9$&$15$\\\hline
+ &$11$& \\\hline
+\end{tabular}
+\end{center}
+Trobau l'error tipus I m\`axim per poder acceptar que el nombre de lletres
+reconegudes sota cada un dels $3$ nivells de lluminositat \'es el mateix. 
+Fent servir el m\`etode de Scheff\'e, trobau entre quins
+tractaments hi ha difer\`encies.}
+\end{probres}
+
+\res{
+En aquest problema, el nombre de grups val $k=3$, la grand\`aria de 
+cada mostra corresponent a cada grup \'es $n_1 =2$, $n_2 =3$ i $n_3 =2$ i
+la grand\`aria total de la mostra val $n=n_1+n_2+n_3 =7$.
+
+Vegem primer que no podem acceptar que el nombre de lletres 
+reconegudes sota cada un dels tres nivell de lluminositat \'es el mateix.
+\begin{itemize}
+	\item[a)] C\`alcul de les quantitats de qu\`e depenen les variabilitats:
+	\begin{center}
+		\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|}
+			\hline
+			Y_1 & Y_2 & Y_3 & Y_1^2 & Y_2^2 & Y_3^2  \\
+			\hline\hline
+			4 & \ \,9 & 12 & 16 & \ \,81 & 144  \\
+			\hline
+			5 & \ \,9 & 15 & 25 & \ \,81 & 225  \\
+			\hline
+			 & 11 &  &  & 121 &   \\
+			\hline\hline
+			9 & 29 & 27 & 41 & 283 & 369  \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Quantitats:
+	\begin{eqnarray*}
+\sum_{j=1}^k \sum_{i=1}^{n_j} Y_{ij}^2 & = & 41+283+369=693, \\
+\frac{{\left(\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} Y_{ij}\right)}^2}{n} 
+& = & \frac{{(9+29+27)}^2}{2+3+2}=\frac{4225}{7}=603.5714, \\
+\sum_{j=1}^k\frac{{\left(\sum\limits_{i=1}^{n_j} Y_{ij}\right)}^2}{n_j} & 
+= &
+\frac{9^2}{2}+\frac{{29}^2}{3}+\frac{{27}^2}{2}=685.3333.
+\end{eqnarray*} 
+	\item[b)] C\`alcul de les variabilitats:
+	\begin{eqnarray*}
+VT & = & \sum_{j=1}^k \sum_{i=1}^{n_j} Y_{ij}^2 -
+\frac{{\left(\sum\limits_{j=1}^k \sum\limits_{i=1}^{n_j} 
+Y_{ij}\right)}^2}{n} = 693 - 603.5714 = 89.4285, \\
+V_{tra} & = & \sum_{j=1}^k \sum_{i=1}^{n_j} Y_{ij}^2 -
+\sum_{j=1}^k\frac{{\left(\sum\limits_{i=1}^{n_j} Y_{ij}\right)}^2}{n_j} =
+693 - 685.3333 = 7.6666, \\
+V_{ter} & = & VT - V_{tra} = 89.4285 - 7.6666 = 81.7619.
+\end{eqnarray*}
+	
+	\item[c)] Taula per trobar l'estad\'{\i}stic $F$:
+	
+Recordem que  F.V. vol dir Font de Variaci\'o, g. ll. vol dir graus de llibertat i 
+$MQ$, mitjana quadr\`atica:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c||c|c|@{}c@{}|@{}c@{}|}
+\hline
+F.V.&$V$&g. ll.&$MQ=\frac{V}{\mbox{g. ll.}}$&$F=\frac{
+MQ_{ter}}{MQ_{tra}}$\\\hline\hline
+Inter&$81.76$&$k-1 
+=3-1=2$&$MQ_{ter}=\frac{81.76}{2}=40.80$&\multirow{3}{3.1cm}
+{$F=\frac{40.88}{1.916}=21.33$}\\\cline{1-4}
+Intra&$\ 7.66$&$n-k=7-3=4$&$MQ_{tra}=\frac{7.66}{4}=1.916$&\\\cline{1-4}
+Total&$89.42$&$n-1 =7-1=6$&&\\\hline
+\end{tabular}
+\end{center}
+	 La distribuci\'o de l'estad\'{\i}stic $F$ \'es aproximadament la 
+	 distribuci\'o $F$ de Fisher-Snedecor
+	 amb $2$ i $4$ graus de llibertat. 
+	 
+	 La regi\'o cr\'{\i}tica \'es:
+	 \[
+	 R.C.=\{F>F_{2,4,1-\alpha}\},
+	 \]
+	 on $\alpha$ \'es l'error tipus I. 
+	 
+	 L'error tipus I m\`axim, per sota del qual acceptam que la mitjana del 
+	 nombre de lletres reconegudes \'es el mateix sota cada un dels tres 
+	 nivells de lluminositat, compleix:
+	 \[
+	 0.005\leq \alpha_{\mbox{\footnotesize max}} =
+	\pp{F_{2,4}>21.33}\leq 0.01.
+	 \]
+	 En vista del resultat anterior, rebutjam $H_0$ i concloem que els 
+	 distints tipus de lluminositat modifiquen la percepci\'o visual
+\end{itemize}
+A continuaci\'o, fent servir el m\`etode de Scheff\'e, vegem entre quins 
+tractaments hi ha difer\`encies.
+
+Considerarem que hi ha difer\`encies entre el tractament $i$ i el $j$ al 
+nivell de significaci\'o $\alpha$ si:
+\begin{equation}
+\frac{\overline{Y}_i 
+-\overline{Y}_j}{\sqrt{MQ_{tra}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}} \geq
+\sqrt{ (k-1) F_{k-1,n-k,1-\alpha}}.
+\label{CONDICIOSCHEFFE}
+\end{equation}
+En el nostre cas, tenim que:
+\[ 
+k=3,\ n=7,\ \overline{Y}_1 =4.5,\ \overline{Y}_2 =9.66,\ \overline{Y}_3 
+=13.5\ \mbox{i }MQ_{tra}=1.916.
+\]
+El que farem \'es trobar, en cada cas, l'error tipus I m\`axim per sota 
+del qual acceptarem que no hi ha difer\`encies entre el tractament $i$ i 
+el $j$.
+
+Abans de comen\c{c}ar fixau-vos que la condici\'o~(\ref{CONDICIOSCHEFFE}) 
+\'es equivalent a:
+\[
+\frac{{\left({\overline{Y}_i 
+-\overline{Y}_j}
+\right)}^2}{(k-1)\cdot 
+{MQ_{tra}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}
+\geq F_{k-1,n-k,1-\alpha}.
+\]
+Aquest darrera condici\'o ser\`a la que farem servir.
+\begin{itemize}
+	\item  Tractaments $1$ i $2$.
+	
+	Fent c\`alculs, acceptarem que hi ha difer\`encies entre els tractaments 
+	$1$ i $2$ si:
+	\[
+	\frac{{({\overline{Y}_1 
+-\overline{Y}_2)}^2}}{2\cdot 
+MQ_{tra}\left(\frac{1}{2}+\frac{1}{3}\right)}
+=8.3565\geq  F_{2,4,1-\alpha}.
+	\]
+	Per tant, l'error tipus I m\`axim per sota del qual acceptarem que no hi 
+	ha difer\`encies entre els tractaments $1$ i $2$ compleix:
+	\[
+	0.01\leq \alpha_{\mbox{\footnotesize max},1,2}=\pp{F_{2,4}> 8.35}\leq 
+	0.05.
+	\]
+	Concloem, doncs, que hi ha difer\`encies entre els tractaments $1$ i $2$.
+	\item  Tractaments $1$ i $3$.
+	
+	Acceptarem que hi ha difer\`encies entre els tractaments 
+	$1$ i $3$ si:
+		\[
+	\frac{{({\overline{Y}_1 
+-\overline{Y}_3)}^2}}{2\cdot 
+MQ_{tra}\left(\frac{1}{2}+\frac{1}{2}\right)}
+=21.1304\geq  F_{2,4,1-\alpha}.
+	\]
+	Per tant, l'error tipus I m\`axim per sota del qual acceptarem que no hi 
+	ha difer\`encies entre els tractaments $1$ i $3$ compleix:
+	\[
+	0.005\leq \alpha_{\mbox{\footnotesize max},1,3}=\pp{F_{2,4}>21.13}\leq 
+	0.01.
+	\]
+	Concloem, doncs, que hi ha difer\`encies entre els tractaments $1$ i $3$.
+	\item   Tractaments $2$ i $3$.
+	
+	Acceptarem que hi ha difer\`encies entre els tractaments 
+	$2$ i $3$ si:
+		\[
+	\frac{{({\overline{Y}_2 
+-\overline{Y}_3)}^2}}{2\cdot 
+MQ_{tra}\left(\frac{1}{3}+\frac{1}{2}\right)}
+=4.6\geq  F_{2,4,1-\alpha}.
+	\]
+	Per tant, l'error tipus I m\`axim per sota del qual acceptarem que no hi 
+	ha difer\`encies entre els tractaments $2$ i $3$ compleix:
+	\[
+	0.05\leq \alpha_{\mbox{\footnotesize max},2,3}=\pp{F_{2,4}>4.6}\leq 
+	0.1.
+	\]
+	Podem acceptar, tenint en compte que el valor de 
+	$\alpha_{\mbox{\footnotesize max},2,3}$ \'es m\'es gran que $0.05$, que no hi ha difer\`encies 
+	entre els tractaments $2$ i $3$.
+\end{itemize}
+}
+
+\begin{probres}
+{Per estudiar les difer\`encies entre $4$
+fertilitzants damunt la producci\'o de patates, es va
+disposar de $5$ finques, cada una de les quals es va
+dividir en $4$ parce{\lgem}es de la mateixa grand\`aria i tipus. Els
+fertilitzants varen ser assignats a l'atzar en les
+parce{\lgem}es de cada finca. El rendiment en tones va
+ser:
+\begin{center}
+\begin{tabular}{c|c||c|c|c|c|c|}
+\multicolumn{2}{c|}{}&\multicolumn{5}{c|}{Finca}\\\cline{3-7}
+\multicolumn{2}{c|}{}&$1$&$2$&$3$&$4$&$5$\\\hline\hline
+\multirow{4}{2.5cm}{Fertilitzant}&$1$&$2.1$&$2.2$&$1.8$&$2.0$&$1.9$\\\cline{2-7}
+&$2$&$2.2$&$2.6$&$2.7$&$2.5$&$2.8$\\\cline{2-7}
+&$3$&$1.8$&$1.9$&$1.6$&$2.0$&$1.9$\\\cline{2-7}
+&$4$&$2.1$&$2.0$&$2.2$&$2.4$&$2.1$\\\hline
+\end{tabular}
+\end{center}
+Es desitja saber si existeixen difer\`encies entre els
+fertilitzants i entre les finques.}
+\end{probres}
+
+\res{
+En aquest problema el nombre de nivells de variaci\'o per al factor {\bf 
+Fertilitzant} val $f=4$, el nombre de nivells de variaci\'o per al factor {\bf 
+Finca} val $c=5$ i la grand\`aria 
+de la mostra corresponent al nivell $i$ per 
+al factor {\bf Fertilitzant} i al nivell $j$ per al factor {\bf Finca} 
+val $n=1$.
+
+Com ja es pot veure, es tracta d'un contrast ANOVA de dos factors.
+
+Per trobar els estad\'{\i}stics que ens donaran tota la informaci\'o per saber 
+si hi ha difer\`encies entre els fertilitzants i entre les finques, primer hem 
+de trobar les variabilitats. I abans d'aix\`o, hem de trobar les 
+quantitats de qu\`e depenen les variabilitats o variacions:
+\begin{eqnarray*}
+	\sum_{r=1}^f\sum_{s=1}^c\sum_{i=1}^n Y_{irs}^2 & = & 93.52,  \\
+	\frac{{\left(\sum\limits_{r=1}^f\sum\limits_{s=1}^c\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nfc} & = & \frac{{42.8}^2}{20}=91.592,  \\
+	\frac{\sum\limits_{r=1}^f\sum\limits_{s=1}^c{\left(\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{n} & = & 93.52,  \\
+	\frac{\sum\limits_{r=1}^f {\left(\sum\limits_{s=1}^c \sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nc} & = & 
+	\frac{{10}^2}{5}+\frac{{12.8}^2}{5}+\frac{{9.2}^2}{5}+\frac{{10.8}^2}{5}=93.024,  \\
+	\frac{\sum\limits_{s=1}^c {\left(\sum\limits_{r=1}^f \sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nf} & = & 
+	\frac{{8.2}^2}{4}+\frac{{8.7}^2}{4}+\frac{{8.3}^2}{4}+\frac{{8.9}^2}{4}+\frac{{8.7}^2}{4}=91.68.
+\end{eqnarray*}
+
+A continuaci\'o, calculem les variacions. Direm $VT$ a la 
+variaci\'o total, $V_{int}$ a la variaci\'o  deguda a la interacci\'o entre 
+els dos factors, $V_f$ a la variaci\'o deguda a la difer\`encia entre 
+files (en el nostre cas, Fertilitzants), $V_c$ a la variaci\'o deguda a 
+la difer\`encia entre les columnes (en el nostre cas, Finques) i $V_e$ a 
+la variaci\'o no explicada per difer\`encies entre files, entre columnes 
+ni entre interacci\'o.
+\begin{eqnarray*}
+	VT & = & \sum_{r=1}^f\sum_{s=1}^c\sum_{i=1}^n Y_{irs}^2 -
+	\frac{{\left(\sum\limits_{r=1}^f\sum\limits_{s=1}^c\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nfc} = 93.52 - 91.592 =1.928, \\
+	V_e & = & \sum_{r=1}^f\sum_{s=1}^c\sum_{i=1}^n Y_{irs}^2 -
+	 \frac{\sum\limits_{r=1}^f\sum\limits_{s=1}^c{\left(\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{n} = 93.52 - 93.52 =0, \\
+	V_f & = & \frac{\sum\limits_{r=1}^f {\left(\sum\limits_{s=1}^c \sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nc} -\frac{{\left(\sum\limits_{r=1}^f\sum\limits_{s=1}^c\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nfc} = 93.024 - 91.592 =1.432,
+	 \\
+	V_c & = & \frac{\sum\limits_{s=1}^c {\left(\sum\limits_{r=1}^f \sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nf}- \frac{{\left(\sum\limits_{r=1}^f\sum\limits_{s=1}^c\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nfc} = 91.68 - 91.592 = 0.088,\\
+	V_{int} & = & VT- V_e - V_f - V_c = 1.928 - 1.432 - 0.088 = 0.408.
+\end{eqnarray*}
+A continuaci\'o, obtenim la taula per trobar els estad\'{\i}stics $F$ per 
+estudiar la variaci\'o entre files, entre columnes i interacci\'o 
+fila-columna. 
+
+Recordem que FV significa Font de Variaci\'o, g.ll., graus de 
+llibertat i $MQ$, mitjana quadr\`atica. Introdu\"{\i}m el par\`ametre $N$:
+nombre total d'elements. En el nostre cas $N=nfc=20$.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		FV&$V$&g. ll.&$MQ=\frac{V}{\mbox{g. ll.}}$&$F=\frac{
+MQ}{MQ_{e}}$\\\hline\hline
+		Fertilitzant & $1.43$ & $f-1=4-1=3$ & $0.47$ & $F_f=\frac{0.47}{0}=??$  \\
+		\hline
+		Finca & $0.08$ & $c-1=5-1=4$ & $0.02$ & $F_c =\frac{0.02}{0}=??$  \\
+		\hline
+		Interacci\'o & $0.40$ & $(f-1)(c-1)=12$ & $0.03$ & 
+		$F_{int}=\frac{0.03}{0}=??$  \\
+		\hline
+		Error & $0.00$ & $(n-1)fc=0$ & $0.00$ &   \\
+		\hline
+		Total & $1.92$ & $N - 1=19$ &  &   \\
+		\hline
+	\end{tabular}
+\end{center}
+Com podem observar, no podem trobar els estad\'{\i}stics $F_f$, $F_c$ i 
+$F_{int}$ per estudiar difer\`encies entre files, columnes i interacci\'o 
+fila-columna respectivament, ja que la mitjana quadr\`atica corresponent a 
+l'error val zero. Aix\`o ens passar\`a sempre que $n=1$. El motiu \'es que 
+no tenim prou informaci\'o per estudiar la interacci\'o entre els dos 
+factors, ja que per estudiar la interacci\'o la 
+grand\`aria de la mostra 
+corresponent al nivell $i-j$ ha de valer com a m\'{\i}nim $2$.
+
+Aix\'{\i}, en aquest cas (i en tots el casos on $n=1$), hem de 
+descompondre la variabilitat total en nom\'es $3$ factors: el degut a la 
+variaci\'o entre files, el degut a la variaci\'o entre columnes i el 
+degut a la variaci\'o no explicada, anomenat error:
+\[
+VT=V_f + V_c + V_e.
+\]
+A continuaci\'o, constru\"{\i}m novament la taula per trobar els 
+estad\'{\i}stics per estudiar la variaci\'o entre els fertilitzants i 
+entre les finques:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		FV&$V$&g. ll.&$MQ=\frac{V}{\mbox{g. ll.}}$&$F=\frac{
+MQ}{MQ_{e}}$\\\hline\hline
+Fertilitzant&$1.43$&$f-1=3$&$0.47$&$F_f =\frac{0.47}{0.03}\approx 
+14.04$\\\hline
+Finca&$0.08$&$c-1=4$&$0.02$&$F_c =\frac{0.02}{0.03}\approx 0.65$\\\hline
+Error&$0.40$&$(f-1)(c-1)=12$&$0.03$&\\\hline
+Total&$1.92$&$N-1=19$&&\\\hline
+	\end{tabular}
+\end{center}
+
+A continuaci\'o, vegem si hi ha difer\`encies entre fertilitzants i entre 
+finques:
+\begin{itemize}
+	\item[a)] Difer\`encies entre fertilitzants.
+	
+	En aquest cas, tenim que l'estad\'{\i}stic $F_f$ es distribueix 
+	aproximadament segons la distribuci\'o 
+	de Fisher-Snedecor amb graus de 
+	llibertat $3$ i $12$. 
+	
+	La regi\'o cr\'{\i}tica val:
+	\[
+	R.C.=\{F_f > F_{3,12,1-\alpha}\},
+	\]
+	on $\alpha$ \'es l'error tipus I.
+	
+	Per tant, l'error tipus I m\`axim per sota del qual acceptarem que no hi 
+	ha difer\`encies entre fertilitzants compleix:
+	\[
+	\alpha_{\mbox{\footnotesize max}}=\pp{F_{3,12}> 14.03}\leq 0.005.
+	\]
+	Concloem, doncs, que hi ha difer\`encies entre fertilitzants.
+	\item[b)] Difer\`encies entre finques.
+	
+	En aquest cas, tenim que l'estad\'{\i}stic $F_c$ es distribueix 
+	aproximadament segons la distribuci\'o de 
+	Fisher-Snedecor amb graus de 
+	llibertat $4$ i $12$. 
+	
+	La regi\'o cr\'{\i}tica val:
+	\[
+	R.C.=\{F_c > F_{4,12,1-\alpha}\},
+	\]
+	on $\alpha$ \'es l'error tipus I.
+	
+	Per tant, l'error tipus I m\`axim per sota del qual acceptarem que no hi 
+	ha difer\`encies entre finques compleix:
+	\begin{eqnarray*}
+	0.6 &\leq & \alpha_{\mbox{\footnotesize max}}=\pp{F_{4,12}> 
+	0.64}=1-\pp{F_{12,4}>\frac{1}{0.64}}\\ &=& 
+	1-\pp{F_{12,4}>1.54}\leq 0.7.
+	\end{eqnarray*}
+	Concloem, doncs, que no hi ha difer\`encies entre finques.
+\end{itemize}
+}
+
+\newpage
+
+\begin{probres}
+{S'han estudiat les taxes de
+consum d'oxigen en dues esp\`ecies de mo{\lgem}uscs ({\it Acmaea
+Scabra} i {\it Acmaea Digitalis}) en $3$ concentracions
+d'aigua de mar. \newline La variable mesurada \'es 
+$\mu l O_2 /$(mg. de  cos sec. minut) a
+$22^0$ C.
+\newline Els resultats obtenguts s\'on:
+\begin{center}
+\begin{tabular}{c|c|r@{.}l|r@{.}l|r@{.}l|}
+\multicolumn{8}{r|}{CONCENTRACI\'O D'AIGUA DE MAR}\\\hline
+&&\multicolumn{2}{c|}{$100\%$}&
+\multicolumn{2}{c|}{$75\%$}&
+\multicolumn{2}{c|}{$50\%$}\\\cline{3-8}
+\multirow{16}{2cm}{ESP\`ECIE}&\multirow{6}{2.5cm}{{\it A. Scabra}}&
+$7$&$16$&$5$&$20$&$11$&$11$\\\cline{3-8}
+&&$6$&$78$&$5$&$20$&$9$&$74$\\\cline{3-8}
+&&$13$&$60$&$7$&$18$&$18$&$8$\\\cline{3-8}
+&&$8$&$93$&$6$&$37$&$9$&$74$\\\cline{3-8}
+&&$8$&$26$&$13$&$20$&$10$&$50$\\\cline{3-8}
+&&$14$&$00$&$8$&$39$&$14$&$60$\\\cline{3-8}
+&&$16$&$10$&$10$&$40$&$11$&$10$\\\cline{3-8}
+&&$9$&$66$&$7$&$18$&$11$&$80$\\\cline{2-8}
+&\multirow{6}{2.5cm}{{\it A. Digitalis}}&
+$6$&$14$&$4$&$47$&$9$&$63$\\\cline{3-8}
+&&$3$&$86$&$9$&$90$&$6$&$38$\\\cline{3-8}
+&&$10$&$40$&$5$&$75$&$13$&$40$\\\cline{3-8}
+&&$5$&$49$&$11$&$8$&$14$&$50$\\\cline{3-8}
+&&$6$&$14$&$4$&$95$&$14$&$50$\\\cline{3-8}
+&&$10$&$00$&$6$&$49$&$10$&$20$\\\cline{3-8}
+&&$11$&$60$&$5$&$44$&$17$&$70$\\\cline{3-8}
+&&$5$&$80$&$9$&$90$&$12$&$30$\\\hline
+\end{tabular}
+\end{center}
+
+Es desitja saber si hi ha difer\`encies entre les
+concentracions d'aigua de mar i entre les diferents
+esp\`ecies i si hi ha interacci\'o entre la
+concentraci\'o d'aigua de mar i l'esp\`ecie.}
+\end{probres}
+
+\res{
+Per resoldre el problema, hem de realitzar un contrast ANOVA de dos factors amb interacci\'o.
+
+El nombre de nivells del factor fila o ESP\`ECIE \'es $f=2$, el nombre de 
+nivells del factor columna o CONCENTRACI\'O D'AIGUA DE MAR \'es $c=3$ i 
+la grand\`aria de la mostra corresponent al nivell fila $i$ i al nivell 
+columna $j$ \'es $n=8$. La grand\`aria total de la mostra ser\`a doncs: 
+$N=nfc=8\cdot 2\cdot 3=48$.
+\begin{itemize}
+	\item[a)]  C\`alcul de les quantitats de qu\`e depenen les variabilitats.
+	\begin{eqnarray*}
+	\sum_{r=1}^f\sum_{s=1}^c\sum_{i=1}^n Y_{irs}^2 & = & 5065.153,  \\
+	\frac{{\left(\sum\limits_{r=1}^f\sum\limits_{s=1}^c\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nfc} & = & \frac{{461.74}^2}{48}=4441.7464,  \\
+	\frac{\sum\limits_{r=1}^f\sum\limits_{s=1}^c{\left(\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{n} & = & \frac{1}{8}({84.49}^2 + {59.43}^2 + 
+	{63.12}^2 + {58.7}^2 + {97.39}^2 + {98.61}^2)\\ & = & 4663.6317,  \\
+	\frac{\sum\limits_{r=1}^f {\left(\sum\limits_{s=1}^c \sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nc} & = & 
+	\frac{{245}^2}{8\cdot 3}+\frac{{216.74}^2}{8\cdot 3} =4458.3844,  \\
+	\frac{\sum\limits_{s=1}^c {\left(\sum\limits_{r=1}^f \sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nf} & = & 
+	\frac{{143.92}^2}{8\cdot 2}+\frac{{121.82}^2}{8\cdot 
+	2}+\frac{{196}^2}{8\cdot 2}=4623.0674.
+    \end{eqnarray*}
+	\item[b)] C\`alcul de les variabilitats, on recordem que:
+	\begin{itemize} 
+	\item $VT$ vol dir variaci\'o total.
+	\item $V_f$ vol dir variaci\'o deguda a la difer\`encia 
+	entre files (ESP\`ECIE).
+	\item $V_c$ vol dir variaci\'o deguda a la 
+	difer\`encia entre columnes (CONCENTRACI\'O D'AIGUA DE MAR). 
+	\item $V_{int}$ vol dir variaci\'o deguda a la interacci\'o fila-columna.
+	\item $V_e$ vol dir variaci\'o no explicada.
+	\end{itemize}
+	\begin{eqnarray*}
+	VT & = & \sum_{r=1}^f\sum_{s=1}^c\sum_{i=1}^n Y_{irs}^2 -
+	\frac{{\left(\sum\limits_{r=1}^f\sum\limits_{s=1}^c\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nfc} = 5063.153 - 4441.74 \\ & = & 623.4065, \\
+	V_e & = & \sum_{r=1}^f\sum_{s=1}^c\sum_{i=1}^n Y_{irs}^2 -
+	 \frac{\sum\limits_{r=1}^f\sum\limits_{s=1}^c{\left(\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{n} = 5065.153 - 4663.6317 \\ & = & 401.5213, \\
+	V_f & = & \frac{\sum\limits_{r=1}^f {\left(\sum\limits_{s=1}^c \sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nc} -\frac{{\left(\sum\limits_{r=1}^f\sum\limits_{s=1}^c\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nfc} = 4458.3844 - 4441.74 \\ & = & 16.6380,
+	 \\
+	V_c & = & \frac{\sum\limits_{s=1}^c {\left(\sum\limits_{r=1}^f \sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nf}- \frac{{\left(\sum\limits_{r=1}^f\sum\limits_{s=1}^c\sum\limits_{i=1}^n 
+	Y_{irs}\right)}^2}{nfc} = 4623.0674 - 4441.74 \\ & = & 181.3210,\\
+	V_{int} & = & VT- V_e - V_f - V_c = 623.4065 - 401.5213 - 16.6380 - 
+	181.3210 \\ & = & 23.9262.
+\end{eqnarray*}
+	
+	\item[c)] Taula per trobar els estad\'{\i}stics.
+	\begin{center}
+\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|c|c|c|@{}c@{}|@{}c@{}|}
+		\hline
+		FV&$V$&g. ll.&$MQ=\frac{V}{\mbox{g. ll.}}$&$F=\frac{
+MQ}{MQ_{e}}$\\\hline\hline
+		ESP\`ECIE & $\ \,16.63$ & $f-1=2-1=1$ & $16.63$ & 
+		$F_f=\frac{16.63}{9.56}=1.74$  \\
+		\hline
+		CONCENT. & $181.32$ & $c-1=3-1=2$ & $90.66$ & $F_c 
+		=\frac{90.66}{9.56}=9.48$  \\
+		\hline
+		Interacci\'o & $\ \,23.92$ & $(f-1)(c-1)=2$ & $11.96$ & 
+		$F_{int}=\frac{11.96}{9.56}=1.25$  \\
+		\hline
+		Error & $401.52$ & $(n-1)fc=42$ & $\ 9.56$ &   \\
+		\hline
+		Total & $623.40$ & $N - 1=47$ &  &   \\
+		\hline
+	\end{tabular}
+\end{center}
+\end{itemize}
+Finalment, analitzem si hi ha hagut difer\`encies entre files, entre 
+columnes i interacci\'o fila-columna.
+\begin{itemize}
+	\item  Estudi de la variaci\'o entre files. (factor ESP\`ECIE)
+	
+	En aquest cas, l'estad\'{\i}stic $F_f$ s'aproxima a la distribuci\'o $F$ 
+	de Fisher-Snedecor amb $1$ i $42$ graus de llibertat.
+	
+	La regi\'o cr\'{\i}tica val:
+	\[
+	R.C. =\{F_f > F_{1,42,1-\alpha}\},
+	\]
+	on $\alpha$ \'es l'error tipus I.
+	
+	L'error tipus I m\`axim per sota del qual acceptam que no hi ha 
+	difer\`encies entre files compleix:
+	\[
+	0.1\leq \alpha_{\mbox{\footnotesize max}}=\pp{F_{1,42}>1.74}\leq 0.2.
+	\]
+	Acceptam, doncs, que no hi ha difer\`encies degudes a l'esp\`ecie.
+
+	\item  Estudi de la variaci\'o entre columnes. (factor CONCENTRACI\'O 
+	D'AIGUA DE MAR)
+	
+	En aquest cas, l'estad\'{\i}stic $F_c$ s'aproxima a la distribuci\'o $F$ 
+	de Fisher-Snedecor amb $2$ i $42$ graus de llibertat.
+	
+	La regi\'o cr\'{\i}tica val:
+	\[
+	R.C. =\{F_c > F_{2,42,1-\alpha}\},
+	\]
+	on $\alpha$ \'es l'error tipus I.
+	
+	L'error tipus I m\`axim per sota del qual acceptam que no hi ha 
+	difer\`encies entre columnes compleix:
+	\[
+	\alpha_{\mbox{\footnotesize max}}=\pp{F_{2,42}>9.48}\leq 0.005.
+	\]
+	Concloem que hi ha difer\`encies entre les distintes concentracions 
+	d'aigua de mar.
+	\item  Estudi de la interacci\'o fila columna. (ESP\`ECIE-CONCENTRACI\'O 
+	D'AIGUA DE MAR)
+	
+	En aquest cas, l'estad\'{\i}stic $F_{int}$ s'aproxima a la distribuci\'o $F$ 
+	de Fisher-Snedecor amb $2$ i $42$ graus de llibertat.
+	
+	La regi\'o cr\'{\i}tica val:
+	\[
+	R.C. =\{F_{int} > F_{2,42,1-\alpha}\},
+	\]
+	on $\alpha$ \'es l'error tipus I.
+	
+	L'error tipus I m\`axim per sota del qual acceptam que no hi ha 
+	interacci\'o compleix:
+	\[
+	0.2\leq \alpha_{\mbox{\footnotesize max}}=\pp{F_{2,42}>1.25}\leq 0.3.
+	\]
+	Concloem, doncs, que no hi ha interacci\'o.
+\end{itemize}
+{\footnotesize Com que a les taules no surt la distribuci\'o $F_{1,42}$, 
+hem agafat en el seu lloc $F_{1,40}$ ja que l'error que hem com\`es \'es 
+	despreciable.}
+}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Dotze persones s\'on distribu\"{\i}des en $4$
+grups de $3$ persones cada un. A cada grup, li \'es
+assignat aleat\`oriament un temps distint d'entrenament
+abans de realitzar una tasca. Els resultats en
+l'esmentada tasca, amb el corresponent temps
+d'entrenament, es donen a la taula seg\"uent:
+\newpage
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$0.5$ hores&$1$ hora&$1.5$ hores&$2$ hores\\\hline\hline
+$1$&$4$&$3$&$\ \,8$\\\hline
+$3$&$6$&$5$&$10$\\\hline
+$5$&$2$&$7$&$\ \,6$\\\hline
+\end{tabular}
+\end{center}
+Vegeu si podem rebutjar la
+hip\`otesi nu{\lgem}a $H_0:\mu_1=\mu_2=\mu_3=\mu_4.$}
+\end{prob}
+
+\begin{prob}
+{Es varen registrar les
+freq\"u\`encies dels dies del mes que va ploure a
+diferents hores, durant els mesos de gener, mar\c{c}, maig
+i juliol. Les dades obtengudes, durant un per\'{\i}ode de
+10 anys, varen ser:
+\begin{center}
+\begin{tabular}{|c||c|c|c|c||c|}
+\hline
+Hora&gener&febrer&mar\c{c}&juliol&Total\\\hline\hline
+$\ \,9$&$\ \,22$&$\ \,25$&$\ \,24$&$\ \,11$&$\ \,82$\\\hline
+$10$&$\ \,21$&$\ \,19$&$\ \,18$&$\ \,16$&$\ \,74$\\\hline
+$11$&$\ \,17$&$\ \,23$&$\ \,26$&$\ \,17$&$\ \,83$\\\hline
+$12$&$\ \,20$&$\ \,31$&$\ \,25$&$\ \,24$&$100$\\\hline
+$13$&$\ \,16$&$\ \,15$&$\ \,23$&$\ \,24$&$\ \,78$\\\hline
+$14$&$\ \,21$&$\ \,35$&$\ \,23$&$\ \,20$&$\ \,99$\\\hline\hline
+Total&$117$&$148$&$139$&$112$&$536$\\\hline
+\end{tabular}
+\end{center}
+Estudiau la variabilitat entre mesos i entre hores.
+}
+\end{prob}
+
+\begin{prob}
+{Es realitz\`a un estudi per 
+determinar el nivell d'aigua i el tipus de planta sobre
+la llargada global del tronc de les plantes de p\`esols.
+Es varen utilitzar $3$ nivells d'aigua i $2$ tipus de
+plantes. Es disposa per a l'estudi de $18$ plantes sense
+fulles. Es divideixen aleat\`oriament aquestes plantes en $3$
+subgrups i despr\'es se'ls assigna els nivells d'aigua
+aleat\`oriament. Se segueix un procediment
+semblant amb $18$ plantes convencionals. Es varen obtenir
+els resultats seg\"uents (la llargada del tronc es d\'ona
+en cent\'{\i}metres):
+\newpage
+\begin{center}
+\begin{tabular}{c|c|c|c|c|}
+&\multicolumn{4}{c|}{FACTOR AIGUA}\\\hline
+& &{baix}&{mitj\`a}&{alt}\\\cline{3-5}
+\multirow{12}{1.75cm}{FACTOR PLANTA}&\multirow{6}{1cm}{Sense Fulles}&
+$69.0$&$\ \,96.1$&$121.0$\\\cline{3-5}
+&&$71.3$&$102.3$&$122.9$\\\cline{3-5}
+&&$73.2$&$107.5$&$123.1$\\\cline{3-5}
+&&$75.1$&$103.6$&$125.7$\\\cline{3-5}
+&&$74.4$&$100.7$&$125.2$\\\cline{3-5}
+&&$75.0$&$101.8$&$120.1$\\\cline{2-5}
+&\multirow{6}{1cm}{Amb Fulles}&$71.1$&$\ \,81.0$&$101.1$\\\cline{3-5}
+&&$69.2$&$\ \,85.8$&$103.2$\\\cline{3-5}
+&&$70.4$&$\ \,86.0$&$106.1$\\\cline{3-5}
+&&$73.2$&$\ \,87.5$&$109.7$\\\cline{3-5}
+&&$71.2$&$\ \,88.1$&$109.0$\\\cline{3-5}
+&&$70.9$&$\ \,87.6$&$106.9$\\\hline
+\end{tabular}
+\end{center} 
+
+Es desitja saber si hi ha difer\`ecies entre els nivells
+d'aigua i entre els diferents tipus de planta. Tamb\'e es
+vol saber si hi ha interacci\'o entre els nivells d'aigua
+i els tipus de plantes.}
+\end{prob}
+
+\begin{prob}
+{Les variables aleat\`ories $X_i$ segueixen la distribuci\'o
+$N(m_i,\sigma^2),\ i=1,2,3,4$. Considerem les seg\"uents
+mostres de grand\`aries $n_i=7$ de les esmentades variables aleat\`ories:
+\begin{center}
+\begin{tabular}{cccccccc}
+$X_1$&$20$&$26$&$26$&$24$&$23$&$26$&$21$\\
+$X_2$&$24$&$22$&$20$&$21$&$21$&$22$&$20$\\
+$X_3$&$16$&$18$&$20$&$21$&$24$&$15$&$17$\\
+$X_4$&$19$&$15$&$13$&$16$&$12$&$11$&$14$\\
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item[a)] {Comprovau si les vari\`ancies s\'on iguals.}
+\item[b)] {Contrastau la igualtat de mitjanes.}
+\end{itemize}
+{\footnotesize Final. Juny 91.}
+}
+\end{prob}
+
+\begin{prob}
+{Vegeu problema~\ref{NOTESASIG} (problemes proposats). 
+Suposant normalitat en cada grup i igualtat de
+vari\`ancies, vegeu si podem acceptar que tots els grups tenen
+la mateixa nota mitjana.
+\newline{\footnotesize Final. Juny 94.}}
+\end{prob}
+
+
+
+
+
+

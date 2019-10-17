@@ -1,0 +1,913 @@
+\chapter{Teoria de la regressi\'o}\index{regressio@regressi\'o}
+
+\section{Resum te\`oric}
+
+A la pr\`actica, sovint ens trobam amb problemes que involucren m\'es 
+d'una variable, que sabem que estan relacionades. 
+Tamb\'e pot oc\'orrer que una de les variables sigui f\`acil d'observar, 
+o que coneguem la seva distribuci\'o, mentre que
+l'altra (o les altres) no. Aleshores ser\`a interessant con\`eixer la relaci\'o que tenen,
+perqu\`e aix\'{\i} les tendrem totes especificades.
+
+En la majoria d'aplicacions tenim una sola variable independent o 
+{\bf resposta}~$Y$,\index{resposta} no controlada en l'experiment. 
+Aquesta resposta dep\`en d'una o m\'es variables
+independents o {\bf variables de regressi\'o},
+\index{variable!de regressio@de regressi\'o} $x^1, \ldots , x^k$, 
+les quals es mesuren amb un error despreciable i normalment 
+s\'on controlades en l'experiment. Aix\'{\i}, les variables independents 
+no s\'on aleat\`ories.
+
+La relaci\'o fixa per a un conjunt de dades experimentals es caracteritza per
+l'equaci\'o de predicci\'o,
+\index{equacio@equaci\'o!de prediccio@de predicci\'o} 
+anomenada {\bf equaci\'o de regressi\'o}. Veurem en aquest
+\index{equacio@equaci\'o!de regressio@de regressi\'o}
+tema la {\bf regressi\'o lineal simple}, amb una sola variable de regressi\'o.
+\index{regressio@regressi\'o!lineal!simple}
+
+\subsection{Definicions b\`asiques}
+
+En aquesta situaci\'o tendrem una mostra aleat\`oria de grand\`aria $n$ de la 
+variable $Y$ amb els corresponents valors associats de $x$, 
+$(x_1,Y_1), \ldots , (x_n,Y_n)$.
+Representem per $Y|x$ la variable aleat\`oria $Y$ corresponent al valor 
+fix~$x$.
+
+El terme {\bf regressi\'o lineal} 
+\index{regressio@regressi\'o!lineal}implica que la mitjana d'aquesta variable,
+$\mu_{X|x_i}$, est\`a linealment relacionada amb $x_i$ a trav\'es de 
+l'equaci\'o:
+$$\mu_{X|x_i} = \alpha + \beta x_i,$$ on els {\bf coeficients de regressi\'o}
+\index{coeficient!de regressio@de regressi\'o}
+$\alpha$ i $\beta$ s\'on par\`ametres 
+\index{parametre@par\`ametre}que s'han d'estimar a partir de les dades de la
+mostra.
+
+Si ara imposam que totes les mitjanes $\mu_{X|x_i}$ caiguin sobre una recta,
+aleshores cada variable $Y|x_i$ es pot escriure mitjan\c cant el {\bf model de
+regressi\'o lineal simple}:
+\index{regressio@regressi\'o!lineal!simple}  
+$$Y|x_i = \mu_{Y|x_i} + E_i = \alpha + \beta x_i +
+E_i,$$ on $E_i$ \'es un error aleatori, 
+\index{error!aleatori}l'{\bf error del model}, 
+que ha de tenir una mitjana~$0$.
+
+Cada observaci\'o\index{observacio@observaci\'o!de la mostra} 
+$(x_i,y_i)$ de la mostra satisf\`a l'equaci\'o: $y_i = \alpha + \beta
+x_i + \varepsilon_i$, on $\varepsilon_i$ \'es el valor que pren $E_i$ 
+quan $Y|x_i$ pren el valor $y_i$.
+
+
+Si ara $a$ i $b$ representen les estimacions de $\alpha$ i $\beta$, 
+\index{estimacio@estimaci\'o}aleshores
+podem estimar $\mu_{Y|x_i}$ per $\hat{y}$ i obtenim la 
+{\bf recta de regressi\'o ajustada o estimada}: $$\hat{y} = a + b x.$$
+\index{recta!de regressio@de regressi\'o!ajustada}
+\index{recta!de regressio@de regressi\'o!estimada}
+
+En aquest cas tendrem: $$y_i = a + b x_i + e_i,$$ on $e_i = y_i - \hat{y}_i$
+s'anomena {\bf residu}\index{residu} i descriu l'error en l'ajust
+\index{ajust} del model en el punt~$i$ de les dades.
+
+\subsection{M\`etode dels m\'{\i}nims quadrats}
+\index{metode@m\`etode!dels minims quadrats@del m\'{\i}nims quadrats}
+
+El {\bf m\`etode dels m\'{\i}nims quadrats} \'es un procediment per determinar els
+coeficients $a$ i $b$ imposant que la suma dels quadrats dels residus
+\index{residu} sigui m\'{\i}nima. Aquesta suma s'anomena $SSE$. Tenim
+
+$$SSE = \sum_{i=1}^n e_i^2 = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i
+- a - b x_i)^2.$$
+
+Si volem que aix\`o sigui m\'{\i}nim, igualam les derivades parcials 
+\index{derivada parcial}de $SSE$ respecte
+de $a$ i de $b$ a 0 i resolem el sistema:
+$$\left\{ \begin{array}{l} {\partial SSE \over \partial a} = -2 
+\sum\limits_{i=1}^n (y_i
+- a - b x_i) = 0,\\ \\ {\partial SSE \over \partial b} = -2 
+\sum\limits_{i=1}^n (y_i - a
+- b x_i) x_i = 0. \end{array} \right.$$
+
+Arreglant una mica aquestes equacions, obtenim les anomenades {\bf equacions
+normals}:\index{equacio@equaci\'o!normal}
+$$\left\{ \begin{array}{l} n a + b \sum\limits_{i=1}^n x_i = \sum\limits_{i=1}^n
+y_i,\\ \\ a \sum\limits_{i=1}^n x_i + b \sum\limits_{i=1}^n x_i^2 =
+\sum\limits_{i=1}^n x_i y_i, \end{array} \right.$$
+
+Si ara resolem el sistema, obtenim
+$$\left\{ \begin{array}{l} b = {n \sum\limits_{i=1}^n x_i y_i - \sum\limits_{i=1}^n x_i \cdot
+\sum\limits_{i=1}^n y_i \over n \sum\limits_{i=1}^n x_i^2 - \left( \sum\limits_{i=1}^n x_i
+\right)^2},\\ \\ a = {\sum\limits_{i=1}^n y_i - b \sum\limits_{i=1}^n x_i 
+\over n}=\bar{y}-b \bar{x}. \end{array}
+\right.$$
+
+\subsection{Propietats dels estimadors dels m\'{\i}nims quadrats}
+\index{estimador!de minims quadrats@de m\'{\i}nims quadrats}
+
+Posem ara
+$$Y_i = Y|x_i = \alpha + \beta x_i + E_i.$$
+
+Suposem ara que les $E_i$ tenen la mateixa vari\`ancia $\sigma^2$ 
+\index{variancia@vari\`ancia}
+i que s\'on independents, i recordem que $\EE (E_i) = 0$. 
+Amb aquestes hip\`otesis, podem trobar les
+mitjanes i les vari\`ancies dels estimadors de $\alpha$ i $\beta$.
+\index{variancia@vari\`ancia!del estimador}
+
+Observem primer que els valors de $a$ i $b$, donada una mostra de $n$
+observacions, s\'on nom\'es estimacions dels par\`ametres $\alpha$ i $\beta$, 
+\index{estimacio@estimaci\'o!del parametre@del par\`ametre}per\`o si
+repetim l'experiment moltes vegades, cada vegada que utilitzem els mateixos
+valors de $x$ \'es molt probable que les estimacions resultants de $\alpha$ i
+$\beta$ difereixin d'un experiment a l'altre. 
+Aquestes estimacions diferents es poden considerar com els valors assumits 
+per dues variables aleat\`ories $A$ i $B$.
+
+Tenim
+$$B = {n \sum\limits_{i=1}^n x_i Y_i - \sum\limits_{i=1}^n x_i \cdot
+\sum\limits_{i=1}^n Y_i \over n \sum\limits_{i=1}^n x_i^2 - \left(
+\sum\limits_{i=1}^n x_i \right)^2} = {\sum\limits_{i=1}^n (x_i - \bar{x}) Y_i
+\over \sum\limits_{i=1}^n (x_i - \bar{x})^2},$$
+d'on
+$${\rm E}B = {\sum\limits_{i=1}^n (x_i - \bar{x}) {\rm E}Y_i \over
+\sum\limits_{i=1}^n (x_i - \bar{x})^2} = {\sum\limits_{i=1}^n (x_i - \bar{x})
+(\alpha + \beta x_i) \over \sum\limits_{i=1}^n (x_i - \bar{x})^2} = \beta.$$
+
+Tamb\'e
+$$\Var B = {\sum\limits_{i=1}^n (x_i - \bar{x})^2 \Var Y_i \over \left[
+\sum\limits_{i=1}^n (x_i - \bar{x})^2 \right]^2} = {\sigma^2 \over
+\sum\limits_{i=1}^n (x_i - \bar{x})^2}.$$
+
+An\`alogament tenim
+$$A = {\sum\limits_{i=1}^n Y_i - B \cdot \sum\limits_{i=1}^n x_i \over n},$$
+d'on
+$${\rm E}A = \alpha, \quad\Var A = {\sum\limits_{i=1}^n x_i^2 \over n
+\sum\limits_{i=1}^n (x_i - \bar{x})^2} \cdot \sigma^2.$$
+
+Es veu, per tant, que els estimadors dels m\'{\i}nims quadrats per a $\alpha$ i 
+\index{estimador!de minims quadrats@de m\'{\i}nims quadrats}$\beta$ s\'on sense biaix.
+\index{biaix}
+
+Finalment resulta que
+$$\Cov (A,B) = {- \sigma^2 \bar{x} \over \sum\limits_{i=1}^n (x_i - \bar{x})^2}.$$
+
+Obtenguem ara una estimaci\'o per al par\`ametre $\sigma^2$, la vari\`ancia de
+l'error del model.\index{estimacio@estimaci\'o!del parametre@del par\`ametre}
+
+Posem:
+$$S_{xx} = \sum_{i=1}^n (x_i - \bar{x})^2, \ S_{yy} = \sum_{i=1}^n (Y_i -
+\bar{Y})^2, \ \ S_{xy} = \sum_{i=1}^n (x_i - \bar{x}) \cdot (Y_i - \bar{Y}).$$
+
+Aleshores resulta $$SSE = S_{yy} - B S_{xy}.$$
+
+\begin{proposition}
+Un estimador sense biaix de $\sigma^2$ \'es
+\index{estimador!sense biaix}
+$$s^2 = {SSE \over n-2} = {S_{yy} - B S_{xy} \over n-2}.$$
+\end{proposition}
+
+\subsection{Infer\`encies sobre els coeficients de regressi\'o}
+\index{inferencia@infer\`encia!sobre els coeficients de regressio@sobre els coeficients de regressi\'o}
+
+Suposem a partir d'ara que les variables aleat\`ories $Y_i$ s\'on normals\break
+$N(\alpha + \beta x_i,\sigma^2)$. Per tant, les $E_i$ s\'on tamb\'e normals 
+amb distribuci\'o
+\index{variable!aleatoria@aleat\`oria!normal}
+$N(0,\sigma^2)$, i $\bar{Y}$ \'es $N(\alpha + \beta \bar{x},
+{\sigma^2 \over n})$.
+
+Obtenguem resultats sobre els coeficients de regressi\'o. 
+\index{coeficient!de regressio@de regressi\'o}Com que $A$ i $B$
+s\'on funcions lineals de $Y_i$, tamb\'e seran normals: $A$ ser\`a 
+$N\left(\alpha,{\sigma^2 \sum\limits_{i=1}^n x_i^2 \over n S_{xx}}\right)$
+i $B$ \'es $N\left(\beta,{\sigma^2 \over S_{xx}}\right)$.
+
+Donam a continuaci\'o un interval de confian\c{c}a per a $\beta$:
+\index{interval!de confianca@de confian\c{c}a}
+$$L_1 = B - t_{1-\gamma/2} \cdot {S \over \sqrt{S_{xx}}}, \ \ \ L_2 = B +
+t_{1-\gamma/2} \cdot {S \over \sqrt{S_{xx}}},$$
+on $t_{1-\gamma/2}$ \'es el percentil $(1-\gamma/2) 100 \% $ de $t_{n-2}$.
+
+El corresponent interval de confian\c ca per a $\alpha$ \'es:
+\index{interval!de confianca@de confian\c{c}a}
+$$L_1 = A - t_{1-\gamma/2} \cdot S \cdot \sqrt{{\sum\limits_{i=1}^n x_i^2 \over n
+S_{xx}}}, \ \ \ L_2 = A + t_{1-\gamma/2} \cdot S \cdot \sqrt{{\sum\limits_{i=1}^n
+x_i^2 \over n S_{xx}}},$$
+on $t_{1-\gamma/2}$ \'es el percentil $(1-\gamma/2) 100 \% $ de $t_{n-2}$.
+
+Donarem a continuaci\'o les regions cr\'{\i}tiques 
+\index{regio@regi\'o!critica@cr\'{\i}tica}per als seg\"uents contrasts
+d'hip\`otesi sobre $\beta$ i sobre $\alpha$.
+\index{contrast!d'hipotesi@d'hip\`otesi}
+\begin{enumerate}
+\item
+\begin{description}
+\item $H_0 : \beta = \beta_0$.
+\item $H_1 : \beta \not = \beta_0$.
+\end{description}
+
+La regi\'o cr\'{\i}tica \'es:
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\left\{ B < \beta_0 - t_{1-\gamma/2} {S \over \sqrt{S_{xx}}} \right\} \cup
+\left\{ B > \beta_0 + t_{1-\gamma/2} {S \over \sqrt{S_{xx}}} \right\}.$$
+
+\item
+
+\begin{description}
+\item $H_0 : \beta = \beta_0$.
+\item $H_1 : \beta < \beta_0$.
+\end{description}
+
+La regi\'o cr\'{\i}tica \'es:
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\left\{ B < \beta_0 - t_{1-\gamma} {S \over \sqrt{S_{xx}}} \right\}.$$
+
+\item
+
+\begin{description}
+\item $H_0 : \beta = \beta_0$.
+\item $H_1 : \beta > \beta_0$.
+\end{description}
+
+La regi\'o cr\'{\i}tica \'es:
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\left\{ B > \beta_0 + t_{1-\gamma} {S \over \sqrt{S_{xx}}} \right\}.$$
+
+\item
+
+\begin{description}
+\item $H_0 : \alpha = \alpha_0$.
+\item $H_1 : \alpha \not = \alpha_0$.
+\end{description}
+
+La regi\'o cr\'{\i}tica \'es:
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\left\{ A < \alpha_0 - t_{1-\gamma/2} \cdot S \cdot \sqrt{{\sum\limits_{i=1}^n
+x_i^2 \over n S_{xx}}} \right\} \cup \left\{ A > \alpha_0 + t_{1-\gamma/2} \cdot
+S \cdot \sqrt{{\sum\limits_{i=1}^n x_i^2 \over n S_{xx}}} \right\}.$$
+
+\item
+\begin{description}
+\item $H_0 : \alpha = \alpha_0$.
+\item $H_1 : \alpha < \alpha_0$.
+\end{description}
+
+La regi\'o cr\'{\i}tica \'es:
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\left\{ A < \alpha_0 - t_{1-\gamma} \cdot S \cdot \sqrt{{\sum\limits_{i=1}^n
+x_i^2 \over n S_{xx}}} \right\}.$$
+
+\item
+\begin{description}
+\item $H_0 : \alpha = \alpha_0$.
+\item $H_1 : \alpha > \alpha_0$.
+\end{description}
+
+La regi\'o cr\'{\i}tica \'es:
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\left\{ A > \alpha_0 + t_{1-\gamma} \cdot S \cdot \sqrt{{\sum\limits_{i=1}^n
+x_i^2 \over n S_{xx}}} \right\}.$$
+\end{enumerate}
+
+\subsection{Predicci\'o}\index{prediccio@predicci\'o}
+
+{\bf Problema 1}: Obtenir qualque informaci\'o sobre el valor $\mu_{Y|x_0}$, on
+$x_0$ no \'es necess\`ariament cap dels $x_i,  i = 1, \ldots , n$.
+
+Obtenguem un interval de confian\c ca per a $\mu_{Y|x_0}$. Farem servir
+l'estimador $\hat{Y}_0 = A + B x_0$.
+\index{interval!de confianca@de confian\c{c}a}
+
+La mitjana i la vari\`ancia de $\hat{Y}_0$ valen:
+\index{mitjana}\index{variancia@vari\`ancia}
+$${\rm E}\hat{Y}_0 = \alpha + \beta x_0, \quad\ \hat{Y}_0 = {\sum\limits x_i^2
+\over n S_{xx}} \sigma^2 + {x_0^2 \sigma^2 \over S_{xx}} = \sigma^2 \left[ {1
+\over n} + {(x_0 - \bar{x})^2 \over S_{xx}} \right].$$
+
+Resulta que, amb la hip\`otesi de normalitat,
+\index{hipotesi@hip\`otesi!de normalitat}
+$$T = {\hat{Y}_0 - \mu_{Y|x_0} \over S \sqrt{{1 \over n} + {(x_0 - \bar{x})^2
+\over S_{xx}}}}$$
+segueix una distribuci\'o $t_{n-2}$. Per tant un interval de confian\c ca per al
+\index{interval!de confianca@de confian\c{c}a}\index{parametre@par\`ametre}
+par\`ametre $\mu_{Y|x_0}$ al $100(1-\alpha) \% $ de confian\c{c}a \'es:
+$$L_1 = \hat{Y}_0 - t_{1 - \alpha/2} S \sqrt{{1 \over n} + {(x_0 - \bar{x})^2
+\over S_{xx}}}, \ \ \ L_2 = \hat{Y}_0 + t_{1 - \alpha/2} S \sqrt{{1 \over n} +
+{(x_0 - \bar{x})^2 \over S_{xx}}}.$$
+
+{\bf Problema 2}: Donar un interval de predicci\'o per a un sol valor $y_0$ de la
+variable~$Y_0$.
+\index{interval!de prediccio@de predicci\'o}
+
+Tenim $\hat{Y}_0 - Y_0 = A + B x_0 - Y_0$, on $\alpha + \beta x_0 = y_0$.
+L'esperan\c{c}a i la vari\`ancia de $\hat{Y}_0 - Y_0$ valen:
+\index{esperanca@esperan\c{c}a}\index{variancia@vari\`ancia}
+$${\rm E}(\hat{Y}_0 - Y_0) = 0, \quad\Var (\hat{Y}_0 - Y_0) = \sigma^2 \left( 1 +
+{1 \over n} + {(x_0 - \bar{x})^2 \over S_{xx}} \right),$$
+ja que
+\begin{eqnarray*}
+\Var (\hat{Y_0}) & = &  \Var A + x_0^2 \Var (x_0) + 2 x_0 \Cov (A,B) \\ &=& \sigma^2 \left[
+{\sum\limits_{i=1}^n x_i^2 \over n S_{xx}} + {x_0^2 \over S_{xx}} - {2 x_0
+\bar{x} \over S_{xx}} \right] =   { \sigma^2  \over n S_{xx}}
+ \left[\sum\limits_{i=1}^n x_i^2 + n x_0^2 - 2 n x_0 \bar{x} \right] 
+\\ &=&  {\sigma^2 \over n S_{xx}} \left[ S_{xx} + n \bar{x}^2 + n x_0^2 - 2 n x_0 \bar{x} \right] =
+\sigma^2 \left[ {1 \over n} + {(x_0 - \bar{x})^2 \over S_{xx}} \right]
+\end{eqnarray*}
+
+Per tant
+$$T = {\hat{Y}_0 - Y_0 \over S \sqrt{{1 \over n} + {(x_0 - \bar{x})^2 \over
+S_{xx}}+1}}$$
+segueix una distribuci\'o $t_{n-2}$.
+
+Un interval de confian\c ca per a $Y_0$ al nivell de confian\c ca del $100(1-\alpha) \%
+$ \'es
+\index{interval!de confianca@de confian\c{c}a}
+\begin{eqnarray*}
+L_1 & = & \hat{Y}_0 - t_{1 - \alpha/2} S \sqrt{{1 \over n} + {(x_0 - \bar{x})^2
+\over S_{xx}} + 1}, \\
+L_2 & = & \hat{Y}_0 + t_{1 - \alpha/2} S \sqrt{{1 \over n}
++ {(x_0 - \bar{x})^2 \over S_{xx}} + 1}.
+\end{eqnarray*}
+
+\subsection{Estudi de la regressi\'o des del punt de vista de l'an\`alisi de la
+vari\`ancia}
+\index{analisi@an\`alisi!de la variancia@de la vari\`ancia}
+
+Sigui $(x_1,Y_1), \ldots , (x_n,Y_n)$ el conjunt de dades on $x_i$ \'es la variable
+independent i les $Y_i$ s\'on les variables aleat\`ories per a cada $x_i$.
+
+Sigui $\hat{Y}_i = A + B x_i$ la variable aleat\`oria donada per la recta de
+regressi\'o i $\bar{Y} = A + B \bar{x}$,
+
+Podem escriure
+$$S_{yy} = \sum\limits_{i=1}^n (Y_i - \bar{Y})^2 = \sum\limits_{i=1}^n 
+(\hat{Y}_i - \bar{Y})^2 + \sum\limits_{i=1}^n (Y_i - \hat{Y}_i)^2.$$
+
+Posem:
+
+\begin{description}
+
+\item $SST = S_{yy} = \sum\limits_{i=1}^n (Y_i - \bar{Y})^2$ (suma total de
+quadrats),
+\index{suma!total de quadrats}
+\item $SSR = \sum\limits_{i=1}^n (\hat{Y}_i - \bar{Y})^2$ (suma de quadrats de
+regressi\'o explicada pel model),
+\index{suma!de quadrats!de regressi\'o}
+\item $SSE = \sum\limits_{i=1}^n (Y_i - \hat{Y}_i)^2$ (suma de quadrats deguda a
+l'error com\`es).\index{suma!de quadrats!deguda a l'error comes@degut a l'error com\`es}
+\end{description}
+
+Es pot veure que les variables aleat\`ories ${SSR \over \sigma^2}, {SSE \over
+\sigma^2}$ i ${SST \over \sigma^2}$ segueixen, respectivament, distribucions
+$\chi_1^2, \chi_{n-2}^2$ i $\chi_{n-1}^2$. Per tant, la variable aleat\`oria
+$$F = {SSR \over SSE/(n-2)} = {SSR \over S^2}$$
+segueix la distribuci\'o $F$ de Fisher-Snedecor amb 1 i $n-2$ graus de llibertat.
+\index{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}
+
+Aquest estad\'{\i}stic es fa servir per al contrast seg\"uent:
+\index{estadistic@estad\'{\i}stic}
+
+\begin{description}
+\item $H_0 : \beta = 0$.
+\item $H_1 : \beta \not = 0$.
+\end{description}
+
+Observem que la hip\`otesi nu{\lgem}a 
+\index{hipotesi@hip\`otesi!nul.la@nu{\lgem}a}afirma que la recta de regressi\'o 
+\index{recta!de regressiop@de regressi\'o}
+t\'e pendent~$0$, o sigui, $\mu_{Y|x} = \alpha$.
+\index{pendent}
+
+La regi\'o cr\'{\i}tica per a aquest contrast \'es:
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\{ F > F_{1-\alpha,1,n-2} \},$$
+on $F_{1-\alpha,1,n-2}$ \'es el percentil $100(1-\alpha) \% $ per a la distribuci\'o
+de Fisher-Snedecor amb 1 i $n-2$ graus de llibertat.
+\index{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}
+
+{\bf Nota:} Quan hem estudiat les infer\`encies 
+\index{inferencia@infer\`encia!sobre els parametres de regressio@sobre els par\`ametres de regressi\'o}
+sobre els par\`ametres de regressi\'o
+hem donat una altra forma de resoldre aquest problema. Concretament, hem obtengut
+la regi\'o cr\'{\i}tica seg\"uent:
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\{ B < \beta_0 - t_{1-\alpha/2} {S \over \sqrt{S_{xx}}} \} \cup \{ B > \beta_0
++ t_{1-\alpha/2} {S \over \sqrt{S_{xx}}} \},$$
+que es pot veure que \'es igual a
+$$\left\{ {(B - \beta_0)^2 \over S^2/S_{xx}} > t_{1-\alpha/2}^2 \right\}.$$
+
+Quan $\beta_0 = 0$, els dos problemes coincideixen. El seg\"uent resultat d\'ona
+l'equival\`encia dels dos m\`etodes:
+
+\begin{proposition}
+Si $t_{1-\alpha/2}$ \'es el percentil $100(1-{\alpha \over 2}) \% $ per a
+la distribuci\'o $t$ de Student amb $n$ graus de llibertat i 
+\index{distribucio@distribuci\'o!$t$ de Student}
+$F_{1-\alpha}$ \'es el percentil $100 (1-\alpha) \% $ de la distribuci\'o $F$ de Fisher-Snedecor amb 1 i $n$
+graus de llibertat, aleshores
+\index{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}
+$$t_{1-\alpha/2}^2 = F_{1-\alpha}.$$
+\end{proposition}
+
+\subsection{Prova de la linealitat de la regressi\'o}
+\index{prova!de la linealitat de la regressio@de la linealitat de la regressi\'o}
+
+Donarem una prova per veure si el model de regressi\'o lineal 
+\index{regressio@regressi\'o!lineal}\'es adequat per al
+nostre problema. Per poder realitzar aquesta prova, necessitam m\'es d'una
+observaci\'o de~$Y$ per a cada valor fixat de $x$.
+\index{observacio@observaci\'o}
+
+Siguin $x_1, \ldots , x_k$ els $k$ valors diferents de $x$. Sigui $n_i$ el nombre
+de valors observats per a $x = x_i$ ($i = 1, \ldots , k$). Per tant $n =
+\sum\limits_{i=1}^k n_i$.
+
+Sigui $Y_{ij}$ el $j$-\`essim valor de la variable aleat\`oria $Y_i = Y|x=x_i$ ($j =
+1, \ldots , n_i$). Considerem $Y_{i\bullet} = T_{i\bullet} = 
+\sum\limits_{j=1}^{n_i} Y_{ij},
+\ \bar{Y}_{i\bullet} = {T_{i\bullet} \over n_i}$.
+
+En el nostre cas, la suma de quadrats de l'error es descompon en dues parts:
+\index{suma!de quadrats!de l'error}
+$$SSE = \sum\limits_{i=1}^k \sum\limits_{j=1}^{n_i} (Y_{ij} - \hat{Y}_{ij})^2 
+=\sum\limits_{i=1}^k \sum\limits_{j=1}^{n_i} (Y_{ij} - \bar{Y}_{i\bullet})^2 +
+\sum\limits_{i=1}^k \sum\limits_{j=1}^{n_i} (\bar{Y}_{i\bullet} - 
+\hat{Y}_{ij})^2.$$
+
+El primer terme \'es degut a la variaci\'o i l'anomenarem suma de quadrats de
+l'error pur:\index{variacio@variaci\'o}
+\index{suma!de quadrats!de l'error pur}
+$$SSE({\rm pur}) = \sum\limits_{i=1}^k \sum\limits_{j=1}^{n_i} (Y_{ij} -
+\bar{Y}_{i\bullet})^2.$$
+
+El segon sumand \'es degut a la falta d'ajustament; 
+\index{falta d'ajust}com m\'es gran sigui, m\'es falta
+d'ajustament tendrem.
+
+L'estad\'{\i}stic de contrast a fer servir \'es:
+\index{estadistic@estad\'{\i}stic}
+$$F = {SSE - SSE({\rm pur}) \over S^2 (k-2)}, \ \mbox{on } S^2 = {SSE({\rm pur})
+\over n-k}.$$
+
+$F$ es distribueix segons una $F_{k-2,n-k}$, i per tant la regi\'o 
+cr\'{\i}tica \'es:\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\{ F > F_{k-2,n-k,1-\alpha} \}.$$
+
+La taula seg\"uent esquematitza la prova:
+\begin{center}
+\begin{tabular}{|l@{}l@{}l@{}l@{}l|}
+\multicolumn{1}{l}{\multirow{1}{2cm}{Font de variaci\'o}}&
+\multirow{1}{2cm}{Suma de quadrats}&
+\multirow{1}{2cm}{Graus de llibertat}&\multirow{1}{2cm}{Quadrats mitjans}&
+\multicolumn{1}{l}{\multirow{1}{2cm}{Estad\'{\i}stic~$F$}}\\
+\multicolumn{1}{l}{}&&&&\multicolumn{1}{l}{}\\\hline
+Regressi\'o&$SSR$&$1$&$SSR$&$SSR/S^2$\\
+Error&$SSE$&$n-2$&&\\
+\multirow{1}{2cm}{Falta d'ajustament}&$SSE -SSE \mbox{(pur)}$&$k-2$&
+$\frac{SSE -SSE \mbox{(pur)}}{k-2}$&
+$\frac{SSE -SSE \mbox{(pur)}}{(k-2) S^2}$\\ &&&&\\
+Error pur&$SSE \mbox{(pur)}$&$n-k$&$S^2=\frac{SSE \mbox{(pur)}}{n-k}$&\\
+Total&$SST$&$n-1$&&\\\hline
+\end{tabular}
+\end{center}
+\index{suma!de quadrats}
+
+\subsection{Correlaci\'o}\index{correlacio@correlaci\'o}
+
+A partir d'ara canviarem un poc el model de regressi\'o per fer-lo una mica m\'es
+realista. La variable independent $x$ ser\`a a partir d'ara una variable 
+aleat\`oria~$X$ tal com la variable aleat\`oria $Y$. L'an\`alisi de correlaci\'o 
+\index{analisi@an\`alisi!de correlacio@de correlaci\'o}vol mesurar la
+relaci\'o entre les variables aleat\`ories $X$ i $Y$ mitjan\c cant el coeficient de
+correlaci\'o. Vegem com introduir aquest concepte.
+\index{coeficient!de correlacio@de correlaci\'o}
+
+Suposarem que la variable aleat\`oria $Y|X \ (Y$ condicionada per $X)$ \'es normal
+amb mitjana $\alpha + \beta x$ i vari\`ancia $\sigma^2$ i que la variable aleat\`oria
+$X$ tamb\'e \'es normal amb mitjana $\mu_X$ i vari\`ancia $\sigma_X^2$.
+
+La funci\'o de densitat conjunta $f(x,y)$ ser\`a:
+\index{funcio@funci\'o!de densitat!conjunta}
+$$f(x,y) = f(y|x) \cdot f_X(x) = {1 \over 2 \pi \sigma \sigma_X} \cdot 
+\exp\left({- {1\over 2} \left( {y-\alpha-\beta x \over \sigma} 
+\right)^2 + \left( {x - \mu_X \over \sigma_X} \right)^2}\right).$$
+
+Escrivim la variable aleat\`oria $Y$ com $Y = \alpha + \beta X + E$, on $E$ \'es una
+variable aleat\`oria independent de $X$ amb $\EE (E) = 0$ i $\Var E = \sigma^2$. D'aqu\'{\i}
+podem calcular $\EE (Y)$ i $\Var Y$:
+$$\mu_Y = \EE (Y) = \alpha + \beta \mu_X, \ \ \ \sigma_Y^2 = \Var Y = \beta^2
+\sigma_X^2 + \sigma^2.$$
+
+Si ho substitu\"{\i}m a la f\'ormula de $f(x,y)$, obtenim:
+\begin{eqnarray*}
+f(x,y) & = &  {1 \over 2 \pi \sigma_X \sigma_Y \sqrt{1-\rho^2}} \cdot 
+\exp (g(x,y)), \\
+g(x,y) & = & {- {1 \over 2(1-\rho^2)} \left[ \left( 
+{x - \mu_X \over \sigma_X} \right)^2 - 2 \rho {(x - \mu_X) \over \sigma_X}  
+{(y - \mu_Y) \over \sigma_Y} + \left( {y - \mu_Y \over
+\sigma_Y} \right)^2 \right]},
+\end{eqnarray*}
+on $\rho^2 = 1 - {\sigma^2 \over \sigma_Y^2} = \beta^2 \cdot {\sigma_X^2 \over
+\sigma_Y^2}$.
+
+La constant $\rho$ \'es el coeficient de correlaci\'o poblacional i verifica les
+propietats seg\"uents:\index{coeficient!de correlacio@de correlaci\'o!poblacional}
+\begin{itemize}
+\item $-1 \leq \rho \leq 1$,
+
+\item Si $\rho = \pm 1 \Longrightarrow E = 0$, o sigui, hi ha una relaci\'o 
+lineal perfecta entre $X$~i~$Y$: $Y = \alpha + \beta Y$.
+\index{relacio lineal@relaci\'o lineal!perfecta}
+\end{itemize}
+
+El par\`ametre $\rho$ s'estima mitjan\c cant el coeficient de correlaci\'o 
+mostral $R$:
+\index{parametre@par\`ametre}
+\index{coeficient!de correlacio@de correlaci\'o!mostral}
+$$R = B \sqrt{{S_{xx} \over S_{yy}}} = {S_{xy} \over \sqrt{S_{xx} \cdot
+S_{yy}}}.$$
+
+Si $\rho^2$ est\`a molt pr\`oxim a 1 vol dir que la relaci\'o lineal 
+\index{relacio lineal@relaci\'o lineal}entre $X$ i $Y$ \'es
+molt bona. En cas contrari, si $\rho^2 \simeq 0$, vol dir que no hi ha relaci\'o
+lineal entre les dues variables. Aleshores ser\`a interessant fer el contrast
+d'hip\`otesi seg\"uent:
+
+\begin{description}
+\item $H_0: \rho = 0$.
+\item $H_1: \rho \not = 0$.
+\end{description}
+
+S'utilitza l'estad\'{\i}stic de contrast 
+\index{estadistic@estad\'{\i}stic}$T = {B \over S/\sqrt{S_{xx}}}$, que segueix
+una distribuci\'o $t_{n-2}$. La regi\'o cr\'{\i}tica \'es:
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\{ T < - t_{1-\alpha/2} \} \cup \{ T > t_{1-\alpha/2} \}.$$
+
+\section{Problemes resolts}
+
+\begin{probres}
+{Suposem que $Y$ \'es una variable aleat\`oria amb $E[Y|x]=bx$ per a qualsevol
+$x$ i que la vari\`ancia de $Y$ \'es $\sigma^2$, independent de $x$. Suposant
+que \mbox{$(x_1,Y_1),\ldots,(x_n,Y_n)$} \'es una mostra aleat\`oria de $Y$
+amb els corresponents valors associats de $x$, trobau l'estimador pel
+m\`etode dels m\'{\i}nims quadrats de $b$. Definiu un estimador sense
+biaix de $\sigma^2$ i provau que \'es sense biaix.}
+\etiqueta{PROBESTB}
+\end{probres}
+
+\res{
+El model a considerar \'es $Y=b x$. Seguint la mateixa filosofia 
+desenvolupada en el m\`etode dels m\'{\i}nims quadrats, hem de trobar 
+l'estimador del par\`ametre $b$ $B$ que minimitzi la funci\'o:
+\[
+F(b)=\sum_{i=1}^n {(Y_i -b x_i)}^2.
+\]
+Derivant la funci\'o anterior i igualant la derivada a zero obtenim:
+\[
+\begin{array}{c}
+F'(B) =  -2 \sum\limits_{i=1}^n (Y_i -B Y_i) x_i = 0, \\
+\sum\limits_{i=1}^n x_i Y_i - B \sum\limits_{i=1}^n x_i^2 = 0,\\
+B= \frac{\sum\limits_{i=1}^n x_i Y_i}{\sum\limits_{i=1}^n x_i^2}.
+\end{array}
+\]
+Fixau-vos que $B$ \'es un m\'{\i}nim, ja que si feim la derivada segona de 
+$F$, resulta que aquesta \'es positiva:
+\[
+F''(B)= 2 \sum_{i=1}^n x_i^2 >0.
+\]
+Vegem que $B$ \'es un estimador sense biaix, o sigui, vegem que $\EE (B)=b$:
+\[
+\EE (B)=\frac{\sum\limits_{i=1}^n x_i \EE (Y_i)}{\sum\limits_{i=1}^n x_i^2}=
+\frac{\sum\limits_{i=1}^n x_i b x_i}{\sum\limits_{i=1}^n x_i^2}= b.
+\]
+
+Per definir l'estimador de $\sigma^2$, considerem el seg\"uent estimador 
+dependent d'una constant $C$:
+\[
+\overline{S}^2 = C\left(\sum_{i=1}^n Y_i^2 - B^2 \sum_{i=1}^n x_i^2\right).
+\]
+L'\'unic que hem de fer \'es trobar $C$ per tal que $\overline{S}^2$ 
+sigui sense biaix o, dit en altres paraules, 
+$\EE\left(\overline{S}^2\right)=\sigma^2$.
+
+Calculem ara $\EE\left(\overline{S}^2\right)$:
+\[
+\EE\left(\overline{S}^2\right)= C\left(\sum_{i=1}^n \EE\left(Y_i^2\right) 
+-\sum_{i=1}^n x_i^2 \EE\left(B^2\right)\right).
+\]
+Abans de continuar amb el c\`alcul anterior, trobem 
+$\sum\limits_{i=1}^n\EE\left( Y_i^2\right)$ i $\EE\left(B^2\right)$:
+\begin{eqnarray*}
+	\EE\left(\sum_{i=1}^n Y_i^2\right) & = & \sum_{i=1}^n \left(
+	\mbox{Var }Y_i 
+	+{\left(\EE (Y_i)\right)}^2\right) =\sum_{i=1}^n (\sigma^2 + b^2 x_i^2)= n\sigma^2 
+	+b^2\sum_{i=1}^n x_i^2.\\
+	\EE\left(B^2\right) & = & {\left(\EE(B)\right)}^2 +\mbox{Var }B =b^2 +
+	 \frac{1}{{\left(\sum\limits_{i=1}^n 
+	x_i^2\right)}^2}\cdot \sum_{i=1}^n x_i^2\, \mbox{Var }Y_i 
+	=b^2+ \frac{\sigma^2}{\sum\limits_{i=1}^n x_i^2}
+\end{eqnarray*}
+Per tant, el valor de $\EE\left(\overline{S}^2\right)$ ser\`a:
+\begin{eqnarray*}
+	\EE\left(\overline{S}^2\right) & = & C\left( n\sigma^2+b^2\sum_{i=1}^n 
+	x_i^2 - \sum_{i=1}^n x_i^2\left(\frac{\sigma^2}{\sum\limits_{i=1}^n 
+	x_i^2} + b^2\right)\right)  \\
+	 & = & C (n\sigma^2 -\sigma^2)= C (n-1)\sigma^2.
+\end{eqnarray*}
+Aix\'{\i} doncs, perqu\`e l'estimador $\overline{S}^2$ sigui sense biaix, 
+el valor de $C$ ha de ser: $C=\frac{1}{n-1}$. L'estimador 
+$\overline{S}^2$ quedar\`a, doncs:
+\[
+\overline{S}^2 =\frac{1}{n-1}\left(\sum_{i=1}^n Y_i^2 - B^2 \sum_{i=1}^n 
+x_i^2\right).
+\]
+}
+
+\begin{probres}
+{
+%\baselineskip = 13pt
+Provau que l'estimador dels m\'{\i}nims quadrats de $b$ obtengut en el 
+problema \ref{PROBESTB} \'es el millor estimador lineal sense biaix de $b$, 
+en el context de les suposicions del problema~\ref{PROBESTB}.
+\iffalse
+\newline{\footnotesize Indicaci\'o:
+vegeu que l'estimador $\scriptstyle B$ de $\scriptstyle b$ es pot posar com
+$\scriptstyle
+B={\sum x_i Y_i}/{\sum x_i^2}=\sum c_i Y_i,$
+on $\scriptstyle c_i ={x_i}/{\sum x_i^2}$.
+
+Si $\scriptstyle B'$ \'es un altre estimador lineal sense biaix de 
+$\scriptstyle B$, aleshores $\scriptstyle
+B'=\sum d_i Y_i =\sum (c_i -f_i) Y_i,$
+amb $\scriptstyle\sum f_i x_i =0$.}
+\fi
+}
+\etiqueta{PROBESTBCONT}
+\end{probres}
+
+\res{
+Considerem l'estimador $B$ escrit de la forma seg\"uent:
+\[
+B=\sum_{i=1}^n c_i Y_i,
+\]
+on $c_i=\frac{x_i}{\sum\limits_{i=1}^n x_i^2}$. Fixau-vos que, escrit 
+d'aquesta manera, queda ben clar que $B$ \'es un 
+estimador lineal del par\`ametre $b$.
+
+Considerem ara un altre estimador $B'$ lineal i sense biaix de $b$. Podem 
+posar $B'$ com:
+\[
+B'=\sum_{i=1}^n d_i Y_i =\sum_{i=1}^n (c_i -f_i) Y_i,
+\]
+on $f_i =c_i -d_i$.
+
+Vegem quina condici\'o han de verificar les constants $f_i$ perqu\`e $B'$ 
+sigui un estimador sense biaix de $b$:
+\begin{eqnarray*}
+\EE (B')& =& \sum_{i=1}^n (c_i -f_i) \EE (Y_i)= \sum_{i=1}^n (c_i -f_i) b x_i =
+b\left(\sum_{i=1}^n c_i x_i -\sum_{i=1}^n f_i x_i\right) \\ &=& 
+b\left(1-\sum_{i=1}^n f_i x_i\right),
+\end{eqnarray*}
+tenint en compte que es compleix que $\sum\limits_{i=1}^n c_i x_i =1$.
+
+Per tant, perqu\`e $B'$ sigui sense biaix, s'ha de complir que 
+$\sum\limits_{i=1}^n f_i x_i =0$.
+
+Per veure que $B$ \'es el millor estimador lineal de $b$, hem de veure 
+que t\'e la vari\`ancia m\'es petita. Calculem, doncs, $\mbox{Var }B$ i 
+$\mbox{Var }B'$:
+\begin{eqnarray*}
+	\mbox{Var }B & = & \sigma^2\sum_{i=1}^n c_i^2. \\
+	\mbox{Var }B' & = & \sigma^2 \sum_{i=1}^n {(c_i -f_i)}^2.
+\end{eqnarray*}
+Hem de veure que $\mbox{Var }B\leq \mbox{Var } B'$. Aix\`o \'es el mateix 
+que veure que:
+\[
+\sum_{i=1}^n c_i^2 \leq \sum_{i=1}^n {(c_i -f_i)}^2 = \sum_{i=1}^n c_i^2 
++  \sum_{i=1}^n f_i^2 - 2 \sum_{i=1}^n c_i f_i,
+\]
+o, escrit d'una altra manera:
+\[
+0\leq  \sum_{i=1}^n f_i^2 - 2  \sum_{i=1}^n c_i f_i.
+\]
+Tenint en compte que $ \sum\limits_{i=1}^n c_i f_i =0$ ja que $B'$ no 
+t\'e biaix, la condici\'o anterior es verifica trivialment i podem 
+concloure que $B$ \'es el millor estimador lineal sense biaix del 
+par\`ametre $b$.
+}
+
+\newpage
+
+\begin{probres}
+{
+Suposem que $\EE [Y|x]=a+b x$, $\mbox{Var }[Y|x]=\sigma^2$ per tota $x$ i que
+es t\'e llibertat per escollir els valors $x$ en la mostra. Es decideix 
+prendre mostres de grand\`aria $n_1$ valors de $Y$ amb $x=x_1$, $n_2$ valors de $Y$
+amb $x=x_2$ i $n_3$ valors de $Y$ amb $x=x_3$.
+
+Direm $Y_{ij}$ a la $j$-\`essima observaci\'o de $Y$ amb $x=x_i$ per 
+\mbox{$i=1,2,3$.} Definim 
+\[
+\overline{Y}_i =\frac{\sum\limits_{j=1}^{n_i} Y_{ij}}{n_i},\quad
+\overline{Y}=\frac{\sum\limits_i \sum\limits_j Y_{ij}}{n},
+\]
+on $n=\sum n_i$. Provau que l'estimador dels m\'{\i}nims quadrats per a $b$
+\'es
+\[
+B=\frac{\sum\limits_{i=1}^3 n_i (x_i -\overline{x})(\overline{Y}_i -
+\overline{Y})}{\sum n_i {(x_i -\overline{x})}^2}.
+\]
+}
+\etiqueta{PROBIGUALSN}
+\end{probres}
+
+\enlargethispage*{1000pt}
+
+\res{
+Podem escriure la mostra de la variable $Y$ de la manera seg\"uent:
+\[
+(Y_{1,1},x_1),\ldots,(Y_{1,n_1},x_1),(Y_{2,1},x_2),\ldots,(Y_{2,n_2},x_2),
+(Y_{3,1},x_3),\ldots,(Y_{3,n_3},x_3)
+\]
+Sense tenir en compte les repeticions de la variable $x$, l'estimador de 
+m\'{\i}nims quadrats del par\`ametre $b$ \'es:
+\[
+B=\sum_{i=1}^3\sum_{j=1}^{n_i} \frac{(x_i 
+-\overline{x})(Y_{ij}-\overline{Y})}{\sum\limits_{i=1}^3\sum\limits_{j=1}^{n_i} 
+{(x_i - \overline{x})}^2}.
+\]
+Fent c\`alculs, podem escriure les sumes seg\"uents, que surten en
+l'expressi\'o anterior, com:
+\begin{eqnarray*}
+\sum_{j=1}^{n_i} (x_i -\overline{x})(Y_{ij}-\overline{Y}) & = & 
+(x_i -\overline{x})
+\sum_{j=1}^{n_i} (Y_{ij}-\overline{Y}) = (x_i -\overline{x}) n_i  
+(\overline{Y}_i -\overline{Y}), \\
+\sum_{j=1}^{n_i} {(x_i - \overline{x})}^2 & = &  n_i {(x_i - \overline{x})}^2.
+\end{eqnarray*}
+Tenint en compte els c\`alculs anteriors, l'expressi\'o de l'estimador 
+$B$ es converteix en:
+\[
+B=\frac{\sum\limits_{i=1}^3 n_i (x_i -\overline{x})(\overline{Y}_i 
+-\overline{Y})}{\sum\limits_{i=1}^3 n_i {(x_i - \overline{x})}^2}.
+\]
+}
+
+\newpage
+
+\section{Problemes proposats}
+
+\begin{prob}
+{
+Es varen plantar 8 pins de $0.3$ metres d'al\c{c}ada en medis semblants
+controlats i se'ls va sotmetre a distintes intensitats d'irrigaci\'o
+per simular l'efecte de les diferents precipitacions pluvials. En acabar
+l'any es varen mesurar les al\c{c}ades obtengudes. En la taula seg\"uent
+es mostren les al\c{c}ades mitjanes (amb metres) 
+($y_i$) en acabar l'any 
+i la quantitat de pluja (en metres) simulada per cada valor $x_i$. 
+Suposem que $Y$, l'al\c{c}ada de
+ l'arbre en acabar l'any, \'es una variable 
+aleat\`oria amb mitjana 
+ $a+b x$, on $x$ \'es la precipitaci\'o, i amb vari\`ancia constant
+ $\sigma^2$ per tota $x$. Trobau les millors estimades lineals sense biaix
+ de $a$ i $b$ i trobau una estimada sense biaix de $\sigma^2$ i de  
+$\mbox{Var }A$ i $\mbox{Var }B$ on $A$ i $B$ s\'on les estimades de $a$ 
+i $b$ respectivament.
+
+$$
+\begin{tabular}{|c|c|}
+\hline
+$y_i$ & $x_i$ \\
+\hline\hline 0.4826 & 0.2540 \\
+\hline 0.5588 & 0.3556 \\
+\hline 0.6350 & 0.4572 \\
+\hline 0.7874 & 0.5588 \\
+\hline 0.8382 & 0.6604 \\
+\hline 0.9906 & 0.7620 \\
+\hline 1.1176 & 0.8636 \\
+\hline 1.1430 & 0.9652 \\
+\hline
+\end{tabular}
+$$
+}
+\end{prob}
+
+\begin{prob}
+{
+Provau que:
+\[
+\sum x_i y_i - \overline{x}\sum y_i =\sum x_i y_i -\overline{y}
+\sum x_i =\sum (x_i-\overline{x})(y_i -\overline{y}).
+\]
+}
+\end{prob}
+ 
+\begin{prob}
+{Suposem que $\EE [Y|x]=bx$ i que \mbox{$(Y_1,x_1),\ldots,(Y_n,x_n)$} \'es 
+una mostra aleat\`oria de $Y$ amb els valors associats de $X$. Suposem que
+$\mbox{Var }Y_i =\sigma_i^2$, o sigui, les vari\`ancies dels valors de $Y$
+depenen dels valors de $x$. Provau que:
+\[
+B=\frac{\sum \frac{x_i Y_i}{\sigma_i^2}}{\sum \frac{x_i^2}{\sigma_i^2}},
+\]
+\'es el millor estimador lineal sense biaix de $b$. \newline
+{\footnotesize Indicaci\'o:
+definiu $\scriptstyle
+Z_i =\frac{Y_i}{\sigma_i},\quad w_i=\frac{x_i}{\sigma_i}$
+i aplicau el resultat de problema \ref{PROBESTBCONT}.}}
+\etiqueta{VARIANCESNOIGUALS}
+\end{prob}
+
+\begin{prob}
+{Suposem la mateixa situaci\'o que en el problema \ref{VARIANCESNOIGUALS},
+amb $x_i>0$ i \mbox{$\sigma_i =\sigma^2 x_i$.} Trobau el millor estimador     
+lineal sense biaix de $b$.}
+\end{prob}
+
+\begin{prob}
+{Provau que la recta dels m\'{\i}nims quadrats $Y=A+B X$ sempre passa pel
+punt $(\overline{X},\overline{Y})$.}
+\end{prob}
+
+\begin{prob}
+{Suposem que $\EE [Y|x]=a+\frac{b}{x}$, per $x>0$. Trobau les estimades de $a$
+i $b$ pel m\`etode dels m\'{\i}nims quadrats.}
+\end{prob}
+
+\begin{prob}
+{Suposem la mateixa situaci\'o que en el problema \ref{PROBIGUALSN} i que
+$n_1 =n_2 =n_3$. Provau que la recta dels m\'{\i}nims quadrats per al
+conjunt complet de dades \'es id\`entica a la recta dels m\'{\i}nims 
+quadrats determinada per \mbox{$(\overline{Y}_1,x_1),(\overline{Y}_2,x_2),
+(\overline{Y}_3,x_3)$.} Segueix essent certa l'afirmaci\'o anterior
+si els $n_i$ no s\'on iguals?}
+\etiqueta{PROBIGUALSNCONT}
+\end{prob}
+
+\begin{prob}
+{Suposem una altra vegada la situaci\'o descrita en el problema \ref{PROBIGUALSN}
+ i suposeu que es vol estimar la mitjana de la poblaci\'o $Y$ per $x=x_2$. 
+ Si les tres $n_i$ no s\'on iguals tenim tres possibles estimadors:
+ $\overline{Y}_2$, \mbox{$Y_1'=A_1 + B_1 x_2$}, \mbox{$Y_2' =A_2 +B_2 x_2$},
+ on $Y_1'$ \'es la recta dels m\'{\i}nims quadrats descrita en el problema 
+ \ref{PROBIGUALSN} i $Y_2'$ \'es la recta dels m\'{\i}nims quadrats determinada
+ pels punts \mbox{$(\overline{Y}_1,x_1),\overline{Y}_2,x_2),
+ (\overline{Y}_3,x_3)$} descrita en el problema \ref{PROBIGUALSNCONT}.
+\begin{itemize}
+\item[a)] Provau que els tres estimadors anteriors no tenen biaix.
+\item[b)] Quin dels tres estimadors \'es m\'es eficient?
+\end{itemize}}
+\end{prob}
+
+\enlargethispage*{1000pt}
+
+\begin{prob}
+{$n$ persones distintes varen comptar el tr\`ansit en el mateix carrer, a 
+la mateixa hora del dia, en distintes ocasions independents. Se sap que 
+no totes les persones varen observar el mateix temps. La persona $i$ 
+ho va observar durant $x_i$ minuts, amb \mbox{$i=1,\ldots,n$.} Suposem
+que en aquest punt d'observaci\'o, el tr\`ansit passa com a successos
+de Poisson a ra\'o de $\lambda$ cotxes per minut. Aix\'{\i}, si $Y_i$ 
+representa el nombre de cotxes que passaren pel punt d'observaci\'o 
+quan la persona $i$ era all\`a, aleshores $Y_i$ \'es una variable 
+aleat\`oria de Poisson amb par\`ametre $\lambda x_i$ amb 
+\mbox{$\EE (Y_i)=\mbox{Var } (Y_i)=\lambda x_i$,}, \mbox{$i=1,\ldots,n$.}
+Quin \'es el millor estimador lineal sense biaix per $\lambda$?\newline
+{\footnotesize Indicaci\'o: Mirau el problema \ref{VARIANCESNOIGUALS}.}}
+\end{prob}
+
+\newpage
+
+\begin{prob}
+{
+Sigui $(Y_1,x_1),\ldots,(Y_n,x_n)$ una mostra aleat\`oria simple 
+d'una v.a. $Y$ que dep\`en d'una variable independent $x$. Suposem
+$\EE (Y|x)=a +b x$ i $\mbox{Var }Y=\sigma^2$ per a tot $x$. Suposem que $x_i =i$,
+$i=1,\ldots,n$. Trobau la f\'ormula per a la  
+vari\`ancia de l'estimador $B$ del par\`ametre $b$ pel m\`etode dels
+m\'{\i}nims quadrats.
+
+(Nota: $\sum\limits_{i=1}^n i^2 =\frac{n(n+1)(2n+1)}{6})$)
+\newline{\footnotesize Final. Juny 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Considerem la taula de valors seg\"uent:
+\begin{center}
+\begin{tabular}{|c|ccccccccc|}
+\hline
+$X$&1&1&2&2&2&3&3&3&3\\\hline
+$Y$&5&4&6&5&7&8&9&7&7\\\hline
+\end{tabular}
+\end{center}
+Feu la prova de la linealitat de regressi\'o suposant les hip\`otesis de 
+regressi\'o lineal i normalitat.
+\newline{\footnotesize Final. Setembre 96.}
+}
+\end{prob}
+

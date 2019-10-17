@@ -1,0 +1,1019 @@
+\chapter{Estudi d'algunes distribucions conegudes}
+
+\section{Resum te\`oric}
+
+\begin{enumerate}
+
+\item {\bf Bernoulli, $B(1,p)$.}
+
+Considerem un experiment aleatori amb dos resultats possibles, $a_1$ i $a_2$,
+amb probabilitats respectives $p \in (0,1)$ i $q = 1 - p$.
+
+Definim la variable aleat\`oria $X : \Omega \to \RR$ donada per $X(a_1) = 1,$
+\break $X(a_2) = 0$. $a_1$ se sol anomenar {\bf encert} i $a_2$ {\bf fallada}. La
+funci\'o
+de probabilitat de $X$ \'es $\pp{X = 1} = p, \ \pp{X = 0} = q$, i $X$ s'anomena 
+{\bf variable aleat\`oria de Bernoulli amb par\`ametre
+$p$},\index{variable aleatoria@variable aleat\`oria!de Bernoulli}
+\index{distribucio@distribuci\'o!de Bernoulli} 
+indicada amb $B(1,p)$. Cada experiment s'anomena una {\bf prova de
+Bernoulli.}\index{prova de Bernoulli}
+Resulta: $\EE X = p$ i $\Var X = p \cdot q$.
+
+\item {\bf Binomial, $B(n,p)$.}
+
+Considerem una successi\'o de $n$ repeticions independents d'una prova de
+Bernoulli amb par\`ametre $p$. Sigui $X$ la variable aleat\`oria que d\'ona el
+nombre
+d'encerts en les $n$ proves. Aleshores $X(\Omega) = \{ 0, 1, \ldots , n \}$, i
+
+$$\pp{X = k} = {n \choose k} p^k q^{n-k}.$$
+
+$X$ s'anomena {\bf variable aleat\`oria binomial amb par\`ametres $n$ i
+$p$}\index{variable aleatoria@variable aleat\`oria!binomial}
+\index{distribucio@distribuci\'o!binomial}, i 
+s'indica amb $B(n,p)$. Resulta: $\EE X = np, \Var X = npq$.
+
+\newpage
+\item {\bf Geom\`etrica, $Geom (p)$.}
+
+Considerem una successi\'o de repeticions independents d'una prova de Bernoulli
+\index{prova de Bernoulli}
+amb par\`ametre $p$. Sigui $X$ la variable aleat\`oria que d\'ona el nombre de
+repeticions de l'experiment fins que s'obt\'e el primer encert. Aleshores
+$X(\Omega) = \{ 1, 2, \ldots \}$, i
+
+$$\pp{X = k} = p \cdot q^{k-1}.$$
+
+$X$ s'anomena {\bf variable aleat\`oria geom\`etrica amb par\`ametre
+$p$}.\index{variable aleatoria@variable aleat\`oria!geometrica@geom\`etrica}
+\index{distribucio@distribuci\'o!geometrica@geom\`etrica}
+Resulta:
+$\EE X = 1/p, \Var X = 1/p^2$.
+
+De vegades, es pren com a $X$ el nombre de repeticions de l'experiment abans
+d'obtenir el primer encert. Aleshores $X(\Omega) = \{ 0, 1, 2, \ldots \}$, i
+$\pp{X = k} = p \cdot q^k$. En aquest cas, E$X = q/p$, i $\Var X = q/p^2$.
+
+$X$ tamb\'e s'anomena el {\bf temps d'espera}\index{temps d'espera}. Aquesta
+variable aleat\`oria queda caracteritzada dins les variables aleat\`ories discretes per la propietat
+anomenada de {\bf falta de mem\`oria}\index{falta de memoria@falta de
+mem\`oria}
+:
+
+$$\pp{X \geq m+n / X \geq m} = \pp{X \geq n+1} \ \forall m,n.$$
+
+(La probabilitat que un determinat component superi m\'es de $m+n$ proves
+sabent que n'ha superat m\'es de $m$ \'es igual a la que superi m\'es de $n$
+proves).
+
+\item {\bf Poisson, $Poiss(\lambda)$.}
+
+Direm que $X$, una variable aleat\`oria discreta amb $X(\Omega) = \{ 0, 1, 2,
+\ldots \}$, t\'e la {\bf distribuci\'o de Poisson amb par\`ametre $\lambda >
+0$}\index{variable aleatoria@variable aleat\`oria!de Poisson}
+\index{distribucio@distribuci\'o!de Poisson},
+indicada amb $Poiss(\lambda$), si
+
+$$\pp{X = k} = {\lambda^k \over k!} \e^{-\lambda}, \ k \geq 0.$$
+
+Resulta: $\EE X = \lambda, \Var X = \lambda$.
+
+Aquesta distribuci\'o \'es molt important i pot apar\`eixer de dues maneres:
+
+\begin{enumerate}
+
+\item Com a l\'{\i}mit d'una $B(n,p)$ quan $n \to \infty$ i $p \to 0$ de manera
+que
+$\lambda = np$ es conserva constant. A la pr\`actica, l'aproximaci\'o \'es bona
+per a
+$n \geq 30$ i $p \leq 0.1$.
+
+\item Com a model d'un proc\'es aleatori que d\'ona lloc a successos al llarg de
+l'espai o del temps amb les condicions seg\"uents:
+
+\begin{itemize}
+
+\item el nombre de successos que tenen lloc en una unitat arbitr\`aria de temps
+(espai) \'es independent del nombre de successos que tenen lloc en una altra
+unitat de la  mateixa mida,
+
+\item la probabilitat que ocorri un succ\'es en una unitat molt petita \'es
+proporcional a la mida de la unitat,
+
+\item la probabilitat que tengui lloc m\'es d'un succ\'es en una unitat molt
+petita \'es despreciable.
+
+\end{itemize}
+
+Si $\lambda$ \'es el ritme d'aparici\'o dels successos, resulta que el nombre de
+successos que apareixen en l'interval $(0,t]$ \'es una variable aleat\`oria
+$Poiss(\lambda t)$.
+
+\end{enumerate}
+
+\item {\bf Hipergeom\`etrica.}
+
+S'aplica a les extraccions sense reempla\c{c}ament. 
+Considerem una urna amb $N$ bolles, de les quals $N_1$ s\'on negres i 
+$N_2$ blanques ($N_1 + N_2 = N$). Extraiem $n$ bolles sense reempla\c{c}ament. 
+Considerem la variable aleat\`oria $X$ que d\'ona el nombre de bolles negres 
+que han sortit. Aleshores resulta que $X$ t\'e una funci\'o de probabilitat 
+donada per:
+$$
+\pp{X=k} = {{N_1 \choose k} \> {N_2 \choose n-k} \over {N \choose n}}.
+$$
+$X$ s'anomena una {\bf variable aleat\`oria hipergeom\`etrica}.
+\index{variable aleatoria@variable aleat\`oria!hipergeometrica@hipergeom\`etrica}
+\index{distribucio@distribuci\'o!hipergeometrica@hipergeom\`etrica} Resulta: 
+\newline
+$\EE X = np$, i $\Var X = npq{N-n \over N-1}, $ on $p={N_1 \over N}$ i $q=1-p$.
+
+\item {\bf Uniforme, $U[a,b]$.}
+
+Siguin $a, b \in \RR,\  a < b$. Definim $f : \RR \to \RR$ com
+
+$$f(x) = \left\{ 
+\begin{array}{ll} 
+{1 \over b - a}, & {\rm si } \ x \in [a,b],\\ 
+0, & {\rm en \> cas \> contrari}. 
+\end{array} 
+\right.$$
+
+$f$ \'es una funci\'o de densitat i la corresponent funci\'o de distribuci\'o
+\'es
+
+$$F(x) = \left\{
+\begin{array}{ll} 
+0, & {\rm si } \ x \leq a,\\ 
+{x-a \over b-a}, &  {\rm si } \ a \leq x \leq b,\\ 
+1, & {\rm si } \ x \geq b.
+\end{array} \right.$$
+
+La variable aleat\`oria $X$ que t\'e per funci\'o de distribuci\'o $F$ s'anomena
+{\bf
+variable aleat\`oria uniforme en l'interval
+$[a,b]$}\index{variable aleatoria@variable aleat\`oria!uniforme}
+\index{distribucio@distribuci\'o!uniforme} 
+i s'indica amb $U[a,b]$. Resulta
+$$\EE X = {a + b \over 2}, \ \Var X = {(b - a)^2 \over 12}.$$
+
+\item {\bf Exponencial, Exp($\lambda$).}
+
+Fixem $\lambda > 0$. Direm que una variable aleat\`oria absolutament
+cont\'{\i}nua $X$
+t\'e una {\bf distribuci\'o exponencial amb par\`ametre $\lambda$},
+\index{variable aleatoria@variable aleat\`oria!exponencial}
+\index{distribucio@distribuci\'o!exponencial} indicada amb 
+Exp($\lambda$), si la seva densitat la d\'ona:
+$$f(x) = \lambda \cdot \e^{-\lambda x}, \ x \geq 0.$$
+
+La funci\'o de distribuci\'o ser\`a aleshores:
+$$F(x) = 1 - \e^{-\lambda x}, \ x \geq 0.$$
+
+Una manera d'introduir la distribuci\'o exponencial \'es a partir de la de
+Poisson.\index{variable aleatoria@variable aleat\`oria!de Poisson}
+Considerem un flux de successos aleatoris com en un proc\'es de Poisson
+amb ritme
+$\lambda$. Sigui $X$ la variable aleat\`oria que d\'ona l'interval de temps entre
+dos successos consecutius. Aleshores $X$ t\'e una distribuci\'o Exp($\lambda$).
+Resulta: E$X = 1/\lambda, \Var X = 1/\lambda^2$.
+
+Dins les variables aleat\`ories absolutament cont\'{\i}nues, les exponencials
+queden
+caracteritzades per la propietat de falta de mem\`oria.
+\index{falta de memoria@falta de
+mem\`oria}
+
+\item {\bf Normal, $N(\mu,\sigma^2)$.}
+
+\'Es probablement la distribuci\'o absolutament cont\'{\i}nua m\'es important.
+\'Es la
+que t\'e per densitat la funci\'o:
+
+$$f(x) ={1 \over \sqrt{2 \pi} \sigma} \cdot \e^{-{(x - \mu)^2} \over 2
+\sigma^2},$$
+
+la gr\`afica de la qual \'es la coneguda campana de Gauss.\index{campana de
+Gauss}\index{campana de Gauss} Es diu que $X$ t\'e la {\bf distribuci\'o normal} 
+o {\bf gaussiana}.\index{variable aleatoria@variable aleat\`oria!normal}
+\index{variable aleatoria@variable aleat\`oria!gaussiana}
+\index{distribucio@distribuci\'o!normal}
+\index{distribucio@distribuci\'o!gaussiana} Resulta: $\EE X = \mu$ i
+$\Var X = \sigma^2$.
+
+Si consideram $\mu = 0$ i $\sigma^2 = 1$, obtenim la 
+{\bf distribuci\'o normal est\`andard}
+\index{variable aleatoria@variable aleat\`oria!normal!estandard@est\`andard}
+\index{distribucio@distribuci\'o!normal!estandard@est\`andard}
+$N(0,1)$.
+
+Donada una variable aleat\`oria $X$ amb distribuci\'o $N(\mu,\sigma^2)$, la
+variable
+aleat\`oria $\displaystyle Y = {X - \mu \over \sigma}$ t\'e una distribuci\'o
+$N(0,1)$. Rec\'{\i}procament, si $X$ t\'e una distribuci\'o $N(0,1)$, aleshores
+$Y = \sigma \cdot X + \mu$ t\'e una distribuci\'o $N(\mu, \sigma^2)$.
+
+\end{enumerate}
+
+\section{Problemes resolts}
+
+\begin{probres}
+{En una urna hi ha 8 bolles
+vermelles i 2 de negres. Es treuen 20 bolles amb reposici\'o. Sigui $Y$ la
+variable aleat\`oria que d\'ona
+el nombre de bolles vermelles que surten. Calculau $\mu_Y$, $\sigma_Y$, 
+\mbox{$\pp{Y=16}$},
+\mbox{$\pp{Y<14}$} i \mbox{$\pp{Y>18}$.}} 
+\end{probres}
+
+\res{La variable aleat\`oria $Y$ \'es una variable binomial amb par\`ametres 
+$n=20$ i $p=$``probabilitat que una bolla sigui 
+vermella''$=\frac{8}{10}=\frac{4}{5}$.
+
+Per tant, 
+\begin{eqnarray*}
+	\mu_Y  & = & n p=20\cdot\frac{4}{5}=16,  \\
+	\sigma_Y & = & \sqrt{n p 
+	(1-p)}=\sqrt{20\cdot\frac{4}{5}\cdot\frac{1}{5}}=\sqrt{\frac{80}{25}}\approx 
+	1.7888, \\
+	\pp{Y=16} & = & {20\choose 16} {\left(\frac{4}{5}\right)}^{16} 
+	{\left(\frac{1}{5}\right)}^{4}\approx 0.2182, \\
+	\pp{Y<14} & = & 1- \pp{ Y\geq 14} = 1-\sum\limits_{i=14}^{20} {20\choose 
+	i} {\left(\frac{4}{5}\right)}^{i} 
+	{\left(\frac{1}{5}\right)}^{20-i}\approx 0.0867, \\ 
+	\pp{Y>18} & = & {20\choose 19} {\left(\frac{4}{5}\right)}^{19} 
+	{\left(\frac{1}{5}\right)} + {20\choose 20} {\left(\frac{4}{5}\right)}^{20} 
+	\approx 0.06917.
+\end{eqnarray*}
+ }
+
+\begin{probres}
+{Trobau la funci\'o generatriu dels moments
+per a una variable aleat\`oria binomial amb par\`ametres $n$ i $p$.} 
+\end{probres}
+
+\res{Si $X$ \'es una variable aleat\`oria binomial amb par\`ametres $n$ i $p$, 
+aleshores el rang de $X$ \'es:
+\[
+X(\Omega)=\{0,1,\ldots,n\},
+\]
+amb funci\'o de probabilitat:
+\[
+f_X (i)={n\choose i} p^i {(1-p)}^{n-i}:= {n\choose i} p^i q^{n-i}\ (q=1-p).
+\]
+Per tant, la funci\'o generatriu de moments ser\`a:
+\begin{eqnarray*}
+	m_X (t) & = & \EE\left( \e^{t x}\right) =\sum\limits_{i=0}^n \e^{t i} f_X 
+	(i) = \sum\limits_{i=0}^n \e^{t i}{n\choose i} p^i q^{n-i} \\
+	 & = & \sum\limits_{i=0}^n {\left( p \e^{t}\right)}^i {n\choose i} 
+	 q^{n-i}= {\left( p \e^t +q\right)}^n.
+\end{eqnarray*}
+}
+
+\begin{probres}
+{Es llan\c{c}a una moneda no trucada
+fins que surti cara. Quina \'es la probabilitat que es necessitin menys de
+3 intents? I la que es necessitin menys de 4 intents?} 
+\end{probres}
+
+\res{La variable aleat\`oria $X=$``nombre d'intents necessaris fins que 
+surti cara'' \'es una variable aleat\`oria geom\`etrica amb par\`ametre 
+$p=\frac{1}{2}$, ja que la moneda no est\`a trucada.
+
+El rang de $X$ \'es
+\[
+X(\Omega)=\{1,2,\ldots\}=\{ n\in \ZZ | n\geq 1\},
+\]
+amb funci\'o de probabilitat:
+\[ 
+f_X(n)= p\cdot (1-p)^{n-1}:=p q^{n-1},\ n\geq 1.
+\]
+Per tant:
+\[
+	\pp{ X\leq 3}  =  \sum\limits_{i=1}^3 p\cdot q^{i-1}=\frac{7}{8},  
+\quad
+	\pp{ X\leq 4}  =  \sum\limits_{i=1}^4 p\cdot q^{i-1}=\frac{15}{16}.
+\]
+}
+
+\begin{probres}
+{Una caixa
+cont\'e 5 bolles, 3 de les quals estan fetes malb\'e. Escollim dues bolles a
+l'atzar sense reposici\'o. Quina \'es la funci\'o de probabilitat per al
+nombre de bolles fetes malb\'e en la mostra?} 
+\end{probres}
+
+\res{Considerem la variable aleat\`oria $X=$``nombre de bolles escollides 
+fetes malb\'e''. Fixau-vos que $X$ \'es una variable hipergeom\`etrica amb 
+par\`ametres $M=5$ (nombre total de bolles), $W=3$ (nombre de bolles d'un 
+determinat tipus; en aquest cas, fetes malb\'e) i $n=2$ (nombre de bolles 
+escollides).
+
+El rang de $X$ ser\`a: $X(\Omega)=\{0,1,2\}$ ja que com a m\`axim escollim dues
+ bolles.
+
+La funci\'o de probabilitat ser\`a:
+\[
+f_X (k)=\pp{ X=k}=\frac{{3\choose k}\cdot {2\choose 2-k}}{{5\choose 2}}.
+\]
+La f\'ormula anterior surt d'aplicar la f\'ormula $\frac{\mbox{casos 
+favorables}}{\mbox{casos possibles}}$ ja que, en aquest cas, tenim en total 
+${5\choose 2}$ casos possibles d'escollir dues bolles qualsevol i 
+${3\choose k}\cdot {2\choose 2-k}$ casos d'escollir $k$ bolles fetes malb\'e 
+d'un total de $3$ i $2-k$ bolles no fetes malb\'e d'un total de $2$.
+
+La funci\'o de probabilitat queda reflectida en la taula seg\"uent:
+$$
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	$k$ & $0$ & $1$ & $2$  \\
+	\hline
+	$f_X (k)$ & $0.1$ & $0.6$ & $0.3$  \\
+	\hline
+\end{tabular}
+$$
+}
+
+\begin{probres}
+{Es fan proves de
+Bernoulli amb probabilitat $p$ d'\`exit. Sigui $X$ la variable aleat\`oria que
+ens d\'ona el nombre de proves necess\`aries per tenir \`exit $r$ vegades.
+Trobau la funci\'o de probabilitat de $X$ (en aquest cas 
+direm que la variable aleat\`oria $X$ t\'e una 
+{\bf distribuci\'o de Pascal} o {\bf binomial negativa}).
+\index{variable aleatoria@variable aleat\`oria!de Pascal}
+\index{distribucio@distribuci\'o!de Pascal}
+\index{variable aleatoria@variable aleat\`oria!binomial!negativa}
+\index{distribucio@distribuci\'o!binomial!negativa}
+}  
+\end{probres}
+
+\res{El rang de la variable aleat\`oria $X$ ser\`a:
+\[
+X(\Omega)=\{ r, r+1,\ldots\}=\{n\in \ZZ\ |\ n\geq r\},
+\]
+ja que hem de fer com a m\'{\i}nim $r$ proves per poder obtenir \`exit $r$ 
+vegades.
+
+De cara a trobar la funci\'o de probabilitat, hem de tenir en compte que si 
+$X=n$, la 
+darrera prova de Bernoulli ha de ser \`exit ja que, en cas contrari,
+haur\'{\i}em  obtengut \`exit en un nombre de proves m\'es petit que $n$. En les
+$n-1$ proves restants s'ha obtengut \`exit $r-1$ vegades. La funci\'o de 
+probabilitat, ser\`a, doncs:
+\[
+f_X (n)=\pp{X=n}={n-1\choose r-1} p^r {(1-p)}^{n-r}:=
+{n-1\choose r-1} p^r q^{n-r},\ n\geq r.
+\]}
+
+\begin{probres}
+{En una determinada f\`abrica han
+tengut lloc accidents a ra\'o d'1 cada 2 mesos. Suposant que tenen lloc de
+forma independent, quin \'es el nombre d'accidents esperats en un any? Quina
+\'es la desviaci\'o est\`andard del nombre d'accidents a l'any? Quina \'es la
+probabilitat que no hi hagi cap accident en un determinat mes?} 
+\end{probres}
+
+\res{Podem dir que en aquesta f\`abrica hi ha hagut $0.5$ 
+accidents per mes. 
+
+Sigui la variable aleat\`oria $X=$``nombre d'accidents en una any''. $X$ \'es 
+una variable de Poisson amb par\`ametre $\lambda s$, amb $\lambda =0.5$ i 
+$s=12$ mesos (1 any). Per tant, \mbox{$X$ \'es $Poiss(6)$.}
+
+El nombre d'accidents esperats en un any ser\`a 
+\[
+ \EE X=\lambda s =6 \mbox{ accidents.}
+\]
+i la desviaci\'o est\`andard del nombre d'accidents a l'any ser\`a:
+\[
+\sigma =\sqrt{\mbox{Var }X}=\sqrt{\lambda s}=\sqrt{6}\approx 2.4494 
+\mbox{ accidents.}
+\]
+Considerem la variable aleat\`oria $Y=$``nombre d'accidents en un mes''. 
+$Y$ \'es 
+una variable aleat\`oria de Poisson amb par\`ametre $\lambda s$, amb $\lambda
+=0.5$ i  $s=1$ mes. Per tant, $Y$ és $Poiss(0.5)$.
+
+La probabilitat que no hi hagi cap accident en un determinat mes ser\`a:
+\[
+\pp{Y=0}=f_Y(0)=\frac{{(\lambda s)}^0}{0!}\e^{-\lambda s}= 
+\e^{-0.5}\approx 0.6065
+\]}
+
+\begin{probres}
+{Si
+$X$ \'es una variable aleat\`oria de Poisson amb par\`ametre $\lambda s$,
+provau que el valor de $X$ m\'es probable \'es $\lambda s$.
+\newline{\footnotesize  Indicaci\'o: Considerau $\scriptstyle {f_X(k)\over
+f_X(k-1)},\ k=1,2,\ldots$}} 
+\end{probres}
+
+\res{La funci\'o de probabilitat d'una variable de Poisson amb par\`ametre 
+$\lambda s$ \'es:
+\[
+f_X (k)=\frac{{(\lambda s)}^k}{k!} \e^{-\lambda s}.
+\]
+Considerem
+\[
+\frac{f_X(k)}{f_X (k-1)}=\frac{\frac{{(\lambda s)}^k}{k!}}
+{\frac{{(\lambda s)}^{k-1}}{(k-1)!}}=\frac{\lambda s}{k}.
+\]
+Per tant:
+\begin{itemize}
+	\item[] Si $\lambda s\geq k\ \Rightarrow\ f_X(k)\geq f_X(k-1)\ 
+	\Rightarrow f_X(k)$ creix.
+	
+	\item[] Si $\lambda s\leq k\ \Rightarrow\ f_X(k)\leq f_X(k-1)\ 
+	\Rightarrow f_X(k)$ decreix.
+\end{itemize}
+Per a $k=\lambda s$, $f_X (k)$ pren el m\`axim.
+
+{\footnotesize Nota: si $\lambda s\not\in \ZZ$, aleshores:
+\[
+\max\limits_{k\in \ZZ} f_X (k)=\max\{ f_X ([\lambda s]),f_X([\lambda s]+1)\},
+\]
+on $[\lambda s]$ \'es la part entera de $\lambda s$.}
+}
+
+\begin{probres}
+{Trobau la funci\'o generatriu de moments
+per a la variable aleat\`oria de Poisson de paràmetre~$\lambda s$.} 
+\end{probres}
+
+\res{
+\begin{eqnarray*}
+	m_X (t) & = & \EE\left(\e^{t x}\right)=\sum\limits_{k=0}^\infty \e^{t k}
+	\frac{{(\lambda s)}^k}{k!} \e^{-\lambda s} \\
+	 & = & \sum\limits_{k=0}^\infty 
+	\frac{{\left(\lambda s \e^{t}\right)}^k}{k!} \e^{-\lambda s}=\e^{-\lambda 
+	s}\cdot \e^{\lambda s \e^t} = \e^{\lambda s \left( \e^t -1\right)}.
+\end{eqnarray*}
+}
+
+\begin{probres}
+{Trobau la funci\'o generatriu cumulativa per a 
+una variable aleat\`oria de Poisson i feu-la servir per trobar $\mu_X$ i
+$\sigma_X^2$.} 
+\end{probres}
+
+\res{Tenim que la funci\'o generatriu d'una variable aleat\`oria de Poisson 
+val:
+\[
+m_X(t)=\e^{\lambda s \left( \e^t -1\right)}.
+\]
+Per tant, la funci\'o generatriu cumulativa valdr\`a:
+\[
+c_X(t)=\ln m_X(t)=\lambda s \left( \e^t -1\right).
+\]
+Trobem a continuaci\'o $\EE X$ i $\mbox{Var }X$:
+\begin{itemize}
+	\item[] $c_X'(t)=\lambda s \e^t,\ \Rightarrow\ \EE X=c_X'(0)=\lambda s$,
+	
+	\item[] $c_X''(t)=\lambda s \e^t,\ \Rightarrow\ \mbox{Var 
+	}X=c_X''(0)=\lambda s$.
+\end{itemize}
+}
+
+\begin{probres}
+{Suposau que $X$ est\`a distribu\"{\i}da
+uniformement en l'interval $(1,2)$ i que es forma un quadrat amb costats de
+llargada $X$. Trobau la funci\'o de densitat de la variable $Y=X^2$ que \'es
+l'\`area del quadrat i trobau $\pp{Y>2}$.}
+\end{probres}
+
+\res{Si $X$ \'es $U(1,2)$, les funcions de distribuci\'o i de densitat seran:
+\[
+F_X(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t\leq 1$}, \\
+t-1, & \text{si $1<t\leq 2$}, \\
+1, & \text{si 
+$t\geq 2$},
+\end{array}\right.
+\quad
+f_X(t)=
+\left\{\begin{array}{ll}
+1, & \text{si $t\in (1,2)$},\\
+0, & \text{en cas contrari.}
+\end{array}\right.
+\]
+Observem que el rang de $X$ \'es l'interval $(1,2)$: $X(\Omega)=(1,2)$. Per 
+tant, el rang de $Y=X^2$ ser\`a l'interval $(1,4)$: $Y(\Omega)=(1,4)$.
+D'aqu\'{\i}  dedu\"{\i}m que si $t \leq 1$, $F_Y (t)=0$ i si $t \geq 4$, 
+$F_Y (t)=1$. Trobem
+$F_Y(t)$ per a $t\in (1,4)$:
+\[
+F_Y(t)=\pp{Y\leq t}=\pp{X^2\leq t}=\pp{1<X\leq\sqrt{t}}=F_X 
+(\sqrt{t}) - F_X(1)=\sqrt{t}-1.
+\]
+Les funcions de distribuci\'o i de densitat de $Y$ seran:
+\[
+F_Y(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t\leq 1$}, \\
+\sqrt{t}-1, & \text{si $1 \leq t \leq 4$}, \\
+1, & \text{si 
+$t\geq 4$,}
+\end{array}\right.
+\quad
+f_Y(t)=
+\left\{\begin{array}{ll}
+\frac{1}{2\sqrt{t}}, & \text{si $t\in (1,4)$},\\ & \\
+0, & \text{en cas contrari.}
+\end{array}\right.
+\]
+Per calcular $\pp{Y>2}$, ho podem posar en termes de la funci\'o de 
+distribuci\'o:
+\[
+\pp{Y>2}=1-F_Y (2)=1-\left(\sqrt{2}-1\right)=2-\sqrt{2}.
+\]}
+
+\begin{probres}
+{$X$ \'es una
+variable geom\`etrica amb par\`ametre $p$ i $Y$ \'es exponencial amb
+par\`ametre $\lambda$. Trobau el valor de $\lambda$ tal que
+$\pp{X>1}=\pp{Y>1}$.} 
+\end{probres}
+
+\res{La funci\'o de probabilitat de la variable aleat\`oria $X$ \'es:
+\[
+f_X (n)=p\cdot {(1-p)}^{n-1},\ n\in\ZZ,\ n\geq 1.
+\]
+Les funcions de distribuci\'o i de densitat de la variable aleat\`oria $Y$ s\'on:
+\[
+F_Y(t)=1-\e^{-\lambda t},\ t\geq 0,\quad f_Y (t)=\lambda \e^{-\lambda t},\ 
+t\geq 0.
+\]
+Per tant:
+\begin{eqnarray*}
+	\pp{ X >1 } & = & 1-\pp{X=1}=1-p,  \\
+	\pp{Y >1 } & = & 1- F_Y(1) =1-\left( 1-\e^{-\lambda}\right)=\e^{-\lambda}.
+\end{eqnarray*}
+L'equaci\'o que hem de resoldre per trobar $\lambda$ \'es:
+\[
+\e^{-\lambda}=1-p,
+\]
+d'on resulta que $\lambda =\ln\left(\frac{1}{1-p}\right)$.
+}
+
+\begin{probres}
+{Es d\'ona un proc\'es de Poisson amb
+par\`ametre $\lambda$. Es comen\c{c}a a observar el proc\'es a partir del temps
+zero. Sigui $S$ el temps passat fins que t\'e lloc la segona incid\`encia.
+Trobau
+la funci\'o de densitat per a $S$.} 
+\end{probres}
+
+\res{Considerem les variables aleat\`ories:
+\begin{itemize}
+	\item[] $S=$ ``temps fins que t\'e lloc la segona incid\`encia en el
+	proc\'es de Poisson'',
+	
+	\item[] $X_s =$ ``nombre de successos en l'interval $(0,s]$'' $\to
+	Poiss(\lambda 	s)$. 
+\end{itemize}
+Observem que els dos successos seg\"uents s\'on el mateix:
+\[
+\{S>s\} = \{ X_s \leq 1 \},
+\]
+ja que si per a $t=s$ no ha tengut lloc la segona incid\`encia en el
+proc\'es de Poisson, 
+el valor de $X_s$ (nombre d'incid\`encies en el proc\'es de Poisson) \'es com
+a  m\`axim $1$.
+
+Per tant,
+\[
+\pp{ S>s} =\pp{X_s =0}+\pp{X_s=1}=\e^{-\lambda s} (1+\lambda s), \ 
+\mbox{per a } s>0.
+\]
+De la darrera expressi\'o podem trobar les funcions de distribuci\'o i densitat
+de la 
+variable aleat\`oria $S$:
+\begin{eqnarray*}
+	F_S (s) & = & 1- \pp{S>s}=1- \e^{-\lambda s} (1+\lambda s), \mbox{ per a } 
+	s>0,  \\
+	f_S (s) & = & F_S'(s)= \lambda \e^{-\lambda s} (1+\lambda s) -\lambda
+\e^{-\lambda 
+	s}= \lambda^2 s \e^{-\lambda s}, \mbox{ per a } s>0.
+\end{eqnarray*}
+}
+
+\newpage
+
+\begin{probres}
+{Generalitzaci\'o de l'exercici
+anterior. Suposau que se d\'ona un proc\'es de Poisson amb par\`ametre
+$\lambda$ i sigui $T_r$ el temps passat fins que t\'e lloc la $r-$\`essima
+incid\`encia ($r\geq 1$). Trobau la funci\'o de densitat de la variable
+aleat\`oria
+$T_r$ (en aquest cas direm que la variable $T_r$ t\'e la {\bf distribuci\'o 
+gamma.})\index{variable aleatoria@variable aleat\`oria!gamma}
+\index{distribucio@distribuci\'o!gamma}\newline {\footnotesize
+Ind.: El succ\'es $\scriptstyle T_r>t$ \'es equivalent al succ\'es: ``observar
+$\scriptstyle r-1$ incid\`encies en l'interval de temps $\scriptstyle
+(0,t)$''.}} 
+\end{probres}
+
+\res{Considerem les variables aleat\`ories:
+\begin{itemize}
+	\item[] $T_r =$ ``temps fins que t\'e lloc la $r-$\`essima 
+	incid\`encia en el proc\'es de Poisson'',
+	
+	\item[] $X_s = Poiss(\lambda s)$.
+\end{itemize}
+Observem que els dos successos seg\"uents s\'on el mateix:
+\[
+\{T_r >s\} = \{ X_s \leq r-1 \},
+\]
+ja que si per a $t=s$ no ha tengut lloc la $r-$\`essima incid\`encia en 
+el proc\'es de Poisson, 
+el valor de $X_s$ (nombre d'incid\`encies en el proc\'es de Poisson) \'es com
+a  m\`axim $r-1$.
+
+Per tant,
+\[
+\pp{ T_r >s} =\sum\limits_{i=0}^{r-1} \e^{-\lambda s}\cdot\frac{{(\lambda 
+s)}^i}{i!}, \ 
+\mbox{per a } s>0.
+\]
+De la darrera expressi\'o podem trobar les funci\'o de distribuci\'o i densitat
+de la 
+variable aleat\`oria $T_r$:
+\begin{eqnarray*}
+	F_{T_r} (s) & = & 1- \pp{S>s}=1- \sum\limits_{i=0}^{r-1} \e^{-\lambda
+s}\cdot\frac{{(\lambda 
+s)}^i}{i!}, \mbox{ per a } 
+	s>0,  \\
+	f_{T_r} (s) & = & F_{T_r}'(s)= \lambda \e^{-\lambda s} 
+	\sum\limits_{i=0}^{r-1} \frac{{(\lambda 
+s)}^i}{i!} - \lambda  \e^{-\lambda s}\sum\limits_{i=1}^{r-1} \frac{{(\lambda 
+s)}^{i-1}}{(i-1)!}\\ & = & \lambda  \e^{-\lambda s}\left(\sum\limits_{i=0}^{r-1}
+\frac{{(\lambda 
+s)}^i}{i!}-\sum\limits_{i=0}^{r-2} \frac{{(\lambda 
+s)}^i}{i!}\right)=\frac{\lambda^r s^{r-1}}{(r-1)!}  \e^{-\lambda s}, \mbox{ per
+a } s>0.
+\end{eqnarray*}}
+
+\begin{probres}
+{Si $X$ \'es una variable aleat\`oria normal amb mitjana
+$\mu$ i vari\`ancia $\sigma^2$, trobau la funci\'o de distribuci\'o de la
+variable aleat\`oria $U=\vert X\vert$ en funci\'o de la funci\'o de
+distribuci\'o de la normal est\`andard.\hfill\break\indent Com a aplicaci\'o,
+trobau $\pp{\vert X\vert \leq 3}$ si $X$ \'es $N(\mu =1,\sigma^2 =4)$.}
+\end{probres}
+
+\res{Siguin les variables aleat\`ories \mbox{$X \> N(\mu,\sigma^2)$}, 
+\mbox{$Z \> N(0,1)$} i \mbox{$U= |X|$}.
+
+La relaci\'o entre la funci\'o de distribuci\'o de $U$ i de $Z$ \'es la
+seg\"uent:
+
+\begin{eqnarray*}
+	F_U (t) & = & \pp{ U = |X|\leq t}=\pp{-t\leq X\leq t}  \\
+	 & = & F_X (t)-F_X (-t)= F_Z \left(\frac{t-\mu}{\sigma}\right)
+	 -F_Z \left(\frac{-t-\mu}{\sigma}\right).
+\end{eqnarray*}
+
+En el cas que $\mu =1$, $\sigma^2 =4$ i $t=3$, tendrem que:
+
+\begin{eqnarray*}
+\pp{\vert X\vert \leq 3} & = & F_U (3) =F_Z \left(\frac{3-1}{2}\right)
+	 -F_Z \left(\frac{-3-1}{2}\right) \\ 
+	 & = &  F_Z (1)- F_Z(-2)\approx 
+	 0.8413-(1-0.9772)=0.8185.
+\end{eqnarray*}
+}
+
+\begin{probres}
+{Se sap que el percentil 90\% d'una distribuci\'o normal \'es igual a 50 i
+que el seu percentil 15\% \'es 25.
+\begin{itemize}
+\item[a)] {Trobau $\mu$ i $\sigma$.}
+\item[b)] {Quin \'es el percentil 40\% ?}
+\end{itemize}
+}
+\end{probres}
+
+\res{\begin{itemize}
+\item[a)] Per trobar $\mu$ i $\sigma$, hem de resoldre el sistema
+d'equacions seg\"uent:
+\[
+\left.
+\begin{array}{rl}
+\pp{X\leq 50 } & = \pp{ Z\leq \frac{50-\mu}{\sigma}}=0.9, \\
+& \\
+\pp{X\leq 25 } & = \pp{ Z\leq \frac{25-\mu}{\sigma}}=0.15. \\
+\end{array}
+\right\}
+\]
+Mirant a les taules, resulta que:
+\[
+\left.
+\begin{array}{rl}
+\frac{50-\mu}{\sigma} & = 1.28, \\
+& \\
+\frac{25 -\mu}{\sigma} & = -1.04.
+\end{array}
+\right\}
+\]
+Les solucions del sistema anterior s\'on: $\mu \approx 36.2068$ i $\sigma 
+\approx 10.7758$.
+\item[b)] Hem de trobar el valor $t_{0.4}$ tal que $\pp{ X\leq 
+t_{0.4}}=0.4$. Si posam la condici\'o anterior en termes de la variable 
+aleat\`oria $Z=N(0,1)$, podem dir que hem de trobar el valor $t_{0.4}$ tal 
+que 
+\[
+\pp{Z\leq\frac{t_{0.4}-36.2068}{10.7758}}=0.4
+\]
+Mirant a les taules, resulta que $\frac{t_{0.4}-36.2068}{10.7758}\approx 
+-0.26$, d'on resulta que \break $t_{0.4}\approx 33.4051.$
+\end{itemize}}
+
+\begin{probres}
+{Sigui $T$ la variable aleat\`oria que ens d\'ona el temps d'arribada d'una
+persona al seu lloc de treball a partir de les 8.00 h. del mat\'{\i}. Suposem que
+$T$ \'es $\hbox{Exp }(\lambda =1\hbox{ h.})$. Escollim a l'atzar 10 dies.
+Trobau: \begin{itemize}
+\item[a)] {La probabilitat que arribi 5 dies m\'es tard de les 8.30 h.}
+\item[b)] {La probabilitat que arribi com a m\`axim un dia m\'es prest de les
+9.00~h.}
+\item[c)] {El nombre mitj\`a de dies que arriba m\'es tard de les 8.30 h.}
+\end{itemize}
+{\footnotesize Final. Juny 94.}}
+\end{probres}
+
+\res{
+\begin{itemize}
+	\item[a)] Considerem la variable aleat\`oria:
+	\[
+	X_a =\mbox{`` nombre de dies que arriba m\'es tard de les 8.30 h ''.}
+	\]
+	Fixau-vos que $X_a$ \'es una variable aleat\`oria binomial de par\`ametres
+	 	$n=10$ dies i $p_a =$ probabilitat que un dia a l'atzar arribi m\'es 
+	tard de les 8.30 h. Aquest darrer valor ens el donar\`a la variable 
+	aleat\`oria $T$:
+	\[
+    p_a = \pp{T\geq\frac{1}{2}}=\e^{-0.5}\approx 0.6065.
+	\]
+    Per tant, la probabilitat que arribi 5 dies m\'es tard de les 8.30 h
+    val:     \[
+    \pp{ X_a =5}= {10 \choose 5} p_a^5 {(1-p_a)}^5\approx 0.1950.
+    \]
+	\item[b)] Considerem la variable aleat\`oria:
+	\[
+	X_b =\mbox{`` nombre de dies que arriba m\'es prest de les 9h.''.}
+	\]
+	Fixau-vos que $X_b$ \'es una variable aleat\`oria binomial de par\`ametres
+	 	$n=10$ dies i $p_b =$ probabilitat que un dia a l'atzar arribi m\'es 
+	prest de les 9h. Aquest darrer valor ens el donar\`a la variable 
+	aleat\`oria $T$:
+	\[
+    p_b = \pp{T\leq 1}=1-\e^{-1}\approx 0.6321.
+	\]
+	Per tant, la probabilitat que arribi com a m\`axim un dia m\'es prest de
+les
+    9.00 h. val:
+    \[
+    \pp{ X_b\leq 1}= {10 \choose 0} {(1 -p_b)}^{10}+{10\choose 1} p_b 
+    {(1-p_b)}^9 \approx 0.000825.
+    \]
+	\item[c)] El nombre mitj\`a de dies que arriba m\'es tard de les 8.30 h
+s'obt\'e amb: 
+\[
+\EE X_a = 10 p_a\approx 6.06\mbox{ dies.}
+\]
+\end{itemize}
+}
+
+\begin{probres}
+{Un canal de transmissi\'o accepta un voltatge arbitrari $V$ com a {\it input}, i
+treu com a {\it output} un voltatge $Y=V+N$, on $N$ \'es una variable aleat\`oria
+$N(0, 1)$. Suposem que el canal s'utilitza per transmetre informaci\'o
+bin\`aria de la seg\"uent manera:
+
+\begin{itemize}
+\item[-] per transmetre $0 \to V=-1$,
+\item[-] per transmetre $1 \to V=1$.
+\end{itemize}
+
+El receptor decideix que s'ha enviat un 0 si el voltatge rebut \'es negatiu i
+un 1 si \'es positiu. Trobau la probabilitat de cometre un error si s'ha enviat
+un 0; el mateix si s'ha enviat un 1.}
+\end{probres}
+
+\res{
+Tenim:
+\begin{eqnarray*}
+	p\{ \mbox{error / 0 transm\`es} \} & = & p\{ Y>0/V=-1 \} =
+	 p\{ V+N>0/V=-1\} \\
+	& = & {p\{ -1+N>0 \} \over P\{ V=-1 \}} = {p\{ N>1\} \over 1/2} = 
+	{0.159\over 1/2} = 0.318,
+\end{eqnarray*}
+i, an\`alogament,
+\begin{eqnarray*}
+	p\{ \mbox{error / 1 transm\`es} \} & = & p\{ Y<0/V=1 \} = 
+	p\{ V+N<0/V=1\} \\
+	& = & {p\{ 1+N<0 \} \over P\{ V=1 \}} = {p\{ N<-1\} \over 1/2} = 
+	{0.159\over 1/2} = 0.318.
+\end{eqnarray*}
+}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Es tiren una sola vegada 5 daus no trucats. Sigui $X$ el nombre 
+d'uns que surten. Calculau l'esperan\c{c}a de $X$, la vari\`ancia de $X$,
+$\pp{1\leq X<4}$ i $\pp{X\geq 2}$.} 
+\end{prob}
+
+\begin{prob}
+{Se sap que el 10\% dels tassons fabricats
+per una determinada m\`aquina t\'e algun defecte. Si se seleccionen a
+l'atzar 10 dels tassons fabricats per aquesta m\`aquina, quina \'es la
+probabilitat que cap sigui defectu\'os? Quants tassons defectuosos 
+s'esperaria trobar?} 
+\end{prob}
+
+\begin{prob}
+{Se sap que $Y$ \'es una variable binomial amb mitjana
+$\mu_Y=6$ i vari\`ancia $\sigma_Y^2=4$. Trobau la distribuci\'o de $Y$, o
+sigui, trobau $n$ i $p$.} 
+\end{prob}
+
+\begin{prob}
+{Un
+fabricant de peces les envia en paquets de 20 als seus clients.
+Suposau que la probabilitat que una pe\c{c}a sigui defectuosa \'es
+$0.05$. 
+\begin{itemize}
+\item[a)] {Quin \'es el nombre esperat de peces defectuoses per
+paquet?} 
+\item[b)] {Quina \'es la probabilitat que un determinat paquet no
+tengui cap pe\c{c}a defectuosa?}
+\end{itemize}} 
+\end{prob}
+
+\begin{prob}
+{Suposau que una
+urna cont\'e 10 bolles, una de les quals \'es negra. Sigui $Z$ el nombre
+d'extraccions amb reposici\'o necess\`aries per treure la bolla negra. Quina
+\'es la funci\'o de probabilitat per a $Z$? I la mitjana de $Z$?} 
+\end{prob}
+
+\begin{prob}
+{Es llan\c{c}a una moneda a
+l'aire fins que surt cara. Suposau que les tirades s\'on independents i que
+la probabilitat que surti cara cada vegada \'es $p$.  
+\begin{itemize}
+\item[a)] {Demostrau
+que la probabilitat que faci falta un nombre senar de llan\c{c}aments \'es
+${p\over 1-q^2}$ on $q=1-p$.} 
+\item[b)] {Trobau el valor de $p$ tal que la probabilitat
+que faci falta un nombre senar de vegades sigui $0.6$.} 
+\item[c)] {Es pot
+trobar un valor de $p$ tal que la probabilitat que faci falta un nombre
+senar de vegades sigui $0.5$?}
+\end{itemize}
+} 
+\end{prob}
+
+\begin{prob}
+{S'ha observat que el tr\`ansit mitj\`a de
+cotxes en un determinat punt d'un cam\'{\i} rural \'es de 3 cotxes/hora.
+Suposau que els instants en qu\`e passen els cotxes s\'on independents. Sigui
+$X$ el nombre de cotxes que passen per aquest punt en un interval de 20 minuts.
+Trobau $\pp{X=0}$ i $\pp{X\geq 2}$.} 
+\end{prob}
+
+\begin{prob}
+{Suposau que un de cada
+10.000 nins neix cec. Si un hospital d'una ciutat gran va tenir 5.000
+naixements el 1970, aproximau per la distribuci\'o de Poisson la probabilitat
+que cap dels nascuts en aquest any fos cec en n\'eixer. Aproximau tamb\'e
+la probabilitat que hagi nascut exactament 1 nin cec i la que hagin
+nascut almenys 2 nins cecs.} 
+\end{prob}
+
+\begin{prob}
+{Suposau que les vendes que fa un venedor de cotxes
+usats es realitzen segons
+un proc\'es de Poisson amb par\`ametre $\lambda =1$ cotxe per setmana. 
+\begin{itemize}
+\item[a)] {Quina
+\'es la probabilitat que hi hagi exactament 3 vendes en un per\'{\i}ode de 2
+setmanes? I com a m\'{\i}nim 3 vendes? I com a m\`axim 3 vendes?}
+\item[b)] {Quina \'es la probabilitat que passin 3 per\'{\i}odes de 2
+setmanes consecutives sense cap venda?}
+\end{itemize}
+} 
+\end{prob}
+ 
+\begin{prob}
+{Trobau la funci\'o
+generatriu factorial per a una variable aleat\`oria $X$ distribu\"{\i}da
+uniformement en $(a,b)$.} 
+\end{prob}
+
+\begin{prob}
+{Suposem que $X$ est\`a distribu\"{\i}da uniformement en
+$(0,2)$ i $Y$ \'es una variable exponencial amb par\`ametre $\lambda$. Trobau
+el valor de $\lambda$ tal que $\pp{X<1}=\pp{Y<1}$.} 
+\end{prob}
+
+\begin{prob}
+{Suposem que el temps $X$ que fa falta perqu\`e un corredor
+de fons recorri una milla \'es una variable normal amb par\`ametres $\mu =4$
+minuts i 1 segon i $\sigma = 2$ segons. Quina \'es la probabilitat que
+aquest atleta recorri la milla en menys de 4 minuts? I en m\'es de 3 minuts i
+55 segons?} 
+\end{prob}
+
+\begin{prob}
+{L'al\c{c}ada que salta un atleta de salt d'al\c{c}ada en cada intent \'es una
+variable aleat\`oria normal amb mitjana de 2 metres i desviaci\'o est\`andard de
+0.8
+metres.
+\begin{itemize}
+\item[a)] {Quina \'es la m\`axima al\c{c}ada que pot saltar amb probabilitat
+0.95?}
+\item[b)] {Quina \'es l'al\c{c}ada que salta en nom\'es el 10\% dels intents?}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{Una centraleta telef\`onica rep per terme mitj\`a 100 telefonades per hora.
+\begin{itemize}
+\item[a)] Trobau la probabilitat que passin almenys 25 minuts per rebre la
+primera telefonada.
+\item[b)] Trobau la probabilitat que passin almenys 30 minuts per rebre la
+segona telefonada.
+\item[c)] Si definim com a $p_k$ la probabilitat que passin almenys 30
+minuts per rebre la $k-$\`essima telefonada, trobau la relaci\'o que hi ha entre
+$p_k$ i $p_{k-1}$.
+
+{\footnotesize
+(Indicaci\'o: feu servir la distribuci\'o
+gamma.)  Primer Parcial. Curs 92-93.}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X$ una variable aleat\`oria normal amb par\`ametres $\mu=1$ i
+$\sigma^2=1$. Trobau el valor de~$b$ tal que $\pp{{(X-1)}^2\leq b}=0.1$.
+\newline{\footnotesize Final. Juny 96.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $Z$ una variable aleat\`oria $N(0,1)$. Trobau
+$\pp{\left(Z-\frac{1}{4}\right)^2 >\frac{1}{16}}$.
+\newline{\footnotesize Final. Setembre 96.}
+}
+\end{prob}
+
+
+\begin{prob}
+{Dues persones juguen a cara o creu i han decidit continuar la partida fins
+que s'hagin obtengut com a m\'{\i}nim 3 cares i 3 creus. Trobau la probabilitat
+que el joc no s'acabi en 10 tirades.}
+\end{prob}
+
+\begin{prob}
+{Arriben missatges a un ordinador a un ritme mitj\`a de 15 missatges per segon.
+Sabem que el nombre de missatges que arriben en un segon \'es una variable
+aleat\`oria de Poisson.
+\begin{itemize}
+\item[a)] Trobau la probabilitat que no arribi cap missatge en un segon.
+\item[b)] Trobau la probabilitat que arribin m\'es de 10 missatges en un
+segon.
+\end{itemize}}
+\end{prob}
+
+\begin{prob}
+{De dos xips, es planteja utilitzar-ne un en un cert sistema. El temps de
+vida del xip 1 s'ha modelat segons una $N(20.000, 4.000^2)$ (la probabilitat d'un 
+temps de vida negatiu \'es despreciable) i el del xip 2, segons una 
+$N(22.000, 1.000^2)$. Quin xip s'hauria de triar si el temps de vida objectiu del 
+sistema \'es de 20.000 hores? I si \'es de 24.000 hores?}
+\end{prob}
+
+\begin{prob}
+{Sigui $X$ el nombre d'encerts en $n$ proves de Bernoulli independents amb
+probabilitat $p$ d'encert.
+\begin{itemize}
+\item[a)] Si $k$ \'es el valor m\'es probable de $X$, provau que
+$$
+(n+1)p-1 \leq k \leq (n+1)p.
+$$
+\item[b)] Si llan\c{c}am 10 vegades un dau sense biaix, quin \'es el nombre 
+m\'es probable de vegades que obtendrem un `2'?
+\end{itemize}}
+\end{prob}
+

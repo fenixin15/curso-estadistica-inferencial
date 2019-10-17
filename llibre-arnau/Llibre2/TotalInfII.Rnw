@@ -1,0 +1,241 @@
+\documentclass[11pt,a4paper]{book}
+\usepackage{makeidx}
+%\usepackage{graphics}
+%\usepackage{color}
+\usepackage[catalan]{babel}
+\usepackage{fancybox,fancyhdr,latexsym,multirow,array,epic,calc}
+\makeindex
+%\definecolor{dark}{gray}{0.5}
+%\includeonly{Nor,td,xi,Fl,Kolmogorov}
+\includeonly{Fl}
+%\includeonly{PInf6,PInf7,PInf8,PInf9,PInf10,PInf11,PInf12,PInf13,
+%TaulaContrast,Prac,Nor,td,xi,Fl,Kolmogorov}
+%\includeonly{PInf6,PInf7,PInf8,PInf9,PInf10,PInf11,PInf12,PInf13}
+%\includeonly{PInf12,TaulaContrast,Nor,td,xi,Fl}
+\pagestyle{fancyplain}
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+\addtolength{\headwidth}{1.17 cm}
+%\headrulewidth 0pt
+\renewcommand{\chaptermark}[1]
+	{\markboth{#1}{#1}}
+%\renewcommand{\sectionmark}[1]
+%	{\markright{\thesection\ #1}}
+\renewcommand{\sectionmark}[1]{}
+\lhead[\fancyplain{}{\bfseries\thepage}]
+	{\fancyplain{}{\bfseries\rightmark}}
+\rhead[\fancyplain{}{\bfseries\leftmark}]
+	{\fancyplain{\bfseries\thepage}{\bfseries\thepage}}
+\cfoot{}
+
+%\advance\hoffset by -0.6in
+%\advance\textwidth by -0.4 cm
+%\advance\voffset by -0.8in
+%\advance\textheight by -0.4 cm
+\setlength{\textwidth}{13.8cm}
+\setlength{\textheight}{18.5cm}
+\setlength{\oddsidemargin}{0.76cm}
+\setlength{\evensidemargin}{1.36cm}
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+
+\addtolength{\headheight}{\baselineskip}
+\addtolength{\topmargin}{-\baselineskip}
+
+%Definitions of \Bbb
+\newif\ifamsfonts
+% If you do not have the AMS font msbm, comment the next line
+\amsfontstrue
+\ifamsfonts
+%Definitions of \Bbb with AMS blackboard fonts
+\font\twlbbb=msbm10 scaled\magstep1         
+\font\egtbbb=msbm8                          
+\font\sixbbb=msbm6                          
+\newfam\bbbfam
+\textfont\bbbfam=\twlbbb
+\scriptfont\bbbfam=\egtbbb
+\scriptscriptfont\bbbfam=\sixbbb
+\newcommand{\Bbb}[1]{{\fam\bbbfam\relax#1}}
+\else
+%Definitions of \Bbb without Blackboard fonts
+\newcommand{\Bbb}[1]{{\bf#1}}
+\fi
+
+%Definitions of numbers
+\newcommand\RR{\Bbb{R}}
+\newcommand\QQ{\Bbb{Q}}
+\newcommand\CC{\Bbb{C}}
+\newcommand\ZZ{\Bbb{Z}}
+\newcommand\NN{\Bbb{N}}
+
+\iffalse
+\pagestyle{fancyplain}
+\addtolength{\headwidth}{\marginparsep}
+\addtolength{\headwidth}{\marginparwidth}
+\renewcommand{\chaptermark}[1]
+	{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]
+	{\markright{\thesection\ #1}}
+\lhead[\fancyplain{}{\bfseries\thepage}]
+	{\fancyplain{}{\bfseries\rightmark}}
+\rhead[\fancyplain{}{\bfseries\leftmark}]
+	{\fancyplain{}{\bfseries\thepage}}
+\cfoot{}
+\fi
+
+\newcounter{problema}
+%\numberwithin{problema}{section}
+\makeatletter
+\renewenvironment{theindex}
+               {\if@twocolumn
+                  \@restonecolfalse
+                \else
+                  \@restonecoltrue
+                \fi
+                \columnseprule \z@
+                \columnsep 35\p@
+                \twocolumn[\@makeschapterhead{\indexname}]%
+                \@mkboth{\indexname}%
+                        {\indexname}%
+                \thispagestyle{plain}\parindent\z@
+                \parskip\z@ \@plus .3\p@\relax
+                \let\item\@idxitem}
+               {\if@restonecol\onecolumn\else\clearpage\fi}
+
+\renewcommand\tableofcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\contentsname
+        \@mkboth{%
+           \contentsname}{\contentsname}}%
+    \@starttoc{toc}%
+    \if@restonecol\twocolumn\fi
+    }
+\renewcommand\listoffigures{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\listfigurename
+      \@mkboth{\listfigurename}%
+              {\listfigurename}}%
+    \@starttoc{lof}%
+    \if@restonecol\twocolumn\fi
+    }
+\renewcommand\listoftables{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\listtablename
+      \@mkboth{%
+          \listtablename}{\listtablename}}%
+    \@starttoc{lot}%
+    \if@restonecol\twocolumn\fi
+    }
+\makeatother
+\begin{document}
+\font\fiverm = cmr5
+%\input prepictex.tex
+%\input pictex.tex
+%\input postpictex.tex
+\newcommand{\bblref}[1]{{\bf \ref{#1}}}
+\newtheorem{proposition}{Proposici\'o}[chapter]
+\newtheorem{defin}{Definici\'o}[chapter]
+\setcounter{problema}{0}
+\newcounter{cas}
+\newcounter{aux}
+\setcounter{cas}{0}
+\newcommand{\e}{{\rm e}}
+\newcommand{\EE}{{\rm E}}
+\newcommand{\Var}{{\rm Var}}
+\newcommand{\Cov}{{\rm Cov}}
+\newcommand{\pp}[1]{p\left\{#1\right\}}
+\renewcommand{\thecas}{\Roman{cas}}
+\newcommand{\posacas}{\addtocounter{cas}{1}{\bf \thecas}}
+\makeatletter
+\@addtoreset{problema}{section}
+\makeatother
+\makeatletter
+\def\etiqueta#1{\immediate\write\@auxout{\string
+      \newlabel{#1}{{\thechapter .\theproblema}}}}
+\makeatother
+%\definecolor{gris}{gray}{0.8}
+\newcommand{\text}[1]{\mbox{#1}}
+
+\newenvironment{prob}
+{\addtocounter{problema}{1}
+\noindent
+{\textbf{\thechapter.\theproblema.- }}}
+{
+\vspace{\baselineskip}}
+
+\newlength\amplada
+\setlength{\amplada}{\textwidth - 8mm}
+\newenvironment{probres}[1]
+{\addtocounter{problema}{1}
+\noindent\shadowbox{
+\parbox{\amplada}{
+\noindent
+{\textbf{\thechapter.\theproblema.- }}#1}}}
+{
+\vspace{\baselineskip}}
+
+\newcommand{\prb}[1]{\addtocounter{problema}{1}
+\noindent
+{\textbf{\thechapter.\theproblema.- }#1}
+\vspace{\baselineskip}
+}
+\newcommand{\prbr}[1]{\addtocounter{problema}{1}
+%\colorbox{gris}
+\noindent\shadowbox{
+\parbox{\textwidth}{
+\noindent
+%\textcolor{gris}
+{\textbf{\thechapter.\theproblema.- }#1}
+}}
+\vspace{\baselineskip}
+}
+
+\newcommand{\res}[1]{
+\textbf{Resoluci\'o. }{\sf #1}
+\vspace{\baselineskip}
+}
+\title{INTRODUCCI\'O A L'ESTAD\'ISTICA INFERENCIAL
+%\\ Engineyeries T\`ecniques \\
+%d'Inform\`atica de Gesti\'o i de Sistemes
+}
+\author{Arnau Mir\and
+Jaume Su\~ner}
+\maketitle
+\input{PrefaciII}
+\mainmatter
+\tableofcontents
+\listoffigures
+\include{PInf6}
+\include{PInf7}
+\include{PInf8}
+\include{PInf9}
+\include{PInf10}
+\include{PInf11}
+\include{PInf12}
+\include{PInf13}
+\include{TaulaContrast}
+\include{Prac}
+\include{Nor}
+\include{td}
+\include{xi}
+\include{Fl}
+\include{Kolmogorov}
+\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{TotalInfII}
+\printindex
+\end{document}
+

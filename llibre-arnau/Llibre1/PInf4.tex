@@ -1,0 +1,2022 @@
+\chapter{Variables aleat\`ories vectorials}
+
+\section{Resum te\`oric}
+
+\begin{defin}
+Si $X_1, \ldots , X_n$ s\'on variables aleat\`ories en $(\Omega, {\cal F},
+p)$, el vector\break $X = (X_1, \ldots , X_n)$ s'anomena una {\bf variable aleat\`oria
+vectorial}\index{variable aleatoria@variable aleat\`oria!vectorial}  (o {\bf vector
+aleatori $n$-dimensional}\index{vector!aleatori}) en $(\Omega, {\cal F}, p)$.
+\end{defin}
+
+Donat un vector aleatori, estam interessats a determinar la seva distribuci\'o
+conjunta, com tamb\'e les distribucions de cada component (distribucions
+marginals).
+Primer considerarem nom\'es vectors aleatoris bidimensionals.
+
+\begin{defin}
+Direm {\bf funci\'o de distribuci\'o conjunta}\index{funcio@funci\'o!de
+distribucio@de distribuci\'o!conjunta}
+de $(X, Y)$ a: $$F_{XY}(x,y) = \pp{X \leq x, Y \leq y}.$$
+\end{defin}
+
+{\bf Propietats.}
+\begin{enumerate}
+
+\item $F_{XY}$ \'es creixent en $x$ i $y$: Si $x_1 \leq x_2$ i $y_1 \leq y_2,
+F_{XY}(x_1,y_1) \leq F_{XY}(x_2,y_2)$.
+
+\item  $\displaystyle \lim_{x \to -\infty} F_{XY}(x,y) = \lim_{y \to -\infty}
+F_{XY}(x,y) = 0$.
+
+\item $\displaystyle \lim_{(x,y) \to (+\infty,+\infty)} F_{XY}(x,y) = 1$.
+
+\item Les {\bf funcions de distribuci\'o marginals}\index{funcio@funci\'o!de
+distribucio@de distribuci\'o!marginal}
+s\'on: \begin{itemize}
+\item $\displaystyle F_X(x) = \lim_{y \to +\infty} F_{XY}(x,y)$,
+\item $\displaystyle F_Y(y) = \lim_{x \to +\infty} F_{XY}(x,y)$.
+\end{itemize}
+
+\item $\displaystyle \lim_{x \to a^+} F_{XY}(x,y) = F_{XY}(a,y), \ \lim_{y \to
+b^+} F_{XY}(x,y) = F_{XY}(x,b)$.
+\end{enumerate}
+
+Si $X$ i $Y$ s\'on variables aleat\`ories discretes, amb $X(\Omega) = \{ x_1,
+x_2,
+\ldots \}$ i $Y(\Omega) = \{ y_1, y_2, \ldots \}$, aleshores el vector aleatori
+$(X,Y)$ \'es tamb\'e discret, amb $(X,Y)(\Omega) = \{ (x_j,y_k) : j = 1, 2, \dots
+, k
+= 1, 2, \ldots \}$. Aleshores podem donar la definici\'o seg\"uent:
+
+\begin{defin}
+Direm {\bf funci\'o de probabilitat conjunta}\index{funcio@funci\'o!de
+probabilitat!conjunta}
+del vector aleatori discret $(X,Y)$ a: $$f_{XY}(x_j,y_k) = 
+\pp{X = x_j, Y = y_k},
+j = 1, 2, \dots , k = 1, 2, \ldots$$ \end{defin}
+
+{\bf Propietats.}
+
+\begin{enumerate}
+\item Si $A$ \'es tal que $\{ (X,Y) \in A \} $ \'es un succ\'es, $\displaystyle
+\pp{(X,Y) \in A} = \sum_{(x_j,y_k) \in A} f_{XY}(x_j,y_k)$. \item $\displaystyle \sum_{j=1}^\infty \sum_{k=1}^\infty f_{XY}(x_j,y_k) = 1$.
+\item Les {\bf funcions de probabilitat marginals}\index{funcio@funci\'o!de
+probabilitat!marginal}
+s'obtenen com: \begin{itemize}
+\item $\displaystyle f_X(x_j) = \pp{X = x_j} = \sum_{k=1}^\infty f_{XY}(x_j,y_k)$.
+\item $\displaystyle f_Y(y_k) = \pp{Y = y_k} = \sum_{j=1}^\infty f_{XY}(x_j,y_k)$.
+\end{itemize}
+\end{enumerate}
+
+El rec\'{\i}proc no \'es cert en general: conegudes $f_X$ i $f_Y$, no podem
+determinar
+$f_{XY}$.
+
+\begin{defin}
+Direm que dues variables aleat\`ories $X$ i $Y$ s\'on {\bf conjuntament
+absolutament
+cont\'{\i}nues}\index{variables aleatories@variables aleat\`ories!conjuntament!
+absolutament continues@absolutament cont\'{\i}nues} (o que $(X,Y)$ \'es un
+{\bf vector aleatori absolutament continu})
+\index{vector!aleatori!absolutament continu} si $F_{XY}$ \'es la integral 
+d'una funci\'o de densitat conjunta,\index{funcio@funci\'o!de densitat!conjunta}
+ \'es a dir si $$F_{XY}(x,y) = \int_{-\infty}^x \int_{-\infty}^y f_{XY}(u,v) \> du dv, \ \
+\forall (u,v) \in \RR^2.$$
+\end{defin}
+\newpage
+{\bf Propietats.}
+
+\begin{enumerate}
+
+\item Si $A$ \'es tal que $\{ (X,Y) \in A \} $ \'es un succ\'es, 
+$\displaystyle \pp{(X,Y) \in A} = \int \int_A f_{XY}(x,y) \> dx dy$.
+
+\item $\displaystyle \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty}
+f_{XY}(x,y) \> dx dy = 1$.
+
+\item $\displaystyle f_{XY}(x,y) = {\partial^2 F_{XY}(x,y) \over \partial x
+\partial y}$.
+
+\item Les {\bf funcions de densitat marginals}\index{funcio@funci\'o!de
+densitat!marginal}
+s\'on:
+
+\begin{itemize}
+
+\item $\displaystyle f_X(x) = \int_{-\infty}^{+\infty} f_{XY}(x,y) \> dy$.
+
+\item $\displaystyle f_Y(y) = \int_{-\infty}^{+\infty} f_{XY}(x,y) \> dx$.
+
+\end{itemize}
+
+El rec\'{\i}proc no \'es cert en general: donades $f_X$ i $f_Y$, no podem
+determinar
+$f_{XY}$.
+
+\end{enumerate}
+
+{\bf Exemples.}
+
+\begin{enumerate}
+
+\item {\bf Llei uniforme en $\RR^2$.}
+
+$(X,Y)$ t\'e una {\bf llei uniforme sobre el recinte fitat $B \subset
+\RR^2$}\index{vector!aleatori!uniforme}
+\index{distribucio@distribuci\'o!uniforme!bidimensional}
+si la
+seva funci\'o de densitat \'es:
+
+$$f_{XY}(x,y) = \left\{ \begin{array}{ll} {1 \over |B|}, & {\rm si } (x,y) 
+\in B,\\ 0, & {\rm en \> cas \> contrari}, \end{array} \right.$$
+on $|B| =$ \`area de $B$.
+
+\item {\bf Llei gaussiana bidimensional.}
+
+Suposem que el vector aleatori $(X,Y)$ t\'e la densitat conjunta seg\"uent:
+
+$$f(x,y) = {1 \over 2 \pi \sqrt{1 - r^2}} \e^{-(x^2+y^2-2rxy)/(2(1-r^2))}, \ |r|
+\leq 1.$$
+
+Aleshores direm que $X$ i $Y$ s\'on {\bf conjuntament gaussianes}.
+\index{vector!aleatori!gaussia@gaussi\`a}
+\index{distribucio@distribuci\'o!gaussiana!bidimensional}
+\index{variables aleatories@variables aleat\`ories!conjuntament!gaussianes} Es pot
+provar que les distribucions marginals s\'on totes dues $N(0,1)$.
+
+En general, direm que dues variables aleat\`ories s\'on conjuntament gaussianes
+si la
+seva funci\'o de densitat conjunta \'es donada per:
+
+\begin{eqnarray*}
+f(x,y)& = & {1 \over 2 \pi \sigma_X \sigma_Y \sqrt{1 - r^2}} \exp (g(x,y)), \\
+g(x,y) & = & {{-1 \over
+2(1-r^2)} \left[\left( {x-\mu_X \over \sigma_X} \right)^2 - 2 r \left( {x-\mu_X
+\over \sigma_X} \right) \left( {y-\mu_Y \over \sigma_Y} \right) + \left( {y-\mu_Y
+\over \sigma_Y} \right)^2 \right],}
+\end{eqnarray*}
+
+on $|r| \leq 1$.
+
+\end{enumerate}
+
+\begin{defin}
+Donades dues variables aleat\`ories $X$ i $Y$, direm que s\'on {\bf
+independents}\index{variables aleatories@variables aleat\`ories!independents} si
+$$F_{XY}(x,y) = F_X(x) \cdot F_Y(y) \ \ \forall (x,y) \in \RR^2.$$
+\end{defin}
+
+{\bf Propietats.}
+\begin{enumerate}
+
+\item $X$ i $Y$ s\'on independents si i nom\'es si $f_{XY}(x,y) = f_X(x) \cdot
+f_Y(y)$.
+
+\item Si $X$ i $Y$ s\'on independents, i $g,h : \RR \to \RR$ s\'on tals que
+$g(X)$ i
+$h(Y)$ s\'on dues noves variables aleat\`ories, 
+aleshores aquestes tamb\'e s\'on independents.
+\end{enumerate}
+
+\begin{defin}
+Si $X$ i $Y$ s\'on discretes, definim la {\bf funci\'o de probabilitat
+condicionada de $Y$ donat que $X = x$}\index{funcio@funci\'o!de
+probabilitat!condicionada}
+com $$f_{Y/X}(y/x) = {f_{XY}(x,y) \over f_X(x)},$$
+per als $x$ tals que $f_X(x) > 0$.
+\end{defin}
+
+$f_{Y/X}$ satisf\`a totes les propietats d'una probabilitat; en particular, si
+$A \in{\cal F}$,
+$$\pp{Y \in A / X = x} = \sum_{y_k \in A\cap Y(\Omega)} f_{Y/X}(y_k/x).$$
+
+\begin{defin}
+Si $X$ i $Y$ s\'on conjuntament absolutament cont\'{\i}nues, definim la {\bf
+funci\'o de densitat condicionada de $Y$ donat que $X = x$}
+\index{funcio@funci\'o!de densitat!condicionada} com
+$$f_{Y/X}(y/x) = {f_{XY}(x,y) \over f_X(x)},$$
+per als $x$ tals que $f_X(x) > 0$.
+\end{defin}
+
+{\bf Propietats.} Sigui $A \subset \RR$.
+\begin{enumerate}
+\item Si $X$ \'es discreta,
+$$\pp{Y \in A} = \sum_{x_j} \pp{Y \in A / X = x_j} \cdot f_X(x_j).$$
+
+\item Si $X$ \'es absolutament cont\'{\i}nua,
+$$\pp{Y \in A} = \int_{-\infty}^{+\infty} \pp{Y \in A / X = x} \cdot f_X(x) \> dx.$$
+\end{enumerate}
+
+\begin{defin}
+{\bf L'esperan\c{c}a condicionada de $Y$ donat que $X=x$}
+\index{esperanca@esperan\c{c}a!condicionada} es defineix com
+$${\rm E}[Y/X=x] = \int_{-\infty}^{+\infty} y \cdot f_{Y/X}(y/x) \> dy,$$
+per al cas conjuntament absolutament continu, i
+$${\rm E}[Y/X=x] = \sum_{y_k} y_k \cdot f_{Y/X}(y_k/x),$$
+per al cas discret.
+\end{defin}
+
+E$[Y/X=x]$ \'es una funci\'o de $x$, posem $g(x)$. Aleshores t\'e sentit parlar
+de la funci\'o de la variable aleat\`oria $X$ $\hat{Y} = g(X) =$
+E$[Y/X]$ com la variable aleat\`oria que, quan $X=x$, val E$[Y/X=x]$. Aquesta
+variable aleat\`oria s'anomena l'{\bf esperan\c ca condicionada de $Y$ donada
+$X$}\index{esperanca@esperan\c{c}a!condicionada}.
+
+\begin{defin}
+La {\bf vari\`ancia de $Y$ donat que
+$X=x$}\index{variancia@vari\`ancia!condicionada}
+\'es la vari\`ancia de la distribuci\'o
+condicionada:
+$$\Var (Y/X=x) = \EE [(Y-{\rm E}[Y/X=x])^2/X=x] = \EE [Y^2/X=x] - ({\rm
+E}[Y/X=x])^2.$$
+\end{defin}
+
+Observem que $\Var (Y/X=x)$ \'es una funci\'o de $x$ i aix\'{\i} podem definir la
+variable
+aleat\`oria $\Var (Y/X) =$ E$[(Y-$E$[Y/X])^2/X]$, anomenada {\bf vari\`ancia
+condicionada de $Y$ donada $X$}\index{variancia@vari\`ancia!condicionada}.
+
+Considerem ara el cas de $n$ variables aleat\`ories $X_1, \ldots , X_n$. La {\bf
+funci\'o de distribuci\'o conjunta}
+\index{funcio@funci\'o!de distribucio@de distribuci\'o!conjunta!n-dimensional}
+\'es $F_{X_1 \ldots X_n}(x_1, \ldots , x_n) = \pp{X_1
+\leq x_1, \ldots , X_n \leq x_n}$.
+
+Les {\bf funcions de distribuci\'o marginals}
+\index{funcio@funci\'o!de distribucio@de distribuci\'o!marginal} s'obtenen
+posant $+\infty$ en les components adequades. Per exemple, $F_{X_1X_2}(x_1,x_2) = F_{X_1 \ldots
+X_n}(x_1,
+x_2, +\infty, \ldots , +\infty)$.
+
+La funci\'o de probabilitat conjunta (cas discret) i la funci\'o 
+de densitat conjunta
+(cas absolutament continu) es defineixen exactament igual que el cas bidimensional.
+
+Resulta que $X_1, \ldots , X_n$ s\'on independents si i nom\'es si
+
+$$F_{X_1 \ldots X_n}(x_1, \ldots , x_n) = F_{X_1}(x_1) \cdots F_{X_n}(x_n),$$
+i aix\`o equival a
+$$f_{X_1 \cdots X_n}(x_1, \ldots , x_n) = f_{X_1}(x_1) \cdots f_{X_n}(x_n).$$
+
+{\bf Exemple: Llei multinomial}
+
+Considerem un experiment aleatori amb $k$ resultats possibles 
+$A_1, \ldots , A_k$
+m\'u\-tua\-ment excloents ($A_i \cap A_j = \emptyset \ \forall i \not = j, \>
+i,j = 1 \ldots , k$) tals que  $\Omega = \mathop{\cup}\limits_{i=1}^k A_i$.
+Posem $p_i = \pp{A_i}, \ i = 1, \ldots , k$. Repetim l'experiment $n$ vegades.
+Considerem les variables aleat\`ories 
+$$
+X_i =\mbox{\it nombre de vegades que s'obt\'e el
+resultat }A_i \ (i = 1, \ldots , k).$$
+Aleshores el vector aleatori
+$k$-dimensional $(X_1, \ldots , X_k)$ es diu que segueix una {\bf llei
+multinomial amb par\`ametres $n, p_1, \ldots ,
+p_k$.}\index{vector!aleatori!multinomial}
+\index{distribucio@distribuci\'o!multinomial}
+La seva funci\'o de probabilitat \'es:
+
+$$f_{X_1 \cdots X_k}(n_1, \ldots , n_k) = 
+\pp{X_1 = n_1, \ldots , X_k = n_k} = {n!\over n_1! \cdots n_k!} \> p_1^{n_1} \cdots p_k^{n_k},$$
+on $n_1 + \cdots + n_k = n$.
+
+Es pot provar que cada variable aleat\`oria $X_i$ t\'e una distribuci\'o
+$B(n,p_i)$\break $(i= 1, \ldots , k)$.
+
+Estudiem ara el cas de funcions de diverses variables.
+\index{funcions de!variables aleatories@variables aleat\`ories} 
+En el que segueix, $X_1, \ldots , X_n$ seran
+$n$ variables aleat\`ories conjuntament absolutament cont\'{\i}nues.
+
+\begin{enumerate}
+
+\item Sigui $Z = g(X_1, \ldots , X_n)$. Aleshores
+
+$$F_Z(z) = \pp{(X_1, \ldots , X_n) \in B_z} = \int \cdots \int_{B_z} f_{X_1 \cdots
+X_n}(x_1, \ldots , x_n) \> dx_1 \cdots dx_n,$$
+on $B_z = \{ (x_1, \ldots , x_n) : g(x_1, \ldots , x_n) \leq z \}$.
+
+\item Considerem $\underline{Z} = (Z_1, \ldots , Z_m) = (g_1(X_1, \ldots , X_n),
+\ldots , g_m(X_1, \ldots , X_n))$. Aleshores
+
+$$F_{\underline{Z}}(\underline{z}) = \pp{(X_1, \ldots , X_n) \in
+B_{\underline{z}}},$$
+\index{funcions de!variables aleatories@variables aleat\`ories}
+
+on $B_{\underline{z}} = \{ (x_1, \ldots , x_n) : g_1(x_1, \ldots , x_n) \leq z_1,
+\ldots , g_m(x_1, \ldots , x_n) \leq z_m \}$.
+
+\item Si $\underline{Y} = (Y_1, \ldots , Y_m) = (g_1(\underline{X}), \ldots ,
+g_m(\underline{X})) = \underline{g}(\underline{X})$ verifica
+
+\begin{enumerate}
+
+\item $\underline{X} = (X_1, \ldots , X_n)$ \'es conjuntament absolutament
+continu
+amb densitat conjunta $f_{\underline{X}}$,
+\item $\underline{Y}$ t\'e la mateixa dimensi\'o que $\underline{X} \ (m=n)$,
+
+\item $\underline{g}$ \'es bijectiva i diferenciable per tot,
+\end{enumerate}
+aleshores $\underline{Y}$ \'es conjuntament absolutament continu amb densitat
+conjunta
+$$f_{\underline{Y}}(\underline{y}) = \left. {f_{\underline{X}}(\underline{x})
+\over |J(\underline{y}, \underline{x})|} \right|_{\underline{x} =
+\underline{g}^{-1}(\underline{y})},$$
+on $\displaystyle J(\underline{y}, \underline{x}) = det \left({\partial y_i \over
+\partial x_j}\right)_{n \times n} =$ jacobi\`a de $\underline{g}$.
+\index{funcions de!variables aleatories@variables aleat\`ories}
+
+\item Si les $g_i$ s\'on lineals, per exemple, $(Z_1, Z_2) = (a X_1 + b X_2, c
+X_1
++ d X_2)$ on $A = \left ( \begin{array}{cc} a & b \\ c & d \end{array} \right )$
+\'es tal que ${\rm det} A \not = 0$, aleshores
+$$f_{Z_1Z_2}(z_1, z_2) = \left. {f_{X_1X_2}(x_1, x_2) \over |{\rm det} A|}
+\right|_{(x_1, x_2)^T = A^{-1} \> (z_1, z_2)^T}.$$
+\index{funcions de!variables aleatories@variables aleat\`ories}
+
+\end{enumerate}
+
+Donarem ara els moments de funcions de dues variables aleat\`ories m\'es
+utilitzats.
+\index{moment!de funcions de variables aleatories@de funcions de variables
+aleat\`ories}
+El cas de m\'es de dues variables aleat\`ories \'es semblant.
+
+\begin{itemize}
+
+\item Si $Z = g(X, Y)$,
+\begin{itemize}
+\item E$Z = \int\limits_{-\infty}^{+\infty}
+\int\limits_{-\infty}^{+\infty} g(x,y) f_{XY}(x,y) \> dx dy$ 
+(cas absolutament continu),
+
+\item E$\displaystyle Z = \sum\limits_j \sum\limits_k g(x_j,y_k) 
+f_{XY}(x_j,y_k)$ (cas discret).
+\end{itemize}
+
+\item Si $g(X,Y) = g_1(X) \cdot g_2(Y)$ i $X$ i $Y$ s\'on independents, 
+aleshores
+$$\EE (g_1 (X) \cdot g_2(Y)) = \EE (g_1(X)) \cdot \EE (g_2(Y)).$$
+
+\item Els {\bf moments conjunts}\index{moment!conjunt} de $X$ i $Y$ s\'on $\mu_{rs}
+=$ E$(X^rY^s),  \ r,s = 1, 2, \ldots$
+
+\item Els {\bf moments marginals}\index{moment!marginal} s\'on $\mu_{r0} =$ E$X^r$ i
+$\mu_{0s} =$ E$Y^s$.
+
+\item Els {\bf moments centrals}\index{moment!central!bidimensional} s\'on $\mu'_{rs}
+=$ E$[(X-$E$X)^r (Y-$E$Y)^s]$. Si $r=s=1$, obtenim la {\bf covari\`ancia}
+\index{covariancia@covari\`ancia}
+de $X$ i $Y$:
+
+$$\Cov (X,Y) = \sigma_{XY} = {\rm E}[(X-{\rm E}X) (Y-{\rm E}Y)] = {\rm E}(XY) -
+{\rm E}X \cdot {\rm E}Y.$$
+
+El {\bf coeficient de correlaci\'o}\index{coeficient de correlacio@coeficient
+de correlaci\'o}
+entre $X$ i $Y$ \'es $$\rho_{XY} = {\Cov (X,Y) \over \sigma_X \cdot \sigma_Y},$$
+i verifica:
+\begin{itemize}
+\item $|\rho_{XY}| \leq 1$,
+
+\item $|\rho_{XY}| = 1 \Longleftrightarrow Y = a X + b,$ amb $a>0$ si $\rho_{XY} = 1$
+i $a<0$ si $\rho_{XY} = -1$.
+\end{itemize}
+
+En aquest darrer cas es diu que $X$ i $Y$ estan 
+{\bf relacionades
+linealment.}\index{variables aleatories@variables aleat\`ories!relacionades linealment}
+En general $\rho_{XY}$ indica la mesura en qu\`e $Y$ es pot aproximar com una
+funci\'o
+lineal de $X$. Direm que $X$ i $Y$ estan {\bf incorrelacionades}
+\index{variables aleatories@variables aleat\`ories!incorrelacionades} si $\rho_{XY} =
+0$. Si $X$ i $Y$ s\'on independents, $\rho_{XY} = 0$. El rec\'{\i}proc no \'es
+cert en
+general.
+
+\end{itemize}
+
+Donat un vector aleatori $n$-dimensional $\underline{X} = (X_1, \ldots , X_n)$,
+els moments m\'es importants s\'on:
+
+\begin{itemize}
+
+\item {\bf vector mitjana}:\index{vector!mitjana}
+$$\rm{E}\underline{X} = \left ( \begin{array}{c} {\rm E}X_1 \\ \vdots \\  {\rm
+E}X_n \end{array} \right ),$$
+
+\item {\bf matriu de covari\`ancies}:\index{matriu de covari\`ancies}
+$$V_{\underline{X}} = \left ( \begin{array}{cccc} 
+\Var X_1 & \Cov(X_1,X_2) & \ldots &
+\Cov (X_1,X_n) \\ \vdots & \vdots & \vdots & \vdots \\ 
+\Cov (X_1,X_n) & \Cov (X_2,X_n) & \ldots & \Var X_n
+\end{array} \right ),$$
+
+\item {\bf funci\'o
+caracter\'{\i}stica}:
+\index{funcio@funci\'o!caracteristica@caracter\'{\i}stica!multidimensional}
+$$\phi_{\underline{X}}(t_1,\ldots,t_n) = \EE [\e^{{\rm i}(t_1X_1 + \cdots + t_nX_n)}].$$
+
+\end{itemize}
+
+\section{Problemes resolts}
+
+\begin{probres}
+{Es treuen dues cartes sense reposici\'o d'una baralla de 52 cartes.
+Sigui~$X$ el nombre d'asos que surten i sigui $Y$ el nombre d'espases. Trobau
+la funci\'o de probabilitat conjunta $f_{XY}(x,y)$ i calculau $\pp{X>Y}$.}
+\end{probres}
+
+\res{Els rangs de les variables $X$ i $Y$ s\'on, respectivament:
+\[
+X(\Omega)=\{0,1,2\},\quad Y(\Omega)=\{0,1,2\}.
+\]
+Trobem a continuaci\'o la funci\'o de probabilitat conjunta $f_{XY}$:
+\begin{eqnarray*}
+	f_{XY}(0,0) & = & \pp{ X=0\cap Y=0}=
+	\pp{\mbox{ 0 asos }\cap\mbox{ 0 espases }}  \\
+	 & = & \pp{\mbox{ carta 1 no as ni espasa }}\cdot\\ &&
+	 \pp{\mbox{ carta 2 no as ni espasa/carta 1 no as ni espasa }}
+	 \\ & = & \frac{36}{52}\cdot\frac{35}{51}\approx 0.4751,  \\
+	f_{XY}(1,0) & = & \pp{ X=1\cap Y=0} = 
+	\pp{\mbox{ 1 as }\cap\mbox{ 0 espases }}  \\
+	 & = & \pp{\mbox{ carta 1 as no espasa}}\cdot \\ &&
+	 \pp{\mbox { carta 2 no espasa ni as/carta 1 as no espasa }} \\ 
+	& & + 
+	 \pp{ \mbox{ carta 1 no as ni espasa }}\cdot \\ && 
+	\pp{ \mbox{ carta 2 as no espasa/carta 1 no as ni espasa }}\\
+	 & = & \frac{3}{52}\cdot \frac{36}{51}+\frac{36}{52}\cdot 
+	 \frac{3}{51}\approx 0.0814,  \\
+	 f_{XY}(2,0) & = & \pp{ X=2\cap Y=0} =\pp{ \mbox{ 2 asos }
+        \cap\mbox{ 0 espases }} \\ 
+	  & = & \pp{\mbox{ carta 1 as no espasa }}\cdot \\ &&
+	 \pp{\mbox{ carta 2 as no espasa/carta 1 as no espasa }} 
+	\\ & = & \frac{3}{52}\cdot\frac{2}{51}\approx 0.0022, \\
+	  f_{XY}(0,1) & = & \pp{ X=0\cap Y=1} = 
+	\pp{\mbox{ 0 asos }\cap\mbox{ 1 espasa }} \\ 
+	  & = & \pp{\mbox{ carta 1 no as ni espasa }}\cdot \\ && 
+	\pp{\mbox{ carta 2 espasa no as/carta 1 no as ni espasa }} +
+	 \\ & &
+	  \pp{\mbox{ carta 1 espasa no as }} \cdot \\ &&
+	  \pp{\mbox{ carta 2 no as ni espasa/carta 1 espasa no as }} \\
+	  & = & 
+	  \frac{36}{52}\cdot\frac{12}{51}+\frac{12}{52}\cdot\frac{36}{51}\approx 
+	  0.3257, \\
+	  f_{XY}(1,1) & = & \pp{ X=1\cap Y=1}=\pp{\mbox{ 1 as }\cap
+	\mbox{ 1 espasa }} \\
+	  & = & \pp{\mbox{ carta 1 as no espasa }}\cdot \\ && 
+	\pp{\mbox{ carta 2 espasa no as/carta 1 as no espasa }} \\ & & 
+	+ \pp{\mbox{ carta 1 espasa no as }}\cdot \\ &&
+        \pp{\mbox{ carta 2 as no espasa/carta 1 espasa no as }} \\  & &
+ 	  + \pp{\mbox{ carta 1 as d'espases }} \\ &&
+	  \cdot \pp{\mbox{ carta 2 no as ni espasa/carta 1 as d'espases }}
+	 \\ & & 
+	  + \pp{\mbox{ carta 1  no as ni espasa }}\cdot \\ &&
+	   \pp{\mbox{ carta 2 as d'espases/carta 1 no as ni espasa }} 
+	 \\ & = & 
+	   \frac{3}{52}\cdot\frac{12}{51}+\frac{12}{52}\cdot\frac{3}{51}+ 
+	   \frac{1}{52}\cdot\frac{36}{51}+\frac{36}{52}\cdot\frac{1}{51}\approx 
+	   0.0542, \\ 
+	   f_{XY}(2,1) & = & \pp{ X=2\cap Y=1} = 
+	  \pp{\mbox{ 2 asos }\cap\mbox{ 1 espasa }} \\ & = & 
+	  \pp{\mbox{ carta 1 as d'espases }}\cdot \\ &&
+	   \pp{\mbox{ carta 2 as no espasa/carta 1 as d'espases }} 
+	  \\ & & + 
+	   \pp{\mbox{ carta 1 as no espasa }} 
+	   \cdot \\ && 
+	  \pp{\mbox{ carta 2 as d'espases/carta 1 as no espasa }} \\
+	   & = & \frac{1}{52}\cdot\frac{3}{51}+\frac{3}{52}\cdot 
+	   \frac{1}{51}\approx 0.0022, \\ 
+	   f_{XY}(0,2) & = & \pp{ X=0\cap Y=2}= 
+ 	  \pp{\mbox{ 0 asos }\cap\mbox{ 2 espases }} \\
+	   & = & \pp{\mbox{ carta 1 espasa no as }}\cdot \\ && 
+	  \pp{\mbox{ carta 2 espasa no as/carta 1 espasa no as }} 
+	  \\ & = &
+	   \frac{12}{52}\cdot\frac{11}{51}\approx 0.0497, \\ 
+	   f_{XY}(1,2) & = & \pp{ X=1\cap Y=2}= \pp{\mbox{ 1 as }\cap
+	\mbox{ 2 espases }}\\ & = & \pp{\mbox{ carta 1 as d'espases }}
+	\cdot \\ && \pp{\mbox{ carta 2 espasa no as/carta 1 as d'espases }}
+	\\ & & + \pp{\mbox{ carta 1 espasa no as }}\cdot \\ &&
+	   \pp{\mbox{ carta 2 as d'espases/carta 1 espasa no as }}
+	 \\ & = & 
+	   \frac{1}{52}\cdot\frac{12}{51}+\frac{12}{52}\cdot\frac{1}{51}\approx 
+	   0.0090, \\ 
+	   f_{XY}(2,2) & = & \pp{ X=2\cap Y=2}=
+       	   \pp{\mbox{ 2 asos }\cap\mbox{ 2 espases }}=0.
+\end{eqnarray*}
+La funci\'o de probabilitat conjunta queda esquematitzada en la 
+taula seg\"uent: $$
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	$Y\backslash X$ & 0 & 1 & 2  \\
+	\hline
+	0 & 0.4751 & 0.0814 & 0.0022  \\
+	\hline
+	1 & 0.3257 & 0.0542 & 0.0022  \\
+	\hline
+	2 & 0.0497 & 0.0090 & 0  \\
+	\hline
+\end{tabular}
+$$
+Per trobar $\pp{X>Y}$, podem posar la probabilitat anterior en termes de 
+la funci\'o de probabilitat conjunta:
+\begin{eqnarray*}
+\pp{X>Y} & = & \sum\limits_{i>j} f_{XY}(i,j)=f_{XY}(1,0) 
++f_{XY}(2,0)+f_{XY}(2,1) \\
+& \approx & 0.0814 +0.0022+0.0022 =0.0858.
+\end{eqnarray*}}
+
+\begin{probres}
+{Suposem que se selecciona a l'atzar un punt de l'interior del 
+cercle
+centrat a l'origen amb radi 1. Sigui $X$ la
+ coordenada $x$ i $Y$ la coordenada
+$y$ del punt elegit. Trobau la funci\'o de densitat conjunta
+ $f_{XY}(x,y)$, la
+funci\'o de densitat de $X$, $f_X(x)$ i la
+funci\'o de densitat de $Y$, $f_Y(y)$.}
+\end{probres}
+
+\res{La variable $(X,Y)$ ser\`a una variable bidimensional cont\'{\i}nua 
+ja que el seu rang \'es: 
+\[
+(X,Y)(\Omega)=\{(x,y)\in\RR^2\ |\ x^2 +y^2\leq 1\}.
+\]
+La funci\'o de densitat conjunta tendr\`a la forma:
+\[
+f_{XY}(x,y)=
+\left\{\begin{array}{ll}
+k, & \text{si $x^2+y^2\leq 1$},\\
+0, & \text{en cas contrari}.
+\end{array}\right.
+\]
+Per trobar $k$ hem de fer servir que:
+\[
+\int\int_{\RR^2} f_{XY}(x,y)\,dx\,dy =1.
+\]
+Per tant:
+\[
+\int\int_{(X,Y)(\Omega)} k\,dx\,dy = k\cdot\mbox{ \`Area }((X,Y)(\Omega))=k\pi.
+\]
+D'on dedu\"{\i}m que $k=\frac{1}{\pi}$.
+
+Si $x\not\in (-1,1)$, $f_X(x)=0$ ja que 
+\mbox{$f_{XY} (x,y)=0$} per a tot $y\in\RR$.
+
+De la mateixa manera, si $y\not\in (-1,1)$, $f_Y(y)=0$ ja que 
+\mbox{$f_{XY} (x,y)=0$} per a tot $x\in\RR$.
+
+Per tant, suposem que $x\in (-1,1)$. Fixau-vos que \mbox{$f_{(X,Y)}(x,y)\not =
+ 0$} per a \break\mbox{$y\in (-\sqrt{1-x^2},\sqrt{1-x^2})$}. Per tant,
+\[
+f_X (x)=\int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}} \frac{1}{\pi}\, dy 
+=\frac{2}{\pi} \sqrt{1-x^2}.
+\]
+La funci\'o de densitat marginal de $X$ queda aleshores:
+\[
+f_X(x)=
+\left\{\begin{array}{ll} 
+\frac{2}{\pi} \sqrt{1-x^2}, & \text{si $x\in (-1,1)$}, \\
+0, & \text{en cas 
+contrari.}
+\end{array}\right.
+\]
+Fent un raonament semblant podem trobar la funci\'o de densitat marginal de 
+$Y$:
+\[
+f_Y(y)=
+\left\{\begin{array}{ll}
+\frac{2}{\pi} \sqrt{1-y^2}, & \text{si $y\in (-1,1)$}, \\ 
+0, & \text{en cas 
+contrari.}
+\end{array}\right.
+\]}
+
+\begin{probres}
+{Provau que: $$\pp{(a<X\leq b)\cap (Y\leq d)}=
+F_{XY}(b,d)-F_{XY}(a,d).$$\newline{\footnotesize Indicaci\'o: Feu un
+dibuix.}} 
+\end{probres}
+
+\res{Farem primer una prova gr\`afica.
+\setlength{\unitlength}{0.5cm}
+
+\begin{figure}
+$$
+\begin{picture}(10,10)(0,0)
+\put (0,5){\line (1,0){10}}
+\put (5,0){\line (0,1){10}}
+\put (7,4.8){\makebox(0,0)[tr]{$a$}}
+\put (9,4.8){\makebox(0,0)[tl]{$b$}}
+\multiput (7,0)(0,0.1){100}{\line (0,1){0.05}}
+\multiput (9,0)(0,0.1){100}{\line (0,1){0.05}}
+\put (4.9,7.2){\makebox(0,0)[br]{$d$}}
+\multiput (0,7)(0.1,0){100}{\line (1,0){0.05}}
+%\multiput (7.1,6.9)(0.1,0){18}{.}
+%\multiput (7.1,6.8)(0.1,0){18}{.}
+%\multiput (7.1,6.7)(0.1,0){18}{.}
+%\multiput (7.1,6.5)(0.1,0){18}{.}
+%\multiput (7.1,6.4)(0.1,0){18}{.}
+\put (7,7) {\makebox(0,0)[bl]{$(a,d)$}}
+\put (9,7) {\makebox(0,0)[bl]{$(b,d)$}}
+\end{picture}
+$$
+\caption{Prova gr\`afica del problema}
+\label{AREES}
+\end{figure}
+En la figura \ref{AREES} es veu que l'\`area que hi ha entre les tres 
+rectes $x=a$, $x=b$ i $y=d$ (\`area situada per davall), que anomenarem 
+\`area ABD, \'es la resta entre l'\`area que hi ha entre les 
+dues rectes $x=b$ i $y=d$ (\`area situada per davall i a l'esquerra), que 
+anomenarem \`area BD, i 
+l'\`area entre les rectes $x=a$ i $y=d$, que anomenarem \`area AD.
+
+Fixau-vos que l'\`area ABD s\'on els punts del pla $(X,Y)$ que compleixen:
+\[
+\{a<X\leq b\}\cap \{Y\leq d\},
+\]
+i les \`arees BD i AD s\'on els punts del pla $(X,Y)$ que compleixen,
+respectivament:
+\[
+\{X\leq b\cap Y\leq d\},\quad \{X\leq a\cap Y\leq d\}.
+\]
+Per tant, de forma gr\`afica podem escriure que:
+\[
+\mbox{\`Area}(\{a<X\leq b\}\cap \{Y\leq d\})=\mbox{\`Area}(\{X\leq b\cap 
+Y\leq d\})-\mbox{\`Area}(\{X\leq a\cap Y\leq d\}).
+\]
+Farem ara la prova anal\'{\i}tica.
+
+Hem de provar que:
+\begin{equation}
+\pp{(a<X\leq b)\cap (Y\leq d)}=
+F_{XY}(b,d)-F_{XY}(a,d).
+\label{PROVAANALITICA}
+\end{equation}
+Vegem primer la seg\"uent relaci\'o entre els successos que intervenen en la 
+f\'ormula anterior:
+\begin{equation}
+\{(a<X\leq b)\cap (Y\leq d)\} =\{X\leq b\cap 
+Y\leq d\} - \{X\leq a\cap Y\leq d\}.
+\label{RELACIOSUCCESOS}
+\end{equation}
+Si provam (\ref{RELACIOSUCCESOS}) quedar\`a vist (\ref{PROVAANALITICA}), ja que:
+\begin{eqnarray*}
+	F_{XY}(b,d) & = & \pp{X\leq b\cap 
+Y\leq d}, \\
+	F_{XY}(a,d) & = & \pp{X\leq a\cap Y\leq d}.
+\end{eqnarray*}
+Vegem, doncs, (\ref{RELACIOSUCCESOS}).
+\begin{itemize}
+	\item[] {\bf Inclusi\'o cap a la dreta} $\subseteq$. 
+	
+	Sigui $\omega\in\{(a<X\leq b)\cap (Y\leq d)\}$. Aleshores $X(\omega)\leq 
+	b$ i $Y(\omega)\leq d$ per\`o $X(\omega)>a$. 
+	
+	Per tant $\omega\in \{X\leq b\cap Y\leq d\}$ i \mbox{$\omega\not\in \{X\leq 
+	a\cap Y\leq d\}$}. Queda vista la inclusi\'o.
+	
+	\item[] {\bf Inclusi\'o cap a l'esquerra} $\supseteq$.
+	
+	Sigui $\omega\in \{X\leq b\cap Y\leq d\} - \{X\leq a\cap Y\leq d\}$. 
+	Aleshores $X(\omega)\leq b$, $Y(\omega)\leq d$ i $X(\omega)>a$.
+	
+	Per tant $\omega\in\{(a<X\leq b)\cap (Y\leq d)\}$. Queda vista la 
+	inclusi\'o. $\Box$
+\end{itemize}}
+
+\begin{probres}
+{Suposem que $(X,Y)$ t\'e densitat
+$f_{XY}(x,y)={1\over 2}$ per a $(x,y)$ pertanyent al quadrat de v\`ertexs
+$(a,a)$, $(a,-a)$, $(-a,a)$ i $(-a,-a)$ i que $f_{XY}(x,y)$ val $0$ en els
+altres casos.
+\begin{itemize}
+\item[a)] {Trobau el valor de $a$.}
+\item[b)] {Trobau les densitats
+marginals de $X$ i $Y$.}
+\end{itemize}} 
+\end{probres}
+
+\res{\begin{itemize}
+\item[a)] Per trobar el valor de $a$, hem de fer servir que:
+\[
+\int\int_{\RR^2} f_{X,Y}(x,y)\,dx\,dy =1.
+\]
+En el nostre cas, $f_{X,Y}(x,y)\not =0$ si \mbox{$(x,y)\in 
+(-a,a)\times (-a,a)$}. Per tant, la f\'ormula anterior es redueix a:
+\[
+\int_{-a}^a\int_{-a}^a \frac{1}{2}\,dx\,dy =\frac{1}{2} {(2a)}^2 =1,
+\]
+d'on $a=\sqrt{\frac{1}{2}}=\frac{\sqrt{2}}{2}$.
+\item[b)] C\`alcul de $f_X(x)$ i $f_Y(y)$.
+
+Si $x\not\in (-a,a)$, $f_X(x)=0$ ja que 
+$f_{XY}(x,y)=0$ per a tot $y\in\RR$.
+
+De forma semblant si $y\not\in (-a,a)$, $f_Y(y)=0$ ja que 
+$f_{XY}(x,y)=0$ per a tot $x\in\RR$.
+
+Sigui, doncs, $x\in (-a,a)$. En aquest cas $f_{XY}(x,y)\not =0$ si 
+$y\in (-a,a)$. Per tant:
+\[
+f_X (x)=\int_{-a}^a \frac{1}{2}\, dy =\frac{1}{2}\cdot 2 
+a=a=\frac{\sqrt{2}}{2}.
+\]
+Aix\'{\i}, doncs, la funci\'o de densitat de $X$ \'es:
+\[
+f_X (x)=
+\left\{\begin{array}{ll}
+\frac{\sqrt{2}}{2}, & \text{si 
+$x\in\left(-\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)$}, \\
+0, & \text{en 
+cas contrari.}
+\end{array}\right.
+\]
+Aleshores la variable $X$ est\`a distribu\"{\i}da uniformement en l'interval 
+\mbox{$\left(-\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)$}.
+
+Fent un raonament semblant, tenim que la variable $Y$ est\`a distribu\"{\i}da 
+uniformement en el mateix interval.
+\end{itemize}}
+
+\begin{probres}
+{Donada la
+seg\"uent funci\'o de probabilitat de la variable aleat\`oria bidimensional
+$(W,Z)$: $$f_{(W,Z)}=
+\left\{\begin{array}{ll}
+{1\over n}, & \text{si $(w,z)=(1,1),(2,2),\ldots,(n,n)$},\\
+0, & \text{en
+els altres casos,}
+\end{array}\right.
+$$trobau els valors de $\EE\left({W\over Z}\right)$, 
+$\EE\left({Z\over W}\right)$, $\EE\left(W^2 +Z^2\right)$ i 
+$\EE\left({W^3\over Z^2}\right)$.}
+\end{probres}
+
+\res{El rang de les variables discretes $W$ i $Z$ \'es:
+\[
+W(\Omega)=Z(\Omega)=\{1,\ldots,n\}.
+\]
+Fixau-vos que $f_{WZ}(w,z)\not = 0$ si i nom\'es si $w=z\in
+W(\Omega)=Z(\Omega)$.
+
+Tenint en compte aquest fet, trobem una f\'ormula general per calcular 
+$\EE (g(W,Z))$:
+\[
+\EE (g(W,Z))=\sum_{i=1}^n\sum_{j=1}^n g(i,j) f_{WZ}(i,j)=\frac{1}{n} 
+\sum_{k=1}^n g(k,k).
+\]
+A continuaci\'o trobam les esperances demanades:
+\begin{eqnarray*}
+	\EE\left(\frac{W}{Z}\right) & = & \frac{1}{n} \sum_{k=1}^n 
+	\frac{k}{k}=\frac{1}{n}\cdot n =1, \\
+	\EE\left(\frac{Z}{W}\right)  & = &\frac{1}{n} \sum_{k=1}^n 
+	\frac{k}{k}=\frac{1}{n}\cdot n =1,  \\
+	\EE\left( W^2 + Z^2\right) & = & \frac{1}{n} \sum_{k=1}^n (k^2
++k^2)=\frac{2}{n} 
+	\sum_{i=1}^n k^2 = \frac{2}{n} \frac{n(n+1)(2 
+	n+1)}{6} \\ &=&\frac{(n+1)(2n+1)}{3},\\
+	\EE\left(\frac{W^3}{Z^2}\right) & = & \frac{1}{n} \sum_{k=1}^n 
+	\frac{k^3}{k^2}=\frac{1}{n}\sum_{k=1}^n k=\frac{1}{n}\frac{n 
+	(n+1)}{2}=\frac{n+1}{2}.
+\end{eqnarray*}}
+
+\begin{probres}
+{Donada la seg\"uent funci\'o de densitat de la variable aleat\`oria
+bidimensional $(U,V)$: $$f_{UV}=
+\left\{\begin{array}{ll}
+6 (1-u-v), & \text{si $0<u<1$, $0<v<1-u$},\\
+0, & \text{en els altres casos,}
+\end{array}\right.
+$$trobau $\EE (U)$, $\EE (V)$, $\EE (UV)$ i $\sigma_{UV}$.}
+\end{probres}
+
+\res{\begin{eqnarray*}
+	\EE(U) & = & \int_0^1\int_0^{1-u} 6 (1-u-v) u\, dv\, du =
+	6 \int_0^1 {\left[v-uv-\frac{v^2}{2}\right]}_0^{1-u} u \, du  \\
+	 & = & 6\int _0^1 u\left( 1-u-u (1-u)- \frac{{(1-u)}^2}{2}\right)\, du = 
+	 6\int_0^1 \left(\frac{u}{2}-u^2+\frac{u^3}{2}\right)\, du  \\
+	 & = & 6 {\left[ \frac{u^2}{4}-\frac{u^3}{3}+\frac{u^4}{8}\right]}_0^1 = 
+	 6\left(\frac{1}{4}-\frac{1}{3}+\frac{1}{8}\right)=\frac{1}{4}, \\
+	\EE(V) & = & \int_0^1\int_0^{1-u} 6 (1-u-v) v\, dv\, du 
+	=6\int_0^1 {\left[\frac{v^2}{2}-u 
+	\frac{v^2}{2}-\frac{v^3}{3}\right]}_0^{1-u}\, du\\
+	 & = & 6 \int_0^1 \frac{{(1-u)}^2}{2}- u \frac{{(1-u)}^2}{2} 
+	 -\frac{{(1-u)}^3}{3}\, du =\int_0^1 (1- 3u +3 u^2 -u^3)\, du  \\
+	 & = & {\left[ u -\frac{3}{2} u^2 +u^3-\frac{u^4}{4}\right]}_0^1 
+	 =1-\frac{3}{2}+1-\frac{1}{4}=\frac{1}{4},  \\
+	\EE(U V) & = &  \int_0^1\int_0^{1-u} 6 (1-u-v) u v\, dv\, du  =\int_0^1 u 
+	(1-3u+3 u^2-u^3)\, du \\
+	 & = & \int_0^1 (u-3 u^2 +3 u^3-u^4)\, du= {\left[\frac{u^2}{2}-u^3 
+	 +\frac{3}{4} u^4 -\frac{u^5}{5}\right]}_0^1 \\
+	 & = & \frac{1}{2}-1+\frac{3}{4}-\frac{1}{5}=\frac{1}{20}, \\
+	 \sigma_{UV} & = & \EE (UV)- \EE (U)\cdot \EE (V)=\frac{1}{20}-\frac{1}{4}\cdot 
+	 \frac{1}{4} = -\frac{1}{80}.
+\end{eqnarray*}}
+
+\begin{probres}
+{Suposem que $X$ i $Y$ s\'on variables aleat\`ories i definim $Z=X+Y$.
+Demostrau que: 
+\begin{itemize}
+\item[a)]{$\EE (Z)=\EE (X)+\EE (Y)$.}
+\item[b)]{$\sigma_Z^2 =\sigma_X^2 +\sigma_Y^2 +2\sigma_{XY}$.}
+\end{itemize}
+} 
+\end{probres}
+
+\res{\begin{itemize}
+	\item[a)] Fent servir les propietats de l'esperan\c{c}a, tenim que:
+	\[
+	\EE (Z)=\EE (X+Y)= \EE (X)+\EE (Y).
+	\]
+	
+	\item[b)] Per provar la f\'ormula de la vari\`ancia farem servir que 
+	l'esperan\c{c}a de la suma \'es la suma d'esperances i que l'esperan\c{c}a
+d'una 
+	constant per una variable \'es la constant per l'esperan\c{c}a de la
+variable.
+	\begin{eqnarray*}
+		\sigma_Z^2 & = & \sigma_{X+Y}^2 = 
+		\EE {\left( X+Y\right)}^2- {\left( 
+		\EE (X+Y)\right)}^2 \\ 
+		& = & \EE\left( X^2 +Y^2 +2 XY\right) - {\left( \EE X 
+		+\EE Y\right)}^2 \\
+		 & = & \EE\left( X^2\right)+ \EE\left( Y^2\right) +
+		2 \EE (X Y)-\left( {(\EE X)}^2 
+		 +{(\EE Y)}^2 +2 \EE X\cdot \EE Y\right) \\
+		 & = & \EE\left( X^2\right)-{(\EE X)}^2 +\EE\left( 
+		 Y^2\right) -{(\EE Y)}^2 +2 (\EE(XY)- \EE X\cdot \EE Y)  \\
+		 & = & \sigma_X^2 + \sigma_Y^2 +2 \sigma_{XY}  
+	\end{eqnarray*}
+\end{itemize}}
+
+\newpage
+
+\begin{probres}
+{Siguin $X$ i $Y$ variables aleat\`ories discretes amb
+funci\'o de probabilitat conjunta: $$f_{XY}(x,y)=
+\left\{\begin{array}{ll}
+{2\over n(n+1)}, & \text{per
+$x=1,2,\ldots,n,\quad y=1,2,\ldots,x$},\\
+0, & \text{en els altres casos.}
+\end{array}\right.
+$$Demostrau 
+que $X$ i $Y$ no s\'on independents. Calculeu tamb\'e la regressi\'o de $Y$
+sobre $X$
+($\EE (Y/X=x)$) i la regressi\'o de $X$ sobre $Y$ ($\EE (X/Y=y)$).} 
+\end{probres}
+
+\res{Escriguem en forma de taula la funci\'o de probabilitat conjunta de
+les  variables $X$ i $Y$, com tamb\'e les funcions de densitat de $X$ i $Y$:
+$$
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|cccc|c|}
+	\hline
+	$Y\backslash X$ & $1$ & $2$ & $\ldots$ & $n$ & $f_Y (y)$  \\
+	\hline
+	$1$ & $\frac{2}{n (n+1)}$ & $\frac{2}{n (n+1)}$ & $\ldots$ & $\frac{2}{n 
+	(n+1)}$ & $\frac{2 n}{n (n+1)}=\frac{2}{n+1}$  \\
+	$2$ & $0$ & $\frac{2}{n (n+1)}$ & $\ldots$ & $\frac{2}{n (n+1)}$ & 
+	$\frac{2 (n-1)}{n (n+1)}$  \\
+	$\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$  \\
+	$n$ & $0$ & $0$ & $\ldots$ & $\frac{2}{n (n+1)}$ & $\frac{2}{n (n+1)}$  \\
+	\hline
+	$f_X (x)$ & $\frac{2}{n (n+1)}$  & $\frac{4}{n (n+1)}$ & $\ldots$ & 
+	$\frac{2}{n+1}$ & $1$  \\
+	\hline
+\end{tabular}
+$$
+Com ja es veu, el rang de les variables $X$ i $Y$ \'es el conjunt 
+$X(\Omega)=Y(\Omega)=\{1,\ldots,n\}$ i les f\'ormules per a les funcions de
+densitat de  $X$ i $Y$ s\'on les seg\"uents:
+\begin{eqnarray*}
+	f_X (x) & = & \frac{2 x}{n (n+1)},\ x=1,\ldots, n,  \\
+	f_Y(y) & = & \frac{2 (n-y +1)}{n (n+1)},\ y=1,\ldots, n.
+\end{eqnarray*}
+Podem deduir, doncs, que $X$ i $Y$ no s\'on independents ja que:
+\[
+f_X (x)\cdot f_Y (y)=\frac{4 x (n-y+1)}{n^2 {(n+1)}^2}\not = \frac{2}{n 
+(n+1)}.
+\]
+Basta prendre, per exemple $x=1$ i $y=1$ i veiem que en la f\'ormula anterior 
+es compleix la igualtat nom\'es per a $n=2$. Preneu $x=1$ i $y=2$ i no es 
+complir\`a.
+
+Dedu\"{\i}m, doncs, que $X$ i $Y$ no s\'on independents.
+
+Calculem a continuaci\'o la regressi\'o de $Y$ sobre $X$: $\EE (Y/X=x)$.
+
+Primer hem de trobar la funci\'o de probabilitat de la variable aleat\`oria 
+$Y/X=x$, on \mbox{$x\in\{1,\ldots,n\}$.}
+
+En principi, podem dir que el rang de la variable $Y/X=x$ est\`a incl\`os en 
+el conjunt \mbox{$\{1,\ldots,n\}$.} Trobem la funci\'o de probabilitat:
+\[
+f_{Y/X} (y/x)=\frac{f_{XY}(x,y)}{f_X (x)} =
+\left\{\begin{array}{ll}
+\frac{\frac{2}{n 
+(n+1)}}{\frac{ 2 x}{n (n+1)}}=\frac{1}{x}, & 
+\text{si $y=1,\ldots, x$},\\ 0, & \text{en cas 
+contrari.}
+\end{array}\right.
+\]
+Ara podem dir que el rang de la variable $Y/X=x$ \'es $\{1,\ldots, x\}$.
+
+La regressi\'o de $Y$ sobre $X$ valdr\`a, doncs:
+\[
+\EE (Y/X=x)=\sum_{y=1}^x y f_{Y/X}(y/x)=\sum_{y=1}^x y\cdot 
+\frac{1}{x}=\frac{1}{x}\sum_{y=1}^x y =\frac{1}{x}\cdot\frac{x 
+(x+1)}{2}=\frac{x+1}{2}.
+\]
+
+Trobem ara la regressi\'o de $X$ sobre $Y$: $\EE (X/Y=y)$.
+
+Trobem primer la funci\'o de probabilitat de la variable $X/Y=y$, on 
+\mbox{$y\in\{1\ldots,n\}$:}
+\[
+f_{X/Y}(x/y)=\frac{f_{XY}(x,y)}{f_Y(y)}=
+\left\{\begin{array}{ll}
+0, & \text{si $x=1,\ldots, 
+y-1$}, \\
+\frac{\frac{2}{n (n+1)}}{\frac{2 (n-y+1)}{n 
+(n+1)}}=\frac{1}{n-y +1}, & \text{si $x=y,\ldots, n$.}
+\end{array}\right.
+\]
+El rang de la variable $X/Y=y$ ser\`a: \mbox{$X/Y=y (\Omega)=\{y,y+1,\ldots,n\}$.}
+
+La regressi\'o de $X$ sobre $Y$ valdr\`a, doncs:
+\begin{eqnarray*}
+\EE (X/Y=y) & = & \sum_{x=y}^n x \frac{1}{n-y+1}=\frac{1}{n-y+1} 
+\sum_{i=1}^{n-y+1} (i+y-1) \\ & = &\frac{1}{n-y+1} 
+\left(\frac{(n-y+2)(n-y+1)}{2}+(y-1) (n-y+1)\right) \\ & = & \frac{n-y+2}{2}+y-1 
+=\frac{n+y}{2}.
+\end{eqnarray*}}
+
+\begin{probres}
+{Suposant que $X$ i $Y$
+s\'on variables aleat\`ories independents normals amb par\`ametres $\mu_X$,
+$\sigma_X$, $\mu_Y$ i $\sigma_Y$, respectivament, quina \'es la funci\'o
+generatriu
+dels moments conjunts per a $(X,Y)$?}
+\end{probres}
+
+\res{Recordem que si la variable aleat\`oria $X$ \'es normal $N(\mu,\sigma^2)$,
+
+aleshores la funci\'o generatriu de moments \'es:
+\[
+m_X(t)=\e^{t\mu +\frac{t^2\sigma^2}{2}}.
+\]
+Per tant, si $X$ \'es $N(\mu_X,\sigma_X^2)$ i $Y$ \'es $N(\mu_Y,\sigma_Y^2)$ i
+s\'on  independents, la funci\'o 
+generatriu de moments conjunta ser\`a:
+\begin{eqnarray*}
+m_{XY}(t,s) & = & \EE\left(\e^{t x+ s y}\right)=
+\EE\left(\e^{t x}\right)\cdot 
+\EE\left( \e^{s y}\right)=m_X(t)\cdot m_Y(s) \\ & = & \e^{t\mu_X 
++\frac{t^2\sigma_X^2}{2}}\cdot \e^{s\mu_Y +\frac{s^2\sigma_Y^2}{2}}=
+\e^{t\mu_X +s \mu_Y +\frac{t^2 \sigma_X^2 + s^2 \sigma_Y^2}{2}}.
+\end{eqnarray*}}
+
+\begin{probres}
+{Sigui $X$ l'hora en qu\`e una persona s'aixeca del llit el mat\'{\i}
+(mesurada en fraccions d'hora despr\'es de les 7.00 h. del mat\'{\i}) i $Y$
+el temps
+que tarda en arribar a l'oficina (en fraccions d'hora) despr\'es d'aixecar-se.
+Suposem que la densitat condicional de $Y$ per $X=x$ \'es:
+$$f_{Y/X}(y/x)=
+\left\{\begin{array}{ll}
+{2y\over {(1-x)}^2}, & \text{per $0<x<{2\over 3}$ i
+$0<y<1-x$},\\
+0, & \text{en els altres casos,}
+\end{array}\right.
+$$mentre que la marginal de $X$ \'es:
+$$f_X (x)=
+\left\{\begin{array}{ll}
+{81\over 26}{(1-x)}^2, & \text{si $0<x<{2\over 3}$},\\
+0, & \text{en
+els altres casos.}
+\end{array}\right.
+$$Sabem que aquesta persona, un determinat mat\'{\i}, tarda 30
+minuts en arribar a l'oficina (per tant, \hbox{$Y={1\over 2}$)}. Trobau la
+probabilitat que s'hagi aixecat del llit m\'es tard de les 7.15 h.
+ Si tarda 50 minuts per arribar a l'oficina, quina \'es la probabilitat que
+s'hagi aixecat despr\'es de les 7.20 h.?}
+\end{probres}
+
+\res{Considerem la variable aleat\`oria $X/Y=\frac{1}{2}$. Fixau-vos que es 
+tracta d'una variable aleat\`oria cont\'{\i}nua ja que tant $X$ com $Y$ ho s\'on.
+
+El que demanen calcular \'es $\pp{\left(X/Y=\frac{1}{2}\right)\geq 
+\frac{1}{4}}$
+(probabilitat que s'hagi aixecat despr\'es de les 7.15 h. $X=\frac{1}{4}$ 
+d'hora despr\'es de les 7.00 h.) suposant que ha tardat 30 minuts en 
+arribar a l'oficina ($Y=\frac{1}{2}$ d'hora).
+
+Trobarem primer la funci\'o de densitat conjunta de les variables $X$ 
+i $Y$:
+\[
+f_{XY}(x,y)= f_{Y/X}(y|x)\cdot f_X(x)=
+\left\{\begin{array}{ll}
+\frac{81}{26}\cdot 2y 
+=\frac{81}{13} y, & \text{si $0<x<\frac{2}{3},\ 0<y<1-x$}, \\ & \\
+0, & \text{en cas 
+contrari.}
+\end{array}\right.
+\]
+En la figura \ref{GRAFDOMINI} est\`a representat gr\`aficament el domini de 
+la funci\'o de densitat conjunta on aquesta no \'es nu{\lgem}a.
+
+\begin{figure}
+$$
+\setlength{\unitlength}{5cm}
+\begin{picture}(1.25,1.25)(0,0)
+\put (0,0) {\line (1,0){1.25}}
+\put (0,0) {\line (0,1){1,25}}
+\put (0,-0.05) {\makebox(0,0)[t]{$0$}}
+\put (0.66,-0.05) {\makebox(0,0)[t]{$\frac{2}{3}$}}
+\put (1,-0.05) {\makebox(0,0)[t]{$1$}}
+\put (0,0) {\line (0,1){0.025}}
+\put (0.66,0) {\line (0,1){0.025}}
+\put (1,0) {\line (0,1){0.025}}
+\put (-0.05,0.33) {\makebox(0,0)[r]{$\frac{1}{3}$}}
+\put (-0.05,1) {\makebox(0,0)[r]{$1$}}
+\put (0,0.33) {\line(1,0){0.025}}
+\put (0,1) {\line(1,0){0.025}}
+\put (0,1) {\line (1,-1){0.66}}
+\put (0.66,0) {\line (0,1){0.34}}
+\multiput(0,0.33)(0.055,0){12}{\line(1,0){0.0275}}
+\put (0.33,1) {\makebox(0,0){$y=1-x$}}
+\end{picture}
+$$
+\caption{Representaci\'o gr\`afica del domini de la funci\'o de densitat 
+conjunta.}
+\label{GRAFDOMINI}
+\end{figure}
+Trobem a continuaci\'o la funci\'o de densitat de la variable aleat\`oria $Y$ 
+fent servir la f\'ormula:
+\[
+f_Y(y)=\int_{-\infty}^{\infty} f_{XY} (x,y)\, dx.
+\]
+Fixau-vos en la figura \ref{GRAFDOMINI} que, per a \mbox{$0\leq 
+y\leq\frac{1}{3}$}, $f_{XY}(x,y)$ no \'es nu{\lgem}a per a \mbox{$0\leq x\leq 
+\frac{2}{3}$}, i, per a \mbox{$\frac{1}{3}\leq y\leq 1$}, $f_{XY}(x,y)$ no 
+\'es nu{\lgem}a per a \mbox{$0\leq x\leq 1-y$.}
+
+La funci\'o de densitat de $Y$ ser\`a, doncs:
+\[
+f_Y (y) =
+\left\{\begin{array}{ll}
+\int_0^{\frac{2}{3}} \frac{81}{13} y\, dx =\frac{54}{13} 
+y, & \text{si $0\leq y\leq\frac{1}{3}$},\\ & \\
+\int_0^{1-y} \frac{81}{13} y\, dx 
+=\frac{81}{13} y (1-y), & \text{si $\frac{1}{3}<y\leq 1$.}
+\end{array}\right.
+\]
+Trobem la funci\'o de densitat de la variable aleat\`oria 
+$X/Y=\frac{1}{2}$ per fer-la servir per trobar 
+\mbox{$\pp{\left(X/Y=\frac{1}{2}\right)\geq \frac{1}{4}}$.}
+\[
+f_{X/Y}\left(x/\frac{1}{2}\right)=\frac{f_{XY}\left(x,\frac{1}{2}\right)}
+{f_Y\left(\frac{1}{2}\right)}=\frac{\frac{81}{13}\cdot\frac{1}{2}}{\frac{81}{13}
+\cdot\frac{1}{2}\cdot
+\frac{1}{2}}=2,\ \mbox{si } 0\leq x\leq 1-\frac{1}{2}=\frac{1}{2}.
+\]
+Podem dir, que la variable aleat\`oria $X/Y=\frac{1}{2}$ \'es  
+uniforme en l'interval \mbox{$\left(0,\frac{1}{2}\right)$.} 
+
+
+Recordem que si una variable aleat\`oria $W$ \'es uniforme en l'interval
+$(a,b)$, la seva funci\'o de distribuci\'o \'es:
+\begin{equation}
+F_W (t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<a$},\\ & \\
+\frac{t-a}{b-a}, & \text{si $a\leq t\leq 
+b$},\\ & \\  1, & \text{si $t>b$.}
+\end{array}\right.
+\label{UNIFORME}
+\end{equation}
+Per tant, fent servir la f\'ormula \ref{UNIFORME} podem trobar
+\mbox{$\pp{\left(X/Y=\frac{1}{2}\right)\geq \frac{1}{4}}$:}
+\[
+\pp{\left(X/Y=\frac{1}{2}\right)\geq \frac{1}{4}}=
+1-F_{X/Y}\left(\frac{1}{4}/\frac{1}{2}\right)=
+1-\frac{\frac{1}{4}-0}{\frac{1}{2}-0}=
+1-\frac{1}{2}=\frac{1}{2}.
+\]
+Tamb\'e es demana trobar $\pp{\left(X/Y=\frac{5}{6}\right)\geq 
+\frac{1}{3}}$ (probabilitat que s'hagi aixecat despr\'es de les 
+7.20 h., \mbox{$X=\frac{20}{60}=\frac{1}{3}$} d'hora) suposant que 
+tarda 50 minuts en arribar a l'oficina 
+\mbox{($Y=\frac{50}{60}=\frac{5}{6}$ d'hora).}
+
+Resoldrem aquesta segona part de forma semblant a la primera. 
+
+Trobem primer la funci\'o de densitat de la variable aleat\`oria 
+$X/Y=\frac{5}{6}$:
+\[
+f_{X/Y}\left(x/\frac{5}{6}\right)=
+\frac{f_{XY}\left(x,\frac{5}{6}\right)}{f_Y
+\left(\frac{5}{6}\right)}=\frac{\frac{81}{13}\cdot\frac{5}{6}}{\frac{81}{13}
+\cdot\frac{5}{6}\cdot
+\frac{5}{6}}=6,\ \mbox{si } 0\leq x\leq 1-\frac{5}{6}=\frac{1}{6}.
+\]
+Podem dir que la variable aleat\`oria $X/Y=\frac{5}{6}$ \'es
+uniforme en l'interval \mbox{$\left(0,\frac{1}{6}\right)$.} 
+
+Per tant, fent servir la f\'ormula \ref{UNIFORME},
+\[
+\pp{\left(X/Y=\frac{5}{6}\right)\geq 
+\frac{1}{3}}=1-F_{X/Y}\left(\frac{1}{3}/\frac{5}{6}\right)=
+1-1=0.
+\]}
+
+\begin{probres}
+{Si $X_1,X_2,X_3$ s\'on variables aleat\`ories independents de
+Poisson, cada una amb par\`ametre 
+$\lambda_i s$ ($i=1,2,3$), trobau la funci\'o de
+probabilitat conjunta $f_{X_1X_2X_3}(x_1,x_2,x_3)$.}
+\end{probres}
+
+\res{Recordem que si $X$ \'es una variable aleat\`oria de Poisson amb
+par\`ametre $\lambda s$, la seva funci\'o de probabilitat \'es:
+\[
+f_X (x)=\frac{{(\lambda s)}^x}{x!}\cdot \e^{-\lambda s},\ x=0,1,\ldots
+\]
+Si $X_1$, $X_2$ i $X_3$ s\'on independents, la funci\'o de probabilitat
+conjunta  ser\`a el producte de les funcions de probabilitat de les $X_i$.
+
+Aix\'{\i}, doncs:
+\begin{eqnarray*}
+f_{X_1X_2X_3}(x_1,x_2,x_3) & = & f_{X_1}(x_1)\cdot f_{X_2}(x_2)\cdot 
+f_{X_3}(x_3) \\ & = & \frac{{(\lambda_1 s)}^{x_1}}{x_1!}\cdot
+\e^{-\lambda_1 s}\cdot \frac{{(\lambda_2 s)}^{x_2}}{x_2!}\cdot 
+\e^{-\lambda_2 s}\cdot
+\frac{{(\lambda_3 s)}^{x_3}}{x_3!}\cdot \e^{-\lambda_3 s} \\ & = & 
+\frac{\lambda_1^{x_1}\cdot\lambda_2^{x_2}\cdot\lambda_3^{x_3}}{x_1!\cdot 
+x_2! \cdot x_3!}\cdot s^{x_1+x_2+x_3}\cdot \e^{-(\lambda_1 +\lambda_2 
++\lambda_3) s}.
+\end{eqnarray*}}
+
+\begin{probres}
+{Si $X_1,X_2,\ldots, X_k$ s\'on variables aleat\`ories binomials
+independents amb par\`ametres $n_1,p,n_2,p,\ldots,n_k,p$, respectivament,
+demostrau que $Y=\sum\limits_{i=1}^k X_i$ \'es una variable aleat\`oria
+binomial amb par\`ametres $\sum\limits_{i=1}^k n_i$ i $p$.}
+\end{probres}
+
+\res{Abans de resoldre el problema recordem dues propietats de variables 
+aleat\`ories:
+\begin{itemize}
+	\item[a)] Si $X$ \'es una variable aleat\`oria binomial 
+de par\`ametres $n$ i
+	$p$, la funci\'o generatriu de moments val:
+	\[
+	m_X(t)= {(p\cdot \e^t +q)}^n,\ \mbox{on } q=1-p.
+	\]
+	
+	\item[b)] Si $X_1,\ldots,X_k$ s\'on variables aleat\`ories 
+independents i definim la variable \mbox{$Y=\sum\limits_{i=1}^k X_i$,} 
+aleshores la funci\'o generatriu de moments de la variable $Y$ \'es 
+el producte de les funcions generatrius de moments de les variables \mbox{$X_i,\ i=1,\ldots,k$:}
+	\[
+	m_Y (t)=m_{X_1}(t)\ldots m_{X_k}(t):=\prod_{i=1}^k m_{X_i}(t).
+	\]
+\end{itemize}
+
+Tenint en compte aquestes dues propietats, per comprovar que la variable
+ \mbox{$Y=\sum\limits_{i=1}^k X_i$} \'es una variable aleat\`oria binomial de 
+ par\`ametres $\sum\limits_{i=1}^k n_i$ i $p$, basta veure que la seva 
+ funci\'o generatriu de moments \'es:
+ \[
+ m_Y(t) ={(p\cdot \e^t +q)}^{\sum\limits_{i=1}^k n_i}.
+ \]
+ 
+ Aix\'{\i}, doncs:
+ \[
+ m_Y (t)=\prod_{i=1}^k m_{X_i}(t)=\prod_{i=1}^k {(p\cdot \e^t +q)}^{n_i} =
+ {(p\cdot \e^t +q)}^{\sum\limits_{i=1}^k n_i},
+ \]
+ com vol\'{\i}em veure. $\Box$}
+
+\begin{probres}
+{Demostrau que si $X_1,X_2,\ldots,X_n$ s\'on variables aleat\`ories
+independents de Poisson amb par\`ametres $\lambda_1 s_1,\lambda_2
+s_2,\ldots,\lambda_n s_n$, respectivament, aleshores
+\hbox{$Y=\sum\limits_{i=1}^n X_i$} \'es una variable aleat\`oria de Poisson amb
+par\`ametre $\sum\limits_{i=1}^n \lambda_i s_i$.}
+\end{probres}
+
+\enlargethispage*{1000pt}
+
+\res{Recordem que si $X$ \'es $Poiss(\lambda s)$, la seva funci\'o generatriu
+de  moments \'es:
+$$
+m_X(t)=\EE\left(\e^{(t X)}\right)=\sum_{k=0}^\infty \e^{tk}\frac{{(\lambda 
+s)}^k}{k!} \e^{-\lambda s}=\e^{-\lambda s}\sum_{k=0}^\infty 
+\frac{{\left(\e^t\lambda s\right)}^k}{k!}=\e^{\lambda s\left(\e^t -1\right)}.
+$$
+Suposem ara que $X_i$ \'es $Poiss(\lambda_i s_i),\ i=1,\ldots,n$ i sigui 
+\mbox{$Y=\sum\limits_{i=1}^n X_i$.} Vegem que la funci\'o generatriu de $Y$ 
+coincideix amb la funci\'o generatriu d'una variable de Poisson amb 
+par\`ametre \mbox{$\sum\limits_{i=1}^n \lambda_i s_i$.} 
+$$
+	m_Y(t)  =  \prod\limits_{i=1}^n m_{X_i}(t) = \prod\limits_{i=1}^n 
+	\e^{\lambda_i s_i\left(\e^t -1\right)} 
+	=  \e^{\sum\limits_{i=1}^n \lambda_i s_i\left( \e^t-1\right)}.
+$$}
+
+\newpage
+
+\begin{probres}
+{En una placa de devora la porta d'un ascensor es pot llegir: ``Capacitat
+m\`axima 6 persones, 500 Kg''.
+Suposem que els pesos de les persones que fan servir aquest ascensor
+se seleccionen d'una distribuci\'o normal amb $\mu =63.5$ Kg, $\sigma =13.6$
+Kg. Si 6 persones entren en l'ascensor, quina \'es la probabilitat que el seu
+pes combinat sigui m\'es gran que la capacitat m\`axima de 500 Kg?}
+\end{probres}
+
+\res{Considerem la variable aleat\`oria $X:$``Pes d'una persona''. Tenim que 
+$X$ es distribueix segons una llei Normal amb par\`ametres 
+\mbox{$\mu =63.5$ Kg} i \mbox{$\sigma =13.6$ Kg.} Per tant, tenim que el 
+pes de les 6 persones ser\`a \mbox{$Y=\sum\limits_{i=1}^6 X_i$} on $X_i$ 
+representa el pes de la persona $i$-\`essima. La variable $Y$ ser\`a normal 
+amb par\`ametres \mbox{$\mu_Y =\sum\limits_{i=1}^6 63.5 =381$ Kg} i 
+\mbox{$\sigma_Y =\sqrt{\sum\limits_{i=1}^6 {13.6}^2}\approx 33.3131$ Kg.} 
+Per tant, el que ens demanen es pot calcular de la manera seg\"uent:
+\begin{eqnarray*}
+	\pp{Y\geq 500} & = &  \pp{ Z=N(0,1)\geq 
+	\frac{500-381}{33.3131}} = \pp{Z\geq 3.5721} \\ 
+	& = & 1-F_Z 
+	(3.5721)\approx 1-0.9998 =0.0002  
+\end{eqnarray*}}
+
+\begin{probres}
+{Siguin $X$ i $Y$ variables aleat\`ories independents i uniformes en
+l'interval $[0,1]$. Considerem la variable aleat\`oria  $U=X+Y$. Trobau
+la funci\'o de
+densitat i la de distribuci\'o de $U$. Trobau tamb\'e l'esperan\c{c}a i
+la vari\`ancia de~$U$.\newline{\footnotesize Final. Juny 93.}}
+\end{probres}
+
+\res{Considerem les variables aleat\`ories $X$ i $Y$ uniformes en
+l'interval $(0,1)$ i independents. Recordem que la funci\'o de densitat de cada una 
+val:
+$$
+f_X(t)=f_Y(t)=
+\left\{\begin{array}{ll}
+1, & \text{si $x\in (0,1)$},\\ 0, & \text{en cas contrari.}
+\end{array}\right.
+$$
+Com que $X$ i $Y$ s\'on
+independents, la seva funci\'o de densitat conjunta ser\`a:
+$$
+f_{XY} (x,y)=f_X(x)\cdot f_Y(y)=
+\left\{\begin{array}{ll}
+1, & \text{si $(x,y)\in 
+(0,1)\times (0,1)$},\\ 0, & \text{en cas contrari.}
+\end{array}\right.
+$$
+Considerem ara la variable $Z=X+Y$. Fixau-vos que el rang de $Z$ ser\`a 
+l'interval $(0,2)$, ja que tant $X$ com $Y$ prenen valors dins 
+l'interval $(0,1)$. 
+
+Trobem primer la funci\'o de distribuci\'o de $Z$, $F_Z(t)$. Basta considerar 
+$t\in (0,2)$ ja que, per a $t\leq 0$, $F_Z(t)=0$ i per a $t\geq 2$,
+$F_Z(t)=1$.
+
+Aix\'{\i}, doncs:
+$$
+F_Z (t)=\pp{ Z=X+Y\leq t}=\int\int_{\{(x,y)\in \RR^2\ |\ x+y\leq t\}} 
+f_{XY}(x,y)\, dx\, dy.
+$$
+Nom\'es ens interessa integrar en el domini on la funci\'o de densitat 
+conjunta no sigui nu{\lgem}a. O sigui, basta integrar en el domini que 
+resulta de fer la intersecci\'o entre els conjunts:
+$$
+\{(x,y)\in \RR^2\ |\ x+y\leq t\}\cap ((0,1)\times (0,1)).
+$$
+
+\begin{figure}
+$$
+\setlength{\unitlength}{5cm}
+\begin{picture}(1.25,1.25)(0,0)
+\put (0,0) {\line (1,0){1.25}}
+\put (0,0) {\line (0,1){1,25}}
+\put (0,-0.05) {\makebox(0,0)[t]{$0$}}
+\put (0.66,-0.05) {\makebox(0,0)[t]{$t$}}
+\put (1,-0.05) {\makebox(0,0)[t]{$1$}}
+\put (0,0) {\line (0,1){0.025}}
+\put (0.66,0) {\line (0,1){0.025}}
+\put (1,0) {\line (0,1){0.025}}
+\put (-0.05,0.66) {\makebox(0,0)[r]{$t$}}
+\put (-0.05,1) {\makebox(0,0)[r]{$1$}}
+\put (0,0.66) {\line(1,0){0.025}}
+\put (0,1) {\line(1,0){0.025}}
+\put (0,0.66) {\line (1,-1){0.66}}
+%\put (0.66,0) {\line (0,1){0.34}}
+\multiput(0,1)(0.055,0){19}{\line(1,0){0.0275}}
+\multiput(1,0)(0,0.055){19}{\line(0,1){0.0275}}
+\put (0.33,0.66) {\makebox(0,0){$x+y=t$}}
+\end{picture}
+$$
+\caption{Domini d'integraci\'o en el cas 1.}
+\label{cas1}
+\end{figure}
+
+\begin{figure}
+$$
+\setlength{\unitlength}{2.5cm}
+\begin{picture}(2.25,2.25)(0,0)
+\put (0,0) {\line (1,0){2.25}}
+\put (0,0) {\line (0,1){2,25}}
+\put (0,-0.05) {\makebox(0,0)[t]{$0$}}
+\put (1.66,-0.05) {\makebox(0,0)[t]{$t$}}
+\put (0.66,-0.05) {\makebox(0,0)[t]{$t-1$}}
+\put (1,-0.05) {\makebox(0,0)[t]{$1$}}
+\put (2,-0.05) {\makebox(0,0)[t]{$2$}}
+\put (0,0) {\line (0,1){0.025}}
+\put (1.66,0) {\line (0,1){0.025}}
+\put (0.66,0) {\line (0,1){0.025}}
+\put (1,0) {\line (0,1){0.025}}
+\put (2,0) {\line (0,1){0.025}}
+\put (-0.05,1.66) {\makebox(0,0)[r]{$t$}}
+\put (-0.05,1) {\makebox(0,0)[r]{$1$}}
+\put (-0.05,2) {\makebox(0,0)[r]{$2$}}
+\put (0,1.66) {\line(1,0){0.025}}
+\put (0,1) {\line(1,0){0.025}}
+\put (0,2) {\line(1,0){0.025}}
+\put (0,1.66) {\line (1,-1){1.66}}
+%\put (0.66,0) {\line (0,1){0.34}}
+\multiput(0,1)(0.055,0){19}{\line(1,0){0.0275}}
+\multiput(1,0)(0,0.055){19}{\line(0,1){0.0275}}
+\multiput(0.66,0)(0,0.055){19}{\line(0,1){0.0275}}
+\put (0.66,1.66) {\makebox(0,0){$x+y=t$}}
+\end{picture}
+$$
+\caption{Domini d'integraci\'o en el cas 2.}
+\label{cas2}
+\end{figure}
+
+Considerem dos casos:
+\begin{itemize}
+	\item[Cas 1.] $0\leq t \leq 1$. En aquest cas, la intersecci\'o  
+	anterior ser\`a el triangle de v\`ertexs $(0,0)$, $(t,0)$ i $(0,t)$ (veure 
+	figura \ref{cas1}).
+	
+	Per tant, la funci\'o de distribuci\'o de $Z$ ser\`a:
+	$$
+	F_Z (t)=\int_0^t\int_0^{t-x} 1\,dy\,dx =\int_0^t (t-x)\, dx={\left[t 
+	x-\frac{x^2}{2}\right]}_0^t =t^2 -\frac{t^2}{2}=\frac{t^2}{2}.
+	$$
+	
+	\item[Cas 2.] $1\leq t\leq 2$. En aquest cas, la intersecci\'o anterior
+	ser\`a el trapezi de v\`ertexs $(0,0)$, $(1,0)$, $(1,t-1)$, $(t-1,1)$ i
+	$(0,1)$	(vegeu figura \ref{cas2}).
+	
+	Per tant, la funci\'o de distribuci\'o de $Z$ ser\`a:
+	\begin{eqnarray*}
+		F_Z (t) & = & \int_0^{t-1}\int_0^1 1\, dy\, dx 
+		+\int_{t-1}^1\int_{0}^{t-x} 1\, dy\, dx =\int_0^{t-1} 1\, 
+		dx+\int_{t-1}^1 (t-x)\, dx   \\
+		 & = & t-1 +{\left[ t x-\frac{x^2}{2}\right]}_{t-1}^1 = 
+		 t-1+t-\frac{1}{2}- t(t-1)+\frac{{(t-1)}^2}{2}  \\
+		 & = & -\frac{t^2}{2}+2 t-1.
+	\end{eqnarray*}
+\end{itemize}
+
+La funci\'o de distribuci\'o de $Z$ ser\`a, doncs:
+$$F_Z (t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t\leq 0$},\\ & \\
+\frac{t^2}{2}, & \text{si $0\leq 
+t\leq 1$}, \\ & \\
+-\frac{t^2}{2}+2 t-1, & \text{si $1\leq t\leq 2$},\\ & \\ 1, & 
+\text{si $t\geq 1$.}
+\end{array}\right.
+$$
+Per trobar la funci\'o de densitat de $Z$, basta derivar la funci\'o anterior:
+$$
+f_Z(t)=F_Z'(t)=
+\left\{\begin{array}{ll}
+t, & \text{$0\leq t\leq 1$},\\
+2-t, & \text{si $1<t\leq 2$}, \\ 
+0, & \text{en cas contrari.}
+\end{array}\right.
+$$
+Per trobar $\EE Z$ i $\Var Z$, ho podem fer de dues formes: integrant 
+directament amb la funci\'o de densitat de $Z$ o fent servir les 
+propietats de la vari\`ancia i l'esperan\c{c}a tenint en compte que 
+\mbox{$\EE X=\EE Y=\frac{1}{2}$} i \mbox{$\Var X=\Var Y=\frac{1}{12}$}. 
+Ho farem de la segona forma. Deixam al lector la 
+comprovaci\'o dels resultats fent servir la funci\'o de densitat de $Z$.
+\begin{eqnarray*}
+	\EE Z & = & \EE (X+Y)= \EE X +\EE Y =\frac{1}{2}+\frac{1}{2}=1, \\
+	\Var Z & = & \Var (X+Y) =\Var X+\Var Y=
+	\frac{1}{12}+\frac{1}{12}=\frac{1}{6}.
+\end{eqnarray*}}
+
+
+\begin{probres}
+{Siguin $X$ i $Y$ variables aleat\`ories independents.
+\begin{itemize}
+\item[a)] {Provau que $m_{X+Y}(t)=m_X(t) m_Y(t)$, o sigui, la funci\'o
+generatriu de la suma \'es el producte de les funcions generatrius.}
+\item[b)] {Suposant que $X$ \'es $N(\mu_1,\sigma_1^2)$,
+$Y$ \'es $N(\mu_2,\sigma_2^2)$, i que s\'on independents, i fent sevir l'apartat
+a), provau que $X+Y$ \'es $N(\mu_1+\mu_2,\sigma_1^2 +\sigma_2^2)$.}
+\item[c)] {Suposant que $X$ \'es $N(\mu,\sigma^2)$, provau que $Y=aX+b$ \'es
+$N(a \mu +b, a^2\sigma^2)$.}
+\item[d)] {Siguin $X_1,X_2,\ldots,X_n$ variables aleat\`ories totes 
+$N(\mu,\sigma^2)$ i independents. Provau fent servir b) i c) que la variable
+aleat\`oria $\overline{X}={X_1+\ldots +X_n\over n}$ \'es $N(\mu,{\sigma^2\over
+n})$.}
+\item[e)] {Suposant $\sigma =2$, trobau $n$ perqu\`e $\pp{\vert
+\overline{X}-\mu\vert\leq 1}=0.95$ amb les mateixes suposicions que en
+l'apartat d).}
+\end{itemize}
+{\footnotesize Primer parcial. Curs 92-93.}
+} 
+\end{probres}
+
+\res{\begin{itemize}
+	\item [a)] Suposem que $X$ i $Y$ s\'on independents. Per tant, la funci\'o 
+	generatriu de la suma valdr\`a:
+	$$
+	m_{X+Y}(t)=\EE\left(\e^{t(X+Y)}\right)=\EE\left( \e^{tX} \cdot 
+	\e^{tY}\right)=\EE\left(\e^{tX}\right)\cdot \EE\left(\e^{t 
+	Y}\right)=m_X(t)\cdot m_Y(t).
+	$$
+	
+	\item[b)] Suposem ara que $X$ \'es $N(\mu_1,\sigma_1^2)$ i 
+	$Y$ \'es $N(\mu_2,\sigma_2^2)$. Vegem que 
+	$X+Y$ \'es $N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$. Per provar-ho veurem 
+	que la funci\'o generatriu de $X+Y$ coincideix amb la funci\'o generatriu 
+	d'una variable aleat\`oria normal de par\`ametres \mbox{$\mu_1+\mu_2$} i 
+	\mbox{$\sigma_1^2+\sigma_2^2$}. 
+	
+	Recordem que si $X$ \'es $N(\mu,\sigma^2)$, la funci\'o generatriu de
+	moments 	val: 	$$
+	m_X(t)=\e^{t\mu+\frac{t^2}{2}\sigma^2}.
+	$$
+	Per tant, tenint en compte la f\'ormula anterior i l'apartat a) podem 
+	trobar la funci\'o generatriu de la variable $X+Y$:
+	$$
+	m_{X+Y}(t)=m_X(t)\cdot m_Y(t)=\e^{t\mu _1+\frac{t^2}{2}\sigma_1^2}\cdot
+	\e^{t\mu_2 
+	+\frac{t^2}{2}\sigma_2^2}=\e^{t(\mu_1+\mu_2)+\frac{t^2}{2}(\sigma_1^2 
+	+\sigma_2^2)},
+	$$
+	funci\'o que coincideix amb la funci\'o generatriu d'una variable
+	aleat\`oria\break\mbox{$N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$.}
+	
+	\item[c)] Suposem que $X$ \'es $N(\mu,\sigma^2)$. Per veure que la variable
+	 $Y=a X+b$ \'es \break $N(a\mu +b,a^2\sigma^2)$, farem servir la mateixa
+	 t\`ecnica que en l'apartat b). Per tant:
+    \begin{eqnarray*}
+	m_Y (t) & = & \EE\left( \e^{t (a X+b)}\right)=\e^{t b}\cdot 
+\EE\left( \e^{X (a t)}\right) \\ 
+	& = & \e^{t b}\cdot m_X(a t)=\e^{t b}\cdot \e^{a t\mu +\frac{a^2
+t^2}{2}\sigma^2}=
+	\e^{t (a\mu +b)+\frac{a^2 t^2}{2}\sigma^2},
+    \end{eqnarray*}
+	funci\'o que correspon a una variable aleat\`oria $N(a\mu +b,a^2\sigma^2)$.
+	
+	\item[d)] Sigui $X_1,\ldots, X_n$ variables aleat\`ories $N(\mu,\sigma^2)$ i
+	 	independents. Considerem\break\mbox{$\overline{X}=\frac{X_1+\cdots
+	 	+X_n}{n}$.} Vegem que 
+	$\overline{X}$ \'es $N\left(\mu,\frac{\sigma^2}{n}\right)$.
+	
+	Fent servir l'apartat b), podem dir que la variable aleat\`oria
+	\mbox{$S=X_1+\ldots 	X_n$} \'es $N(n\mu, n\sigma^2)$. Es pot provar per
+	inducci\'o damunt $n$. L'apartat  	b) ens diu que l'afirmaci\'o anterior 
+	\'es certa per a $n=2$.
+	
+	Fent servir l'apartat c), tenim que 
+	\mbox{$\overline{X}=\frac{S}{n}$} \'es 
+	$N\left(\mu,\frac{\sigma^2}{n}\right)$. Basta prendre $a=\frac{1}{n}$ i $b=0$.
+	
+	\item[e)] Suposem $\sigma =2$. Aleshores 
+	$\overline{X}$ \'es $N\left(\mu,\frac{4}{n}\right)$. Per tant:
+	\begin{eqnarray*}
+		\pp{\left|\overline{X}-\mu\right|\leq 1} & = & 
+		\pp{\left|\frac{\overline{X}-\mu}{\frac{2}{\sqrt{n}}}
+		\right|\leq 
+		\frac{1}{\frac{2}{\sqrt{n}}}}=\pp{|Z=N(0,1)|\leq 
+		\frac{\sqrt{n}}{2}} \\  
+		 & = & \pp{-\frac{\sqrt{n}}{2}\leq Z\leq 
+		 \frac{\sqrt{n}}{2}}= F_Z 
+		 \left(\frac{\sqrt{n}}{2}\right)-F_Z\left( -\frac{\sqrt{n}}{2}\right) \\
+		 & = & 2 F_Z\left(\frac{\sqrt{n}}{2}\right)-1.
+	\end{eqnarray*}
+	Per tant:
+	$$
+	F_Z\left(\frac{\sqrt{n}}{2}\right)=\frac{0.95 +1}{2}=0.975.
+	$$
+	Mirant les taules, $\frac{\sqrt{n}}{2}=1.96$. D'on dedu\"{\i}m que
+\mbox{$n\approx 
+	{(1.96)}^2\cdot 4 =15.36$.} $n$ val aproximadament $16$.
+\end{itemize}}
+
+\begin{probres}
+{El nombre de clients que arriben a una estaci\'o de servei durant un 
+temps~$t$ \'es una variable aleat\`oria de Poisson amb par\`ametre 
+$\beta t$. El temps necessari per servir cada client \'es una variable 
+aleat\`oria exponencial amb par\`ametre $\alpha$. Determinau la densitat 
+de la variable aleat\`oria que d\'ona el nombre de clients que arriben 
+durant el temps de servei $T$ d'un determinat client. Se suposa que les 
+arribades de clients s\'on independents del temps de servei dels clients.
+Ind.: $\int\limits_0^\infty r^k\>  \e^{-r} \> dr = \Gamma(k+1) = k!$
+}
+\end{probres}
+
+\res{Posem:
+
+\begin{eqnarray*}
+	N & : & \mbox{nombre de clients que arriben durant $t$} \to Poiss(\beta 			t), \\
+	T & : & \mbox{temps necessari per servir un client} \to Exp(\alpha), \\
+	X & : & \mbox{nombre de clients que arriben durant el temps de 
+servei d'un client.}
+\end{eqnarray*}
+
+Sabem que $X / T = t$ \'es una $Poiss(\beta t)$. Aleshores
+$$
+\pp{ X=k / T = t} = {(\beta t)^k \over k!} \> \e^{-\beta t}, \ k \geq 0.
+$$
+
+Tamb\'e
+$$
+f_T(t) = \alpha \cdot \e^{-\alpha t}, \ t \geq 0.
+$$
+
+Aleshores
+\begin{eqnarray*}
+	\pp{ X=k} & = & \int\limits_{-\infty}^\infty \pp{ X=k / T = t} 
+	\cdot f_T(t) \, dt \\
+	& = & \int\limits_0^\infty {(\beta t)^k \over k!} \> \e^{-\beta t} 
+	\cdot \alpha \cdot \e^{-\alpha t} \, dt 
+	= {\alpha \over k!} \cdot \int\limits_0^\infty (\beta t)^k 
+	\cdot \e^{-(\alpha+\beta) t} \, dt \\
+	& = & {\alpha \cdot \beta^k \over k! \cdot (\alpha+\beta)^{k+1}} 
+	\cdot \int\limits_0^\infty \left[(\alpha+\beta) t \right]^k \cdot 
+	\e^{-(\alpha+\beta) t} \cdot (\alpha+\beta) \> dt \\
+	& = & {\alpha \over \alpha+\beta} \cdot 
+	\left( {\beta \over \alpha+\beta} \right)^k \cdot \frac{1}{k!} 
+	\cdot k! = {\alpha \over \alpha+\beta} \cdot 
+	\left( {\beta \over \alpha+\beta} \right)^k, \ k \geq 0.
+\end{eqnarray*}
+
+Aleshores $X$ segueix una distribuci\'o geom\`etrica amb par\`ametre 
+${\alpha \over \alpha+\beta}$.
+}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Una moneda no trucada t\'e un 1 pintat en una cara i un 2
+en l'altra cara. Es llan\c{c}a a l'aire dues vegades la moneda. Sigui $X$ la
+suma dels dos nombres 
+que surten i sigui $Y$ la difer\`encia dels dos
+nombres (el primer menys el segon). Trobau la funci\'o de probabilitat
+conjunta $f_{XY}(x,y)$, la funci\'o de probabilitat de $X$, $f_X(x)$ i la 
+funci\'o de probabilitat de $Y$, $f_Y(y)$.} \end{prob}
+
+\begin{prob}
+{Qu\`e ha de valer $A$ si es vol que la funci\'o seg\"uent
+$$f_{XY}(x,y)=
+\left\{\begin{array}{ll}
+A {x\over y}, & \text{si $0<x<1$, $1<y<2$}, \\ 0, & \text{en els
+altres casos,}
+\end{array}\right.
+$$sigui una funci\'o de densitat per a la variable aleat\`oria conjunta
+$(X,Y)$.} 
+\end{prob}
+
+\begin{prob}
+{Provau que: $$\pp{(a<X\leq b)\cap (c<Y\leq d)}=
+F_{XY}(b,d)-F_{XY}(a,d)-F_{XY}(b,c)+F_{XY}(a,c).$$\newline
+{\footnotesize Indicaci\'o: feu un dibuix.}}
+\end{prob}
+
+\begin{prob}
+{Suposem que $(X,Y)$ \'es una variable aleat\`oria bidimensional
+cont\'{\i}nua amb funci\'o de densitat: $$f_{XY}(x,y)=
+\left\{\begin{array}{ll}
+{1\over x}, & \text{si
+$0<y<x$, $0<x<1$},\\
+0, & \text{en els altres casos.}
+\end{array}\right.
+$$Trobau les funcions de
+densitat marginals per a $X$ i $Y$.} 
+\end{prob}
+
+\begin{prob}
+{Suposem que es pinta un ``+1'' en una cara
+d'una moneda no trucada i un ``-1'' en l'altra cara. La moneda es llan\c{c}a a
+l'aire dues vegades. Sigui $X$ el nombre que surt quan la tiram la primera
+vegada i $Y$ el nombre que surt quan la tiram la segona vegada. Trobau
+$f_{XY}(x,y)$, $\EE X$, $\EE Y$ i $\EE\left({X\over Y}\right)$.} 
+\end{prob}
+
+\begin{prob}
+{Es llan\c{c}a 3 vegades una moneda no trucada. Sigui $X$ el nombre de
+cares que s'obtenen i $Y$ el nombre de creus. Trobau la funci\'o
+de probabilitat conjunta per a $(X,Y)$ i trobau $\sigma_{XY}$.} 
+\end{prob}
+
+\begin{prob}
+{Suposem que
+$(X,Y)$ t\'e la densitat $f_{XY}=c$ per a $(x,y)$ en el quadril\`ater de
+v\`ertexs $(0,0)$, $(1,1)$, $(a,1-a)$ i $(1-a,a)$ on $0\leq a\leq {1\over
+2}$.\begin{itemize}
+\item[a)] {Trobau el valor de $c$.} 
+\item[b)] {Trobau $\rho_{XY}$ si $a=0$ i $a={1\over 2}$.}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{Siguin
+$X$ i $Y$ variables aleat\`ories discretes amb funci\'o de probabilitat
+conjunta: $$f_{XY}(x,y)=
+\left\{\begin{array}{ll}
+{1\over n^2}, & \text{per $x=1,2,\ldots,n,\quad
+y=1,2,\ldots,n$},\\
+0, & \text{en els altres casos.}
+\end{array}\right.
+$$Comprovau que $X$ i $Y$ s\'on
+independents.} 
+\end{prob}
+
+\begin{prob}
+{Siguin $X$
+i $Y$ variables aleat\`ories cont\'{\i}nues conjuntament distribu\"{\i}des amb
+funci\'o de
+densitat: $$f_{(X,Y)} (x,y)=
+\left\{\begin{array}{ll}
+4, & \text{per $0<x<1,$ i $0<y<{1\over 4}$},\\ 0, & \text{en
+els altres casos.}
+\end{array}\right.
+$$Comprovau que $X$ i $Y$ s\'on independents.} 
+\end{prob}
+
+\begin{prob}
+{Si la
+probabilitat conjunta per a $(X,Y)$ \'es no nu{\lgem}a en exactament 3 punts, qu\`e
+s'ha de
+complir per qu\`e $X$ i $Y$ siguin independents?} 
+\end{prob}
+
+\begin{prob}
+{Suposem que $X_1$ i $X_2$ s\'on variables aleat\`ories independents, cada
+una amb mitjana $0$ i vari\`ancia $\sigma^2$. Definim
+
+\begin{eqnarray*}
+	Y & = & a_1 X_1 + a_2 X_2,  \\
+	Z & = & b_1 X_1+b_2 X_2.
+\end{eqnarray*}
+
+Calculau $\mu_Y$,
+$\mu_Z$, $\sigma_Y^2$, $\sigma_Z^2$ i $\sigma_{YZ}$.}
+\end{prob}
+
+\begin{prob}
+{Suposem que dos amics aposten per saber quin dels dos paga el caf\`e
+durant 20 dies. Definim:
+$$X_i=
+\left\{\begin{array}{ll}
+1, & \text{si el primer guanya el $i$-\`essim dia},\\
+0, & \text{si el primer
+perd en el $i$-\`essim dia,}
+\end{array}\right.
+$$per a $i=1,2,\ldots,20$. Aleshores
+$Y=\sum\limits_{i=1}^{20}X_i$ \'es el nombre total de vegades que el primer
+guanya el segon en els 20 dies. Suposant que el joc \'es aleatori, aix\`o \'es,
+que
+la probabilitat de guanyar cada dia \'es ${1\over 2}$ i que els resultats
+s\'on
+independents dia a dia, calculau la probabilitat que $Y\geq 10$ i la que
+$Y\geq 15$.}
+\end{prob}
+
+\begin{prob}
+{Els pacients amb membres romputs arriben a un hospital d'una
+universitat en forma de successos de Poisson a ra\'o d'un per dia.
+\begin{itemize}
+\item[a)] {Quina \'es la probabilitat que arribin a l'hospital 7 pacients en
+un per\'{\i}ode de 7 dies?}
+\item[b)] {Donat que arribaran 7 pacients en un per\'{\i}ode de 7 dies, quina \'es la
+probabilitat que n'arribi un en cada un dels 7 dies?}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{Siguin $X_1$ i $X_2$ variables aleat\`ories binomials independents amb
+par\`ametres $n_1=3$, $p_1$ i $n_2=2$, $p_2$, respectivament. Trobau la
+distribuci\'o per a $X_1 +X_2$. T\'e forma binomial?}
+\end{prob}
+
+\begin{prob}
+{De la successi\'o dels nombres naturals, en triam a l'atzar dos.
+Sigui $X_1$ la variable aleat\`oria amb valors $0$ si els dos nombres s\'on tots
+dos parells o tots dos senars i $1$ en cas contrari. Sigui $X_2$ la variable
+aleat\`oria amb valors $0,1,2$, segons que dels dos nombres triats 
+no sigui parell cap, ho sigui un o ho siguin els dos, respectivament. Trobau:
+\begin{itemize}
+\item[a)] {La funci\'o de probabilitat conjunta de $X_1$ i $X_2$, com tamb\'e
+les funcions
+de densitat marginals.}
+\item[b)] {$\EE (X_1)$, $\EE (X_2)$, $\Var X_1$, $\Var X_2$.}
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{En una petita comunitat de $10$ parelles en les quals ambd\'os membres treballen,
+l'ingr\'es anual (en milers de d\`olars) t\'e la distribuci\'o seg\"uent:
+$$
+\begin{tabular}{|c|c|c|}
+\hline Parella &  Ingr\'es de l'home & Ingr\'es de la dona \\ \hline 
+\ 1 & 10 & \ 5 \\ \ 2 & 15 & 15
+\\ \ 3 & 15 & 10 \\ \ 4 & 10 & 10 \\ \ 5 & 10 & 10 \\ \ 6 & 15 
+& \ 5 \\ \ 7 & 20 &
+10 \\ \ 8 & 15 & 10 \\ \ 9 & 20 & 15 \\ 10 & 20 & 10 \\
+\hline
+\end{tabular}
+$$
+Es pren una parella a l'atzar perqu\`e representi 
+aquesta comunitat en una convenci\'o. Sigui $X$ l'ingr\'es aleatori de
+l'home i $Y$, el de la dona. Trobau:
+\begin{itemize}
+\item[a)] La funci\'o de probabilitat conjunta de $X$ i $Y$.
+\item[b)] La distribuci\'o de $X$, la seva mitjana i la seva vari\`ancia.
+\item[c)] La distribuci\'o de $Y$, la seva mitjana i la seva vari\`ancia.
+\item[d)] La covari\`ancia de $X$ i $Y$.
+\item[e)] $\EE (X/Y=10)$ i $\EE (Y/X=20)$.
+\end{itemize}
+{\footnotesize Final. Setembre 91.}
+}
+\end{prob}
+
+\begin{prob}
+{Considerem la funci\'o:
+$$f(x,y)=
+\left\{\begin{array}{ll}
+3x, & \text{si $0\leq x\leq 1$ i $x\leq y\leq 1$},\\
+3y, & \text{si
+$0\leq x\leq 1$ i $0\leq y\leq x$},\\ 0, & \text{en cas contrari.}
+\end{array}\right. 
+$$
+\begin{itemize}
+\item[a)] {Comprovau que \'es una funci\'o de densitat.}
+\item[b)] {Trobau la funci\'o de distribuci\'o.}
+\item[c)] {Trobau la funci\'o de densitat de $X$, $Y$, $X/Y$ i $Y/X$.}
+\end{itemize}
+
+{\footnotesize Final. Setembre 93.}
+}
+\end{prob}
+
+\begin{prob}
+{Sigui $(X,Y)$ la variable aleat\`oria cont\'{\i}nua amb funci\'o de densitat
+conjunta:
+$$f(x,y)=
+\left\{\begin{array}{ll}
+6 xy(2-x-y), & \text{si $0\leq x,y\leq 1$},\\ 0, & \text{en cas
+contrari.}
+\end{array}\right.
+$$Trobau $\EE (Y/X)$.\newline
+{\footnotesize Final. Setembre 94.}}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $(X,Y)$ la variable aleat\`oria 
+bidimensional amb 
+funci\'o de probabilitat conjunta:
+$$
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{c|ccc}
+$Y\backslash X$&$-1$&$0$&$1$ \\
+\hline
+$-1$&$\frac{1}{9}$&$\frac{1}{18}$&$\frac{1}{9}$ \\
+$0$&$\frac{1}{9}$&$\frac{1}{9}$&$\frac{1}{18}$ \\
+$1$&$\frac{2}{9}$&$0$&$\frac{2}{9}$ \\\hline
+\end{tabular}
+$$
+Trobau $\EE (Y/X=1)$.
+\newline{\footnotesize Primer parcial. Febrer 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Un dau amb $4$ cares est\`a numerat amb $1,2,3,4$.
+Llan\c{c}am el dau 5 vegades. 
+Trobau la probabilitat que totes les cares surtin una vegada 
+com a m\'{\i}nim.
+\newline{\footnotesize Primer parcial. Febrer 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui 
+\[
+f(x,y)=
+\left\{
+\begin{array}{ll}
+\alpha x y, & \text{si $(x,y)$ pertany al triangle de} \\
+& \text{v\`ertexs
+$(0,0)$, $(a,0)$ i $(0,a)$},\\ 0, & \text{en cas contrari,}
+\end{array}
+\right.
+\]
+on $a>0$ \'es un par\`ametre conegut. Qu\`e ha de valer $\alpha$ perqu\`e $f$
+sigui la funci\'o de densitat conjunta d'una variable aleat\`oria $(X,Y)$?
+\newline{\footnotesize Final. Juny 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui 
+\[
+f(x,y)=
+\left\{
+\begin{array}{ll}
+k, & \mbox{si $(x,y)\in C=\left\{(x,y)\in \RR^2 :\ x\geq 0, y\geq 0,
+x^2+y^2\leq 4, x+y\geq 2\right\}$},\\
+0, & \mbox{en cas contrari.}
+\end{array}
+\right.
+\]
+Trobau el valor de~$k$ perqu\`e~$f$ sigui una densitat.
+\newline{\footnotesize Final. Setembre 96.}
+}
+\end{prob}
+
+
+\begin{prob}
+{
+Siguin $X$ i $Y$ dues variables aleat\`ories 
+uniformes en l'interval $(0,1)$ i
+independents. Considerem la variable aleat\`oria $P=XY$. 
+Trobau la funci\'o de densitat de $P$, $\EE (P)$ i
+$\Var P$.
+\newline{\footnotesize Primer parcial. Febrer 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Trobau $\EE (Y/X)$ si la funci\'o de densitat conjunta de 
+la variable aleat\`oria bidimensional
+$(X,Y)$ val:
+\[
+f_{XY} (x,y)=
+\left\{
+\begin{array}{ll}
+\frac{1}{8} \left(y^2 -x^2\right) \e^{-y}, & \text{si $0<|x|\leq y<\infty$},
+\\ & \\
+0, & \text{en cas contrari.}
+\end{array}
+\right.
+\]
+{\footnotesize Primer parcial. Febrer 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+La variable $(X,Y)$ est\`a distribu\"{\i}da uniformement en el cercle
+$x^2+y^2\leq 4$. Calculau:
+\begin{itemize}
+\item[a)] $\pp{Y>k X}$.
+\item[b)] Densitat marginal de la variable aleat\`oria $X$.
+\item[c)] Densitat condicionada $f_{X/Y}(x/1)$. 
+\item[d)] $\pp{|X|<1/Y=0.5}$.
+\end{itemize}
+{\footnotesize Final. Juny 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Escollim dues cartes d'una baralla espanyola de $48$ cartes. Considerem
+les variables:
+\begin{itemize}
+\item[] $X:$ ``nombre d'ors''.
+\item[] $Y:$ ``nombre de figures'' (les figures s\'on les cartes marcades amb
+un $10$, $11$ o $12$).
+\end{itemize}
+Trobau la funci\'o de probabilitat conjunta de $(X,Y)$ i $\EE (Y/X)$.
+\newline{\footnotesize Examen extraordinari de febrer 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Considerem una variable aleat\`oria bidimensional
+ $(X,Y)$ amb funci\'o 
+de densitat conjunta:
+\[
+f(x,y)=
+\left\{ 
+\begin{array}{ll}
+\frac{3 y^2}{2}, & \text{si $0\leq x\leq 2$, $0\leq y\leq 1$,}\\
+0, & \text{en cas contrari.}
+\end{array}
+\right.
+\]
+Calculau $\pp{X\leq 1/Y\leq\frac{1}{2}}$.
+\newline{\footnotesize Final. Setembre 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $(X,Y)$ una variable aleat\`oria bidimensional cont\'{\i}nua
+amb funci\'o de densitat conjunta:
+\[
+f(x,y)=
+\left\{
+\begin{array}{ll}
+c, & \mbox{si $(x,y)\in T$, on $T$ \'es el triangle de} \\
+ & \mbox{
+v\`ertexs $(0,3)$,
+$(1,1)$ i $(2,3)$,}\\
+0, & \mbox{en cas contrari.}
+\end{array}
+\right.
+\]
+Es demana:
+\begin{itemize}
+\item[a)] El valor de la constant $c$.
+\item[b)] Funcions de densitat marginals de les variables aleat\`ories
+$X$ i $Y$.
+\item[c)] $\pp{ X\leq 1 / Y>2}$.
+\end{itemize}
+{\footnotesize Final. Febrer 96.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $(X,Y)$ una variable aleat\`oria bidimensional
+amb funci\'o de densitat conjunta:
+\[
+f(x,y)=\frac{\sqrt{3}}{2\pi} \e^{-(x^2+xy+y^2)},\ (x,y)\in\RR^2.
+\]
+Trobau $\EE (Y/X)$.
+\newline{\footnotesize Final. Juny 96.}
+}
+\end{prob}
+
+\begin{prob}
+{Les variables aleat\`ories $X_1$ i $X_2$ s\'on i.i.d. amb densitat comuna
+$$
+f(x) = \left\{ \begin{array}{ll} 1, & {\rm si } \ 0 \leq x \leq 1,\\ 
+0, & {\rm en \> cas \> contrari}.
+\end{array} \right.
+$$
+Determinau la densitat de $Y=X_1 - X_2$.
+}
+\end{prob}
+
+\begin{prob}
+{Es llancen a l'aire dos daus de diferent color, un de blanc i l'altre 
+de vermell. Sigui $X$ la variable aleat\`oria que d\'ona el nombre de punts 
+obtenguts amb el dau blanc i $Y$ la variable aleat\`oria que d\'ona el 
+nombre m\'es gran dels punts obtenguts amb els dos daus.
+
+\begin{itemize}
+\item[a)] Determinau la funci\'o de probabilitat conjunta de $X$ i $Y$.
+\item[b)] Obteniu les funcions de probabilitat marginals.
+\item[c)] S\'on $X$ i $Y$ independents?
+\item[d)] Obteniu la distribuci\'o de $X$ condicionada a $Y=4$.
+\item[e)] Quina \'es l'esperan\c{c}a de $X$ condicionada a $Y=4$?
+\item[f)] Determinau $\EE [X/Y]$.
+\item[g)] Calculau $\EE \left( \EE (X/Y) \right)$ i comprovau que 
+coincideix amb $\EE X$.
+\end{itemize}
+}
+\end{prob}
+
+\begin{prob}
+{Suposem que la variable aleat\`oria $X$ se selecciona a l'atzar de 
+l'interval unitat i, aleshores, la variable aleat\`oria $Y$ se selecciona 
+a l'atzar de l'interval $(0,X)$. Determinau la distribuci\'o de $Y$.}
+\end{prob}
+
+\begin{prob}
+{Es llancen a l'aire dos daus sense biaix. Siguin $N_1$ i $N_2$ els 
+valors obtenguts en els dos daus. Posem $X=N_1+N_2$ i $Y=|N_1-N_2|$. 
+Obteniu la distribuci\'o conjunta de $X$ i $Y$ i verificau que estan 
+incorrelacionades. S\'on independents?}
+\end{prob}
+

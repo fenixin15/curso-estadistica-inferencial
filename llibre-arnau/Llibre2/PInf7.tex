@@ -1,0 +1,1387 @@
+\chapter{Estimaci\'o de par\`ametres}
+\index{estimacio@estimaci\'o!de parametres@de par\`ametres}
+\section{Resum te\`oric}
+
+En els problemes d'estimaci\'o es tracta de trobar una estad\'{\i}stica
+\index{estadistica@estad\'{\i}stica} que
+constitueixi una bona aproximaci\'o del valor d'un par\`ametre desconegut
+\index{parametre@par\`ametre} d'una
+poblaci\'o\index{poblacio@poblaci\'o} donada. Aquesta estad\'{\i}stica 
+s'anomena un {\bf estimador}\index{estimador} del par\`ametre
+desconegut. Observem que un estimador \'es una variable aleat\`oria i 
+que s'anomena {\bf estimada}\index{estimada} del par\`ametre el valor que pren 
+l'estimador una vegada observats els valors de la mostra aleat\`oria simple.
+\index{mostra!aleatoria@aleat\`oria}
+
+\subsection{Definicions b\`asiques}
+
+Veurem dos m\`etodes per generar estimades de par\`ametres desconeguts. 
+El primer, anomenat {\bf m\`etode dels moments}, 
+\index{metode@m\`etode!dels moments} \'es el m\`etode general m\'es antic. El
+procediment que segueix \'es el seg\"uent:
+
+Considerem una variable aleat\`oria $X$ amb funci\'o de distribuci\'o 
+$F_X$ que dep\`en d'un par\`ametre desconegut $\gamma$. 
+Indicarem el seu estimador amb $\tilde{\Gamma}$. 
+En general, el primer moment de $X$ dep\`en en forma senzilla de
+$\gamma$, posem $\mu_X = g(\gamma)$. Donada una mostra de $n$ valors de $X$,
+podem definir el primer moment\index{primer moment} $\bar{X}$ de la mostra. Aleshores el m\`etode dels
+moments iguala $\bar{X}$ a $g(\tilde{\Gamma})$ i s'obt\'e el valor de
+$\tilde{\Gamma}$.
+
+Per exemple, si $X$ t\'e una distribuci\'o uniforme
+\index{distribucio@distribuci\'o!uniforme} en $(0,\gamma)$, sabem que
+$\displaystyle \mu_X = {\gamma \over 2}$, d'on $\displaystyle g(\gamma) =
+{\gamma \over 2}$. Si ara posam $\displaystyle \bar{X} = g(\tilde{\Gamma}) =
+{\tilde{\Gamma} \over 2}$, obtenim l'estimador de $\gamma$: $\tilde{\Gamma} = 2
+\bar{X}$.
+
+Quan la distribuci\'o dep\`en de m\'es d'un par\`ametre desconegut, 
+s'utilitzen tants de moments com par\`ametres volem estimar. Per exemple, 
+si es desconeixen $\gamma$ i $\lambda$, escrivim els dos primers moments de $X$:
+$$\mu_X = g(\gamma,\lambda), \ \ \ \EE\left(X^2\right) = h(\gamma,\lambda).$$
+
+El m\`etode dels moments iguala els dos primers moments $\bar{X}$ i $M_2$ de 
+la mostra a $g(\tilde{\Gamma},\tilde{\Lambda})$ i
+$h(\tilde{\Gamma},\tilde{\Lambda})$, respectivament, i d'aqu\'{\i} s'obtenen els dos
+estimadors $\tilde{\Gamma}$ i $\tilde{\Lambda}$.
+
+Vegem ara l'altre m\`etode, anomenat el 
+{\bf m\`etode de la m\`axima versemblan\c ca}.
+\index{metode@m\`etode!de la maxima versemblanca@de la m\`axima versemblan\c{c}a}
+
+\begin{defin}
+Sigui $X$ una variable aleat\`oria tal que la seva distribuci\'o dep\`en d'un
+par\`ametre\index{parametre@par\`ametre} desconegut $\lambda$. 
+Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria
+simple de $X$ i $x_1, \ldots , x_n$ els valors observats de la mostra.
+Aleshores la {\bf funci\'o de versemblan\c{c}a} 
+\index{funcio@funci\'o!de versemblanca@de versemblan\c{c}a!de la mostra}
+de la mostra \'es:
+$$L(\lambda) = f_X(x_1) \cdots f_X(x_n).$$
+\end{defin}
+
+\begin{defin}
+Donada la funci\'o de versemblan\c ca $L(\lambda)$ d'una mostra, sigui
+\break $\hat{\lambda} = g(x_1, \ldots , x_n)$ el punt on hi ha el m\`axim de
+$L(\lambda)$, \'es a dir, $\displaystyle L(\hat{\lambda}) = \max_\lambda
+L(\lambda)$. Aleshores {\bf l'estimador de m\`axima versemblan\c{c}a}
+\index{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a} 
+de $\lambda$ \'es:
+$$\hat{\Lambda} = g(X_1, \ldots , X_n).$$
+\end{defin}
+
+{\bf Nota:} Com que $L(\lambda)$ \'es sempre positiu, 
+podem definir $K(\lambda) = \ln L(\lambda)$. 
+Aleshores el valor de $\lambda$ que maximitza $K$ tamb\'e
+maximitza $L$ i \'es, en general, m\'es f\`acil maximitzar $K$ que $L$.
+
+Quan la distribuci\'o de $X$ dep\`en de dos o m\'es par\`ametres, la funci\'o de
+versemblan\c ca es defineix exactament igual, per\`o ara ser\`a funci\'o de dues o m\'es
+variables.
+
+\subsection{Propietats dels estimadors}
+
+\begin{enumerate}
+
+\item Direm que un estimador\index{estimador} $\Gamma$ d'un par\`ametre desconegut $\lambda$ \'es
+{\bf sense biaix} si E$\Gamma = \gamma$.\index{estimador!sense biaix}
+
+{\bf Nota:} Aquesta propietat diu que si prenem mostres repetides de grand\`aria $n$
+i calculam per a cada una el valor esperat
+\index{valor esperat} 
+de $\Gamma$, aleshores la mitjana d'aquests valors observats 
+\'es el par\`ametre\index{parametre@par\`ametre} $\gamma$ que volem estimar.
+
+\item Si $\Gamma_1$ i $\Gamma_2$ s\'on dos estimadors sense biaix de $\gamma$ per
+a la mateixa mostra, aleshores direm que $\Gamma_1$ \'es {\bf m\'es eficient} que
+$\Gamma_2$ si $\Var \Gamma_1 < \Var \Gamma_2$.\index{estimador!eficient}
+
+\item Direm que $\Gamma$ \'es el {\bf millor estimador lineal sense biaix} de
+$\gamma$ si\index{estimador!lineal}
+\begin{enumerate}
+\item $\Gamma$ \'es funci\'o lineal de $X_1, \ldots , X_n$,
+
+\item E$\Gamma = \gamma$,
+
+\item Si $\Gamma'$ \'es un altre estimador que tamb\'e satisf\`a a) i b), aleshores
+$$\Var \Gamma < \Var \Gamma'.$$
+\end{enumerate}
+
+{\bf Nota:} Aquesta propietat diu que el millor estimador lineal sense biaix t\'e
+tant la propietat de ser sense biaix com la de tenir la menor vari\`ancia dins
+d'una certa classe d'estimadors.
+
+\begin{proposition}
+Sigui $X$ una variable aleat\`oria amb mitjana $\mu$ i vari\`ancia~$\sigma^2$.
+Si $X_1, \ldots , X_n$ \'es una mostra aleat\`oria simple de $X$,
+aleshores $\bar{X}$ \'es el millor estimador lineal sense biaix de $\mu$.
+\end{proposition}\index{estimador!lineal}
+
+\item Direm que $\Gamma$ \'es un estimador {\bf consistent} 
+\index{estimador!consistent}de $\gamma$ si
+$$\lim_{n \to \infty} \pp{|\Gamma_n-\gamma| > \varepsilon} = 0,\quad\forall
+\varepsilon >0,$$
+o, equivalentment,
+$$\lim_{n \to \infty} \pp{|\Gamma_n-\gamma| < \varepsilon} = 1,\quad
+\forall \varepsilon > 0.$$
+($n$ indica la grand\`aria de la mostra).
+
+{\bf Nota:} La consist\`encia\index{consistencia@consist\`encia} 
+t\'e a veure nom\'es amb el comportament en el l\'{\i}mit
+d'un estimador a mesura que creix la grand\`aria de la mostra i no implica que el
+valor observat $\Gamma_n$ sigui pr\`oxim a $\gamma$ per a qualsevol grand\`aria
+espec\'{\i}fica $n$ de la mostra.
+
+\begin{proposition}
+Si $\displaystyle \lim_{n \to \infty} \EE\Gamma_n = \gamma$ i
+$\displaystyle \lim_{n \to \infty} {\rm Var}\  \Gamma_n = 0$, 
+aleshores $\Gamma_n$ \'es un estimador consistent de $\gamma$.
+\index{estimador!consistent}
+\end{proposition}
+\end{enumerate}
+
+\begin{defin}
+Donada una mostra aleat\`oria simple d'una variable aleat\`oria $X$ la
+distribuci\'o de la qual dep\`en d'un par\`ametre\index{parametre@par\`ametre} 
+desconegut $\gamma$, l'estad\'{\i}stica\break
+$Y = g(X_1, \ldots , X_n)$ \'es una {\bf estad\'{\i}stica suficient}
+\index{estadistica@estad\'{\i}stica!suficient} 
+si, i nom\'es si, la distribuci\'o condicionada de qualsevol altra 
+estad\'{\i}stica $h(X_1, \ldots , X_n)$, donat que $Y = y$, no dep\`en de~$\gamma$.
+\end{defin}
+
+{\bf Nota:} Aix\`o vol dir que tota la informaci\'o relativa a $\gamma$ s'ha
+condensat en l'es\-ta\-d\'{\i}s\-ti\-ca~$Y$.
+
+El {\bf criteri de factoritzaci\'o de Fisher-Neyman} 
+\index{criteri!de factoritzacio de Fisher-Neyman@de factoritzaci\'o de Fisher-Neyman}
+d\'ona en general una forma bastant senzilla de trobar una estad\'{\i}stica suficient 
+\index{estadistica@estad\'{\i}stica!suficient} per a un par\`ametre
+desconegut.\index{parametre@par\`ametre}
+
+\begin{proposition}
+Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria simple d'una
+variable alea\-t\`oria $X$ la distribuci\'o de la qual dep\`en d'un par\`ametre desconegut
+$\gamma$. Sigui \break $Y = g(X_1, \ldots , X_n)$ una estad\'{\i}stica. Aleshores 
+$Y$ \'es una
+estad\'{\i}stica suficient per a $\gamma$ si:
+\index{estadistica@estad\'{\i}stica!suficient} 
+$$\prod_{i=1}^n f_X(x_i) = G(g(x_1, \ldots , x_n), \gamma) \cdot H(x_1, \ldots ,
+x_n).$$
+\end{proposition}
+
+{\bf Nota:} La import\`ancia de les estad\'{\i}stiques suficients \'es que si en podem
+trobar una per a un par\`ametre, aleshores un estimador que s'hi basa ha de
+contenir en certa forma tot el que pot oferir la mostra respecte del valor del
+par\`ametre desconegut.
+
+Es pot provar que si $\Gamma$ \'es l'estimador sense biaix 
+\index{estimador!sense biaix}de $\gamma$ basat en
+l'estad\'{\i}stica suficient, aleshores $\Gamma$ t\'e la menor vari\`ancia d'entre tots
+els estimadors sense biaix de $\gamma$.
+
+\subsection{Propietats dels estimadors de m\`axima versemblan\c{c}a}
+\index{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}
+\begin{enumerate}
+
+\item {\bf Propietat invariant}: \index{propietat invariant}sigui $\Gamma$ l'estimador de m\`axima
+versemblan\c{c}a d'un par\`ametre $\gamma$ i suposem que volem estimar una funci\'o de
+$\gamma, \ \theta = h(\gamma)$. Aleshores, l'estimador de m\`axima versemblan\c{c}a de
+$\theta$ s'obt\'e a trav\'es de: $\hat{\Theta} = h(\Gamma)$.
+
+\item Si existeix una estad\'{\i}stica suficient~$Y$ 
+\index{estadistica@estad\'{\i}stica!suficient}per a un par\`ametre $\gamma$
+desconegut de la distribuci\'o d'una variable aleat\`oria donada, basada en una
+mostra aleat\`oria simple de la variable aleat\`oria, aleshores l'estimador de
+\index{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}
+m\`axima versemblan\c ca de $\gamma$ \'es funci\'o de $Y$.
+
+Per tant, l'estimador de m\`axima versemblan\c ca utilitza tota la informaci\'o de la
+mostra relativa a $\gamma$. A m\'es, els estimadors de m\`axima versemblan\c ca s\'on
+generalment consistents 
+\index{estimador!consistent}i per a grand\`aries grans de mostres estan distribu\"{\i}ts
+aproximadament en forma normal, com indicam a continuaci\'o:
+
+\begin{proposition}
+Si $X$ \'es una variable aleat\`oria amb funci\'o de probabilitat (o
+densitat) $f_X$, que dep\`en d'un par\`ametre desconegut $\gamma$, i $\tilde{\Gamma}$
+\'es l'estimador de m\`axima versemblan\c ca basat en una mostra aleat\`oria simple de
+grand\`aria $n$ de $X$, aleshores $\tilde{\Gamma}$ est\`a distribu\"{\i}t aproximadament en
+forma normal per a $n$ gran amb mitjana $\gamma$ i vari\`ancia
+\index{distribucio@distribuci\'o!normal}
+$$\left\{ n {\rm E} \left[ {{\rm d} \over {\rm d}\gamma} \ln f_X(x) \right]^2
+\right\}^{-1}.$$
+\end{proposition}
+\end{enumerate}
+
+\subsection{Estimadors de vari\`ancia m\'{\i}nima}
+\index{estimador!de variancia minima@de vari\`ancia m\'{\i}nima}
+
+Finalment parlarem dels estimadors de vari\`ancia m\'{\i}nima. 
+Recordem que hav\'{\i}em dit que aquesta era una propietat molt desitjable 
+per a un estimador. El problema \'es el seg\"uent: si tenim un estimador 
+$\tilde{\theta}$ d'un par\`ametre $\theta$ amb
+vari\`ancia petita, com podem saber si \'es el millor de tots? La resposta \'es, en
+general, molt dif\'{\i}cil.
+
+Veurem primer de tot quin \'es el millor estimador lineal sense biaix del
+par\`ametre $\mu = {\rm E}X$ d'una variable aleat\`oria $X$. Despr\'es donarem la {\bf
+cota de Cramer-Rao}, que \'es el valor m\'{\i}nim per a la vari\`ancia de qualsevol
+estimador; aix\`o vol dir que si trobam un estimador amb vari\`ancia igual a la cota
+de Cramer-Rao, aleshores \'es el m\'es eficient de tots.
+\index{cota de Cramer-Rao}
+
+El primer resultat \'es:
+\begin{proposition}
+Sigui $X$ una variable aleat\`oria amb mitjana $\mu$ i vari\`ancia
+$\sigma^2$. Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria simple de $X$.
+Aleshores l'estimador
+$$\bar{X} = {X_1 + \cdots + X_n \over n}$$
+\'es el millor estimador lineal sense biaix de $\mu$.
+\index{estimador!lineal!sense biaix}
+\end{proposition}
+
+La cota de Cramer-Rao ens d\'ona, com hem dit, una cota m\'{\i}nima 
+\index{cota de Cramer-Rao}per a la vari\`ancia.
+M\'es concretament, sigui $\tilde{\theta}$ un estimador del par\`ametre $\theta$.
+Suposem que E$(\tilde{\theta}) = a + b(\theta)$, o sigui, $|b(\theta)|$ \'es el
+biaix de $\tilde{\theta}$. Aleshores es compleix:
+$$\Var(\tilde{\theta}) \geq {\left(1 + b'(\theta)\right)^2 \over {\rm E}
+\left({\partial \ln L \over \partial \theta} \right)^2},$$
+on $L$ \'es la funci\'o de versemblan\c ca de mostra.
+\index{funcio@funci\'o!de versemblanca@de versemblan\c{c}a!de la mostra}
+
+Si suposam que $\tilde{\theta}$ \'es un estimador sense biaix, $b(\theta) = 0$, 
+\index{estimador!sense biaix}
+obtenim una expressi\'o m\'es senzilla:
+$$\Var(\tilde{\theta}) \geq {1 \over {\rm E} \left({\partial \ln L \over \partial
+\theta} \right)^2}.$$
+
+Si posam l'expressi\'o de la funci\'o de versemblan\c ca i operam, obtenim:
+$$\Var(\tilde{\theta}) \geq {1 \over n {\rm E} \left({\partial \ln f_X(x;
+\theta)\over \partial \theta} \right)^2}.$$
+
+Per acabar, vegem que l'estimador $\bar{X}$ del par\`ametre $\mu$ d'una 
+variable aleat\`oria normal (amb $\sigma^2$ coneguda) assoleix la cota de Cramer-Rao.
+\index{variable!aleatoria@aleat\`oria!normal}\index{cota de Cramer-Rao}
+Tenim
+
+\begin{description}
+\item $\displaystyle f(x;\mu) = {1 \over (2 \pi \sigma^2)^{1 \over 2}} \exp{
+\left( -{(x-\mu)^2 \over 2 \sigma^2}\right)},$
+
+\item $\displaystyle \ln f = -{1 \over 2} \ln (2 \pi \sigma^2) - {(x-\mu)^2
+\over 2 \sigma^2},$
+
+\item $\displaystyle \left( {\partial \ln f \over \partial \mu} \right)^2 =
+\left( {x-\mu \over \sigma^2} \right)^2.$
+\end{description}
+
+
+Aleshores
+$$\EE \left(\left( {\partial \ln f \over \partial \mu} \right)^2\right) = {1 \over
+\sigma^2} \EE \left(\left( {x-\mu \over \sigma} \right)^2\right) = {1 \over \sigma^2},$$
+ja que $\displaystyle {x-\mu \over \sigma}$ \'es $N(0,1)$. Per tant, la cota de
+Cramer-Rao val en aquest cas
+$${1 \over n \cdot {1 \over \sigma^2}} = {\sigma^2 \over n},$$
+que coincideix amb $\Var(\bar{X})$.
+
+\section{Problemes resolts}
+
+\begin{probres}
+{Se suposa que el nombre de cotxes que arriben a un aparcament d'un
+supermercat \'es una variable de Poisson amb par\`ametre $\lambda$ 
+cotxes per hora. S'observa
+que entre les 9.00 h. i les 10.00 h. del mat\'{\i} han arribat les seg\"uents
+quantitats de cotxes: $50,47,82,91,46$ i $64$. Trobau l'estimada de $\lambda$,
+$\tilde\lambda$, pel m\`etode dels moments.}
+\end{probres}
+
+\res{Si $X$ \'es una variable de Poisson de par\`ametre $\lambda$, sabem que 
+l'esperan\c{c}a de $X$ val: $\EE X=\lambda$. 
+
+Per tant, fent servir el m\`etode dels moments, 
+hem d'igualar el moment 
+d'ordre 1 de la mostra a l'estimada de $\lambda$, $\tilde \lambda$. Aix\'{\i}, 
+doncs,
+\[ M_1 =\overline{X} =\tilde \lambda. \]
+En el nostre cas tendrem $\tilde \lambda \approx 63.33$.}
+
+\begin{probres}
+{Suposem que $X$ \'es una variable aleat\`oria normal amb mitjana
+ $\mu=10$ i vari\`ancia $\sigma^2$ 
+desconeguda. Quin \'es l'estimador de m\`axima versemblan\c{c}a per a $\sigma^2$,
+donada una mostra aleat\`oria simple de $X$ de grand\`aria $n$?}
+\etiqueta{MAXVERNORMAL}
+\end{probres}
+
+\res{Si $X$ \'es $N(\mu=10,\sigma^2)$, recordem que la funci\'o de densitat de $X$ \'es:
+\[
+f_X (x)=\frac{1}{\sigma\sqrt{2\pi}} \e^{-\frac{{(x-10)}^2}{2 \sigma^2}},\ 
+x\in\RR.
+\]
+Considerem $X_1,\ldots,X_n$ una mostra aleat\`oria simple de $X$. La funci\'o 
+de versemblan\c{c}a de la mostra valdr\`a:
+
+\[
+L(x_1,\ldots,x_n;\sigma^2)=\prod_{i=1}^n 
+f_{X}(x_i)=\frac{1}{{(2\pi\sigma^2)}^{\frac{n}{2}}} 
+\e^{-\frac{1}{2\sigma^2}\sum\limits_{i=1}^n {(x_i -10)}^2}.
+\]
+Per trobar l'estimador de m\`axima versemblan\c{c}a per a $\sigma^2$, hem de 
+ 
+derivar la funci\'o anterior com a funci\'o de $\sigma^2$ i igualar a zero. 
+Observem, per\`o, que en la funci\'o anterior surten dos factors 
+multiplicatius dependents de $\sigma^2$. Per tant, el c\`alcul es complicar\`a 
+molt a l'hora de derivar. Amb vista a simplificar el c\`alcul, considerem la 
+funci\'o logaritme de $L$ per derivar, ja que aquesta funci\'o ens 
+transformar\`a els productes en sumes i \'es, per tant, m\'es senzilla de derivar. 
+Observem tamb\'e que els m\`axims de $L$ i $\ln L$ s\'on els mateixos, 
+ja que la 
+funci\'o logaritme \'es una funci\'o creixent.
+
+
+Aix\'{\i}, doncs, considerem:
+\[
+K(x_1,\ldots,x_n;\sigma^2) :=\ln 
+L(x_1,\ldots,x_n;\sigma^2)=-\frac{n}{2}\ln\sigma^2 -\frac{n}{2}\ln 
+(2\pi)-\frac{1}{2\sigma^2}\sum_{i=1}^n {(x_i -10)}^2.
+\]
+Per trobar l'estimador, hem de derivar la funci\'o $K$ i igualar-la a zero:
+\[
+\frac{\partial 
+K}{\partial\sigma^2}=-\frac{n}{2}\cdot\frac{1}{\hat{\sigma}^2}+
+\frac{1}{2 {\hat{\sigma}^2{}}^2}
+\sum_{i=1}^n {(x_i -10)}^2 =0.
+\]
+D'aqu\'{\i} dedu\"{\i}m que l'estimador de m\`axima versemblan\c{c}a 
+per a $\sigma^2$ \'es:
+ 
+\[
+\hat{\sigma}^2 =\frac{1}{n}\sum_{i=1}^n {(x_i -10)}^2.
+\]
+}
+
+\begin{probres}
+{Si $X$ \'es una variable aleat\`oria geom\`etrica amb par\`ametre $p$, quin
+
+\'es l'estimador de m\`axima versemblan\c{c}a per a $p$ donada una mostra aleat\`oria
+de $n$ observacions de $X$?}
+\end{probres}
+
+\res{Repetim tot el mateix proc\'es introdu\"{\i}t en el problema 
+\ref{MAXVERNORMAL}.
+\begin{itemize}
+\item[(i)] Funci\'o de probabilitat de la variable geom\`etrica de par\`ametre $p$:
+\[
+f_X (x)=p\cdot {(1-p)}^{x-1},\ x=1,2,\ldots
+\]
+\item[(ii)] Sigui $X_1,\ldots,X_n$ una mostra aleat\`oria simple de $X$. La 
+funci\'o de versemblan\c{c}a de la mostra valdr\`a:
+
+\[
+L(x_1,\ldots,x_n;p)=\prod_{i=1}^n f_{X}(x_i)=p^n\cdot 
+{(1-p)}^{\sum\limits_{i=1}^n x_i -n}.
+\]
+\item[(iii)] Funci\'o logaritme de $L$:
+\[
+K(x_1,\ldots,x_n;p):=\ln  L(x_1,\ldots,x_n;p)=n\ln p +\left( 
+\sum\limits_{i=1}^n x_i -n\right) \ln (1-p).
+\]
+\item[(iv)] Derivam la funci\'o $K$ i igualam a zero:
+\begin{equation}
+\frac{\partial K}{\partial p}=\frac{n}{\hat p}-\frac{\sum\limits_{i=1}^n 
+x_i -n}{1-\hat p}=0.
+\label{EQUACIOK}
+\end{equation}
+\item[(v)] Resolem l'equaci\'o~(\ref{EQUACIOK}) per trobar l'estimador:
+\begin{eqnarray*}
+\frac{n}{\hat p}-\frac{\sum\limits_{i=1}^n 
+x_i -n}{1-\hat p} & = & 0, \\
+(1-\hat p) n & = &  \hat p \left( 
+\sum\limits_{i=1}^n x_i -n\right), \\
+n & = & \hat p \sum_{i=1}^n x_i, \\
+\hat p & = & \frac{n}{\sum\limits_{i=1}^n x_i}=\frac{1}{\overline{X}}.
+\end{eqnarray*}
+\end{itemize}}
+
+\begin{probres}
+{Suposem que $X$ \'es una variable binomial amb par\`ametres 
+$n$ (conegut) i~$p$. Quin \'es 
+l'estimador de m\`axima versemblan\c{c}a per a $p$ donada
+una mostra aleat\`oria de $N$ observacions de $X$?}
+\end{probres}
+
+\res{\begin{itemize}
+\item[(i)] Funci\'o de probabilitat de la variable $X$ binomial amb 
+par\`ametres $n$ i $p$:
+\[
+f_X (x)={n\choose x} p^x\cdot {(1-p)}^{n-x},\ x=0,\ldots,n.
+\]
+\item[(ii)] Sigui $X_1,\ldots,X_N$ una mostra aleat\`oria simple de $X$. La 
+funci\'o de versemblan\c{c}a de la mostra valdr\`a:
+
+\[
+L(x_1,\ldots,x_N;n,p)=\prod_{i=1}^N f_{X}(x_i)=\left(\prod_{i=1}^N 
+{n\choose x_i} \right) p^{\sum\limits_{i=1}^N x_i}\cdot 
+{(1-p)}^{n N- \sum\limits_{i=1}^N x_i }.
+\]
+\item[(iii)] Funci\'o logaritme de $L$:
+\begin{eqnarray*}
+K(x_1,\ldots,x_N;n,p) & := & \ln  L(x_1,\ldots,x_N;n,p) \\ & = & 
+\ln \left(\prod_{i=1}^N 
+{n\choose x_i} \right)+\left(\sum_{i=1}^N x_i\right) \ln p +\left( n N-
+\sum\limits_{i=1}^N x_i \right) \ln (1-p).
+\end{eqnarray*}
+\item[(iv)] Derivam la funci\'o $K$ i igualam a zero:
+\begin{equation}
+\frac{\partial K}{\partial p}=\frac{\sum\limits_{i=1}^N x_i}{\hat 
+p}-\frac{n N - \sum\limits_{i=1}^N 
+x_i}{1-\hat p}=0.
+\label{EQUACIOK2}
+\end{equation}
+\item[(v)] Resolem l'equaci\'o~(\ref{EQUACIOK2}) per trobar l'estimador:
+\begin{eqnarray*}
+\frac{\sum\limits_{i=1}^N x_i}{\hat 
+p}-\frac{n N - \sum\limits_{i=1}^N 
+x_i}{1-\hat p} & = & 0, \\
+\left(\sum_{i=1}^N x_i\right) (1-\hat p) & = & \left( n N -\sum_{i=1}^N 
+x_i\right) \hat p, \\
+\sum_{i=1}^n x_i & = & n N \hat p, \\
+\hat p & = & \frac{\sum\limits_{i=1}^N x_i}{n N}=\frac{\overline{X}}{n}.
+\end{eqnarray*}
+\end{itemize}}
+
+\begin{probres}
+{Suposem que tenim una mostra aleat\`oria de grand\`aria $n_1$ d'una
+variable normal 
+$X$ amb par\`ametres $\mu_1$ i $\sigma_1^2$. Tamb\'e tenim una
+mostra aleat\`oria independent de grand\`aria $n_2$ d'una variable aleat\`oria normal
+$Y$ amb par\`ametres $\mu_2$ i $\sigma_2^2$.
+\begin{itemize}
+\item[a)] {Quines s\'on les estimades pel m\`etode dels moments per a $\mu_1,
+\sigma_1^2,\mu_2$ i $\sigma_2^2$?}
+
+\item[b)] {Quines s\'on les estimades pel m\`etode de m\`axima versemblan\c{c}a 
+per a $\mu_1, \sigma_1^2,\mu_2$ i $\sigma_2^2$?}
+
+\end{itemize}}
+\etiqueta{ESTMOMMAXVERDISTINTMUDISTINTSIGMA}
+\end{probres}
+
+\res{Sigui $X_1,\ldots,X_{n_1}$ una mostra aleat\`oria simple d'una variable 
+aleat\`oria $X \ N(\mu_1,\sigma_1^2)$ i sigui \mbox{$Y_1,\ldots,Y_{n_2}$} una 
+mostra aleat\`oria simple d'una variable aleat\`oria $Y\ N(\mu_2,\sigma_2^2)$.
+\begin{itemize}
+\item[a)]  Trobem els estimadors de $\mu_1,\mu_2,\sigma_1^2$ i 
+$\sigma_2^2$ pel m\`etode dels moments. 
+
+Tenint en compte que els dos primers moments de les 
+variables $X$ i $Y$ valen:
+\begin{eqnarray*}
+	\EE X & = & \mu_1,  \\
+	\EE Y & = & \mu_2, \\
+	\EE\left(X^2\right) & = & \sigma_1^2 +\mu_1^2,  \\
+	\EE\left(Y^2\right) & = & \sigma_2^2 +\mu_2^2,  
+	\end{eqnarray*}
+	tenim que, igualant els dos primers moments mostrals $M_1$ i $M_2$ als 
+	moments de les variables substituint els par\`ametres pels estimadors, 
+	podem trobar les estimades de $\mu_1,\mu_2,\sigma_1^2$ i 
+$\sigma_2^2$:
+\begin{eqnarray*}
+	\tilde{\mu}_1 & = & M_{1X}=\overline{X},  \\
+    \tilde{\mu}_2 & = & M_{1Y}=\overline{Y},  \\
+	\tilde{\sigma}_1^2+\tilde{\mu}_1^2 & = & M_{2X}=\frac{1}{n_1}\sum_{i=1}^{n_1} 
+	X_i^2,\Rightarrow  \tilde{\sigma}_1^2=\frac{1}{n_1}\sum_{i=1}^{n_1} 
+	X_i^2 -{\overline{X}}^2 =S_X^2,\\
+    \tilde{\sigma}_2^2+\tilde{\mu}_2^2 & = & M_{2Y}=\frac{1}{n_2}\sum_{i=1}^{n_2} 
+	Y_i^2,\Rightarrow  \tilde{\sigma}_2^2=\frac{1}{n_2}\sum_{i=1}^{n_2} 
+	Y_i^2 -{\overline{Y}}^2 =S_Y^2. 
+	\end{eqnarray*}
+\item[b)]  Trobem els estimadors de $\mu_1,\mu_2,\sigma_1^2$ i 
+$\sigma_2^2$ pel m\`etode de la m\`axima versemblan\c{c}a repetint tots els 
+passos introdu\"{\i}ts en alguns dels problemes anteriors.
+
+\begin{itemize}
+	\item[(i)] Funcions de densitat de les variables $X$ i $Y$:
+	\[ 
+	f_X (x)=\frac{1}{\sigma_1 \sqrt{2\pi}} 
+	\e^{-\frac{{(x-\mu_1)}^2}{2\sigma_1^2}},\quad f_Y (y)=\frac{1}{\sigma_2 \sqrt{2\pi}} 
+	\e^{-\frac{{(y-\mu_2)}^2}{2\sigma_2^2}}.
+	\]
+	
+	\item[(ii)] Funci\'o de versemblan\c{c}a de la mostra:
+
+\begin{eqnarray*}
+	 & &L (x_1,\ldots,x_{n_1},y_1,\ldots,y_{n_2};\mu_1,\mu_2,\sigma_1^2,\sigma_2^2) 
+	 =  \prod_{i=1}^{n_1} 
+	f_{X} (x_i)\cdot\prod_{i=1}^{n_2} f_Y (y_i)\\ & = & 
+	\frac{1}{\sigma_1^{n_1}\sigma_2^{n_2}{(2\pi)}^{\frac{n_1+n_2}{2}}} 
+	\e^{-\frac{1}{2\sigma_1^2}\sum\limits_{i=1}^{n_1} {(x_i -\mu_1)}^2 -
+	\frac{1}{2\sigma_2^2}\sum\limits_{i=1}^{n_2} {(y_i -\mu_2)}^2}.
+    \end{eqnarray*}
+	
+	\item[(iii)] Consideram la funci\'o $\ln L$:
+\begin{eqnarray*}
+	& & K (x_1,\ldots,x_{n_1},y_1,\ldots,y_{n_2};\mu_1,\mu_2,\sigma_1^2,\sigma_2^2)
+	\\ & := & \ln L 
+	(x_1,\ldots,x_{n_1},y_1,\ldots,y_{n_2};\mu_1,\mu_2,\sigma_1^2,\sigma_2^2) 
+	\\  & = & -\frac{n_1}{2}\ln\sigma_1^2 -\frac{n_2}{2}\ln\sigma_2^2 
+	-\left(\frac{(n_1+n_2)}{2}\right)\ln 
+	(2\pi) \\ &&-\frac{1}{2\sigma_1^2}\sum\limits_{i=1}^{n_1} {(x_i -\mu_1)}^2
+	-\frac{1}{2\sigma_2^2}\sum\limits_{i=1}^{n_2} {(y_i -\mu_2)}^2.
+\end{eqnarray*}	
+	
+	\item[(iv)] Calculam les derivades de la funci\'o $K$ respecte dels quatre 
+	par\`ametres $\mu_1,\mu_2,\sigma_1^2$ i $\sigma_2^2$ i igualam les 
+	derivades a zero:
+	\begin{eqnarray}
+		\frac{\partial K}{\partial \mu_1} & = & 
+		\frac{1}{\hat{\sigma}_1^2}\sum_{i=1}^{n_1} (x_i -\hat{\mu}_1) =0, 
+		\label{MU1}\\
+			\frac{\partial K}{\partial \mu_2} & = & 
+			\frac{1}{\hat{\sigma}_2^2}\sum_{i=1}^{n_2} (y_i -
+\hat{\mu}_2) =0, 
+			\label{MU2} \\
+		\frac{\partial K}{\partial \sigma_1^2} & = & 
+		-\frac{n_1}{2}\frac{1}{\hat{\sigma}_1^2} 
+		+\frac{1}{2{\hat{\sigma}_1^2 {}}^2} \sum_{i=1}^{n_1} {(x_i-
+\hat{\mu}_1)}^2 
+		= 0, \label{SIGMA1}\\
+	\frac{\partial K}{\partial \sigma_2^2} & = & 
+		-\frac{n_2}{2}\frac{1}{\hat{\sigma}_2^2} 
+		+\frac{1}{2{\hat{\sigma}_2^2 {}}^2} \sum_{i=1}^{n_2} {(y_i-
+\hat{\mu}_2)}^2 
+		= 0.\label{SIGMA2}
+	\end{eqnarray}
+	
+	\item[(v)] Resolem el sistema d'equacions anterior. 
+	
+	Fent servir les equacions~(\ref{MU1}) i (\ref{MU2}) ja podem trobar les estimades de $\mu_1$ 
+	i $\mu_2$:
+	\begin{equation}
+	\hat{\mu}_1=\overline{X}=\frac{1}{n_1}\sum_{i=1}^{n_1} X_i,\quad 
+	\hat{\mu}_2=\overline{Y}=\frac{1}{n_2}\sum_{i=1}^{n_2} Y_i.
+	\label{ESTIMADESMUS}
+    \end{equation}
+    Tenint en compte~(\ref{SIGMA1}), (\ref{SIGMA2}) i (\ref{ESTIMADESMUS}), 
+    podem deduir que les estimades dels par\`ametres $\sigma_1^2$ i 
+    $\sigma_2^2$ s\'on:
+    \begin{eqnarray*}
+    \hat{\sigma}_1^2 & = & \frac{1}{n_1}\sum_{i=1}^{n_1} {(X_i 
+    -\overline{X})}^2 =\frac{1}{n_1} \sum_{i=1}^{n_1} X_i^2 
+    -{\overline{X}}^2=S_X^2, \\ 
+    \hat{\sigma}_2^2 & = & \frac{1}{n_2}\sum_{i=1}^{n_2} {(Y_i 
+    -\overline{Y})}^2 =\frac{1}{n_2} \sum_{i=1}^{n_2} Y_i^2 
+    -{\overline{Y}}^2 = S_Y^2.
+    \end{eqnarray*}
+\end{itemize}
+\end{itemize}
+Observem que surten els mateixos estimadors tant pel m\`etode dels 
+moments com pel m\`etode de la m\`axima versemblan\c{c}a.}
+
+\begin{probres}
+{Feu l'exercici anterior per\`o suposant ara que $\mu_1=\mu_2=\mu$ i
+$\sigma_1^2 =\sigma_2^2 =\sigma^2$, o sigui, trobau els estimadors de $\mu$ i
+$\sigma^2$ pel m\`etode dels moments i pel de la m\`axima versemblan\c{c}a.}
+\etiqueta{ESTMOMMAXVERMATEIXMUMATEIXSIGMA}
+\end{probres}
+
+\res{Per resoldre aquest exercici haurem de juntar les dues mostres, ja que en 
+aquest cas les variables $X$ i $Y$ s\'on la mateixa variable.
+
+Sigui, doncs, $X_1,\ldots,X_{n_1},Y_1,\ldots,Y_{n_2}$ una mostra aleat\`oria simple 
+d'una variable aleat\`oria $X \ N(\mu,\sigma^2)$ 
+\begin{itemize}
+\item[a)]  Trobem els estimadors de $\mu$ i $\sigma^2$ pel m\`etode dels moments. 
+Calculem primer els  dos primers moments de la
+variable $X$:
+\begin{eqnarray*}
+	\EE X & = & \mu,  \\
+	\EE\left(X^2\right) & = & \sigma^2 +\mu^2.
+	\end{eqnarray*}
+	Per trobar els estimadors, hem de fer servir 
+	les f\'ormules anteriors substituint els moments de la variable pels 
+	moments mostrals $M_1$ i $M_2$ i substituint tamb\'e els par\`ametres $\mu$ 
+	i $\sigma^2$ pels estimadors que s'han de cercar.
+\begin{eqnarray*}
+	\tilde{\mu} & = & M_{1}=\frac{1}{n_1+n_2} \left(\sum_{i=1}^{n_1} X_i +
+	\sum_{i=1}^{n_2} Y_i \right)= \frac{1}{n_1+n_2} \left( n_1 \overline{X} +n_2 
+	\overline{Y}\right),  \\
+	\tilde{\sigma}^2+\tilde{\mu}^2 & = & M_{2}=\frac{1}{n_1+n_2}\left(
+	\sum_{i=1}^{n_1} X_i^2 +
+	\sum_{i=1}^{n_2} Y_i^2\right), \\
+	&\Rightarrow & \tilde{\sigma}^2=\frac{1}{n_1+n_2}\left(
+	\sum_{i=1}^{n_1} X_i^2 +
+	\sum_{i=1}^{n_2} 
+	Y_i^2\right)-{\left(\frac{n_1\overline{X}+n_2\overline{Y}}{n_1+n_2}\right)}^2.
+	\end{eqnarray*}
+\item[b)]  Trobem els estimadors de $\mu$ i $\sigma^2$ pel m\`etode de la m\`axima versemblan\c{c}a
+ repetint tots els passos introdu\"{\i}ts en alguns dels problemes anteriors.
+\begin{itemize}
+	\item[(i)] Funci\'o de densitat de la variable $X$:
+	\[ 
+	f_X (x)=\frac{1}{\sigma \sqrt{2\pi}} 
+	\e^{-\frac{{(x-\mu)}^2}{2\sigma^2}}.
+	\]
+	
+	\item[(ii)] Funci\'o de versemblan\c{c}a de la mostra:
+
+\begin{eqnarray*}
+	 & & L  (x_1,\ldots,x_{n_1},y_1,\ldots,y_{n_2};\mu,\sigma^2) 
+	 =  \prod_{i=1}^{n_1} 
+	f_{X} (x_i)\cdot\prod_{i=1}^{n_2} f_X (y_i)\\ & = & 
+	\frac{1}{{(2\pi\sigma^2)}^{\frac{n_1+n_2}{2}}}
+	\e^{-\frac{1}{2\sigma^2}\left(\sum\limits_{i=1}^{n_1} {(x_i -\mu)}^2 +
+	\sum\limits_{i=1}^{n_2} {(y_i -\mu)}^2\right)}.
+\end{eqnarray*}
+	
+	\item[(iii)] Consideram la funci\'o $\ln L$:
+\begin{eqnarray*}
+	& & K  (x_1,\ldots,x_{n_1},y_1,\ldots,y_{n_2};\mu,\sigma^2) 
+	\\ & := & \ln L 
+	(x_1,\ldots,x_{n_1},y_1,\ldots,y_{n_2};\mu,\sigma^2) 
+	\\  & = & -\frac{n_1 +n_2}{2}\ln (2\pi \sigma^2) 
+	-\frac{1}{2\sigma^2}\left(\sum\limits_{i=1}^{n_1} {(x_i -\mu)}^2
+	+\sum\limits_{i=1}^{n_2} {(y_i -\mu)}^2\right).
+\end{eqnarray*}
+	
+	\item[(iv)] Calculam les derivades de la funci\'o $K$ respecte dels dos 
+	par\`ametres $\mu$ i $\sigma^2$ i igualam les 
+	derivades a zero:
+	\begin{eqnarray}
+		\frac{\partial K}{\partial \mu} & = & 
+		\frac{1}{\hat{\sigma}^2}\left( \sum_{i=1}^{n_1} (x_i -\hat{\mu}) +
+		\sum_{i=1}^{n_2} (y_i -\hat{\mu})\right) =0, 
+		\label{MU12}\\
+		\frac{\partial K}{\partial \sigma^2} & = & 
+		-\frac{n_1 +n_2}{2}\frac{1}{\hat{\sigma}^2} 
+		+\frac{1}{2{\hat{\sigma}^2 {}}^2} \left(\sum_{i=1}^{n_1} {(x_i-\hat{\mu})}^2 
+		+ \sum_{i=1}^{n_2} {(y_i-\hat{\mu})}^2 \right)
+		= 0. \nonumber \\ \label{SIGMA12}
+	\end{eqnarray}
+	
+	\item[(v)] Resolem el sistema d'equacions anterior. 
+	
+	Fent servir l'equaci\'o~(\ref{MU12}) ja podem trobar l'estimada de~$\mu$:
+	\begin{equation}
+	\begin{array}{c}
+	\sum\limits_{i=1}^{n_1} X_i -n_1\hat{\mu} +\sum\limits_{i=1}^{n_2} Y_i -n_2 \hat{\mu} 
+	=  0, \\
+	\hat{\mu} = \frac{1}{n_1+n_2}\left(\sum\limits_{i=1}^{n_1} X_i 
+	+\sum\limits_{i=1}^{n_2} Y_i\right)=\frac{1}{n_1+n_2} \left( 
+	n_1\overline{X}+n_2\overline{Y}\right).
+	\end{array}
+	\label{ESTIMADAMU}
+    \end{equation}
+    Tenint en compte~(\ref{SIGMA12}) i (\ref{ESTIMADAMU}), 
+    podem deduir que l'estimada del par\`ametre~$\sigma^2$ \'es:
+    \begin{eqnarray*}
+    \hat{\sigma}^2 & = & \frac{1}{n_1 + n_2}\left(\sum_{i=1}^{n_1} {(X_i 
+    -\hat{\mu})}^2 + \sum_{i=1}^{n_2} {(Y_i -\hat{\mu})}^2\right) \\
+    & = & \frac{1}{n_1 + n_2} \left(\sum_{i=1}^{n_1} X_i^2 + n_1 
+    {\hat{\mu}}^2 - 2 n_1 \overline{X} \hat{\mu} +\sum_{i=1}^{n_2} Y_i^2 
+    + n_2 {\hat{\mu}}^2 - 2 n_2 \overline{Y} \hat{\mu}\right) \\
+    &= & \frac{1}{n_1 + n_2}\left(\sum_{i=1}^{n_1} X_i^2 + 
+    \sum_{i=1}^{n_2} Y_i^2 \right) + {\hat{\mu}}^2 -\frac{2\hat{\mu}}{n_1 
+    + n_2} \left( n_1 \overline{X} + n_2 \overline{Y}\right) \\
+    & = & \frac{1}{n_1 + n_2}\left(\sum_{i=1}^{n_1} X_i^2 + 
+    \sum_{i=1}^{n_2} Y_i^2 \right) + {\hat{\mu}}^2 - 2 {\hat{\mu}}^2 \\
+     & = & \frac{1}{n_1 + n_2}\left(\sum_{i=1}^{n_1} X_i^2 + 
+    \sum_{i=1}^{n_2} Y_i^2 \right) - {\left(\frac{1}{n_1+n_2} \left( 
+	n_1\overline{X}+n_2\overline{Y}\right)\right)}^2.
+    \end{eqnarray*}
+\end{itemize}
+\end{itemize}
+Observem tamb\'e que en aquest cas surten els mateixos estimadors tant pel m\`etode dels 
+moments com pel m\`etode de la m\`axima versemblan\c{c}a.}
+
+\begin{probres}
+{Suposem que $X_1,\ldots,X_n$ \'es una mostra aleat\`oria d'una variable
+aleat\`oria normal amb mitjana $\mu$ i vari\`ancia $\sigma^2$ amb $n$ nombre
+parell. Es pot dir que $${1\over n} \sum_{i=1}^{{n\over
+2}}{(X_{2i}-X_{2i-1})}^2,$$\'es un estimador consistent per a $\sigma^2$?}
+\end{probres}
+
+\res{Considerem $X_1,\ldots,X_n$ una mostra aleat\`oria simple d'una variable 
+$X=N(\mu,\sigma^2)$. Hem d'estudiar la consist\`encia de l'estimador
+\[
+T=\frac{1}{n}\sum_{i=1}^{\frac{n}{2}} {(X_{2i}-X_{2 i-1})}^2, 
+\]
+suposant $n$ parell.
+
+Aix\`o \'es equivalent a comprovar dues coses:
+\begin{itemize}
+	\item[a)] Que el biaix de $T$ t\'e l\'{\i}mit zero quan $n$ tendeix a infinit o 
+	que $T$ no t\'e biaix:
+	\[
+	\lim_{n\to\infty} \EE T =\sigma^2.
+	\]
+	
+	\item[b)] Que la vari\`ancia de $T$ t\'e l\'{\i}mit zero quan $n$ tendeix a infinit:
+	\[
+	\lim_{n\to\infty} \mbox{Var } T =0.
+	\]
+\end{itemize}
+Vegem primer a) trobant l'esperan\c{c}a de $T$:
+\[
+\EE T =\frac{1}{n}\sum_{i=1}^{\frac{n}{2}} \EE\left({(X_{2i}-X_{2 i-1})}^2\right)
+\]
+Tenim que $X_{2i}$ \'es $N(\mu,\sigma^2)$ i $X_{2 i-1}$ \'es $N(\mu,\sigma^2)$. Per 
+tant $X_{2i}-X_{2i-1}$ \'es $N(0, 2\sigma^2)$. D'aqu\'{\i} dedu\"{\i}m que 
+l'esperan\c{c}a de la variable ${(X_{2i}-X_{2 i-1})}^2$ val:
+\begin{eqnarray*}
+ E\left({(X_{2i}-X_{2 i-1})}^2\right)& = & \mbox{Var } (X_{2i}-X_{2i-1})+ 
+ {\left(\EE (X_{2i}-X_{2 i-1})\right)}^2 \\ & = &  \mbox{Var } 
+ (X_{2i}-X_{2i-1})=2 \sigma^2.
+\end{eqnarray*}
+Dedu\"{\i}m que l'esperan\c{c}a de $T$ val:
+\[
+\EE T =\frac{1}{n}\cdot \frac{n}{2}  \EE\left({(X_{2}-X_{1})}^2\right)=
+\frac{1}{2} \cdot
+2\cdot\sigma^2 = \sigma^2.
+\]
+Tenim que $T$ \'es un estimador sense biaix. Per tant, es compleix a).
+
+A continuaci\'o trobem la vari\`ancia de $T$:
+\begin{equation}
+\mbox{Var } T =\frac{1}{n^2}\mbox{Var } \left(
+\sum_{i=1}^{\frac{n}{2}} {(X_{2i}-X_{2 i-1})}^2\right).
+\label{COMAPARB}
+\end{equation}
+Observem que les variables aleat\`ories \mbox{${(X_{2i}-X_{2 i-1})}^2$,}
+\mbox{$i=1,\ldots\frac{n}{2}$} s\'on independents ja que cada variable 
+$X_k$ per a \mbox{$k=1,\ldots,n$} nom\'es est\`a en un sol sumand de 
+\mbox{$\sum\limits_{i=1}^{\frac{n}{2}} {(X_{2i}-X_{2 i-1})}^2$.}
+
+Per tant, podem fer servir que la vari\`ancia de la suma \'es la suma de 
+vari\`ancies en la f\'ormula~(\ref{COMAPARB}):
+\[
+\mbox{Var } T =\frac{1}{n^2}\sum_{i=1}^{\frac{n}{2}} \mbox{Var } 
+{(X_{2i}-X_{2 i-1})}^2.
+\]
+A continuaci\'o trobem \mbox{$\mbox{Var } {(X_{2i}-X_{2 i-1})}^2$.} 
+
+Recordem que $X_{2i}-X_{2i-1}$ \'es $N(0,2\sigma^2)$. Per tant, 
+$\frac{X_{2i}-X_{2i-1}}{\sqrt{2}\sigma}$ \'es $N(0,1).$
+
+La variable aleat\`oria $\frac{{(X_{2i}-X_{2i-1})}^2}{2 
+\sigma^2}$ \'es $\chi_1^2$.
+
+Fent servir que $\mbox{Var } \chi_1^2 =2$, podem trobar \mbox{$\mbox{Var 
+} {(X_{2i}-X_{2 i-1})}^2$:}
+\[
+\mbox{Var } {(X_{2i}-X_{2 i-1})}^2 = 4 \sigma^4 \mbox{Var } \frac{{(X_{2i}-X_{2i-1})}^2}{2 
+\sigma^2} = 8 \sigma^4.
+\]
+La vari\`ancia de $T$ valdr\`a:
+\[
+\mbox{Var }T =\frac{1}{n^2}\cdot\frac{n}{2}\cdot 8\cdot\sigma^4 = \frac{4\sigma^4}{n}.
+\]
+La vari\`ancia de $T$ t\'e l\'{\i}mit zero. Queda vist b) i la consist\`encia de 
+l'estimador.}
+
+\begin{probres}
+{Suposem que $X$ \'es uniforme en l'interval $(0,\gamma)$. Donada una
+mostra aleat\`oria de $n$ observacions, l'estimador de m\`axima versemblan\c{c}a 
+\'es \hbox{$\hat{\Gamma}=\max\{X_1,\ldots,X_n\}$,} mentre que l'estimador pel
+m\`etode dels moments \'es $\tilde{\Gamma}=2\overline{X}$. Calculau
+$E(\hat{\Gamma})$, $E(\tilde{\Gamma})$, $\hbox{Var }(\hat{\Gamma})$ i $\hbox{Var
+}(\tilde{\Gamma})$. Quin dels dos \'es millor? S\'on consistents?}
+\end{probres}
+
+\res{\begin{itemize}
+	\item[I.] Estudi de la consist\`encia de l'estimador $\hat{\Gamma} 
+	=\max\{X_1,\ldots,X_n\}=X_{(n)}$.
+	
+	Recordem que per veure que un estimador \'es consistent hem de veure que 
+	no t\'e biaix o que el biaix tendeix a zero i que la vari\`ancia de 
+	l'estimador tamb\'e t\'e l\'{\i}mit zero quan $n$ tendeix cap a infinit.
+
+    Abans de comprovar res, trobem la funci\'o de densitat de 
+    $\hat{\Gamma}$. Recordem que la funci\'o de densitat i de distribuci\'o 
+    de la variable $X=U(0,\gamma)$ s\'on:
+    \[
+    f_X(x)=
+	\left\{\begin{array}{ll}
+	\frac{1}{\gamma}, & \text{si $x\in(0,\gamma)$}, \\ 0, & \text{en 
+    cas contrari},
+	\end{array}\right.
+	\quad F_X (x)=
+	\left\{\begin{array}{ll}
+	0, & \text{si $x\leq 0$}, \\ 
+    \frac{x}{\gamma}, &  \text{si $0<x<\gamma$}, 
+	\\ 1, & \text{si $x\geq \gamma$}.
+	\end{array}\right.
+    \]
+    La funci\'o de densitat de $\hat{\Gamma}$ s'obtendr\`a fent servir la 
+f\'ormula per trobar la funci\'o de densitat del m\`axim:
+    \[
+    f_{\hat{\Gamma}}(x)=n f_X(x) {F_X(x)}^{n-1}=
+	\left\{\begin{array}{ll}
+	n\cdot 
+    \frac{1}{\gamma}\cdot\frac{x^{n-1}}{\gamma^{n-1}}=\frac{n 
+    x^{n-1}}{\gamma^n}, & \text{si $0<x<\gamma$}, 
+	\\ 0, & \text{en cas contrari}.
+	\end{array}\right.
+    \]
+    Calculem l'esperan\c{c}a de $\hat{\Gamma}$:
+    \[
+    \EE (\hat{\Gamma})=\int_0^\gamma x f_{\hat{\Gamma}}(x)\, 
+    dx=\int_0^\gamma \frac{n x^n}{\gamma^n}\, dx =\frac{n}{\gamma^n} 
+    {\left[\frac{x^{n+1}}{n+1}\right]}_0^\gamma =\frac{n}{n+1} \gamma.
+    \]
+	Per tant, l'estimador $\hat{\Gamma}$ t\'e biaix per\`o el biaix de 
+	$\hat{\Gamma}$ tendeix a zero quan $n$ tendeix cap a infinit:
+	\[
+	\lim_{n\to\infty} \EE\hat{\Gamma} = \lim_{n\to\infty} \frac{n}{n+1} \gamma 
+	=\gamma.
+	\]
+	
+	Calculem ara la vari\`ancia de $\hat{\Gamma}$:
+	\[
+	\mbox{Var } \hat{\Gamma} = \EE\left( {\hat{\Gamma}}^2\right) 
+	-{(\EE\hat\Gamma)}^2.
+	\]
+	Calculem $\EE\left( {\hat{\Gamma}}^2\right) $:
+	\[
+	 \EE\left( {\hat{\Gamma}}^2\right) =\int_0^\gamma x^2 
+	 f_{\hat{\Gamma}}(x)\, dx = \int_0^\gamma \frac{n x^{n+1}}{\gamma^n}\, 
+	 dx =\frac{n}{\gamma^n} 
+    {\left[\frac{x^{n+2}}{n+2}\right]}_0^\gamma =\frac{n\gamma^2}{n+2}.
+	\]
+	La vari\`ancia de $\hat{\Gamma}$ valdr\`a:
+	\begin{eqnarray*}
+	\mbox{Var }\hat{\Gamma} & = & \EE\left( {\hat{\Gamma}}^2\right) 
+	-{(\EE\hat\Gamma)}^2 = \frac{n}{n+2} \gamma^2 - \frac{n^2}{{(n+1)}^2} 
+	\gamma^2 \\ & = & \gamma^2 \left(\frac{n}{n+2} -\frac{n^2}{{(n+1)}^2} 
+	\right)=\frac{n}{(n+2) {(n+1)}^2} \gamma^2.
+	\end{eqnarray*}
+	Observem que $\lim\limits_{n\to\infty} \mbox{Var } \hat{\Gamma} =0$. Per 
+	tant $\hat{\Gamma}$ \'es un estimador consistent.
+
+	
+	\item[II.] Estudi de la consist\`encia de l'estimador $\tilde{\Gamma} = 
+	2\overline{X}$.
+	
+	Calculem primer l'esperan\c{c}a de $\tilde{\Gamma}$ recordant que 
+	l'esperan\c{c}a de la variable\break $U(0,\gamma)$ val 
+	$\frac{\gamma}{2}$:
+	\[
+	\EE\tilde{\Gamma} = \EE\left(2\overline{X}\right)= 2\cdot\frac{1}{n}\cdot n \EE X_i = 
+	2\cdot\frac{\gamma}{2} =\gamma.
+	\]
+	Dedu\"{\i}m, doncs, que $\tilde{\Gamma}$ no t\'e biaix.
+	
+	Calculem a continuaci\'o $\mbox{Var }\tilde{\Gamma}$ recordant que 
+	$\mbox{Var } X=\frac{\gamma^2}{12}$ per veure si 
+	l'estimador \'es consistent:
+	\[
+	\mbox{Var }\tilde{\Gamma}=\mbox{Var }\left( 2\overline{X}\right)= 
+	4\cdot\frac{1}{n^2}\cdot n \mbox{Var } X 
+	=\frac{4}{n}\cdot\frac{\gamma^2}{12}=\frac{\gamma^2}{3 n}.
+	\]
+	Per tant, dedu\"{\i}m que $\tilde{\Gamma}$ \'es consistent ja que no t\'e biaix i 
+	el l\'{\i}mit de la vari\`ancia de $\tilde{\Gamma}$ \'es zero quan $n$ tendeix cap 
+	a infinit.
+	
+	\item[III.] Estudi de l'efici\`encia entre els estimadors $\hat{\Gamma}=
+    \max\{X_1,\ldots,X_n\}=X_{(n)}$ i $\tilde{\Gamma}=2 \overline{X}$.
+
+    
+    L'estimador m\'es eficient \'es aquell que t\'e la vari\`ancia m\'es petita. 
+
+    Recordem que les vari\`ancies dels dos estimadors s\'on:
+    \begin{eqnarray*}
+    	\mbox{Var }\hat{\Gamma} & = &  \frac{n}{(n+2) {(n+1)}^2} \gamma^2, \\
+    	\mbox{Var }\tilde{\Gamma} & = & \frac{1}{3 n} \gamma^2.
+    \end{eqnarray*}
+    Per a $n$ gran observem que $\mbox{Var }\hat{\Gamma}\sim 
+    \frac{1}{n^2}\gamma^2$ i $\mbox{Var }\tilde{\Gamma} = \frac{1}{3 n} 
+    \gamma^2$. Per tant, podem conjecturar que el m\'es eficient ser\`a 
+    $\hat{\Gamma}$. Vegem-ho:
+    \begin{eqnarray*}
+    	\mbox{Var }\hat{\Gamma} & < & \mbox{Var }\tilde{\Gamma}\ 
+    	\Longleftrightarrow  \\
+    	\frac{n}{(n+2) {(n+1)}^2} & < & \frac{1}{3 n} \ 
+    	\Longleftrightarrow \\
+    	3 n^2 & < & (n+2) {(n+1)}^2 \ 
+    	\Longleftrightarrow  \\
+    	0 & < & n^3+  n^2 + 5 n +2.
+    \end{eqnarray*}
+    La darrera desigualtat \'es certa. Per tant, tamb\'e ho s\'on les altres desigualtats i concloem que $\hat{\Gamma}$ \'es m\'es eficient que 
+    $\tilde{\Gamma}$.
+\end{itemize}}
+
+\begin{probres}
+{Considerem una biblioteca 
+que t\'e en total $N$ llibres 
+on $N$ \'es un par\`ametre 
+desconegut. Suposem que tots els llibres estan numerats de $1$ a $N$.
+
+Escollim un llibre a l'atzar i sigui $X$ la variable aleat\`oria que ens
+d\'ona el n\'umero del llibre. 
+\begin{itemize}
+\item[a)] {Suposant que tots els llibres tenen la
+mateixa probabilitat de sortir, trobau la funci\'o de probabilitat, 
+esperan\c{c}a i vari\`ancia de $X$.}
+
+Indicaci\'o:$$\sum_{i=1}^N i =  {N(N+1)\over 2},\quad
+\sum_{i=1}^N i^2 =  {N(N+1)(2N+1)\over 6}.$$ 
+\item[b)] {Sigui
+$X_1,X_2,\ldots,X_n$ una mostra aleat\`oria simple de $X$ de grand\`aria $n$. Sigui
+$T$ el seg\"uent estimador de $N$: $T=2\overline{X}-1$.
+
+Comprovau que $T$ no t\'e biaix i trobau $\hbox{Var } T$.
+
+Considerau que \'es un bon estimador? Per qu\`e?}
+\end{itemize}
+
+{\footnotesize Final. Juny 93.}}
+\end{probres}
+
+\res{ 
+\begin{itemize}
+\item[a)] El rang de la variable aleat\`oria $X$ \'es:
+\[
+X(\Omega)=\{1,\ldots,N\}.
+\]
+La funci\'o de probabilitat 
+de $X$ val, tenint en compte que tots els llibres tenen la mateixa probabilitat de sortir:
+$$
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c||c|c|c|}
+\hline $x$&$1$&$\ldots$&$N$ \\
+\hline
+$f(x)$&$\frac{1}{N}$&$\ldots$&$\frac{1}{N}$ \\
+\hline
+\end{tabular}
+$$
+Els valors de $\EE X$ i $\mbox{Var }X$ valdran:
+\begin{eqnarray*}
+\EE X & = & \sum_{i=1}^N i\cdot f_X (i) =\frac{1}{N}\sum_{i=1}^{N} i =
+\frac{1}{N}\cdot\frac{(N+1)N}{2}=\frac{N+1}{2}, \\
+\mbox{Var } X & = & \EE\left(X^2\right) -{\left(\EE X\right)}^2 =
+\sum_{i=1}^N i^2\cdot\frac{1}{N}-{\left(\frac{N+1}{2}\right)}^2\\
+& = & \frac{(N+1)(2N+1)}{6}-\frac{{(N+1)}^2}{4}=\frac{N^2-1}{12}.
+\end{eqnarray*}
+\item[b)] Comprovem primer que $T$ no t\'e biaix o que $\EE T=N$:
+\[
+\EE T=2 \EE (\overline{X})-1=2\cdot\frac{1}{n}\cdot n\cdot \EE X -1 = N.
+\]
+Calculem a continuaci\'o $\mbox{Var }T$.
+\[
+\mbox{Var }T=4\mbox{Var }(\overline{X})=4\cdot\frac{1}{n^2}\cdot n\cdot
+\mbox{Var }X=\frac{4}{n}\cdot\frac{N^2-1}{12}=\frac{N^2-1}{3n}.
+\]
+Per tant, $T$ \'es un bon estimador en ser consistent
+ ja que \mbox{$\lim\limits_{n\to\infty} \mbox{Var }T=0$.}
+\end{itemize}}
+
+\begin{probres}
+{Sigui $X_1,\ldots, X_{2n}$ una mostra aleat\`oria simple d'una variable
+aleat\`oria $U(0,\theta)$.
+
+Considerem els seg\"uents estimadors de $\theta^2$:
+\begin{eqnarray*}
+T_1  & = & {4\over n}\sum_{i=1}^n X_{2 i-1}\cdot  X_{2i},\\ 
+T_2 &=&{(X_{(2n)})}^2 = {(\max_n \{ X_1,\ldots,X_{2n}\})}^2.
+\end{eqnarray*}
+\begin{itemize}
+\item[a)] {Provau que $T_1$ i $T_2$ s\'on consistents.}
+\item[b)] {Quin dels dos \'es mes eficient?}
+\end{itemize}
+
+{\footnotesize Final. Setembre 94.}}
+\end{probres}
+
+\res{
+\begin{itemize}
+\item[a)] Consist\`encia de $T_1$ i $T_2$.
+\begin{itemize}
+\item[a.1)] Consist\`encia de $T_1$.
+Calculem primer $\EE (T_1)$:
+\begin{eqnarray*}
+\EE (T_1)&=&\frac{4}{n}\EE\left(\sum_{i=1}^n \EE(X_{2i-1}\cdot X_{2i})\right)=
+\frac{4}{n}\cdot n\cdot \EE (X_1\cdot X_2) \\ &=&4 
+{\left(\EE (X)\right)}^2=4\cdot\frac{\theta^2}{4}=\theta^2.
+\end{eqnarray*}
+Fixau-vos que podem escriure que 
+\mbox{$\EE (X_{2i-1}\cdot X_{2i})=\EE (X_1\cdot X_2)$} ja
+que totes les $X_i$ s\'on variables uniformes en $(0,\theta)$. A m\'es a m\'es,
+ podem afirmar que $\EE (X_1\cdot X_2)={\left(\EE (X)\right)}^2$ ja que les
+ variables $X_1$ i $X_2$ s\'on independents.
+
+Concloem, doncs, que $T_1$ \'es un estimador sense biaix.
+
+Trobem a continuaci\'o la vari\`ancia 
+de $T_1$ per estudiar la consist\`encia. 
+
+\begin{equation}
+\mbox{Var }T_1 = \frac{16}{n^2}\mbox{Var }\left(\sum_{i=1}^n
+(X_{2i-1}\cdot X_{2i})\right)=
+\frac{16}{n^2}\cdot n\mbox{Var }(X_1\cdot X_2).
+\label{CALVART1}
+\end{equation}
+
+En l'\'ultim c\`alcul hem fet servir que la vari\`ancia de la suma
+\'es la suma de vari\`ancies i aix\`o sabem que \'es cert nom\'es quan 
+les variables aleat\`ories que intervenen en la suma s\'on independents.
+En el nostre cas, fixau-vos que cada variable $X_i$ nom\'es apareix
+una vegada en cada sumatori. Per tant, podem assegurar que totes les
+variables que hi ha en el sumatori de la darrera f\'ormula s\'on 
+independents.
+
+Per acabar de trobar $\mbox{Var }T_1$ ens fa falta calcular \mbox{
+$\mbox{Var }(X_1\cdot X_2)$:}
+\[
+\mbox{Var }(X_1\cdot X_2) =\EE\left(X_1^2\cdot X_2^2\right)-
+{\EE\left(X_1\cdot X_2\right)}^2 ={\EE\left(X^2\right)}^2 -{\EE (X)}^4.
+\]
+Tenint en compte que si $X$ \'es $U(0,\theta)$, $\EE (X)=\frac{\theta}{2}$ i
+\mbox{$\EE\left(X^2\right)=\frac{\theta^2}{3}$,} el c\`alcul anterior 
+es redueix a:
+\[
+\mbox{Var }(X_1\cdot X_2) = \frac{\theta^4}{9}-\frac{\theta^4}{16}=
+\frac{7\theta^4}{144}.
+\]
+La vari\`ancia de $T_1$, fent servir~(\ref{CALVART1}), valdr\`a:
+\[
+\mbox{Var }T_1 = \frac{16}{n}\cdot\frac{7\theta^4}{144}=\frac{7\theta^4}{9 n}.
+\]
+Queda provada la consist\`encia de $T_1$ en complir-se que 
+\mbox{$\lim\limits_{n\to\infty} \mbox{Var }T_1 =0$.}
+\item[a.2)] Consist\`encia de $T_2$.
+
+Calculem primer la funci\'o de densitat de la variable $X_{(2n)}$ ja que
+ens ser\`a molt \'util per trobar $\EE (T_2)$ i $\mbox{Var }T_2$.
+
+Per fer-ho hem de tenir en compte tres f\'ormules: la funci\'o de densitat
+i de distribuci\'o de la variable $X$ i la funci\'o de densitat del
+m\`axim per a una mostra aleat\`oria simple d'una variable cont\'{\i}nua:
+
+\begin{eqnarray*}
+f_X (t) & = & 
+\left\{\begin{array}{ll}
+\frac{1}{\theta}, & \text{si $0\leq t\leq
+\theta$},\\ 0, & \text{en cas contrari},
+\end{array}\right.
+\\
+F_X (t) & = & 
+\left\{\begin{array}{ll}
+0, & \text{si $t<0$}, \\ \frac{t}{\theta}, & \text{si 
+$0\leq t\leq\theta$}, \\ 1, & \text{si $t>\theta$},
+\end{array}\right.
+\\
+f_{X_{(2n)}}(t) & = & 2 n f_X(t) {F_X(t)}^{2n-1}=\frac{2n t^{2n-1}}
+{\theta^{2n}},\ 0\leq t\leq\theta.
+\end{eqnarray*}
+A continuaci\'o mirem si l'estimador $T_2$ t\'e biaix:
+\begin{eqnarray*}
+\EE (T_2) & = & \EE\left( {(X_{(2n)})}^2\right)=\int_0^\theta 
+\frac{2n t^{2n+1}}{\theta^{2n}}\, dt \\ & = & \frac{2n}{\theta^{2n}}
+{\left[\frac{t^{2n+2}}{2n+2}\right]}_0^\theta = \frac{n\theta^2}{n+1}.
+\end{eqnarray*}
+Concloem, doncs, que l'estimador $T_2$ t\'e biaix per\`o el biaix
+tendeix a zero ja que \mbox{$\lim\limits_{n\to\infty} \EE (T_2)=\theta^2$.}
+
+Vegem a continuaci\'o la consist\`encia de $T_2$ calculant la seva 
+vari\`ancia:
+\begin{eqnarray*}
+\mbox{Var }T_2 & = & \EE\left(T_2^2\right)-{(\EE (T_2)}^2 = 
+\EE\left( {(X_{(2n)})}^4\right) -
+{\left(\frac{n\theta^2}{n+1}\right)}^2 \\
+& = & \int_0^\theta
+\frac{2 n t^{ 2n+3}}{\theta^{2n}}\, dt =\frac{n\theta^4}{n+2}-
+{\left(\frac{n\theta^2}{n+1}\right)}^2 = \frac{n\theta^4}{n^3+4 n^2
++ 5 n +2}.
+\end{eqnarray*}
+Concloem que $T_2$ \'es consistent 
+ja que el biaix de $T_2$ tendeix a zero i la vari\`ancia
+ tamb\'e.
+\end{itemize}
+\item[b)] Efici\`encia.
+L'estimador m\'es eficient \'es $T_2$ ja que:
+\begin{eqnarray*}
+\mbox{Var} T_1 & \geq & \mbox{Var }T_2\ \Longleftrightarrow  \\
+\frac{7 \theta^4}{9 n} & \geq & \frac{n\theta^4}{n^3+4 n^2+5 n+2}\ 
+\Longleftrightarrow \\
+7 n^3 + 28 n^2 + 35 n + 14 & \geq  & 9 n^2.
+\end{eqnarray*}
+\end{itemize}
+}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Suposem que la quantitat de pluja registrada en una certa estaci\'o
+ en
+un dia determinat est\`a distribu\"{\i}da uniformement en l'interval $(0,b)$. Ens
+donen la seg\"uent mostra dels registres dels darrers 10 anys en el dia
+esmentat: $$0,0,0.7,1,0.1,0,0.2,0.5,0,0.6$$
+
+Estimau el par\`ametre $b$ a partir del seu estimador
+ $\tilde b$.}
+\end{prob}
+
+\begin{prob}
+{Suposem que el grau de creixement de pins de $0.3$ metres d'al\c{c}ada
+en un any \'es una variable aleat\`oria normal amb mitjana i vari\`ancia
+desconegudes. Es registren els creixements de 5 arbres i els 
+resultats s\'on: $0.9144,1.524,0.6096,0.4572$ i $1.0668$ metres. 
+Trobau les estimades pel m\`etode dels moments per a $\mu$ i $\sigma^2$.}
+\end{prob}
+
+\begin{prob}
+{$X$ \'es una variable geom\`etrica 
+amb par\`ametre~$p$.
+ Donada una mostra
+aleat\`oria de $n$ observacions de $X$, 
+quin \'es l'estimador de $p$ pel m\`etode dels moments?}
+\end{prob}
+
+\begin{prob}
+{Se suposa que el nombre d'hores que funciona una bombeta \'es una
+va\-ria\-ble exponencial amb par\`ametre~$\lambda$. 
+Donada una mostra de $n$
+durades, calculau l'estimador pel m\`etode dels moments per a $\lambda$.}
+\end{prob}
+
+\begin{prob}
+{Si se suposa que $X$ est\`a distribu\"{\i}da uniformement en l'interval
+\hbox{$(b-{1\over 4},b+5)$,} quin \'es l'estimador pel m\`etode dels moments
+per a $b$ en base a una mostra aleat\`oria de $n$ observacions?}
+\end{prob}
+
+\begin{prob}
+{Suposem que $X$ \'es una variable aleat\`oria de Poisson
+ amb par\`ametre~$\lambda$. 
+Donada una mostra aleat\`oria de $n$ observacions de $X$, 
+quin \'es l'estimador de m\`axima versemblan\c{c}a per a $\lambda$?}
+
+\end{prob}
+
+\begin{prob}
+{Suposem que $X$ est\`a distribu\"{\i}da uniformement en l'interval
+\hbox{$\left(b-{1\over 2},b+{1\over 2}\right)$.} Quin \'es l'estimador de m\`axima
+versemblan\c{c}a per a $b$ donada una mostra aleat\`oria de grand\`aria $n$ per $X$?}
+
+\end{prob}
+
+\begin{prob}
+{Quin \'es l'estimador de m\`axima versemblan\c{c}a per al par\`ametre
+$\lambda$ d'una variable exponencial per a una mostra de 
+grand\`aria $n$?}
+\etiqueta{MAXVEREXPLAMBDA}
+\end{prob}
+
+\begin{prob}
+{Es registren els temps de duraci\'o de 30 bombetes.
+ Suposem que el
+temps de duraci\'o d'aquestes bombetes \'es una variable exponencial. Si
+la suma dels temps \'es $\sum x_i =32916$ hores, quina \'es l'estimada de m\`axima
+versemblan\c{c}a per al par\`ametre de la distribuci\'o exponencial de duraci\'o de les
+bombetes?}
+\end{prob}
+
+
+\begin{prob}
+{Suposem que $X_1,X_2,\ldots,X_6$ \'es una mostra aleat\`oria d'una
+variable aleat\`oria normal
+ amb mitjana~$\mu$
+ i vari\`ancia~$\sigma^2$.
+ Trobau la
+constant $C$ tal que $$C\bigl({(X_1 -X_2)}^2 +{(X_3 -X_4)}^2 + 
+ {(X_5 -X_6)}^2\bigr),$$sigui un estimador sense biaix
+ de $\sigma^2$.}
+\end{prob}
+
+
+\begin{prob}
+{Un venedor de cotxes pensa que el nombre de vendes 
+de cotxes nous que fa en un dia no festiu 
+\'es una variable aleat\`oria de Poisson amb par\`ametre~$\lambda$.
+ 
+Examinant els seus registres de l'any anterior (que va tenir 310
+dies no festius), veu que va vendre un total de 279 cotxes. Calculau pel
+m\`etode de la m\`axima versemblan\c{c}a la probabilitat que no vengui 
+cap cotxe el
+seu pr\`oxim dia de treball.}
+\end{prob}
+
+\begin{prob}
+{Suposem que els anys de vida dels homes dels Estats Units
+ estan
+distribu\"{\i}ts normalment amb mitjana~$\mu$
+ i vari\`ancia~$\sigma^2$. Una mostra
+aleat\`oria de 10000 antecedents de mortalitat d'homes d'Estats Units va donar
+com a resultat \hbox{$\overline{x}=72.1$ anys,} \hbox{$s^2 =144$ anys.}
+Trobau pel m\`etode de la m\`axima versemblan\c{c}a la probabilitat que 
+un home americ\`a visqui fins als 50 anys d'edat i la probabilitat que no visqui fins
+als 90 anys.}
+\end{prob}
+
+\begin{prob}
+{Suposem que $\Theta_1$ i $\Theta_2$ s\'on estimadors sense biaix
+d'un par\`ametre desconegut $\theta$, amb vari\`ancies conegudes $\sigma_1^2$ i
+$\sigma_2^2$, respectivament.
+\begin{itemize}
+\item[a)]{Provau que $\Theta =(1-a) \Theta_1 +a \Theta_2$ tamb\'e \'es sense
+biax per a qualsevol valor de $a$.}
+\item[b)]{Trobau el valor de $a$ que minimitza $\hbox{Var }\Theta$.}
+\end{itemize}}
+\end{prob}
+
+\newpage
+
+\begin{prob}
+{Sigui $X$ una variable aleat\`oria $N(\mu,\sigma^2)$ amb $\sigma$ coneguda i $X_1,\ldots, X_n$
+una mostra aleat\`oria simple de $X$. Considerem els seg\"uents estimadors del
+par\`ametre $\lambda =\mu^2$:
+\begin{eqnarray*}
+T_1 & = & \overline{X}^2 = {\Biggl({\sum\limits_{i=1}^n
+X_i\over n}\Biggr)}^2,\\  T_2 & = & {\sum\limits_{i=1}^n X_i^2 \over
+n}-\sigma^2.\end{eqnarray*}
+Es demana:
+\begin{itemize}
+\item[a)] {Provau que $T_1$ i $T_2$ s\'on estimadors consistents.}
+
+\item[b)] {Quin estimador \'es m\'es eficient?}
+\end{itemize}
+
+{\footnotesize Final. Juny 94.}}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X_1,\ldots,X_{2n}$ una mostra aleat\`oria simple d'una variable
+aleat\`oria $N(\mu,\sigma^2)$. Sigui:
+\[
+T=C\left({\left(\sum_{i=1}^{2n} X_i\right)}^2- 4 n\sum_{i=1}^{n}
+X_{2i} X_{2i-1}\right)
+\]
+un estimador del par\`ametre~$\sigma^2$. Quin \'es el valor de $C$ perqu\`e
+$T$ sigui un estimador sense biaix?
+\newline{\footnotesize Segon parcial. Juny 95.}
+}
+\end{prob}
+
+\enlargethispage*{1000pt}
+
+\begin{prob}
+{
+Es diu que la variable aleat\`oria $X$ segueix la distribuci\'o de 
+Rayleigh amb par\`ametre $\theta >0$ si \'es una variable 
+aleat\`oria amb valors $x>0$ i funci\'o de densitat:
+\[
+f(x)=\frac{x}{\theta} e^{-\frac{x^2}{2\theta}}.
+\]
+Trobau l'estimador de $\theta$ pel:
+\begin{itemize}
+\item[a)] m\`etode dels moments.
+\item[b)] m\`etode de la m\`axima versemblan\c{c}a.
+\end{itemize}
+
+{\footnotesize Segon parcial. Juny 95.}
+}
+\end{prob}
+
+\newpage
+
+\begin{prob}
+{
+Considerem una variable aleat\`oria $X\ \mbox{Exp}(\lambda)$. 
+Sigui \mbox{$X_1,\ldots,X_n$} una mostra aleat\`oria
+simple de $X$. Considerem els seg\"uents estimadors del par\`ametre 
+$\frac{1}{\lambda^2}$:
+\begin{eqnarray*}
+T_1 & = & \overline{X}^2,\\
+T_2 & = & \frac{1}{2n}\sum\limits_{i=1}^n X_i^2.
+\end{eqnarray*}
+\begin{itemize}
+\item[a)] S\'on estimadors sense biaix?
+\item[b)] Quin dels dos estimadors \'es m\'es eficient?
+\end{itemize}
+
+\noindent{\footnotesize Indicaci\'o: La variable aleat\`oria 
+\mbox{$2\lambda \sum\limits_{i=1}^n X_i$} \'es una variable $\chi_{2n}^2$.}
+\newline{\footnotesize Examen extraordinari de febrer 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X_1,\ldots,X_n$ una mostra aleat\`oria simple d'una variable
+aleat\`oria $X$ uniforme en l'interval $[0,b]$. Considerem
+el seg\"uent estimador del par\`ametre $b$:
+\[
+\tilde{b}=a\sum\limits_{i=1}^n X_i,
+\]
+on~$a$ \'es una constant.
+Una vegada trobat $a$ perqu\`e $\tilde{b}$ sigui un estimador sense biaix,
+trobau el valor de $\mbox{Var }\tilde{b}$.
+\newline{\footnotesize Final. Setembre 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Trobau els estimadors pel m\`etode dels moments i pel de la m\`axima 
+versemblan\c{c}a pel par\`ametre $\alpha$ de la distribuci\'o de Maxwell:
+\[
+f(x)=\frac{4}{\alpha^3 \sqrt{\pi}} x^2 
+e^{-\frac{x^2}{\alpha^2}},\ x\geq 0,\ \alpha >0.
+\]
+{\footnotesize Final. Setembre 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X_1,\cdots,X_n$ una mostra aleat\`oria simple d'una
+variable alet\`oria $X$ amb $\EE (X)=\mu$ i $\mbox{Var } X=\sigma^2$.
+Considerem els seg\"uents estimadors del par\`ametre~$\mu$:
+\[
+T_1 = \overline{X}=\frac{\sum\limits_{i=1}^n X_i}{n},\quad
+T_2 = k \sum_{i=1}^n i X_i.
+\]
+Es demana:
+\begin{itemize}
+\item[a)] El valor de la constant $k$ perque $T_2$ sigui sense biaix.
+\item[b)] Provau que $T_1$ i $T_2$ s\'on consistents.
+\item[c)] Quin estimador \'es m\'es eficient?
+\end{itemize}
+Ajuda: $\sum\limits_{i=1}^n i^2 = \frac{n (n+1) (2n+1)}{6}$.
+\newline{\footnotesize Final. Febrer 96.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X_1,\ldots,X_{n}$ una mostra aleat\`oria simple d'una variable
+aleat\`oria $X$ tal que $F_X$ dep\`en d'un par\`ametre
+ desconegut~$\lambda$
+amb $\EE (X)=\lambda$ i $\mbox{Var }X=\lambda^2$. Considerem el
+seg\"uent estimador de~$\lambda$:
+$$
+\tilde{\lambda}=
+\frac{1}{2}\left(\frac{1}{m}(X_1+\cdots X_m)+\frac{1}{n-m}(X_{m+1}+
+\cdots X_n)\right),$$
+amb $m=\frac{n}{3}$, on suposam que~$n$ \'es m\'ultiple de~$3$.
+Trobau la vari\`ancia de~$\tilde{\lambda}$.
+\newline{\footnotesize Final. Juny 96.}
+}
+\end{prob}
+
+\begin{prob}
+{Sigui~$X$ una variable aleat\`oria tal que $\EE (X)=\mu$ i $\mbox{Var
+}(X)=\sigma^2$. Sigui $X_1,X_2$ una mostra aleat\`oria simple de~$X$ de
+grand\`aria~$2$. Considerem el seg\"uent estimador del par\`ametre~$\mu$:
+$\tilde{\mu}=2 a X_1 + (1-2 a) X_2$. Trobau el valor de $a$ que fa 
+$\tilde{\mu}$ el m\'es eficient possible.
+\newline{\footnotesize Final. Setembre 96.}
+}
+\end{prob}
+
+

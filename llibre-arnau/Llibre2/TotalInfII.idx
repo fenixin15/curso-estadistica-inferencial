@@ -1,0 +1,408 @@
+\indexentry{mostreig!estadistic@estad\'{\i}stic}{9}
+\indexentry{inferencia@infer\`encia!estadistica@estad\'{\i}stica}{9}
+\indexentry{individu}{9}
+\indexentry{poblacio@poblaci\'o}{9}
+\indexentry{estimacio@estimaci\'o!puntual}{9}
+\indexentry{probabilitat}{9}
+\indexentry{interval!de confianca@de confian\c{c}a}{9}
+\indexentry{contrast!d'hipotesi@d'hip\`otesi}{9}
+\indexentry{mostra}{9}
+\indexentry{poblacio@poblaci\'o}{9}
+\indexentry{poblacio@poblaci\'o}{9}
+\indexentry{mostra}{9}
+\indexentry{mostra!aleatoria@aleat\`oria!simple}{9}
+\indexentry{variable!aleatoria@aleat\`oria}{9}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o}{9}
+\indexentry{estadistica@estad\'{\i}stica}{9}
+\indexentry{mostra!aleatoria@aleat\`oria!simple}{9}
+\indexentry{parametre@par\`ametre}{9}
+\indexentry{moment de la mostra}{10}
+\indexentry{mitjana!de la mostra}{10}
+\indexentry{variancia@vari\`ancia!de la mostra}{10}
+\indexentry{desviacio@desviaci\'o!tipica@t\'{\i}pica}{10}
+\indexentry{quasivariancia de la mostra@quasivari\`ancia de la mostra}{10}
+\indexentry{mediana de la mostra}{10}
+\indexentry{rang de la mostra}{10}
+\indexentry{moment de la mostra}{10}
+\indexentry{funcio@funci\'o!generatriu de moments}{11}
+\indexentry{estadistica@estad\'{\i}stica!inferencial}{11}
+\indexentry{funcio@funci\'o!de densitat}{11}
+\indexentry{grau!de llibertat}{11}
+\indexentry{mitjana}{11}
+\indexentry{variancia@vari\`ancia}{11}
+\indexentry{simetrica@sim\`etrica}{11}
+\indexentry{normal}{11}
+\indexentry{percentil}{11}
+\indexentry{variable!aleatoria@aleat\`oria!normal}{11}
+\indexentry{grau!de llibertat}{11}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o}{11}
+\indexentry{estimacio@estimaci\'o!de parametres@de par\`ametres}{21}
+\indexentry{estadistica@estad\'{\i}stica}{21}
+\indexentry{parametre@par\`ametre}{21}
+\indexentry{poblacio@poblaci\'o}{21}
+\indexentry{estimador}{21}
+\indexentry{estimada}{21}
+\indexentry{mostra!aleatoria@aleat\`oria}{21}
+\indexentry{metode@m\`etode!dels moments}{21}
+\indexentry{primer moment}{21}
+\indexentry{distribucio@distribuci\'o!uniforme}{21}
+\indexentry{metode@m\`etode!de la maxima versemblanca@de la m\`axima versemblan\c{c}a}{22}
+\indexentry{parametre@par\`ametre}{22}
+\indexentry{funcio@funci\'o!de versemblanca@de versemblan\c{c}a!de la mostra}{22}
+\indexentry{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}{22}
+\indexentry{estimador}{22}
+\indexentry{estimador!sense biaix}{22}
+\indexentry{valor esperat}{22}
+\indexentry{parametre@par\`ametre}{22}
+\indexentry{estimador!eficient}{22}
+\indexentry{estimador!lineal}{22}
+\indexentry{estimador!lineal}{23}
+\indexentry{estimador!consistent}{23}
+\indexentry{consistencia@consist\`encia}{23}
+\indexentry{estimador!consistent}{23}
+\indexentry{parametre@par\`ametre}{23}
+\indexentry{estadistica@estad\'{\i}stica!suficient}{23}
+\indexentry{criteri!de factoritzacio de Fisher-Neyman@de factoritzaci\'o de Fisher-Neyman}{23}
+\indexentry{estadistica@estad\'{\i}stica!suficient}{23}
+\indexentry{parametre@par\`ametre}{23}
+\indexentry{estadistica@estad\'{\i}stica!suficient}{23}
+\indexentry{estimador!sense biaix}{24}
+\indexentry{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}{24}
+\indexentry{propietat invariant}{24}
+\indexentry{estadistica@estad\'{\i}stica!suficient}{24}
+\indexentry{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}{24}
+\indexentry{estimador!consistent}{24}
+\indexentry{distribucio@distribuci\'o!normal}{24}
+\indexentry{estimador!de variancia minima@de vari\`ancia m\'{\i}nima}{24}
+\indexentry{cota de Cramer-Rao}{24}
+\indexentry{estimador!lineal!sense biaix}{25}
+\indexentry{cota de Cramer-Rao}{25}
+\indexentry{funcio@funci\'o!de versemblanca@de versemblan\c{c}a!de la mostra}{25}
+\indexentry{estimador!sense biaix}{25}
+\indexentry{variable!aleatoria@aleat\`oria!normal}{25}
+\indexentry{cota de Cramer-Rao}{25}
+\indexentry{interval!de confianca@de confian\c{c}a}{47}
+\indexentry{estimador!puntual}{47}
+\indexentry{parametre@par\`ametre}{47}
+\indexentry{observacio@observaci\'o}{47}
+\indexentry{estimador}{47}
+\indexentry{estimador!puntual}{47}
+\indexentry{estimador}{47}
+\indexentry{estimacio@estimaci\'o}{47}
+\indexentry{parametre@par\`ametre}{47}
+\indexentry{interval!de confianca@de confian\c{c}a}{47}
+\indexentry{grau!de confianca@de confian\c{c}a}{47}
+\indexentry{parametre@par\`ametre}{47}
+\indexentry{parametre@par\`ametre}{47}
+\indexentry{interval!de confianca@de confian\c{c}a}{47}
+\indexentry{extrem}{47}
+\indexentry{interval!de confianca@de confian\c{c}a}{48}
+\indexentry{interval!de confianca@de confian\c{c}a}{48}
+\indexentry{distribucio@distribuci\'o!$t$ de Student}{48}
+\indexentry{funcio@funci\'o!gamma}{48}
+\indexentry{desviacio estandard@desviaci\'o est\`andard!de la mostra}{48}
+\indexentry{interval!de confianca@de confian\c{c}a}{49}
+\indexentry{variable!aleatoria@aleat\`oria!exponencial}{49}
+\indexentry{parametre@par\`ametre}{49}
+\indexentry{interval!de confianca@de confian\c{c}a}{49}
+\indexentry{interval!de confianca@de confian\c{c}a!unilateral}{49}
+\indexentry{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}{49}
+\indexentry{interval!de confianca@de confian\c{c}a}{49}
+\indexentry{contrast!d'hipotesi@d'hip\`otesi}{59}
+\indexentry{hipotesi@hip\`otesi!nul.la@nu{\lgem}a}{59}
+\indexentry{hipotesi@hip\`otesi!alternativa}{59}
+\indexentry{contrast!d'hipotesi@d'hip\`otesi}{59}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{59}
+\indexentry{error!de tipus I}{59}
+\indexentry{error!de tipus II}{59}
+\indexentry{parametre@par\`ametre}{59}
+\indexentry{corba OC}{59}
+\indexentry{funcio@funci\'o!de potencia del test@de pot\`encia del test}{59}
+\indexentry{hipotesi@hip\`otesi!simple}{60}
+\indexentry{parametre@par\`ametre}{60}
+\indexentry{contrast!d'hipotesi@d'hip\`otesi!simple}{60}
+\indexentry{probabilitat!d'error tipus I}{60}
+\indexentry{probabilitat!d'error tipus II}{60}
+\indexentry{nivell!de significacio@de significaci\'o}{60}
+\indexentry{probabilitat!d'error tipus I}{60}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{60}
+\indexentry{nivell!de significacio@de significaci\'o}{60}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{60}
+\indexentry{error!de tipus II}{60}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica!optima@\`optima}{60}
+\indexentry{lema de Neyman-Pearson}{60}
+\indexentry{parametre@par\`ametre}{60}
+\indexentry{funcio@funci\'o!de versemblanca@de versemblan\c{c}a!de la mostra}{60}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica!optima@\`optima}{60}
+\indexentry{nivell!de significacio@de significaci\'o}{60}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica!optima@\`optima}{61}
+\indexentry{nivell!de significacio@de significaci\'o}{61}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica!optima@\`optima}{61}
+\indexentry{nivell!de significacio@de significaci\'o}{61}
+\indexentry{hipotesi@hip\`otesi!alternativa!unilateral}{61}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica!de Neyman-Pearson}{61}
+\indexentry{funcio@funci\'o!de potencia@de pot\`encia}{61}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica!de Neyman-Pearson}{61}
+\indexentry{estadistica@estad\'{\i}stica!suficient}{61}
+\indexentry{parametre@par\`ametre}{61}
+\indexentry{parametre@par\`ametre}{61}
+\indexentry{estadistica@estad\'{\i}stica!suficient}{61}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica!de Neyman-Pearson}{61}
+\indexentry{hipotesi@hip\`otesi!composta}{61}
+\indexentry{lema de Neyman-Pearson}{61}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica!optima@\`optima}{61}
+\indexentry{error!de tipus I}{62}
+\indexentry{corba OC}{62}
+\indexentry{criteri de contrast!de la rao de versemblanca@de la ra\'o de versemblan\c{c}a}{62}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{62}
+\indexentry{hipotesi@hip\`otesi!composta}{62}
+\indexentry{funcio@funci\'o!de versemblanca@de versemblan\c{c}a!de la mostra}{62}
+\indexentry{parametre@par\`ametre}{62}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{62}
+\indexentry{error!de tipus I}{62}
+\indexentry{contrast!d'hipotesi@d'hip\`otesi!parametric@param\`etric}{62}
+\indexentry{estadistica@estad\'{\i}stica}{62}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{62}
+\indexentry{interval!de confianca@de confian\c{c}a}{62}
+\indexentry{prova!de la bondat d'ajustament}{83}
+\indexentry{prova!d'independencia@d'independ\`encia}{83}
+\indexentry{contrast!d'hipotesi@d'hip\`otesi}{83}
+\indexentry{parametre@par\`ametre}{83}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o}{83}
+\indexentry{prova!d'independencia@d'independ\`encia!de dues variables}{83}
+\indexentry{classificacio@classificaci\'o}{83}
+\indexentry{categoria}{83}
+\indexentry{prova!de bondat d'ajustament}{83}
+\indexentry{vector aleatori!multinomial}{83}
+\indexentry{parametre@par\`ametre}{83}
+\indexentry{probabilitat!d'error tipus I}{84}
+\indexentry{prova!multinomial}{84}
+\indexentry{vector aleatori!multinomial}{84}
+\indexentry{parametre@par\`ametre}{84}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o}{84}
+\indexentry{distribucio@distribuci\'o!de Poisson}{85}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o}{85}
+\indexentry{condicio de regularitat@condici\'o de regularitat}{85}
+\indexentry{parametre@par\`ametre}{85}
+\indexentry{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}{85}
+\indexentry{estadistica@estad\'{\i}stica}{85}
+\indexentry{parametre@par\`ametre}{85}
+\indexentry{prova!d'independencia@d'independ\`encia}{85}
+\indexentry{criteri}{85}
+\indexentry{metode@m\`etode!de classificacio@de classificaci\'o}{85}
+\indexentry{nivell}{85}
+\indexentry{classe}{85}
+\indexentry{nivell!de classificacio@de classificaci\'o}{85}
+\indexentry{taula de contingencia@taula de conting\`encia}{85}
+\indexentry{representacio tabular@representaci\'o tabular}{85}
+\indexentry{metode@m\`etode!de classificacio@de classificaci\'o!independent}{85}
+\indexentry{prova!d'independencia@d'independ\`encia}{85}
+\indexentry{taula de contingencia@taula de conting\`encia}{85}
+\indexentry{poblacio@poblaci\'o!infinita}{85}
+\indexentry{nivell!de classificacio@de classificaci\'o}{85}
+\indexentry{atzar}{85}
+\indexentry{mostra}{85}
+\indexentry{atzar}{85}
+\indexentry{nivell!de classificacio@de classificaci\'o}{85}
+\indexentry{vector aleatori}{86}
+\indexentry{multinomial}{86}
+\indexentry{parametre@par\`ametre}{86}
+\indexentry{metode@m\`etode!de classificacio@de classificaci\'o!independent}{86}
+\indexentry{classe}{86}
+\indexentry{independencia@independ\`encia}{86}
+\indexentry{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}{86}
+\indexentry{multinomial}{86}
+\indexentry{parametre@par\`ametre}{86}
+\indexentry{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}{86}
+\indexentry{estadistica@estad\'{\i}stica}{86}
+\indexentry{prova!de bondat d'ajust}{86}
+\indexentry{taula de contingencia@taula de conting\`encia}{86}
+\indexentry{nivell!de classificacio@de classificaci\'o}{86}
+\indexentry{criteri}{86}
+\indexentry{test!de Kolmogorov-Smirnov}{103}
+\indexentry{prova!de la bondat d'ajustament}{103}
+\indexentry{estadistica@estad\'{\i}stica!de Kolmogorov-Smirnov}{103}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o}{103}
+\indexentry{contrast!d'hipotesi@d'hip\`otesi}{103}
+\indexentry{distribucio@distribuci\'o!de la mostra}{103}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o!empirica@emp\'{\i}rica}{103}
+\indexentry{estadistica@estad\'{\i}stica!de Kolmogorov-Smirnov}{103}
+\indexentry{error!de tipus I}{104}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{104}
+\indexentry{hipotesi@hip\`otesi!nul.la@nu{\lgem}a}{104}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{104}
+\indexentry{nivell!de significacio@de significaci\'o}{104}
+\indexentry{analisi@an\`alisi!de la variancia@de la vari\`ancia}{109}
+\indexentry{significacio estadistica@significaci\'o estad\'{\i}stica}{109}
+\indexentry{mitjana}{109}
+\indexentry{mostra}{109}
+\indexentry{mostreig}{109}
+\indexentry{nivell}{109}
+\indexentry{factor!tractament}{109}
+\indexentry{factor!ambiental}{109}
+\indexentry{variabilitat}{109}
+\indexentry{analisi@an\`alisi!de la variancia@de la vari\`ancia!d'un factor}{109}
+\indexentry{variable!aleatoria@aleat\`oria!normal}{109}
+\indexentry{mitjana}{109}
+\indexentry{variancia@vari\`ancia}{109}
+\indexentry{contrast!d'hipotesi@d'hip\`otesi}{109}
+\indexentry{tractament}{109}
+\indexentry{eficacia@efic\`acia}{109}
+\indexentry{classe!d'alumnes}{109}
+\indexentry{metode@m\`etode!d'ensenyament}{109}
+\indexentry{parametre@par\`ametre}{110}
+\indexentry{estimador!del parametre@del par\`ametre}{110}
+\indexentry{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}{110}
+\indexentry{estimador!de maxima versemblanca@de m\`axima versemblan\c{c}a}{110}
+\indexentry{variabilitat}{111}
+\indexentry{variabilitat!total de la mostra}{111}
+\indexentry{variabilitat}{111}
+\indexentry{mitjana!quadratica@quadr\`atica}{111}
+\indexentry{mitjana!quadratica@quadr\`atica!total}{111}
+\indexentry{mitjana!quadratica@quadr\`atica!intragrup}{111}
+\indexentry{mitjana!quadratica@quadr\`atica!intergrup}{111}
+\indexentry{estadistic@estad\'{\i}stic}{111}
+\indexentry{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}{112}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{112}
+\indexentry{variabilitat}{112}
+\indexentry{mitjana!quadratica@quadr\`atica}{113}
+\indexentry{estadistic@estad\'{\i}stic}{113}
+\indexentry{igualtat de variancies@igualtat de vari\`ancies}{113}
+\indexentry{Bartlett}{113}
+\indexentry{estadistic@estad\'{\i}stic!de contrast}{113}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{113}
+\indexentry{normalitat}{113}
+\indexentry{test!khi quadrat}{113}
+\indexentry{test!de Kolmogorov-Smirnov}{113}
+\indexentry{test!de Scheffe@de Scheff\'e}{113}
+\indexentry{nivell!de significacio@de significaci\'o}{113}
+\indexentry{analisi@an\`alisi!de la variancia@de la vari\`ancia!de dos factors}{114}
+\indexentry{metode@m\`etode!d'ensenyament}{114}
+\indexentry{eficacia@efic\`acia}{114}
+\indexentry{nivell!social}{114}
+\indexentry{rendiment}{114}
+\indexentry{rendiment!mitja@mitj\`a}{114}
+\indexentry{rendiment!mitja@mitj\`a}{114}
+\indexentry{rendiment!mitja@mitj\`a}{114}
+\indexentry{parametre@par\`ametre}{114}
+\indexentry{diferencia@difer\`encia!deguda al metode@deguda al m\`etode}{114}
+\indexentry{diferencia@difer\`encia!deguda al nivell social}{114}
+\indexentry{interaccio@interacci\'o}{114}
+\indexentry{interaccio@interacci\'o}{115}
+\indexentry{nivell!social}{115}
+\indexentry{metode@m\`etode!d'ensenyament}{115}
+\indexentry{estimador!del parametre@del par\`ametre}{115}
+\indexentry{variabilitat!total}{116}
+\indexentry{diferencia@difer\`encia!entre files}{116}
+\indexentry{diferencia@difer\`encia!entre columnes}{116}
+\indexentry{variacio@variaci\'o!deguda a la interaccio@deguda a la interacci\'o}{116}
+\indexentry{mitjana!quadratica@quadr\`atica}{116}
+\indexentry{mitjana!quadratica@quadr\`atica!de l'error}{116}
+\indexentry{mitjana!quadratica@quadr\`atica!per files}{116}
+\indexentry{mitjana!quadratica@quadr\`atica!per columnes}{116}
+\indexentry{mitjana!quadratica@quadr\`atica!d'interaccio@d'interacci\'o}{116}
+\indexentry{estadistic@estad\'{\i}stic!de contrast}{116}
+\indexentry{analisi@an\`alisi!de la variancia@de la vari\`ancia!de dos factors}{116}
+\indexentry{variacio@variaci\'o!entre files}{116}
+\indexentry{variacio@variaci\'o!entre columnes}{117}
+\indexentry{interaccio@interacci\'o}{117}
+\indexentry{estadistic@estad\'{\i}stic!de contrast}{117}
+\indexentry{estadistic@estad\'{\i}stic!de contrast}{117}
+\indexentry{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}{117}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{117}
+\indexentry{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}{118}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{118}
+\indexentry{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}{118}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{118}
+\indexentry{variabilitat}{118}
+\indexentry{mitjana!quadratica@quadr\`atica}{118}
+\indexentry{estadistic@estad\'{\i}stic}{118}
+\indexentry{regressio@regressi\'o}{135}
+\indexentry{resposta}{135}
+\indexentry{variable!de regressio@de regressi\'o}{135}
+\indexentry{equacio@equaci\'o!de prediccio@de predicci\'o}{135}
+\indexentry{equacio@equaci\'o!de regressio@de regressi\'o}{135}
+\indexentry{regressio@regressi\'o!lineal!simple}{135}
+\indexentry{regressio@regressi\'o!lineal}{135}
+\indexentry{coeficient!de regressio@de regressi\'o}{136}
+\indexentry{parametre@par\`ametre}{136}
+\indexentry{regressio@regressi\'o!lineal!simple}{136}
+\indexentry{error!aleatori}{136}
+\indexentry{observacio@observaci\'o!de la mostra}{136}
+\indexentry{estimacio@estimaci\'o}{136}
+\indexentry{recta!de regressio@de regressi\'o!ajustada}{136}
+\indexentry{recta!de regressio@de regressi\'o!estimada}{136}
+\indexentry{residu}{136}
+\indexentry{ajust}{136}
+\indexentry{metode@m\`etode!dels minims quadrats@del m\'{\i}nims quadrats}{136}
+\indexentry{residu}{136}
+\indexentry{derivada parcial}{136}
+\indexentry{equacio@equaci\'o!normal}{137}
+\indexentry{estimador!de minims quadrats@de m\'{\i}nims quadrats}{137}
+\indexentry{variancia@vari\`ancia}{137}
+\indexentry{variancia@vari\`ancia!del estimador}{137}
+\indexentry{estimacio@estimaci\'o!del parametre@del par\`ametre}{137}
+\indexentry{estimador!de minims quadrats@de m\'{\i}nims quadrats}{138}
+\indexentry{biaix}{138}
+\indexentry{estimacio@estimaci\'o!del parametre@del par\`ametre}{138}
+\indexentry{estimador!sense biaix}{138}
+\indexentry{inferencia@infer\`encia!sobre els coeficients de regressio@sobre els coeficients de regressi\'o}{138}
+\indexentry{variable!aleatoria@aleat\`oria!normal}{138}
+\indexentry{coeficient!de regressio@de regressi\'o}{139}
+\indexentry{interval!de confianca@de confian\c{c}a}{139}
+\indexentry{interval!de confianca@de confian\c{c}a}{139}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{139}
+\indexentry{contrast!d'hipotesi@d'hip\`otesi}{139}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{139}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{139}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{139}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{140}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{140}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{140}
+\indexentry{prediccio@predicci\'o}{140}
+\indexentry{interval!de confianca@de confian\c{c}a}{140}
+\indexentry{mitjana}{140}
+\indexentry{variancia@vari\`ancia}{140}
+\indexentry{hipotesi@hip\`otesi!de normalitat}{140}
+\indexentry{interval!de confianca@de confian\c{c}a}{141}
+\indexentry{parametre@par\`ametre}{141}
+\indexentry{interval!de prediccio@de predicci\'o}{141}
+\indexentry{esperanca@esperan\c{c}a}{141}
+\indexentry{variancia@vari\`ancia}{141}
+\indexentry{interval!de confianca@de confian\c{c}a}{141}
+\indexentry{analisi@an\`alisi!de la variancia@de la vari\`ancia}{141}
+\indexentry{suma!total de quadrats}{142}
+\indexentry{suma!de quadrats!de regressi\'o}{142}
+\indexentry{suma!de quadrats!deguda a l'error comes@degut a l'error com\`es}{142}
+\indexentry{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}{142}
+\indexentry{estadistic@estad\'{\i}stic}{142}
+\indexentry{hipotesi@hip\`otesi!nul.la@nu{\lgem}a}{142}
+\indexentry{recta!de regressiop@de regressi\'o}{142}
+\indexentry{pendent}{142}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{142}
+\indexentry{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}{142}
+\indexentry{inferencia@infer\`encia!sobre els parametres de regressio@sobre els par\`ametres de regressi\'o}{142}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{142}
+\indexentry{distribucio@distribuci\'o!$t$ de Student}{143}
+\indexentry{distribucio@distribuci\'o!$F$ de Fisher-Snedecor}{143}
+\indexentry{prova!de la linealitat de la regressio@de la linealitat de la regressi\'o}{143}
+\indexentry{regressio@regressi\'o!lineal}{143}
+\indexentry{observacio@observaci\'o}{143}
+\indexentry{suma!de quadrats!de l'error}{143}
+\indexentry{variacio@variaci\'o}{143}
+\indexentry{suma!de quadrats!de l'error pur}{143}
+\indexentry{falta d'ajust}{143}
+\indexentry{estadistic@estad\'{\i}stic}{143}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{144}
+\indexentry{suma!de quadrats}{144}
+\indexentry{correlacio@correlaci\'o}{144}
+\indexentry{analisi@an\`alisi!de correlacio@de correlaci\'o}{144}
+\indexentry{coeficient!de correlacio@de correlaci\'o}{144}
+\indexentry{funcio@funci\'o!de densitat!conjunta}{144}
+\indexentry{coeficient!de correlacio@de correlaci\'o!poblacional}{145}
+\indexentry{relacio lineal@relaci\'o lineal!perfecta}{145}
+\indexentry{parametre@par\`ametre}{145}
+\indexentry{coeficient!de correlacio@de correlaci\'o!mostral}{145}
+\indexentry{relacio lineal@relaci\'o lineal}{145}
+\indexentry{estadistic@estad\'{\i}stic}{145}
+\indexentry{regio@regi\'o!critica@cr\'{\i}tica}{145}

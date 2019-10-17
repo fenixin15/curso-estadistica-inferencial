@@ -1,0 +1,229 @@
+\chapter{Test de Kolmogorov-Smirnov}
+\index{test!de Kolmogorov-Smirnov}
+
+\section{Resum te\`oric}
+
+Quan la distribuci\'o proposada en una prova de la bondat d'ajustament 
+\index{prova!de la bondat d'ajustament}\'es cont\'{\i}nua i la
+mostra aleat\`oria simple \'es petita, una prova m\'es apropiada 
+\'es la basada en l'estad\'{\i}stica de Kolmogorov-Smirnov. 
+\index{estadistica@estad\'{\i}stica!de Kolmogorov-Smirnov}
+Aquesta prova no necessita que les dades estiguin agrupades.
+
+Sigui $X$ una variable aleat\`oria cont\'{\i}nua. 
+Siguin $x_1, \ldots , x_n$ els valors observats en una mostra aleat\`oria 
+simple. Suposem-los ordenats: $x_1 < \cdots < x_n$.
+
+Sigui $F_0$ la funci\'o de distribuci\'o que volem contrastar. 
+\index{funcio@funci\'o!de distribucio@de distribuci\'o}Ens plantejam el
+contrast d'hip\`otesi seg\"uent:
+\index{contrast!d'hipotesi@d'hip\`otesi}
+
+\begin{description}
+\item $H_0$: La distribuci\'o de la mostra \'es $F_0$.
+\index{distribucio@distribuci\'o!de la mostra}
+\item $H_1$: La distribuci\'o de la mostra no \'es $F_0$.
+\end{description}
+
+Considerem la funci\'o de distribuci\'o emp\'{\i}rica de la mostra:
+\index{funcio@funci\'o!de distribucio@de distribuci\'o!empirica@emp\'{\i}rica}
+$$S_n(x) = {\# \{ x_i : x_i \leq x \} \over n} = \left \{ 
+\begin{array}{cll} 
+0, & {\rm si} \ x < x_1,\\ 
+k/n, & {\rm si} \ x_k \leq x < x_{k+1},\\ 
+1, & {\rm si} \ x \geq x_n.
+\end{array} \right.$$
+
+($\# \{ x_i : x_i \leq x \}$ \'es el nombre d'elements de la mostra inferiors o
+iguals a $x$).
+
+Si $H_0$ \'es certa, la difer\`encia entre $S_n$ i $F_0$ ser\`a relativament petita.
+Definim {\bf l'estad\'{\i}stica de Kolmogorov-Smirnov} com:
+\index{estadistica@estad\'{\i}stica!de Kolmogorov-Smirnov}
+$$D_n = \max_{x \in R} |F_0(x) - S_n(x)|.$$
+
+$D_n$ t\'e una distribuci\'o independent del model proposat sota $H_0$, 
+pel que es diu que \'es una estad\'{\i}stica independent de la distribuci\'o. 
+Aix\`o vol dir que $D_n$ es pot avaluar nom\'es en funci\'o de la grand\`aria de la 
+mostra, i despr\'es utilitzar per a qualsevol $F_0(x)$. A l'ap\`endix C, hi 
+trobam la funci\'o de distribuci\'o de $D_n$ tabulada per a diferents valors de $n$.
+
+Per a un valor $\alpha$ de l'error de tipus I, 
+\index{error!de tipus I}la regi\'o cr\'{\i}tica \'es de la forma
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+$$\left\{ D_n > {a \over \sqrt{n}} \right\},$$
+on $a$ es determina imposant que $\pp{D_n > {a \over \sqrt{n}}} = \alpha$.
+
+Aleshores, es rebutja la hip\`otesi nu{\lgem}a $H_0$ 
+\index{hipotesi@hip\`otesi!nul.la@nu{\lgem}a}si per a qualsevol valor $x$
+observat, el valor de $D_n$ es troba dins la regi\'o cr\'{\i}tica 
+\index{regio@regi\'o!critica@cr\'{\i}tica}
+amb nivell de significaci\'o~$\alpha$, 
+\index{nivell!de significacio@de significaci\'o}
+\'es a dir, si el valor calculat de $D_n$ \'es m\'es gran que el
+valor trobat a les taules.
+
+\section{Problemes resolts}
+
+\begin{probres}
+{La vida (en milers d'hores operatives) de 10 unitats digitals
+en una f\`abrica aeron\`autica val:
+$$0.4,\ 2.6,\ 4.4,\ 4.9,\ 10.6,\ 11.3,\ 11.8,\ 12.6,\ 23.0,\ 40.8$$
+Es demana, fent servir el test de Kolmogorov-Smirnov, si aquestes dades es
+corresponen amb una variable exponencial amb par\`ametre $\lambda =0.1$, o 
+sigui, trobau l'error tipus m\`axim per sota del qual acceptam que la 
+mostra anterior correspon a una variable aleat\`oria exponencial.}
+\end{probres}
+
+\res{Constru\"{\i}m la taula seg\"uent on hi ha la funci\'o de distribuci\'o 
+te\`orica donada per la hip\`otesi nu{\lgem}a $H_0$: 
+\[ 
+F_0 (x)=F_{\mbox{Exp }(0.1)} (x),
+\] 
+i la funci\'o de distribuci\'o emp\'{\i}rica de la mostra:
+\[
+S_n (x)=\frac{\#\{x_i | x_i\leq x\}}{n},
+\]
+on el s\'{\i}mbol $\#$ significa cardinal del conjunt $\{x_i | x_i\leq 
+x\}$ i $n$ \'es la grand\`aria de la mostra.
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$x$&$F_0(x)$&$S_n(x)$&$|F_0(x)-S_n (x)|$\\\hline\hline
+$\ \,0.2$&$0.0198$&$0.1$&$0.0801$\\\hline
+$\ \,2.6$&$0.2289$&$0.2$&$0.0289$\\\hline
+$\ \,4.4$&$0.3559$&$0.3$&$0.0559$\\\hline
+$\ \,4.9$&$0.3873$&$0.4$&$0.0126$\\\hline
+$10.6$&$0.6535$&$0.5$&$0.1535$\\\hline
+$11.3$&$0.6769$&$0.6$&$0.0769$\\\hline
+$11.8$&$0.6927$&$0.7$&$0.0072$\\\hline
+$12.6$&$0.7163$&$0.8$&$0.0836$\\\hline
+$23.0$&$0.8997$&$0.9$&$0.0002$\\\hline
+$40.8$&$0.9830$&$1.0$&$0.0169$\\\hline
+\end{tabular}
+\end{center}
+Per trobar el valor de $F_0(x)$, hem de recordar que la funci\'o de 
+distribuci\'o d'una variable aleat\`oria exponencial amb par\`ametre
+$\lambda$ \'es:
+\[
+F_0 (x) =1-e^{-\lambda x}.
+\]
+
+El valor de l'estad\'{\i}stic de Kolmogorov 
+$$D_{n}=\max\limits_{x\in\RR}
+|F_0(x)-S_n (x)|,$$
+val, en aquest cas, $D_{10}=0.1535$. 
+
+Mirant en la taula que ens d\'ona la funci\'o de distribuci\'o de $D_n$, 
+podem trobar la condici\'o que verifica 
+l'error tipus I m\`axim per sota del qual acceptam que la
+mostra anterior correspon a una variable exponencial:
+\[
+\alpha_{\mbox{\footnotesize max}}=\pp{D_{10}>0.1535}=1-F_{D_{10}}(0.1535)
+\geq 1-0.6=0.4.
+\]
+A la vista del resultat anterior, acceptam segons el test de Kolmogorov
+que la mostra anterior \'es exponencial amb par\`ametre $\lambda =0.1$.
+}
+
+\begin{probres}
+{Es va fer una enquesta per saber quin seria el preu
+raonable en un determinat producte per a la llar. Les respostes varen ser
+(en cents de ptes.):
+$$18,\ 23,\ 36,\ 33,\ 21,\ 26,\ 26,\ 16,\ 31,\ 30,\ 41,\ 27,\ 29,\ 40,\
+38$$
+Vegeu si les dades anteriors s'adapten a una distribuci\'o uniforme en
+l'interval $(15,45)$ fent servir el test de Kolmogorov-Smirnov.}
+\end{probres}
+
+\res{
+Les funcions de densitat i de distribuci\'o d'una variable $X$ uniforme
+en l'interval $(15,45)$ s\'on:
+\[
+f_X (x)=
+\left\{\begin{array}{ll}
+\frac{1}{30}, & \text{si $x\in (15,45)$,} \\
+ & \\
+0, & \text{en cas contrari,}
+\end{array}\right.\quad
+F_X (x)= 
+\left\{\begin{array}{ll}
+0, & \text{si $x<15$,} \\
+ & \\
+\frac{x-15}{30}, & \text{si $15\leq x\leq 45$,} \\
+ & \\
+1, & \text{si $x>45$.}
+\end{array}\right.
+\]
+En aquest problema, la grand\`aria de la mostra val $n=15$ i la taula
+on v\'enen reflectits els c\`alculs de les funcions de densitat te\`oriques
+i emp\'{\i}riques \'es:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$x$&$F_0(x)$&$S_n(x)$&$|F_0(x)-S_n (x)|$\\\hline\hline
+$16$&$0.0333$&$0.0666$&$0.0333$\\\hline
+$18$&$0.1000$&$0.1333$&$0.0333$\\\hline
+$21$&$0.2000$&$0.2000$&$0.0000$\\\hline
+$23$&$0.2666$&$0.2666$&$0.0000$\\\hline
+$26$&$0.3666$&$0.4000$&$0.0333$\\\hline
+$27$&$0.4000$&$0.4666$&$0.0666$\\\hline
+$29$&$0.4666$&$0.5333$&$0.0666$\\\hline
+$30$&$0.5000$&$0.6000$&$0.1000$\\\hline
+$31$&$0.5333$&$0.6666$&$0.1333$\\\hline
+$33$&$0.6000$&$0.7333$&$0.1333$\\\hline
+$36$&$0.7000$&$0.8000$&$0.1000$\\\hline
+$38$&$0.7666$&$0.8666$&$0.1000$\\\hline
+$40$&$0.8333$&$0.9333$&$0.1000$\\\hline
+$41$&$0.8666$&$1.0000$&$0.1333$\\\hline
+\end{tabular}
+\end{center}
+Fixau-vos que en el cas en qu\`e $x=26$, tenint en compte que es repeteix 
+dues vegades, la funci\'o de distribuci\'o 
+emp\'{\i}rica val:
+\[
+S_{15} (26)=\frac{\#\{x_i | x_i\leq 26\}}{15}=\frac{6}{15}=0.4.
+\]
+El valor de l'estad\'{\i}stic de Kolmogorov valdr\`a en aquest cas:
+\[
+D_{15}=\max\limits_{x\in\RR}
+|F_0(x)-S_{15} (x)|= 0.1333.
+\]
+Per tant, l'error tipus I m\`axim per sota del qual acceptam que la 
+mostra anterior \'es uniforme compleix:
+\[
+\alpha_{\mbox{\footnotesize max}}=\pp{D_{15}>0.1333}=1-F_{D_{15}}(0.1333)
+\geq 1-0.6=0.4.
+\]
+Concloem que, segons el test de Kolmogorov, la mostra anterior 
+correspon a una variable uniforme.
+}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Volem saber si la durada per arreglar una determinada
+avaria el\`ectrica \'es una variable aleat\`oria exponencial amb una mitjana de
+0.8 hores. Les dades de les darreres 10 avaries s\'on (en hores):
+$$0.16,\ 0.23,\ 0.25,\ 0.39,\ 0.4,\ 0.45,\ 0.53,\ 0.71,\ 1.05,\ 1.17$$
+Fent servir el test de Kolmogorov-Smirnov, vegeu si la hip\`otesi \'es certa.}
+\end{prob}
+
+\begin{prob}
+{Vegeu si la mostra del problema anterior \'es
+normal amb mitjana $\overline x$ i vari\`ancia $s^2$ fent servir el test de
+Kolmogorov-Smirnov.}
+\end{prob}
+
+\begin{prob}
+{Sigui la seg\"uent mostra aleat\`oria simple d'una variable aleat\`oria
+$X$:\hfill\break $1,1,1,2,2,2,2,3,3,3$. Aplicam el test de
+Kolmogorov-Smirnov per veure si la mostra anterior \'es normal. Trobau quina
+condici\'o ha de verificar $\alpha$ (error tipus I) per poder acceptar que la
+mostra anterior \'es normal.
+\newline{\footnotesize Final. Setembre 94.}}
+\end{prob}
+
+
+

@@ -1,0 +1,278 @@
+\input eplain.tex
+\magnification=1200
+\hoffset=0.46 true cm
+%\voffset=-0.4 true cm
+\hsize=15 true cm
+\vsize=22 true cm
+\newcount\tit
+\newcount\subtit
+\newcount\teorema
+\newcount\proposicio
+\newcount\lema
+\newcount\corolari
+\font\ftitol=cmbx12 scaled \magstep 4
+\font\ftitolp=cmbx12 scaled \magstep 3
+\font\fsubtitol=cmbx12 scaled \magstep 2
+\font\ftitolpp =cmbx12
+%%%%%%%%%
+%%%%%%%%%OBRIM EL FIXER AUXILIAR JOBNAME.ARNAU
+%%%%%%%%%
+\newwrite\arnaufile\newif\ifarnaufileopened
+\def\openarnaufile{\ifarnaufileopened\else
+\arnaufileopenedtrue
+\immediate\openout\arnaufile = \jobname.arnau
+\fi}
+\newif\ifrewritearnaufile \rewritearnaufiletrue
+\def\readarnaufile{\testfileexistence{arnau}
+\iffileexists
+\input \jobname.arnau
+\ifrewritearnaufile\openarnaufile\fi
+\fi}
+\readarnaufile
+\openarnaufile
+\def\ifDefinedCs#1{\expandafter
+\ifx\csname#1\endcsname\relax}
+%%%%%%%%%
+%%%%%%%%%DEFINIM LA HEADLINE PER DUES LINIES
+%%%%%%%%%
+\advance\voffset by 2\baselineskip
+\advance\vsize by -2\baselineskip
+%%%%
+%%%%DEFINIM LA CAPSALERA
+%%%%
+\def\capsalera#1{
+\def\makeheadline{\vbox to 0
+pt{\vss\noindent {
+\ifodd \pageno
+							{\hfill{\sevenrm	#1}\ \ {\bf\the\pageno}}
+\else
+							{\ifnum\tit=0
+													{{\bf\the\pageno}\ \ {\sevenrm Problemes d'estad\'{\i}stica. Enginyeries T\`ecniques de
+Inform\`atica de Gesti\'o i de Sistemes}\hfill}
+						 \else
+															{{\bf\the\pageno}\ \ {\sevenrm 
+																						{\part}}\hfill}
+							\fi}
+\fi}
+\break\vskip -0.3cm
+\hrule}
+\vskip\baselineskip
+}
+}
+\def\capsaleraDos#1{
+\def\makeheadline{\vbox to 0
+pt{\vss\noindent {
+							{\hfill{\sevenrm	#1}\ \ {\bf\the\pageno}}
+}
+\break\vskip -0.3cm
+\hrule}
+\vskip\baselineskip
+}
+}
+%%ACABA LA DEFINICIO
+\footline{}
+\def\seccionrep#1{{\ftitolp {\uppercase\expandafter{\romannumeral
+\the\tit}} .\ #1}}
+%
+\def\seccion#1#2{\seccio=0\global\subtit=0\global\advance\tit by
+1\vfill\eject\ \vskip8cm\rightline{\ftitol  {\uppercase\expandafter{\romannumeral
+\the\tit}} .\
+#1}\vskip1cm\rightline{\ftitol #2}\def\part{#1#2}\def\makeheadline{}
+\vfill\eject{\noindent\seccionrep{#1#2}}\capsalera{#1#2}}
+\def\seccionDos#1#2{\seccio=0\global\subtit=0\global\advance\tit by
+1\vfill\eject\ \vskip8cm\rightline{\ftitol
+{\uppercase\expandafter{\romannumeral
+\the\tit}} .\
+#1}\vskip1cm\rightline{\ftitol #2}\def\makeheadline{}
+\vfill\eject{\noindent\seccionrep{#1#2}}\capsaleraDos{#1#2}}
+%%%%
+%%%%
+\def\sp#1{\vskip#1ex}    
+\def\fsp#1{\vskip#1ex\noindent}
+\def\R{I\!\!R}
+\font\mitjana =cmbx10  
+\font\gran=cmr12 scaled\magstep 2
+\newcount\seccio
+\newcount\subseccio
+\newcount\subsubseccio
+\newcount\subsubsubseccio
+\newcount\noucont
+\subsubsubseccio=0
+\subsubseccio=0
+\subseccio=0
+\seccio = 0
+ \def\pr
+#1{\global\advance\seccio by
+1\subseccio=0\subsubseccio=0\subsubsubseccio=0
+\eqnumber=0\teorema=0\proposicio=0\lema=0\corolari=0\problema=0\sp3{ 
+\bf\ftitolpp\the\seccio . \  #1}\sp3 
+\capsalera{#1}
+\writenumberedtocentry{section}{#1}{\the\seccio}
+} 
+ \def\prDos
+#1{\global\advance\seccio by
+1\subseccio=0\subsubseccio=0\subsubsubseccio=0
+\eqnumber=0\teorema=0\proposicio=0\lema=0\corolari=0{ 
+\bf\mitjana\the\seccio . \  #1} 
+\capsaleraDos{#1}
+\writenumberedtocentry{section}{#1}{\the\seccio}
+} 
+\def\eop{\vrule
+height 4pt width 6pt depth2pt}
+\def\subpr#1{\global\advance\subseccio by
+1\subsubseccio=0\subsubsubseccio=0\sp2{\bf \the\seccio
+.\the\subseccio\ #1}\sp2
+\writenumberedtocentry{subsection}{#1}{\the\subseccio}} 
+\def\subsubpr#1{\global\advance\subsubseccio by
+1\subsubsubseccio=0\sp1{\bf \the\seccio .\the\subseccio
+.\the\subsubseccio\ #1}\sp1} 
+\def\subsubsubpr#1{\global\advance\subsubsubseccio by 1\sp1{\bf
+\the\seccio .\the\subseccio .\the\subsubseccio .\the\subsubsubseccio\
+#1}\sp1}  
+\def\teor#1#2#3{\advance\teorema by 1 
+\ifnum\seccio=0
+\sp2{\bf #2 \the\teorema} {\it #3} \immediate\write\arnaufile{
+\csname def\endcsname
+\expandafter
+\noexpand
+\csname teor#1\endcsname
+\string{\the\teorema\string}}\sp2
+\else
+\sp2{\bf #2 \the\seccio
+.\the\teorema} {\it #3} \immediate\write\arnaufile{
+\csname def\endcsname
+\expandafter
+\noexpand
+\csname teor#1\endcsname
+\string{\the\seccio .\the\teorema\string}
+}\sp2
+\fi}
+\def\refteor#1{\ifDefinedCs{teor#1}teorema (?)\else teorema \csname
+teor#1\endcsname\fi} 
+\def\prop#1#2{\advance\proposicio by 1 
+\ifnum\seccio=0
+{\bf Proposici\'o \the\proposicio} {\it #2}
+\immediate\write\arnaufile{
+\csname def\endcsname
+\expandafter
+\noexpand
+\csname prop#1\endcsname
+\string{\the\proposicio\string}}
+\else
+{\bf Proposici\'o \the\seccio
+.\the\proposicio} {\it #2}
+\immediate\write\arnaufile{
+\csname def\endcsname
+\expandafter
+\noexpand
+\csname prop#1\endcsname
+\string{\the\seccio .\the\proposicio\string}
+}
+\fi}
+\def\refprop#1{\ifDefinedCs{prop#1}proposicio (?)\else proposicio
+\csname prop#1\endcsname\fi}
+ \def\lem#1#2{\advance\lema by 1 
+\ifnum\seccio=0
+{\bf Lema \the\lema} {\it #2}
+\immediate\write\arnaufile{
+\csname def\endcsname
+\expandafter
+\noexpand
+\csname lem#1\endcsname
+\string{\the\lema\string}}
+\else
+{\bf Lema
+\the\seccio .\the\lema} {\it #2}
+\immediate\write\arnaufile{
+\csname def\endcsname
+\expandafter
+\noexpand
+\csname lem#1\endcsname
+\string{\the\seccio .\the\lema\string}}
+\fi
+}
+\def\reflem#1{\ifDefinedCs{lem#1}lema (?)\else lema \csname
+lem#1\endcsname\fi}
+ \def\cor#1#2{\advance\corolari by 1
+\ifnum\seccio=0
+{\bf
+Corol.lari \the\corolari} {\it #2}
+\immediate\write\arnaufile{
+\csname def\endcsname
+\expandafter
+\noexpand
+\csname cor#1\endcsname
+\string{\the\corolari\string}}
+\else
+{\bf
+Corol.lari \the\seccio .\the\corolari} {\it #2}
+\immediate\write\arnaufile{
+\csname def\endcsname
+\expandafter
+\noexpand
+\csname cor#1\endcsname
+\string{\the\seccio .\the\corolari\string}}
+\fi
+}
+\def\refcor#1{\ifDefinedCs{cor#1}corol.lari (?)\else corol.lari \csname
+cor#1\endcsname\fi}
+ \overfullrule=0pt 
+\def\Q{\hbox{Q\kern -.64em 
+{\raise .45ex \hbox{$\scriptscriptstyle |$}}
+  \kern-.55em {\raise .53ex \hbox{$\scriptscriptstyle |$}} }}
+\def\CC{\hbox{C\kern -.58em {\raise .54ex \hbox{$\scriptscriptstyle |$}}
+  \kern-.55em {\raise .53ex \hbox{$\scriptscriptstyle |$}} }}
+\def\md#1{\vert #1 \vert}
+\def\mdg#1{\Bigl\vert #1\Bigr\vert}
+\def\mdd#1{\parallel #1\parallel}
+\def\mddg#1{\Bigl\parallel #1\Bigr\parallel}
+\def\ssi#1{\sin\Bigl({#1\over\epsilon}\Bigr)}
+\def\cco#1{\cos\Bigl({#1\over\epsilon}\Bigr)}
+\def\lln#1{\ln\Bigl({#1\over\epsilon}\Bigr)}
+\def\eqconstruct#1{\ifnum\seccio=0 #1\else\the\seccio.#1\fi}
+\def\somb#1{{\buildrel {\sim}\over {#1}}}
+%%%%
+%%%%	DEFINICIONS PER CONSTRUIR EL INDEX
+%%%%
+\def\tocchapterentry#1#2#3{{\noindent{\bf
+{\uppercase\expandafter{\romannumeral #2}}. #1}\dotfill #3\par}\tit=0}
+\def\tocsectionentry#1#2#3{{\indent #2. #1\dotfill #3\par}\advance\tit by
+1}  
+\def\tocsubsectionentry#1#2#3{{\indent\indent \the\tit .#2. #1\dotfill
+#3\par}} 
+%%%%%%
+%%%%%%
+%%%%%%		DEFINICIONS PER FER LLISTES DE PROBLEMES
+%%%%%%		FER SERVIR LA MACRO \prob
+%%%%%%
+%%%%%%
+\newcount\problema
+\problema=0
+\def\prob#1#2{\advance\problema by 1 
+\ifnum\seccio=0
+{\bf Problema \the\problema .-} {#2}
+\immediate\write\arnaufile{
+\csname def\endcsname
+\expandafter
+\noexpand
+\csname prob#1\endcsname
+\string{\the\problema\string}}
+\else
+{\bf Problema
+\the\seccio .\the\problema .-} {#2}
+\immediate\write\arnaufile{
+\csname def\endcsname
+\expandafter
+\noexpand
+\csname prob#1\endcsname
+\string{\the\seccio .\the\problema\string}}
+\fi
+}
+\def\refprob#1{\ifDefinedCs{prob#1}problema (?)\else problema \csname
+prob#1\endcsname\fi}
+%%%%%%
+%%%%%%MACROS PER CREAR LA TAULA DE GLOSARIS
+%%%%%%
+\newwrite\glosari
+\immediate\openout\glosari=\jobname.glos
+\def\g#1{\immediate\write\glosari{#1}\immediate\write\glosari{\the\pageno}}

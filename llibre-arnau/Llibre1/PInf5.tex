@@ -1,0 +1,705 @@
+\chapter{Lleis dels grans nombres i teorema del l\'{\i}mit central}
+
+\section{Resum te\`oric}
+
+Considerem una successi\'o $\{ X_n \}_{n \geq 1}$ de variables aleat\`ories 
+independents i id\`en\-ti\-ca\-ment distribu\"{\i}des. 
+Les lleis dels grans nombres estudien el 
+comportament asimpt\`otic de la successi\'o de mitjanes mostrals 
+$\displaystyle \left\{ {S_n \over n} : n \geq 1 \right\},$ on $S_n = X_1 + \cdots + X_n.$ 
+Com a conseq\"u\`encia de la llei forta s'obt\'e la coneguda propietat que 
+diu que la freq\"u\`encia relativa d'un succ\'es convergeix cap a la seva
+probabilitat quan el nombre de repeticions de l'experiment tendeix cap a infinit.
+
+El teorema del l\'{\i}mit central afirma que, sota certes condicions, la distribuci\'o
+de la suma normalitzada de $n$ variables aleat\`ories s'acosta quan $n$ creix cap
+a la d'una variable aleat\`oria gaussiana. A difer\`encia de les lleis dels grans nombres, 
+el teorema del l\'{\i}mit central no estudia l\'{\i}mits de successions de variables aleat\`ories, 
+sin\'o l\'{\i}mits de les funcions de distribuci\'o; m\'es concretament, estudia la distribuci\'o l\'{\i}mit 
+de la successi\'o de distribucions de les sumes parcials de les variables aleat\`ories donades.
+
+\subsection{Lleis del grans nombres}
+
+Sigui $X$ una variable aleat\`oria de la qual desconeixem la seva esperan\c ca $\EE X =
+\mu$, que suposarem que \'es finita. Siguin $X_1, \ldots , X_n \ n$ c\`opies
+repetides independentment de $X$; aix\`o vol dir que les $X_i$ s\'on $n$  {\bf variables
+aleat\`ories i.i.d.} (independents i id\`enticament distribu\"{\i}des)
+\index{variables!aleatories@aleat\| ories!i.i.d.} amb la mateixa
+distribuci\'o que $X$. Per tal d'estimar $\EE X$ s'utilitza la {\bf mitjana mostral}\index{mitjana!mostral} de la
+successi\'o:
+$$M_n = {1 \over n} \sum_{i=1}^n X_i =\frac{S_n}{n}.$$
+
+La {\bf llei feble dels grans nombres}\index{llei!feble dels grans nombres} afirma que
+
+$$\forall \epsilon > 0, \ \lim_{n \to \infty} \pp{|M_n - \mu| < \epsilon} = 1.$$
+
+Aix\`o ens diu que per a un valor de $n$ fixat prou gran, la mitjana mostral
+usant $n$ mostres estar\`a pr\`oxima al valor mitj\`a real amb una probabilitat molt
+alta. 
+
+La {\bf llei forta dels grans nombres}
+\index{llei!forta dels grans nombres} afirma que, donada una successi\'o de
+variables aleat\`ories $X_1, X_2, \ldots $ i.i.d. amb mitjana comuna $\EE X = \mu$
+finita i vari\`ancia comuna finita,
+$$\pp{\lim_{n \to \infty} M_n = \mu} = 1,$$
+\'es a dir que, amb probabilitat 1, la successi\'o de mitjanes mostrals,
+$$ M_n = {X_1 + \cdots + X_n \over n},$$
+tendeix cap al valor mitj\`a real $\mu$ quan augmentam el nombre $n$ de mostres.
+
+En particular, donat un experiment aleatori, sigui $N_A(n)$ 
+el nombre de vegades que apareix el succ\'es $A$ en $n$ repeticions de l'experiment. 
+Aleshores la freq\"u\`encia relativa de $A$ en les $n$ repeticions \'es:
+$$
+f_A(n) = {N_A(n) \over n}.
+$$
+Observem que $N_A(n)$ es pot escriure tamb\'e com la suma
+$$N_A(n) = X_1 + \cdots + X_n
+$$
+on les variables aleat\`ories $X_1, \ldots , X_n$ s\'on i.i.d. 
+amb distribuci\'o comuna de Bernoulli amb par\`ametre 
+$p = \pp{A}$ (\'es a dir, $\EE X_i =p\ \forall i=1,\ldots,n)$.
+
+Per tant $f_A(n) = M_n$, la mitjana mostral, i aleshores
+$$\pp{\lim_{n \to \infty} f_A(n) = \pp{A}} = 1,$$
+\'es a dir que la freq\"u\`encia relativa del succ\'es $A$ convergeix cap a la seva probabilitat amb probabilitat 1.
+
+\subsection{Teorema del l\'{\i}mit central}
+\index{teorema!del limit central@del l\'{\i}mit central}
+
+Sigui $X_1, X_2, \ldots $ una successi\'o de variables aleat\`ories i.i.d. amb
+mitjana $\mu$ i vari\`ancia $\sigma^2$ finites. Considerem $S_n = X_1 + \cdots +
+X_n$, i sigui
+$$Z_n = {S_n - \EE S_n \over \sqrt{\Var S_n}} = {S_n - n \mu \over \sigma
+\sqrt{n}}.$$
+
+Aleshores
+$$\lim_{n \to \infty} \pp{Z_n \leq z} = {1 \over \sqrt{2 \pi}} \int_{-\infty}^z
+\e^{-x^2/2} \> dx,$$
+\'es a dir que la funci\'o de distribuci\'o de $Z_n$ convergeix cap a la funci\'o de
+distribuci\'o de la $N(0,1)$. Tamb\'e resulta que la funci\'o de distribuci\'o de $S_n$
+convergeix cap a la de la $N(n \mu, n \sigma^2)$.
+
+Com a cas particular tenim el {\bf teorema de De Moivre-Laplace:}
+\index{teorema!de De Moivre-Laplace}
+
+Sigui $X$ una variable aleat\`oria $B(n,p)$. Aleshores $X = X_1 + \cdots + X_n$,
+on les $X_i$ s\'on $B(1,p)$ i.i.d. Aleshores la funci\'o de distribuci\'o de
+$\displaystyle {X - np \over \sqrt{npq}}$ convergeix cap a la de la $N(0,1)$.
+Tamb\'e resulta que la funci\'o de distribuci\'o de $X$ convergeix cap a la de la
+$N(np,npq)$.
+
+{\bf Notes.}
+
+\begin{enumerate}
+
+\item De fet, hist\`oricament, aquesta va ser la primera versi\'o del teorema del l\'{\i}mit central.
+
+\item Com que $X$ \'es discreta i una normal \'es absolutament cont\'{\i}nua, per aproximar la
+funci\'o de probabilitat de $X$ es fa la correcci\'o seg\"uent (d'altra manera
+l'aproximaci\'o seria nu{\lgem}a, a causa de la continu\"{\i}tat 
+de la distribuci\'o normal):
+$$\pp{X = k} \simeq \pp{k - 1/2 \leq N(np,npq) \leq k + 1/2}.$$
+
+Tamb\'e:
+$$
+\pp{k_1 \leq X \leq k_2} \simeq \pp{k_1 - 1/2 \leq N(np,npq) \leq k_2 + 1/2}.
+$$
+\end{enumerate}
+
+\section{Problemes resolts}
+
+\begin{probres}
+{Si $X$ est\`a distribu\"{\i}da uniformement en l'interval $(0,1)$, comparau
+\mbox{$\pp{\vert X-\mu_X\vert <k \sigma_X}$} amb els valors donats per la
+desigualtat de Txebixef per a \mbox{$k={5\over 4},{3\over 2},{7\over 4}$ 
+i $2$.}}
+\end{probres}
+
+\res{Recordem que si la variable $X$ est\`a distribu\"{\i}da uniformement en 
+l'interval $(0,1)$, les funcions de densitat i de distribuci\'o s\'on:
+$$
+f_X (t)=
+\left\{\begin{array}{ll}
+1, & \text{si $t\in (0,1)$},\\ 
+0, & \text{en cas contrari,}
+\end{array}\right.
+\quad 
+F_X(t)=
+\left\{\begin{array}{ll}
+0, & \text{si $t<0$}, \\
+t, & \text{si $0\leq t\leq 1$}, \\
+1, & \text{si 
+$t>1$.}
+\end{array}\right.
+$$
+L'esperan\c{c}a i la vari\`ancia valdran, doncs:
+\begin{eqnarray*}
+	\mu_X & = & \int_0^1 x\, dx =\frac{1}{2},  \\
+	\sigma_X^2 & = & \EE\left(X^2\right)-{(\EE X)}^2=\int_0^1 x^2\, dx 
+	-\frac{1}{4}=\frac{1}{3}-\frac{1}{4}=\frac{1}{12}.
+\end{eqnarray*}
+Per tant el valor de \mbox{$\pp{\vert X-\mu_X\vert <k \sigma_X}$} ser\`a:
+\begin{eqnarray}
+	\pp{\vert X-\mu_X\vert <k \sigma_X} & = & \pp{\mu_X - k\sigma_X< X<\mu_X 
+	+k\sigma_X}\nonumber \\ & = & 
+	\pp{\frac{1}{2}-k\frac{\sqrt{3}}{6}<X<\frac{1}{2}+k
+	\frac{\sqrt{3}}{6}} 
+	  = 
+	 \int_{\max\left\{0,\frac{1}{2}-k\frac{\sqrt{3}}{6}\right\}}^{\min\left\{1,
+	 \frac{1}{2}+k\frac{\sqrt{3}}{6}\right\}} 1\, dx \nonumber \\ & = & \min\left\{1,
+	 \frac{1}{2}+k\frac{\sqrt{3}}{6}\right\}-\max\left\{0,\frac{1}{2}-k\frac{\sqrt{3}}{6}\right\}.
+	 \label{UNIFEXACTE}
+\end{eqnarray}
+A continuaci\'o exposam els resultats per als diferents $k$ indicant el 
+valor exacte fent servir la f\'ormula~(\ref{UNIFEXACTE}).
+$$
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+$k$&Valor exacte&Valor donat per la desigualtat de Txebixef ($1-\frac{1}{k^2}$) \\
+\hline
+$\frac{5}{4}$&$0.8608-0.1391=0.7216$&$1-\frac{16}{25}=0.36$\\
+\hline
+$\frac{3}{2}$&$0.9330-0.0669=0.8660$&$1-\frac{4}{9}=0.5555$\\
+\hline
+$\frac{7}{4}$&$1-0=1$&$1-\frac{16}{49}=0.6734$\\
+\hline
+$2$&$1-0=1$&$1-\frac{1}{4}=0.75$\\
+\hline
+\end{tabular}
+$$}
+
+\begin{probres}
+{\begin{itemize}
+\item[a)]{Considerem la funci\'o $g : \RR \to \RR$ donada per $g(p)=p(1-p) \ \forall  \> p \in [0,1|$. Demostrau que $g(p)$ t\'e un
+m\`axim en $p={1\over 2}$. Dedu\"{\i}u que $g(p)\leq {1\over 4}$ per a tot $p\in
+[0,1]$.}
+\item[b)]{Si $X$ \'es una variable aleat\`oria binomial amb par\`ametres $n$ i~$p$,
+aleshores \hbox{$\mu_X =n p$}, \hbox{$\sigma_X^2 =n p (1-p)$.} A m\'es, si
+$Y={X\over n}$, tenim que \hbox{$\mu_Y =p$} i \hbox{$\sigma_Y^2 ={p(1-p)\over
+n}$.} Demostrau que: $$\pp{\vert Y-p\vert <\delta }\geq 1-{p (1-p)\over
+n\delta^2}.$$}
+\item[c)]Per a la variable $Y$ definida en b), demostrau que:
+$$\pp{\vert Y-p\vert <\delta }\geq 1-{1\over 4}\delta^2 .$$
+\item[d)]{Suposem que volem trobar un valor de $n$ tal que:
+$$\pp{\vert Y-p\vert <\delta }\geq 0.9,$$on $\delta$ \'es qualque
+constant positiva. Demostrau que si $n\geq {2.5\over \delta^2}$, aleshores
+se satisf\`a el que vol\'{\i}em.}
+\end{itemize}}
+\etiqueta{PROBLEMADOS}
+\end{probres}
+
+\res{
+\begin{itemize}
+	\item[a)] Per trobar els extrems relatius, hem de derivar i 
+igualar a $0$. Per tant,
+	$$
+	g'(p)=1-2 p=0,
+	$$
+	d'on $g$ t\'e un \'unic extrem relatiu en $p=\frac{1}{2}$. 
+	Per veure que \'es un m\`axim 
+	relatiu, observem que $g''(p)=-2<0$.
+	
+	Per tant, podem dir:
+    \begin{eqnarray*}
+	\max_{p\in [0,1]} 
+	g(p) & = & \max\left\{g(0),g(1),g\left(\frac{1}{2}\right)\right\} \\ 
+	& = & \max\left\{g(0)=g(1)=0,
+	g\left(\frac{1}{2}\right)=\frac{1}{4}\right\}=	
+	g\left(\frac{1}{2}\right)=\frac{1}{4}.
+	\end{eqnarray*}
+	Aleshores $g$ t\'e un m\`axim absolut per a 
+	$p\in [0,1]$ en $p=\frac{1}{2}$.
+	
+	Podem dir, per tant, que $g(p)\leq \frac{1}{4}$, $\forall p\in [0,1]$.
+	
+	\item[b)] Considerem la variable $Y=\frac{X}{n}$ on $X$ \'es una variable 
+	aleat\`oria binomial amb par\`ametres $n$ i $p$. Hem de provar que:
+	$$
+	\pp{\vert Y-p\vert <\delta }\geq 1-{p (1-p)\over n\delta^2}.
+   $$
+   Observem que:
+   \begin{eqnarray*}
+   \EE Y & = & \mu_Y =\frac{1}{n} \EE X=\frac{1}{n} n p=p, \\
+   \Var Y & = & \sigma_Y^2 =\frac{1}{n^2} \sigma_X^2 = 
+   \frac{1}{n^2} n p (1-p)=\frac{p (1-p)}{n}.
+   \end{eqnarray*}
+	Aplicant la desigualtat de Txebixef, tenim que:
+	\begin{eqnarray*}
+		\pp{|Y- \mu_Y|<\delta} & \geq & 	 
+		1-\frac{\Var  Y}{\delta^2},  \\
+		\pp{|Y- p|<\delta} & \geq &  
+1-\frac{\frac{p(1-p)}{n}}{\delta^2}=1-\frac{p(1-p)}{n\delta^2}\Box
+	\end{eqnarray*}
+	
+	\item[c)] Fent servir l'apartat a) sabem que 
+$p(1-p)\leq\frac{1}{4}$. 
+	Per tant, podem escriure, fent servir l'apartat b):
+	$$
+	\pp{\vert Y-p\vert <\delta }\geq 1-{p (1-p)\over n\delta^2}\geq 
+	1-\frac{1}{4 n\delta^2}\geq 1-\frac{1}{4\delta^2} 
+\mbox{ ja que $n\geq 1$.}\Box
+   $$
+   
+	\item[d)] Hem de veure que si 
+	\begin{equation}
+	n\geq\frac{2.5}{\delta^2},
+	\label{CONDICIOD}
+	\end{equation}
+	aleshores:
+	\begin{equation}
+	\pp{\vert Y-p\vert <\delta }\geq 0.9
+	\label{APARTATD}
+   \end{equation}
+   Sabem que:
+   $$
+	\pp{\vert Y-p\vert <\delta }\geq 1-\frac{1}{4 n\delta^2}.
+   $$
+   Considerem un valor $n$ tal que $1-\frac{1}{4 n\delta^2}\geq 0.9$. 
+   Observem que per a aquest $n$ es complir\`a~(\ref{APARTATD}). Vegem que 
+   la condici\'o que hem imposat per a $n$ \'es equivalent a~(\ref{CONDICIOD}):
+   $$
+   1-\frac{1}{4 n\delta^2}\geq 0.9\Leftrightarrow\frac{1}{4n\delta^2}\leq 
+   0.1 \Leftrightarrow 4 n\delta^2\geq 10 \Leftrightarrow n\geq 
+   \frac{10}{4\delta^2}=\frac{2.5}{\delta^2}\Box
+   $$
+\end{itemize}}
+
+\begin{probres}
+{En una taula de daus d'un casino es llancen un parell de daus 180
+vegades per hora (aproximadament). Quina \'es la probabilitat (aproximada) 
+que es llancin entre 700 i 750 sumes de 7 en 24 hores?}
+\end{probres}
+
+\res{Considerem la variable aleat\`oria $X:$``Nombre de sumes de $7$ en $24$ hores''. 
+
+Podem considerar que $X$ \'es una variable aleat\`oria de Poisson amb par\`ametre 
+$\lambda s$, on $\lambda$ \'es el nombre mitj\`a de vegades que surt $7$ en $1$ 
+hora i $s=24$ hores. Trobem $\lambda$:
+$$
+\lambda =180\times\mbox{ probabilitat de sortir $7$ una vegada} = 
+180\cdot\frac{6}{36}=30,
+$$
+ja que dels $36$ resultats possibles n'hi ha $6$ en qu\`e la suma 
+dels dos daus val $7$:
+$$
+\{(1,6),(6,1),(2,5),(5,2),(3,4),(4,3)\}.
+$$
+Dedu\"{\i}m aix\'{\i} que $X$ \'es $Poiss(\lambda s=30\cdot 24=720)$.
+
+Ens demanen calcular la probabilitat seg\"uent: $\pp{700\leq X\leq 750}$.
+
+Com que els nombres que surten s\'on molt grans, la probabilitat anterior no es 
+pot trobar aplicant directament la f\'ormula de la funci\'o 
+de probabilitat d'una variable aleat\`oria de Poisson. 
+Trobarem la probabilitat anterior aplicant el 
+teorema del l\'{\i}mit central, o sigui, aproximarem $X$ per una variable aleat\`oria normal 
+$X_N$
+de par\`ametres \mbox{$\mu =\lambda s=720$} i \mbox{$\sigma^2 =\lambda s=720$.}
+\begin{eqnarray*}
+	\pp{700\leq X\leq 750} & \approx & \pp{699.5\leq X_N\leq 
+	750.5} \\ 
+	& = & \pp{\frac{699.5-720}{\sqrt{720}}\leq 
+	Z=N(0,1)\leq\frac{750.5-720}{\sqrt{720}}} \\
+	  & = &   \pp{-0.764\leq Z\leq 1.136}  
+	   =  F_Z (1.136)-  F_Z(-0.764) \\ 
+	 & = & F_Z(1.136)-1+F_Z(0.764)\approx 0.8708-1+0.7764=0.6472.
+\end{eqnarray*}}
+
+\begin{probres}
+{Suposem que la probabilitat que t\'e un jugador de b\`asquet d'encertar
+un tir lliure \'es una constant $p$ (desconeguda) i que els seus tirs s\'on
+independents. Quants de tirs ha d'intentar si es vol que la proporci\'o de
+b\`asquets estigui com a m\`axim a dist\`ancia $0.1$ de $p$ amb probabilitat m\'{\i}nima
+de $0.8$?} 
+\end{probres}
+
+\res{Considerem la variable aleat\`oria $X_i$ que val $1$ si encerta en 
+l'$i$-\`essim intent i $0$ en cas contrari. Tenim per tant que $X_i$ \'es una 
+variable aleat\`oria de Bernoulli amb par\`ametre $p$.
+
+Considerem la variable aleat\`oria $X=\sum\limits_{i=1}^n X_i$ que ens d\'ona 
+els nombre de b\`asquets en $n$ intents. Fixau-vos que $X$ \'es una variable aleat\`oria
+binomial amb par\`ametres $n$ i~$p$. 
+
+La proporci\'o de b\`asquets la donar\`a la variable $Y=\frac{X}{n}$. 
+Per tant, ens demanen trobar $n$ (nombre d'intents) tal que:
+$$\pp{|Y-p|\leq 0.1}\geq 0.8$$
+En general, si volem trobar $n$ tal que:
+$$\pp{|Y-p|\leq \delta}\geq \gamma,$$
+aproximam la variable $Y$ per una normal aplicant el teorema del 
+l\'{\i}mit central i la probabilitat anterior es pot aproximar per:
+\begin{eqnarray*}
+	\pp{|Y-p|\leq \delta} & = & \pp{p-\delta\leq Y\leq p+\delta}=\pp{ 
+	n(p-\delta)\leq X\leq n(p+\delta )}  \\
+	 & \approx & \pp{n(p-\delta)-0.5\leq X_N = N(np,n p (1-p)\leq 
+	 (p+\delta)n+0.5} \\ 
+	 & = & \pp{\frac{-n\delta-0.5}{\sqrt{n p q}}\leq 
+	 Z=N(0,1)\leq\frac{n\delta+0.5}{\sqrt{n p q}}} \\  
+	 & = & F_Z\left(\frac{n\delta +0.5}{\sqrt{n p q}}\right)-F_Z\left(
+	 \frac{-n\delta-0.5}{\sqrt{n p q}}\right)= 2 F_Z\left(\frac{n\delta 
+	 +0.5}{\sqrt{n p q}}\right) -1,
+\end{eqnarray*}
+on $q=1-p$.
+
+Per tant, volem trobar $n$ tal que:
+$$
+2 F_Z\left(\frac{n\delta  +0.5}{\sqrt{n p q}}\right) -1\geq \gamma,
+	 $$
+	 d'on dedu\"{\i}m que:
+	 \begin{equation}
+	 \frac{n\delta  +0.5}{\sqrt{n p q}}\geq z_{\frac{\gamma +1}{2}},
+	 \label{CONDICION}
+	\end{equation}
+	 on $z_{\frac{\gamma +1}{2}}$ \'es el percentil $\frac{\gamma +1}{2}$\% de 
+	 la variable $N(0,1)$.
+	 
+	 Fent c\`alculs en la condici\'o~(\ref{CONDICION}), tenim que $n$ ha de 
+	 complir:
+	 \begin{equation}
+	 	n\delta +0.5\geq z_{\frac{\gamma +1}{2}}\sqrt{n p q}
+	 	\label{FINALN}
+	 \end{equation}
+	 Per simplificar c\`alculs, prendrem $n$ tal que 
+	  \begin{equation}
+	 	n\delta \geq z_{\frac{\gamma +1}{2}}\sqrt{n p q}
+	 	\label{FINALN2}
+	 \end{equation}
+	 Fixau-vos que si $n$ compleix~(\ref{FINALN2}) tamb\'e complir\`a~(\ref{FINALN}).
+	 Finalment, simplificant~(\ref{FINALN2}) tenim que $n$ ha de complir:
+	 \begin{equation}
+	 	n\geq \frac{{z_{\frac{\gamma +1}{2}}}^2 p q}{\delta^2}
+	 	\label{FINALN3}
+	 \end{equation}
+	 Fent servir el problema~\ref{PROBLEMADOS}, podem dir que \mbox{$p q\leq\frac{1}{4},\ 
+	 \forall p\in [0,1]$}. Perqu\`e la condici\'o~(\ref{FINALN3}) no depengui de 
+	 $p$ (par\`ametre desconegut) prendrem
+$n$ que compleixi:
+	 \begin{equation}
+	 	n\geq \frac{{z_{\frac{\gamma +1}{2}}}^2 }{ 4 \delta^2}
+	 	\label{FINALN4}
+	 \end{equation}
+	 En el nostre cas $\gamma =0.8$ i $\delta =0.1$ Mirant a les taules, 
+	 resulta \mbox{$z_{\frac{\gamma +1}{2}}=z_{0.9}=1.28$.} Aix\'{\i} doncs, $n$ 
+	 complir\`a:
+	 $$
+	 n\geq\frac{1.28^2}{4 {(0.1)}^2} \approx 41.
+	 $$
+	 S'hauran d'intentar com a m\'{\i}nim $41$ tirs per tenir la seguretat que la 
+	 proporci\'o de b\`asquets estigui com a m\`axim a dist\`ancia $0.1$ de $p$ amb 
+	 probabilitat m\'{\i}nima de $0.8$.}
+
+\begin{probres}
+{Sigui $X$ una variable aleat\`oria tal que $\EE X=0$ i $\Var X=1$.
+Trobau el tant per cent m\'{\i}nim de valors de $X$ que estan en l'interval
+$(-2,2)$?\newline{\footnotesize Final. Juny 1994.}}
+\end{probres}
+
+\res{Ens demanen la quantitat seg\"uent:
+$$
+\pp{-2<X<2}\times 100.
+$$
+Aplicant la desigualtat de Txebixef, tenim:
+$$
+\pp{|X-\mu_X|<2} =\pp{|X|< 2\sigma_X}=\pp{-2<X<2}\geq 1-\frac{1}{4}=0.75
+$$
+Hi ha com a m\'{\i}nim un $75\%$ de valors de la variable $X$ en l'interval 
+$(-2,2)$.}
+
+\begin{probres}
+{Suposem que el 10\% dels votants d'una certa comunitat est\`a a favor 
+d'una certa legislaci\'o. Es fa un enquesta entre la poblaci\'o i 
+s'obt\'e una freq\"u\`encia relativa $f_A(n)$ com a estimaci\'o de la 
+proporci\'o anterior ($n$ \'es el nombre d'enquestats). 
+Determinau, aplicant la desigualtat de Txebixef, quants de votants 
+s'haurien d'enquestar per tal que la probabilitat que $f_A(n)$ 
+difereixi de 0.1 menys de 0.02 sigui d'almenys 0.95. Qu\`e podem dir 
+si no coneixem la proporci\'o 0.1? (situaci\'o m\'es real)}
+\end{probres}
+
+\res{Considerem les variables aleat\`ories:
+\[
+I_i =
+\left\{
+\begin{array}{ll}
+1, & \mbox{si la persona $i$ est\`a a favor de la lesgislaci\'o}, \\
+0, & \mbox{en cas contrari},
+\end{array}
+\right.
+\]
+$\forall i=1,\ldots,n$. Aleshores les $I_i$ s\'on variables aleat\`ories i.i.d.
+amb distribuci\'o comuna $B(1,p)$.
+
+La freq\"u\`encia relativa ser\`a:
+$$
+f_A(n) = {\sum\limits_{i=1}^n I_i \over n}.
+$$
+Aleshores:
+$$
+\EE (f_A(n)) = {\sum\limits_{i=1}^n \EE I_i \over n} = 
+{n \cdot p \over n} = p = 0.1,
+$$
+i
+$$
+\Var f_A(n) = {\sum\limits_{i=1}^n \Var I_i \over n^2} =
+ {npq \over n^2} = {pq \over n} = {0.09 \over n}.
+$$
+Aleshores
+$$
+\pp{ |f_A(n) - 0.1 | < 0.02 } = 1 -
+\pp{ |f_A(n) - 0.1 | \geq 0.02 } \geq 1 - {{0.09 \over n} \over 0.02^2} 
+= 0.95,
+$$
+i d'aqu\'{\i} obtenim $n$:
+$$
+{0.09 \over n \cdot 0.02^2} = 0.05 \Longrightarrow n = {0.09 \over 0.05 \times 0.02^2} = 4 500.
+$$
+
+Si no coneixem $p = \EE (f_A(n))$, tampoc coneixerem $\Var f_A(n) = {pq \over n}$, per\`o de totes formes sabem que $p \cdot q \leq 1/4$, i aleshores
+$$
+\pp{ |f_A(n) - 0.1 | < 0.02 } \geq 1 - {pq \over n \times 0.02^2} \geq 1 - {1 \over 4 n \times 0.02^2} = 0.95,
+$$
+d'on obtenim
+$$
+{1 \over 4 n \times 0.02^2} = 0.05 \Longrightarrow n = {1 \over 4 \times 0.05 \times 0.02^2} = 12 500.
+$$}
+
+\begin{probres}
+{Es llan\c{c}a a l'aire un dau regular 100 vegades. 
+Aplicau la desigualtat de Txebixef per tal d'obtenir una cota 
+de la probabilitat que el nombre total de punts obtenguts 
+estigui entre 300 i 400. 
+Quina probabilitat s'obt\'e aplicant el teorema del l\'{\i}mit central?}
+\end{probres}
+
+\res{Considerem les variables aleat\`ories:
+$$
+X_i : \mbox{ resultat en el llan\c{c}ament $i$-\`essim}, \ i = 1, \ldots , 100.
+$$
+Tenim:
+$$
+\EE X_i = \sum\limits_{k=1}^6 k \cdot {1 \over 6} = {21 \over 6} = {7 \over 2},
+$$
+i
+$$
+\Var X_i = \EE X_i^2 - \left( \EE X_i \right)^2 = \sum\limits_{k=1}^6 
+k^2 \cdot {1 \over 6} - \left( {21 \over 6} \right)^2 = {91 \over 6} - 
+{441 \over 36} = {35 \over 12}.
+$$
+El nombre total de punts obtenguts en els 100 llan\c{c}aments ser\`a:
+$$
+S_{100} = \sum\limits_{i=1}^{100} X_i.$$
+Aleshores:
+$$
+\EE S_{100} = {2100 \over 6} = 350, \ \ \Var S_{100} = {3500 \over 12} = 
+{875 \over 3}.$$
+
+Per tant
+\begin{eqnarray*}
+\pp{300 < S_{100} < 400} & = & \pp{ | S_{100} - \EE S_{100} | < 50} = 1 - 
+\pp{ | S_{100} - \EE S_{100} | \geq 50} \\ & \geq & 1 - 
+{{875 \over 3} \over 50^2} = {53 \over 60} = 0.883.
+\end{eqnarray*}
+
+Si aplicam el teorema del l\'{\i}mit central, 
+$\displaystyle {S_{100} - \EE S_{100} \over \sqrt{\Var S_{100}}}$ 
+es pot aproximar per una $N(0,1)$. Aleshores,
+\begin{eqnarray*}
+\pp{300 < S_{100} < 400} &\simeq & \pp{{299.5 - 350 \over \sqrt{875/3}} 
+< {S_{100} - \EE S_{100} \over \sqrt{\Var S_{100}}} < 
+{400.5 - 350 \over \sqrt{875/3}}} \\ & \simeq & \pp{-2.95 < N(0,1) 
+< 2.95} = 2 \times \pp{N(0,1) < 2.95} - 1 \\ &= & 2 \times 0.998411 - 1 =
+ 0.99682.
+\end{eqnarray*}
+}
+
+\begin{probres} {El nombre d'errors d'impremta per p\`agina d'un llibre segueix
+una distribuci\'o de Poisson, amb un nombre mitj\`a d'errors per p\`agina igual a
+2. En un llibre de 300 p\`agines, quina \'es la probabilitat que en una o
+m\'es p\`agines hi hagi m\'es de 5 errors? Calculau-la directament, aproximant
+per una Poisson i aproximant per una normal.} \end{probres}
+
+\res{Posem: $$ X : \mbox{nombre d'errors per p\`agina}. $$ Aleshores $X$ segueix
+una distribuci\'o $Poiss(2)$. Per tant $$ \pp{ X > 5} = 1 - 
+\pp{ X \leq 5} =1 - 0.9834 = 0.0166. $$ 
+Si ara consideram: $$ Y : \mbox{nombre de p\`agines amb
+m\'es de 5 errors}, $$ aleshores $Y$ segueix una distribuci\'o binomial amb
+par\`ametres $n=300$ i $p=0.0166$. Per tant
+
+\begin{eqnarray*} 
+\pp{ Y \geq 1 } & = & 1 - \pp{ Y < 1} = 1 - \pp{ Y = 0 } \\
+& = & 1 - {300 \choose 0} \times 0.0166^0 \times 0.9834^{300} = 1 - 0.0066 =
+0.9934. \end{eqnarray*}
+
+Tamb\'e es pot calcular aproximant la $B(n,p)$ per una $Poiss(np)$. En el nostre
+cas, $$ \lambda = n \cdot p = 300 \times 0.0166 = 4.98. $$ Aleshores
+\[
+\pp{ Y \geq 1 }  =  1 - \pp{ Y = 0 }  = 1 - {4.98^0
+\over 0!} \> \e^{-4.98} = 1 - \e^{-4.98} = 0.9931. 
+\]
+
+Si aplicam el teorema de De Moivre-Laplace,
+
+\begin{eqnarray*} 
+\pp{ Y \geq 1 } & = & 1 - \pp{ Y = 0 } \simeq 1 - \pp{ -0.5 <
+Y \leq 0.5 }\\ & \simeq & 1 - p \left\{ {-0.5 - np \over \sqrt{npq}} < Z \leq
+{0.5 - np \over \sqrt{npq}} \right\} \\ & = & 1 - p \left\{ Z < {0.5 - 4.98 \over
+	\sqrt{4.897}} \right\} + p \left\{ Z < {-0.5 - 4.98 \over \sqrt{4.897}}
+\right\} \\ & = & 1 - \pp{ Z < -2.02 } + \pp{ Z < -2.47 } = 
+\pp{ Z < 2.02 } +\pp{ Z < -2.47} \\ & = & 0.97831 + 0.006756 = 0.985066, \end{eqnarray*}
+
+on $Z$ t\'e la distribuci\'o $N(0,1)$.}
+
+
+\begin{probres} {S'ha de computar la suma de 100 nombres reals. Suposem que els
+nombres s'han aproximat per l'enter m\'es pr\`oxim de manera que cada nombre t\'e
+un error uniformement distribu\"{\i}t en $(-1/2,1/2)$. Utilitzau el teorema
+de l\'{\i}mit central per estimar la probabilitat que l'error total en la suma
+dels 100 nombres superi 6.} \end{probres}
+
+\res{Sigui $$ X_i : \mbox{error total del nombre $i$-\`essim}. $$ Aleshores $X_i$
+t\'e una distribuci\'o uniforme en l'interval $(-1/2,1/2)$ i, per tant, \mbox{$\EE X_i =
+0$,} $\Var X_i = \frac{1}{12}.$ L'error total en la suma dels 100 nombres el
+donar\`a $$ S_{100} = X_1 + \cdots + X_{100}. $$ Aleshores $\EE S_{100} = 0
+\mbox{ i } \Var S_{100} = \frac{100}{12}.$ Aix\'{\i} resultar\`a
+\begin{eqnarray*} 
+\pp{ S_{100} > 6 } & = & 1 - \pp{ S_{100} \leq 6}  = 1
+- \pp{ Z_{100} \leq {6 \over \sqrt{{100 \over 12}}}} \\ 
+& = & 1 - \pp{ Z_{100}\leq 2.08} \simeq  1 - 
+\pp{ Z \leq 2.08} = 1 - 0.98124 = 0.01876,
+\end{eqnarray*}
+on $Z$ t\'e la distribuci\'o $N(0,1)$.}
+
+
+\begin{probres} {La mitjana de bol\'{\i}grafs que es venen di\`ariament en una
+papereria \'es 30 i la desviaci\'o t\'{\i}pica, 5. Aquests valors s\'on 20 i 4
+per al nombre de quaderns venuts. Se sap, a m\'es, que el coeficient de
+correlaci\'o entre les vendes d'ambd\'os productes \'es 0.7. Quina \'es la
+probabilitat que el nombre total dels dos articles venuts durant un trimestre
+estigui compr\`es entre 4.300 i 4.600 unitats?} 
+\end{probres}
+
+\res{Posem: 
+\begin{eqnarray*} 
+X & : & \mbox{nombre de bol\'{\i}grafs venuts en un dia}, \\ 
+Y & : & \mbox{nombre de quaderns venuts en un dia}, \\ 
+D & : & \mbox{nombre total d'aquests dos articles venuts en un dia } = X + Y.
+\end{eqnarray*}
+
+Sabem que $\EE X = 30, \EE Y = 20, \Var X = 5^2 = 25, \Var Y = 4^2 = 16, 
+\mbox{ i } \rho_{XY} = 0.7$. Aleshores $\EE D = 50$, i
+\[
+ \rho_{XY}  = {\Cov (X,Y) \over \sigma_X \cdot \sigma_Y}\quad
+\Longrightarrow 0.7  =  {\Cov (X,Y) \over 5 \times 4}
+\quad \Longrightarrow  \Cov (X,Y) = 14. 
+\]
+
+Aleshores $\Var D = \Var X + \Var Y + 2 \> \Cov (X,Y) = 25 + 16 + 28 = 69.$ 
+El nombre total dels dos articles venuts cada trimestre el d\'ona 
+$$ S_{90} = D_1
++ \cdots + D_{90}, $$ on cada $D_i ( i = 1, \ldots , 90)$ t\'e la mateixa
+distribuci\'o que $D$. Aleshores $\EE S_{90} = 90 \times \EE D = 4500 
+\mbox{ i } \Var S_{90} = 90 \times \Var D = 6210$, d'on 
+$\sigma_{S_{90}} = 78.8$. Finalment,
+\begin{eqnarray*} 
+\pp{ 4300 < S_{90} \leq 4600} & = & \pp{ S_{90} \leq 4600}
+-\pp{ S_{90} \leq 4300} \\ 
+& \simeq & \pp{ S_{90} \leq 4600.5} - \pp{ S_{90}\leq 4300.5} \\ 
+& = & p \left\{ Z_{90} \leq {4600.5 - 4500 \over 78.8} \right\}
+- p \left\{ Z_{90} 	\leq {4300.5-4500 \over 78.8} \right\} \\ 
+& = & \pp{ Z_{90} \leq 1.28} - \pp{ Z_{90} \leq -2.53 } \\ 
+& \simeq & \pp{ Z \leq 1.28 } - \pp{ Z \leq -2.53} \\ 
+& = & 0.8997 - 0.0057 = 0.894, 
+\end{eqnarray*}
+on $Z$ t\'e la distribuci\'o $N(0,1)$.}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Suposem que $X_1,X_2,X_3,\ldots,$ s\'on variables aleat\`ories
+independents distribu\"{\i}des id\`enticament, cada una amb funci\'o de densitat:
+$$f_{X}(x)=
+\left\{\begin{array}{ll}
+{1\over 2}, & \text{per a $x=-1,1$}, \\
+0, & \text{per als altres casos.}
+\end{array}\right.
+$$
+Definim la seq\"u\`encia de les mitjanes: $$\overline{X}_n ={1\over n}\sum_{i=1}^n
+X_i.$$Demostrau que la funci\'o de densitat per a $\overline{X}_n$ \'es:
+$$f_{\overline{X}_n} (x)=
+\left\{\begin{array}{ll}
+{{n\choose {n\over 2}(x+1)}\over 2^n}, & \text{per a
+$x=\pm {1\over n},\pm {3\over n},\ldots,\pm {n-2\over n}, \pm 1$},\\ & \\
+0, &
+\text{en els altres casos.}
+\end{array}\right.
+$$(Suposau que $n$ \'es un nombre senar.)}
+\end{prob}
+
+\begin{prob}
+{El nombre d'accidents en un tros de 10 Km de carretera de 2 carrils
+\'es una variable aleat\`oria de Poisson amb mitjana de 2 accidents per setmana.
+Quina \'es la probabilitat (aproximada) que hi hagi menys de 100 accidents
+en aquest tros durant 1 any?}
+\end{prob}
+
+\begin{prob}
+{La llargada que es pot estirar un fil de nil\'o \'es una variable aleat\`oria
+exponencial amb mitjana de 1524 metres. Quina \'es la probabilitat (aproximada)
+que la llargada mitjana de 100 fils estigui entre 1447.8 m i 1691.64 m?}
+\end{prob}
+
+\begin{prob}
+{Les telefonades que es reben en un commutador
+d'una ind\'ustria arriben com a successos de Poisson a ra\'o de 120 per hora. Quina
+\'es la probabilitat que arribin entre 110 i 125 telefonades entre les 9.00 i les
+10.00 del mat\'{\i} de qualsevol dia?}
+\end{prob}
+
+\begin{prob}
+{Considerem la variable aleat\`oria $X=$``Nombre de cotxes arribats a un
+supermercat en un determinat mes''. Suposem que l'arribada de cotxes al
+supermercat \'es un proc\'es de Poisson i que per terme mitj\`a arriben 5.000 cotxes per mes.
+Aplicant el teorema del l\'{\i}mit central, calculau la probabilitat $p$ que
+arribin entre 4.900 i 5.200 cotxes, ambd\'os inclosos, al supermercat en un mes
+escollit a l'atzar.\newline{\footnotesize Final. Setembre de 1994.}}
+\end{prob}
+
+\begin{prob}
+{
+La probabilitat que un jugador de b\`asquet encistelli \'es $p$.
+
+Quants de llan\c{c}aments ha de fer com a m\'{\i}nim (aproximadament) 
+per tal 
+que la probabilitat que la mitjana de b\`asquets estigui a dist\`ancia 
+$0.01$ de $p$ sigui de $0.99$?
+\newline{\footnotesize Primer parcial. Febrer 95.}
+}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X_1,\ldots,X_{n}$ amb $n=48$, una mostra aleat\`oria simple d'una 
+variable aleat\`oria uniforme en l'interval $(0,a)$.
+Aplicant el teorema del l\'{\i}mit central, trobau la probabilitat 
+aproximada $\pp{\sum\limits_{i=1}^n X_i >a}$.
+\newline{\footnotesize Final. Juny 96.}
+}
+\end{prob}
+
+\begin{prob} {Un radiofar est\`a alimentat per una bateria amb un temps de vida
+\'util $T$ governat per una distribuci\'o exponencial amb una esperan\c{c}a d'un
+mes. Trobau el nombre m\'{\i}nim de bateries que s'han de subministrar al
+radiofar per tal que sigui operatiu amb probabilitat 0.99 almenys un any.}
+\end{prob}
+
+\begin{prob} {Es llan\c{c}a l'aire una moneda sense biaix $n$ vegades. Calculau
+$n$ de manera que la freq\"u\`encia relativa del `6' disti menys de 0.01 de la
+probabilitat te\`orica 1/6?} \end{prob}
+
+\begin{prob} {Se sap que en una poblaci\'o, la talla dels individus barons adults
+\'es una variable aleat\`oria $X$ amb mitjana $\mu_X = 170$ cm i desviaci\'o
+t\'{\i}pica $\sigma_X = 7$ cm. S'elegeixen 140 individus a l'atzar en condicions
+independents. Calculau la probabilitat que la mitjana mostral $\bar{x}$
+difereixi de $\mu_X$ menys de 1 cm.} \end{prob}
+

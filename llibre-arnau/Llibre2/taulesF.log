@@ -1,0 +1,440 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.10.11)  24 MAR 2011 13:27
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**taulesF.tex
+(./taulesF.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, spanish, galician, catalan, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/bk10.clo
+File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-texlive/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2009/02/07 v0.4g Insert pages of external PDF documents (AM)
+
+(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/share/texmf-texlive/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count89
+\calc@Bcount=\count90
+\calc@Adimen=\dimen105
+\calc@Bdimen=\dimen106
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count91
+\calc@Cskip=\skip45
+)
+(/usr/share/texmf-texlive/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2006/07/14 v1.1d eso-pic (RN)
+
+(/usr/share/texmf-texlive/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/share/texmf-texlive/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2009/02/07 v0.4g Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box26
+\AM@toc@title=\toks15
+\c@AM@survey=\count92
+\AM@templatesizebox=\box27
+) (./taulesF.aux)
+\openout1 = `taulesF.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+
+(/usr/share/texmf/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count93
+\scratchdimen=\dimen107
+\scratchbox=\box28
+\nofMPsegments=\count94
+\nofMParguments=\count95
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count96
+\MPscratchDim=\dimen108
+\MPnumerator=\count97
+\everyMPtoPDFconversion=\toks17
+) ABD: EveryShipout initializing macros
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+<TaulesEstadistiques.pdf, id=3, page=2, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 2>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 2>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 2>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 2>
+<TaulesEstadistiques.pdf, id=4, page=3, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 3>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 3>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 2>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 3>
+[1
+
+ <./TaulesEstadistiques.pdf{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}>
+ <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=55, page=4, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 4>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 4>
+<TaulesEstadistiques.pdf, id=56, page=5, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 5>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 5>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 4>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 5>
+[2 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=60, page=6, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 6>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 6>
+<TaulesEstadistiques.pdf, id=61, page=7, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 7>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 7>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 6>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 7>
+[3 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=65, page=8, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 8>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 8>
+<TaulesEstadistiques.pdf, id=66, page=9, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 9>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 9>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 8>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 9>
+[4 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=70, page=10, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 10>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 10>
+<TaulesEstadistiques.pdf, id=71, page=11, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 11>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 11>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 10>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 11>
+[5 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=75, page=12, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 12>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 12>
+<TaulesEstadistiques.pdf, id=76, page=13, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 13>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 13>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 12>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 13>
+[6 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=80, page=14, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 14>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 14>
+<TaulesEstadistiques.pdf, id=81, page=15, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 15>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 15>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 14>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 15>
+[7 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=86, page=16, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 16>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 16>
+<TaulesEstadistiques.pdf, id=87, page=17, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 17>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 17>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 16>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 17>
+[8 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=91, page=18, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 18>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 18>
+<TaulesEstadistiques.pdf, id=92, page=19, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 19>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 19>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 18>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 19>
+[9 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=96, page=20, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 20>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 20>
+<TaulesEstadistiques.pdf, id=97, page=21, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 21>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 21>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 20>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 21>
+[10 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=101, page=22, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 22>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 22>
+<TaulesEstadistiques.pdf, id=102, page=23, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 23>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 23>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 22>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 23>
+[11 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=106, page=24, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 24>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 24>
+<TaulesEstadistiques.pdf, id=107, page=25, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 25>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 25>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 24>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 25>
+[12 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=111, page=26, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 26>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 26>
+<TaulesEstadistiques.pdf, id=112, page=27, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 27>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 27>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 26>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 27>
+[13 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=117, page=28, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 28>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 28>
+<TaulesEstadistiques.pdf, id=118, page=29, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 29>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 29>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 28>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 29>
+[14 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=122, page=30, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 30>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 30>
+<TaulesEstadistiques.pdf, id=123, page=31, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 31>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 31>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 30>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 31>
+[15 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>]
+<TaulesEstadistiques.pdf, id=127, page=32, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 32>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 32>
+<TaulesEstadistiques.pdf, id=128, page=33, 597.50829pt x 845.0471pt>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 33>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 33>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+
+<use TaulesEstadistiques.pdf, page 32>
+File: TaulesEstadistiques.pdf Graphic file (type pdf)
+ <use TaulesEstadistiques.pdf, page 33>
+[16 <./TaulesEstadistiques.pdf> <./TaulesEstadistiques.pdf>] (./taulesF.aux) ) 
+Here is how much of TeX's memory you used:
+ 1730 strings out of 494999
+ 25534 string characters out of 1180815
+ 75817 words of memory out of 3000000
+ 4946 multiletter control sequences out of 15000+50000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 54 hyphenation exceptions out of 8191
+ 32i,16n,37p,240b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
+<
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
+texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
+mr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr
+/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-
+texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on taulesF.pdf (16 pages, 365141 bytes).
+PDF statistics:
+ 143 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+

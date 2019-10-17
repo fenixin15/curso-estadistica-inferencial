@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: TotalInfII.aux
+A level-1 auxiliary file: PInf6.aux
+A level-1 auxiliary file: PInf7.aux
+A level-1 auxiliary file: PInf8.aux
+A level-1 auxiliary file: PInf9.aux
+A level-1 auxiliary file: PInf10.aux
+A level-1 auxiliary file: PInf11.aux
+A level-1 auxiliary file: PInf12.aux
+A level-1 auxiliary file: PInf13.aux
+A level-1 auxiliary file: TaulaContrast.aux
+A level-1 auxiliary file: Prac.aux
+A level-1 auxiliary file: Nor.aux
+A level-1 auxiliary file: td.aux
+A level-1 auxiliary file: xi.aux
+A level-1 auxiliary file: Fl.aux
+A level-1 auxiliary file: Kolmogorov.aux
+The style file: alpha.bst
+Database file #1: TotalInfII.bib
+You've used 6 entries,
+            2543 wiz_defined-function locations,
+            607 strings with 5146 characters,
+and the built_in function-call counts, 1877 in all, are:
+= -- 164
+> -- 87
+< -- 4
++ -- 27
+- -- 27
+* -- 111
+:= -- 331
+add.period$ -- 18
+call.type$ -- 6
+change.case$ -- 30
+chr.to.int$ -- 6
+cite$ -- 6
+duplicate$ -- 93
+empty$ -- 151
+format.name$ -- 36
+if$ -- 377
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 12
+newline$ -- 33
+num.names$ -- 18
+pop$ -- 52
+preamble$ -- 1
+purify$ -- 40
+quote$ -- 0
+skip$ -- 66
+stack$ -- 0
+substring$ -- 42
+swap$ -- 7
+text.length$ -- 4
+text.prefix$ -- 3
+top$ -- 0
+type$ -- 24
+warning$ -- 0
+while$ -- 15
+width$ -- 8
+write$ -- 77

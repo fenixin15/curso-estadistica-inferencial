@@ -1,0 +1,30 @@
+\select@language {catalan}
+\contentsline {chapter}{Prefaci}{i}
+\contentsline {part}{I\hspace {1em}Estad\'{\i }stica descriptiva }{1}
+\contentsline {chapter}{\numberline {1}Variables unidimensionals}{3}
+\contentsline {section}{\numberline {1.1}Resum te\`oric}{3}
+\contentsline {section}{\numberline {1.2}Problemes resolts}{9}
+\contentsline {section}{\numberline {1.3}Problemes proposats}{15}
+\contentsline {part}{II\hspace {1em}Probabilitats}{19}
+\contentsline {chapter}{\numberline {2}Probabilitat elemental}{21}
+\contentsline {section}{\numberline {2.1}Resum te\`oric}{21}
+\contentsline {section}{\numberline {2.2}Problemes resolts}{27}
+\contentsline {section}{\numberline {2.3}Problemes proposats}{37}
+\contentsline {chapter}{\numberline {3}Variables aleat\`ories}{43}
+\contentsline {section}{\numberline {3.1}Resum te\`oric}{43}
+\contentsline {section}{\numberline {3.2}Problemes resolts}{50}
+\contentsline {section}{\numberline {3.3}Problemes proposats}{69}
+\contentsline {chapter}{\numberline {4}Estudi d'algunes distribucions conegudes}{75}
+\contentsline {section}{\numberline {4.1}Resum te\`oric}{75}
+\contentsline {section}{\numberline {4.2}Problemes resolts}{79}
+\contentsline {section}{\numberline {4.3}Problemes proposats}{90}
+\contentsline {chapter}{\numberline {5}Variables aleat\`ories vectorials}{95}
+\contentsline {section}{\numberline {5.1}Resum te\`oric}{95}
+\contentsline {section}{\numberline {5.2}Problemes resolts}{103}
+\contentsline {section}{\numberline {5.3}Problemes proposats}{125}
+\contentsline {chapter}{\numberline {6}Lleis dels grans nombres i teorema del l\'{\i }mit central}{133}
+\contentsline {section}{\numberline {6.1}Resum te\`oric}{133}
+\contentsline {subsection}{\numberline {6.1.1}Lleis del grans nombres}{133}
+\contentsline {subsection}{\numberline {6.1.2}Teorema del l\'{\i }mit central}{135}
+\contentsline {section}{\numberline {6.2}Problemes resolts}{135}
+\contentsline {section}{\numberline {6.3}Problemes proposats}{147}

@@ -1,0 +1,11 @@
+<<echo=F>>=
+decimal1 <- function(n,m){aux <-
+strsplit(as.character(round(qf(0.975,n,m)+pi/10000000,7)),"")[[1]];n <-
+length(aux); aux2 <- aux[grep("\\.",aux)+1]; return(c(as.integer(aux2)))}
+decimal2 <- function(n,m){aux <-
+strsplit(as.character(round(qf(0.975,n,m)+pi/10000000,7)),"")[[1]];n <-
+length(aux); aux2 <- aux[grep("\\.",aux)+3]; aux3 <-
+aux[grep("\\.",aux)+2]; ifelse(aux2>=5 & aux3
+<9,return(as.integer(aux3)+1),return(as.integer(aux3)))}
+@
+

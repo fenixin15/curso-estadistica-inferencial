@@ -1,0 +1,103 @@
+\babel@toc {catalan}{}
+\contentsline {chapter}{Prefaci}{i}% 
+\contentsline {chapter}{\numberline {1}Introducci\'o al mostreig estad\'{\i }stic}{9}% 
+\contentsline {section}{\numberline {1.1}Resum te\`oric}{9}% 
+\contentsline {section}{\numberline {1.2}Problemes resolts}{12}% 
+\contentsline {section}{\numberline {1.3}Problemes proposats}{18}% 
+\contentsline {chapter}{\numberline {2}Estimaci\'o de par\`ametres}{21}% 
+\contentsline {section}{\numberline {2.1}Resum te\`oric}{21}% 
+\contentsline {subsection}{\numberline {2.1.1}Definicions b\`asiques}{21}% 
+\contentsline {subsection}{\numberline {2.1.2}Propietats dels estimadors}{22}% 
+\contentsline {subsection}{\numberline {2.1.3}Propietats dels estimadors de m\`axima versemblan\c {c}a}{24}% 
+\contentsline {subsection}{\numberline {2.1.4}Estimadors de vari\`ancia m\'{\i }nima}{24}% 
+\contentsline {section}{\numberline {2.2}Problemes resolts}{26}% 
+\contentsline {section}{\numberline {2.3}Problemes proposats}{42}% 
+\contentsline {chapter}{\numberline {3}Intervals de confian\c {c}a}{47}% 
+\contentsline {section}{\numberline {3.1}Resum te\`oric}{47}% 
+\contentsline {section}{\numberline {3.2}Problemes resolts}{49}% 
+\contentsline {section}{\numberline {3.3}Problemes proposats}{54}% 
+\contentsline {chapter}{\numberline {4}Contrasts d'hip\`otesi}{59}% 
+\contentsline {section}{\numberline {4.1}Resum te\`oric}{59}% 
+\contentsline {subsection}{\numberline {4.1.1}Hip\`otesis simples}{60}% 
+\contentsline {subsection}{\numberline {4.1.2}Hip\`otesis compostes}{61}% 
+\contentsline {section}{\numberline {4.2}Problemes resolts}{63}% 
+\contentsline {section}{\numberline {4.3}Problemes proposats}{76}% 
+\contentsline {chapter}{\numberline {5}Proves de la bondat d'ajustament i d'independ\`encia}{83}% 
+\contentsline {section}{\numberline {5.1}Resum te\`oric}{83}% 
+\contentsline {section}{\numberline {5.2}Problemes resolts}{87}% 
+\contentsline {section}{\numberline {5.3}Problemes proposats}{97}% 
+\contentsline {chapter}{\numberline {6}Test de Kolmogorov-Smirnov}{103}% 
+\contentsline {section}{\numberline {6.1}Resum te\`oric}{103}% 
+\contentsline {section}{\numberline {6.2}Problemes resolts}{104}% 
+\contentsline {section}{\numberline {6.3}Problemes proposats}{107}% 
+\contentsline {chapter}{\numberline {7}An\`alisi de la vari\`ancia}{109}% 
+\contentsline {section}{\numberline {7.1}Resum te\`oric}{109}% 
+\contentsline {subsection}{\numberline {7.1.1}An\`alisi de la vari\`ancia d'un factor}{109}% 
+\contentsline {subsection}{\numberline {7.1.2}An\`alisi de la vari\`ancia de dos factors}{114}% 
+\contentsline {section}{\numberline {7.2}Problemes resolts}{119}% 
+\contentsline {section}{\numberline {7.3}Problemes proposats}{131}% 
+\contentsline {chapter}{\numberline {8}Teoria de la regressi\'o}{135}% 
+\contentsline {section}{\numberline {8.1}Resum te\`oric}{135}% 
+\contentsline {subsection}{\numberline {8.1.1}Definicions b\`asiques}{135}% 
+\contentsline {subsection}{\numberline {8.1.2}M\`etode dels m\'{\i }nims quadrats}{136}% 
+\contentsline {subsection}{\numberline {8.1.3}Propietats dels estimadors dels m\'{\i }nims quadrats}{137}% 
+\contentsline {subsection}{\numberline {8.1.4}Infer\`encies sobre els coeficients de regressi\'o}{138}% 
+\contentsline {subsection}{\numberline {8.1.5}Predicci\'o}{140}% 
+\contentsline {subsection}{\numberline {8.1.6}Estudi de la regressi\'o des del punt de vista de l'an\`alisi de la vari\`ancia}{141}% 
+\contentsline {subsection}{\numberline {8.1.7}Prova de la linealitat de la regressi\'o}{143}% 
+\contentsline {subsection}{\numberline {8.1.8}Correlaci\'o}{144}% 
+\contentsline {section}{\numberline {8.2}Problemes resolts}{145}% 
+\contentsline {section}{\numberline {8.3}Problemes proposats}{150}% 
+\contentsline {chapter}{\numberline {A}Taules de contrasts d'hip\`otesi m\'es usuals}{153}% 
+\contentsline {section}{\numberline {A.1}Taula de contrasts d'hip\`otesi per al par\`ametre $\mu $ d'una variable aleat\`oria normal}{154}% 
+\contentsline {subsection}{\numberline {A.1.1}Tipus de contrasts i condicions}{154}% 
+\contentsline {subsection}{\numberline {A.1.2}Estad\'{\i }stic de contrast, regions cr\'{\i }tiques i intervals de confian\c {c}a}{156}% 
+\contentsline {section}{\numberline {A.2}Contrats d'hip\`otesi per al par\`ametre $\sigma $ d'una normal}{158}% 
+\contentsline {subsection}{\numberline {A.2.1}Tipus de contrasts i condicions}{158}% 
+\contentsline {subsection}{\numberline {A.2.2}Estad\'{\i }stic de contrast, regions cr\'{\i }tiques i intervals de confian\c ca}{159}% 
+\contentsline {chapter}{\numberline {B}Pr\`actiques d'estad\'{\i }stica proposades}{161}% 
+\contentsline {section}{\numberline {B.1}Estad\'{\i }stica descriptiva }{162}% 
+\contentsline {subsection}{\numberline {B.1.1}Introducci\'o}{162}% 
+\contentsline {subsection}{\numberline {B.1.2}Definici\'o de les variable aleat\`ories discretes }{162}% 
+\contentsline {subsection}{\numberline {B.1.3}Definici\'o de les variables aleat\`ories cont\'{\i }nues}{164}% 
+\contentsline {section}{\numberline {B.2}Teorema del l\'{\i }mit central}{165}% 
+\contentsline {subsection}{\numberline {B.2.1}Generaci\'o de la mostra aleat\`oria simple}{165}% 
+\contentsline {subsection}{\numberline {B.2.2}Comprovaci\'o que la mostra anterior correspon a la va\discretionary {-}{}{}ria\discretionary {-}{}{}ble aleat\`oria $X$}{166}% 
+\contentsline {subsection}{\numberline {B.2.3}Definici\'o de la funci\'o de distribuci\'o emp\'{\i }rica}{166}% 
+\contentsline {section}{\numberline {B.3}Estudi de la fiabilitat d'un examen tipus test}{166}% 
+\contentsline {subsection}{\numberline {B.3.1}Introducci\'o}{166}% 
+\contentsline {subsection}{\numberline {B.3.2}Estudi de la independ\`encia de la variable {\it Resposta} i de la variable {\it Nota}}{167}% 
+\contentsline {subsection}{\numberline {B.3.3}Estudi de la dificultat i coher\`encia de cada pregunta}{168}% 
+\contentsline {subsection}{\numberline {B.3.4}Estudi de la coher\`encia dels distractors}{169}% 
+\contentsline {section}{\numberline {B.4}Contrasts d'hip\`otesi corresponents als par\`ametres $\mu $ i $\sigma $}{170}% 
+\contentsline {subsection}{\numberline {B.4.1}Introducci\'o i generaci\'o de les mostres}{170}% 
+\contentsline {subsection}{\numberline {B.4.2}Contrast d'hip\`otesi per a la mitjana}{170}% 
+\contentsline {subsection}{\numberline {B.4.3}Contrast d'hip\`otesi per a la vari\`ancia }{170}% 
+\contentsline {section}{\numberline {B.5}Lleis dels grans nombres i test $\chi ^2$}{171}% 
+\contentsline {subsection}{\numberline {B.5.1}Introducci\'o}{171}% 
+\contentsline {subsection}{\numberline {B.5.2}Lleis dels grans nombres}{172}% 
+\contentsline {subsection}{\numberline {B.5.3}Test $\chi ^2$}{172}% 
+\contentsline {section}{\numberline {B.6}Test ANOVA d'un factor}{173}% 
+\contentsline {subsection}{\numberline {B.6.1}Generaci\'o de les mostres}{173}% 
+\contentsline {subsection}{\numberline {B.6.2}Comprovaci\'o de la normalitat i la independ\`encia}{173}% 
+\contentsline {subsection}{\numberline {B.6.3}Comprovaci\'o de la igualtat de vari\`ancies}{173}% 
+\contentsline {subsection}{\numberline {B.6.4}Contrast ANOVA}{173}% 
+\contentsline {section}{\numberline {B.7}C\`alcul d'una integral definida per m\`etodes estad\'{\i }stics}{174}% 
+\contentsline {subsection}{\numberline {B.7.1}Introducci\'o}{174}% 
+\contentsline {subsection}{\numberline {B.7.2}C\`alcul de la integral a partir d'una variable aleat\`oria bidimensional}{174}% 
+\contentsline {subsection}{\numberline {B.7.3}C\`alcul de la integral a partir d'una variable aleat\`oria unidimensional}{175}% 
+\contentsline {chapter}{\numberline {C}Taules estad\'{\i }stiques}{177}% 
+\contentsline {section}{\numberline {C.1}Taules de la distribuci\'o $N(0,1)$ ($z_{\alpha }$)}{178}% 
+\contentsline {section}{\numberline {C.2}Distribuci\'o $t$ de Student amb $n$ graus de llibertat $t_n$ ($t_{n,\alpha }$)}{179}% 
+\contentsline {section}{\numberline {C.3}Distribuci\'o khi quadrat amb $n$ graus de llibertat $\chi _n^{2}$ ( $\chi _{n,\alpha }$)}{180}% 
+\contentsline {section}{\numberline {C.4}Distribuci\'o $F_{n_1,n_2}$ de Fisher-Snedecor amb $n_1$ i $n_2$ graus de llibertat}{186}% 
+\contentsline {subsection}{\numberline {C.4.1}$F_{n_1,n_2,0.995}$}{186}% 
+\contentsline {subsection}{\numberline {C.4.2}$F_{n_1,n_2,0.99}$}{190}% 
+\contentsline {subsection}{\numberline {C.4.3}$F_{n_1,n_2,0.975}$}{194}% 
+\contentsline {subsection}{\numberline {C.4.4}$F_{n_1,n_2,0.95}$}{199}% 
+\contentsline {subsection}{\numberline {C.4.5}$F_{n_1,n_2,0.9}$}{203}% 
+\contentsline {subsection}{\numberline {C.4.6}$F_{n_1,n_2,0.8}$}{207}% 
+\contentsline {subsection}{\numberline {C.4.7}$F_{n_1,n_2,0.7}$}{211}% 
+\contentsline {subsection}{\numberline {C.4.8}$F_{n_1,n_2,0.6}$}{215}% 
+\contentsline {subsection}{\numberline {C.4.9}$F_{n_1,n_2,0.5}$}{219}% 
+\contentsline {section}{\numberline {C.5}Funci\'o de distribuci\'o de Kolmogorov $D(n)$}{223}% 

@@ -1,0 +1,636 @@
+\chapter{Introducci\'o al mostreig estad\'{\i}stic}
+\index{mostreig!estadistic@estad\'{\i}stic}
+
+\section{Resum te\`oric}
+
+La infer\`encia estad\'{\i}stica \index{inferencia@infer\`encia!estadistica@estad\'{\i}stica} 
+tracta de l'estudi d'alguns conceptes num\`erics
+relatius a un gran nombre d'individus\index{individu} (la {\bf poblaci\'o})
+\index{poblacio@poblaci\'o} a partir d'un
+subconjunt relativament petit (una {\bf mostra} de la poblaci\'o). Per exemple,
+podem estar interessats a estimar el valor mitj\`a de tots els nombres que 
+formen la poblaci\'o ({\bf estimaci\'o puntual})
+\index{estimacio@estimaci\'o!puntual} o a donar un interval de valors amb una
+probabilitat\index{probabilitat} coneguda de contenir el valor mitj\`a 
+({\bf interval de confian\c ca})\index{interval!de confianca@de confian\c{c}a} 
+o a saber si un nombre espec\'{\i}fic \'es igual al valor mitj\`a ({\bf contrast
+d'hip\`otesi}).\index{contrast!d'hipotesi@d'hip\`otesi} 
+En cada un d'aquests casos es vol una resposta basada
+exclusivament en informaci\'o parcial, o sigui, donada per una mostra
+\index{mostra} de la poblaci\'o,\index{poblacio@poblaci\'o} 
+m\'es que en l'examen complet de tota la poblaci\'o.
+
+Una poblaci\'o\index{poblacio@poblaci\'o} es modelitza mitjan\c{c}ant 
+una variable aleat\`oria $X$, de manera que el seu rang de valors 
+coincideix amb el conjunt de valors de la poblaci\'o. Perqu\`e
+vagi b\'e la mostra\index{mostra} s'ha de seleccionar de manera aleat\`oria. 
+La definici\'o formal de mostra \'es la seg\"uent:
+
+\begin{defin}
+Una {\bf mostra aleat\`oria simple}\index{mostra!aleatoria@aleat\`oria!simple} 
+de grand\`aria $n$ d'una variable aleat\`oria\index{variable!aleatoria@aleat\`oria} 
+$X$ \'es un conjunt de $n$ variables aleat\`ories $X_1, \ldots , X_n$ independents i
+id\`enticament distribu\"{\i}des, essent $F_X$ la funci\'o de distribuci\'o 
+comuna:\index{funcio@funci\'o!de distribucio@de distribuci\'o} 
+$F_{X_i} = F_X \ \forall i = 1, \ldots , n$.
+\end{defin}
+
+Si $X_1, \ldots , X_n$ \'es una mostra aleat\`oria simple d'una variable aleat\`oria
+$X$, les variables aleat\`ories $X_1, \ldots , X_n$ s'anomenen els {\bf elements
+de la mostra}. Una vegada que s'ha pres la mostra, es coneixen els valors
+observats de $X_1, \ldots , X_n$.
+
+\begin{defin}
+Una {\bf estad\'{\i}stica}\index{estadistica@estad\'{\i}stica} \'es qualsevol 
+funci\'o dels elements d'una mostra aleat\`oria simple 
+\index{mostra!aleatoria@aleat\`oria!simple} 
+que no dep\`en dels par\`ametres\index{parametre@par\`ametre} desconeguts.
+\end{defin}
+
+\begin{defin}
+Donada una mostra aleat\`oria simple $X_1, \ldots , X_n$ d'una variable
+alea\-t\`o\-ria $X$, direm:
+\begin{enumerate}
+
+\item {\bf k-\`essim moment de la mostra}\index{moment de la mostra}: 
+$\displaystyle M_k = {1 \over n}
+\sum_{i=1}^n X_i^k$,
+
+\item {\bf Mitjana de la mostra}:\index{mitjana!de la mostra} $\displaystyle \bar{X} = {1
+\over n} \sum_{i=1}^n X_i$,
+
+\item {\bf Vari\`ancia de la mostra}:\index{variancia@vari\`ancia!de la mostra} $\displaystyle S^2 = {1 \over n}
+\sum_{i=1}^n (X_i-\bar{X})^2 = {\sum\limits_{i=1}^n x_i^2 \over n} - \bar{x}^2$,
+
+\item {\bf Desviaci\'o est\`andard}
+\index{desviacio@desviaci\'o!tipica@t\'{\i}pica} (o {\bf t\'{\i}pica}): 
+$\displaystyle S = +\sqrt{S^2}$,
+
+\item {\bf Quasivari\`ancia de la mostra}
+\index{quasivariancia de la mostra@quasivari\`ancia de la mostra}: $\displaystyle \tilde{S^2} = {1 \over n-1}
+\sum_{i=1}^n (X_i-\bar{X})^2 = {n \over n-1} S^2$.
+\end{enumerate}
+\end{defin}
+
+{\bf Notes.}
+
+\begin{enumerate}
+
+\item Aquestes quatre estad\'{\i}stiques (i qualsevol altra) s\'on funcions de
+variables aleat\`ories i, per tant, tamb\'e s\'on variables aleat\`ories.
+
+\item $\displaystyle \tilde{S^2} = {1 \over n-1}\left( \sum_{i=1}^n
+ X_i^2- n \bar{X}^2\right)$.
+
+\end{enumerate}
+
+\begin{defin}
+Donada una mostra aleat\`oria simple $X_1, \ldots , X_n$ d'una variable
+alea\-t\`o\-ria $X$, ordenam els elements de menor a major: 
+$X_{(1)} \leq \cdots \leq X_{(n)}$. Aleshores direm 
+{\bf estad\'{\i}stica d'ordre $i$-\`essim} a $X_{(i)}$.
+\end{defin}
+
+\begin{defin}
+Donada una mostra $X_1, \ldots , X_n$, la {\bf mediana de la mostra}
+\index{mediana de la mostra} \'es:
+$M_0 = X_{((n+1)/2)}$ si $n$ \'es imparell, i $M_0 = {1 \over 2} [X_{(n/2)} +
+X_{((n+2)/2)}]$ si $n$ \'es parell.
+El {\bf rang de la mostra}\index{rang de la mostra} \'es: $R_a = X_{(n)} - X_{(1)}$.
+\end{defin}
+
+{\bf Propietat:} Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria simple d'una
+variable aleat\`oria $X$ i sigui $M_k$ el k-\`essim moment de la mostra.
+\index{moment de la mostra} Aleshores:
+$${\rm E}M_k = m_k, \ Var M_k = {1 \over n} (m_{2k} - m_k^2),$$
+on $m_k$ \'es el k-\`essim moment de $X$, \'es a dir, 
+$m_k =\EE \left(X^k\right)$.
+
+{\bf Propietats.}
+
+\begin{enumerate}
+\item Donada una variable aleat\`oria $X$ amb distribuci\'o $N(\mu,\sigma^2)$,
+aleshores la variable aleat\`oria $\displaystyle W = {(X-\mu)^2 \over \sigma^2}$
+s'anomena variable aleat\`oria {\bf $\chi^2$ amb un grau de llibertat}. La seva
+funci\'o de densitat \'es:
+$$f_W(w) = {w^{-1/2} \over \sqrt{2 \pi}} e^{-w/2}, \ w > 0,$$
+i la seva funci\'o generatriu de moments:
+\index{funcio@funci\'o!generatriu de moments}
+$$m_W(t) = {1 \over (1-2t)^{1/2}},\quad\mbox{ per a $t<\frac{1}{2}$.}$$
+
+\item Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria simple d'una variable
+aleat\`oria $X$ amb distribuci\'o $N(\mu,\sigma^2)$. Aleshores $\displaystyle
+Y = \sum_{i=1}^n {(X_i-\mu)^2 \over \sigma^2}$ \'es una {\bf variable aleat\`oria 
+$\chi^2$ amb $n$ graus de llibertat}.
+
+{\bf Nota:} Aquesta distribuci\'o $\chi^2$ apareix sovint en la infer\`encia
+estad\'{\i}stica.
+\index{estadistica@estad\'{\i}stica!inferencial} 
+Si dibuixam la gr\`afica de la funci\'o de densitat
+\index{funcio@funci\'o!de densitat} de $\chi^2$,
+observarem que si el nombre de graus de llibertat
+\index{grau!de llibertat} $d$ supera 2, la funci\'o t\'e un
+m\`axim en $d-2$. La mitjana\index{mitjana} \'es $d$ i la vari\`ancia, 
+\index{variancia@vari\`ancia} $2d$. A mesura que $d$ creix, la
+funci\'o de densitat es fa cada vegada m\'es sim\`etrica.
+\index{simetrica@sim\`etrica} De fet, 
+en el l\'{\i}mit, \'es una normal.\index{normal}
+
+\item Sigui $Y$ una variable aleat\`oria $\chi^2$ amb $d > 30$ graus de llibertat.
+Aleshores $\sqrt{2Y} - \sqrt{2d-1}$ \'es aproximadament una variable aleat\`oria
+$N(0,1)$. Per tant
+$$
+\begin{array}{lllll}
+\alpha & = & \pp{Y \leq \chi_\alpha^2}  & = & \pp{\sqrt{2Y} -
+\sqrt{2d-1} \leq \sqrt{2\chi_\alpha^2} - \sqrt{2d-1}}\\
+& &  & \simeq  & \pp{Z \leq \sqrt{2\chi_\alpha^2} - \sqrt{2d-1}} \\
+& &  & =  & \pp{Z \leq z_\alpha},
+\end{array}
+$$
+on $z_\alpha$ \'es el percentil\index{percentil} 100$\alpha$-\`essim de 
+la distribuci\'o $N(0,1)$. Per tant, si $d > 30$,
+$$\sqrt{2\chi_\alpha^2} - \sqrt{2d-1} \simeq z_\alpha \Longrightarrow
+\chi_\alpha^2 \simeq {1 \over 2} (z_\alpha + \sqrt{2d-1})^2.$$
+
+\item Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria simple d'una variable
+aleat\`oria normal~$X$.\index{variable!aleatoria@aleat\`oria!normal} 
+Aleshores $\displaystyle \sum_{i=1}^n{(X_i-\bar{X})^2
+\over \sigma^2}$ \'es una variable aleat\`oria $\chi^2$ amb $d=n-1$ graus de
+llibertat\index{grau!de llibertat} i $S^2$ i $\bar{X}$ s\'on variables aleat\`ories independents.
+
+{\bf Nota:} Observem que $S^2$ i $\bar{X}$ s\'on funcions de les mateixes
+variables aleat\`ories, per\`o en canvi resulten ser independents.
+
+\item Sigui $X_1, \ldots , X_n$ una mostra aleat\`oria simple d'una variable
+aleat\`oria $X$ i sigui $X_{(i)}$ l'estad\'{\i}stica d'ordre $i$ de la mostra,
+aleshores la funci\'o de distribuci\'o
+\index{funcio@funci\'o!de distribucio@de distribuci\'o} de $X_{(i)}$ \'es:
+$$F_{X_{(i)}}(t) = \sum_{k=i}^n {n \choose k} (F_X(t))^k (1-F_X(t))^{n-k}.$$
+\end{enumerate}
+
+\section{Problemes resolts}
+
+\begin{probres}
+{Es fabriquen bombetes amb durades 
+distribu\"{\i}des normalment amb vida mitjana de 200 hores 
+i desviaci\'o est\`andard 
+de 20 hores. Es trien a l'atzar 3 bombetes, 
+quina \'es la probabilitat que les 3 bombetes durin
+m\'es de 195 hores?}
+\end{probres}
+
+\res{Considerem la variable aleat\`oria $T$:``durada d'una bombeta''. 
+Tenim que $T$ \'es \mbox{$N(\mu=200\ h.,\sigma =20\ h.)$.} Sigui 
+\mbox{$T_1,T_2,T_3$} una mostra aleat\`oria de~$T$ de grand\`aria $3$, o sigui, 
+la durada de tres bombetes escollides a l'atzar. Ens demanen calcular:
+\[
+\pp{(T_1>195)\cap (T_2>195)\cap (T_3 >195)}.
+\]
+Gr\`acies a la independ\`encia, podem escriure que:
+\begin{eqnarray*}
+	\pp{(T_1>195)\cap (T_2>195)\cap (T_3 >195)} & = & {\pp{T>195}}^3 
+	\\ & = & {\pp{Z=N(0,1)>\frac{195-200}{20}}}^3  \\
+	 & = & {\pp{Z>-0.25}}^3={\pp{Z<0.25}}^3 \\ &\approx & {0.5987}^3
+          \approx  0.2146
+\end{eqnarray*}}
+
+\begin{probres}
+{Suposem que $X$ esta distribu\"{\i}da uniformement en l'interval 
+$(0,1)$. Si es pren una mostra aleat\`oria simple de~$5$ observacions
+ de $X$, quina \'es la
+funci\'o de densitat conjunta 
+de la mostra?}
+\end{probres}
+
+\res{Recordem que la funci\'o de densitat d'una variable uniforme
+ en l'interval $(0,1)$ \'es:
+\[
+f(x)=
+\left\{\begin{array}{ll}
+1, & \text{si $x\in (0,1)$},\\ 0, & \text{en cas contrari}.
+\end{array}\right.
+\]
+Sigui $X_1,\ldots,X_5$ una mostra aleat\`oria d'$X$. A causa de la 
+independ\`encia, la funci\'o de densitat conjunta de la mostra 
+ser\`a el producte de les funcions de densitat de cada una de les variables 
+aleat\`ories. Aix\'{\i}, doncs, tenim que:
+\[
+f_{X_1\ldots X_5}(x_1,\ldots,x_5)=\prod_{i=1}^5 f_{X_i}(x_i)=
+\left\{\begin{array}{ll}
+1, 
+& \text{si $(x_1,\ldots,x_5)\in (0,1)\mbox{x}\cdots\mbox{x}(0,1)$},\\ 
+0, & \text{en cas contrari}.
+\end{array}\right.
+\]}
+
+\begin{probres}
+{Se sap que els resultats de cert examen 
+estan distribu\"{\i}ts normalment amb mitjana 
+$\mu$ i vari\`ancia $\sigma^2$. 
+Si es trien a l'atzar 10 persones per examinar-les, 
+quina \'es la funci\'o de densitat conjunta dels seus resultats?
+Quina \'es la probabilitat que la mitjana
+de les 10 notes sigui menor que $\mu$?}
+\end{probres}
+
+\res{Si $X$ \'es $N(\mu,\sigma^2)$, 
+la seva funci\'o de densitat val:
+\[
+f_X(x)=\frac{1}{\sigma\sqrt{2\pi}}
+\e^{-\frac{{(x-\mu)}^2}{2\sigma^2}},\quad x\in\RR.
+\]
+Sigui $X_1,\ldots,X_{10}$ una mostra aleat\`oria de $X$ de grand\`aria $10$. La 
+funci\'o de densitat conjunta de la mostra, fent servir que 
+les variables $X_i$ s\'on independents, ser\`a el 
+producte de les funcions de densitat de 
+cada variable:
+\[
+f_{X_1\ldots X_{10}}(x_1,\ldots,x_{10})=\prod_{i=1}^{10} 
+f_{X_i}(x_i)=\frac{1}{\sigma^{10}{(2\pi)}^5} 
+\e^{-\frac{1}{2\sigma^2}\sum\limits_{i=1}^{10}{(x_i -\mu)}^2}.
+\]
+La mitjana de les notes ser\`a:
+\[
+\overline{X}=\frac{X_1+\cdots + X_{10}}{10}.
+\]
+Si les variables $X_i$ s\'on $N(\mu,\sigma^2)$, 
+la variable $\overline{X}$ tamb\'e 
+ser\`a normal \mbox{$N\left(\mu,\frac{\sigma^2}{10}\right)$.} Per tant:
+\[
+\pp{\overline{X}<\mu} =\pp{ 
+Z=N(0,1)=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{10}}}<0}=0.5.
+\]}
+
+\begin{probres}
+{Una moneda no trucada es llan\c{c}a 5 vegades a l'aire. 
+Quina \'es la probabilitat que la 
+proporci\'o de la mostra de 
+cares estigui com a
+m\`axim a dist\`ancia $0.05$ de ${1\over 2}$? I la que estigui com a m\`axim a
+dist\`ancia $0.15$ de ${1\over 2}$?}
+\end{probres}
+
+\res{Siguin $X_1,\ldots,X_5$ els resultats obtenguts, on
+\[
+X_i =
+\left\{\begin{array}{ll}
+1, & \text{si surt cara},\\ 0, & \text{si surt creu}.
+\end{array}\right.
+\]
+Per tant, podem afirmar que $X_i$ \'es una variable de Bernoulli amb
+par\`ametre $p=\frac{1}{2}$ 
+ja que la moneda no est\`a trucada.
+
+Ens demanen calcular:
+\begin{eqnarray*}
+	p_1 & = & \pp{ \left|\overline{X}-\frac{1}{2}\right| <0.05}, \\
+	p_2 & = & \pp{ \left|\overline{X}-\frac{1}{2}\right| <0.15}.
+	\end{eqnarray*}
+Calculem $p_1$:
+\begin{eqnarray*}
+	p_1 & = & 
+	\pp{\frac{1}{2}-0.05<\overline{X}<\frac{1}{2}+0.05}=
+        \pp{0.45<\overline{X}< 0.55}  \\
+	 & = & \pp{ 2.25<\sum_{i=1}^5 X_i <2.75}=0,
+\end{eqnarray*}
+ja que la variable aleat\`oria $Y=\sum\limits_{i=1}^5 X_i$ \'es una variable
+binomial amb par\`ametres $n=5$ i $p=\frac{1}{2}$ que pren valors enters i 
+no hi ha cap enter entre $2.25$ i $2.75$.
+
+A continuaci\'o, trobem $p_2$:
+\begin{eqnarray*}
+	p_2 & = & \pp{\frac{1}{2}-0.15<\overline{X}<\frac{1}{2}+0.15} 
+	=\pp{0.35 <\overline{X}<0.65} \\
+	 & = & \pp{1.75 < Y=\sum\limits_{i=1}^5 X_i <3.25} =f_Y 
+	 (2)+f_Y(3) \\ 
+	 & = & {5\choose 2}{\left(\frac{1}{2}\right)}^5+{5\choose 
+	 3}{\left(\frac{1}{2}\right)}^5 = 20 {\left(\frac{1}{2}\right)}^5 =0.625
+\end{eqnarray*}}
+
+\begin{probres}
+{Donada una mostra aleat\`oria 
+simple $X_1,X_2,\ldots,X_n$ d'una variable 
+de Bernoulli amb par\`ametre $p$, demostrau que:
+\begin{eqnarray*}
+\pp{X_{(n)}=1}&=&1-{(1-p)}^n,\\ \pp{X_{(1)}=1}&=&p^n.
+\end{eqnarray*}
+{\footnotesize Recordem que $\scriptstyle X_{(n)}=\max\{X_1,\ldots,X_n\}$ i
+$\scriptstyle X_{(1)}=\min\{X_1,\ldots,X_n\}$.}}
+\etiqueta{FUNDENMAXMINBERNOULLI}
+\end{probres}
+
+\res{Trobarem primerament les funcions de probabilitat 
+de les variables $X_{(n)}$ (m\`axim) i $X_{(1)}$ (m\'{\i}nim). 
+
+Fixau-vos que el rang de $X_{(n)}$ i $X_{(1)}$ ser\`a el mateix que el rang 
+d'$X$. O sigui 
+\[
+X_{(n)}(\Omega)=X_{(1)}(\Omega)=\{0,1\}.
+\]
+Basta trobar la funci\'o de probabilitat en els valors $0$ i $1$.
+
+Recordem que la relaci\'o entre les funcions de distribuci\'o 
+de les variables $X_{(n)}$ i $X_{(1)}$ i la variable $X$ era:
+\begin{equation}
+\begin{array}{rl}
+	F_{X_{(n)}} (t) = & {F_X(t)}^n,  \\
+	F_{X_{(1)}}(t)  = & 1-{(1-F_X(t))}^n.
+	\end{array}
+	\label{DISTMAXMIN}
+\end{equation}
+En el nostre cas, la funci\'o de distribuci\'o d'$X$ \'es:
+\[
+F_X (t)=
+\left\{\begin{array}{ll}
+0, & \text{si $x<0$},\\ (1-p), & \text{si $0\leq x <1$}, \\ 1, & 
+\text{si $x\geq 1$}.
+\end{array}\right.
+\]
+Per tant, fent servir (\ref{DISTMAXMIN}), podem trobar les funcions de 
+distribuci\'o de $X_{(n)}$ i $X_{(1)}$:
+\begin{eqnarray*}
+F_{X_{(n)}}(t) & = & 
+\left\{\begin{array}{ll}
+0, & \text{si $x<0$},\\ {(1-p)}^n, & \text{si $0\leq x <1$}, \\ 1, & 
+\text{si $x\geq 1$}.
+\end{array}\right.
+\\
+F_{X_{(1)}}(t) & = & 
+\left\{\begin{array}{ll}
+0, & \text{si $x<0$},\\ 1-{(1-(1-p))}^n =1- p^n, & 
+\text{si $0\leq x <1$}, \\ 1, & 
+\text{si $x\geq 1$}.
+\end{array}\right.
+\end{eqnarray*}
+La funci\'o de probabilitat de $X_{(n)}$ ser\`a el salt en les discontinu\"{\i}tats
+ de 
+$F_{X_{(n)}}(t)$ en $t=0$ i $t=1$:
+$$
+\begin{tabular}{|c|c|c|}
+	\hline
+	$x$ & $0$ & $1$  \\
+	\hline
+	$f_{X_{(n)}}$ & ${(1-p)}^n$ &  $1-{(1-p)}^n$\\
+	\hline
+\end{tabular}
+$$
+En particular dedu\"{\i}m que $\pp{X_{(n)}=1}=f_{X_{(n)}}(1)=1-{(1-p)}^n$.
+
+En el cas del m\'{\i}nim $X_{(1)}$, trobam la funci\'o de probabilitat de la mateixa 
+forma:
+$$
+\begin{tabular}{|c|c|c|}
+	\hline
+	$x$ & $0$ & $1$  \\
+	\hline
+	$f_{X_{(1)}}$ & $1- p^n$ &  $p^n$\\
+	\hline
+\end{tabular}
+$$
+En particular dedu\"{\i}m que $\pp{X_{(1)}=1}=f_{X_{(1)}}(1)=p^n$.}
+
+\begin{probres}
+{Donada una mostra 
+aleat\`oria $X_1,X_2,\ldots,X_n$ d'una variable aleat\`oria 
+cont\'{\i}nua $X$, calculau els valors de $\EE (F_{X}(X_{(n)}))$ i de 
+$\EE (F_{X}(X_{(1)}))$.\newline{\footnotesize Indicaci\'o: $\scriptstyle\int n
+{(F_X(t))}^n f_X(t)\, dt = {n\over n+1}{(F_X(t))}^{n+1}$.}}
+\end{probres}
+
+\res{Recordem que si la variable $X$ \'es cont\'{\i}nua, 
+les funcions de densitat de 
+les variables aleat\`ories que ens donen el m\`axim i el 
+m\'{\i}nim de la mostra 
+les donen:
+\begin{equation}
+\begin{array}{rl}
+	f_{X_{(1)}}(t)  = & n f_X (t) {(1-F_X(t))}^{n-1},  \\
+	f_{X_{(n)}}(t)  = & n f_X(t) {F_X(t)}^{n-1}.
+	\end{array}
+	\label{DENMAXMIN}
+\end{equation}
+Per tant,
+\begin{eqnarray*}
+	\EE [F_X (X_{(n)})] & = & \int_{\RR} F_X(t) f_{X_{(n)}}(t)\, dt =\int_{\RR} 
+	F_X(t) n f_X (t) {F_X(t)}^{n-1}\, dt  \\
+	 & = & \int_{\RR} n f_X (t) {F_X(t)}^{n}\, dt ={\left[\frac{n}{n+1} 
+	 {F_X(t)}^{n+1}\right]}_{-\infty}^{\infty}=\frac{n}{n+1},
+\end{eqnarray*}
+ja que $\lim\limits_{t\to -\infty} F_X(t)=0$ i $\lim\limits_{t\to \infty} 
+F_X(t)=1$.
+
+De la mateixa manera, fent servir (\ref{DENMAXMIN}) i tenint en compte 
+els valors dels dos l\'{\i}mits anteriors podem calcular $E[F_X (X_{(1)})]$:
+\begin{eqnarray*}
+	\EE [F_X (X_{(1)})] & = & \int_{\RR} F_X(t) f_{X_{(1)}}(t)\, dt = 
+	\int_{\RR} F_X(t) n f_X(t) {(1-F_X(t))}^{n-1}\, dt \\ & = & 
+	\int_{\RR} -(1-F_X (t)-1) n f_X(t) {(1-F_X(t))}^{n-1}\, dt \\
+	 & = & -\int_{\RR} n f_X(t) {(1-F_X(t))}^{n}\, dt +\int_{\RR}n f_X(t) 
+	 {(1-F_X(t))}^{n-1}\, dt 
+	 \\ & = & {\left[n\frac{{(1-F_X(t))}^{n+1}}{n+1}\right]}_{-\infty}^\infty - 
+	 {\left[ {(1-F_X(t))}^{n}\right]}_{-\infty}^\infty \\
+	 & = & \frac{n}{n+1} (0-1)- (0-1)=-\frac{n}{n+1}+1 =\frac{1}{n+1}.
+\end{eqnarray*}}
+
+\begin{probres}
+{Calculau $\EE (\tilde{S}^2)$ i $\EE (\tilde{S})$ per a una mostra 
+aleat\`oria
+simple d'una variable aleat\`oria 
+normal.\newline{\footnotesize Indicaci\'o:
+$\scriptstyle {(n-1) \tilde{S}^2\over\sigma^2}$ \'es una variable 
+aleat\`oria $\chi_{n-1}^2$.}}
+\etiqueta{PROPIETATSGAMMA}
+\end{probres}
+
+\res{Per trobar $\EE\left[\tilde{S}^2\right]$ hem de tenir en compte que:
+\begin{itemize}
+	\item[a)] La variable aleat\`oria $\frac{(n-1)\tilde{S}^2}{\sigma^2}
+	=\frac{1}{\sigma^2}\sum\limits_{i=1}^n {(X_i-\overline{X})}^2$ \'es una 
+	variable khi quadrat amb $n-1$ graus
+	 de llibertat.
+	
+	\item[b)] Si $V=\chi^2_n$ (khi quadrat amb $n$ 
+	graus de llibertat) 
+	l'esperan\c{c}a i la vari\`ancia
+	 de $Y$ valen: $\EE V =n$ i $\mbox{Var }V=2n$.
+\end{itemize}
+Per tant fent servir a) i b) podem escriure:
+\[
+\EE\left[\frac{(n-1)\tilde{S}^2}{\sigma^2}\right]=\frac{n-1}{\sigma^2}
+\EE\left[\tilde{S}^2\right] 
+=n-1.
+\]
+D'on dedu\"{\i}m que $\EE\left[\tilde{S}^2\right]=\sigma^2$.
+
+Trobarem a continuaci\'o $\EE\left[\tilde{S}\right]$. Considerem una variable 
+$Y=\chi^2_{n-1}$. Podem escriure, fent servir a), que \mbox{$\tilde{S}^2 
+=\frac{\sigma^2}{n-1}{Y}$.} Per tant:
+\[
+\EE\left[\tilde{S}\right] =\frac{\sigma}{\sqrt{n-1}} \EE\left[\sqrt{Y}\right].
+\]
+Hem redu\"{\i}t el problema a trobar $E\left[\sqrt{Y}\right]$ on $Y$ \'es una 
+variable $\chi^2_m$ (en el nostre cas, \mbox{$m=n-1$).}
+
+Recordem que la funci\'o de densitat d'una variable $Y=\chi^2_m$ val:
+\[
+f_Y (t)=\frac{t^{\frac{m}{2}-1}}{2^{\frac{m}{2}}\Gamma\left(\frac{m}{2}\right)}\cdot 
+\e^{-\frac{t}{2}},\ t>0,
+\]
+on $\Gamma (k)= \int\limits_0^\infty t^{k-1} \e^{-t}\, dt$. Les 
+propietats de la funci\'o $\Gamma (k)$ s\'on:
+\begin{eqnarray*}
+\Gamma (k) & = & (k-1) \Gamma(k-1), \\
+\Gamma (n) & = & (n-1)!,\ \mbox{per a } n\in\ZZ^+, \\
+\Gamma \left(\frac{1}{2}\right) & = & \sqrt{\pi}, \\ 
+\Gamma \left( n+\frac{1}{2}\right) & = & \frac{(2 n-1)\cdot (2n-3)\ldots 
+3\cdot 1}{2^n}\cdot\sqrt{\pi}=\frac{(2n-1)!!}{2^n}\cdot\sqrt{\pi},\ 
+\mbox{per a } n\in\ZZ^+.
+\end{eqnarray*}
+A continuaci\'o trobam $\EE\left[\sqrt{Y}\right]$:
+\begin{eqnarray*}
+	\EE\left[\sqrt{Y}\right] & = & \int_0^\infty t^{\frac{1}{2}} 
+	\frac{t^{\frac{m}{2}-1}}{2^{\frac{m}{2}}\Gamma\left(\frac{m}{2}\right)}\cdot 
+\e^{-\frac{t}{2}}\, dt =\int_0^\infty 
+\frac{t^{\frac{m+1}{2}-1}}{2^{\frac{m}{2}}\Gamma\left(\frac{m}{2}\right)}\cdot 
+\e^{-\frac{t}{2}} \, dt\\
+	 & = & \int_0^\infty 
+	 \frac{t^{\frac{m+1}{2}-1}}{2^{\frac{m+1}{2}}\Gamma\left(\frac{m+1}{2}\right)} 
+	 \frac{1}{2^{-\frac{1}{2}}}\frac{\Gamma\left(\frac{m+1}{2}\right)}
+	{\Gamma\left(\frac{m}{2}  \right)}\cdot \e^{-\frac{t}{2}}\, dt 
+	\\ & = & \frac{\sqrt{2}\cdot\Gamma\left(\frac{m+1}{2}\right)}
+	{\Gamma\left(\frac{m}{2}\right)}
+	\int_0^\infty 
+	 \frac{t^{\frac{m+1}{2}-1}}{2^{\frac{m+1}{2}}\Gamma\left(\frac{m+1}{2}\right)}\e^{-\frac{t}{2}}\, 
+	 dt = \frac{\sqrt{2}\cdot\Gamma\left(\frac{m+1}{2}\right)}
+	{\Gamma\left(\frac{m}{2}\right)},
+\end{eqnarray*}
+ja que la darrera integral val $1$ en ser la integral 
+de la funci\'o de densitat d'una variable aleat\`oria $\chi^2_{m+1}$.
+
+En el nostre cas, recordem que $m=n-1$. Per tant, ja podem trobar 
+$\EE\left[\tilde{S}\right]$:
+\[
+\EE\left[\tilde{S}\right] 
+=\frac{\sigma}{\sqrt{n-1}}\frac{\sqrt{2}\cdot
+\Gamma\left(\frac{n}{2}\right)}{\Gamma\left(\frac{n-1}{2}
+\right)}=\sqrt{\frac{2}{n-1}}\cdot\sigma\cdot
+\frac{\Gamma\left(\frac{n}{2}\right)}{\Gamma\left(\frac{n-1}{2}\right)}.
+\]}
+
+\begin{probres}
+{Demostrau que si $W_1$ \'es una variable aleat\`oria $\chi^2$ amb $d_1$
+graus de llibertat i $W_2$ \'es una variable aleat\`oria $\chi^2$ amb
+$d_2$ graus de llibertat, i s\'on independents, aleshores $W_1 +W_2$
+ \'es una variable aleat\`oria $\chi^2$ amb $d_1 + d_2$ graus de llibertat.}
+\etiqueta{SUMACHIQUADRAT}
+\end{probres}
+
+\res{Per veure que $W_1 +W_2$ \'es $\chi_{d_1+d_2}^2$, provarem que la funci\'o 
+generatriu de moments 
+de \mbox{$W_1 +W_2$} coincideix amb la funci\'o 
+generatriu de moments d'una variable aleat\`oria $\chi^2_{d_1+d_2}$.
+
+Recordem que si $X$ \'es $\chi_n^2$, la funci\'o generatriu de moments val:
+\[
+m_X (t)=\frac{1}{{(1- 2t)}^{\frac{n}{2}}}.
+\]
+Per tant, tenint en compte que $W_1$ i $W_2$ s\'on independents, podem 
+escriure:
+\[
+m_{W_1 +W_2}(t)=m_{W_1}(t)\cdot m_{W_2}(t)=\frac{1}{{(1- 
+2t)}^{\frac{d_1}{2}}}\cdot \frac{1}{{(1- 2t)}^{\frac{d_2}{2}}}=
+\frac{1}{{(1- 2t)}^{\frac{d_1 +d_2}{2}}},
+\]
+funci\'o que coincideix amb la funci\'o generatriu de moments 
+d'una variable $\chi^2_{d_1+d_2}$.}
+
+\section{Problemes proposats}
+
+\begin{prob}
+{Suposem que les vides mitjanes de certes bombetes estan
+distribu\"{\i}des exponencialment amb par\`ametre 
+$\lambda$. Si es pren una mostra aleat\`oria 
+de $n$ d'aquestes bombetes i es representa per $X_i$ la durada de
+la $i-$\`essima bombeta per a $i=1,\ldots,n$, quina \'es la funci\'o 
+de densitat conjunta de la mostra?}
+\end{prob}
+
+\begin{prob}
+{Suposem que $X_1,X_2,\ldots,X_{10}$ \'es una mostra aleat\`oria simple
+d'una variable aleat\`oria. 
+\begin{itemize}
+\item[a)] {Es divideix la mostra de grand\`aria $10$ en dues parts. 
+La primera queda formada pels primers $5$ valors seleccionats i la segona 
+pels $5$ valors restants. S\'on independents 
+les dues parts?}
+\item[b)] {Ara es divideix la mostra de $10$ en dues parts, 
+per\`o ara la primera part est\`a formada pels $5$ valors m\'es petits. 
+S\'on independents les dues parts?}
+\end{itemize}}
+\end{prob}
+
+\begin{prob}
+{Un fabricant de cotxes esportius porta a la pista $6$ 
+cotxes del mateix model per saber com varia la velocitat 
+m\`axima d'un cotxe a l'altre. Les velocitats 
+m\`aximes observades s\'on de $190,195,193,177,201$ i $187$
+(mesurades en km/h.). Suposem que aquests nombres s\'on els valors observats
+d'una mostra aleat\`oria simple d'una variable aleat\`oria $X$. Calculau els
+valors observats dels 3 primers moments de la mostra, 
+de $\overline{X}$, de $\tilde{S}^2$, de $M_0$ (Mediana) i de 
+$X_{(4)}$ (valor que ocupa el quart lloc
+suposats els valors ordenats).}
+\end{prob}
+
+\begin{prob}
+{Quina \'es la probabilitat que el m\`axim valor 
+d'una mostra de grand\`aria $10$ d'una variable distribu\"{\i}da uniformement 
+en l'interval $(0,1)$
+sigui m\'es gran que $0.9$? I la que sigui menor que ${1\over 2}$?}
+\end{prob}
+
+\begin{prob}
+{Sigui $X_1,X_2,\ldots,X_n$ una mostra aleat\`oria simple d'una
+variable aleat\`oria 
+normal amb par\`ametres $\mu$ i $\sigma^2$. 
+Trobau les funcions de densitat per a $X_{(1)}$ i $X_{(n)}$. 
+Algunes d'aquestes variables est\`a distribu\"{\i}da normalment?}
+\end{prob}
+
+\begin{prob}
+{Suposem que $X_1,X_2,\ldots,X_n$ \'es una mostra aleat\`oria d'una
+variable aleat\`oria 
+amb mitjana $\mu$ desconeguda i vari\`ancia $\sigma^2$ desconeguda. 
+Definim \break $\overline{X}={1\over n}\sum\limits_{i=1}^n X_i$.
+\begin{itemize}
+\item[a)] {Quina \'es la distribuci\'o de ${\sqrt{n}(\overline{X}-\mu)\over
+\sigma}$?}
+\item[b)] {\'Es ${\sqrt{n}(\overline{X}-\mu)\over \sigma}$ 
+una estad\'{\i}stica?}
+\end{itemize}}
+\end{prob}
+
+\begin{prob}
+{Suposem que $X_1,X_2,\ldots, X_{10}$ \'es una mostra aleat\`oria simple
+d'una variable aleat\`oria 
+normal est\`andard. Calculau
+$\pp{2.56<\sum\limits_{i=1}^{10} X_i^2 <18.31}$.}
+\end{prob}
+
+\begin{prob}
+{Sigui $X_1,X_2,\ldots,X_{10}$ una mostra aleat\`oria simple 
+d'una variable aleat\`oria
+\newline\mbox{$X\ N(\mu=2,\sigma^2=16)$.} 
+Sigui la variable aleat\`oria $Y={\sum\limits_{i=1}^{10}{(X_i-2)}^2\over 16}$. 
+Trobau\break\mbox{$\pp{Y\leq
+2.6}$.}\newline{\footnotesize Final. Juny 94.}}
+\end{prob}
+
+\begin{prob}
+{
+Sigui $X$ una variable aleat\`oria $\chi_2^2$. Sigui $Y=X^n$. Trobau la funci\'o
+de densitat de $Y$.
+\newline{\footnotesize Final. Juny 95.}
+}
+\end{prob}
+

@@ -1,0 +1,303 @@
+This is pdfTeX, Version 3.14159-14h-released-20010417 (Web2C 7.3.3.1) (format=pdflatex 2003.3.5)  12 MAY 2003 11:26
+**ricardo
+(./ricardo.tex{/usr/share/texmf/pdftex/config/pdftex.cfg}
+LaTeX2e <2000/06/01>
+Babel <v3.7h> and hyphenation patterns for american, catalan, spanish, nohyphen
+ation, loaded.
+(/usr/share/texmf/tex/latex/base/book.cls
+Document Class: book 2000/05/19 v1.4b Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/bk11.clo
+File: bk11.clo 2000/05/19 v1.4b Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/share/texmf/tex/generic/babel/babel.sty
+Package: babel 2001/03/01 v3.7h The Babel package
+
+(/usr/share/texmf/tex/generic/babel/catalan.ldf
+Language: catalan 2001/02/19 v2.2n Catalan support from the babel system
+
+(/usr/share/texmf/tex/generic/babel/babel.def
+File: babel.def 2001/03/01 v3.7h Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+Package babel Info: Making " an active character on input line 72.
+Warning: You are using encoding OT1 instead of T1.
+Some word breaks will not be found.
+\leftllkern=\dimen104
+\rightllkern=\dimen105
+\raiselldim=\dimen106
+LaTeX Info: Redefining \l on input line 219.
+LaTeX Info: Redefining \L on input line 220.
+)) (./fancybox.sty
+Package: fancybox 2000/09/19 1.3
+
+Style option: `fancybox' v1.3 <2000/09/19> (tvz)
+\@fancybox=\box26
+\shadowsize=\dimen107
+\@Sbox=\box27
+\do@VerbBox=\toks14
+\the@fancyput=\toks15
+\this@fancyput=\toks16
+\EndVerbatimTokens=\toks17
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read1
+) (/usr/share/texmf/tex/latex/fancyheadings/fancyheadings.sty
+\headrulewidth=\dimen108
+\footrulewidth=\dimen109
+\plainheadrulewidth=\dimen110
+\plainfootrulewidth=\dimen111
+\headwidth=\dimen112
+\footruleskip=\dimen113
+)
+(/usr/share/texmf/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 42.
+)
+(/usr/share/texmf/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen114
+)
+(/usr/share/texmf/tex/latex/tools/array.sty
+Package: array 1998/05/13 v2.3m Tabular extension package (FMi)
+\col@sep=\dimen115
+\extrarowheight=\dimen116
+\NC@list=\toks18
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
+(/usr/share/texmf/tex/latex/eepic/epic.sty
+Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
+\@@multicnt=\count89
+\d@lta=\count90
+\@delta=\dimen117
+\@@delta=\dimen118
+\@gridcnt=\count91
+\@joinkind=\count92
+\@dotgap=\dimen119
+\@ddotgap=\dimen120
+\@x@diff=\count93
+\@y@diff=\count94
+\x@diff=\dimen121
+\y@diff=\dimen122
+\@dotbox=\box28
+\num@segments=\count95
+\num@segmentsi=\count96
+\@datafile=\read2
+) (/usr/share/texmf/tex/latex/tools/calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count97
+\calc@Bcount=\count98
+\calc@Adimen=\dimen123
+\calc@Bdimen=\dimen124
+\calc@Askip=\skip45
+\calc@Bskip=\skip46
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count99
+)
+\@indexfile=\write4
+\openout4 = `ricardo.idx'.
+
+
+Writing index file ricardo.idx
+\bbbfam=\mathgroup5
+\c@problema=\count100
+(./ricardo.aux (./PInf6.aux) (./PInf7.aux) (./PInf8.aux) (./PInf9.aux)
+(./PInf10.aux) (./PInf11.aux) (./PInf12.aux) (./PInf13.aux)
+(./TaulaContrast.aux) (./Prac.aux) (./Nor.aux) (./td.aux) (./xi.aux) (./Fl.aux)
+(./Kolmogorov.aux))
+\openout1 = `ricardo.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+ (/usr/share/texmf/tex/generic/pictex/prepictex.tex)
+(/usr/share/texmf/tex/generic/pictex/pictex.tex
+! No room for a new \dimen .
+\ch@ck ...\else \errmessage {No room for a new #3}
+                                                  \fi 
+l.620 \newdimen\!zpt
+                                      %.AWBX.DVEULGP.YQ.ST
+? 
+) (/usr/share/texmf/tex/generic/pictex/postpictex.tex)
+\c@proposition=\count117
+\c@defin=\count118
+\c@cas=\count119
+\c@aux=\count120
+\amplada=\skip47
+\openout2 = `Nor.aux'.
+
+ (./Nor.tex
+Cap\'{\i }tol 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 3.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 3.
+(/usr/share/texmf/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2eLaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 15.
+
+(/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
+
+Overfull \hbox (1.04404pt too wide) detected at line 32
+/cmmi10@10.95pt/F[] /cmr10@10.95pt/= []/cmmi10@10.95pt/; []/cmsy10@10.95pt/8/cm
+mi10@10.95pt/x /cmsy10@10.95pt/2 /msbm10@12.0pt/R/cmmi10@10.95pt/;   p [] /cmr1
+0@10.95pt/= 1 /cmsy10@10.95pt/^^@ /cmmi10@10.95pt/p [] :
+ []
+
+[179{/usr/share/texmf/dvips/config/pdftex.map
+Warning: pdflatex (file /usr/share/texmf/dvips/config/pdftex.map): invalid entr
+y for `rtxphvbo': SlantFont/ExtendFont can be used only with embedded T1 fonts
+
+Warning: pdflatex (file /usr/share/texmf/dvips/config/pdftex.map): invalid entr
+y for `rtxphvro': SlantFont/ExtendFont can be used only with embedded T1 fonts
+
+Warning: pdflatex (file /usr/share/texmf/dvips/config/pdftex.map): invalid entr
+y for `rtxptmbo': SlantFont/ExtendFont can be used only with embedded T1 fonts
+
+Warning: pdflatex (file /usr/share/texmf/dvips/config/pdftex.map): invalid entr
+y for `rtxptmro': SlantFont/ExtendFont can be used only with embedded T1 fonts
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 39.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 39.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 51.
+) [180]
+\openout2 = `td.aux'.
+
+ (./td.tex
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 20.
+
+) [181
+
+
+]
+\openout2 = `xi.aux'.
+
+ (./xi.tex
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 19.
+
+[182
+
+
+]
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 89.
+
+[183]
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 159.
+
+
+[184]
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 229.
+
+
+[185]
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 299.
+
+
+[186]
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 369.
+
+
+) [187]
+\openout2 = `Fl.aux'.
+
+ (./Fl.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 4.
+ [188
+
+
+] [189] [190] [191] [192] [193] [194] [195] [196]
+[197] [198] [199] [200] [201] [202] [203] [204] [205] [206] [207] [208]
+[209] [210] [211] [212] [213] [214] [215] [216] [217] [218]) [219]
+\openout2 = `Kolmogorov.aux'.
+
+
+(./Kolmogorov.tex [220
+
+
+])
+No file ricardo.bbl.
+No file ricardo.ind.
+(./ricardo.aux (./PInf6.aux) (./PInf7.aux) (./PInf8.aux) (./PInf9.aux)
+(./PInf10.aux) (./PInf11.aux) (./PInf12.aux) (./PInf13.aux)
+(./TaulaContrast.aux) (./Prac.aux) (./Nor.aux) (./td.aux) (./xi.aux) (./Fl.aux)
+(./Kolmogorov.aux)) ) 
+Here is how much of TeX's memory you used:
+ 1946 strings out of 50455
+ 21516 string characters out of 690776
+ 103319 words of memory out of 1500001
+ 4846 multiletter control sequences out of 10000+25000
+ 11513 words of font info for 46 fonts, out of 400000 for 1000
+ 40 hyphenation exceptions out of 10000
+ 26i,11n,26p,352b,355s stack positions out of 3000i,500n,3000p,50000b,5000s
+</usr/share/texmf/fonts/type1/bluesky/cm/cmsy6.pfb></usr/s
+hare/texmf/fonts/type1/bluesky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/blues
+ky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/t
+exmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/bluesky/cm
+/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/symbols/msbm10.pfb></usr/shar
+e/texmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/bluesky/
+cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/tex
+mf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmm
+i8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fo
+nts/type1/bluesky/cm/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx12.
+pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pfb>
+Output written on ricardo.pdf (42 pages, 169369 bytes).

@@ -1,0 +1,13 @@
+This is makeindex, version 2.13 [07-Mar-1997] (using kpathsea).
+Scanning style file ./turisme.ist......done (6 attributes redefined, 0 ignored).
+Scanning input file TotalInfI.idx....
+!! Input index error (file = TotalInfI.idx, line = 179):
+   -- Extra `!' at position 57 of first argument.
+
+!! Input index error (file = TotalInfI.idx, line = 198):
+   -- Extra `!' at position 35 of first argument.
+done (201 entries accepted, 2 rejected).
+Sorting entries.....done (1668 comparisons).
+Generating output file TotalInfI.ind....done (267 lines written, 0 warnings).
+Output written in TotalInfI.ind.
+Transcript written in TotalInfI.ilg.

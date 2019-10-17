@@ -1,0 +1,203 @@
+\indexentry{estadistica descriptiva@estad\'{\i }stica descriptiva}{1}
+\indexentry{variable!unidimensional}{3}
+\indexentry{descripcio numerica@descripci\'o num\`erica}{3}
+\indexentry{ordenacio@ordenaci\'o}{3}
+\indexentry{poblacio@poblaci\'o}{3}
+\indexentry{observacio@observaci\'o}{3}
+\indexentry{unitat estadistica@unitat estad\'{\i}stica}{3}
+\indexentry{individu}{3}
+\indexentry{mostra}{3}
+\indexentry{variable!estadistica@estad\'{\i}stica}{3}
+\indexentry{variable!discreta}{3}
+\indexentry{variable!continua@cont\'{\i}nua}{3}
+\indexentry{frequencia@freq\"u\`encia!absoluta}{3}
+\indexentry{frequencia@freq\"u\`encia!relativa}{3}
+\indexentry{frequencia@freq\"u\`encia!absoluta!acumulada}{3}
+\indexentry{frequencia@freq\"u\`encia!relativa!acumulada}{3}
+\indexentry{taula de frequencies@taula de freq\"u\`encies}{4}
+\indexentry{variable!estadistica@estad\'{\i}stica}{4}
+\indexentry{interval de classe}{4}
+\indexentry{marca de classe}{5}
+\indexentry{representacio grafica@representaci\'o gr\`afica}{5}
+\indexentry{diagrama!de barres}{5}
+\indexentry{histograma}{5}
+\indexentry{poligon@pol\'{\i}gon!de frequencies@de freq\"u\`encies}{5}
+\indexentry{diagrama!de barres}{5}
+\indexentry{poligon@pol\'{\i}gon!de frequencies@de freq\"u\`encies}{5}
+\indexentry{diagrama!de frequencies acumulades@de freq\"u\`encies acumulades}{5}
+\indexentry{poligon@pol\'{\i}gon!de frequencies@de freq\"u\`encies!acumulades}{5}
+\indexentry{interval de classe}{5}
+\indexentry{frequencia@freq\"u\`encia!absoluta!acumulada}{5}
+\indexentry{frequencia@freq\"u\`encia!relativa!acumulada}{5}
+\indexentry{variable!estadistica@estad\'{\i}stica}{5}
+\indexentry{frequencia@freq\"u\`encia!absoluta}{5}
+\indexentry{mitjana!aritmetica@aritm\`etica}{6}
+\indexentry{mitjana!geometrica@geom\`etrica}{6}
+\indexentry{mitjana!quadratica@quadr\`atica}{6}
+\indexentry{mitjana!harmonica@harm\`onica}{6}
+\indexentry{mediana}{6}
+\indexentry{moda}{6}
+\indexentry{quartil}{6}
+\indexentry{decil}{6}
+\indexentry{variancia@vari\`ancia}{6}
+\indexentry{desviacio@desviaci\'o!mitjana}{7}
+\indexentry{coeficient!de variacio@de variaci\'o!de Pearson}{7}
+\indexentry{coeficient!de variacio@de variaci\'o!mitjana}{7}
+\indexentry{recorregut}{7}
+\indexentry{recorregut!interquartilic@interquart\'{\i}lic}{7}
+\indexentry{recorregut!semiinterquartilic@semiinterquart\'{\i}lic}{7}
+\indexentry{moment}{7}
+\indexentry{moment!central}{7}
+\indexentry{mesura de simetria}{8}
+\indexentry{distribucio@distribuci\'o!de frequencies@de freq\"u\`encies}{8}
+\indexentry{simetrica@sim\`etrica}{8}
+\indexentry{distribucio@distribuci\'o!unimodal}{8}
+\indexentry{asimetrica@asim\`etrica!per la dreta}{8}
+\indexentry{asimetrica@asim\`etrica!positiva}{8}
+\indexentry{distribucio@distribuci\'o!unimodal}{8}
+\indexentry{asimetrica@asim\`etrica!per l'esquerra}{8}
+\indexentry{asimetrica@asim\`etrica!negativa}{8}
+\indexentry{distribucio@distribuci\'o!unimodal}{8}
+\indexentry{coeficient!d'asimetria!de Pearson}{8}
+\indexentry{coeficient!d'asimetria!de Fisher}{8}
+\indexentry{coeficient!d'apuntament}{8}
+\indexentry{curtosi}{8}
+\indexentry{campana de Gauss}{8}
+\indexentry{platicurtica@platic\'urtica}{8}
+\indexentry{leptocurtica@leptoc\'urtica}{8}
+\indexentry{mesocurtica@mesoc\'urtica}{9}
+\indexentry{leptocurtica@leptoc\'urtica}{9}
+\indexentry{mesocurtica@mesoc\'urtica}{9}
+\indexentry{platicurtica@platic\'urtica}{9}
+\indexentry{fenomen aleatori@fen\`omen aleatori}{21}
+\indexentry{experiment aleatori}{21}
+\indexentry{model probabilistic@model probabil\'{\i}stic}{21}
+\indexentry{succes@succ\'es}{21}
+\indexentry{probabilitat}{21}
+\indexentry{probabilitat}{22}
+\indexentry{espai!mostral}{22}
+\indexentry{succes@succ\'es!elemental}{22}
+\indexentry{$\sigma$-algebra de successos@$\sigma$-\`algebra de successos}{22}
+\indexentry{succes@succ\'es}{22}
+\indexentry{succes@succ\'es!impossible}{22}
+\indexentry{succes@succ\'es!segur}{22}
+\indexentry{mesura de probabilitat}{23}
+\indexentry{continuitat sequencial@continu\"{\i}tat seq\"uencial!de la probabilitat}{23}
+\indexentry{succes@succ\'es!nul}{24}
+\indexentry{equiprobabilitat}{24}
+\indexentry{definicio@definici\'o!classica de probabilitat@cl\`assica de probabilitat}{24}
+\indexentry{definicio@definici\'o!frequentista de probabilitat@freq\"uentista de probabilitat}{24}
+\indexentry{espai!de probabilitat}{25}
+\indexentry{model probabilistic@model probabil\'{\i}stic}{25}
+\indexentry{espai!mostral}{25}
+\indexentry{probabilitat!condicionada}{25}
+\indexentry{Formula@F\'ormula de les probabilitats totals}{25}
+\indexentry{Regla de Bayes}{25}
+\indexentry{probabilitat!a priori}{26}
+\indexentry{probabilitat!a posteriori}{26}
+\indexentry{successos independents}{26}
+\indexentry{probabilitat!condicionada}{26}
+\indexentry{independencia condicionada@independ\`encia condicionada}{26}
+\indexentry{variable aleatoria@variable aleat\`oria}{43}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o}{43}
+\indexentry{variable aleatoria@variable aleat\`oria!discreta}{44}
+\indexentry{funcio@funci\'o!de probabilitat}{44}
+\indexentry{variable aleatoria@variable aleat\`oria!continua@cont\'{\i}nua}{45}
+\indexentry{densitat}{45}
+\indexentry{variable aleatoria@variable aleat\`oria!absolutament continua @absolutament cont\'{\i}nua}{45}
+\indexentry{esperanca@esperan\c{c}a}{46}
+\indexentry{mitjana}{46}
+\indexentry{valor esperat}{46}
+\indexentry{moment!d'ordre $n$}{47}
+\indexentry{moment!central d'ordre $n$}{47}
+\indexentry{variancia@vari\`ancia}{47}
+\indexentry{desviacio@desviaci\'o!tipica@t\'{\i}pica}{47}
+\indexentry{desviacio@desviaci\'o!estandard@est\`andard}{47}
+\indexentry{desigualtat!de Txebixev}{48}
+\indexentry{desigualtat!de Markov}{48}
+\indexentry{variable aleatoria@variable aleat\`oria!complexa}{49}
+\indexentry{funcio@funci\'o!caracteristica@caracter\'{\i}stica}{49}
+\indexentry{funcio@funci\'o!generatriu!de moments}{49}
+\indexentry{funcio@funci\'o!generatriu!cumulativa}{50}
+\indexentry{funcio@funci\'o!generatriu!factorial}{50}
+\indexentry{variable aleatoria@variable aleat\`oria!de Bernoulli}{75}
+\indexentry{distribucio@distribuci\'o!de Bernoulli}{75}
+\indexentry{prova de Bernoulli}{75}
+\indexentry{variable aleatoria@variable aleat\`oria!binomial}{75}
+\indexentry{distribucio@distribuci\'o!binomial}{75}
+\indexentry{prova de Bernoulli}{76}
+\indexentry{variable aleatoria@variable aleat\`oria!geometrica@geom\`etrica}{76}
+\indexentry{distribucio@distribuci\'o!geometrica@geom\`etrica}{76}
+\indexentry{temps d'espera}{76}
+\indexentry{falta de memoria@falta de mem\`oria}{76}
+\indexentry{variable aleatoria@variable aleat\`oria!de Poisson}{76}
+\indexentry{distribucio@distribuci\'o!de Poisson}{76}
+\indexentry{variable aleatoria@variable aleat\`oria!hipergeometrica@hipergeom\`etrica}{77}
+\indexentry{distribucio@distribuci\'o!hipergeometrica@hipergeom\`etrica}{77}
+\indexentry{variable aleatoria@variable aleat\`oria!uniforme}{77}
+\indexentry{distribucio@distribuci\'o!uniforme}{77}
+\indexentry{variable aleatoria@variable aleat\`oria!exponencial}{78}
+\indexentry{distribucio@distribuci\'o!exponencial}{78}
+\indexentry{variable aleatoria@variable aleat\`oria!de Poisson}{78}
+\indexentry{falta de memoria@falta de mem\`oria}{78}
+\indexentry{campana de Gauss}{78}
+\indexentry{campana de Gauss}{78}
+\indexentry{variable aleatoria@variable aleat\`oria!normal}{78}
+\indexentry{variable aleatoria@variable aleat\`oria!gaussiana}{78}
+\indexentry{distribucio@distribuci\'o!normal}{78}
+\indexentry{distribucio@distribuci\'o!gaussiana}{78}
+\indexentry{variable aleatoria@variable aleat\`oria!normal!estandard@est\`andard}{78}
+\indexentry{distribucio@distribuci\'o!normal!estandard@est\`andard}{78}
+\indexentry{variable aleatoria@variable aleat\`oria!de Pascal}{81}
+\indexentry{distribucio@distribuci\'o!de Pascal}{81}
+\indexentry{variable aleatoria@variable aleat\`oria!binomial!negativa}{81}
+\indexentry{distribucio@distribuci\'o!binomial!negativa}{81}
+\indexentry{variable aleatoria@variable aleat\`oria!gamma}{86}
+\indexentry{distribucio@distribuci\'o!gamma}{86}
+\indexentry{variable aleatoria@variable aleat\`oria!vectorial}{95}
+\indexentry{vector!aleatori}{95}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o!conjunta}{95}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o!marginal}{95}
+\indexentry{funcio@funci\'o!de probabilitat!conjunta}{96}
+\indexentry{funcio@funci\'o!de probabilitat!marginal}{96}
+\indexentry{variables aleatories@variables aleat\`ories!conjuntament! absolutament continues@absolutament cont\'{\i}nues}{96}
+\indexentry{vector!aleatori!absolutament continu}{96}
+\indexentry{funcio@funci\'o!de densitat!conjunta}{96}
+\indexentry{funcio@funci\'o!de densitat!marginal}{97}
+\indexentry{vector!aleatori!uniforme}{97}
+\indexentry{distribucio@distribuci\'o!uniforme!bidimensional}{97}
+\indexentry{vector!aleatori!gaussia@gaussi\`a}{97}
+\indexentry{distribucio@distribuci\'o!gaussiana!bidimensional}{97}
+\indexentry{variables aleatories@variables aleat\`ories!conjuntament!gaussianes}{97}
+\indexentry{variables aleatories@variables aleat\`ories!independents}{98}
+\indexentry{funcio@funci\'o!de probabilitat!condicionada}{98}
+\indexentry{funcio@funci\'o!de densitat!condicionada}{98}
+\indexentry{esperanca@esperan\c{c}a!condicionada}{99}
+\indexentry{esperanca@esperan\c{c}a!condicionada}{99}
+\indexentry{variancia@vari\`ancia!condicionada}{99}
+\indexentry{variancia@vari\`ancia!condicionada}{99}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o!conjunta!n-dimensional}{99}
+\indexentry{funcio@funci\'o!de distribucio@de distribuci\'o!marginal}{99}
+\indexentry{vector!aleatori!multinomial}{100}
+\indexentry{distribucio@distribuci\'o!multinomial}{100}
+\indexentry{funcions de!variables aleatories@variables aleat\`ories}{100}
+\indexentry{funcions de!variables aleatories@variables aleat\`ories}{101}
+\indexentry{funcions de!variables aleatories@variables aleat\`ories}{101}
+\indexentry{funcions de!variables aleatories@variables aleat\`ories}{101}
+\indexentry{moment!de funcions de variables aleatories@de funcions de variables aleat\`ories}{101}
+\indexentry{moment!conjunt}{102}
+\indexentry{moment!marginal}{102}
+\indexentry{moment!central!bidimensional}{102}
+\indexentry{covariancia@covari\`ancia}{102}
+\indexentry{coeficient de correlacio@coeficient de correlaci\'o}{102}
+\indexentry{variables aleatories@variables aleat\`ories!relacionades linealment}{102}
+\indexentry{variables aleatories@variables aleat\`ories!incorrelacionades}{102}
+\indexentry{vector!mitjana}{102}
+\indexentry{matriu de covari\`ancies}{103}
+\indexentry{funcio@funci\'o!caracteristica@caracter\'{\i}stica!multidimensional}{103}
+\indexentry{variables!aleatories@aleat\| ories!i.i.d.}{134}
+\indexentry{mitjana!mostral}{134}
+\indexentry{llei!feble dels grans nombres}{134}
+\indexentry{llei!forta dels grans nombres}{134}
+\indexentry{teorema!del limit central@del l\'{\i}mit central}{135}
+\indexentry{teorema!de De Moivre-Laplace}{135}
