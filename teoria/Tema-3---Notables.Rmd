@@ -39,11 +39,14 @@ fracaso (F). El espacio de sucesos será $\Omega=\{E,F\}$.
 * Consideremos la  aplicación 
 
 $$
-X:\Omega=\{E,F\}\to \mathbb{R}$$
+X:\Omega=\{E,F\}\to \mathbb{R}
+$$
 
 definida por
 
-$$X(E)=1\mbox{, }X(F)=0$$
+$$
+X(E)=1\mbox{, }X(F)=0.
+$$
 
 
 ## Distribución Bernoulli
@@ -58,7 +61,7 @@ P_{X}(x)=
 p & \mbox{si } x=1\\
 0 & \mbox{en cualquier otro caso}
 \end{array}
-\right.
+\right..
 $$
 
 Su función de distribución es 
@@ -68,10 +71,10 @@ F_{X}(x)=P(X\leq x)=
 \left\{
 \begin{array}{ll} 
 0 & \mbox{si } x<0\\
-1-p=q & \mbox{si } 0\geq x <1\\
-1 & \mbox{si } 1\geq 1 \\
+1-p=q & \mbox{si } 0\leq x <1\\
+1 & \mbox{si } 1\leq x \\
 \end{array}
-\right.
+\right..
 $$
 
 
@@ -83,7 +86,7 @@ $$X\equiv Ber(p)\mbox{ o también } X\equiv B(1,p).$$
 * A este tipo de  experimentos (éxito/fracaso)se les denomina experimentos Bernoulli.
 * Fue su descubridor un científico suizo  [Jacob Bernoulli](https://es.wikipedia.org/wiki/Jakob_Bernoulli),  uno más de la de la conocida [familia de científicos suizos Bernoulli](https://es.wikipedia.org/wiki/Familia_Bernoulli)
 
-## Esperanza de una v.a. $X$ con distribución $Ber(p)$·
+## Esperanza de una v.a. $X$  $Ber(p)$
 
 Su **valor esperado** es 
 
@@ -95,23 +98,25 @@ Calculemos también $E(X^2)$
 
 $$E(X^2)=\displaystyle\sum_{i=1}^2 x^\cdot P(X=x)= 0^2\cdot(1-p)+1^2\cdot(p)=p.$$
 
-## Varianza de una v.a. $X$ con distribución $Ber(p)$·
+## Varianza de una v.a. $X$  $Ber(p)$
 
 
 Su  **varianza** es 
 
-$$Var(X)=E(X^2)-\left(E(X)\right)^2=p+p^2=p\cdot (1-p).$$
+$$Var(X)=E(X^2)-\left(E(X)\right)^2=p+p^2=p\cdot (1-p)=p\cdot q.$$
 
 
 Su desviación típica es 
 
-$$\sqrt{Var(X)}=\sqrt{p\cdot (1-p)}.$$
+$$
+\sqrt{Var(X)}=\sqrt{p \cdot (1-p)}.
+$$
 
-## Resumen v.a con distribución Bernoulli, $Ber(p)$
+## Resumen v.a con distribución Bernoulli
 
 
 $X$  Bernoulli | $Ber(p)$
------------:|:--------
+----------:|:--------
 $D_X=$ | $\{0,1\}$
 $P_X(x)=P(X=x)=$ |  $\left\{\begin{array}{ll} q & \mbox{si } x=0\\ p & \mbox{si } x=1\\0 & \mbox{en otro caso}\end{array}\right.$ 
 $F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\q & \mbox{ si } 0\leq x<1\\1 & \mbox{ si } 1\leq x \end{array}\right.$
@@ -161,7 +166,7 @@ curve(pbinom(x,size=1,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-## Gráficas de la  distribución $Ge(p)$
+## Gráficas de la  distribución $Ber(p)$
 
 ```{r echo = FALSE}
 
@@ -296,9 +301,9 @@ para distintos valores de $n$ y $p$ para que disfrutéis de tan ancestral métod
 * Cualquier paquete estadístico, hoja de cálculo dispone de
 funciones para el cálculo de estas probabilidades, así que el **uso de las tablas** queda **totalmente anticuado**. 
 
-## Esperanza  de una $X$ con distribución $B(n,p).$
+## Esperanza  de una $X$  $B(n,p)$
 
-Su *esperanza* es 
+Su **esperanza** es 
 $$E(X)=\displaystyle\sum_{k=0}^n k \cdot  {n \choose k }\cdot p^k\cdot q^{n-k} = n\cdot p.$$
 
 La esperanza de $X^2$ es 
@@ -451,7 +456,7 @@ par(mfrow=c(1,1))
 ## Gráficas interactivas
 
 
-```{r echo = FALSE}
+```{r  echo = FALSE}
 
 #selectInput("n_breaks", label = "Number of bins:",
 #             choices = c(10, 20, 35, 50), selected = 20)
@@ -467,30 +472,30 @@ par(mfrow=c(1,1))
 
 fluidPage(
 fluidRow(
-  column(6, 
-       sliderInput("n", label = "Número de repeticiones n:",
-              min = 1, max = 50, value =10 , step = 1)
-       ), 
-       column(6, 
-         sliderInput("prob", label = "Probabilidad éxito p:",
-              min = 0.01, max = 0.99, value = 0.25, step = 0.01)
+  column(6,
+         sliderInput("n", label = "Número de repeticiones n:",
+              min = 1, max = 50, value =10 , step = 1)),
+  column(6,
+          sliderInput("p", label = "Probabilidad éxito p:",
+                     min = 0.01, max = 0.99, value = 0.25, step = 0.01)
          )
   )
 )
 
 renderPlot({
-  par(mfrow=c(1,2))
   n=input$n
-  p=input$prob
+  pr=input$p
+  
+  par(mfrow=c(1,2))
   aux=rep(0,(n+1)*2)
-  aux[seq(2,(n+1)*2,2)]=dbinom(c(0:n),size=n,prob=p)
-  plot(x=c(0:n),y=dbinom(c(0:n),size=n,prob=p),
+  aux[seq(2,(n+1)*2,2)]=dbinom(c(0:n),size=n,prob=pr)
+  plot(x=c(0:n),y=dbinom(c(0:n),size=n,prob=pr),
        ylim=c(0,1),xlim=c(-1,n+1),xlab="x",
-       main=paste0(c("Función de probabilidad\n B(n=",n,",p=",p,")"),collapse = ""))
+       main=paste0(c("Función de probabilidad\n B(n=",n,",p=",pr,")"),collapse = ""))
   lines(x=rep(0:n,each=2),y=aux, type = "h", lty = 2,col="blue")
-  curve(pbinom(x,size=n,p=p),
-        xlim=c(-1,input$n+1),col="blue",
-        main=paste0(c("Función de distribución\n B(n=",input$n,",p=",p,")"),
+  curve(pbinom(x,size=n,p=pr),
+        xlim=c(-1,n+1),col="blue",
+        main=paste0(c("Función de distribución\n B(n=",n,",p=",pr,")"),
                     collapse = ""))
         par(mfrow=c(1,1))
 })
@@ -556,7 +561,7 @@ Bajo estas condiciones tenemos que  repetimos $n=10$ veces el mismo experimento 
 
 $$P(Roja)=P(Éxito)=p=\frac{40}{100}=0.4.$$
 
-Así que la variable $X=" número de bolas rojas extraídas de la urna en $n=10$ ocasiones sigue una ley binomial  $B(n=10,p=0.4).$
+Así que la variable $X=$"número de bolas rojas extraídas de la urna (con reposición) en $n=10$ ocasiones sigue una ley binomial  $B(n=10,p=0.4).$
 </div>
 
 ## Ejemplo $B(n=10,p=0.4).$
@@ -581,7 +586,7 @@ Utilizando al función de probabilidad  tenemos que
 
 $$
 \begin{eqnarray*}
-P_x(x=4)&=&{10\choose 4}\cdot 0.4^4\cdot (1-0.4)^{10-4}
+P_x(X=4)&=&{10\choose 4}\cdot 0.4^4\cdot (1-0.4)^{10-4}
 = \frac{10!}{(10-4)!\cdot 4!}\cdot 0.4^4\cdot 0.6^6\\
 &=& \frac{7\cdot 8\cdot 9\cdot 10}{1\cdot 2\cdot 3\cdot 4}\cdot 0.4^4\cdot 0.6^6=`r round(choose(10,4)* 0.4^4*0.6^6,7)`
 \end{eqnarray*}
@@ -601,7 +606,7 @@ dbinom(4,size=10,prob = 0.4)
 
 Al menos 4 rojas es $P(X \geq  4)=1-P(X<4)=1-P(x\leq 3).$
 
-Así que calculemos $P(X\leq3)$
+Así que calculemos $P(X\leq 3)$
 
 $$
 \begin{eqnarray*}
@@ -649,8 +654,9 @@ $$
 \begin{eqnarray*}
 P(x< 3)&=& P(X\leq 2)=  P(X=0)+P(X=1)+P(X=2)\\
 &=& 
- {10\choose 0}\cdot 0.4^0\cdot (1-0.4)^{10-0}+ {10\choose 1}\cdot 0.4^1\cdot (1-0.4)^{10-1}\\
-&+&{10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}\\
+{10\choose 0}\cdot 0.4^0\cdot (1-0.4)^{10-0}+ {10\choose 1}\cdot 0.4^1\cdot (1-0.4)^{10-1}\\
+&+&
+{10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}\\
 &=&`r round(pbinom(2,10,0.4),7)`
 \end{eqnarray*}
 .
@@ -672,7 +678,9 @@ $$E(X)=n\cdot p = 10\cdot 0.4=`r 10*0.4`.$$
 
 
 La varianza es 
-$$Var(X)=n\cdot p \cdot(1-p)=10\cdot 0.4\cdot 0.6=`r 10*0.4*0.6`.$$
+$$
+Var(X)=n\cdot p \cdot(1-p)=10\cdot 0.4\cdot 0.6=`r 10*0.4*0.6`.
+$$
 
 
 Por lo  tanto la desviación típica es 
@@ -708,7 +716,7 @@ La **modelización más simple de estos problemas  es la llamada distribución g
 $$P(\overbrace{FFF\ldots F}^{x}E)=P(F)^{x}\cdot P(E)=(1-p)^{x}\cdot p=q^{x}\cdot p.$$
 
 
-## Distribución Geométrica
+## Distribución geométrica
 
 Su función de probabilidad es 
 
@@ -758,11 +766,11 @@ P(X>3) & = & P(\{FFFF\})= P(F)\cdot P(F)\cdot P(F)\cdot P(F)\\
 $$
 
 
-Ahora calculamos 
+Calculamos 
 
 $$F_X(3)=P(X\leq 3)=1-P(X>3)=1-(1-p)^{3+1}.$$
 
-Ahora podemos generalizar a cualquier entero positivo $k=0,1,2,\ldots$  
+Por lo que podemos generalizar a cualquier entero positivo $k=0,1,2,\ldots$  
 
 $$F_X(k)=P(X\leq k)=1-(1-p)^{k+1}\mbox{ si } k=0,1,2,\ldots$$
 
@@ -809,52 +817,116 @@ $$
 
 ya que $0<1-p<1$.
 
+
+## Sumas derivadas series geométricas 
+Recordemos del tema de variables aleatorias que 
+
+<l class="prop">Propiedades</l>
+
+
+* Si $|r|<1$  también son convergentes las derivadas, respecto de $r$, de la serie geométrica y convergen a la derivada correspondiente. Así tenemos que
+$$
+\begin{eqnarray*}
+\left(\sum_{k=0}^{+\infty} r^k\right)'= & \sum_{k=1}^{+\infty}k
+r^{k-1} =\left(\frac1{1-r}\right)'=\frac1{(1-r)^2}\\
+\left(\sum_{k=0}^{+\infty} r^k\right)^{''}=& \sum_{k=2}^{+\infty}k (k-1)
+r^{k-2}=\left(\frac1{1-r}\right)^{''}=\frac2{(1-r)^3}
+\end{eqnarray*}.
+$$
+
+
 ## Esperanza de una v.a. $Ge(p)$
 
+Recordemos que $P(X=x)=(1-p)^x\cdot p$ si $x=0,10,2,\ldots$ y 
+aplicado la fŕomula anterior con $r=1-p$
 
-$$E(X)=\sum_{x=0}^{+\infty} x\cdot P_x(x)=$$
+$$
+\begin{eqnarray*}
+E(X)&=&\sum_{x=0}^{+\infty} x\cdot P_x(x)=\sum_{x=0}^{+\infty} x\cdot (1-p)^x\cdot p=
+p\cdot (1-p) \cdot \sum_{x=1}^{+\infty} x\cdot (1-p)^{x-1}\\
+&=& p\cdot (1-p)\cdot \frac{1}{(1-(1-p))^2}=p\cdot (1-p)\cdot \frac{1}{p^2}=\frac{1-p}{p}
+\end{eqnarray*}.
+$$
 
-$$E(X^2)=\sum_{x=0}^{+\infty} x^2\cdot P_x(x)=$$
+## Valor $E(X^2)$ de una v.a. $Ge(p)$
+
+$$
+\begin{eqnarray*}
+E(X^2)&=&\sum_{x=0}^{+\infty} x^2\cdot P_X(x)=\sum_{x=1}^{+\infty} x^2\cdot (1-p)^x\cdot p\\
+&=& 
+\sum_{x=1}^{+\infty} (x\cdot (x-1)+x)\cdot (1-p)^{x}\cdot p\\
+&=&
+\sum_{x=1}^{+\infty} x\cdot (x-1)\cdot (1-p)^{x}\cdot p+\sum_{x=1}^{+\infty} x \cdot (1-p)^{x}\cdot p\\
+&=&
+(1-p)^{2}\cdot p\cdot \sum_{x=2}^{+\infty} x\cdot (x-1)\cdot (1-p)^{x-2}\\ 
+&  +&   (1-p)\cdot p\sum_{x=1}^{+\infty} x \cdot (1-p)^{x-1} = \ldots
+\end{eqnarray*}.
+$$
+
+## Valor $E(X^2)$ de una v.a. $Ge(p)$
+
+$$
+\begin{eqnarray*}
+E(X^2)&=&\ldots\\
+&=&
+(1-p)^{2}\cdot p\cdot \sum_{x=2}^{+\infty} x\cdot (x-1)\cdot (1-p)^{x-2}\\ 
+&  +&   (1-p)\cdot p\sum_{x=1}^{+\infty} x \cdot (1-p)^{x-1}\\
+&=&
+p\cdot (1-p)^2 \frac{2}{(1-(1-p))^3}+  (1-p)\cdot p \frac{1}{(1-(1-p))^2}\\
+&=&
+p\cdot (1-p)^2 \frac{2}{p^3}+  (1-p)\cdot p \frac{1}{p^2}\\
+&=&\frac{2\cdot (1-p)^2}{p^2}+\frac{1-p}{p}
+\end{eqnarray*}.
+$$
+
+
 
 ## Varianza de una v.a. $Ge(p)$
 
 
-$$Var(X)=E(X^2)-E(X)^2=$$
+$$
+\begin{eqnarray*}
+Var(X)&=&E(X^2)-E(X)^2=\frac{2\cdot (1-p)^2}{p^2}+\frac{1-p}{p}-\left(\frac{1-p}{p}\right)^2\\
+&=&
+\frac{2\cdot (1-p)^2+p\cdot(1-p)-(1-p)^2}{p^2}=\frac{(1-p)^2+p\cdot(1-p)}{p^2}\\
+&=&
+\frac{1-2\cdot p + p^2+p-p^2}{p^2}\\
+&=& \frac{1-p}{p^2}.
+\end{eqnarray*}
+$$
 Desviación típica
 
-$$\sqrt{Var(X)}$$
+$$\sqrt{Var(X)}=\sqrt{\frac{1-p}{p^2}}.$$
 
 
 ## Resumen $Ge(p)$ empezando en 0
 
-$X=$ | número de fracasos  para conseguir el primer éxito
+$X=$ Geométrica (empieza en $0$)  | número de fracasos  para conseguir el primer éxito
 ------:|:-----
-*Geométrica* |  que empieza en $0$
 $D_X=$ | $\{0,1,\ldots n,\ldots\}$ 
 $P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{x}\cdot p & \mbox{ si } x=0,1,2,\ldots \\0  & \mbox{ en otro caso.}\end{array}\right.$
 $F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\
   1- (1-p)^{k+1} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=1,2,\ldots\end{array}
     \right.\end{array}\right.$ 
-$E(X)=\frac{1-p}{p}$ | $Var(X)=\frac{q}{p^2}$
+$E(X)=\frac{1-p}{p}$ | $Var(X)=\frac{1-p}{p^2}$
 
 ## La variable geométrica que cuenta los intentos para obtener el primer éxito.
 
 * Supongamos que sólo estamos interesados en el número de intentos para obtener el
 primer éxito. 
 * Si definimos $Y$= número de  intentos para obtener el  primer éxito. Entonces $Y=X+1$  donde $X\equiv Ge(p)$.
-* Su dominio es valores en $\{1,2,\ldots\}$ 
-* $E(Y)=E(X+1)=E(X)+1=\frac{1-p}{p}+1=\frac1{p}$.
-* $Var(Y)=Var(X+1)=Var(X)=\frac{1-p}{p^2}$.
+* Su dominio es valores es $D_Y=\{1,2,\ldots\}$ 
+* la media se incrementa en u intento el éxito  $E(Y)=E(X+1)=E(X)+1=\frac{1-p}{p}+1=\frac1{p}$.
+* La varianza es la misma $Var(Y)=Var(X+1)=Var(X)=\frac{1-p}{p^2}$.
 
 
 ## Resumen $Ge(p)$ comenzando en $1$.
 
-$Y$ |número de INTENTOS  para OBTENER el primer éxito
+$Y$ geometrica  (que cuenta el éxito empieza en 1)| número de INTENTOS  para OBTENER el primer éxito
 ------:|:-----
-*Geométrica*|$Ge(p)$, $q=1-p$.
 $D_Y=$ |  $\{1,2,\ldots n,\ldots\}$ 
-$P_Y(y)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{y-1}\cdot p & \mbox{ si } y=1,2,3,\ldots\\  0  & \mbox{ en otro caso.}\end{array}\right.$
-$F_Y(y)=P(Y\leq y)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } y<1\\ 1- q^{k} & \mbox{ si } \left\{ \begin{array}{l}k\leq y< k+1\\\mbox{para } k=1,2,3,\dots \end{array}    \right.\end{array}\right.$ 
+$P_Y(y)=P(Y=y)=$ |$\left\{\begin{array}{ll}(1-p)^{y-1}\cdot p & \mbox{ si } y=1,2,3,\ldots\\  0  & \mbox{ en otro caso.}\end{array}\right.$
+$F_Y(y)=P(Y\leq y)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } y<1\\ 1- (1-p)^{k} & \mbox{ si } \left\{ \begin{array}{l}k\leq y< k+1\\\mbox{para } k=1,2,3,\dots \end{array}    \right.\end{array}\right.$ 
 $E(X)=\frac1{p}$ |$Var(X)=\frac{1-p}{p^2}$
 
 
@@ -879,7 +951,7 @@ para todo $k,j=1,2,3\ldots$.
 Si es geométrica entonces el lado derecho de la igualdad es 
 
 $$
-P(X > k)=1-P(X\leq k)=1-\left(1-(1-p)^{k+1}\right)=(1-p)^{k+1}
+P(X>k)=1-P(X\leq k)=1-\left(1-(1-p)^{k+1}\right)=(1-p)^{k+1}
 $$
 
 El lado de izquierdo es
@@ -924,19 +996,20 @@ Lo que demuestra  la igualdad.
 
  La propiedad  de la falta de memoria
 $$
-P(X> k+j|X> j)=P(X\geq k)
+P(X> k+j\big|X \geq j)=P(X > k)
 $$   
 
 la igualdad anterior significa  que aunque **ya llevemos al menos  $j$ fracasos** la probabilidad de **que fracasemos $k$ veces más** no disminuye; es la misma  que si empezáramos de nuevo el experimento. 
 
-A este efecto se le suele etiquetar con la frase  *el experimento carece de memoria* o es un *experimento sin memoria*.
+A este efecto se le suele etiquetar con la frase  **el experimento carece de memoria** o es un **experimento sin memoria** (*Memoryless Property*).
 </div>
 
-## Falta de memoria
+## Ejemplo falta de memoria
 
 Un ejemplo muy sencillo nos aclarará el alcance de esta propiedad
 
-<div class="example"> **Ejemplo**: Llavero 
+<div class="example"> **Ejemplo**: Una puerta varias llaves y una cerradura
+
 Tenemos un llavero con 10 llaves,  solo una de ellas abre una puerta. Cada vez que probamos una llave y falla olvidamos que llave hemos probado. ¿Cuál es la probabilidad de que  si ya lo hemos intentado  5 veces necesitemos más de 4 intentos adicionales  para abrir la puerta?
 </div>
 
@@ -949,11 +1022,29 @@ P(X> 4+5/X \geq 5)=P(X > 4)
 $$
 
 Después de 5 fracasos no estamos *más cerca* de abrir la puerta.
-La propiedad de la  falta de  memoria  nos dice que en después de cada intento es como si empezásemos  de nuevo a abrir la puerta. Tras 5 fracasos la probabilidad de que fallemos más de  4 veces  más es la misma.
+La propiedad de la  falta de  memoria  nos dice que en **después de cada intento es como si empezásemos  de nuevo a abrir la puerta**. Tras 5 fracasos la probabilidad de que fallemos más de  4 veces  más es la misma.
 </div>
 
+## Ejemplo falta de memoria 
 
-## Variable geométrica: Madrid/Barça, Barça/Madrid
+
+¿Cuál es el número esperado de fracasos hasta abrir la puerta
+
+$$
+E(X)=\frac{1-p}{p}=\frac{1-\frac{1}{10}}{\frac{1}{10}}=\frac{\frac{9}{10}}{\frac{1}{10}}=9.
+$$
+
+La varianza es 
+
+$$
+Var(X)=\frac{1-p}{p^2}=\frac{1-\frac{1}{10}}{\left(\frac{1}{10}\right)^2}=\frac{\frac{9}{10}}{\frac{1}{100}}=
+90.
+$$
+
+La desviación típica es $\sqrt{90}=`r sqrt(90)`.$
+
+
+## Ejemplo: Madrid/Barça, Barça/Madrid,...
 
 <div class="example"> 
 **Ejemplo**:  Número de partidos de fútbol necesarios para ver ganar el Barça al Madrid:
@@ -1005,7 +1096,7 @@ $$P(X>3)=1-P(X\leq 3)=1-\left(1-\frac{72}{178}\right)^4=`r round(1-(1-72/178)^4,
 Así que  tienen una probabilidad del $87.42\%$ de que necesite ver al menos no ganar al Barça 3 partidos antes de ver uno en el que gane.
 </div>
 
-## Madrid/Barça, Barça/Madrid
+## Madrid/Barça, Barça/Madrid...
 
 <div class="example"> 
 **Ejemplo**
@@ -1025,7 +1116,17 @@ y
 
 $Var(X)=\frac{1-p}{p^2}=\frac{1-`r round(72/178,4)`}{(`r round(72/178,4)`)* 2}=`r round((1- (72/178))/(72/178)^2,4)`$
 
+La desciación típica es $\sqrt{`r round((1- (72/178))/(72/178)^2,4)`}=`r round(sqrt((1- (72/178))/(72/178)^2),4)`.$
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -1082,28 +1183,76 @@ par(mfrow=c(1,1))
 ```
 
 
+## Gráficas interactivas
+
+```{r echo = FALSE}
+ 
+sliderInput("p", label = "Probabilidad de éxito:",
+              min = 0.01, max = 0.99, value =0.25 , step = 0.01)
+
+
+renderPlot({
+  par(mfrow=c(1,2))
+  p=input$p
+  n=30
+  aux=rep(0,(n+1)*2)
+  aux[seq(2,(n+1)*2,2)]=dgeom(c(0:n),prob=p)
+  plot(x=c(0:n),y=dgeom(c(0:n),prob=p),
+       ylim=c(0,1),xlim=c(-1,n+1),xlab="x",
+       main=paste0(c("Función de probabilidad\n Ge(p=",p,")"),collapse = ""))
+  lines(x=rep(0:n,each=2),y=aux, type = "h", lty = 2,col="blue")
+  curve(pgeom(x,prob=p),
+        xlim=c(-1,input$n+1),col="blue",
+        main=paste0(c("Función de distribución\n Ge(p=",p,")"),collapse = ""))
+  par(mfrow=c(1,1))
+})
+```
+
+
+## Cálculos con python
+
+
+```{python geom1}
+from scipy.stats import geom
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(1, 1)
+```
+
+
+
+
+
+```{python geom2}
+x = np.arange(geom.ppf(0.01, p),geom.ppf(0.99, p))
+ax.plot(x, geom.pmf(x, p), 'bo', ms=8, label='geom pmf')
+ax.vlines(x, 0, geom.pmf(x, p), colors='b', lw=5, alpha=0.5)
+```
+
+
 
 # Distribución binomial negativa
 
 
 
 
-## El problema de la  puerta con dos cerraduras
+## El problema de la puerta con dos cerraduras
 
-Repitamos el problema de abrir la puerta. Tenemos un llavero con 10 llaves distintas y tenemos que abrir una puerta con **dos cerraduras**  empezamos por la primera cerradura  y cada vez olvidamos que llave hemos probado, una vez abierta la primera cerradura probamos con la segunda hasta que también la abrimos.
+Supongamos que disponemos de 10 llaves distintas y tenemos que abrir una puerta con **dos cerraduras**  empezamos por la primera cerradura  y cada vez olvidamos que llave que hemos probado, una vez abierta la primera cerradura probamos con la segunda hasta que también la abrimos.
 
 Sea $X=$ número de intentos necesarios hasta abrir la  puerta.
 
+La idea de la puerta es que tenemos un experimento Bernoulli con probabilidad de éxito $p=0.1$. Y repetiremos el experimento hasta obtener 2 éxitos.
+
 ## Distribución binomial negativa
 
-La idea de la puerta es que tenemos un experimento Bernoulli con probabilidad de éxito $p=0.1$. Y repetiremos el experimento hasta obtener 2 éxitos.
 
 En general tendremos un experimento  Bernoulli con probabilidad de éxito $0<p<1$ y  tal que:
 
 * Repetimos el experimento hasta obtener el $r$-ésimo éxito (abrir la maldita puerta). 
 * Sea $X$ la v.a que cuenta el número de repeticiones del experimento hasta el r-ésimo
 éxito. 
-* Su función de probabilidad es
+
+Su función de probabilidad es
 
 $$
 P_{X}(x)=P(X=x)=\left\{\begin{array}{ll}
@@ -1114,7 +1263,9 @@ $$
 
 ## Distribución binomial negativa
 
-* Una v.a. con este tipo de distribución recibe el nombre de *binomial negativa* y la denotaremos por $BN(p,r)$. Notemos que $BN(p,1)=Ge(p)$.
+Una v.a. con este tipo de distribución recibe el nombre de *binomial negativa* y la denotaremos por $BN(p,r)$. 
+
+Notemos que $BN(p,1)=Ge(p)$.
 
 Nota: Dados dos enteros positivos $n$ y $k$ se  define en numero binomial negativo como 
 
@@ -1159,19 +1310,20 @@ $P_X(x)=P(X=x)=$ | $\left\{
 x-1\\ r-1
 \end{array}
 \right)\cdot
-q^{x-r}\cdot p^r & \mbox{si }  x=r,r+1,\ldots \\
+(1-p)^{x-r}\cdot p^r & \mbox{si }  x=r,r+1,\ldots \\
 0 & \mbox{en otro caso.}
 \end{array}
 \right.$
 |$F_X(x)=P(X\leq X)=$ | no tiene fórmula (utilizar funciones de R o python.)
-$E(X)=\frac{r}{p}$|$Var(X)=\frac{r\cdot q}{p^2}$ 
+$E(X)=\frac{r}{p}$ | $Var(X)=\frac{r\cdot (1-p)}{p^2}$ 
+
+
 
 # Distribución Poisson
 
 ## Distribución Poisson
 
-* Diremos que una v.a. discreta $X$ con $X(\Omega)=\mathbf{N}$ tiene distribución de Poisson con parámetro $\lambda>0$, y lo denotaremos
-por $Po(\lambda)$ si su función de probabilidad es:
+* Diremos que una v.a. discreta $X$ con $X(\Omega)=\mathbf{N}$ tiene distribución de Poisson con parámetro $\lambda>0$, y lo denotaremos por $Po(\lambda)$ si su función de probabilidad es:
 
 $$P_{X}(x)=P(X=x)=
 \left\{\begin{array}{ll}
@@ -1194,9 +1346,6 @@ producen en un intervalo de tiempo o en el espacio.
 * por ejemplo el número de llamadas a un *call center* y que sabemos que se cumplen las siguientes condiciones:
 
 ## La distribución Poisson como "límite" de una binomial.
-
-
-
 
 1. El número promedio de eventos en el intervalo $(0,t]$ es
 $\lambda>0$.
@@ -1235,17 +1384,20 @@ El conjunto de variables $\{X_t\}_{t>0}$ recibe el nombre de **proceso de Poisso
 ## Resumen distribución  Poisson  $Po(\lambda)$
 
 $X$ Poisson |  $\lambda$.}
--------|-------
+-------:|:-------
 $D_X=$|  $\{0,1,\ldots n\}$ 
 $P_X(x)=P(X=x)=$ | $\left\{\begin{array}{ll}  \frac{\lambda^x}{x!}\exp{-\lambda} & \mbox{ si } x=0,1,\ldots,n\\ 0  & \mbox{ en otro caso.}\end{array}\right.$
-$F_X(x)=P(X\leq X)=$ |  Función de R o tabulada  
+$F_X(x)=P(X\leq X)=$ |  Función de R, python  o tabulada  
 $E(X)=\lambda$ | $Var(X)=\lambda$
+
 
 ## Aproximación de la distribución binomial por la Poisson
 
-Bajo el punto de vista anterior y si $p$ es pequeño y $n$
-suficientemente grande (existen distintos criterios por ejemplo $n>20$ ó $30$ y  $p\leq 0.1$)
-podemos aproximar una $B(n,p)$ por una $Po(n\cdot p)$
+Bajo el punto de vista anterior y si $p$ es pequeño y $n$ suficientemente grande (existen distintos criterios por ejemplo $n>20$ ó $30$ y  $p\leq 0.1$) podemos aproximar una $B(n,p)$ por una $Po(n\cdot p)$
+
+
+
+
 
 # Distribución hipergeométrica
 
@@ -1254,12 +1406,15 @@ podemos aproximar una $B(n,p)$ por una $Po(n\cdot p)$
 
 Es la que modeliza matemáticamente, por ejemplo, el número de bolas blancas extraídas de una urna sin reposición.
 
-Sean $n$,$m$ y $k$tres número esteros positivos y tales  que $k<m+n$.
+Sean $n$,$m$ y $k$ tres número esteros positivos y tales  que $k<m+n$.
 
 Sea una urna que contiene $m+n$ bolas de las que
 $m$ son blancas y las restantes $n$ no.
 
 El número total de bolas es $m+n$. Extraemos $k$ bolas de la urna sin reemplazarlas.
+
+
+
 
 ## Modelo de la distribución hipergeométrica
 
@@ -1302,7 +1457,6 @@ $\left\{\begin{array}{ll}
    x\in D_X
       \\ 0  & \mbox{en otro caso}\end{array}\right.$|\begin{tabular}{c}No tiene\\ expresión.\end{tabular} |
 $\frac{n N_1}{N}$ | $n\frac{N_1}{N}\left(1-\frac{N_1}{N}\right) \frac{N-n}{N-1}$
-
 
 
 
