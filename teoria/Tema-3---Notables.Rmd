@@ -47,28 +47,28 @@ $$X(E)=1\mbox{, }X(F)=0$$
 
 
 ## Distribución Bernoulli
-* Su  función de probabilidad es
+
+Su  función de probabilidad es
 
 
 $$
 P_{X}(x)=
 \left\{
-\begin{array}{ll} q & \mbox{si } x=0\\
+\begin{array}{ll} 1-p=q & \mbox{si } x=0\\
 p & \mbox{si } x=1\\
 0 & \mbox{en cualquier otro caso}
 \end{array}
 \right.
 $$
 
-* Su función de distribución es 
+Su función de distribución es 
 
 $$
-F_{X}(x)=P(X\leq x)
+F_{X}(x)=P(X\leq x)=
 \left\{
 \begin{array}{ll} 
 0 & \mbox{si } x<0\\
-
-1-p & \mbox{si } 0\geq x <1\\
+1-p=q & \mbox{si } 0\geq x <1\\
 1 & \mbox{si } 1\geq 1 \\
 \end{array}
 \right.
@@ -81,7 +81,6 @@ $$
 * Lo denotaremos por
 $$X\equiv Ber(p)\mbox{ o también } X\equiv B(1,p).$$
 * A este tipo de  experimentos (éxito/fracaso)se les denomina experimentos Bernoulli.
-
 * Fue su descubridor un científico suizo  [Jacob Bernoulli](https://es.wikipedia.org/wiki/Jakob_Bernoulli),  uno más de la de la conocida [familia de científicos suizos Bernoulli](https://es.wikipedia.org/wiki/Familia_Bernoulli)
 
 ## Esperanza de una v.a. $X$ con distribución $Ber(p)$·
@@ -266,12 +265,12 @@ Con 10 jugadores  el número de equipos de  5 distintos es bastante más grande
 choose(10,5)
 ```
 
-Y por ejemplo con un equipo de fútbol profesional  que tiene en plantilla 22 jugadores  (quitamos lo porteros) se pueden formar ¡¡nada menos que!!
+Y por ejemplo con un equipo de fútbol profesional  que tiene en plantilla 22 jugadores  (quitamos el portero) se pueden formar ¡¡nada menos que!!
 
 ```{r}
 choose(22,10)
 ```
-equipos distintos
+un bonito número capicúa que nos da el número de equipos distintos que se pueden formar.
 
 ##  Distribución Binomial
 
@@ -501,7 +500,8 @@ renderPlot({
 ## Gráficos de la distribución binomial con python
 
 <div class="exercise">
-Ejercicio
+Ejercicio:
+
 Buscad en los manuales de python cómo se dibuja la función de probabilidad y de distribución de una binomial.
 </div>
 
@@ -525,8 +525,11 @@ plt.vlines(x, 0, binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
 
 
 ## Gráficos de la distribución binomial con python (GGGGRANDES)
+
 <div class="center"> 
-```{python dibu_python2,echo=FALSE,fig.width=1,fig.height=1}
+
+```{python dibu_python2,echo=FALSE}
+#,fig.width=3,fig.height=3}
 n, p = 5, 0.4
 x = np.arange(binom.ppf(0.01, n, p),binom.ppf(0.99, n, p))
 plt.plot(x, binom.pmf(x, n, p), 'bo', ms=8, label='binom pmf')
@@ -546,18 +549,18 @@ Tenemos una urna con $100$ bolas de las cuales 40 son rojas  y 60  blancas. Extr
 
 Supongamos que repetimos este proceso $n=10$; reponiendo en cada ocasión la bola extraída. 
 
-Consideremos la variable aleatoria $X=$ número de bolas rojas extraídas (con reposición)  en $n=10$ repeticiones del miesmo experimento Bernoulli.
+Consideremos la variable aleatoria $X=$ número de bolas rojas extraídas (con reposición)  en $n=10$ repeticiones del mismo experimento Bernoulli.
 
 
 Bajo estas condiciones tenemos que  repetimos $n=10$ veces el mismo experimento Bernouilli con probabilidad de éxito (sacar bola roja) es 
 
 $$P(Roja)=P(Éxito)=p=\frac{40}{100}=0.4.$$
 
-Así que la variable $X=" número de bolas rojas extraídas de la urna en $n=10$ ocasiones sigue una ley binomial  $B(=n=10,p=0.4).$
-
+Así que la variable $X=" número de bolas rojas extraídas de la urna en $n=10$ ocasiones sigue una ley binomial  $B(n=10,p=0.4).$
+</div>
 
 ## Ejemplo $B(n=10,p=0.4).$
-
+<div class="example">
 Nos preguntamos:
 
 1. ¿Cuál es la probabilidad de que saquemos exactamente $4$ rojas?
@@ -672,13 +675,26 @@ La varianza es
 $$Var(X)=n\cdot p \cdot(1-p)=10\cdot 0.4\cdot 0.6=`r 10*0.4*0.6`.$$
 
 
-Pro lo tanto la desviación típica es 
+Por lo  tanto la desviación típica es 
 
 $\sqrt{Var(X)}=\sqrt{`r 10*0.4*0.6`}= `r sqrt(10*0.4*0.6)`.$
 </div>
 
 
 # Distribución geométrica
+
+
+## Distribución geométrica
+
+* Todos hemos jugado a, por ejemplo, tirar una moneda hasta que obtengamos la primera cara.
+
+* O también tirar una pelota a una canasta de balocesto hasta obtener la primer la canasta.
+
+* Desde otro punto de vista también podemos intentar modelar el número de veces que accionamos una interreptor  y la bombilla se ilumina  hasta que falla. 
+
+* O también el número de veces que un cajero automático nos da dinero hasta que falla.
+
+La **modelización más simple de estos problemas  es la llamada distribución geométrica**.
 
 
 ## Distribución geométrica
@@ -707,7 +723,7 @@ $$
 
 
 * De una v.a. como esta diremos que sigue una
-distribución geométrica de parámetro $p$..
+distribución geométrica de parámetro $p$.
 * La  denotaremos por $Ge(p)$. 
 * Su dominio es  $D_X=\{0,1,2,\ldots\}$.
 
@@ -766,6 +782,83 @@ F_X(x)=P(X\leq x)=
 1- (1-p)^{k+1} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=0,1,2,\ldots\end{array}
     \right.\end{array}\right.
 $$
+
+
+
+## Función de distribución geométrica
+
+
+De forma más compacta tendremos que 
+
+
+$$
+F_X(x)=P(X\leq x)=
+\left\{\begin{array}{ll} 
+0 & \mbox{ si } x<0\\
+1- (1-p)^{k+1} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=0,1,2,\ldots\end{array}
+    \right.\end{array}
+    \right.
+$$
+
+Notemos que si $k=0,1,2,\ldots$ el límite de a función de distribución es 
+
+$$
+\displaystyle\lim_{k\to +\infty } F_X(k)=\lim_{k\to +\infty } 1-(1-p)^{k+1}=
+1
+$$
+
+ya que $0<1-p<1$.
+
+## Esperanza de una v.a. $Ge(p)$
+
+
+$$E(X)=\sum_{x=0}^{+\infty} x\cdot P_x(x)=$$
+
+$$E(X^2)=\sum_{x=0}^{+\infty} x^2\cdot P_x(x)=$$
+
+## Varianza de una v.a. $Ge(p)$
+
+
+$$Var(X)=E(X^2)-E(X)^2=$$
+Desviación típica
+
+$$\sqrt{Var(X)}$$
+
+
+## Resumen $Ge(p)$ empezando en 0
+
+$X=$ | número de fracasos  para conseguir el primer éxito
+------:|:-----
+*Geométrica* |  que empieza en $0$
+$D_X=$ | $\{0,1,\ldots n,\ldots\}$ 
+$P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{x}\cdot p & \mbox{ si } x=0,1,2,\ldots \\0  & \mbox{ en otro caso.}\end{array}\right.$
+$F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\
+  1- (1-p)^{k+1} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=1,2,\ldots\end{array}
+    \right.\end{array}\right.$ 
+$E(X)=\frac{1-p}{p}$ | $Var(X)=\frac{q}{p^2}$
+
+## La variable geométrica que cuenta los intentos para obtener el primer éxito.
+
+* Supongamos que sólo estamos interesados en el número de intentos para obtener el
+primer éxito. 
+* Si definimos $Y$= número de  intentos para obtener el  primer éxito. Entonces $Y=X+1$  donde $X\equiv Ge(p)$.
+* Su dominio es valores en $\{1,2,\ldots\}$ 
+* $E(Y)=E(X+1)=E(X)+1=\frac{1-p}{p}+1=\frac1{p}$.
+* $Var(Y)=Var(X+1)=Var(X)=\frac{1-p}{p^2}$.
+
+
+## Resumen $Ge(p)$ comenzando en $1$.
+
+$Y$ |número de INTENTOS  para OBTENER el primer éxito
+------:|:-----
+*Geométrica*|$Ge(p)$, $q=1-p$.
+$D_Y=$ |  $\{1,2,\ldots n,\ldots\}$ 
+$P_Y(y)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{y-1}\cdot p & \mbox{ si } y=1,2,3,\ldots\\  0  & \mbox{ en otro caso.}\end{array}\right.$
+$F_Y(y)=P(Y\leq y)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } y<1\\ 1- q^{k} & \mbox{ si } \left\{ \begin{array}{l}k\leq y< k+1\\\mbox{para } k=1,2,3,\dots \end{array}    \right.\end{array}\right.$ 
+$E(X)=\frac1{p}$ |$Var(X)=\frac{1-p}{p^2}$
+
+
+
 
 ## Propiedad de la falta de memoria
 
@@ -859,15 +952,6 @@ Después de 5 fracasos no estamos *más cerca* de abrir la puerta.
 La propiedad de la  falta de  memoria  nos dice que en después de cada intento es como si empezásemos  de nuevo a abrir la puerta. Tras 5 fracasos la probabilidad de que fallemos más de  4 veces  más es la misma.
 </div>
 
-## La variable geométrica que cuenta los intentos para obtener el primer éxito.
-
-* Supongamos que sólo estamos interesados en el número de intentos para obtener el
-primer éxito. 
-* Si definimos $Y$= número de  intentos para obtener el  primer éxito. Entonces $Y=X+1$  donde $X\equiv Ge(p)$.
-* Su dominio es valores en $\{1,2,\ldots\}$ 
-* $E(Y)=E(X+1)=E(X)+1=\frac{1-p}{p}+1=\frac1{p}$.
-* $Var(Y)=Var(X+1)=Var(X)=\frac{1-p}{p^2}$.
-
 
 ## Variable geométrica: Madrid/Barça, Barça/Madrid
 
@@ -944,30 +1028,6 @@ $Var(X)=\frac{1-p}{p^2}=\frac{1-`r round(72/178,4)`}{(`r round(72/178,4)`)* 2}=`
 </div>
 
 
-## Resumen $Ge(p)$ empezando en 0
-
-$Y=$ | número de fracasos  para conseguir el primer éxito
-|------:|:-----|
-|*Geométrica* |  que empieza en $0$|
-|$D_X=$ | $\{0,1,\ldots n\}$ | 
-$P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{x}\cdot p & \mbox{ si } x=0,1,\ldots,n\\0  & \mbox{ en otro caso.}\end{array}\right.$
-|$F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\
-  1- (1-p)^{k+1} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=1,2,\ldots\end{array}
-    \right.\end{array}\right.$ |
-|$E(X)=\frac{1-p}{p}$ | $Var(X)=\frac{q}{p^2}$|
-
-
-
-## Resumen $Ge(p)$ comenzando en $1$.
-
-$X=$ |número de INTENTOS  para OBTENER el primer éxito
-------:|:-----
-|*Geométrica*|$Ge(p)$, $q=1-p$.|
-|$D_X=$ |  $\{1,\ldots n\}$ | 
-|$P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{x-1}\cdot p & \mbox{ si } x=1,\ldots,n\\  0  & \mbox{ en otro caso.}\end{array}\right.$|
-|$F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<1\\ 1- q^{k} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=1,2,\ldots\end{array}    \right.\end{array}\right.$ |
-|$E(X)=\frac1{p}$ |$Var(X)=\frac{1-p}{p^2}$|
-
 
 ## Cálculos con R
 
@@ -984,14 +1044,6 @@ dgeom(1,prob=0.25)
 
 Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ empezando en $0$
 
-```{r binomialfuncionesA0}
-pgeom(1,prob=0.25)
-rgeom(n=20,prob=0.25)
-```
-
-
-
-## Gráficos $Ge(p=0.25)$.
 
 El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ge(p=0.25)$
 
@@ -1029,7 +1081,12 @@ curve(pgeom(x,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
+
+
 # Distribución binomial negativa
+
+
+
 
 ## El problema de la  puerta con dos cerraduras
 
@@ -1037,7 +1094,7 @@ Repitamos el problema de abrir la puerta. Tenemos un llavero con 10 llaves disti
 
 Sea $X=$ número de intentos necesarios hasta abrir la  puerta.
 
-# Distribución binomial negativa
+## Distribución binomial negativa
 
 La idea de la puerta es que tenemos un experimento Bernoulli con probabilidad de éxito $p=0.1$. Y repetiremos el experimento hasta obtener 2 éxitos.
 
