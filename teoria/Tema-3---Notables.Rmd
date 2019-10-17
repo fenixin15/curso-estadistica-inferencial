@@ -144,11 +144,11 @@ El siguiente código dibuja las función de probabilidad y la de distribución d
 ```{r eval=FALSE}
 plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=0.25),
     ylim=c(0,1),xlim=c(-1,2),xlab="x",
-    main="Función de probabilidad\n Ber(p=0.25)")
+    main=paste0(c("Función de probailidad\n Ber(p=",p,")"),collapse="")
 lines(x=c(0,0,1,1),y=c(0,0.75,0,0.25), type = "h", lty = 2,col="blue")
 curve(pbinom(x,size=1,prob=0.25),
     xlim=c(-1,2),col="blue",
-    main="Función de distribución\n Ber(p=0.25)")
+    main=paste0(c("Función de distribución\n Ber(p=",p,")"),collapse="")
 ```
 
 
@@ -166,19 +166,19 @@ curve(pbinom(x,size=1,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-## Gráficas de la  distribución $Ber(p)$
+## Gráficas interactivas  $Ber(p)$
 
 ```{r echo = FALSE}
 
 #selectInput("n_breaks", label = "Number of bins:",
 #             choices = c(10, 20, 35, 50), selected = 20)
 
-sliderInput("p", label = "Probabilidad éxito p:",
+sliderInput("p_ber", label = "Probabilidad éxito p:",
               min = 0.01, max = 0.99, value = 0.25, step = 0.01)
 
 renderPlot({
 par(mfrow=c(1,2))
-  p=input$p
+  p=input$p_ber
 plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=p),
      ylim=c(0,1),xlim=c(-0.5,2),xlab="x",pch=21,
      main=paste0(c("Función de probabilidad\n
@@ -191,7 +191,8 @@ x=0:1
 y=pbinom(x,size=1,prob=p)
 curve(pbinom(x,size=1,prob=p),
       xlim=c(-1,2),col="blue",
-      main="Función de distribución\n Ber(p=0.25)")
+      main=paste0(c("Función de disribución\n Ber(p=",p,")"),collapse="")
+      )
 
 par(mfrow=c(1,1))
 })
@@ -434,7 +435,7 @@ binom.rvs(n=20,p=0.25,size=10)
 ```
 
 
-## Gráficos de la distribución binomial con R
+## Gráficas de la distribución binomial con R
 
 El siguiente código de R dibuja las función de probabilidad y la de distribución de una  $B(n=10,p=0.25)$
 
@@ -453,38 +454,26 @@ curve(pbinom(x,size=10,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-## Gráficas interactivas
+## Gráficas interactivas binomial
 
 
 ```{r  echo = FALSE}
 
-#selectInput("n_breaks", label = "Number of bins:",
-#             choices = c(10, 20, 35, 50), selected = 20)
-# textInputRow<-function (inputId, label, value = 10, min=1,max=50,step=1 ) 
-# {
-#     div(style="display:inline-block",
-#         tags$label(label, `for` = inputId), 
-#         tags$input(id = inputId, type = "text", value = value,min=min,max=max,step=step,class="sliderInput"))
-# }
-#         textInputRow(inputId="n", label="Número de repeticiones n:", value = 10, min=1,max=50,step=1)
-#         
-#         textInputRow(inputId="p", label="x-max", value = 0.5)
-
 fluidPage(
 fluidRow(
   column(6,
-         sliderInput("n", label = "Número de repeticiones n:",
+         sliderInput("n_binom", label = "Número de repeticiones n:",
               min = 1, max = 50, value =10 , step = 1)),
   column(6,
-          sliderInput("p", label = "Probabilidad éxito p:",
+          sliderInput("p_binom", label = "Probabilidad éxito p:",
                      min = 0.01, max = 0.99, value = 0.25, step = 0.01)
          )
   )
 )
 
 renderPlot({
-  n=input$n
-  pr=input$p
+  n=input$n_binom
+  pr=input$p_binom
   
   par(mfrow=c(1,2))
   aux=rep(0,(n+1)*2)
@@ -1146,21 +1135,22 @@ dgeom(1,prob=0.25)
 Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ empezando en $0$
 
 
-El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ge(p=0.25)$
+El  código de la siguiente página dibuja las función de probabilidad y la de distribución de una  $Ge(p=0.25)$
+
+## Cálculos con R
 
 ```{r eval=FALSE}
 par(mfrow=c(1,2))
-plot(x=c(0:10),y=dgeom(c(0:10),prob=0.25),
+x=c(0:10)
+plot(x=x,y=dgeom(x,prob=0.25),
   ylim=c(0,1),xlim=c(-1,11),xlab="x",
   main="Función de probabilidad\n Ge(p=0.25)")
 lines(x=rep(0:10,each=2),y=aux, type = "h", lty = 2,col="blue")
-
 aux0=dgeom(c(0:10),prob=0.25)
 ceros=rep(0,21)
 ceros
 aux=ceros
 aux[2*(c(1:11))]<-aux0
-curve(pbinom(x,size=10,prob=0.25),
 curve(pgeom(x,prob=0.25),
   xlim=c(-1,10),col="blue",
   main="Función de distribución\n Ge(p=0.25)")
@@ -1176,6 +1166,12 @@ par(mfrow=c(1,2))
 plot(x=c(0:10),y=dgeom(c(0:10),prob=0.25),
   ylim=c(0,1),xlim=c(-1,11),xlab="x",
   main="Función de probabilidad\n Ge(p=0.25)")
+lines(x=rep(0:10,each=2),y=aux, type = "h", lty = 2,col="blue")
+aux0=dgeom(c(0:10),prob=0.25)
+ceros=rep(0,21)
+ceros
+aux=ceros
+aux[2*(c(1:11))]<-aux0
 curve(pgeom(x,prob=0.25),
   xlim=c(-1,10),col="blue",
   main="Función de distribución\n Ge(p=0.25)")
@@ -1183,17 +1179,15 @@ par(mfrow=c(1,1))
 ```
 
 
-## Gráficas interactivas
+## Gráficas interactivas geométrica
 
 ```{r echo = FALSE}
  
-sliderInput("p", label = "Probabilidad de éxito:",
+sliderInput("p_geom", label = "Probabilidad de éxito:",
               min = 0.01, max = 0.99, value =0.25 , step = 0.01)
-
-
 renderPlot({
   par(mfrow=c(1,2))
-  p=input$p
+  p=input$p_geom
   n=30
   aux=rep(0,(n+1)*2)
   aux[seq(2,(n+1)*2,2)]=dgeom(c(0:n),prob=p)
@@ -1202,7 +1196,7 @@ renderPlot({
        main=paste0(c("Función de probabilidad\n Ge(p=",p,")"),collapse = ""))
   lines(x=rep(0:n,each=2),y=aux, type = "h", lty = 2,col="blue")
   curve(pgeom(x,prob=p),
-        xlim=c(-1,input$n+1),col="blue",
+        xlim=c(-1,n+1),col="blue",
         main=paste0(c("Función de distribución\n Ge(p=",p,")"),collapse = ""))
   par(mfrow=c(1,1))
 })

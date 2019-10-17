@@ -49,7 +49,8 @@ x=0:1
 y=pbinom(x,size=1,prob=p)
 curve(pbinom(x,size=1,prob=p),
       xlim=c(-1,2),col="blue",
-      main="Función de distribución\n Ber(p=0.25)")
+      main=paste0(c("Función de disribución\n Ber(p=",p,")"),collapse="")
+      )
 
 par(mfrow=c(1,1))
 })
@@ -94,18 +95,18 @@ par(mfrow=c(1,1))
 fluidPage(
 fluidRow(
   column(6,
-         sliderInput("n", label = "Número de repeticiones n:",
+         sliderInput("n_binom", label = "Número de repeticiones n:",
               min = 1, max = 50, value =10 , step = 1)),
   column(6,
-          sliderInput("p", label = "Probabilidad éxito p:",
+          sliderInput("p_binom", label = "Probabilidad éxito p:",
                      min = 0.01, max = 0.99, value = 0.25, step = 0.01)
          )
   )
 )
 
 renderPlot({
-  n=input$n
-  p=input$p
+  n=input$n_binom
+  p=input$p_binom
 
   par(mfrow=c(1,2))
   aux=rep(0,(n+1)*2)
@@ -213,13 +214,13 @@ par(mfrow=c(1,1))
 
 ```{r echo = FALSE}
  
-sliderInput("p", label = "Probabilidad de éxito:",
+sliderInput("p_geom", label = "Probabilidad de éxito:",
               min = 0.01, max = 0.99, value =0.25 , step = 0.01)
 
 
 renderPlot({
   par(mfrow=c(1,2))
-  p=input$p
+  p=input$p_geom
   n=30
   aux=rep(0,(n+1)*2)
   aux[seq(2,(n+1)*2,2)]=dgeom(c(0:n),prob=p)
@@ -228,7 +229,7 @@ renderPlot({
        main=paste0(c("Función de probabilidad\n Ge(p=",p,")"),collapse = ""))
   lines(x=rep(0:n,each=2),y=aux, type = "h", lty = 2,col="blue")
   curve(pgeom(x,prob=p),
-        xlim=c(-1,input$n+1),col="blue",
+        xlim=c(-1,n+1),col="blue",
         main=paste0(c("Función de distribución\n Ge(p=",p,")"),collapse = ""))
   par(mfrow=c(1,1))
 })
