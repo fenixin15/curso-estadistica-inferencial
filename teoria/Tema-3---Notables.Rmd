@@ -10,9 +10,12 @@ output:
     logo: Images/matriz_mov.gif
 ---
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+library(reticulate)
 ```
+
 
 
 # Distribuciones Notables. 
@@ -39,11 +42,14 @@ fracaso (F). El espacio de sucesos será $\Omega=\{E,F\}$.
 * Consideremos la  aplicación 
 
 $$
-X:\Omega=\{E,F\}\to \mathbb{R}$$
+X:\Omega=\{E,F\}\to \mathbb{R}
+$$
 
 definida por
 
-$$X(E)=1\mbox{, }X(F)=0$$
+$$
+X(E)=1\mbox{, }X(F)=0.
+$$
 
 
 ## Distribución Bernoulli
@@ -58,7 +64,7 @@ P_{X}(x)=
 p & \mbox{si } x=1\\
 0 & \mbox{en cualquier otro caso}
 \end{array}
-\right.
+\right..
 $$
 
 Su función de distribución es 
@@ -68,10 +74,10 @@ F_{X}(x)=P(X\leq x)=
 \left\{
 \begin{array}{ll} 
 0 & \mbox{si } x<0\\
-1-p=q & \mbox{si } 0\geq x <1\\
-1 & \mbox{si } 1\geq 1 \\
+1-p=q & \mbox{si } 0\leq x <1\\
+1 & \mbox{si } 1\leq x \\
 \end{array}
-\right.
+\right..
 $$
 
 
@@ -83,7 +89,7 @@ $$X\equiv Ber(p)\mbox{ o también } X\equiv B(1,p).$$
 * A este tipo de  experimentos (éxito/fracaso)se les denomina experimentos Bernoulli.
 * Fue su descubridor un científico suizo  [Jacob Bernoulli](https://es.wikipedia.org/wiki/Jakob_Bernoulli),  uno más de la de la conocida [familia de científicos suizos Bernoulli](https://es.wikipedia.org/wiki/Familia_Bernoulli)
 
-## Esperanza de una v.a. $X$ con distribución $Ber(p)$·
+## Esperanza de una v.a. $X$  $Ber(p)$
 
 Su **valor esperado** es 
 
@@ -95,23 +101,25 @@ Calculemos también $E(X^2)$
 
 $$E(X^2)=\displaystyle\sum_{i=1}^2 x^\cdot P(X=x)= 0^2\cdot(1-p)+1^2\cdot(p)=p.$$
 
-## Varianza de una v.a. $X$ con distribución $Ber(p)$·
+## Varianza de una v.a. $X$  $Ber(p)$
 
 
 Su  **varianza** es 
 
-$$Var(X)=E(X^2)-\left(E(X)\right)^2=p+p^2=p\cdot (1-p).$$
+$$Var(X)=E(X^2)-\left(E(X)\right)^2=p+p^2=p\cdot (1-p)=p\cdot q.$$
 
 
 Su desviación típica es 
 
-$$\sqrt{Var(X)}=\sqrt{p\cdot (1-p)}.$$
+$$
+\sqrt{Var(X)}=\sqrt{p \cdot (1-p)}.
+$$
 
-## Resumen v.a con distribución Bernoulli, $Ber(p)$
+## Resumen v.a con distribución Bernoulli
 
 
 $X$  Bernoulli | $Ber(p)$
------------:|:--------
+----------:|:--------
 $D_X=$ | $\{0,1\}$
 $P_X(x)=P(X=x)=$ |  $\left\{\begin{array}{ll} q & \mbox{si } x=0\\ p & \mbox{si } x=1\\0 & \mbox{en otro caso}\end{array}\right.$ 
 $F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\q & \mbox{ si } 0\leq x<1\\1 & \mbox{ si } 1\leq x \end{array}\right.$
@@ -139,11 +147,11 @@ El siguiente código dibuja las función de probabilidad y la de distribución d
 ```{r eval=FALSE}
 plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=0.25),
     ylim=c(0,1),xlim=c(-1,2),xlab="x",
-    main="Función de probabilidad\n Ber(p=0.25)")
+    main=paste0(c("Función de probabilidad\n Ber(p=",p,")"),collapse="")
 lines(x=c(0,0,1,1),y=c(0,0.75,0,0.25), type = "h", lty = 2,col="blue")
 curve(pbinom(x,size=1,prob=0.25),
     xlim=c(-1,2),col="blue",
-    main="Función de distribución\n Ber(p=0.25)")
+    main=paste0(c("Función de distribución\n Ber(p=",p,")"),collapse="")
 ```
 
 
@@ -161,19 +169,19 @@ curve(pbinom(x,size=1,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-## Gráficas de la  distribución $Ge(p)$
+## Gráficas interactivas  $Ber(p)$
 
 ```{r echo = FALSE}
 
 #selectInput("n_breaks", label = "Number of bins:",
 #             choices = c(10, 20, 35, 50), selected = 20)
 
-sliderInput("p", label = "Probabilidad éxito p:",
+sliderInput("p_ber", label = "Probabilidad éxito p:",
               min = 0.01, max = 0.99, value = 0.25, step = 0.01)
 
 renderPlot({
 par(mfrow=c(1,2))
-  p=input$p
+  p=input$p_ber
 plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=p),
      ylim=c(0,1),xlim=c(-0.5,2),xlab="x",pch=21,
      main=paste0(c("Función de probabilidad\n
@@ -186,7 +194,8 @@ x=0:1
 y=pbinom(x,size=1,prob=p)
 curve(pbinom(x,size=1,prob=p),
       xlim=c(-1,2),col="blue",
-      main="Función de distribución\n Ber(p=0.25)")
+      main=paste0(c("Función de distribución\n Ber(p=",p,")"),collapse="")
+      )
 
 par(mfrow=c(1,1))
 })
@@ -296,9 +305,9 @@ para distintos valores de $n$ y $p$ para que disfrutéis de tan ancestral métod
 * Cualquier paquete estadístico, hoja de cálculo dispone de
 funciones para el cálculo de estas probabilidades, así que el **uso de las tablas** queda **totalmente anticuado**. 
 
-## Esperanza  de una $X$ con distribución $B(n,p).$
+## Esperanza  de una $X$  $B(n,p)$
 
-Su *esperanza* es 
+Su **esperanza** es 
 $$E(X)=\displaystyle\sum_{k=0}^n k \cdot  {n \choose k }\cdot p^k\cdot q^{n-k} = n\cdot p.$$
 
 La esperanza de $X^2$ es 
@@ -429,7 +438,27 @@ binom.rvs(n=20,p=0.25,size=10)
 ```
 
 
-## Gráficos de la distribución binomial con R
+## Gráficas de la distribución binomial con R 
+
+El siguiente código de R dibuja las función de probabilidad y la de distribución de una  $B(n=10,p=0.25)$
+
+
+```{r fig.align='center',echo=TRUE,eval=FALSE}
+par(mfrow=c(1,2))
+aux=rep(0,22)
+aux[seq(2,22,2)]=dbinom(c(0:10),size=10,prob=0.25)
+plot(x=c(0:10),y=dbinom(c(0:10),size=10,prob=0.25),
+  ylim=c(0,1),xlim=c(-1,11),xlab="x",
+  main="Función de probabilidad\n B(n=10,p=0.25)")
+lines(x=rep(0:10,each=2),y=aux, type = "h", lty = 2,col="blue")
+curve(pbinom(x,size=10,prob=0.25),
+  xlim=c(-1,11),col="blue",
+  main="Función de distribución\n B(n=10,p=0.25)")
+par(mfrow=c(1,1))
+```
+
+
+## Gráficas de la distribución binomial con R 
 
 El siguiente código de R dibuja las función de probabilidad y la de distribución de una  $B(n=10,p=0.25)$
 
@@ -448,49 +477,37 @@ curve(pbinom(x,size=10,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-## Gráficas interactivas
+## Gráficas interactivas binomial
 
 
-```{r echo = FALSE}
-
-#selectInput("n_breaks", label = "Number of bins:",
-#             choices = c(10, 20, 35, 50), selected = 20)
-# textInputRow<-function (inputId, label, value = 10, min=1,max=50,step=1 ) 
-# {
-#     div(style="display:inline-block",
-#         tags$label(label, `for` = inputId), 
-#         tags$input(id = inputId, type = "text", value = value,min=min,max=max,step=step,class="sliderInput"))
-# }
-#         textInputRow(inputId="n", label="Número de repeticiones n:", value = 10, min=1,max=50,step=1)
-#         
-#         textInputRow(inputId="p", label="x-max", value = 0.5)
+```{r  echo = FALSE}
 
 fluidPage(
 fluidRow(
-  column(6, 
-       sliderInput("n", label = "Número de repeticiones n:",
-              min = 1, max = 50, value =10 , step = 1)
-       ), 
-       column(6, 
-         sliderInput("prob", label = "Probabilidad éxito p:",
-              min = 0.01, max = 0.99, value = 0.25, step = 0.01)
+  column(6,
+         sliderInput("n_binom", label = "Número de repeticiones n:",
+              min = 1, max = 50, value =10 , step = 1)),
+  column(6,
+          sliderInput("p_binom", label = "Probabilidad éxito p:",
+                     min = 0.01, max = 0.99, value = 0.25, step = 0.01)
          )
   )
 )
 
 renderPlot({
+  n=input$n_binom
+  pr=input$p_binom
+  
   par(mfrow=c(1,2))
-  n=input$n
-  p=input$prob
   aux=rep(0,(n+1)*2)
-  aux[seq(2,(n+1)*2,2)]=dbinom(c(0:n),size=n,prob=p)
-  plot(x=c(0:n),y=dbinom(c(0:n),size=n,prob=p),
+  aux[seq(2,(n+1)*2,2)]=dbinom(c(0:n),size=n,prob=pr)
+  plot(x=c(0:n),y=dbinom(c(0:n),size=n,prob=pr),
        ylim=c(0,1),xlim=c(-1,n+1),xlab="x",
-       main=paste0(c("Función de probabilidad\n B(n=",n,",p=",p,")"),collapse = ""))
+       main=paste0(c("Función de probabilidad\n B(n=",n,",p=",pr,")"),collapse = ""))
   lines(x=rep(0:n,each=2),y=aux, type = "h", lty = 2,col="blue")
-  curve(pbinom(x,size=n,p=p),
-        xlim=c(-1,input$n+1),col="blue",
-        main=paste0(c("Función de distribución\n B(n=",input$n,",p=",p,")"),
+  curve(pbinom(x,size=n,p=pr),
+        xlim=c(-1,n+1),col="blue",
+        main=paste0(c("Función de distribución\n B(n=",n,",p=",pr,")"),
                     collapse = ""))
         par(mfrow=c(1,1))
 })
@@ -513,12 +530,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+TODO: cambiar esta cosa por archivo script
 
 ```{python dibu_python1,eval=FALSE}
-n, p = 5, 0.4
+n, p = 10, 0.25
 x = np.arange(binom.ppf(0.01, n, p),binom.ppf(0.99, n, p))
+
+plt.figure(figsize=(16, 9))
+
+plt.subplot(121)
 plt.plot(x, binom.pmf(x, n, p), 'bo', ms=8, label='binom pmf')
 plt.vlines(x, 0, binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
+plt.subplot(122)
+plt.plot(x, binom.pmf(x, n, p), 'bo', ms=8, label='binom pmf')
+plt.vlines(x, 0, binom.pmf(x, n, p), colors='b', lw=5, alpha=0.5)
+plt.suptitle('Categorical Plotting')
+plt.show()
+
 ```
 </div>
 
@@ -556,7 +584,7 @@ Bajo estas condiciones tenemos que  repetimos $n=10$ veces el mismo experimento 
 
 $$P(Roja)=P(Éxito)=p=\frac{40}{100}=0.4.$$
 
-Así que la variable $X=" número de bolas rojas extraídas de la urna en $n=10$ ocasiones sigue una ley binomial  $B(n=10,p=0.4).$
+Así que la variable $X=$"número de bolas rojas extraídas de la urna (con reposición) en $n=10$ ocasiones sigue una ley binomial  $B(n=10,p=0.4).$
 </div>
 
 ## Ejemplo $B(n=10,p=0.4).$
@@ -573,7 +601,7 @@ Nos preguntamos:
 
 ## Ejemplo $B(n=10,p=0.4).$
 
-<div class="exmaple-sol">
+<div class="example-sol">
  
 **Solución 1**. ¿Cuál es la probabilidad de que saquemos exactamente $4$ rojas?
 
@@ -581,7 +609,7 @@ Utilizando al función de probabilidad  tenemos que
 
 $$
 \begin{eqnarray*}
-P_x(x=4)&=&{10\choose 4}\cdot 0.4^4\cdot (1-0.4)^{10-4}
+P_x(X=4)&=&{10\choose 4}\cdot 0.4^4\cdot (1-0.4)^{10-4}
 = \frac{10!}{(10-4)!\cdot 4!}\cdot 0.4^4\cdot 0.6^6\\
 &=& \frac{7\cdot 8\cdot 9\cdot 10}{1\cdot 2\cdot 3\cdot 4}\cdot 0.4^4\cdot 0.6^6=`r round(choose(10,4)* 0.4^4*0.6^6,7)`
 \end{eqnarray*}
@@ -594,14 +622,18 @@ Con R
 ```{r}
 dbinom(4,size=10,prob = 0.4)
 ```
+
+</div>
+
+
 ## Ejemplo $B(n=10,p=0.4).$
 
-
+<div class="example-sol">
 **Solución 2**.  ¿Cuál es la probabilidad de que saquemos al menos  $4$ rojas?
 
 Al menos 4 rojas es $P(X \geq  4)=1-P(X<4)=1-P(x\leq 3).$
 
-Así que calculemos $P(X\leq3)$
+Así que calculemos $P(X\leq 3)$
 
 $$
 \begin{eqnarray*}
@@ -614,11 +646,11 @@ P(x\leq 3)&=& P(X=0)+P(X=1)+P(X=2)+P(X=3)\\
 .
 $$
 
-
+</div>
 
 
 ## Ejemplo $B(n=10,p=0.4).$
-
+<div class="example-sol">
 Con R
 
 ```{r}
@@ -630,9 +662,11 @@ Así que
 
 $$P(X \geq 4 )=1-P(x< 4)=P(X\leq 3)=1-`r round(pbinom(3,10,0.4),7)`=`r round(1-pbinom(3,10,0.4),7)`.$$
 
+</div>
 
 ## Ejemplo $B(n=10,p=0.4).$
 
+<div class="example-sol">
 O con R también
 
 ```{r}
@@ -640,8 +674,10 @@ O con R también
 pbinom(3,10,0.4,lower.tail = FALSE)
 ```
 
+</div>
 
 ## Ejemplo $B(n=10,p=0.4).$
+<div class="example-sol">
 
 **Solución 3**.  ¿Cuál es la probabilidad de que saquemos  menos  $3$ rojas?
 
@@ -649,30 +685,36 @@ $$
 \begin{eqnarray*}
 P(x< 3)&=& P(X\leq 2)=  P(X=0)+P(X=1)+P(X=2)\\
 &=& 
- {10\choose 0}\cdot 0.4^0\cdot (1-0.4)^{10-0}+ {10\choose 1}\cdot 0.4^1\cdot (1-0.4)^{10-1}\\
-&+&{10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}\\
+{10\choose 0}\cdot 0.4^0\cdot (1-0.4)^{10-0}+ {10\choose 1}\cdot 0.4^1\cdot (1-0.4)^{10-1}\\
+&+&
+{10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}\\
 &=&`r round(pbinom(2,10,0.4),7)`
 \end{eqnarray*}
 .
 $$
 
-
+</div>
 
 ## Ejemplo $B(n=10,p=0.4).$
 
+<div class="example-sol">
 **Solución 4**. ¿Cuál es el valor esperado del número de bolas rojas?
 
 Como  $X$ es una $B(n=10,p=0.4)$ sabemos que 
 
 $$E(X)=n\cdot p = 10\cdot 0.4=`r 10*0.4`.$$
+</div>
 
 ## Ejemplo $B(n=10,p=0.4).$
 
+<div class="example-sol">
 **Solución 5**. ¿Cuál es la desviación típica  del número de bolas rojas?
 
 
 La varianza es 
-$$Var(X)=n\cdot p \cdot(1-p)=10\cdot 0.4\cdot 0.6=`r 10*0.4*0.6`.$$
+$$
+Var(X)=n\cdot p \cdot(1-p)=10\cdot 0.4\cdot 0.6=`r 10*0.4*0.6`.
+$$
 
 
 Por lo  tanto la desviación típica es 
@@ -688,9 +730,9 @@ $\sqrt{Var(X)}=\sqrt{`r 10*0.4*0.6`}= `r sqrt(10*0.4*0.6)`.$
 
 * Todos hemos jugado a, por ejemplo, tirar una moneda hasta que obtengamos la primera cara.
 
-* O también tirar una pelota a una canasta de balocesto hasta obtener la primer la canasta.
+* O también tirar una pelota a una canasta de baloncesto hasta obtener la primer la canasta.
 
-* Desde otro punto de vista también podemos intentar modelar el número de veces que accionamos una interreptor  y la bombilla se ilumina  hasta que falla. 
+* Desde otro punto de vista también podemos intentar modelar el número de veces que accionamos una interruptor  y la bombilla se ilumina  hasta que falla. 
 
 * O también el número de veces que un cajero automático nos da dinero hasta que falla.
 
@@ -708,7 +750,7 @@ La **modelización más simple de estos problemas  es la llamada distribución g
 $$P(\overbrace{FFF\ldots F}^{x}E)=P(F)^{x}\cdot P(E)=(1-p)^{x}\cdot p=q^{x}\cdot p.$$
 
 
-## Distribución Geométrica
+## Distribución geométrica
 
 Su función de probabilidad es 
 
@@ -758,11 +800,11 @@ P(X>3) & = & P(\{FFFF\})= P(F)\cdot P(F)\cdot P(F)\cdot P(F)\\
 $$
 
 
-Ahora calculamos 
+Calculamos 
 
 $$F_X(3)=P(X\leq 3)=1-P(X>3)=1-(1-p)^{3+1}.$$
 
-Ahora podemos generalizar a cualquier entero positivo $k=0,1,2,\ldots$  
+Por lo que podemos generalizar a cualquier entero positivo $k=0,1,2,\ldots$  
 
 $$F_X(k)=P(X\leq k)=1-(1-p)^{k+1}\mbox{ si } k=0,1,2,\ldots$$
 
@@ -787,8 +829,8 @@ $$
 
 ## Función de distribución geométrica
 
-
 De forma más compacta tendremos que 
+
 
 
 $$
@@ -809,52 +851,116 @@ $$
 
 ya que $0<1-p<1$.
 
+
+## Sumas derivadas series geométricas 
+Recordemos del tema de variables aleatorias que 
+
+<l class="prop">Propiedades</l>
+
+
+* Si $|r|<1$  también son convergentes las derivadas, respecto de $r$, de la serie geométrica y convergen a la derivada correspondiente. Así tenemos que
+$$
+\begin{eqnarray*}
+\left(\sum_{k=0}^{+\infty} r^k\right)'= & \sum_{k=1}^{+\infty}k
+r^{k-1} =\left(\frac1{1-r}\right)'=\frac1{(1-r)^2}\\
+\left(\sum_{k=0}^{+\infty} r^k\right)^{''}=& \sum_{k=2}^{+\infty}k (k-1)
+r^{k-2}=\left(\frac1{1-r}\right)^{''}=\frac2{(1-r)^3}
+\end{eqnarray*}.
+$$
+
+
 ## Esperanza de una v.a. $Ge(p)$
 
+Recordemos que $P(X=x)=(1-p)^x\cdot p$ si $x=0,10,2,\ldots$ y 
+aplicado la fŕomula anterior con $r=1-p$
 
-$$E(X)=\sum_{x=0}^{+\infty} x\cdot P_x(x)=$$
+$$
+\begin{eqnarray*}
+E(X)&=&\sum_{x=0}^{+\infty} x\cdot P_x(x)=\sum_{x=0}^{+\infty} x\cdot (1-p)^x\cdot p=
+p\cdot (1-p) \cdot \sum_{x=1}^{+\infty} x\cdot (1-p)^{x-1}\\
+&=& p\cdot (1-p)\cdot \frac{1}{(1-(1-p))^2}=p\cdot (1-p)\cdot \frac{1}{p^2}=\frac{1-p}{p}
+\end{eqnarray*}.
+$$
 
-$$E(X^2)=\sum_{x=0}^{+\infty} x^2\cdot P_x(x)=$$
+## Valor $E(X^2)$ de una v.a. $Ge(p)$
+
+$$
+\begin{eqnarray*}
+E(X^2)&=&\sum_{x=0}^{+\infty} x^2\cdot P_X(x)=\sum_{x=1}^{+\infty} x^2\cdot (1-p)^x\cdot p\\
+&=& 
+\sum_{x=1}^{+\infty} (x\cdot (x-1)+x)\cdot (1-p)^{x}\cdot p\\
+&=&
+\sum_{x=1}^{+\infty} x\cdot (x-1)\cdot (1-p)^{x}\cdot p+\sum_{x=1}^{+\infty} x \cdot (1-p)^{x}\cdot p\\
+&=&
+(1-p)^{2}\cdot p\cdot \sum_{x=2}^{+\infty} x\cdot (x-1)\cdot (1-p)^{x-2}\\ 
+&  +&   (1-p)\cdot p\sum_{x=1}^{+\infty} x \cdot (1-p)^{x-1} = \ldots
+\end{eqnarray*}.
+$$
+
+## Valor $E(X^2)$ de una v.a. $Ge(p)$
+
+$$
+\begin{eqnarray*}
+E(X^2)&=&\ldots\\
+&=&
+(1-p)^{2}\cdot p\cdot \sum_{x=2}^{+\infty} x\cdot (x-1)\cdot (1-p)^{x-2}\\ 
+&  +&   (1-p)\cdot p\sum_{x=1}^{+\infty} x \cdot (1-p)^{x-1}\\
+&=&
+p\cdot (1-p)^2 \frac{2}{(1-(1-p))^3}+  (1-p)\cdot p \frac{1}{(1-(1-p))^2}\\
+&=&
+p\cdot (1-p)^2 \frac{2}{p^3}+  (1-p)\cdot p \frac{1}{p^2}\\
+&=&\frac{2\cdot (1-p)^2}{p^2}+\frac{1-p}{p}
+\end{eqnarray*}.
+$$
+
+
 
 ## Varianza de una v.a. $Ge(p)$
 
 
-$$Var(X)=E(X^2)-E(X)^2=$$
+$$
+\begin{eqnarray*}
+Var(X)&=&E(X^2)-E(X)^2=\frac{2\cdot (1-p)^2}{p^2}+\frac{1-p}{p}-\left(\frac{1-p}{p}\right)^2\\
+&=&
+\frac{2\cdot (1-p)^2+p\cdot(1-p)-(1-p)^2}{p^2}=\frac{(1-p)^2+p\cdot(1-p)}{p^2}\\
+&=&
+\frac{1-2\cdot p + p^2+p-p^2}{p^2}\\
+&=& \frac{1-p}{p^2}.
+\end{eqnarray*}
+$$
 Desviación típica
 
-$$\sqrt{Var(X)}$$
+$$\sqrt{Var(X)}=\sqrt{\frac{1-p}{p^2}}.$$
 
 
 ## Resumen $Ge(p)$ empezando en 0
 
-$X=$ | número de fracasos  para conseguir el primer éxito
+$X=$ Geométrica (empieza en $0$)  | número de fracasos  para conseguir el primer éxito
 ------:|:-----
-*Geométrica* |  que empieza en $0$
 $D_X=$ | $\{0,1,\ldots n,\ldots\}$ 
 $P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{x}\cdot p & \mbox{ si } x=0,1,2,\ldots \\0  & \mbox{ en otro caso.}\end{array}\right.$
 $F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } x<0\\
   1- (1-p)^{k+1} & \mbox{ si } \left\{ \begin{array}{l}k\leq x< k+1\\\mbox{para } k=1,2,\ldots\end{array}
     \right.\end{array}\right.$ 
-$E(X)=\frac{1-p}{p}$ | $Var(X)=\frac{q}{p^2}$
+$E(X)=\frac{1-p}{p}$ | $Var(X)=\frac{1-p}{p^2}$
 
 ## La variable geométrica que cuenta los intentos para obtener el primer éxito.
 
 * Supongamos que sólo estamos interesados en el número de intentos para obtener el
 primer éxito. 
 * Si definimos $Y$= número de  intentos para obtener el  primer éxito. Entonces $Y=X+1$  donde $X\equiv Ge(p)$.
-* Su dominio es valores en $\{1,2,\ldots\}$ 
-* $E(Y)=E(X+1)=E(X)+1=\frac{1-p}{p}+1=\frac1{p}$.
-* $Var(Y)=Var(X+1)=Var(X)=\frac{1-p}{p^2}$.
+* Su dominio es valores es $D_Y=\{1,2,\ldots\}$ 
+* la media se incrementa en un intento debido al  éxito  $E(Y)=E(X+1)=E(X)+1=\frac{1-p}{p}+1=\frac1{p}$.
+* La varianza es la misma $Var(Y)=Var(X+1)=Var(X)=\frac{1-p}{p^2}$.
 
 
 ## Resumen $Ge(p)$ comenzando en $1$.
 
-$Y$ |número de INTENTOS  para OBTENER el primer éxito
+$Y$ geométrica  (que cuenta el éxito empieza en 1)| número de INTENTOS  para OBTENER el primer éxito
 ------:|:-----
-*Geométrica*|$Ge(p)$, $q=1-p$.
 $D_Y=$ |  $\{1,2,\ldots n,\ldots\}$ 
-$P_Y(y)=P(X=x)=$ |$\left\{\begin{array}{ll}(1-p)^{y-1}\cdot p & \mbox{ si } y=1,2,3,\ldots\\  0  & \mbox{ en otro caso.}\end{array}\right.$
-$F_Y(y)=P(Y\leq y)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } y<1\\ 1- q^{k} & \mbox{ si } \left\{ \begin{array}{l}k\leq y< k+1\\\mbox{para } k=1,2,3,\dots \end{array}    \right.\end{array}\right.$ 
+$P_Y(y)=P(Y=y)=$ |$\left\{\begin{array}{ll}(1-p)^{y-1}\cdot p & \mbox{ si } y=1,2,3,\ldots\\  0  & \mbox{ en otro caso.}\end{array}\right.$
+$F_Y(y)=P(Y\leq y)=$ | $\left\{\begin{array}{ll} 0 & \mbox{ si } y<1\\ 1- (1-p)^{k} & \mbox{ si } \left\{ \begin{array}{l}k\leq y< k+1\\\mbox{para } k=1,2,3,\dots \end{array}    \right.\end{array}\right.$ 
 $E(X)=\frac1{p}$ |$Var(X)=\frac{1-p}{p^2}$
 
 
@@ -879,7 +985,7 @@ para todo $k,j=1,2,3\ldots$.
 Si es geométrica entonces el lado derecho de la igualdad es 
 
 $$
-P(X > k)=1-P(X\leq k)=1-\left(1-(1-p)^{k+1}\right)=(1-p)^{k+1}
+P(X>k)=1-P(X\leq k)=1-\left(1-(1-p)^{k+1}\right)=(1-p)^{k+1}
 $$
 
 El lado de izquierdo es
@@ -924,19 +1030,20 @@ Lo que demuestra  la igualdad.
 
  La propiedad  de la falta de memoria
 $$
-P(X> k+j|X> j)=P(X\geq k)
+P(X> k+j\big|X \geq j)=P(X > k)
 $$   
 
 la igualdad anterior significa  que aunque **ya llevemos al menos  $j$ fracasos** la probabilidad de **que fracasemos $k$ veces más** no disminuye; es la misma  que si empezáramos de nuevo el experimento. 
 
-A este efecto se le suele etiquetar con la frase  *el experimento carece de memoria* o es un *experimento sin memoria*.
+A este efecto se le suele etiquetar con la frase  **el experimento carece de memoria** o es un **experimento sin memoria** (*Memoryless Property*).
 </div>
 
-## Falta de memoria
+## Ejemplo falta de memoria
 
 Un ejemplo muy sencillo nos aclarará el alcance de esta propiedad
 
-<div class="example"> **Ejemplo**: Llavero 
+<div class="example"> **Ejemplo**: Una puerta varias llaves y una cerradura
+
 Tenemos un llavero con 10 llaves,  solo una de ellas abre una puerta. Cada vez que probamos una llave y falla olvidamos que llave hemos probado. ¿Cuál es la probabilidad de que  si ya lo hemos intentado  5 veces necesitemos más de 4 intentos adicionales  para abrir la puerta?
 </div>
 
@@ -949,11 +1056,29 @@ P(X> 4+5/X \geq 5)=P(X > 4)
 $$
 
 Después de 5 fracasos no estamos *más cerca* de abrir la puerta.
-La propiedad de la  falta de  memoria  nos dice que en después de cada intento es como si empezásemos  de nuevo a abrir la puerta. Tras 5 fracasos la probabilidad de que fallemos más de  4 veces  más es la misma.
+La propiedad de la  falta de  memoria  nos dice que en **después de cada intento es como si empezásemos  de nuevo a abrir la puerta**. Tras 5 fracasos la probabilidad de que fallemos más de  4 veces  más es la misma.
 </div>
 
+## Ejemplo falta de memoria 
 
-## Variable geométrica: Madrid/Barça, Barça/Madrid
+
+¿Cuál es el número esperado de fracasos hasta abrir la puerta
+
+$$
+E(X)=\frac{1-p}{p}=\frac{1-\frac{1}{10}}{\frac{1}{10}}=\frac{\frac{9}{10}}{\frac{1}{10}}=9.
+$$
+
+La varianza es 
+
+$$
+Var(X)=\frac{1-p}{p^2}=\frac{1-\frac{1}{10}}{\left(\frac{1}{10}\right)^2}=\frac{\frac{9}{10}}{\frac{1}{100}}=
+90.
+$$
+
+La desviación típica es $\sqrt{90}=`r sqrt(90)`.$
+
+
+## Ejemplo: Madrid/Barça, Barça/Madrid,...
 
 <div class="example"> 
 **Ejemplo**:  Número de partidos de fútbol necesarios para ver ganar el Barça al Madrid:
@@ -1005,7 +1130,7 @@ $$P(X>3)=1-P(X\leq 3)=1-\left(1-\frac{72}{178}\right)^4=`r round(1-(1-72/178)^4,
 Así que  tienen una probabilidad del $87.42\%$ de que necesite ver al menos no ganar al Barça 3 partidos antes de ver uno en el que gane.
 </div>
 
-## Madrid/Barça, Barça/Madrid
+## Madrid/Barça, Barça/Madrid...
 
 <div class="example"> 
 **Ejemplo**
@@ -1025,41 +1150,74 @@ y
 
 $Var(X)=\frac{1-p}{p^2}=\frac{1-`r round(72/178,4)`}{(`r round(72/178,4)`)* 2}=`r round((1- (72/178))/(72/178)^2,4)`$
 
+La desviación típica es $\sqrt{`r round((1- (72/178))/(72/178)^2,4)`}=`r round(sqrt((1- (72/178))/(72/178)^2),4)`.$
+
 </div>
 
 
 
+
+
+
+
+
+
+
+
 ## Cálculos con R
 
-Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ que cuenta el número de fracasos antes del primer éxito es decir empezando en $0$
+Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$. R implementa la geométrica que cuenta el número de fracasos.
 
-```{r binomialfuncionesA011111}
+
+$P(X=0)=(1-0.25)^0\cdot 0.25^1=0.25$
+
+```{r binomialfunciones01}
 dgeom(0,prob=0.25)
+```
+
+$P(X\leq 0)=1- (1-0.25)^{0+1}=1-0.75=0.25$
+
+
+
+```{r binomialfunciones02}
 pgeom(0,prob=0.25)
-dgeom(1,prob=0.25)
 ```
 
 
+
+
+
 ## Cálculos con R
 
-Veamos los cálculos básicos con  R para la distribución geométrica  $Ge(p=0.25)$ empezando en $0$
 
 
-El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ge(p=0.25)$
+$P(X\leq 4)=1-(1-0.25)^{4+1}=1-0.75=1-0.75^5=`r 1-0.75^5`.$
+
+```{r binomialfunciones1}
+pgeom(4,prob=0.25)
+```
+
+
+Una muestra aleatoria de tamaño 25 de una $Ge(0.25)$
+
+```{r}
+rgeom(n=25,prob=0.25)
+```
+
+## Gráficos con R el código
 
 ```{r eval=FALSE}
 par(mfrow=c(1,2))
-plot(x=c(0:10),y=dgeom(c(0:10),prob=0.25),
+x=c(0:10)
+plot(x=x,y=dgeom(x,prob=0.25),
   ylim=c(0,1),xlim=c(-1,11),xlab="x",
   main="Función de probabilidad\n Ge(p=0.25)")
 lines(x=rep(0:10,each=2),y=aux, type = "h", lty = 2,col="blue")
-
 aux0=dgeom(c(0:10),prob=0.25)
 ceros=rep(0,21)
 ceros
 aux=ceros
 aux[2*(c(1:11))]<-aux0
-curve(pbinom(x,size=10,prob=0.25),
 curve(pgeom(x,prob=0.25),
   xlim=c(-1,10),col="blue",
   main="Función de distribución\n Ge(p=0.25)")
@@ -1067,18 +1225,158 @@ par(mfrow=c(1,1))
 ```
 
 
-##  Los gráficos
+##  Los gráficos con R
 
 
 ```{r graficos22, fig.align='center',echo=FALSE}
-par(mfrow=c(1,2))
-plot(x=c(0:10),y=dgeom(c(0:10),prob=0.25),
-  ylim=c(0,1),xlim=c(-1,11),xlab="x",
-  main="Función de probabilidad\n Ge(p=0.25)")
-curve(pgeom(x,prob=0.25),
-  xlim=c(-1,10),col="blue",
-  main="Función de distribución\n Ge(p=0.25)")
-par(mfrow=c(1,1))
+  par(mfrow=c(1,2))
+  p=0.25
+  n=30
+  aux=rep(0,(n+1)*2)
+  aux[seq(2,(n+1)*2,2)]=dgeom(c(0:n),prob=p)
+  plot(x=c(0:n),y=dgeom(c(0:n),prob=p),
+       ylim=c(0,1),xlim=c(-1,n+1),xlab="x",
+       main=paste0(c("Función de probabilidad\n Ge(p=",p,")"),collapse = ""))
+  lines(x=rep(0:n,each=2),y=aux, type = "h", lty = 2,col="blue")
+  curve(pgeom(x,prob=p),
+        xlim=c(-1,n+1),col="blue",
+        main=paste0(c("Función de distribución\n Ge(p=",p,")"),collapse = ""))
+  par(mfrow=c(1,1))
+```
+
+
+## Gráficas interactivas geométrica
+
+```{r echo = FALSE}
+ 
+sliderInput("p_geom", label = "Probabilidad de éxito:",
+              min = 0.01, max = 0.99, value =0.25 , step = 0.01)
+renderPlot({
+  par(mfrow=c(1,2))
+  p=input$p_geom
+  n=30
+  aux=rep(0,(n+1)*2)
+  aux[seq(2,(n+1)*2,2)]=dgeom(c(0:n),prob=p)
+  plot(x=c(0:n),y=dgeom(c(0:n),prob=p),
+       ylim=c(0,1),xlim=c(-1,n+1),xlab="x",
+       main=paste0(c("Función de probabilidad\n Ge(p=",p,")"),collapse = ""))
+  lines(x=rep(0:n,each=2),y=aux, type = "h", lty = 2,col="blue")
+  curve(pgeom(x,prob=p),
+        xlim=c(-1,n+1),col="blue",
+        main=paste0(c("Función de distribución\n Ge(p=",p,")"),collapse = ""))
+  par(mfrow=c(1,1))
+})
+```
+
+
+## Cálculos con python
+
+Veamos los cálculos básicos con  python para la distribución geométrica  $Ge(p=0.25)$. scipy.stats implementa la distribución geométrica que cuenta el número  intentos así que empieza en 1
+
+
+
+Cargamos la  función de la librería 
+
+```{python geom1}
+from scipy.stats import geom
+```
+
+
+## Cálculos con python
+
+La función de probabilidad es `geom.pmf(x,p,loc=0)=geom.pmf(x,p)` es un geométrica que cuenta el número de intentos para obtener el primer éxito el valor por defecto del último parámetro es  `loc=0`.
+
+Si queremos la que cuenta el número de fracasos para obtener el primer éxito (la geométrica que empieza en 0) tenemos que usar `geom.pmf(x,p,loc=-1)`.
+
+Es decir `geom.pmf(x,p,loc=-1)=geom.pmf(x-1,p,loc=0)`
+
+
+## Cálculos con python
+
+Veamos pues los cálculos para la $Geom(p)$ que empieza en $0$.
+
+$P(X=0)=(1-0.25)^0\cdot 0.25^1=0.25$
+
+```{python py_geom_funciones1}
+geom.pmf(0,p=0.25,loc=-1)
+```
+
+$P(X\leq 0)=1- (1-0.25)^{0+1}=1-0.75=0.25$
+
+
+
+```{python py_geom_funciones2}
+geom.cdf(0,p=0.25,loc=-1)
+```
+
+
+
+
+
+## Cálculos con python
+
+$P(X\leq 4)=1-(1-0.25)^{4+1}=1-0.75=1-0.75^5=`r 1-0.75^5`.$
+
+```{python py_geom_funciones3}
+geom.cdf(4,p=0.25,loc=-1)
+```
+
+
+Una muestra aleatoria de tamaño 25 de una $Ge(0.25)$
+
+```{python py_random_binom}
+geom.rvs(p=0.25, size=20)
+```
+
+
+## Cálculos con python 
+
+<dvi class="exercice">
+
+Qué probabilidades son las que calcula el siguiente código
+
+```{python}
+geom.cdf(range(5),p=0.3,loc=0)
+geom.cdf(range(5),p=0.3,loc=-1)
+```
+
+qué tipo de variables geométricas son. 
+
+</div>
+
+## Cálculos con python  esperanza y  varianza
+
+Con python también podemos pedir algunos parámetros asociado a una función de distribución predefinida
+
+
+```{python py_mean_var_stats}
+geom.stats(p=0.25, loc=0, moments='mv')
+geom.stats(p=0.25, loc=-1, moments='mv')
+```
+
+
+## Cálculos con python  esperanza y  varianza
+
+<div class="exercise">
+Ejercició
+
+Comprobad que las medias y las varianzas calculadas en el código anterior, corresponden a una $Ge(p=0.3)$ empezando en $1$ y a a un $Ge(p=0.3)$
+empezando en $0$.
+
+¿Son las varianzas siempre iguales?
+</div>
+
+
+
+
+## Gráficos con python
+
+```{python geom2}
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(1, 1)
+x = np.arange(geom.ppf(0.01, p),geom.ppf(0.99, p))
+ax.plot(x, geom.pmf(x, p), 'bo', ms=8, label='geom pmf')
+ax.vlines(x, 0, geom.pmf(x, p), colors='b', lw=5, alpha=0.5)
 ```
 
 
@@ -1088,22 +1386,24 @@ par(mfrow=c(1,1))
 
 
 
-## El problema de la  puerta con dos cerraduras
+## El problema de la puerta con dos cerraduras
 
-Repitamos el problema de abrir la puerta. Tenemos un llavero con 10 llaves distintas y tenemos que abrir una puerta con **dos cerraduras**  empezamos por la primera cerradura  y cada vez olvidamos que llave hemos probado, una vez abierta la primera cerradura probamos con la segunda hasta que también la abrimos.
+Supongamos que disponemos de 10 llaves distintas y tenemos que abrir una puerta con **dos cerraduras**  empezamos por la primera cerradura  y cada vez olvidamos que llave que hemos probado, una vez abierta la primera cerradura probamos con la segunda hasta que también la abrimos.
 
 Sea $X=$ número de intentos necesarios hasta abrir la  puerta.
 
+La idea de la puerta es que tenemos un experimento Bernoulli con probabilidad de éxito $p=0.1$. Y repetiremos el experimento hasta obtener 2 éxitos.
+
 ## Distribución binomial negativa
 
-La idea de la puerta es que tenemos un experimento Bernoulli con probabilidad de éxito $p=0.1$. Y repetiremos el experimento hasta obtener 2 éxitos.
 
 En general tendremos un experimento  Bernoulli con probabilidad de éxito $0<p<1$ y  tal que:
 
 * Repetimos el experimento hasta obtener el $r$-ésimo éxito (abrir la maldita puerta). 
 * Sea $X$ la v.a que cuenta el número de repeticiones del experimento hasta el r-ésimo
 éxito. 
-* Su función de probabilidad es
+
+Su función de probabilidad es
 
 $$
 P_{X}(x)=P(X=x)=\left\{\begin{array}{ll}
@@ -1114,13 +1414,25 @@ $$
 
 ## Distribución binomial negativa
 
-* Una v.a. con este tipo de distribución recibe el nombre de *binomial negativa* y la denotaremos por $BN(p,r)$. Notemos que $BN(p,1)=Ge(p)$.
+Una v.a. con este tipo de distribución recibe el nombre de *binomial negativa* y la denotaremos por $BN(p,r)$. 
 
-Nota: Dados dos enteros positivos $n$ y $k$ se  define en numero binomial negativo como 
+Notemos que $BN(p,1)=Ge(p)$.
+
+
+
+
+
+
+
+
+## Números binomiales negativos
+
+
+<l class="definition"> Números binomiales negativos</l>
+
+Dados dos enteros positivos $n$ y $k$ se  define en numero binomial negativo como 
 
 $$\binom{-n}{k}=\frac{(-n)(-n-1)\cdots (-n-k+1)}{k!}.$$
-
-
 
 
 Se cumple que  
@@ -1130,48 +1442,219 @@ $$
 \\ r\end{array}\right) t^{k}
 $$
 
-<!-- 
+
+## Números binomiales negativos
+
+Con R es la misma función que para los números binomiales
+
+${-6\choose 4}=\frac{-6\cdot (-6-1)\cdot \cdot (-6-2)\cdot (-9-3) }{4!}=\frac{-6\cdot(-7)\cdot (-8)\cdot (-9)}{24}=\frac{3024}{24}=126.$
 
 
-## Distribución binomial negativa NO se incluye son propiedades de los números binomiales negativos
+```{r}
+choose(-6,4)
+```
 
-Además 
 
-$$
-\left(\begin{array}{c} x-1
-\\ r-1\end{array}\right)\left(\begin{array}{c} -n
-\\ r\end{array}\right)
-$$
 
--->
+## Esperanza y varianza de una $BN(r,p)$
 
+Su **esperanza es**
+
+$E(X)=\displaystyle\sum_{x=r}^{+\infty} x\cdot {x-1\choose r-1} \cdot (1-p)^{x-r}\cdot p^r=\frac{r}{p}.$
+
+
+La esperanza de $X^2$
+
+$E(X^2)=\displaystyle\sum_{x=r}^{+\infty} x^2\cdot {x-1\choose r-1} \cdot (1-p)^{x-r}\cdot p^r=\frac{r\cdot (1-p)}{p^2}+\left(\frac{r}{p}\right)^2$
+
+Por último la varianza es 
+
+$Var(X)=E(X^2)-E(X)^2=\frac{r\cdot (1-p)}{p^2}.$
 
 ## Resumen Binomial Negativa $BN(r,p)$
 
-$X=$ | número de intentos para conseguir el $r$-ésimo éxito
-*Binomial negativa* $BN(r,p)$ | $r$ éxitos, probabilidad de éxito $p$, $q=1-p$
+
+ $X=$ | número de intentos para conseguir el $r$-ésimo éxito
 --------------:|:------------
 $D_X=$ | $\{r,1,2,3\ldots\}$  
-$P_X(x)=P(X=x)=$ | $\left\{
-\begin{array}{cc}
-\left(
-\begin{array}{c}
-x-1\\ r-1
-\end{array}
-\right)\cdot
-q^{x-r}\cdot p^r & \mbox{si }  x=r,r+1,\ldots \\
-0 & \mbox{en otro caso.}
-\end{array}
-\right.$
-|$F_X(x)=P(X\leq X)=$ | no tiene fórmula (utilizar funciones de R o python.)
-$E(X)=\frac{r}{p}$|$Var(X)=\frac{r\cdot q}{p^2}$ 
+$P_X(x)=P(X=x)=$ | $\left\{\begin{array}{ll} {x-1\choose r-1} \cdot (1-p)^{x-r}\cdot p^r & \mbox{si }  x=r,r+1,\ldots \\ 0 & \mbox{en otro caso.}\end{array}\right.$
+$F_X(x)=P(X\leq X)=$ | $\displaystyle\sum_{k=r}^x P(X=k)$.  Calcular al suma o utilizar funciones de R o python.
+$E(X)=\frac{r}{p}$ | $Var(X)=\frac{r\cdot (1-p)}{p^2}$ 
+
+
+## Ejemplo $BN(r,p)$ 
+
+
+<div class="example">
+**Ejemplo : Sistema con tres claves de acceso**
+
+Supongamos que tenemos un sistema que como seguridad que tiene claves  de  2 dígitos  $00,01,\ldots 99$.  
+En total 100 posibilidades.
+
+Como dos dígitos es poco  ponemos tres fases de acceso al sistema cada una de 2 dígitos. Hay que averiguar las tres claves de forma consecutiva para entrar en el sistema
+
+Supongamos que cada vez que ponemos los dos dígitos olvidamos el resultado y seguimos poniendo dígitos al azar hasta adivinar la contraseña.
+
+Así hasta conseguir entrar en el sistema.
+
+Sea $X$ la v.a que nos da el número de intentos necesarios para entrar en el sistema.
+
+</div>
+
+## Ejemplo $BN(r,p)$ 
+
+
+<div class="example">
+
+Estamos interesado en modelar  este problema.  La preguntas son:
+
+1. ¿Cuál es la distribución de probabilidad de $X$ la v.a que nos da el número de intentos necesarios para entrar en el sistema.
+2. ¿Cuál es la función de probabilidad y de distribución del $X$
+3. ¿Cuál es la probabilidad de necesitar exactamente 150 intentos para entrar en el sistema?
+4. ¿Cuál es la probabilidad de necesitar más de  5  intentos para entrar en el sistema?
+5. ¿Cuál es  el número esperado de intentos para entrar en el sistema? ¿Y su desviación típica?
+
+</div>
+
+
+## Ejemplo $BN(r,p)$ 
+
+
+<div class="example-sol">
+
+**Solución 1.** ¿Cuál es la distribución de probabilidad de $X$ la v.a que nos da el número de intentos necesarios para entrar en el sistema.
+
+
+Bajo estados condiciones tenemos que la probabilidad de "éxito" de cada inteton es $p=\frac{1}{100}=.01$. Y como cada vez *olvidamos* en los dígitos cada intento será inpedendiente del anterior.
+
+Así que  la variable $X$ que queremos modelar  cuenta el número de intentos independientes hasta conseguir 3 éxitos en un experimento $Ber(p=0.01)$ por lo tantop $X$ sigue un distribución $BN(r=3,p=0.01).$
+
+</div>
+
+
+
+
+
+## Ejemplo $BN(r,p)$ 
+
+
+<div class="example-sol">
+
+**Solución 2.**  ¿Cuál es la distribución de probabilidad de $X$ la v.a que nos da el número de intentos necesarios para entrar en el sistema.
+
+En general la   función de probabilidad  de una $BN(r,p)$ es 
+
+
+$$
+P_X(X=x)=P(X=x)=
+\left\{
+\begin{array}{cc} 
+{x-1\choose r-1} \cdot (1-p)^{x-r}\cdot p^r & \mbox{si }  x=r,r+1,\ldots \\ 0 & \mbox{en otro caso.}\end{array}\right.
+$$
+En particular la   función de probabilidad  de una $BN(r=3,p=0.01)$ es
+
+
+$$
+P_X(X=x)=P(X=x)=
+\left\{
+\begin{array}{cc} 
+{x-1\choose 2} \cdot (0.99)^{x-3}\cdot 0.01^3 & \mbox{si }  x=3,4,\ldots \\ 0 & \mbox{en otro caso.}\end{array}\right.
+$$
+
+
+</div>
+
+
+
+## Solución  ejemplo  $BN(r,p)$ 
+
+
+<div class="example-sol">
+
+**Solución 3.** ¿Cuál es la probabilidad de necesitar exactamente 150 intentos para entrar en el sistema?
+
+
+Nos piden
+
+
+$$
+P(X=150)= {149\choose 2} \cdot (0.99)^{147}\cdot 0.01^3
+$$
+
+Lo calcularemos con R
+
+```{r}
+choose(149,2)*0.99^147*0.01^3
+```
+</div>
+
+
+
+
+
+## Solución  ejemplo  $BN(r,p)$ 
+
+
+<div class="example-sol">
+
+**Solución 4.** ¿Cuál es la probabilidad de necesitar más de  5  intentos para entrar en el sistema?
+
+
+$$P(X>5)=1-P(X\leq 5)$$
+
+Calculemos P(X\leq 5)
+
+$$
+\begin{eqnarray*}
+P(X\leq 5) &=& P(X=3)+P(X=4)+P(X=5)= \sum_{k=3}^5 {k-1\choose 2} \cdot (0.99)^{k-3}\cdot 0.01^3\\
+&=&
+ {3-1\choose 2} \cdot(0.99)^{3-3}\cdot 0.01^3\\
+&+&
+ {4-1\choose 2} \cdot (0.99)^{4-3}\cdot 0.01^3\\
+&+&
+ {5-1\choose 2} \cdot (0.99)^{5-3}\cdot 0.01^3=\ldots
+\end{eqnarray*}
+$$
+```{r}
+choose(2,2)*0.99^0*0.01*3+choose(3,2)*0.99^1*0.01*3+choose(4,2)*0.99^2*0.01*3
+```
+
+
+</div>
+
+
+## Solución  ejemplo  $BN(r,p)$ 
+
+
+<div class="example-sol">
+
+**Solución 5.** ¿Cuál es  el número esperado de intentos para entrar en el sistema? ¿Y su desviación típica?
+
+
+</div>
+
+## Cálculos con R
+
+
+
+## Cálculos con python
+
+
+## Graficos con R código 
+
+
+## Gráficos interactivos
+
+
+
+## Gráficos con python
+
 
 # Distribución Poisson
 
 ## Distribución Poisson
 
-* Diremos que una v.a. discreta $X$ con $X(\Omega)=\mathbf{N}$ tiene distribución de Poisson con parámetro $\lambda>0$, y lo denotaremos
-por $Po(\lambda)$ si su función de probabilidad es:
+* Diremos que una v.a. discreta $X$ con $X(\Omega)=\mathbf{N}$ tiene distribución de Poisson con parámetro $\lambda>0$, y lo denotaremos por $Po(\lambda)$ si su función de probabilidad es:
 
 $$P_{X}(x)=P(X=x)=
 \left\{\begin{array}{ll}
@@ -1194,9 +1677,6 @@ producen en un intervalo de tiempo o en el espacio.
 * por ejemplo el número de llamadas a un *call center* y que sabemos que se cumplen las siguientes condiciones:
 
 ## La distribución Poisson como "límite" de una binomial.
-
-
-
 
 1. El número promedio de eventos en el intervalo $(0,t]$ es
 $\lambda>0$.
@@ -1235,17 +1715,69 @@ El conjunto de variables $\{X_t\}_{t>0}$ recibe el nombre de **proceso de Poisso
 ## Resumen distribución  Poisson  $Po(\lambda)$
 
 $X$ Poisson |  $\lambda$.}
--------|-------
+-------:|:-------
 $D_X=$|  $\{0,1,\ldots n\}$ 
 $P_X(x)=P(X=x)=$ | $\left\{\begin{array}{ll}  \frac{\lambda^x}{x!}\exp{-\lambda} & \mbox{ si } x=0,1,\ldots,n\\ 0  & \mbox{ en otro caso.}\end{array}\right.$
-$F_X(x)=P(X\leq X)=$ |  Función de R o tabulada  
+$F_X(x)=P(X\leq X)=$ |  Función de R, python  o tabulada  
 $E(X)=\lambda$ | $Var(X)=\lambda$
+
 
 ## Aproximación de la distribución binomial por la Poisson
 
-Bajo el punto de vista anterior y si $p$ es pequeño y $n$
-suficientemente grande (existen distintos criterios por ejemplo $n>20$ ó $30$ y  $p\leq 0.1$)
-podemos aproximar una $B(n,p)$ por una $Po(n\cdot p)$
+Bajo el punto de vista anterior y si $p$ es pequeño y $n$ suficientemente grande (existen distintos criterios por ejemplo $n>20$ ó $30$ y  $p\leq 0.1$) podemos aproximar una $B(n,p)$ por una $Po(n\cdot p)$
+
+
+
+
+
+
+## Ejemplo $Po(\lambda)$ 
+
+
+<div class="example-sol">
+
+**Solución 2.** ¿Cuál es la función de probabilidad y de distribución del $X$
+
+La función de probabilidad es 
+
+
+</div>
+
+## Ejemplo $Po(\lambda)$ 
+
+
+<div class="example-sol">
+
+
+
+</div>
+
+## Ejemplo $Po(\lambda)$ 
+
+
+<div class="example-sol">
+
+
+
+</div>
+## Cálculos con R
+
+
+
+## Cálculos con python
+
+
+## Gráficos con R código 
+
+
+## Gráficos interactivos
+
+
+
+## Gráficos con python
+
+
+
 
 # Distribución hipergeométrica
 
@@ -1254,12 +1786,15 @@ podemos aproximar una $B(n,p)$ por una $Po(n\cdot p)$
 
 Es la que modeliza matemáticamente, por ejemplo, el número de bolas blancas extraídas de una urna sin reposición.
 
-Sean $n$,$m$ y $k$tres número esteros positivos y tales  que $k<m+n$.
+Sean $n$,$m$ y $k$ tres número esteros positivos y tales  que $k<m+n$.
 
 Sea una urna que contiene $m+n$ bolas de las que
 $m$ son blancas y las restantes $n$ no.
 
 El número total de bolas es $m+n$. Extraemos $k$ bolas de la urna sin reemplazarlas.
+
+
+
 
 ## Modelo de la distribución hipergeométrica
 
@@ -1302,7 +1837,6 @@ $\left\{\begin{array}{ll}
    x\in D_X
       \\ 0  & \mbox{en otro caso}\end{array}\right.$|\begin{tabular}{c}No tiene\\ expresión.\end{tabular} |
 $\frac{n N_1}{N}$ | $n\frac{N_1}{N}\left(1-\frac{N_1}{N}\right) \frac{N-n}{N-1}$
-
 
 
 
