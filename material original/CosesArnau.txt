@@ -1,0 +1,25 @@
+En `R` existe el paquete `bivariate` para trabajar con distribuciones conjuntas. 
+
+La distribución del ejemplo que hemos estudiado es la **distribución uniforme conjunta** en el cuadrado $[0,1]\times [0,1]$.
+
+Para definir la **función de distribución conjunta**, hay que usar la función `dubvcdf`. Dicha función trabaja con la **distribución uniforme conjunta** en el intervalo $[a,b]\times [c,d]$. 
+
+Si hacemos `dubvcdf(a,b,c,d)` nos referimos a la **función de distribución conjunta** de la distribución uniforme en el intervalo $[a,b]\times [c,d]$.En `R` existe el paquete `bivariate` para trabajar con distribuciones conjuntas. 
+
+La distribución del ejemplo que hemos estudiado es la **distribución uniforme conjunta** en el cuadrado $[0,1]\times [0,1]$.
+
+Para definir la **función de distribución conjunta**, hay que usar la función `dubvcdf`. Dicha función trabaja con la **distribución uniforme conjunta** en el intervalo $[a,b]\times [c,d]$. 
+
+Si hacemos `dubvcdf(a,b,c,d)` nos referimos a la **función de distribución conjunta** de la distribución uniforme en el intervalo $[a,b]\times [c,d]$.
+
+
+
+
+Hagamos el gráfico de la **función de distribución conjunta** del ejemplo estudiado:
+
+
+```{r,fig.align='center',fig.height=4}
+library(bivariate)
+F = dubvcdf(0,1,0,1)
+
+```

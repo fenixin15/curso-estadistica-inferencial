@@ -306,6 +306,33 @@ $$
 
 </div>
 
+## Función de distribución conjunta. Ejemplo con `R`
+<div class="example">
+Hagamos un gráfico 3D de la **función de distribución conjunta** usando la función `persp` de `R` para $x$ e $y$ entre -2 y 2.
+
+Primero definimos la **función** y luego la dibujamos:
+
+```{r,eval=FALSE}
+f.dist.con = function(x,y){ifelse(x<0 | y<0,0,ifelse(x>=0 & x<=1 & y>=0 & y<=1,x*y,
+                           ifelse(x>=0 & x<=1 & y >1,x,ifelse(y>=0 & y<=1 & x>1,y,1))))}
+x=seq(from=-2,to=2,by=0.1)
+y=seq(from=-2,to=2,by=0.1)
+z=outer(x,y,f.dist.con)
+persp(x,y,z,theta=50,phi=40,col="blue",shade=0.25,ticktype="detailed")
+```
+
+</div>
+
+## Función de distribución conjunta. Ejemplo con `R`
+```{r,echo=FALSE,fig.align='center',fig.height=6.5}
+f.dist.con = function(x,y){ifelse(x<0 | y<0,0,ifelse(x>=0 & x<=1 & y>=0 & y<=1,x*y,
+                           ifelse(x>=0 & x<=1 & y >1,x,ifelse(y>=0 & y<=1 & x>1,y,1))))}
+x=seq(from=-2,to=2,by=0.1)
+y=seq(from=-2,to=2,by=0.1)
+z=outer(x,y,f.dist.con)
+persp(x,y,z,theta=50,phi=40,col="green",shade=0.25,ticktype="detailed")
+```
+
 ## Función de distribución conjunta. Ejemplo
 <div class="example">
 **Ejemplo: dos lanzamientos de un dado no trucado**
@@ -435,6 +462,118 @@ La **función de probabilidad conjunta** será:
 
 </div>
 
+## Función de probabilidad conjunta. Ejemplo con `R`
+<div class="example">
+
+Vamos a definir unas funciones en `R` para calcular la **función de probabilidad conjunta**.
+
+La función `pdado` devuelve la probabilidad de que salga la cara `x` en un dado de `n` caras donde por defecto $n=6$:
+```{r}
+pdado =function(x,n=6)  sapply(x,FUN=function(x) 
+  if( x %in% c(1:n))  {return(1/n)} else {return(0)})
+```
+Vamos a probarla. La probabilidad de que salga la cara 4 en un dado de 6 caras vale:
+```{r}
+pdado(4,6)
+```
+</div>
+
+
+## Función de probabilidad conjunta. Ejemplo con `R`
+<div class="example">
+La función `pdado2` devuelve la probabilidad de que salgan las caras `x` e  `y` cuando lanzamos un dado de `n` caras dos veces:
+```{r}
+pdado2 =function(x,y,n=6) {pdado(x,n)*pdado(y,n)}
+```
+Por ejemplo la probabilidad de que salgan las caras 3 y 4 en un dado de 6 caras será:
+```{r}
+pdado2(3,4,6)
+```
+
+</div>
+
+## Función de probabilidad conjunta. Ejemplo con `R`
+<div class="example">
+La función `psum_prod` nos da la **función de probabilidad conjunta** de la suma y el producto cuando lanzamos dos dados de `n` caras:
+```{r}
+psum_prod=function(x,y,n=6){
+  Dxy=data.frame(d1=rep(1:n,each=n),d2=rep(1:n,times=n))
+  Dxy$suma=Dxy$d1+Dxy$d2
+  Dxy$producto=Dxy$d1*Dxy$d2
+  aux=Dxy[Dxy$suma==x& Dxy$producto==y,]
+  sum(apply(aux[,1:2],FUN=function(x) {pdado2(x[1],x[2],n=n)},1 ))
+}
+```
+
+Por ejemplo, sabemos que $P_{SP}(6,8)=\frac{2}{36}=`r round(2/36,4)`$:
+
+
+```{r}
+psum_prod(6,8)
+```
+
+
+</div>
+
+## Función de probabilidad conjunta. Ejemplo con `R`
+<div class="example">
+Para construir la tabla de la **función de probabilidad conjunta** para la variable $(S,P)$ hacemos lo siguiente:
+```{r,eval=FALSE}
+n=6
+Dxy=data.frame(d1=rep(1:n,each=n),d2=rep(1:n,times=n))
+Dxy$suma=Dxy$d1+Dxy$d2
+Dxy$producto=Dxy$d1*Dxy$d2
+tabla.func.prob.conjunta=prop.table(table(Dxy$suma,Dxy$producto))
+knitr::kable(round(tabla.func.prob.conjunta[1:6,1:9],4))
+knitr::kable(round(tabla.func.prob.conjunta[1:6,10:18],4))
+knitr::kable(round(tabla.func.prob.conjunta[7:11,1:9],4))
+knitr::kable(round(tabla.func.prob.conjunta[7:11,10:18],4))
+```
+
+</div>
+
+## Función de probabilidad conjunta. Ejemplo con `R`
+<div class="example">
+```{r,echo=FALSE}
+n=6
+Dxy=data.frame(d1=rep(1:n,each=n),d2=rep(1:n,times=n))
+Dxy$suma=Dxy$d1+Dxy$d2
+Dxy$producto=Dxy$d1*Dxy$d2
+tabla.func.prob.conjunta=prop.table(table(Dxy$suma,Dxy$producto))
+knitr::kable(round(tabla.func.prob.conjunta[1:6,1:9],4))
+
+```
+
+</div>
+
+## Función de probabilidad conjunta. Ejemplo con `R`
+<div class="example">
+```{r,echo=FALSE}
+knitr::kable(round(tabla.func.prob.conjunta[1:6,10:18],4))
+```
+
+
+</div>
+
+## Función de probabilidad conjunta. Ejemplo con `R`
+<div class="example">
+```{r,echo=FALSE}
+knitr::kable(round(tabla.func.prob.conjunta[7:11,1:9],4))
+```
+
+
+</div>
+
+## Función de probabilidad conjunta. Ejemplo con `R`
+<div class="example">
+```{r,echo=FALSE}
+knitr::kable(round(tabla.func.prob.conjunta[7:11,10:18],4))
+
+```
+
+
+</div>
+
 ## Propiedades de la función de probabilidad conjunta
 
 Sea $(X,Y)$ una **variable aleatoria bidimensional discreta** con conjunto de valores $(X,Y)(\Omega)=\{(x_i,y_j)\, i=1,2,\ldots,\ j=1,2,\ldots\}$. Entonces su **función de probabilidad conjunta** verifica las propiedades siguientes:
@@ -509,6 +648,24 @@ $$
 O sea, "a la larga", de cada 9 ocasiones que lanzamos un dado dos veces, en 2 ocasiones obtenemos un resultado cuya suma es menor o igual que 5 y cuyo producto es menor o igual que 4.
 </div>
 
+## Propiedades de la función de probabilidad conjunta. Ejemplo con `R`
+<div class="example">
+Para definir la **función de distribución conjunta** definimos la función siguiente en `R`:
+```{r}
+func.dist.conj = function(x,y,n=6){
+  sum(tabla.func.prob.conjunta[as.integer(rownames(tabla.func.prob.conjunta))<=x,
+                            as.integer(colnames(tabla.func.prob.conjunta)) <=y])
+}
+```
+Comprobemos que $F_{SP}(5,4)=\frac{2}{9}=`r round(2/9,4)`$:
+```{r}
+func.dist.conj(5,4)
+```
+
+
+</div>
+
+
 ## Variables aleatorias marginales
 Consideremos una variable aleatoria **bidimensional discreta $(X,Y)$** con **función de probabilidad conjunta** $P_{XY}(x_i,y_j)$, con $(x_i,y_j)\in (X,Y)(\Omega)$, $i=1,2,\ldots$, $j=1,2,\ldots$.
 
@@ -572,13 +729,22 @@ La **función de probabilidad marginal** de la suma $S$ queda resumida en la tab
 
 
 
-<div class="exercise">
-**Ejercicio**
+## Variables aleatorias marginales. Ejemplo con `R`
+<div class="example">
+Para hallar la **función de probabilidad marginal** de la suma basta sumar las filas de la tabla que nos daba la **función de probabilidad conjunta:
+```{r}
+marginal.suma = apply(tabla.func.prob.conjunta,1,sum)
+marginal.suma
+```
+</div>
 
-Consideremos el ejemplo anterior de la suma y el producto de los resultados de dos lanzamientos de un dado.
-
-Calcular la **función de probabilidad marginal** del producto $P$ de los resultados.
-
+## Variables aleatorias marginales. Ejemplo con `R`
+<div class="example">
+De la misma manera, para hallar la **función de probabilidad marginal** del producto basta sumar las columnas de la tabla anterior:
+```{r}
+marginal.producto = apply(tabla.func.prob.conjunta,2,sum)
+marginal.producto
+```
 </div>
 
 # Variables aleatorias bidimensionales continuas
@@ -2357,4 +2523,240 @@ $$
 Dicha función de densidad corresponde a una distribución normal de parámetros $\mu =0$ y $\sigma^2 =2(1+\rho)$.
 
 En resumen, la distribución de la suma de dos normales es una normal de parámetros $S=N(\mu=0,\sigma^2=2(1+\rho))$.
+</div>
+
+## Transformaciones lineales de variables aleatorias
+Consideremos una variable aleatoria bidimensional continua $(X,Y)$ con **función de densidad conjunta** $f_{XY}$.
+
+Definimos la variable aleatoria bidimensional continua $(U,V)$ a partir de una transformación lineal de la variable $(X,Y)$. O sea, existe una matriz $\mathbf{M}=\begin{pmatrix}a & b\\ c& d\end{pmatrix}$ y un vector $\mathbf{n}=\begin{pmatrix}\alpha\\\beta \end{pmatrix}$ tal que:
+$$
+\begin{array}{rl}
+\begin{pmatrix}U\\ V\end{pmatrix} & =\mathbf{M}\cdot \begin{pmatrix}X\\ Y\end{pmatrix}+\mathbf{n}=\begin{pmatrix}a & b\\ c& d\end{pmatrix}\cdot\begin{pmatrix}X\\ Y\end{pmatrix}+\begin{pmatrix}\alpha\\\beta \end{pmatrix},\\  & \Rightarrow \left.\begin{array}{rl}U & = aX+bY+\alpha,\\ V & =cX+dY+\beta.\end{array}\right\}
+\end{array}
+$$
+
+## Transformaciones lineales de variables aleatorias
+Para que $(U,V)$ sea una variable aleatoria bidimensional, necesitamos que la matriz $\mathbf{M}$ sea no singular, o $\mathrm{det}(\mathbf{M})\neq 0$.
+
+Nos preguntamos cuál es la relación entre la **función de densidad** de la variable $(U,V)$, $f_{UV}$ y la **función de densidad** de la variable $(X,Y)$, $f_{XY}$. La expresión siguiente nos da dicha relación:
+$$
+f_{UV}(u,v)=\frac{1}{|\mathrm{det}(\mathbf{M})|}f_{XY}\left(\mathbf{M}^{-1}\begin{pmatrix}u-\alpha\\ v-\beta\end{pmatrix}\right), \ (u,v)\in\mathbb{R}^2.
+$$
+
+## Transformaciones lineales de variables aleatorias
+
+<l class="observ">Observación. </l> 
+Si la variable $(X,Y)$ tiene una región $D$ donde $f_{XY}(x,y)\neq 0$, para todo $(x,y)\in D$, antes de aplicar la expresión anterior para hallar la **función de densidad** de la variable $(U,V)$ hemos de calcular cómo se transforma $D$ con la matriz $\mathbf{M}$. O sea, hay que hallar la región 
+$$
+D'=\mathbf{M}(D)=\{(u,v)\in\mathbb{R}^2,\ \mbox{existe $(x,y)\in D$ con } (u,v)=\mathbf{M}(x,y)+\mathbf{n}\}.
+$$
+
+## Ejemplo
+<div class="example">
+**Ejemplo**
+
+Consideremos la variable $(X,Y)$ continua con función de densidad:
+$$
+f_{XY}(x,y)=\begin{cases}
+\frac{1}{2}(1+x+y), & \mbox{ si }(x,y)\in R, \\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+donde $R$ es el rombo de vértices $(1,0)$, $(0,1)$, $(-1,0)$ y $(0,-1)$, ver figura adjunta.
+
+Otra forma de definir la función anterior sería:
+$$
+f_{XY}(x,y)=\begin{cases}
+\frac{1}{2}(1+x+y), & -1\leq x\leq 0,\ -1-x\leq y\leq x+1, \\
+\frac{1}{2}(1+x+y), & 0\leq x\leq 0,\ x-1\leq y\leq 1-x, \\
+0, & \mbox{en caso contrario.}
+\end{cases}
+$$
+Dejamos como ejercicio al lector comprobar que la función anterior es una **función de densidad**.
+</div>
+
+## Ejemplo
+
+
+<div class="center">
+
+```{r, echo=FALSE, label=Ej2.png,fig.cap="",out.width = "750px"}
+knitr::include_graphics("Images/EjTranLineal.png",dpi=1200)
+```
+</div>
+
+## Ejemplo
+<div class="example">
+Consideramos la variable aleatoria bidimensional $(U,V)$ definida a partir de la variable $(X,Y)$:
+$$
+\begin{pmatrix}U\\ V\end{pmatrix}=\begin{pmatrix}1 & -1\\ 1& 1\end{pmatrix}\cdot\begin{pmatrix}X\\ Y\end{pmatrix},\ \Rightarrow \left.\begin{array}{rl}U & = X-Y,\\ V & =X+Y.\end{array}\right\}
+$$
+La región $R$ se transforma en el cuadrado $C$ de vértices $(1,1)$, $(-1,1)$, $(-1,-1)$ y $(1,-1)$ ya que si aplicamos la matrix a los vértices del rombo, obtenemos los vértices de cuadrado:
+$$
+\begin{array}{rl}
+\begin{pmatrix}1 & -1\\ 1& 1\end{pmatrix}\cdot \begin{pmatrix}1\\ 0\end{pmatrix} & =\begin{pmatrix}1\\ 1\end{pmatrix},\qquad 
+\begin{pmatrix}1 & -1\\ 1& 1\end{pmatrix}\cdot \begin{pmatrix}0\\ 1\end{pmatrix}=\begin{pmatrix}-1\\ 1\end{pmatrix},\\ 
+\begin{pmatrix}1 & -1\\ 1& 1\end{pmatrix}\cdot \begin{pmatrix}-1\\ 0\end{pmatrix} & =\begin{pmatrix}-1\\ -1\end{pmatrix},\qquad 
+\begin{pmatrix}1 & -1\\ 1& 1\end{pmatrix}\cdot \begin{pmatrix}0\\ -1\end{pmatrix}=\begin{pmatrix}1\\ -1\end{pmatrix}.
+\end{array}
+$$
+Ver la figura adjunta.
+
+Para hallar la **función de densidad** $f_{UV}$ necesitamos escribir $X$ e $Y$ en función de $U$ y $V$:
+$$
+\begin{pmatrix}X\\ Y\end{pmatrix}=\begin{pmatrix}1 & -1\\ 1& 1\end{pmatrix}^{-1}\cdot\begin{pmatrix}U\\ V\end{pmatrix}=\begin{pmatrix}\frac{1}{2} & \frac{1}{2}\\ -\frac{1}{2}& \frac{1}{2}\end{pmatrix}\cdot\begin{pmatrix}U\\ V\end{pmatrix},\ \Rightarrow \left.\begin{array}{rl}X & = \frac{1}{2}(U+V),\\ Y & =\frac{1}{2}(-U+V).\end{array}\right\}
+$$
+</div>
+
+## Ejemplo
+
+
+<div class="center">
+
+```{r, echo=FALSE, label=Ej3.png,fig.cap="",out.width = "750px"}
+knitr::include_graphics("Images/EjTranLineal2.png",dpi=1200)
+```
+</div>
+
+
+## Ejemplo
+<div class="example">
+La **función de densidad** $f_{UV}$ será, por tanto,
+$$
+\begin{array}{rl}
+f_{UV}(u,v) & =\frac{1}{\left|\mathrm{det}\begin{pmatrix}1 & -1\\ 1& 1\end{pmatrix}\right|}\cdot f_{XY}\left(\frac{1}{2}(u+v),\frac{1}{2}(-u+v)\right) \\ & =\frac{1}{2}\cdot \frac{1}{2}\cdot \left(1+\frac{1}{2}(-u+v)+\frac{1}{2}(u+v)\right)=\frac{1}{4}(1+v),
+\end{array}
+$$
+para $(u,v)$ perteneciente al cuadrado $C$ de vértices $(1,1)$, $(-1,1)$, $(-1,-1)$ y $(1,-1)$, o si se quiere para $-1\leq u\leq 1$, $-1\leq v\leq 1$, y $f_{UV}(u,v)=0$, en caso contrario.
+
+Observamos que es más cómodo trabajar con las variables $(u,v)$ en vez de trabajar con las variables $(x,y)$ por dos razones:
+
+- La región donde la **función de densidad** no es nula es más simple, ya que trabajar con un cuadrado simplifica mucho más los cálculos que trabajar con un rombo a la hora de hallar la **función de distribución**, **densidades marginales**, **densidades condicionadas**, **valores esperados**, etc.
+- La expresión de la **función de densidad** también es más simple, ya que sólo depende de la segunda variable $v$; sin embargo, la **función de densidad** inicial $f_{XY}$ dependía de las dos variables $x$ e $y$.
+</div>
+
+## Ejemplo de la normal bidimensional
+<div class="example">
+Consideremos el caso en que la variable aleatoria $(X,Y)$ tenga distribución **normal bidimensional**. 
+
+Recordemos que su **función de densidad conjunta** era:
+$$
+f_{XY}(x,y)=\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}},\ -\infty <x,y<\infty.
+$$
+Recordemos que las **distribuciones marginales** eran distribuciones $N(0,1)$.
+
+La idea es hallar la **función de densidad conjunta** de una distribución normal bidimensional para la que sus **distribuciones marginales** sean dos normales $N(\mu_1,\sigma_1^2)$ y $N(\mu_2,\sigma_2^2)$.
+
+Recordemos que si $Z=N(0,1)$, entonces $\sigma_1\cdot Z+\mu_1 =N(\mu_1,\sigma_1^2)$. Este hecho, motiva que consideremos el cambio lineal siguiente a las variables $X$ e $Y$:
+$$
+\begin{pmatrix}U\\ V\end{pmatrix}=\begin{pmatrix}\sigma_1 & 0\\ 0& \sigma_2\end{pmatrix}\cdot\begin{pmatrix}X\\ Y\end{pmatrix}+\begin{pmatrix}\mu_1\\\mu_2\end{pmatrix},\ \Rightarrow \left.\begin{array}{rl}U & = \sigma_1\cdot X+\mu_1,\\ V & =\sigma_2\cdot Y+\mu_2.\end{array}\right\}
+$$
+</div>
+
+## Ejemplo de la normal bidimensional
+<div class="example">
+La función de densidad conjunta $f_{UV}$ será:
+$$
+\begin{array}{rl}
+f_{UV}(u,v) & = \frac{1}{\left|\begin{pmatrix}\sigma_1 & 0\\ 0& \sigma_2\end{pmatrix}\right|} f_{XY}\left(\frac{u-\mu_1}{\sigma_1},\frac{v-\mu_2}{\sigma_2}\right)
+=\frac{1}{\sigma_1\cdot \sigma_2}f_{XY}\left(\frac{u-\mu_1}{\sigma_1},\frac{v-\mu_2}{\sigma_2}\right)\\ & =
+\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{\left(\left(\frac{u-\mu_1}{\sigma_1}\right)^2-2\rho \left(\frac{u-\mu_1}{\sigma_1}\right)\left(\frac{v-\mu_2}{\sigma_2}\right)+\left(\frac{v-\mu_2}{\sigma_2}\right)^2\right)}{2(1-\rho^2)}},
+\end{array}
+$$
+para $(u,v)\in\mathbb{R}^2$.
+
+Si llamamos $\mathbf{\Sigma}$ a la matriz $\mathbf{\Sigma}=\begin{pmatrix}\sigma_1^2 & \rho\sigma_1\sigma_2\\ \rho\sigma_1\sigma_2 & \sigma_2^2\end{pmatrix}$, llamada **matriz de covarianzas** de la distribución normal $(U,V)$ la **función de densidad** anterior puede escribirse como:
+$$
+f_{UV}(u,v)=\frac{1}{2\pi \sqrt{\left|\mathrm{\Sigma}\right|}}\mathrm{e}^{-\frac{1}{2}(\mathbf{u}-\mathbf{\mu})^\top \mathbf{\Sigma}^{-1}(\mathbf{u}-\mathbf{\mu})},
+$$
+donde $\mathbf{u}=\begin{pmatrix}u \\ v\end{pmatrix}$ y $\mathbf{\mu}=\begin{pmatrix}\mu_1\\\mu_2\end{pmatrix}$.
+</div>
+
+## Transformaciones generales de variables aleatorias
+Consideremos una variable aleatoria bidimensional continua $(X,Y)$ con **función de densidad conjunta** $f_{XY}$.
+
+Definimos la variable aleatoria bidimensional continua $(U,V)$ a partir de una transformación general de la variable $(X,Y)$. O sea, existen dos funciones de dos variables $g_1$ y $g_2$ tal que:
+$$
+U  = g_1 (X,Y),\quad 
+V  = g_2 (X,Y).
+$$
+Vamos a suponer que las funciones $g_1$ y $g_2$ son invertibles, o sea, dados $(u,v)$, podemos encontrar $(x,y)$ tal que $x=h_1(u,v)$ e $y=h_2(u,v)$. Las funciones $h_1$ y $h_2$ serían las inversas de las funciones $g_1$ y $g_2$, respectivamente.
+
+
+## Transformaciones generales de variables aleatorias
+
+La **función de densidad conjunta** $f_{UV}$ se puede expresar de la forma siguiente en función de la **función de densidad conjunta** $f_{XY}$:
+$$
+\begin{array}{rl}
+f_{UV}(u,v) & =\left|\mathrm{det}\begin{pmatrix}\frac{\partial h_1}{\partial u} & \frac{\partial h_1}{\partial v}\\ \frac{\partial h_2}{\partial u} & \frac{\partial h_2}{\partial v}\end{pmatrix}\right|f_{XY}(h_1(u,v),h_2(u,v))\\ & =\frac{1}{\left|\mathrm{det}\begin{pmatrix}\frac{\partial g_1}{\partial x} & \frac{\partial g_1}{\partial y}\\ \frac{\partial g_2}{\partial x} & \frac{\partial g_2}{\partial y}\end{pmatrix}\right|_{x=h_1(u,v),y=h_2(u,v)}}f_{XY}(h_1(u,v),h_2(u,v)).
+\end{array}
+$$
+
+
+
+## Transformaciones generales de variables aleatorias
+
+A la matriz $\begin{pmatrix}\frac{\partial g_1}{\partial x} & \frac{\partial g_1}{\partial y}\\ \frac{\partial g_2}{\partial x} & \frac{\partial g_2}{\partial y}\end{pmatrix}$ se le llama **matriz jacobiana del cambio** y a la matriz $\begin{pmatrix}\frac{\partial h_1}{\partial u} & \frac{\partial h_1}{\partial v}\\ \frac{\partial h_2}{\partial u} & \frac{\partial h_2}{\partial v}\end{pmatrix}$, **matriz jacobiana del cambio inverso**.
+
+## Ejemplo
+<div class="example">
+**Ejemplo. Cambio a polares**
+
+Sea $(X,Y)$ una variable aleatoria bidimensional cuya **función de densidad conjunta** es:
+$$
+f_{XY}(x,y)=
+\begin{cases}
+\frac{2}{\pi}\left(x^2 + y^2\right), & \mbox{si }(x,y)\in D_1, \\
+0, & \mbox{en caso contrario,}
+\end{cases}
+$$
+donde $D_1$ es el disco de radio $1$:
+$$
+D_1 = \{(x,y)\in\mathbb{R}^2,\ | \ x^2+y^2\leq 1\}.
+$$
+El cambio a polares consiste en considerar las coordenadas polares $(r,\alpha)$ de un punto cualquiera $(x,y)$ del plano, ver figura adjunta. El cambio que pasa de $(r,\alpha)$ a $(x,y)$ (fijaos que sería el cambio inverso, según nuestra notación o $h_1$y $h_2$, respectivamente) sería:
+$$
+x=h_1(r,\alpha)=r\cdot \cos\alpha,\quad y=h_2(r,\alpha)=r\cdot \sin\alpha.
+$$
+
+</div>
+
+## Ejemplo
+
+
+<div class="center">
+
+```{r, echo=FALSE, label=Ej4.png,fig.cap="",out.width = "750px"}
+knitr::include_graphics("Images/Polares.png",dpi=1200)
+```
+</div>
+
+## Ejemplo
+<div class="example">
+Fijémonos que, con el cambio a polares, el disco unidad $D_1$ se transforma en el rectángulo $[0,1]\times [0,2\pi]$. 
+
+Hallemos el **jacobiano del cambio inverso**:
+$$
+\mathrm{det}\begin{pmatrix}\frac{\partial h_1}{\partial u} & \frac{\partial h_1}{\partial v}\\ \frac{\partial h_2}{\partial u} & \frac{\partial h_2}{\partial v}\end{pmatrix} =\mathrm{det}\begin{pmatrix}\cos\alpha & -r\sin\alpha\\ \sin\alpha & r\cdot\cos\alpha\end{pmatrix} = r.
+$$
+La **función de densidad conjunta** $f_{r\alpha}$ en las nuevas variables (polares) será:
+$$
+f_{r\alpha}(r,\alpha)=r\cdot \frac{2}{\pi}\left((r\cos\alpha)^2+(r\sin\alpha)^2\right)=\frac{2}{\pi}\cdot r^3,
+$$
+ si $(r,\alpha)\in [0,1]\times [0,2\pi]$.
+</div>
+
+## Ejemplo
+
+<div class="example">
+Podemos comentar que, gracias al cambio a polares, en este caso, es mucho más sencillo y cómodo trabajar con las variables $(r,\alpha)$ en vez de trabajar con las variables $(x,y)$ por dos razones:
+
+- La región donde la **función de densidad** no es nula es más simple, ya que trabajar con un rectángulo simplifica mucho más los cálculos que trabajar con un disco a la hora de hallar la **función de distribución**, **densidades marginales**, **densidades condicionadas**, **valores esperados**, etc.
+
+Por ejemplo, comprobar que el área de la **función de densidad conjunta** $f_{r\alpha}$ da $1$ es trivial:
+$$
+\int_{r=0}^{r=1}\int_{\alpha =0}^{\alpha =2\pi}\frac{2}{\pi} r^3\, d\alpha\, dr = \frac{2}{\pi}\cdot 2\pi \left[\frac{r^4}{4}\right]_{r=0}^{r=1}=4\cdot \frac{1}{4}=1.
+$$
+- La expresión de la **función de densidad** también es más simple, ya que sólo depende de la primera variable $r$; sin embargo, la **función de densidad** inicial $f_{XY}$ dependía de las dos variables $x$ e $y$.
+
 </div>
