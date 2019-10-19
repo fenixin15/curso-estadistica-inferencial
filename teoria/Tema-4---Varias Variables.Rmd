@@ -1114,6 +1114,42 @@ Vemos que la variable $Y$ corresponde a una distribución exponencial de paráme
 
 </div>
 
+## Ejemplo 2 con `R`
+<div class="example">
+Dibujemos la **función de densidad conjunta** y la **función de distribución conjunta** con `R`. Primero las definimos:
+
+```{r}
+fun.den.con = function(x,y){ifelse(x>=0 & y>=0 & x>=y,
+                                   2*exp(-x-y),0)}
+fun.dist.con = function(x,y){ifelse(x>=0 & y>=0 & x<=y,
+                    1-2*exp(-x)+exp(-2*x),ifelse(x>=0 & y>=0 & x>=y,
+                    1-2*exp(-x)-exp(-2*y)+2*exp(-x-y),0))}
+```
+A continuación las dibujamos para $x$ e $y$ entre $-1$ y $4$:
+```{r,eval=FALSE}
+x=seq(from=-1,to=4,by=0.1)
+y=seq(from=-1,to=4,by=0.1)
+z.fun.den.con=outer(x,y,fun.den.con)
+z.fun.dist.con = outer(x,y,fun.dist.con)
+persp(x,y,z.fun.den.con,theta=50,phi=40,col="blue",shade=0.25,ticktype="detailed")
+persp(x,y,z.fun.dist.con,theta=50,phi=40,col="blue",shade=0.25,ticktype="detailed")
+```
+</div>
+
+## Ejemplo 2 con `R`
+```{r,echo=FALSE,fig.align='center',fig.height=6.5}
+x=seq(from=-1,to=4,by=0.1)
+y=seq(from=-1,to=4,by=0.1)
+z.fun.den.con=outer(x,y,fun.den.con)
+z.fun.dist.con = outer(x,y,fun.dist.con)
+persp(x,y,z.fun.den.con,theta=50,phi=40,col="green",shade=0.25,ticktype="detailed")
+```
+
+## Ejemplo 2 con `R`
+```{r,echo=FALSE,fig.align='center',fig.height=6.5}
+persp(x,y,z.fun.dist.con,theta=50,phi=40,col="green",shade=0.25,ticktype="detailed")
+```
+
 ## La distribución gausiana bidimensional
 Vamos a generalizar la distribución normal a dos dimensiones.
 
@@ -1155,15 +1191,34 @@ $$
 ya que correspondería al área de una **función de densidad** de una distribución $N(0,1)$.
 </div>
 
-El gráfico siguiente muestra la **función de densidad** para $\rho=\frac{1}{2}$.
 
-## La distribución gausiana bidimensional
+## La distribución gausiana bidimensional en `R`
+<div class="example">
+En `R` existe el paquete `bivariate` para trabajar con algunas distribuciones conjuntas; en particular, con la **distribución normal bidimensional**.
 
-<div class="center">
-```{r, echo=FALSE, label=bid16,fig.cap="",out.width = "600px"}
-knitr::include_graphics("Images/NormalBidi.png",dpi=1200)
+La función que nos la densidad de la **distribución normal bidimensional** es `nbvpdf` y tiene 5 parámetros: la **media** de $X$ ($\mu_X$), la **media** de $Y$ ($\mu_Y$), la **varianza** de $X$ ($\sigma_X^2$), la **varianza** de $Y$ ($\sigma_Y^2$) y un concepto que veremos más adelante, la **covarianza** entre $X$ e $Y$ ($\sigma_{XY}$).
+
+En el ejemplo que estamos tratando, los valores de los parámetros anteriores son: $\mu_X=mu_Y=0$, $\sigma_X^2=\sigma_Y^2=1$ y $\sigma_{XY}=\rho.$
+
+Vamos a hacer un gráfico de la **distribución normal bidimensional** para $\rho=\frac{1}{2}.$
+
+```{r,eval=FALSE}
+library(bivariate)
+f = nbvpdf (0, 0, 1, 1, 0.5)
+plot(f,TRUE)
 ```
+
+
 </div>
+
+## La distribución gausiana bidimensional en `R`
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+library(bivariate)
+f = nbvpdf (0, 0, 1, 1, 0.5)
+plot(f,TRUE)
+```
+
 
 # Independencia de variables aleatorias
 
@@ -1186,7 +1241,7 @@ P(X=x_i,\ Y=y_k)=P(X=x_i)\cdot P(Y=y_k),\ i=1,2,\ldots,j=1,2,\ldots
 $$
 
 
-## Independencia de variables aleatorias discretas. Ejemplo
+## Ejemplo
 <div class="example">
 **Ejemplo de la suma y el producto de los resultados de dos lanzamientos de un dado**
 
@@ -1203,7 +1258,7 @@ De ahí que no sean independientes ya que la condición anterior se debería cum
 <l class="observ">Observación. </l>
 Si la tabla de la **función de probabilidad conjunta** de $(X,Y)$ contiene algún $0$, $X$ e $Y$ no pueden ser independientes. ¿Podéis decir por qué?
 
-## Independencia de variables aleatorias discretas. Ejemplo
+## Ejemplo
 <div class="example">
 **Ejemplo**
 
@@ -1220,7 +1275,7 @@ $P_{XY}(i,j)=\frac{1}{36}$ ya que la probabilidad que salga $i$ en el primer lan
 </div>
 
 
-## Independencia de variables aleatorias discretas. Ejemplo
+## Ejemplo
 <div class="example">
 **Ejemplo**
 
@@ -1238,6 +1293,60 @@ $$
 Deducimos que son independientes.
 </div>
 
+## Ejemplo con `R`
+<div class="example">
+Para comprobar si dos variables aleatorias $X$ e $Y$ son independientes o no en `R` en general, una vez calculada la tabla de la **función de probabilidad**, podemos calcular la tabla de **independencia teórica** $P_T(x_i,y_j)$ y compararlas. Ésta segunda tabla se define de la forma siguiente: 
+$$
+P_T(x_i,y_j)=P_X(x_i)\cdot P_Y(y_j),
+$$
+donde $P_X$ y $P_Y$ son las distribuciones marginales.
+
+La tabla de **independencia teórica ** en el caso de la suma y el producto se calcularían de la forma siguiente:
+```{r}
+tabla.ind.teor =  marginal.suma%*%t(marginal.producto)
+tabla.ind.teor = as.data.frame(tabla.ind.teor)
+rownames(tabla.ind.teor)=rownames(tabla.func.prob.conjunta)
+colnames(tabla.ind.teor)=colnames(tabla.func.prob.conjunta)
+```
+Si comparáis los resultados de la tabla de **independencia teórica** mostrada en las transparencias siguientes con los resultados de la tabla de la **función de probabilidad conjunta**, veréis que no son iguales. Por tanto, $S$ y $P$ no són **independientes**.
+
+</div>
+
+## Ejemplo con `R`
+<div class="example">
+```{r,echo=FALSE}
+knitr::kable(round(tabla.ind.teor[1:6,1:9],4))
+```
+
+
+</div>
+
+## Ejemplo con `R`
+<div class="example">
+```{r,echo=FALSE}
+knitr::kable(round(tabla.ind.teor[1:6,10:18],4))
+```
+
+
+</div>
+
+## Ejemplo con `R`
+<div class="example">
+```{r,echo=FALSE}
+knitr::kable(round(tabla.ind.teor[7:11,1:9],4))
+```
+
+
+</div>
+
+## Ejemplo con `R`
+<div class="example">
+```{r,echo=FALSE}
+knitr::kable(round(tabla.ind.teor[7:11,10:18],4))
+```
+
+
+</div>
 
 ## Independencia de variables aleatorias continuas
 La definición dada para **variables aleatorias discretas** se traslada de forma natural a las **variables aleatorias continuas**:
